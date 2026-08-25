@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://osseo.ai/schemas/dxa-longitudinal-v1.json",
+  "title": "DXA longitudinal comparison result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["baselineStudyId", "currentStudyId", "status", "confidence", "assumed", "checks", "sites"],
+  "properties": {
+    "baselineStudyId": { "type": "string", "minLength": 1 },
+    "currentStudyId": { "type": "string", "minLength": 1 },
+    "lscProfileId": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["comparable", "review", "not-comparable"] },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "assumed": { "type": "boolean" },
+    "checks": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "passed", "critical"],
+        "properties": {
+          "id": { "enum": ["protocol", "device", "cross-calibration", "positioning", "roi"] },
+          "passed": { "type": "boolean" },
+          "critical": { "type": "boolean" },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "sites": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["site", "baselineBmd", "currentBmd", "absoluteChange", "percentChange", "lscPercent", "status"],
+        "properties": {
+          "site": { "enum": ["l1-l4", "total-hip", "femoral-neck"] },
+          "baselineBmd": { "type": "number", "exclusiveMinimum": 0 },
+          "currentBmd": { "type": "number", "exclusiveMinimum": 0 },
+          "absoluteChange": { "type": "number" },
+          "percentChange": { "type": "number" },
+          "lscPercent": { "type": "number", "exclusiveMinimum": 0 },
+          "status": { "enum": ["significant-gain", "stable", "significant-loss", "not-comparable"] }
+        }
+      }
+    }
+  }
+}

@@ -11,7 +11,9 @@
     "test": "NODE_ENV=test vitest run"
   },
   "dependencies": {
+    "@fontsource-variable/manrope": "^5.2.8",
     "@vitejs/plugin-react": "latest",
+    "dicom-parser": "^1.8.21",
     "lucide-react": "^0.468.0",
     "react": "latest",
     "react-dom": "latest",

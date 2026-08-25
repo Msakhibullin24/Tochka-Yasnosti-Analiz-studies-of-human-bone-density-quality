@@ -2,6 +2,10 @@ export type Locale = 'ru' | 'en'
 export type StudyStatus = 'passed' | 'review' | 'rejected'
 export type CriterionStatus = 'pass' | 'warning' | 'fail'
 export type StudyType = 'spine' | 'hip'
+export type AnalysisMode = 'demo-case' | 'technical-screening' | 'validated-model'
+export type ComparisonStatus = 'comparable' | 'review' | 'not-comparable'
+export type TrendStatus = 'significant-gain' | 'stable' | 'significant-loss' | 'not-comparable'
+export type MeasurementSite = 'l1-l4' | 'total-hip' | 'femoral-neck'
 
 export interface LocalizedText {
   ru: string
@@ -14,6 +18,69 @@ export interface Criterion {
   detail: LocalizedText
   status: CriterionStatus
   confidence: number
+}
+
+export interface DicomTechnicalData {
+  modality: string
+  rows?: number
+  columns?: number
+  pixelSpacing?: string
+  photometricInterpretation?: string
+  transferSyntaxUid?: string
+  bitsAllocated?: number
+}
+
+export interface AnalysisProvenance {
+  mode: AnalysisMode
+  modelVersion: string
+  criteriaVersion: string
+  processedAt: string
+  warnings: LocalizedText[]
+}
+
+export interface PrivacyStatus {
+  deidentificationVerified: boolean
+  burnedInAnnotation?: 'YES' | 'NO'
+}
+
+export interface TrendPoint {
+  studyId: string
+  date: string
+  bmd: number
+}
+
+export interface SiteChange {
+  site: MeasurementSite
+  label: LocalizedText
+  baselineBmd: number
+  currentBmd: number
+  absoluteChange: number
+  percentChange: number
+  lscPercent: number
+  status: TrendStatus
+  history: TrendPoint[]
+}
+
+export interface ComparabilityCheck {
+  id: 'protocol' | 'device' | 'cross-calibration' | 'positioning' | 'roi'
+  label: LocalizedText
+  passed: boolean
+  detail: LocalizedText
+  critical: boolean
+}
+
+export interface LongitudinalAnalysis {
+  baselineStudyId: string
+  baselineDate: string
+  currentDate: string
+  intervalMonths: number
+  status: ComparisonStatus
+  confidence: number
+  checks: ComparabilityCheck[]
+  sites: SiteChange[]
+  summary: LocalizedText
+  recommendation: LocalizedText
+  assumed: boolean
 }
 
 export interface Study {
@@ -30,6 +97,12 @@ export interface Study {
   operator: string
   accessionNumber: string
   seriesUid: string
+  studyInstanceUid?: string
+  technical: DicomTechnicalData
+  provenance: AnalysisProvenance
+  privacy: PrivacyStatus
+  previewUrl?: string
+  longitudinal?: LongitudinalAnalysis
   criteria: Criterion[]
   recommendation: LocalizedText
 }

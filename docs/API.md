@@ -1,6 +1,6 @@
 # Контракт сервиса анализа
 
-Интерфейс сейчас использует демонстрационный адаптер `src/services/analysis.ts`. Для подключения валидированной модели замените его вызовом описанного ниже API, сохранив тип `Study`.
+Браузерный адаптер `src/services/analysis.ts` выполняет локальный технический pre-screening. Продукционная анатомическая модель подключается по этому контракту, сохраняя тип `Study` и provenance результата.
 
 ## `POST /api/v1/studies/analyze`
 
@@ -24,6 +24,26 @@
   "status": "passed",
   "score": 96,
   "confidence": 98,
+  "technical": {
+    "modality": "DX",
+    "rows": 2800,
+    "columns": 2200,
+    "pixelSpacing": "0.20 × 0.20 mm",
+    "photometricInterpretation": "MONOCHROME2",
+    "transferSyntaxUid": "1.2.840.10008.1.2.1",
+    "bitsAllocated": 16
+  },
+  "privacy": {
+    "deidentificationVerified": true,
+    "burnedInAnnotation": "NO"
+  },
+  "provenance": {
+    "mode": "validated-model",
+    "modelVersion": "osseo-mtl-1.0.0",
+    "criteriaVersion": "DXA-QC-2026.1",
+    "processedAt": "2026-08-25T07:42:05Z",
+    "warnings": []
+  },
   "criteria": [
     {
       "id": "position",
@@ -50,6 +70,57 @@
 - `rejected`: найдено нарушение, влияющее на качество измерения.
 
 Критерий использует `pass`, `warning` или `fail`. Цвет в интерфейсе не является единственным носителем статуса: каждому состоянию соответствуют текст и пиктограмма.
+
+## `POST /api/v1/studies/compare`
+
+Сравнивает текущее исследование с baseline после независимой оценки качества обоих исследований. Вход содержит `baselineStudyId`, `currentStudyId` и идентификатор записи LSC учреждения. BMD должен быть получен из проверенного структурированного источника или подтверждённого vendor-adapter, а не оцениваться по яркости preview.
+
+```json
+{
+  "baselineStudyId": "ST-0118",
+  "currentStudyId": "ST-0248",
+  "lscProfileId": "LSC-CLINIC12-HOLOGIC-2026",
+  "status": "comparable",
+  "confidence": 0.97,
+  "assumed": false,
+  "checks": [
+    { "id": "protocol", "passed": true, "critical": true },
+    { "id": "device", "passed": true, "critical": true },
+    { "id": "cross-calibration", "passed": true, "critical": true },
+    { "id": "positioning", "passed": true, "critical": false },
+    { "id": "roi", "passed": true, "critical": false }
+  ],
+  "sites": [
+    {
+      "site": "l1-l4",
+      "baselineBmd": 0.842,
+      "currentBmd": 0.891,
+      "absoluteChange": 0.049,
+      "percentChange": 5.8,
+      "lscPercent": 5.3,
+      "status": "significant-gain"
+    }
+  ]
+}
+```
+
+Правила отказа:
+
+- `not-comparable`, если не пройден хотя бы один критический gate;
+- `review`, если требуется коррекция укладки/ROI и сравнение можно пересчитать после подтверждения;
+- `comparable` только после всех обязательных проверок;
+- `significant-gain/loss` только при `comparable` и `|ΔBMD%| ≥ LSC%`;
+- смена аппарата требует действующей записи cross-calibration, иначе возвращается `422 CROSS_CALIBRATION_REQUIRED`.
+
+## Ошибки и наблюдаемость
+
+- `400 INVALID_DICOM` — структура DICOM не читается;
+- `413 FILE_TOO_LARGE` — превышен лимит;
+- `415 UNSUPPORTED_TRANSFER_SYNTAX` — pixel stream нельзя декодировать;
+- `422 UNSUPPORTED_PROTOCOL` — исследование не относится к поддерживаемым протоколам;
+- `503 MODEL_UNAVAILABLE` — inference временно недоступен.
+
+Каждый ответ сервера содержит `requestId`; логи хранят только псевдонимы, хеш модели, длительность этапов и коды ошибок. Исходные идентификаторы пациента, UIDs и Pixel Data в application-лог не попадают.
 
 ## Требования перед клиническим внедрением
 

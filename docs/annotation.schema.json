@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://osseo.ai/schemas/dxa-qc-annotation-v1.json",
+  "title": "DXA quality-control expert annotation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "studyId", "patientGroupId", "protocol", "overallAction", "defects", "expert"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "studyId": { "type": "string", "minLength": 1 },
+    "patientGroupId": { "type": "string", "minLength": 1, "description": "Stable pseudonym used only for leakage-safe splitting." },
+    "deviceGroup": { "type": "string" },
+    "siteGroup": { "type": "string" },
+    "protocol": { "enum": ["spine_pa", "hip_left", "hip_right", "unsupported"] },
+    "evaluable": { "type": "boolean", "default": true },
+    "notEvaluableReason": { "type": "string" },
+    "overallAction": { "enum": ["accept", "review", "repeat"] },
+    "defects": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/defect" },
+      "uniqueItems": true
+    },
+    "landmarks": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/landmark" }
+    },
+    "regions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/region" }
+    },
+    "expert": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["readerId", "readIndex", "confidence", "createdAt"],
+      "properties": {
+        "readerId": { "type": "string", "minLength": 1 },
+        "readIndex": { "type": "integer", "minimum": 1 },
+        "confidence": { "enum": ["low", "medium", "high"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "adjudicated": { "type": "boolean", "default": false },
+        "comment": { "type": "string", "maxLength": 2000 }
+      }
+    }
+  },
+  "$defs": {
+    "defect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "present", "severity"],
+      "properties": {
+        "code": {
+          "enum": [
+            "wrong_protocol", "spine_off_center", "spine_tilt", "spine_rotation",
+            "spine_incomplete_coverage", "vertebra_numbering", "vertebra_roi",
+            "vertebra_exclusion", "hip_rotation", "hip_abduction_adduction",
+            "femur_axis", "hip_incomplete_coverage", "femoral_neck_roi",
+            "total_hip_roi", "edge_detection", "soft_tissue_boundary",
+            "hyperdense_artifact", "hypodense_artifact", "motion_artifact", "external_object"
+          ]
+        },
+        "present": { "type": "boolean" },
+        "severity": { "enum": ["none", "minor", "major", "critical"] },
+        "action": { "enum": ["accept", "review", "repeat"] },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "comment": { "type": "string", "maxLength": 1000 }
+      }
+    },
+    "landmark": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "x", "y", "visible"],
+      "properties": {
+        "name": { "type": "string" },
+        "x": { "type": "number", "minimum": 0, "maximum": 1 },
+        "y": { "type": "number", "minimum": 0, "maximum": 1 },
+        "visible": { "type": "boolean" }
+      }
+    },
+    "region": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "geometryType", "points"],
+      "properties": {
+        "name": { "type": "string" },
+        "geometryType": { "enum": ["polygon", "polyline", "box"] },
+        "points": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              { "type": "number", "minimum": 0, "maximum": 1 },
+              { "type": "number", "minimum": 0, "maximum": 1 }
+            ],
+            "items": false
+          }
+        }
+      }
+    }
+  }
+}
