@@ -49,9 +49,11 @@ npm run lint
 - `src/types.ts` — единая доменная модель;
 - `src/styles.css` — токены, адаптивность, состояния и доступность;
 - `docs/API.md` — контракт для подключения ML-бэкенда.
+- `docs/WORLD_CLASS_METRICS.md` — полный протокол метрик, safety-gates, статистики и мониторинга;
+- `docs/metrics.registry.json` — машиночитаемый реестр primary и hard-gate метрик.
 
 ## Граница готовности
 
 Встроенные кейсы демонстрируют будущий ML-результат, а загруженные исследования проходят реальный, но только технический pre-screening. Позиционирование и ROI для загруженного исследования намеренно переводятся на экспертную проверку: без размеченного датасета нельзя честно заявлять анатомическую модель или метрики.
 
-План доведения до конкурсной и клинической модели, таксономия ошибок, схема валидации и целевые метрики описаны в [docs/COMPETITION_STRATEGY.md](docs/COMPETITION_STRATEGY.md). Логика безопасного сравнения — в [docs/LONGITUDINAL_ANALYSIS.md](docs/LONGITUDINAL_ANALYSIS.md), полный продуктовый backlog — в [docs/PRODUCT_ROADMAP.md](docs/PRODUCT_ROADMAP.md), контракт inference-сервиса — в [docs/API.md](docs/API.md).
+План доведения до конкурсной и клинической модели и таксономия ошибок описаны в [docs/COMPETITION_STRATEGY.md](docs/COMPETITION_STRATEGY.md). Полная система primary/secondary/monitoring метрик, safety-gates и статистический протокол находятся в [docs/WORLD_CLASS_METRICS.md](docs/WORLD_CLASS_METRICS.md). Логика безопасного сравнения — в [docs/LONGITUDINAL_ANALYSIS.md](docs/LONGITUDINAL_ANALYSIS.md), полный продуктовый backlog — в [docs/PRODUCT_ROADMAP.md](docs/PRODUCT_ROADMAP.md), контракт inference-сервиса — в [docs/API.md](docs/API.md).

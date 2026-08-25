@@ -1,0 +1,320 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "registryVersion": "1.0.0",
+  "probabilityScale": "0..1",
+  "confidenceLevel": 0.95,
+  "resamplingUnit": "patient",
+  "defaultBootstrapIterations": 10000,
+  "metrics": [
+    {
+      "id": "action_macro_f1",
+      "domain": "clinical-action",
+      "level": "study",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "mean_c(2*precision_c*recall_c/(precision_c+recall_c))",
+      "requiredSlices": ["protocol", "device", "site"]
+    },
+    {
+      "id": "critical_defect_sensitivity",
+      "domain": "safety",
+      "level": "study",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "hard-gate",
+      "formula": "TP_critical/(TP_critical+FN_critical)",
+      "requiredSlices": ["defect", "protocol", "device", "site"]
+    },
+    {
+      "id": "false_safe_rate",
+      "domain": "safety",
+      "level": "study",
+      "direction": "minimize",
+      "unit": "ratio",
+      "role": "hard-gate",
+      "formula": "critical_studies_predicted_accept/all_critical_studies",
+      "requiredSlices": ["defect", "protocol", "device", "site"]
+    },
+    {
+      "id": "unnecessary_repeat_rate",
+      "domain": "clinical-action",
+      "level": "study",
+      "direction": "minimize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "acceptable_or_correctable_studies_predicted_repeat/all_acceptable_or_correctable_studies",
+      "requiredSlices": ["protocol", "device", "site"]
+    },
+    {
+      "id": "protocol_macro_f1",
+      "domain": "routing",
+      "level": "study",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "macro_f1(protocol_class)",
+      "requiredSlices": ["device", "site"]
+    },
+    {
+      "id": "unsupported_recall",
+      "domain": "routing",
+      "level": "study",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "hard-gate",
+      "formula": "unsupported_detected/all_unsupported",
+      "requiredSlices": ["device", "site"]
+    },
+    {
+      "id": "laterality_accuracy",
+      "domain": "routing",
+      "level": "site",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "hard-gate",
+      "formula": "correct_laterality/all_evaluable_laterality",
+      "requiredSlices": ["protocol", "device"]
+    },
+    {
+      "id": "anatomy_macro_dice",
+      "domain": "segmentation",
+      "level": "roi",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "mean_class(2*intersection/(prediction_area+ground_truth_area))",
+      "requiredSlices": ["anatomy", "protocol", "device", "site"]
+    },
+    {
+      "id": "roi_surface_dice",
+      "domain": "segmentation",
+      "level": "roi",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "surface_dice_at_predefined_mm_tolerance",
+      "requiredSlices": ["roi", "protocol", "device"]
+    },
+    {
+      "id": "roi_hd95_mm",
+      "domain": "segmentation",
+      "level": "roi",
+      "direction": "minimize",
+      "unit": "mm",
+      "role": "secondary",
+      "formula": "percentile_95(symmetric_surface_distances_mm)",
+      "requiredSlices": ["roi", "protocol", "device"]
+    },
+    {
+      "id": "landmark_mae_mm",
+      "domain": "geometry",
+      "level": "landmark",
+      "direction": "minimize",
+      "unit": "mm",
+      "role": "primary",
+      "formula": "mean(euclidean_distance(predicted,reference))",
+      "requiredSlices": ["landmark", "protocol", "device"]
+    },
+    {
+      "id": "positioning_angle_mae_deg",
+      "domain": "geometry",
+      "level": "study",
+      "direction": "minimize",
+      "unit": "degree",
+      "role": "primary",
+      "formula": "mean(abs(predicted_angle-reference_angle))",
+      "requiredSlices": ["protocol", "device", "site"]
+    },
+    {
+      "id": "dicom_parse_success_rate",
+      "domain": "dicom",
+      "level": "instance",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "parsed_instances/all_valid_supported_instances",
+      "requiredSlices": ["sop-class", "transfer-syntax", "device"]
+    },
+    {
+      "id": "pixel_decode_success_rate",
+      "domain": "dicom",
+      "level": "instance",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "decoded_instances/all_supported_pixel_instances",
+      "requiredSlices": ["transfer-syntax", "photometric-interpretation", "device"]
+    },
+    {
+      "id": "structured_numeric_exact_match",
+      "domain": "report-extraction",
+      "level": "field",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "exact_numeric_fields/all_evaluable_numeric_fields",
+      "requiredSlices": ["field", "source-format", "device"]
+    },
+    {
+      "id": "clinically_material_extraction_error_rate",
+      "domain": "report-extraction",
+      "level": "study",
+      "direction": "minimize",
+      "unit": "ratio",
+      "role": "hard-gate",
+      "formula": "studies_with_material_extraction_error/all_extracted_studies",
+      "requiredSlices": ["source-format", "device", "site"]
+    },
+    {
+      "id": "expected_calibration_error",
+      "domain": "calibration",
+      "level": "prediction",
+      "direction": "minimize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "sum_bin(weight_bin*abs(accuracy_bin-confidence_bin))",
+      "requiredSlices": ["defect", "protocol", "device"]
+    },
+    {
+      "id": "aurc",
+      "domain": "selective-prediction",
+      "level": "study",
+      "direction": "minimize",
+      "unit": "area",
+      "role": "primary",
+      "formula": "area_under_risk_coverage_curve",
+      "requiredSlices": ["protocol", "device", "site"]
+    },
+    {
+      "id": "ood_false_accept_rate",
+      "domain": "ood",
+      "level": "study",
+      "direction": "minimize",
+      "unit": "ratio",
+      "role": "hard-gate",
+      "formula": "ood_studies_predicted_accept/all_ood_studies",
+      "requiredSlices": ["ood-type", "device", "site"]
+    },
+    {
+      "id": "patient_pair_accuracy",
+      "domain": "longitudinal",
+      "level": "pair",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "hard-gate",
+      "formula": "correct_patient_pairs/all_attempted_pairs",
+      "requiredSlices": ["site", "device"]
+    },
+    {
+      "id": "false_comparable_rate",
+      "domain": "longitudinal",
+      "level": "pair",
+      "direction": "minimize",
+      "unit": "ratio",
+      "role": "hard-gate",
+      "formula": "noncomparable_pairs_predicted_comparable/all_noncomparable_pairs",
+      "requiredSlices": ["failure-reason", "site", "device"]
+    },
+    {
+      "id": "lsc_decision_weighted_kappa",
+      "domain": "longitudinal",
+      "level": "site-pair",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "weighted_kappa(predicted_lsc_decision,reference_lsc_decision)",
+      "requiredSlices": ["measurement-site", "device", "site"]
+    },
+    {
+      "id": "inter_reader_kappa",
+      "domain": "annotation",
+      "level": "label",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "cohen_or_fleiss_kappa",
+      "requiredSlices": ["defect", "protocol"]
+    },
+    {
+      "id": "patient_leakage_count",
+      "domain": "data-quality",
+      "level": "dataset",
+      "direction": "minimize",
+      "unit": "count",
+      "role": "hard-gate",
+      "formula": "count(patient_ids_present_in_multiple_locked_splits)",
+      "requiredSlices": []
+    },
+    {
+      "id": "worst_group_critical_sensitivity",
+      "domain": "fairness",
+      "level": "group",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "hard-gate",
+      "formula": "min_group(critical_defect_sensitivity_group)",
+      "requiredSlices": ["sex", "age-group", "bmi-group", "device", "site"]
+    },
+    {
+      "id": "human_ai_critical_sensitivity",
+      "domain": "clinical-utility",
+      "level": "study-reader",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "TP_human_ai/(TP_human_ai+FN_human_ai)",
+      "requiredSlices": ["reader", "defect", "protocol"]
+    },
+    {
+      "id": "correction_before_departure_rate",
+      "domain": "clinical-utility",
+      "level": "study",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "primary",
+      "formula": "corrected_before_patient_departure/all_correctable_studies",
+      "requiredSlices": ["protocol", "operator", "site"]
+    },
+    {
+      "id": "end_to_end_latency_p95_ms",
+      "domain": "performance",
+      "level": "study",
+      "direction": "minimize",
+      "unit": "ms",
+      "role": "primary",
+      "formula": "percentile_95(result_ready_at-received_at)",
+      "requiredSlices": ["protocol", "transfer-syntax", "hardware"]
+    },
+    {
+      "id": "inference_failure_rate",
+      "domain": "reliability",
+      "level": "study",
+      "direction": "minimize",
+      "unit": "ratio",
+      "role": "hard-gate",
+      "formula": "failed_supported_studies/all_supported_studies",
+      "requiredSlices": ["protocol", "device", "site"]
+    },
+    {
+      "id": "phi_leak_count",
+      "domain": "privacy",
+      "level": "release",
+      "direction": "minimize",
+      "unit": "count",
+      "role": "hard-gate",
+      "formula": "count(confirmed_phi_exposures_in_export_log_cache_or_ui)",
+      "requiredSlices": ["channel"]
+    },
+    {
+      "id": "audit_event_completeness",
+      "domain": "auditability",
+      "level": "result",
+      "direction": "maximize",
+      "unit": "ratio",
+      "role": "hard-gate",
+      "formula": "results_with_complete_immutable_audit/all_results",
+      "requiredSlices": ["action", "site"]
+    }
+  ]
+}

@@ -239,3 +239,5 @@ Follow-up должен быть отдельным каскадом, а не в�
 | День 10 | rehearsal, offline build, final reproducibility run |
 
 Если конкурсная метрика, формат submission или датасет отличаются от предположений, первым изменяется evaluation harness и mapping labels, а не архитектура вслепую.
+
+Полный каталог classification, segmentation, landmarks, DICOM, longitudinal, calibration/OOD, clinical utility, MLOps, privacy и business-метрик, а также hard release gates и статистический протокол определены в [WORLD_CLASS_METRICS.md](WORLD_CLASS_METRICS.md). Машиночитаемый минимальный набор находится в [metrics.registry.json](metrics.registry.json).
