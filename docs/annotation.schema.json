@@ -11,7 +11,7 @@
     "patientGroupId": { "type": "string", "minLength": 1, "description": "Stable pseudonym used only for leakage-safe splitting." },
     "deviceGroup": { "type": "string" },
     "siteGroup": { "type": "string" },
-    "protocol": { "enum": ["spine_pa", "hip_left", "hip_right", "unsupported"] },
+    "protocol": { "enum": ["spine_pa", "hip_left", "hip_right", "total_body", "unsupported"] },
     "evaluable": { "type": "boolean", "default": true },
     "notEvaluableReason": { "type": "string" },
     "overallAction": { "enum": ["accept", "review", "repeat"] },
@@ -55,7 +55,9 @@
             "vertebra_exclusion", "hip_rotation", "hip_abduction_adduction",
             "femur_axis", "hip_incomplete_coverage", "femoral_neck_roi",
             "total_hip_roi", "edge_detection", "soft_tissue_boundary",
-            "hyperdense_artifact", "hypodense_artifact", "motion_artifact", "external_object"
+            "hyperdense_artifact", "hypodense_artifact", "motion_artifact", "external_object",
+            "body_off_center", "body_asymmetry", "total_body_incomplete_coverage",
+            "landmark_low_confidence", "artifact_model_unavailable"
           ]
         },
         "present": { "type": "boolean" },

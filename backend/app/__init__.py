@@ -1,0 +1,1 @@
+"""Osseo AI inference service."""

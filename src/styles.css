@@ -149,9 +149,13 @@ button:disabled { cursor: not-allowed; opacity: .48; }
 .tool-divider { width: 1px; height: 20px; margin-inline: 4px; background: var(--line); }
 .zoom-value { min-width: 38px; color: var(--ink-soft); font-size: 10px; font-weight: 700; text-align: center; font-variant-numeric: tabular-nums; }
 .viewer-surface { position: relative; min-height: 560px; display: grid; place-items: center; overflow: hidden; background: radial-gradient(120% 95% at 50% 24%, #1A2A4A 0, #111E3B 48%, #070E20 100%); }
-.scan-canvas { width: min(74%, 440px); transform-origin: center; transition-property: transform; transition-duration: 180ms; }
+.scan-canvas { position: relative; width: min(74%, 440px); transform-origin: center; transition-property: transform; transition-duration: 180ms; }
 .dexa-svg { display: block; width: 100%; height: auto; outline: 1px solid rgba(255,255,255,.1); border-radius: 22px; }
 .uploaded-preview { max-height: 540px; object-fit: contain; background: #070E20; }
+.landmark-overlay { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.landmark-links line { stroke: #A9C3FF; stroke-width: 2.5; vector-effect: non-scaling-stroke; opacity: .72; }
+.landmark-points circle { fill: #A9C3FF; stroke: #0B1D4E; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.landmark-points circle.is-uncertain { fill: #F7B84B; }
 .orientation-markers { position: absolute; inset-inline: 20px; inset-block-start: 50%; display: flex; justify-content: space-between; color: #A9C3FF; opacity: .7; font-size: 11px; font-weight: 700; }
 .scan-label { position: absolute; inset-inline-start: 20px; inset-block-end: 17px; color: #A9C3FF; opacity: .65; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
 .viewer-footer { min-height: 63px; display: flex; align-items: center; flex-wrap: wrap; gap: 9px 16px; padding: 15px 26px; }

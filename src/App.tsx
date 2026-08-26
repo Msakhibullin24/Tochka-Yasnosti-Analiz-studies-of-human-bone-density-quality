@@ -30,8 +30,9 @@ import {
   XCircle,
 } from 'lucide-react'
 import { copy, initialStudies } from './data'
-import { analyzeDicom, DicomAnalysisError, isDicomFile, MAX_DICOM_BYTES } from './services/analysis'
-import type { ComparisonStatus, CriterionStatus, Locale, SiteChange, Study, StudyStatus, TrendStatus } from './types'
+import { DicomAnalysisError, isDicomFile, MAX_DICOM_BYTES } from './services/analysis'
+import { analyzeStudy } from './services/ml-analysis'
+import type { ComparisonStatus, CriterionStatus, Landmark, Locale, SiteChange, Study, StudyStatus, TrendStatus } from './types'
 
 type Tab = 'analysis' | 'dynamics' | 'dicom'
 
@@ -142,12 +143,38 @@ function HipImage({ overlay }: { overlay: boolean }) {
   )
 }
 
+const landmarkLinks = [
+  ['right_shoulder', 'right_elbow'], ['right_elbow', 'right_inner_elbow'],
+  ['left_shoulder', 'left_elbow'], ['left_elbow', 'left_inner_elbow'],
+  ['right_shoulder', 'left_shoulder'], ['right_hip_skin', 'left_hip_skin'],
+  ['right_hip_skin', 'right_outer_knee'], ['left_hip_skin', 'left_outer_knee'],
+] as const
+
+function LandmarkOverlay({ landmarks }: { landmarks: Landmark[] }) {
+  const visible = new Map(landmarks.filter((item) => item.visible).map((item) => [item.name, item]))
+  return (
+    <svg className="landmark-overlay" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+      <g className="landmark-links">
+        {landmarkLinks.map(([from, to]) => {
+          const start = visible.get(from)
+          const end = visible.get(to)
+          return start && end ? <line key={`${from}-${to}`} x1={start.x * 1000} y1={start.y * 1000} x2={end.x * 1000} y2={end.y * 1000} /> : null
+        })}
+      </g>
+      <g className="landmark-points">
+        {[...visible.values()].map((item) => <circle key={item.name} cx={item.x * 1000} cy={item.y * 1000} r={item.confidence >= .8 ? 5 : 7} className={item.confidence >= .8 ? '' : 'is-uncertain'} />)}
+      </g>
+    </svg>
+  )
+}
+
 function DicomViewer({ study, locale }: { study: Study; locale: Locale }) {
   const c = copy[locale]
   const [overlay, setOverlay] = useState(true)
   const [zoom, setZoom] = useState(1)
   const hasPixelPreview = Boolean(study.previewUrl)
-  const canShowOverlay = !hasPixelPreview || study.provenance.mode === 'validated-model'
+  const hasLandmarks = Boolean(study.landmarks?.some((item) => item.visible))
+  const canShowOverlay = !hasPixelPreview || hasLandmarks
 
   const changeZoom = (amount: number) => setZoom((value) => Math.min(1.6, Math.max(.8, Number((value + amount).toFixed(1)))))
 
@@ -172,14 +199,14 @@ function DicomViewer({ study, locale }: { study: Study; locale: Locale }) {
       <div className="viewer-surface">
         <div className="scan-canvas" style={{ transform: `scale(${zoom})` }}>
           {study.previewUrl
-            ? <img className="dexa-svg uploaded-preview" src={study.previewUrl} alt={locale === 'ru' ? 'Пиксельное изображение из загруженного DICOM' : 'Pixel image from the uploaded DICOM'} />
+            ? <><img className="dexa-svg uploaded-preview" src={study.previewUrl} alt={locale === 'ru' ? 'Пиксельное изображение из загруженного DICOM' : 'Pixel image from the uploaded DICOM'} />{overlay && study.landmarks && <LandmarkOverlay landmarks={study.landmarks} />}</>
             : study.type === 'spine' ? <SpineImage overlay={overlay} /> : <HipImage overlay={overlay} />}
         </div>
         <div className="orientation-markers" aria-hidden="true"><span>R</span><span>L</span></div>
         <span className="scan-label">DXA · AP</span>
       </div>
       <div className="viewer-footer">
-        {hasPixelPreview ? <span className="legend-item preview-note"><Info size={14} aria-hidden="true" />{c.pixelPreview}</span> : <>
+        {hasPixelPreview ? <span className="legend-item preview-note"><Info size={14} aria-hidden="true" />{hasLandmarks ? c.landmarkPreview : c.pixelPreview}</span> : <>
           <span className="legend-title">{c.roiLegend}</span>
           <span className="legend-item"><i className="legend-swatch swatch-green" />{study.type === 'spine' ? c.roiVertebrae : locale === 'ru' ? 'Области шейки и головки' : 'Neck and head regions'}</span>
           <span className="legend-item"><i className="legend-swatch swatch-blue" />{c.roiTissue}</span>
@@ -267,8 +294,12 @@ function MetadataPanel({ study, locale }: { study: Study; locale: Locale }) {
           <div><dt>{c.imageSize}</dt><dd>{study.technical.columns && study.technical.rows ? `${study.technical.columns} × ${study.technical.rows} px` : '—'}</dd></div>
           <div><dt>{c.pixelSpacing}</dt><dd>{study.technical.pixelSpacing ?? '—'}</dd></div>
           <div><dt>Photometric interpretation</dt><dd>{study.technical.photometricInterpretation ?? '—'}</dd></div>
-          <div><dt>Transfer Syntax UID</dt><dd title={study.technical.transferSyntaxUid}>{study.technical.transferSyntaxUid ?? '—'}</dd></div>
+          <div><dt>Transfer Syntax UID</dt><dd title={study.technical.transferSyntaxUid ?? undefined}>{study.technical.transferSyntaxUid ?? '—'}</dd></div>
           <div><dt>{c.analysisVersion}</dt><dd>{study.provenance.modelVersion}</dd></div>
+          {study.routing && <>
+            <div><dt>{locale === 'ru' ? 'Маршрут модели' : 'Model route'}</dt><dd title={study.routing.evidence.join(', ')}>{study.routing.protocol} · {Math.round(study.routing.confidence * 100)}%</dd></div>
+            <div><dt>{locale === 'ru' ? 'Статус модели' : 'Model status'}</dt><dd title={study.routing.modelKey}>{study.routing.modelStatus} · {study.routing.source}</dd></div>
+          </>}
         </dl>
       </section>
     </div>
@@ -500,7 +531,7 @@ function UploadDialog({ open, locale, busy, error, onClose, onFile }: { open: bo
             </button>
             <input ref={inputRef} className="sr-only" type="file" accept=".dcm,.dicom,application/dicom" aria-label={c.chooseDicom} tabIndex={-1} onChange={(event) => { const file = event.target.files?.[0]; if (file) onFile(file) }} />
             {error && <p className="upload-error" role="alert"><AlertTriangle size={16} />{error}</p>}
-            <div className="privacy-note"><ShieldCheck size={18} aria-hidden="true" /><span><strong>{c.localProcessing}</strong>{locale === 'ru' ? 'Файл не отправляется с устройства; статус обезличивания проверяется по DICOM-тегам.' : 'The file does not leave this device; de-identification status is checked from DICOM tags.'}</span></div>
+            <div className="privacy-note"><ShieldCheck size={18} aria-hidden="true" /><span><strong>{c.localProcessing}</strong>{locale === 'ru' ? 'Файл передаётся только настроенному сервису анализа; прямые идентификаторы не включаются в ответ и логи приложения.' : 'The file is sent only to the configured analysis service; direct identifiers are excluded from its response and application logs.'}</span></div>
           </>
         )}
       </section>
@@ -553,7 +584,7 @@ function App() {
     setUploadError('')
     setUploadBusy(true)
     try {
-      const study = await analyzeDicom(file)
+      const study = await analyzeStudy(file)
       setStudies((current) => [study, ...current.filter((item) => item.id !== study.id)])
       setSelectedId(study.id)
       setUploadOpen(false)
@@ -573,7 +604,9 @@ function App() {
         id: selected.id, patientId: selected.patientId, filename: selected.filename,
         status: selected.status, qualityScore: selected.score, confidence: selected.confidence,
         technical: selected.technical, provenance: selected.provenance, privacy: selected.privacy,
-        criteria: selected.criteria.map((item) => ({ name: item.title[locale], status: item.status, confidence: item.confidence, detail: item.detail[locale] })),
+        routing: selected.routing ?? null,
+        landmarks: selected.landmarks ?? [],
+        criteria: selected.criteria.map((item) => ({ code: item.code, name: item.title[locale], status: item.status, confidence: item.confidence, detail: item.detail[locale] })),
         recommendation: selected.recommendation[locale],
         longitudinal: selected.longitudinal ? {
           ...selected.longitudinal,

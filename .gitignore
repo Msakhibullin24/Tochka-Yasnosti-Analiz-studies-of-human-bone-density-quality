@@ -4,3 +4,8 @@ dist/
 *.d.ts.map
 .DS_Store
 .env
+backend/.venv/
+backend/models/*.pth
+backend/**/__pycache__/
+backend/.pytest_cache/
+backend/*.egg-info/

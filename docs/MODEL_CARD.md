@@ -2,7 +2,12 @@
 
 ## Текущий статус
 
-`technical-screening-0.3.0` — детерминированный браузерный pre-screening, не клиническая ML-модель.
+Система содержит два режима:
+
+- `technical-screening-0.3.0` — детерминированный браузерный pre-screening;
+- `hawaii-ai-dxa-points-7ac19eb` — исследовательская модель 105 landmarks для total-body DXA.
+
+Ни один режим пока не является клинически валидированной моделью.
 
 ## Назначение
 
@@ -18,9 +23,31 @@
 - декодирование JPEG/JPEG-LS/JPEG 2000/RLE;
 - полную DICOM PS3.15 de-identification или очистку Pixel Data.
 
+## Total-body landmark model
+
+Интегрирован upstream commit `7ac19eb9c99d9a5edc631446b45528e889d627ed`
+проекта `hawaii-ai/dxa-pointplacement`. Архитектура — MMPose top-down pose
+estimator с ResNet-152 и 105 heatmap keypoints. Upstream сообщает обучение на
+1 683 вручную размеченных total-body DXA и 99,5% PCK на внешнем тесте. Эта
+метрика не является точностью классификации качества.
+
+Бэкенд использует точки для исследовательских признаков центрирования, симметрии
+и охвата. Артефакты всегда получают `warning`, потому что upstream-модель их не
+классифицирует. Spine/hip DICOM не передаются этому checkpoint.
+
+Известный domain gap: upstream-модель разработана для извлечённых air-ratio
+изображений 654×1914. Текущий общий DICOM adapter выполняет percentile
+normalization. До воспроизведения vendor-specific air-ratio extraction и внешней
+валидации режим маркируется `research-model` и не может выдавать клиническое
+утверждение о корректности ROI.
+
 ## Данные и метрики
 
-Обучающий датасет и независимая клиническая выборка в репозитории отсутствуют. Поэтому AUROC, F1, sensitivity, specificity и Dice не заявляются. Технический parser покрыт синтетическими unit-тестами; продуктовые сценарии покрыты UI-тестами.
+Наш обучающий датасет и независимая клиническая выборка в репозитории отсутствуют.
+Поэтому AUROC, F1, sensitivity, specificity и Dice для контроля качества не
+заявляются. Опубликованный upstream PCK не переносится на наши DICOM автоматически.
+Технический parser, protocol router, privacy response и geometry QC покрыты
+синтетическими тестами; продуктовые сценарии покрыты UI-тестами.
 
 ## Демонстрационный анализ в динамике
 
