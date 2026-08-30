@@ -85,4 +85,8 @@ describe('DICOM ingestion', () => {
   it('accepts the DICOM MIME type even without a conventional extension', () => {
     expect(isDicomFile(new File(['data'], 'study.bin', { type: 'application/dicom' }))).toBe(true)
   })
+
+  it('does not treat DICOM JSON as a binary Part 10 study', () => {
+    expect(isDicomFile(new File(['{}'], 'study.json', { type: 'application/dicom+json' }))).toBe(false)
+  })
 })

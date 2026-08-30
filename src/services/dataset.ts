@@ -154,7 +154,21 @@ export class DatasetApiError extends Error {
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`${API_BASE}${path}`, init)
+  const controller = new AbortController()
+  const timeout = globalThis.setTimeout(() => controller.abort(), 15_000)
+  let response: Response
+  try {
+    response = await fetch(`${API_BASE}${path}`, { ...init, signal: controller.signal })
+  } catch (reason) {
+    const timedOut = reason instanceof DOMException && reason.name === 'AbortError'
+    throw new DatasetApiError(
+      timedOut ? 'DATASET_REQUEST_TIMEOUT' : 'DATASET_NETWORK_ERROR',
+      timedOut ? 'Dataset service did not respond within 15 seconds' : 'Dataset service is unreachable',
+      0,
+    )
+  } finally {
+    globalThis.clearTimeout(timeout)
+  }
   if (!response.ok) {
     let detail: { code?: string; message?: string } = {}
     try { detail = (await response.json() as { detail?: typeof detail }).detail ?? {} } catch { /* no JSON body */ }

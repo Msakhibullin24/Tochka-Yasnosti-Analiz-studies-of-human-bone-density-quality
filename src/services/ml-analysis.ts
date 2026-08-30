@@ -1,18 +1,38 @@
-import type { LocalizedText, Study } from '../types'
+import type { Criterion, LocalizedText, Study } from '../types'
 import { analyzeDicom, DicomAnalysisError } from './analysis'
 
 const API_BASE = (import.meta.env.VITE_ANALYSIS_API_URL || '/api/v1').replace(/\/$/, '')
 
 const t = (ru: string, en: string): LocalizedText => ({ ru, en })
 
+const isLocalizedText = (value: unknown): value is LocalizedText => Boolean(value)
+  && typeof value === 'object'
+  && typeof (value as LocalizedText).ru === 'string'
+  && typeof (value as LocalizedText).en === 'string'
+
+const isCriterion = (value: unknown): value is Criterion => Boolean(value)
+  && typeof value === 'object'
+  && typeof (value as Criterion).id === 'string'
+  && isLocalizedText((value as Criterion).title)
+  && isLocalizedText((value as Criterion).detail)
+  && ['pass', 'warning', 'fail'].includes((value as Criterion).status)
+  && Number.isFinite((value as Criterion).confidence)
+
 const isStudy = (value: unknown): value is Study => {
   if (!value || typeof value !== 'object') return false
   const candidate = value as Partial<Study>
   return typeof candidate.id === 'string'
+    && typeof candidate.patientId === 'string'
+    && typeof candidate.filename === 'string'
     && ['spine', 'hip', 'total-body'].includes(candidate.type ?? '')
     && ['passed', 'review', 'rejected'].includes(candidate.status ?? '')
-    && Array.isArray(candidate.criteria)
-    && Boolean(candidate.provenance)
+    && Number.isFinite(candidate.score)
+    && Number.isFinite(candidate.confidence)
+    && Array.isArray(candidate.criteria) && candidate.criteria.every(isCriterion)
+    && Boolean(candidate.technical && typeof candidate.technical === 'object')
+    && Boolean(candidate.privacy && typeof candidate.privacy.deidentificationVerified === 'boolean')
+    && Boolean(candidate.provenance && typeof candidate.provenance.modelVersion === 'string' && Array.isArray(candidate.provenance.warnings))
+    && isLocalizedText(candidate.recommendation)
 }
 
 const fallbackWithWarning = async (file: File, warning: LocalizedText) => {
@@ -49,9 +69,16 @@ export async function analyzeStudy(file: File): Promise<Study> {
     ))
   }
   if (response.ok) {
-    const study: unknown = await response.json()
-    if (!isStudy(study)) throw new DicomAnalysisError('invalid-dicom', 'The inference service returned an invalid study response.')
-    return study
+    try {
+      const study: unknown = await response.json()
+      if (isStudy(study)) return study
+    } catch {
+      // A valid DICOM should still receive a local result when the service contract breaks.
+    }
+    return fallbackWithWarning(file, t(
+      'ML-сервис вернул некорректный ответ; выполнен локальный технический pre-screening.',
+      'The ML service returned an invalid response; local technical pre-screening was used.',
+    ))
   }
   const code = await errorCode(response)
   if (response.status === 422 && code === 'UNSUPPORTED_PROTOCOL') {

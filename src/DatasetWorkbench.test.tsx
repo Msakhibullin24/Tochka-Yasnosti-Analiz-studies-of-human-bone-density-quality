@@ -96,13 +96,42 @@ describe('Dataset Workbench', () => {
   })
 
   it('shows an actionable offline state when no dataset is configured', async () => {
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+    const fetchMock = vi.fn().mockResolvedValue({
       ok: false,
       status: 503,
       json: async () => ({ detail: { code: 'DATASET_UNAVAILABLE', message: 'OSSEO_DATASET_ROOT is not configured' } }),
-    }))
+    })
+    vi.stubGlobal('fetch', fetchMock)
     render(<DatasetWorkbench locale="ru" />)
     expect(await screen.findByRole('heading', { name: 'Обезличенный dataset не подключён' })).toBeInTheDocument()
     expect(screen.getByText(/OSSEO_PSEUDONYM_KEY/)).toBeInTheDocument()
+    expect(screen.queryByText('OSSEO_DATASET_ROOT is not configured')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Повторить подключение' }))
+    await waitFor(() => expect(fetchMock.mock.calls.length).toBeGreaterThan(4))
+  })
+
+  it('distinguishes an unavailable API from a missing dataset', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: false,
+      status: 404,
+      json: async () => { throw new Error('HTML response') },
+    }))
+    render(<DatasetWorkbench locale="ru" />)
+    expect(await screen.findByRole('heading', { name: 'Сервис данных недоступен' })).toBeInTheDocument()
+    expect(screen.getByText('make dev')).toBeInTheDocument()
+  })
+
+  it('shows a stable empty state for a connected manifest without studies', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => {
+      const url = String(input)
+      if (url.endsWith('/datasets/current/studies')) return { ok: true, status: 200, json: async () => ({ studies: [], count: 0 }) }
+      if (url.endsWith('/exclusions')) return { ok: true, status: 200, json: async () => ({ exclusions: [], count: 0 }) }
+      if (url.endsWith('/readiness')) return { ok: true, status: 200, json: async () => readiness }
+      return { ok: true, status: 200, json: async () => ({ ...summary, studyCount: 0, patientGroupCount: 0 }) }
+    }))
+    render(<DatasetWorkbench locale="ru" />)
+    expect(await screen.findByText('В manifest пока нет исследований')).toBeInTheDocument()
+    expect(screen.queryByText('Открываем исследование…')).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Обновить список' })).toBeInTheDocument()
   })
 })

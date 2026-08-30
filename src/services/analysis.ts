@@ -15,7 +15,7 @@ export class DicomAnalysisError extends Error {
 }
 
 export const isDicomFile = (file: File) =>
-  /\.(dcm|dicom)$/i.test(file.name) || ['application/dicom', 'application/dicom+json'].includes(file.type)
+  /\.(dcm|dicom)$/i.test(file.name) || file.type === 'application/dicom'
 
 const t = (ru: string, en: string): LocalizedText => ({ ru, en })
 
@@ -197,7 +197,7 @@ export async function analyzeDicom(file: File): Promise<Study> {
       warnings,
     },
     privacy: {
-      deidentificationVerified: dicom.patientIdentityRemoved,
+      deidentificationVerified: dicom.patientIdentityRemoved && dicom.burnedInAnnotation === 'NO',
       burnedInAnnotation: dicom.burnedInAnnotation,
     },
     previewUrl: dicom.previewUrl,

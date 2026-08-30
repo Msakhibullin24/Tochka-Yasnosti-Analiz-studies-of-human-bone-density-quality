@@ -9,6 +9,7 @@ import {
   Image as ImageIcon,
   LoaderCircle,
   MousePointer2,
+  RefreshCw,
   Save,
   Search,
   ShieldAlert,
@@ -296,6 +297,8 @@ export default function DatasetWorkbench({ locale }: { locale: Locale }) {
   const [rawChannel, setRawChannel] = useState(0)
   const [exclusionCount, setExclusionCount] = useState(0)
   const [readiness, setReadiness] = useState<ReadinessReport | null>(null)
+  const [reloadKey, setReloadKey] = useState(0)
+  const [selectedReloadKey, setSelectedReloadKey] = useState(0)
 
   useEffect(() => {
     let active = true
@@ -306,14 +309,14 @@ export default function DatasetWorkbench({ locale }: { locale: Locale }) {
       setSummary(summaryValue); setStudies(list.studies); setSelectedId(initialStudyId ?? ''); setExclusionCount(exclusions.count); setReadiness(readinessValue); setError(null)
     }).catch((reason) => { if (active) setError(reason instanceof DatasetApiError ? reason : new DatasetApiError('DATASET_REQUEST_FAILED', String(reason), 0)) }).finally(() => { if (active) setLoading(false) })
     return () => { active = false }
-  }, [])
+  }, [reloadKey])
 
   useEffect(() => {
     if (!selectedId) return
     let active = true
     getDatasetStudy(selectedId).then((value) => { if (active) { setSelected(value); setSelectedError(null); setAssetIndex(0); setRawChannel(0) } }).catch((reason) => { if (active) { setSelected(null); setSelectedError(reason instanceof Error ? reason.message : String(reason)) } })
     return () => { active = false }
-  }, [selectedId])
+  }, [selectedId, selectedReloadKey])
 
   const filtered = useMemo(() => studies.filter((study) => {
     const matchesQuery = !query.trim() || `${study.studyId} ${study.patientGroupId} ${study.protocolCode}`.toLowerCase().includes(query.toLowerCase())
@@ -321,9 +324,21 @@ export default function DatasetWorkbench({ locale }: { locale: Locale }) {
   }), [studies, query, protocol, split])
 
   const imageUrl = resolveDatasetUrl(selected ? viewKind === 'processed' ? selected.assets[assetIndex]?.url : selected.rawChannels[rawChannel]?.url : undefined)
+  const datasetRootMissing = error?.code === 'DATASET_UNAVAILABLE'
+  const connectionTitle = datasetRootMissing
+    ? tx(locale, 'Обезличенный dataset не подключён', 'De-identified dataset is not connected')
+    : tx(locale, 'Сервис данных недоступен', 'Dataset service is unavailable')
+  const connectionDescription = datasetRootMissing
+    ? tx(locale, 'Экспортируйте архив офлайн и укажите OSSEO_DATASET_ROOT при запуске backend.', 'Export the archive offline and set OSSEO_DATASET_ROOT when starting the backend.')
+    : tx(locale, 'Запустите frontend и API единым контуром, затем повторите подключение.', 'Start the frontend and API together, then retry the connection.')
+  const recoveryCommand = datasetRootMissing
+    ? "OSSEO_PSEUDONYM_KEY='…' osseo-apex new.rar --output ./data/dataset"
+    : 'make dev'
+  const retryConnection = () => { setLoading(true); setError(null); setReloadKey((value) => value + 1) }
+  const retrySelectedStudy = () => { setSelectedError(null); setSelectedReloadKey((value) => value + 1) }
 
   if (loading) return <section className="dataset-loading" role="status"><LoaderCircle className="spinner" size={30} /><h1>{tx(locale, 'Открываем Dataset Workbench', 'Opening Dataset Workbench')}</h1></section>
-  if (error) return <section className="dataset-empty" aria-labelledby="dataset-empty-title"><span><Archive size={28} /></span><p className="eyebrow">Dataset offline boundary</p><h1 id="dataset-empty-title">{tx(locale, 'Обезличенный dataset не подключён', 'De-identified dataset is not connected')}</h1><p>{tx(locale, 'Сначала экспортируйте архив офлайн, затем укажите OSSEO_DATASET_ROOT при запуске backend.', 'Export the archive offline first, then set OSSEO_DATASET_ROOT when starting the backend.')}</p><code>OSSEO_PSEUDONYM_KEY='…' osseo-apex new.rar --output ./data/dataset</code><small>{error.code}: {error.message}</small></section>
+  if (error) return <section className="dataset-empty" aria-labelledby="dataset-empty-title"><span><Archive size={28} aria-hidden="true" /></span><p className="eyebrow">Dataset offline boundary</p><h1 id="dataset-empty-title">{connectionTitle}</h1><p>{connectionDescription}</p><code>{recoveryCommand}</code><button type="button" className="primary-button dataset-retry" onClick={retryConnection}><RefreshCw size={17} aria-hidden="true" />{tx(locale, 'Повторить подключение', 'Retry connection')}</button><details className="dataset-error-details"><summary>{tx(locale, 'Технические детали', 'Technical details')}</summary><code>{error.code}{error.status ? ` · HTTP ${error.status}` : ''}</code></details></section>
 
   return (
     <div className="dataset-workbench">
@@ -341,13 +356,13 @@ export default function DatasetWorkbench({ locale }: { locale: Locale }) {
           <nav className="dataset-study-list" aria-label={tx(locale, 'Исследования датасета', 'Dataset studies')}>{filtered.map((study) => <button key={study.studyId} className={study.studyId === selectedId ? 'is-active' : ''} aria-current={study.studyId === selectedId ? 'true' : undefined} onClick={() => { setSelectedId(study.studyId); setSelectedError(null) }}><span className="dataset-study-status">{study.quality.reviewRequired ? <AlertTriangle size={15} /> : <CheckCircle2 size={15} />}</span><span><strong>{study.studyId}</strong><small>{protocolLabels[study.protocol][locale]} · {study.acquisitionYear ?? '—'}</small><i>{study.split ?? 'unassigned'} · {study.annotationCount} {tx(locale, 'разм.', 'reads')}</i></span></button>)}{filtered.length === 0 && <div className="dataset-filter-empty"><Search size={22} /><strong>{tx(locale, 'Ничего не найдено', 'No studies found')}</strong><p>{tx(locale, 'Измените запрос или сбросьте фильтры.', 'Change the query or clear the filters.')}</p><button type="button" className="secondary-button" onClick={() => { setQuery(''); setProtocol('all'); setSplit('all') }}>{tx(locale, 'Сбросить фильтры', 'Clear filters')}</button></div>}</nav>
         </aside>
         <div className="dataset-detail-pane">
-          {selected && selected.studyId === selectedId ? <>
+          {studies.length === 0 ? <div className="dataset-no-selection"><Archive size={28} aria-hidden="true" /><p>{tx(locale, 'В manifest пока нет исследований', 'There are no studies in the manifest yet')}</p><small>{tx(locale, 'Добавьте обезличенный экспорт в OSSEO_DATASET_ROOT и повторите подключение.', 'Add a de-identified export to OSSEO_DATASET_ROOT and retry the connection.')}</small><button type="button" className="secondary-button" onClick={retryConnection}><RefreshCw size={16} aria-hidden="true" />{tx(locale, 'Обновить список', 'Refresh list')}</button></div> : selected && selected.studyId === selectedId ? <>
             <div className="dataset-study-head"><div><p className="eyebrow">{selected.protocolCode}</p><h2>{protocolLabels[selected.protocol][locale]}</h2><p>{selected.studyId} · {selected.patientGroupId} · APEX {selected.softwareVersion ?? '—'}</p></div><div className="dataset-badges"><span>{selected.split ?? 'unassigned'}</span><span className={selected.quality.reviewRequired ? 'needs-review' : ''}>{selected.technicalQc?.score ?? '—'}/100 QC</span></div></div>
             <div className="dataset-view-switch" role="group" aria-label={tx(locale, 'Представление сигнала', 'Signal view')}><button type="button" aria-pressed={viewKind === 'processed'} className={viewKind === 'processed' ? 'is-active' : ''} onClick={() => setViewKind('processed')}><ImageIcon size={16} />{tx(locale, 'Обработанные', 'Processed')}</button><button type="button" aria-pressed={viewKind === 'raw'} className={viewKind === 'raw' ? 'is-active' : ''} onClick={() => setViewKind('raw')}><Database size={16} />Raw × 6</button></div>
             {viewKind === 'processed' ? <div className="asset-tabs" role="group" aria-label={tx(locale, 'Обработанные изображения', 'Processed images')}>{selected.assets.map((asset, index) => <button type="button" key={asset.name} aria-pressed={assetIndex === index} className={assetIndex === index ? 'is-active' : ''} onClick={() => setAssetIndex(index)}>{asset.tag}</button>)}</div> : <div className="asset-tabs raw-tabs" role="group" aria-label={tx(locale, 'Каналы исходного сигнала', 'Raw signal channels')}>{selected.rawChannels.map((channel) => <button type="button" key={channel.index} aria-pressed={rawChannel === channel.index} className={rawChannel === channel.index ? 'is-active' : ''} onClick={() => setRawChannel(channel.index)}>{channel.index}</button>)}</div>}
             <div className="dataset-image-stage">{imageUrl ? <img src={imageUrl} alt={tx(locale, `${viewKind === 'processed' ? 'Обработанное изображение' : 'Raw-канал'} исследования ${selected.studyId}`, `${viewKind === 'processed' ? 'Processed image' : 'Raw channel'} for ${selected.studyId}`)} /> : <span>{tx(locale, 'Ассет недоступен', 'Asset unavailable')}</span>}<span className="dataset-image-label">{viewKind === 'raw' ? tx(locale, `Канал ${rawChannel} · физический смысл не подтверждён`, `Channel ${rawChannel} · physical meaning unverified`) : selected.assets[assetIndex]?.tag}</span></div>
             <div className="technical-qc-panel"><div><p className="eyebrow">Technical baseline</p><h3>{tx(locale, 'Автоматический pre-screening', 'Automated pre-screening')}</h3></div><strong>{selected.technicalQc?.score ?? '—'}<small>/100</small></strong><ul>{selected.technicalQc?.flags.length ? selected.technicalQc.flags.map((flag) => <li key={flag}><AlertTriangle size={14} />{flag}</li>) : <li><CheckCircle2 size={14} />{tx(locale, 'Технических флагов нет', 'No technical flags')}</li>}</ul><p>{tx(locale, 'Baseline не оценивает анатомию, BMD или корректность ROI.', 'The baseline does not assess anatomy, BMD, or ROI correctness.')}</p></div>
-          </> : <div className="dataset-no-selection">{selectedError ? <AlertTriangle size={28} /> : <LoaderCircle className="spinner" size={28} />}<p>{selectedError ? tx(locale, 'Не удалось открыть исследование', 'Could not open the study') : tx(locale, 'Открываем исследование…', 'Opening study…')}</p>{selectedError && <small>{selectedError}</small>}</div>}
+          </> : <div className="dataset-no-selection" role={selectedError ? 'alert' : 'status'}>{selectedError ? <AlertTriangle size={28} aria-hidden="true" /> : <LoaderCircle className="spinner" size={28} aria-hidden="true" />}<p>{selectedError ? tx(locale, 'Не удалось открыть исследование', 'Could not open the study') : tx(locale, 'Открываем исследование…', 'Opening study…')}</p>{selectedError && <button type="button" className="secondary-button" onClick={retrySelectedStudy}><RefreshCw size={16} aria-hidden="true" />{tx(locale, 'Повторить', 'Retry')}</button>}</div>}
         </div>
       </section>
       {selected && selected.studyId === selectedId && <AnnotationEditor key={selected.studyId} study={selected} imageUrl={resolveDatasetUrl(selected.assets[0]?.url)} locale={locale} onSaved={(annotation) => { setSelected((current) => current ? { ...current, annotations: [annotation, ...(current.annotations ?? []).filter((item) => !(item.expert.readerId === annotation.expert.readerId && item.expert.readIndex === annotation.expert.readIndex))], annotationCount: Math.max(1, current.annotationCount) } : current); setStudies((current) => current.map((item) => item.studyId === annotation.studyId ? { ...item, annotationCount: Math.max(1, item.annotationCount) } : item)) }} />}

@@ -15,6 +15,7 @@ describe('Osseo AI workspace', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Switch to English' }))
     expect(screen.getByRole('heading', { name: 'Quality assessment' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Quality criteria' })).toBeInTheDocument()
+    expect(window.localStorage.getItem('osseo-locale')).toBe('en')
   })
 
   it('opens the DICOM upload dialog', () => {
@@ -25,6 +26,7 @@ describe('Osseo AI workspace', () => {
     const input = container.querySelector('input[type="file"]') as HTMLInputElement
     fireEvent.change(input, { target: { files: [new File(['not a dicom'], 'image.png', { type: 'image/png' })] } })
     expect(screen.getByRole('alert')).toHaveTextContent('Выберите файл в формате .dcm или .dicom.')
+    expect(input.value).toBe('')
   })
 
   it('supports arrow-key navigation between analysis tabs', () => {
@@ -37,6 +39,7 @@ describe('Osseo AI workspace', () => {
     fireEvent.keyDown(screen.getByRole('tab', { name: 'Динамика' }), { key: 'ArrowRight' })
     expect(screen.getByRole('tab', { name: 'DICOM' })).toHaveAttribute('aria-selected', 'true')
     expect(screen.getByRole('heading', { name: 'Метаданные исследования' })).toBeInTheDocument()
+    expect(window.localStorage.getItem('osseo-tab')).toBe('dicom')
   })
 
   it('shows a significant BMD gain only for a comparable study', () => {

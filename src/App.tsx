@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import {
   Activity,
   AlertTriangle,
@@ -31,13 +31,30 @@ import {
   XCircle,
 } from 'lucide-react'
 import { copy, initialStudies } from './data'
-import DatasetWorkbench from './DatasetWorkbench'
 import { DicomAnalysisError, isDicomFile, MAX_DICOM_BYTES } from './services/analysis'
 import { analyzeStudy } from './services/ml-analysis'
 import type { ComparisonStatus, CriterionStatus, Landmark, Locale, SiteChange, Study, StudyStatus, TrendStatus } from './types'
 
 type Tab = 'analysis' | 'dynamics' | 'dicom'
 type WorkspaceMode = 'analysis' | 'dataset'
+
+const DatasetWorkbench = lazy(() => import('./DatasetWorkbench'))
+const workspaceFromLocation = (): WorkspaceMode => window.location.hash === '#dataset' ? 'dataset' : 'analysis'
+const readStoredLocale = (): Locale => {
+  try { return window.localStorage.getItem('osseo-locale') === 'en' ? 'en' : 'ru' } catch { return 'ru' }
+}
+const readStoredTab = (): Tab => {
+  try {
+    const value = window.localStorage.getItem('osseo-tab')
+    return value === 'dynamics' || value === 'dicom' ? value : 'analysis'
+  } catch { return 'analysis' }
+}
+const readStoredStudyId = () => {
+  try {
+    const value = window.localStorage.getItem('osseo-study')
+    return initialStudies.some((study) => study.id === value) ? value as string : initialStudies[0].id
+  } catch { return initialStudies[0].id }
+}
 
 const statusIcon = (status: StudyStatus | CriterionStatus, size = 16) => {
   if (status === 'passed' || status === 'pass') return <CheckCircle2 size={size} aria-hidden="true" />
@@ -222,9 +239,8 @@ function DicomViewer({ study, locale }: { study: Study; locale: Locale }) {
 
 function ScoreRing({ value, label, status }: { value: number; label: string; status: StudyStatus }) {
   return (
-    <div className={`score-ring score-${status}`} style={{ '--score': `${value * 3.6}deg` } as React.CSSProperties}>
-      <div><strong>{value}</strong><span>/100</span></div>
-      <span className="sr-only">{label}: {value} из 100</span>
+    <div className={`score-ring score-${status}`} style={{ '--score': `${value * 3.6}deg` } as React.CSSProperties} role="img" aria-label={`${label}: ${value}/100`}>
+      <div aria-hidden="true"><strong>{value}</strong><span>/100</span></div>
     </div>
   )
 }
@@ -477,19 +493,20 @@ function UploadDialog({ open, locale, busy, error, onClose, onFile }: { open: bo
 
   useEffect(() => { busyRef.current = busy }, [busy])
   useEffect(() => { closeRef.current = onClose }, [onClose])
+  useEffect(() => { if (open && busy) modalRef.current?.focus() }, [open, busy])
 
   useEffect(() => {
     if (!open) return
     const previousFocus = document.activeElement as HTMLElement | null
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    window.requestAnimationFrame(() => modalRef.current?.querySelector<HTMLElement>('button:not(:disabled)')?.focus())
+    window.requestAnimationFrame(() => (modalRef.current?.querySelector<HTMLElement>('[data-autofocus]') ?? modalRef.current)?.focus())
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && !busyRef.current) { event.preventDefault(); closeRef.current(); return }
       if (event.key !== 'Tab' || !modalRef.current) return
-      const focusable = Array.from(modalRef.current.querySelectorAll<HTMLElement>('button:not(:disabled), input:not(:disabled), [tabindex]:not([tabindex="-1"])'))
-      if (!focusable.length) return
+      const focusable = Array.from(modalRef.current.querySelectorAll<HTMLElement>('button:not(:disabled), [href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])'))
+      if (!focusable.length) { event.preventDefault(); modalRef.current.focus(); return }
       const first = focusable[0]
       const last = focusable[focusable.length - 1]
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus() }
@@ -507,23 +524,24 @@ function UploadDialog({ open, locale, busy, error, onClose, onFile }: { open: bo
 
   return (
     <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.currentTarget === event.target && !busy) onClose() }}>
-      <section ref={modalRef} className="upload-modal" role="dialog" aria-modal="true" aria-labelledby="upload-title">
+      <section ref={modalRef} className="upload-modal" role="dialog" aria-modal="true" aria-labelledby="upload-title" aria-describedby="upload-description" tabIndex={-1}>
         <div className="modal-heading">
-          <div><span className="modal-icon"><Upload size={21} /></span><div><h2 id="upload-title">{c.uploadAnother}</h2><p>DICOM · .dcm, .dicom</p></div></div>
-          <button className="icon-button" onClick={onClose} aria-label={c.close} disabled={busy}><X size={19} /></button>
+          <div><span className="modal-icon"><Upload size={21} aria-hidden="true" /></span><div><h2 id="upload-title">{c.uploadAnother}</h2><p id="upload-description">DICOM · .dcm, .dicom · max 100 MB</p></div></div>
+          <button className="icon-button" onClick={onClose} aria-label={c.close} disabled={busy}><X size={19} aria-hidden="true" /></button>
         </div>
         {busy ? (
           <div className="processing-state" role="status">
-            <LoaderCircle size={34} className="spinner" />
+            <LoaderCircle size={34} className="spinner" aria-hidden="true" />
             <h3>{c.processing}</h3>
             <p>{c.processingHint}</p>
-            <div className="processing-line"><span /></div>
+            <div className="processing-line" aria-hidden="true"><span /></div>
           </div>
         ) : (
           <>
             <button
               className={`dropzone ${dragging ? 'is-dragging' : ''}`}
-              onClick={() => inputRef.current?.click()}
+              data-autofocus
+              onClick={() => { if (inputRef.current) { inputRef.current.value = ''; inputRef.current.click() } }}
               onDragOver={(event) => { event.preventDefault(); setDragging(true) }}
               onDragLeave={() => setDragging(false)}
               onDrop={(event) => { event.preventDefault(); setDragging(false); const file = event.dataTransfer.files[0]; if (file) onFile(file) }}
@@ -532,7 +550,7 @@ function UploadDialog({ open, locale, busy, error, onClose, onFile }: { open: bo
               <strong>{c.dropTitle}</strong>
               <span>{c.dropHint}</span>
             </button>
-            <input ref={inputRef} className="sr-only" type="file" accept=".dcm,.dicom,application/dicom" aria-label={c.chooseDicom} tabIndex={-1} onChange={(event) => { const file = event.target.files?.[0]; if (file) onFile(file) }} />
+            <input ref={inputRef} className="sr-only" type="file" accept=".dcm,.dicom,application/dicom" aria-label={c.chooseDicom} tabIndex={-1} onChange={(event) => { const file = event.currentTarget.files?.[0]; event.currentTarget.value = ''; if (file) onFile(file) }} />
             {error && <p className="upload-error" role="alert"><AlertTriangle size={16} />{error}</p>}
             <div className="privacy-note"><ShieldCheck size={18} aria-hidden="true" /><span><strong>{c.localProcessing}</strong>{locale === 'ru' ? 'Файл передаётся только настроенному сервису анализа; прямые идентификаторы не включаются в ответ и логи приложения.' : 'The file is sent only to the configured analysis service; direct identifiers are excluded from its response and application logs.'}</span></div>
           </>
@@ -543,18 +561,21 @@ function UploadDialog({ open, locale, busy, error, onClose, onFile }: { open: bo
 }
 
 function App() {
-  const [locale, setLocale] = useState<Locale>('ru')
+  const [locale, setLocale] = useState<Locale>(readStoredLocale)
   const [studies, setStudies] = useState(initialStudies)
-  const [selectedId, setSelectedId] = useState(initialStudies[0].id)
+  const [selectedId, setSelectedId] = useState(readStoredStudyId)
   const [query, setQuery] = useState('')
-  const [tab, setTab] = useState<Tab>('analysis')
+  const [tab, setTab] = useState<Tab>(readStoredTab)
   const [uploadOpen, setUploadOpen] = useState(false)
   const [uploadBusy, setUploadBusy] = useState(false)
   const [uploadError, setUploadError] = useState('')
   const [announcement, setAnnouncement] = useState('')
-  const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>(() => window.location.hash === '#dataset' ? 'dataset' : 'analysis')
+  const [announcementTone, setAnnouncementTone] = useState<'success' | 'info'>('success')
+  const announcementTimer = useRef<number | undefined>(undefined)
+  const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>(workspaceFromLocation)
   const c = copy[locale]
   const selected = studies.find((study) => study.id === selectedId) ?? studies[0]
+  const selectedPrivacyVerified = selected.privacy.deidentificationVerified && selected.privacy.burnedInAnnotation === 'NO'
   const filteredStudies = useMemo(() => {
     const normalized = query.trim().toLowerCase()
     if (!normalized) return studies
@@ -563,13 +584,46 @@ function App() {
 
   useEffect(() => {
     document.documentElement.lang = locale
-    document.title = locale === 'ru' ? 'Osseo AI — контроль качества денситометрии' : 'Osseo AI — densitometry quality control'
-  }, [locale])
+    document.title = workspaceMode === 'dataset'
+      ? 'Dataset Workbench — Osseo AI'
+      : locale === 'ru' ? 'Osseo AI — контроль качества денситометрии' : 'Osseo AI — densitometry quality control'
+    try { window.localStorage.setItem('osseo-locale', locale) } catch { /* storage may be disabled */ }
+  }, [locale, workspaceMode])
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem('osseo-study', selectedId)
+      window.localStorage.setItem('osseo-tab', tab)
+    } catch { /* storage may be disabled */ }
+  }, [selectedId, tab])
+
+  useEffect(() => {
+    const syncWorkspace = () => setWorkspaceMode(workspaceFromLocation())
+    window.addEventListener('popstate', syncWorkspace)
+    window.addEventListener('hashchange', syncWorkspace)
+    return () => {
+      window.removeEventListener('popstate', syncWorkspace)
+      window.removeEventListener('hashchange', syncWorkspace)
+      if (announcementTimer.current !== undefined) window.clearTimeout(announcementTimer.current)
+    }
+  }, [])
+
+  const showAnnouncement = (message: string, tone: 'success' | 'info' = 'success', duration = 4000) => {
+    if (announcementTimer.current !== undefined) window.clearTimeout(announcementTimer.current)
+    setAnnouncementTone(tone)
+    setAnnouncement(message)
+    announcementTimer.current = window.setTimeout(() => {
+      setAnnouncement('')
+      announcementTimer.current = undefined
+    }, duration)
+  }
 
   const selectStudy = (id: string) => { setSelectedId(id); setTab('analysis') }
+  const toggleLocale = () => setLocale((current) => current === 'ru' ? 'en' : 'ru')
   const selectWorkspace = (mode: WorkspaceMode) => {
+    if (mode === workspaceMode) return
     setWorkspaceMode(mode)
-    window.history.replaceState(null, '', mode === 'dataset' ? '#dataset' : '#analysis')
+    window.history.pushState(null, '', mode === 'dataset' ? '#dataset' : '#analysis')
   }
 
   const handleTabKey = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -595,9 +649,10 @@ function App() {
       const study = await analyzeStudy(file)
       setStudies((current) => [study, ...current.filter((item) => item.id !== study.id)])
       setSelectedId(study.id)
+      setQuery('')
+      setTab('analysis')
       setUploadOpen(false)
-      setAnnouncement(c.added)
-      window.setTimeout(() => setAnnouncement(''), 4000)
+      showAnnouncement(c.added)
     } catch (error) {
       const code = error instanceof DicomAnalysisError ? error.code : 'invalid-dicom'
       setUploadError(code === 'empty-file' ? c.emptyFile : code === 'file-too-large' ? c.fileTooLarge : c.invalidDicom)
@@ -630,8 +685,12 @@ function App() {
     const link = document.createElement('a')
     link.href = href
     link.download = `osseo-report-${selected.id}.json`
+    link.hidden = true
+    document.body.appendChild(link)
     link.click()
-    URL.revokeObjectURL(href)
+    link.remove()
+    window.setTimeout(() => URL.revokeObjectURL(href), 0)
+    showAnnouncement(c.reportDownloaded)
   }
 
   return (
@@ -661,25 +720,25 @@ function App() {
       <div className="workspace" inert={uploadOpen ? true : undefined}>
         <header className="topbar">
           <div className="mobile-brand"><BrandMark /><strong>{c.product}</strong></div>
-          <div className={`privacy-pill ${workspaceMode === 'analysis' && !selected.privacy.deidentificationVerified ? 'privacy-unverified' : ''}`}>
-            {workspaceMode === 'dataset' || selected.privacy.deidentificationVerified ? <ShieldCheck size={16} aria-hidden="true" /> : <AlertTriangle size={16} aria-hidden="true" />}
-            {workspaceMode === 'dataset' ? (locale === 'ru' ? 'Обезличенный dataset' : 'De-identified dataset') : selected.privacy.deidentificationVerified ? c.anonymized : c.anonymizationUnverified}
+          <div className={`privacy-pill ${workspaceMode === 'analysis' && !selectedPrivacyVerified ? 'privacy-unverified' : ''}`}>
+            {workspaceMode === 'dataset' || selectedPrivacyVerified ? <ShieldCheck size={16} aria-hidden="true" /> : <AlertTriangle size={16} aria-hidden="true" />}
+            {workspaceMode === 'dataset' ? (locale === 'ru' ? 'Обезличенный dataset' : 'De-identified dataset') : selectedPrivacyVerified ? c.anonymized : c.anonymizationUnverified}
           </div>
           <div className="top-actions">
-            <button className="language-switch" onClick={() => setLocale(locale === 'ru' ? 'en' : 'ru')} aria-label={locale === 'ru' ? 'Switch to English' : 'Переключить на русский'}>
+            <button className="language-switch" onClick={toggleLocale} aria-label={locale === 'ru' ? 'Switch to English' : 'Переключить на русский'}>
               <Languages size={16} /><span className={locale === 'ru' ? 'active' : ''}>RU</span><i /> <span className={locale === 'en' ? 'active' : ''}>EN</span>
             </button>
             <button className="icon-button mobile-workspace-button" onClick={() => selectWorkspace(workspaceMode === 'analysis' ? 'dataset' : 'analysis')} aria-label={workspaceMode === 'analysis' ? 'Dataset Workbench' : (locale === 'ru' ? 'Перейти к анализу DICOM' : 'Open DICOM analysis')} title={workspaceMode === 'analysis' ? 'Dataset Workbench' : 'DICOM QC'}>{workspaceMode === 'analysis' ? <Database size={18} /> : <Activity size={18} />}</button>
             {workspaceMode === 'analysis' && <button className="icon-button mobile-upload-button" onClick={() => { setUploadError(''); setUploadOpen(true) }} aria-label={c.uploadAnother} title={c.uploadAnother}><Upload size={18} /></button>}
-            <button className="icon-button help-button" aria-label={c.help} title={c.help} onClick={() => { setAnnouncement(c.helpMessage); window.setTimeout(() => setAnnouncement(''), 6000) }}><CircleHelp size={19} /></button>
+            <button className="icon-button help-button" aria-label={c.help} title={c.help} onClick={() => showAnnouncement(c.helpMessage, 'info', 6000)}><CircleHelp size={19} /></button>
           </div>
         </header>
 
-        <main id="main-content" className="main-content">
+        <main id="main-content" className="main-content" tabIndex={-1}>
           {workspaceMode === 'analysis' && <div id="mobile-studies" className="mobile-study-strip" aria-label={c.allStudies} tabIndex={-1}>
-            {studies.slice(0, 4).map((study) => <StudyListItem key={study.id} study={study} locale={locale} active={selected.id === study.id} onClick={() => selectStudy(study.id)} />)}
+            {studies.map((study) => <StudyListItem key={study.id} study={study} locale={locale} active={selected.id === study.id} onClick={() => selectStudy(study.id)} />)}
           </div>}
-          {workspaceMode === 'dataset' ? <DatasetWorkbench locale={locale} /> : <>
+          {workspaceMode === 'dataset' ? <Suspense fallback={<div className="workspace-loading" role="status"><LoaderCircle className="spinner" size={24} aria-hidden="true" /><span>{locale === 'ru' ? 'Загружаем рабочее пространство…' : 'Loading workspace…'}</span></div>}><DatasetWorkbench locale={locale} /></Suspense> : <>
           <section className="study-header" aria-labelledby="page-title">
             <div className="study-title">
               <button className="back-button" aria-label={c.backToList} onClick={() => document.getElementById('mobile-studies')?.focus()}><ChevronLeft size={20} /></button>
@@ -711,15 +770,15 @@ function App() {
             <button id="tab-dicom" role="tab" aria-selected={tab === 'dicom'} aria-controls="panel-dicom" tabIndex={tab === 'dicom' ? 0 : -1} className={tab === 'dicom' ? 'is-active' : ''} onClick={() => setTab('dicom')}>{c.dicom}</button>
           </div>
 
-          {tab === 'analysis' && <div id="panel-analysis" role="tabpanel" aria-labelledby="tab-analysis" className="analysis-grid"><DicomViewer key={selected.id} study={selected} locale={locale} /><CriteriaPanel study={selected} locale={locale} /></div>}
-          {tab === 'dynamics' && <div id="panel-dynamics" role="tabpanel" aria-labelledby="tab-dynamics"><LongitudinalPanel key={selected.id} study={selected} locale={locale} onUpload={() => { setUploadError(''); setUploadOpen(true) }} /></div>}
-          {tab === 'dicom' && <div id="panel-dicom" role="tabpanel" aria-labelledby="tab-dicom"><MetadataPanel study={selected} locale={locale} /></div>}
+          {tab === 'analysis' && <div id="panel-analysis" role="tabpanel" aria-labelledby="tab-analysis" tabIndex={0} className="analysis-grid"><DicomViewer key={selected.id} study={selected} locale={locale} /><CriteriaPanel study={selected} locale={locale} /></div>}
+          {tab === 'dynamics' && <div id="panel-dynamics" role="tabpanel" aria-labelledby="tab-dynamics" tabIndex={0}><LongitudinalPanel key={selected.id} study={selected} locale={locale} onUpload={() => { setUploadError(''); setUploadOpen(true) }} /></div>}
+          {tab === 'dicom' && <div id="panel-dicom" role="tabpanel" aria-labelledby="tab-dicom" tabIndex={0}><MetadataPanel study={selected} locale={locale} /></div>}
           </>}
         </main>
       </div>
       <UploadDialog open={uploadOpen} locale={locale} busy={uploadBusy} error={uploadError} onClose={() => setUploadOpen(false)} onFile={handleFile} />
       <div className="sr-only" role="status" aria-live="polite">{announcement}</div>
-      {announcement && <div className="toast"><CheckCircle2 size={18} />{announcement}</div>}
+      {announcement && <div className={`toast toast-${announcementTone}`} aria-hidden="true">{announcementTone === 'success' ? <CheckCircle2 size={18} /> : <Info size={18} />}{announcement}</div>}
     </div>
   )
 }

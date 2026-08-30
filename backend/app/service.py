@@ -47,7 +47,9 @@ def analyze(prepared: PreparedStudy, protocol_override: str | None = None) -> di
     accession_identifier = _hash(str(metadata.get("accession_number") or identity_seed))
     series_identifier = _hash(str(metadata.get("series_uid") or identity_seed))
     study_identifier = _hash(str(metadata.get("study_uid") or identity_seed))
-    privacy_verified = bool(metadata.get("patient_identity_removed"))
+    identity_removed = bool(metadata.get("patient_identity_removed"))
+    pixels_verified = metadata.get("burned_in_annotation") == "NO"
+    privacy_verified = identity_removed and pixels_verified
 
     warnings = [
         text(
@@ -59,10 +61,15 @@ def analyze(prepared: PreparedStudy, protocol_override: str | None = None) -> di
             "The model creates 105 landmarks but does not validate vendor-specific ROIs or diagnose osteoporosis.",
         ),
     ]
-    if not privacy_verified:
+    if not identity_removed:
         warnings.append(text(
             "DICOM не подтверждает удаление идентификаторов пациента; ответ содержит только псевдонимы.",
             "The DICOM does not confirm identity removal; the response contains pseudonyms only.",
+        ))
+    if not pixels_verified:
+        warnings.append(text(
+            "Отсутствие персональных данных в пикселях не подтверждено.",
+            "The absence of identifying text in Pixel Data is not confirmed.",
         ))
 
     recommendation = text(
