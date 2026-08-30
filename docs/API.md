@@ -114,6 +114,18 @@ landmark inference. Клиент `src/services/ml-analysis.ts` вызывает 
 
 Сравнивает текущее исследование с baseline после независимой оценки качества обоих исследований. Вход содержит `baselineStudyId`, `currentStudyId` и идентификатор записи LSC учреждения. BMD должен быть получен из проверенного структурированного источника или подтверждённого vendor-adapter, а не оцениваться по яркости preview.
 
+Рабочая реализация доступна как `POST /api/v1/longitudinal/compare`; старое имя
+`/studies/compare` оставлено как первоначальный интеграционный контракт.
+
+Перед сравнением registry заполняется через:
+
+- `PUT /api/v1/longitudinal/measurements/{studyId}` — подтверждённые BMD и QC;
+- `GET /api/v1/longitudinal/patients/{patientGroupId}/timeline` — временной ряд;
+- `GET /api/v1/longitudinal/measurements/{studyId}/baseline-candidates` — предыдущие кандидаты;
+- `PUT /api/v1/longitudinal/lsc-profiles/{profileId}` — versioned facility LSC;
+- `PUT /api/v1/longitudinal/cross-calibrations/{calibrationId}` — межаппаратная калибровка.
+- `GET /api/v1/longitudinal/comparisons/{comparisonId}` — сохранённый неизменяемый результат расчёта.
+
 ```json
 {
   "baselineStudyId": "ST-0118",
@@ -149,7 +161,7 @@ landmark inference. Клиент `src/services/ml-analysis.ts` вызывает 
 - `review`, если требуется коррекция укладки/ROI и сравнение можно пересчитать после подтверждения;
 - `comparable` только после всех обязательных проверок;
 - `significant-gain/loss` только при `comparable` и `|ΔBMD%| ≥ LSC%`;
-- смена аппарата требует действующей записи cross-calibration, иначе возвращается `422 CROSS_CALIBRATION_REQUIRED`.
+- смена аппарата требует действующей записи cross-calibration, иначе результат имеет `status=not-comparable`, gate `cross_calibration=block` и не содержит интерпретируемого тренда.
 
 ## Ошибки и наблюдаемость
 
@@ -157,6 +169,7 @@ landmark inference. Клиент `src/services/ml-analysis.ts` вызывает 
 - `413 FILE_TOO_LARGE` — превышен лимит;
 - `415 UNSUPPORTED_MEDIA_TYPE` — вход не распознан как DICOM-файл;
 - `422 INVALID_PROTOCOL_OVERRIDE` — передан неизвестный ручной маршрут;
+- `422 SECONDARY_CAPTURE_EXCLUDED` — цветной presentation/print DICOM исключён из обучающего контура и записан в PHI-безопасный реестр;
 - `422 UNSUPPORTED_PROTOCOL` — исследование не относится к поддерживаемым протоколам;
 - `503 MODEL_UNAVAILABLE` — inference временно недоступен.
 
@@ -164,6 +177,36 @@ landmark inference. Клиент `src/services/ml-analysis.ts` вызывает 
 или Pixel Data. В production ingress должен назначать `X-Request-ID`, а журналы —
 хранить только этот идентификатор, псевдонимы, хеш модели, длительности этапов и
 коды ошибок. Конфигурация reverse proxy требует отдельного privacy-аудита.
+
+## Dataset Workbench API
+
+Backend читает только экспорт `osseo-apex`, в котором
+`privacy.directIdentifiersExported=false`. Исходные RAR/P/R и DICOM в этот
+контур не подключаются.
+
+- `GET /api/v1/datasets/current` — сводка, протоколы, split и число разметок;
+- `GET /api/v1/datasets/current/integrity` — версия dataset, проверка ассетов, leakage и cross-split duplicates;
+- `GET /api/v1/datasets/current/agreement` — покрытие, независимые чтения, Cohen κ и landmark disagreement;
+- `GET /api/v1/datasets/current/adjudication` — очередь расхождений, требующих третьего эксперта;
+- `GET /api/v1/datasets/current/studies` — фильтруемый manifest;
+- `GET /api/v1/datasets/current/studies/{studyId}` — карточка и экспертные чтения;
+- `GET /api/v1/datasets/current/studies/{studyId}/assets/{asset}.png` — processed raster;
+- `GET /api/v1/datasets/current/studies/{studyId}/raw/{0..5}.png` — percentile preview raw-канала;
+- `PUT /api/v1/datasets/current/studies/{studyId}/annotations` — валидированная разметка v1;
+- `GET /api/v1/datasets/current/exports/coco` — геометрия COCO-style;
+- `GET /api/v1/datasets/current/exports/annotations` — полные экспертные чтения JSONL;
+- `GET /api/v1/exclusions` — PHI-безопасный реестр presentation-объектов.
+- `GET /api/v1/readiness` — hard release gates версии `ru-dxa-qc/1.0.0`;
+- `GET /api/v1/audit/status` — проверка hash-chain PHI-free audit trail без выдачи самих событий.
+
+Каждый `/api`-ответ имеет `X-Request-ID`, `Cache-Control: no-store` и базовые
+security headers. Сохранение разметки, выгрузка и исключение presentation-объекта
+добавляют tamper-evident audit event. Файловая hash-chain обнаруживает изменение,
+но не заменяет WORM-хранилище и журнал доступа production-контура.
+
+Исходный `transmissions.npy` через HTTP не выдаётся. Preview raw нормализуется
+только для визуального просмотра; значения в NPY не изменяются и сохраняют
+контракт `height × logical_width × 6 uint16` с `phaseSemantics=unverified`.
 
 ## Требования перед клиническим внедрением
 

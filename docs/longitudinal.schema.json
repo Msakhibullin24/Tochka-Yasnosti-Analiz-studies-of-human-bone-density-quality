@@ -1,26 +1,37 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://osseo.ai/schemas/dxa-longitudinal-v1.json",
+  "$id": "https://osseo.ai/schemas/dxa-longitudinal-v2.json",
   "title": "DXA longitudinal comparison result",
   "type": "object",
   "additionalProperties": false,
-  "required": ["baselineStudyId", "currentStudyId", "status", "confidence", "assumed", "checks", "sites"],
+  "required": ["schemaVersion", "comparisonId", "engineVersion", "decisionBasis", "baselineStudyId", "currentStudyId", "patientGroupId", "baselineDate", "currentDate", "intervalMonths", "lscProfileId", "lscProfileVersion", "status", "assumed", "checks", "sites", "recommendationCode", "comparedAt"],
   "properties": {
-    "baselineStudyId": { "type": "string", "minLength": 1 },
-    "currentStudyId": { "type": "string", "minLength": 1 },
-    "lscProfileId": { "type": "string", "minLength": 1 },
+    "schemaVersion": { "const": "2.0.0" },
+    "comparisonId": { "pattern": "^CMP-[A-F0-9]{20}$" },
+    "engineVersion": { "const": "osseo-longitudinal/2.0.0" },
+    "decisionBasis": { "const": "deterministic-quality-gates" },
+    "baselineStudyId": { "pattern": "^ST-[A-F0-9]{20}$" },
+    "currentStudyId": { "pattern": "^ST-[A-F0-9]{20}$" },
+    "patientGroupId": { "pattern": "^PG-[A-F0-9]{20}$" },
+    "baselineDate": { "type": "string", "format": "date" },
+    "currentDate": { "type": "string", "format": "date" },
+    "intervalMonths": { "type": "integer", "minimum": 0 },
+    "lscProfileId": { "pattern": "^LSC-[A-Z0-9._-]{4,76}$" },
+    "lscProfileVersion": { "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "crossCalibrationId": { "type": ["string", "null"] },
     "status": { "enum": ["comparable", "review", "not-comparable"] },
-    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
-    "assumed": { "type": "boolean" },
+    "assumed": { "const": false },
     "checks": {
       "type": "array",
-      "minItems": 5,
+      "minItems": 10,
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "passed", "critical"],
+        "required": ["id", "label", "status", "passed", "critical", "detail"],
         "properties": {
-          "id": { "enum": ["protocol", "device", "cross-calibration", "positioning", "roi"] },
+          "id": { "enum": ["patient", "chronology", "protocol", "structured_bmd", "quality", "positioning", "roi", "device", "cross_calibration", "lsc_profile"] },
+          "label": { "type": "string" },
+          "status": { "enum": ["pass", "review", "block"] },
           "passed": { "type": "boolean" },
           "critical": { "type": "boolean" },
           "detail": { "type": "string" }
@@ -29,7 +40,7 @@
     },
     "sites": {
       "type": "array",
-      "minItems": 1,
+      "minItems": 0,
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -44,6 +55,8 @@
           "status": { "enum": ["significant-gain", "stable", "significant-loss", "not-comparable"] }
         }
       }
-    }
+    },
+    "recommendationCode": { "enum": ["INTERPRET_WITH_CLINICAL_CONTEXT", "EXPERT_REVIEW_REQUIRED", "COMPARISON_BLOCKED"] },
+    "comparedAt": { "type": "string", "format": "date-time" }
   }
 }

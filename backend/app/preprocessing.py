@@ -10,6 +10,14 @@ class InvalidDicom(ValueError):
     pass
 
 
+class ExcludedDicom(ValueError):
+    """A readable presentation object that must not enter the ML dataset."""
+
+    def __init__(self, message: str, *, reason: str = "secondary_capture"):
+        super().__init__(message)
+        self.reason = reason
+
+
 @dataclass
 class PreparedStudy:
     image: Any
@@ -49,7 +57,10 @@ def _normalize_pixels(pixel_array, photometric: str):
     import numpy as np
 
     image = np.asarray(pixel_array)
-    if image.ndim > 2:
+    if image.ndim == 3 and image.shape[-1] in (3, 4):
+        rgb = image[..., :3].astype(np.float32)
+        image = rgb[..., 0] * 0.2126 + rgb[..., 1] * 0.7152 + rgb[..., 2] * 0.0722
+    elif image.ndim > 2:
         image = image[0]
     if image.ndim != 2:
         raise InvalidDicom("Only single-frame grayscale DXA images are supported")
@@ -75,7 +86,18 @@ def prepare_dicom(payload: bytes) -> PreparedStudy:
 
     try:
         dataset = pydicom.dcmread(io.BytesIO(payload), force=False)
+        sop_class_uid = _safe_text(dataset, "SOPClassUID")
+        samples_per_pixel = int(getattr(dataset, "SamplesPerPixel", 1) or 1)
+        photometric = _safe_text(dataset, "PhotometricInterpretation", "MONOCHROME2")
+        presentation_rgb = samples_per_pixel > 1 or photometric.upper().startswith(("RGB", "YBR"))
+        if presentation_rgb:
+            raise ExcludedDicom(
+                "Presentation RGB DICOM is readable but excluded from ML training and anatomical inference",
+                reason="secondary_capture" if sop_class_uid == "1.2.840.10008.5.1.4.1.1.7" else "color_presentation",
+            )
         raw_pixels = dataset.pixel_array
+    except ExcludedDicom:
+        raise
     except Exception as error:
         raise InvalidDicom(f"Unable to decode DICOM Pixel Data: {error}") from error
 
@@ -106,6 +128,9 @@ def prepare_dicom(payload: bytes) -> PreparedStudy:
         "photometric": _safe_text(dataset, "PhotometricInterpretation"),
         "transfer_syntax_uid": str(getattr(getattr(dataset, "file_meta", None), "TransferSyntaxUID", "")),
         "bits_allocated": int(getattr(dataset, "BitsAllocated", 0) or 0),
+        "sop_class_uid": _safe_text(dataset, "SOPClassUID"),
+        "samples_per_pixel": int(getattr(dataset, "SamplesPerPixel", 1) or 1),
+        "training_eligible": True,
         "patient_identity_removed": _safe_text(dataset, "PatientIdentityRemoved").upper() == "YES",
         "burned_in_annotation": _safe_text(dataset, "BurnedInAnnotation").upper() or None,
     }

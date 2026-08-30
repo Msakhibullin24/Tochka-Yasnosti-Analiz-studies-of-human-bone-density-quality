@@ -46,6 +46,9 @@ export interface DicomTechnicalData {
   photometricInterpretation?: string | null
   transferSyntaxUid?: string | null
   bitsAllocated?: number | null
+  sopClassUid?: string | null
+  samplesPerPixel?: number | null
+  trainingEligible?: boolean
 }
 
 export interface AnalysisProvenance {

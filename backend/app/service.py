@@ -4,8 +4,9 @@ import hashlib
 from datetime import datetime, timezone
 
 from .inference import model
+from .model_adapters import TotalBodyLandmarkAdapter
 from .preprocessing import PreparedStudy
-from .qc import assess_landmarks, summarize, text
+from .qc import summarize, text
 from .routing import RouteDecision, route_protocol
 from .settings import settings
 
@@ -34,8 +35,9 @@ def analyze(prepared: PreparedStudy, protocol_override: str | None = None) -> di
             f"No ready anatomical model for protocol '{decision.protocol}'.",
             decision,
         )
-    landmarks = model.predict(prepared.image)
-    criteria = assess_landmarks(landmarks, prepared.content_bbox)
+    prediction = TotalBodyLandmarkAdapter(model).run(prepared)
+    landmarks = list(prediction.landmarks)
+    criteria = list(prediction.criteria)
     status, score, confidence = summarize(criteria)
 
     identity_seed = metadata.get("series_uid") or metadata.get("study_uid") or hashlib.sha256(prepared.image.tobytes()).hexdigest()
@@ -108,6 +110,7 @@ def analyze(prepared: PreparedStudy, protocol_override: str | None = None) -> di
         },
         "previewUrl": prepared.preview_url,
         "routing": decision.as_dict(),
+        "adapter": prediction.metadata,
         "landmarks": [item.as_dict() for item in landmarks],
         "criteria": [item.as_dict() for item in criteria],
         "recommendation": recommendation,

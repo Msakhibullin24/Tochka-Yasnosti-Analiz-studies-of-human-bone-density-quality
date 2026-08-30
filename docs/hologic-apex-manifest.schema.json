@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://osseo.ai/schemas/hologic-apex-manifest-v1.json",
+  "title": "Osseo Hologic APEX de-identified study manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "loaderVersion", "studyId", "patientGroupId",
+    "deviceGroup", "protocol", "protocolCode", "source",
+    "processedImages", "raw", "quality", "privacy"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "loaderVersion": { "const": "hologic-apex-loader/1.0.0" },
+    "studyId": { "type": "string", "pattern": "^ST-[A-F0-9]{20}$" },
+    "patientGroupId": { "type": "string", "pattern": "^PG-[A-F0-9]{20}$" },
+    "deviceGroup": { "type": "string", "pattern": "^DV-[A-F0-9]{20}$" },
+    "protocol": {
+      "enum": [
+        "spine_pa", "hip_left", "hip_right", "forearm_left",
+        "forearm_right", "total_body", "unsupported"
+      ]
+    },
+    "protocolCode": { "type": "string", "minLength": 1 },
+    "acquisitionYear": {
+      "oneOf": [
+        { "type": "string", "pattern": "^(19|20)[0-9]{2}$" },
+        { "type": "null" }
+      ]
+    },
+    "softwareVersion": { "type": ["string", "null"] },
+    "split": { "enum": ["train", "validation", "test"] },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pFingerprint", "rFingerprint"],
+      "properties": {
+        "pFingerprint": { "type": "string", "pattern": "^[A-F0-9]{20}$" },
+        "rFingerprint": { "type": "string", "pattern": "^[A-F0-9]{20}$" }
+      }
+    },
+    "processedImages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["tag", "width", "height", "descriptor", "dtype", "p01", "p99", "clippedFraction"],
+        "properties": {
+          "tag": { "enum": ["0x0046", "0x0165"] },
+          "width": { "type": "integer", "minimum": 1 },
+          "height": { "type": "integer", "minimum": 1 },
+          "descriptor": { "type": "integer", "minimum": 0 },
+          "dtype": { "const": "uint8" },
+          "p01": { "type": "integer", "minimum": 0, "maximum": 255 },
+          "p99": { "type": "integer", "minimum": 0, "maximum": 255 },
+          "clippedFraction": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "raw": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "storedWidth", "logicalWidth", "height", "transmissionCount",
+        "dtype", "shape", "phaseSemantics", "saturatedFraction", "phases"
+      ],
+      "properties": {
+        "storedWidth": { "type": "integer", "minimum": 6 },
+        "logicalWidth": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "transmissionCount": { "const": 6 },
+        "dtype": { "const": "uint16-le" },
+        "shape": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "prefixItems": [
+            { "type": "integer", "minimum": 1 },
+            { "type": "integer", "minimum": 1 },
+            { "const": 6 }
+          ],
+          "items": false
+        },
+        "phaseSemantics": { "const": "unverified" },
+        "saturatedFraction": { "type": "number", "minimum": 0, "maximum": 1 },
+        "phases": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["index", "minimum", "maximum", "p01", "p99"],
+            "properties": {
+              "index": { "type": "integer", "minimum": 0, "maximum": 5 },
+              "minimum": { "type": "integer", "minimum": 0, "maximum": 65535 },
+              "maximum": { "type": "integer", "minimum": 0, "maximum": 65535 },
+              "p01": { "type": "integer", "minimum": 0, "maximum": 65535 },
+              "p99": { "type": "integer", "minimum": 0, "maximum": 65535 }
+            }
+          }
+        }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewRequired", "flags"],
+      "properties": {
+        "reviewRequired": { "type": "boolean" },
+        "flags": {
+          "type": "array", "items": { "type": "string" }, "uniqueItems": true
+        }
+      }
+    },
+    "technicalQc": { "type": "object" },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pseudonymization", "directIdentifiersExported"],
+      "properties": {
+        "pseudonymization": { "const": "HMAC-SHA256-160" },
+        "directIdentifiersExported": { "const": false }
+      }
+    }
+  }
+}

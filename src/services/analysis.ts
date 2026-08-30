@@ -34,8 +34,8 @@ const stableHash = async (input: string) => {
   return Array.from(new Uint8Array(digest).slice(0, 4), (byte) => byte.toString(16).padStart(2, '0')).join('').toUpperCase()
 }
 
-const inferStudyType = (dicom: ParsedDicom): { type: StudyType; recognized: boolean } => {
-  const haystack = `${dicom.bodyPart} ${dicom.description} ${dicom.protocolName}`.toUpperCase()
+const inferStudyType = (dicom: ParsedDicom, filename = ''): { type: StudyType; recognized: boolean } => {
+  const haystack = `${dicom.bodyPart} ${dicom.description} ${dicom.protocolName} ${filename}`.toUpperCase()
   if (/HIP|FEMUR|FEMOR|PROXIMAL|БЕДР|ТАЗОБЕДР/.test(haystack)) return { type: 'hip', recognized: true }
   if (/SPINE|LUMBAR|LSP|L[1-5]|ПОЗВ|ПОЯСНИЧ/.test(haystack)) return { type: 'spine', recognized: true }
   return { type: 'spine', recognized: false }
@@ -70,7 +70,7 @@ function buildCriteria(dicom: ParsedDicom, protocolRecognized: boolean): Criteri
         ? t('Диапазон яркости и доля предельных пикселей прошли технический pre-screening.', 'Intensity range and clipped-pixel rate passed technical pre-screening.')
         : t('Диапазон яркости или доля предельных пикселей требуют проверки оператором.', 'Intensity range or clipped-pixel rate requires operator review.')
 
-  return [
+  const criteria = [
     criterion(
       'dicom-integrity',
       t('Целостность DICOM', 'DICOM integrity'),
@@ -98,6 +98,14 @@ function buildCriteria(dicom: ParsedDicom, protocolRecognized: boolean): Criteri
       100,
     ),
   ]
+  if (!dicom.trainingEligible) criteria.unshift(criterion(
+    'training-eligibility',
+    t('Пригодность для ML', 'ML eligibility'),
+    t('Файл является цветным печатным представлением. Он сохранён в реестре исключений и не входит в обучающую выборку.', 'This is a color presentation render. It is recorded as excluded and does not enter the training dataset.'),
+    'fail',
+    100,
+  ))
+  return criteria
 }
 
 const summarizeStatus = (criteria: Criterion[]): StudyStatus => {
@@ -123,7 +131,7 @@ export async function analyzeDicom(file: File): Promise<Study> {
     throw new DicomAnalysisError('invalid-dicom', `Unable to parse DICOM: ${reason}`)
   }
 
-  const inferred = inferStudyType(dicom)
+  const inferred = inferStudyType(dicom, file.name)
   const identitySeed = dicom.seriesInstanceUid || dicom.studyInstanceUid || `${file.name}:${file.size}`
   const patientSeed = dicom.patientId || dicom.studyInstanceUid || identitySeed
   const [identifier, patientIdentifier, accessionIdentifier, seriesIdentifier, studyIdentifier] = await Promise.all([
@@ -150,6 +158,9 @@ export async function analyzeDicom(file: File): Promise<Study> {
   if (dicom.burnedInAnnotation !== 'NO') {
     warnings.push(t('Отсутствие персональных данных в пикселях не подтверждено.', 'The absence of identifying text in Pixel Data is not confirmed.'))
   }
+  if (!dicom.trainingEligible) {
+    warnings.unshift(t('Печатный RGB DICOM исключён из ML-выборки; используйте исходную P/R-пару.', 'The presentation RGB DICOM was excluded from ML; use the source P/R pair.'))
+  }
 
   return {
     id: `ST-${identifier}`,
@@ -174,6 +185,9 @@ export async function analyzeDicom(file: File): Promise<Study> {
       photometricInterpretation: dicom.photometricInterpretation || undefined,
       transferSyntaxUid: dicom.transferSyntaxUid,
       bitsAllocated: dicom.bitsAllocated,
+      sopClassUid: dicom.sopClassUid,
+      samplesPerPixel: dicom.samplesPerPixel,
+      trainingEligible: dicom.trainingEligible,
     },
     provenance: {
       mode: 'technical-screening',
@@ -188,7 +202,9 @@ export async function analyzeDicom(file: File): Promise<Study> {
     },
     previewUrl: dicom.previewUrl,
     criteria,
-    recommendation: status === 'rejected'
+    recommendation: !dicom.trainingEligible
+      ? t('Не использовать этот файл для обучения. Загрузите исходную P/R-пару из рабочей станции Hologic.', 'Do not use this file for training. Load the source Hologic P/R pair instead.')
+      : status === 'rejected'
       ? t('Исправьте технические ошибки файла и повторите экспорт из рабочей станции.', 'Fix the technical file errors and export the study again from the workstation.')
       : t('Перед клиническим решением выполните экспертную проверку позиционирования и ROI.', 'Review positioning and ROIs before any clinical decision.'),
   }

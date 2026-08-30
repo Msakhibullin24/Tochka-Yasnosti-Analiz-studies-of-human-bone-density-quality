@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   ChevronLeft,
   CircleHelp,
+  Database,
   Download,
   Eye,
   EyeOff,
@@ -30,11 +31,13 @@ import {
   XCircle,
 } from 'lucide-react'
 import { copy, initialStudies } from './data'
+import DatasetWorkbench from './DatasetWorkbench'
 import { DicomAnalysisError, isDicomFile, MAX_DICOM_BYTES } from './services/analysis'
 import { analyzeStudy } from './services/ml-analysis'
 import type { ComparisonStatus, CriterionStatus, Landmark, Locale, SiteChange, Study, StudyStatus, TrendStatus } from './types'
 
 type Tab = 'analysis' | 'dynamics' | 'dicom'
+type WorkspaceMode = 'analysis' | 'dataset'
 
 const statusIcon = (status: StudyStatus | CriterionStatus, size = 16) => {
   if (status === 'passed' || status === 'pass') return <CheckCircle2 size={size} aria-hidden="true" />
@@ -549,6 +552,7 @@ function App() {
   const [uploadBusy, setUploadBusy] = useState(false)
   const [uploadError, setUploadError] = useState('')
   const [announcement, setAnnouncement] = useState('')
+  const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>(() => window.location.hash === '#dataset' ? 'dataset' : 'analysis')
   const c = copy[locale]
   const selected = studies.find((study) => study.id === selectedId) ?? studies[0]
   const filteredStudies = useMemo(() => {
@@ -563,6 +567,10 @@ function App() {
   }, [locale])
 
   const selectStudy = (id: string) => { setSelectedId(id); setTab('analysis') }
+  const selectWorkspace = (mode: WorkspaceMode) => {
+    setWorkspaceMode(mode)
+    window.history.replaceState(null, '', mode === 'dataset' ? '#dataset' : '#analysis')
+  }
 
   const handleTabKey = (event: React.KeyboardEvent<HTMLDivElement>) => {
     const order: Tab[] = ['analysis', 'dynamics', 'dicom']
@@ -631,13 +639,19 @@ function App() {
       <a className="skip-link" href="#main-content">{locale === 'ru' ? 'Перейти к содержимому' : 'Skip to content'}</a>
       <aside className="sidebar" aria-label={c.studies} inert={uploadOpen ? true : undefined}>
         <div className="brand"><BrandMark /><span><strong>{c.product}</strong><small>{c.descriptor}</small></span></div>
-        <button className="primary-button sidebar-upload" onClick={() => { setUploadError(''); setUploadOpen(true) }}><Upload size={18} />{c.upload}</button>
-        <div className="sidebar-section-heading"><h2>{c.studies}</h2><span>{studies.length}</span></div>
-        <label className="search-field"><Search size={17} aria-hidden="true" /><span className="sr-only">{c.search}</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={c.search} /></label>
-        <nav className="study-list" aria-label={c.allStudies}>
-          {filteredStudies.map((study) => <StudyListItem key={study.id} study={study} locale={locale} active={selected.id === study.id} onClick={() => selectStudy(study.id)} />)}
-          {filteredStudies.length === 0 && <div className="empty-list"><Search size={24} /><strong>{c.noMatches}</strong><button onClick={() => setQuery('')}>{c.clearSearch}</button></div>}
+        <nav className="workspace-nav" aria-label={locale === 'ru' ? 'Рабочие пространства' : 'Workspaces'}>
+          <button className={workspaceMode === 'analysis' ? 'is-active' : ''} aria-current={workspaceMode === 'analysis' ? 'page' : undefined} onClick={() => selectWorkspace('analysis')}><Activity size={17} /><span><strong>{locale === 'ru' ? 'Анализ' : 'Analysis'}</strong><small>DICOM QC</small></span></button>
+          <button className={workspaceMode === 'dataset' ? 'is-active' : ''} aria-current={workspaceMode === 'dataset' ? 'page' : undefined} onClick={() => selectWorkspace('dataset')}><Database size={17} /><span><strong>Dataset Workbench</strong><small>{locale === 'ru' ? 'Данные и разметка' : 'Data & annotation'}</small></span></button>
         </nav>
+        {workspaceMode === 'analysis' ? <>
+          <button className="primary-button sidebar-upload" onClick={() => { setUploadError(''); setUploadOpen(true) }}><Upload size={18} />{c.upload}</button>
+          <div className="sidebar-section-heading"><h2>{c.studies}</h2><span>{studies.length}</span></div>
+          <label className="search-field"><Search size={17} aria-hidden="true" /><span className="sr-only">{c.search}</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={c.search} /></label>
+          <nav className="study-list" aria-label={c.allStudies}>
+            {filteredStudies.map((study) => <StudyListItem key={study.id} study={study} locale={locale} active={selected.id === study.id} onClick={() => selectStudy(study.id)} />)}
+            {filteredStudies.length === 0 && <div className="empty-list"><Search size={24} /><strong>{c.noMatches}</strong><button onClick={() => setQuery('')}>{c.clearSearch}</button></div>}
+          </nav>
+        </> : <div className="dataset-side-note"><Database size={21} /><strong>{locale === 'ru' ? 'Офлайн-контур' : 'Offline boundary'}</strong><p>{locale === 'ru' ? 'Workbench читает только обезличенный manifest и производные PNG/NPY.' : 'Workbench reads only a de-identified manifest and derived PNG/NPY assets.'}</p></div>}
         <div className="sidebar-footer">
           <div className="demo-label"><span className="pulse-dot" />{c.demo}</div>
           <p>{c.demoHint}</p>
@@ -647,22 +661,25 @@ function App() {
       <div className="workspace" inert={uploadOpen ? true : undefined}>
         <header className="topbar">
           <div className="mobile-brand"><BrandMark /><strong>{c.product}</strong></div>
-          <div className={`privacy-pill ${selected.privacy.deidentificationVerified ? '' : 'privacy-unverified'}`}>
-            {selected.privacy.deidentificationVerified ? <ShieldCheck size={16} aria-hidden="true" /> : <AlertTriangle size={16} aria-hidden="true" />}
-            {selected.privacy.deidentificationVerified ? c.anonymized : c.anonymizationUnverified}
+          <div className={`privacy-pill ${workspaceMode === 'analysis' && !selected.privacy.deidentificationVerified ? 'privacy-unverified' : ''}`}>
+            {workspaceMode === 'dataset' || selected.privacy.deidentificationVerified ? <ShieldCheck size={16} aria-hidden="true" /> : <AlertTriangle size={16} aria-hidden="true" />}
+            {workspaceMode === 'dataset' ? (locale === 'ru' ? 'Обезличенный dataset' : 'De-identified dataset') : selected.privacy.deidentificationVerified ? c.anonymized : c.anonymizationUnverified}
           </div>
           <div className="top-actions">
             <button className="language-switch" onClick={() => setLocale(locale === 'ru' ? 'en' : 'ru')} aria-label={locale === 'ru' ? 'Switch to English' : 'Переключить на русский'}>
               <Languages size={16} /><span className={locale === 'ru' ? 'active' : ''}>RU</span><i /> <span className={locale === 'en' ? 'active' : ''}>EN</span>
             </button>
+            <button className="icon-button mobile-workspace-button" onClick={() => selectWorkspace(workspaceMode === 'analysis' ? 'dataset' : 'analysis')} aria-label={workspaceMode === 'analysis' ? 'Dataset Workbench' : (locale === 'ru' ? 'Перейти к анализу DICOM' : 'Open DICOM analysis')} title={workspaceMode === 'analysis' ? 'Dataset Workbench' : 'DICOM QC'}>{workspaceMode === 'analysis' ? <Database size={18} /> : <Activity size={18} />}</button>
+            {workspaceMode === 'analysis' && <button className="icon-button mobile-upload-button" onClick={() => { setUploadError(''); setUploadOpen(true) }} aria-label={c.uploadAnother} title={c.uploadAnother}><Upload size={18} /></button>}
             <button className="icon-button help-button" aria-label={c.help} title={c.help} onClick={() => { setAnnouncement(c.helpMessage); window.setTimeout(() => setAnnouncement(''), 6000) }}><CircleHelp size={19} /></button>
           </div>
         </header>
 
         <main id="main-content" className="main-content">
-          <div id="mobile-studies" className="mobile-study-strip" aria-label={c.allStudies} tabIndex={-1}>
+          {workspaceMode === 'analysis' && <div id="mobile-studies" className="mobile-study-strip" aria-label={c.allStudies} tabIndex={-1}>
             {studies.slice(0, 4).map((study) => <StudyListItem key={study.id} study={study} locale={locale} active={selected.id === study.id} onClick={() => selectStudy(study.id)} />)}
-          </div>
+          </div>}
+          {workspaceMode === 'dataset' ? <DatasetWorkbench locale={locale} /> : <>
           <section className="study-header" aria-labelledby="page-title">
             <div className="study-title">
               <button className="back-button" aria-label={c.backToList} onClick={() => document.getElementById('mobile-studies')?.focus()}><ChevronLeft size={20} /></button>
@@ -697,6 +714,7 @@ function App() {
           {tab === 'analysis' && <div id="panel-analysis" role="tabpanel" aria-labelledby="tab-analysis" className="analysis-grid"><DicomViewer key={selected.id} study={selected} locale={locale} /><CriteriaPanel study={selected} locale={locale} /></div>}
           {tab === 'dynamics' && <div id="panel-dynamics" role="tabpanel" aria-labelledby="tab-dynamics"><LongitudinalPanel key={selected.id} study={selected} locale={locale} onUpload={() => { setUploadError(''); setUploadOpen(true) }} /></div>}
           {tab === 'dicom' && <div id="panel-dicom" role="tabpanel" aria-labelledby="tab-dicom"><MetadataPanel study={selected} locale={locale} /></div>}
+          </>}
         </main>
       </div>
       <UploadDialog open={uploadOpen} locale={locale} busy={uploadBusy} error={uploadError} onClose={() => setUploadOpen(false)} onFile={handleFile} />

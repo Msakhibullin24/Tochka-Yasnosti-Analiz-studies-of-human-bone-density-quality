@@ -60,6 +60,12 @@ export async function analyzeStudy(file: File): Promise<Study> {
       'The total-body model does not support this protocol; technical pre-screening was used.',
     ))
   }
+  if (response.status === 422 && code === 'SECONDARY_CAPTURE_EXCLUDED') {
+    return fallbackWithWarning(file, t(
+      'Печатный RGB DICOM принят для аудита, но исключён из ML-выборки. Требуется исходная P/R-пара.',
+      'The presentation RGB DICOM was accepted for audit but excluded from ML. The source P/R pair is required.',
+    ))
+  }
   if ([404, 502, 503, 504].includes(response.status)) {
     return fallbackWithWarning(file, t(
       'Исследовательская модель не готова к inference; выполнен локальный технический pre-screening.',

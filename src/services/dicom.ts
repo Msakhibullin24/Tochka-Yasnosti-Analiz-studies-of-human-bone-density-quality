@@ -29,6 +29,10 @@ export interface ParsedDicom {
   bitsAllocated?: number
   patientIdentityRemoved: boolean
   burnedInAnnotation?: 'YES' | 'NO'
+  sopClassUid: string
+  samplesPerPixel: number
+  trainingEligible: boolean
+  exclusionReason?: 'secondary-capture' | 'color-presentation'
   pixelDataPresent: boolean
   previewUrl?: string
   pixelQuality?: PixelQuality
@@ -142,6 +146,9 @@ export function parseDicomBytes(bytes: Uint8Array): ParsedDicom {
   const dataSet = dicomParser.parseDicom(bytes)
   const transferSyntaxUid = value(dataSet, 'x00020010', '1.2.840.10008.1.2')
   const photometricInterpretation = value(dataSet, 'x00280004')
+  const sopClassUid = value(dataSet, 'x00080016')
+  const samplesPerPixel = dataSet.uint16('x00280002') ?? 1
+  const colorPresentation = samplesPerPixel > 1 || /^(RGB|YBR)/i.test(photometricInterpretation)
   const decoded = readPixels(dataSet, transferSyntaxUid)
   const pixelQuality = decoded ? summarizePixels(decoded.pixels) : undefined
   const previewUrl = decoded && pixelQuality
@@ -172,6 +179,12 @@ export function parseDicomBytes(bytes: Uint8Array): ParsedDicom {
     patientIdentityRemoved: value(dataSet, 'x00120062').toUpperCase() === 'YES',
     burnedInAnnotation: ['YES', 'NO'].includes(value(dataSet, 'x00280301').toUpperCase())
       ? value(dataSet, 'x00280301').toUpperCase() as 'YES' | 'NO'
+      : undefined,
+    sopClassUid,
+    samplesPerPixel,
+    trainingEligible: !colorPresentation,
+    exclusionReason: colorPresentation
+      ? sopClassUid === '1.2.840.10008.5.1.4.1.1.7' ? 'secondary-capture' : 'color-presentation'
       : undefined,
     pixelDataPresent: Boolean(dataSet.elements.x7fe00010),
     previewUrl,
