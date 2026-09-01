@@ -126,6 +126,8 @@ make verify
 - `docs/metrics.registry.json` — машиночитаемый реестр primary и hard-gate метрик.
 - `docs/WINNING_ARCHITECTURE.md` — целевая multi-model архитектура, routing, data strategy и release gates.
 - `docs/RUSSIA_PRODUCT_STRATEGY.md` — intended use, доказательная матрица, российская рамка и план на 90 дней.
+- `docs/DATASETS_AND_GPU_TRAINING_RU.md` — приоритеты датасетов, безопасная загрузка и подготовка GPU-обучения.
+- `docs/LARGE_SCALE_DATASETS_RU.md` — максимальный DXA/X-ray/CT-корпус, объёмы, доступ и порядок получения.
 
 ## Граница готовности
 
