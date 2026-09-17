@@ -1,0 +1,43 @@
+{
+  "version": "competition-data/1.0.0",
+  "dataset_version": "DXA-906f62d3e4a8b553",
+  "labels_sha256": "982009c8b1865e8b109f833c9651a8d52053c34184657199047b7808b706af50",
+  "manifest_sha256": "f34825941014fee12f18e6128ff1ad9e482bfa341ac3358a8b9097046c585e1c",
+  "sources_sha256": "22bfd53b1430ab8607d410a41c84147c0217b173f475d5d788b1f72d5dcbd589",
+  "source_file_count": 499,
+  "decoded_count": 499,
+  "unique_image_count": 252,
+  "unique_pixel_count": 252,
+  "study_label_count": 100,
+  "study_folder_count": 100,
+  "duplicate_extra_files": 247,
+  "issue_counts": {
+    "image_label_count_mismatch": 2,
+    "overall_criteria_disagreement": 3
+  },
+  "near_duplicate_candidate_count": 36,
+  "patient_id_distinct_count": 1,
+  "patient_independence_verified": false,
+  "missing_pixel_spacing_files": 499,
+  "invalid_study_uid_files": 337,
+  "training_ready": false,
+  "image_region_reviews_pending": 252,
+  "label_polarity": "1_means_violation_pending_organizer_confirmation",
+  "region_counts": {
+    "spine": {
+      "0": 67,
+      "1": 32,
+      "None": 1
+    },
+    "hip_right": {
+      "None": 28,
+      "0": 53,
+      "1": 19
+    },
+    "hip_left": {
+      "None": 22,
+      "0": 56,
+      "1": 22
+    }
+  }
+}

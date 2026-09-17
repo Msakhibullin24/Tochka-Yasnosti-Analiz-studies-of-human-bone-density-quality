@@ -11,3 +11,4 @@ backend/.pytest_cache/
 backend/*.egg-info/
 backend/exports/
 data/
+.venv-5090/

@@ -57,17 +57,12 @@ def _normalize_pixels(pixel_array, photometric: str):
     import numpy as np
 
     image = np.asarray(pixel_array)
-    if image.ndim == 3 and image.shape[-1] in (3, 4):
-        rgb = image[..., :3].astype(np.float32)
-        image = rgb[..., 0] * 0.2126 + rgb[..., 1] * 0.7152 + rgb[..., 2] * 0.0722
-    elif image.ndim > 2:
-        image = image[0]
     if image.ndim != 2:
         raise InvalidDicom("Only single-frame grayscale DXA images are supported")
     image = image.astype(np.float32)
     finite = image[np.isfinite(image)]
-    if finite.size == 0:
-        raise InvalidDicom("Pixel Data contains no finite values")
+    if finite.size != image.size:
+        raise InvalidDicom("Pixel Data contains non-finite values")
     low, high = np.percentile(finite, (1, 99))
     if high <= low:
         raise InvalidDicom("Pixel Data has no usable intensity range")
@@ -77,13 +72,15 @@ def _normalize_pixels(pixel_array, photometric: str):
     return (image * 255).round().astype(np.uint8)
 
 
-def prepare_dicom(payload: bytes) -> PreparedStudy:
+def prepare_dicom(payload: bytes, *, max_pixels: int = 16_000_000) -> PreparedStudy:
     try:
         import pydicom
         from PIL import Image
     except ImportError as error:
         raise RuntimeError("DICOM runtime is not installed; install backend dependencies") from error
 
+    if max_pixels < 1:
+        raise ValueError("max_pixels must be positive")
     try:
         dataset = pydicom.dcmread(io.BytesIO(payload), force=False)
         sop_class_uid = _safe_text(dataset, "SOPClassUID")
@@ -95,8 +92,18 @@ def prepare_dicom(payload: bytes) -> PreparedStudy:
                 "Presentation RGB DICOM is readable but excluded from ML training and anatomical inference",
                 reason="secondary_capture" if sop_class_uid == "1.2.840.10008.5.1.4.1.1.7" else "color_presentation",
             )
+        frames = int(getattr(dataset, "NumberOfFrames", 1))
+        rows, columns = int(getattr(dataset, "Rows", 0)), int(getattr(dataset, "Columns", 0))
+        if frames != 1:
+            raise InvalidDicom("Multi-frame DICOM is unsupported; frames must not be silently discarded")
+        if rows < 1 or columns < 1 or rows * columns > max_pixels:
+            raise InvalidDicom(f"Invalid dimensions or decoded image exceeds {max_pixels} pixels")
+        if photometric.upper() not in {"MONOCHROME1", "MONOCHROME2"} or samples_per_pixel != 1:
+            raise InvalidDicom("Only MONOCHROME1/2 single-sample images are supported")
         raw_pixels = dataset.pixel_array
-    except ExcludedDicom:
+        if raw_pixels.shape != (rows, columns):
+            raise InvalidDicom("Decoded pixel dimensions differ from declared single-frame geometry")
+    except (ExcludedDicom, InvalidDicom):
         raise
     except Exception as error:
         raise InvalidDicom(f"Unable to decode DICOM Pixel Data: {error}") from error
@@ -113,6 +120,7 @@ def prepare_dicom(payload: bytes) -> PreparedStudy:
         "patient_id": _safe_text(dataset, "PatientID"),
         "accession_number": _safe_text(dataset, "AccessionNumber"),
         "study_uid": _safe_text(dataset, "StudyInstanceUID"),
+        "image_uid": _safe_text(dataset, "SOPInstanceUID"),
         "series_uid": _safe_text(dataset, "SeriesInstanceUID"),
         "study_date": _safe_text(dataset, "StudyDate"),
         "study_time": _safe_text(dataset, "StudyTime"),

@@ -1,0 +1,13 @@
+experiment_id,status,hypothesis,prerequisite,architecture,seed,dataset_version,split_version,primary_metric,decision_rule,result,notes
+E00,planned,Class frequency and image geometry controls,verified labels,constant and geometry baseline,17,,,F1 and ROC-AUC,Reference only,,
+E01,planned,Frozen visual encoder baseline,verified labels and frozen groups,ResNet18 frozen,17,,,F1 and ROC-AUC,First reproducible grouped predictions,,
+E02,planned,Partial finetuning improves E01,E01,ResNet18 partial finetuning,17,,,F1 and ROC-AUC,Paired grouped improvement,,
+E03,planned,Alternative compact encoder helps,E02,ConvNeXt-Tiny or EfficientNetV2-S,17,,,F1 and ROC-AUC,Repeatable gain on same groups,,
+E04,planned,Region-specific heads improve shared model,E01,shared versus separate spine and hip,17,,,Per-region F1,Gain without rare-region collapse,,
+E05,planned,Class weighting improves defect sensitivity,E01,selected encoder,17,,,PR-AUC and sensitivity,Useful recall-specificity tradeoff,,
+E06,planned,Anatomy supervision helps error cases,expert landmarks or masks,multitask anatomy,17,,,F1 plus localization metrics,Measured benefit and valid localization,,
+E07,planned,Photometric preprocessing helps,reviewed label-preserving transforms,selected encoder,17,,,F1 and ROC-AUC,No field-of-view alteration,,
+E08,planned,External pretraining improves transfer,licensed compatible data with provenance,selected encoder,17,,,Grouped performance,No leakage and controlled domain gap,,
+E09,planned,Calibration and thresholds improve decisions,inner grouped validation,selected model,17,,,F1 and Brier,Thresholds frozen before outer evaluation,,
+E10,planned,Ensemble has complementary errors,E02 and E03,maximum two model families,17,,,F1 and latency,Repeatable gain within 180s per study,,
+E11,planned,Offline batch delivery meets specification,trained frozen model,final container,17,,,Coverage and maximum latency,Complete CSV and zero unhandled batch exceptions,,

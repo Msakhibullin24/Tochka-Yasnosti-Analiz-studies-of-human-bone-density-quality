@@ -34,6 +34,25 @@
 - tamper-evident PHI-free audit chain с request ID и автоматическая панель hard
   release gates для данных, моделей, RBAC и клинической валидации.
 
+## Подготовка к конкурсу DXA
+
+После аудита реальных GE DICOM подготовлен отдельный контур данных: 499 файлов,
+252 уникальных изображения, 100 исследований. Существующая total-body модель
+не заменяет конкурсную модель позвоночника/бедра; профильное обучение ещё предстоит.
+
+- [Анализ ТЗ и данных](docs/TASK_AND_DATASET_ANALYSIS_RU.md)
+- [Актуальная стратегия и этапы](docs/COMPETITION_STRATEGY.md)
+- [План доведения до сдачи: метрики, критерии готовности, вопросы организатору](docs/HACKATHON_EXECUTION_RU.md)
+- [Технический разбор проекта: импорт разметки, DICOM, API, контейнер и следующие изменения](docs/PROJECT_TECHNICAL_REVIEW_RU.md)
+- [Инструкция врачу](docs/EXPERT_REVIEW_PROTOCOL_RU.md)
+- [Подготовка RTX 5090](docs/RTX_5090_TRAINING_RUNBOOK_RU.md)
+- [Проверенные внешние данные и результат CPU-baseline](docs/EXTERNAL_DATASETS_VERIFIED_RU.md)
+- [Выбор модели, приоритеты датасетов и эксперименты](docs/MODEL_AND_DATA_DECISION_RU.md)
+- [Скачать подходящие данные одной командой](docs/DOWNLOAD_TRAINING_DATA_RU.md)
+
+Импорт: `PYTHONPATH=backend backend/.venv/bin/python -m app.competition_data --help`.
+Результат хранится локально в `data/competition-v1/` и не входит в Git.
+
 ## Запуск
 
 Требуется Node.js 22+.

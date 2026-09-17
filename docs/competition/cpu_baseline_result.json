@@ -1,0 +1,189 @@
+{
+  "task": "auxiliary_study_level_any_violation_NOT_per_image_competition_model",
+  "status": "exploratory_baseline",
+  "studies": 100,
+  "positive_studies": 50,
+  "images": 252,
+  "conservative_groups": 69,
+  "largest_group_studies": 18,
+  "grouping": "study_folder + exact_pixels + all_unconfirmed_dhash_candidates",
+  "encoder": "resnet18_imagenet1k_v1_frozen",
+  "checkpoint_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+  "input": "320x320 letterbox; no crop or augmentation",
+  "aggregation": "concatenated_mean_and_max_embeddings",
+  "classifier": "StandardScaler + LogisticRegression(C=0.1)",
+  "validation": "5-fold stratified group CV; fixed hyperparameters; fixed threshold 0.5",
+  "dataset_version": "DXA-906f62d3e4a8b553",
+  "label_sha256": "472f270f9a08343e75e8e76b2de518d65290742856280b4726c1902deb1ef92e",
+  "metrics": {
+    "roc_auc": 0.5944,
+    "average_precision": 0.6398861017167112,
+    "f1": 0.5294117647058824,
+    "balanced_accuracy": 0.52,
+    "sensitivity": 0.54,
+    "specificity": 0.5,
+    "confusion_matrix_tn_fp_fn_tp": [
+      25,
+      25,
+      23,
+      27
+    ]
+  },
+  "geometry_only_control": {
+    "roc_auc": 0.49260000000000004,
+    "average_precision": 0.5002502611073291,
+    "f1": 0.6101694915254238,
+    "balanced_accuracy": 0.54,
+    "sensitivity": 0.72,
+    "specificity": 0.36,
+    "confusion_matrix_tn_fp_fn_tp": [
+      18,
+      32,
+      14,
+      36
+    ]
+  },
+  "bootstrap_95_ci": {
+    "roc_auc": [
+      0.4898028076125871,
+      0.7159342364285476
+    ],
+    "f1": [
+      0.4185940803382664,
+      0.6190643863179075
+    ]
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "train_studies": 95,
+      "test_studies": 5,
+      "test_positive": 3,
+      "metrics": {
+        "roc_auc": 0.8333333333333333,
+        "average_precision": 0.9166666666666665,
+        "f1": 0.75,
+        "balanced_accuracy": 0.5,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "confusion_matrix_tn_fp_fn_tp": [
+          0,
+          2,
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "fold": 1,
+      "train_studies": 86,
+      "test_studies": 14,
+      "test_positive": 10,
+      "metrics": {
+        "roc_auc": 0.5,
+        "average_precision": 0.7544122544122543,
+        "f1": 0.3076923076923077,
+        "balanced_accuracy": 0.475,
+        "sensitivity": 0.2,
+        "specificity": 0.75,
+        "confusion_matrix_tn_fp_fn_tp": [
+          3,
+          1,
+          8,
+          2
+        ]
+      }
+    },
+    {
+      "fold": 2,
+      "train_studies": 75,
+      "test_studies": 25,
+      "test_positive": 14,
+      "metrics": {
+        "roc_auc": 0.6038961038961039,
+        "average_precision": 0.6406488877602323,
+        "f1": 0.5384615384615384,
+        "balanced_accuracy": 0.5227272727272727,
+        "sensitivity": 0.5,
+        "specificity": 0.5454545454545454,
+        "confusion_matrix_tn_fp_fn_tp": [
+          6,
+          5,
+          7,
+          7
+        ]
+      }
+    },
+    {
+      "fold": 3,
+      "train_studies": 83,
+      "test_studies": 17,
+      "test_positive": 8,
+      "metrics": {
+        "roc_auc": 0.6111111111111112,
+        "average_precision": 0.6073187229437229,
+        "f1": 0.625,
+        "balanced_accuracy": 0.6458333333333333,
+        "sensitivity": 0.625,
+        "specificity": 0.6666666666666666,
+        "confusion_matrix_tn_fp_fn_tp": [
+          6,
+          3,
+          3,
+          5
+        ]
+      }
+    },
+    {
+      "fold": 4,
+      "train_studies": 61,
+      "test_studies": 39,
+      "test_positive": 15,
+      "metrics": {
+        "roc_auc": 0.6666666666666666,
+        "average_precision": 0.6998234068798584,
+        "f1": 0.5128205128205128,
+        "balanced_accuracy": 0.5416666666666666,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.4166666666666667,
+        "confusion_matrix_tn_fp_fn_tp": [
+          10,
+          14,
+          5,
+          10
+        ]
+      }
+    }
+  ],
+  "feature_extraction_seconds": 19.153,
+  "total_seconds": 21.336,
+  "cpu_threads": 4,
+  "limitations": [
+    "No image-level anatomy mapping or defect localization",
+    "Original overall labels preserved, including unresolved criterion disagreements",
+    "Study label is OR over observed regions; missing region labels remain unknown",
+    "Patient independence cannot be verified",
+    "Unconfirmed near-duplicate candidates conservatively merged, not diagnosed as duplicates",
+    "Study image count and anatomy composition can confound predictions",
+    "Bootstrap describes this exploratory CV, not independent competition or clinical accuracy"
+  ],
+  "constant_score_control": {
+    "roc_auc": 0.5,
+    "average_precision": 0.5,
+    "f1": 0.6666666666666666,
+    "balanced_accuracy": 0.5,
+    "sensitivity": 1.0,
+    "specificity": 0.0,
+    "confusion_matrix_tn_fp_fn_tp": [
+      0,
+      50,
+      0,
+      50
+    ]
+  },
+  "environment": {
+    "torch": "2.1.2+cpu",
+    "torchvision": "0.16.2+cpu",
+    "scikit_learn": "1.6.1"
+  }
+}
