@@ -1,0 +1,36 @@
+{
+  "dataset": "Ramathibodi BMD (Hologic Horizon A / Discovery A)",
+  "patients": 20,
+  "images_with_polarity_auto_corrected": 40,
+  "router_accuracy": {
+    "spine": 1.0,
+    "hip": 1.0
+  },
+  "measurement_vs_expert_label": {
+    "lsd": {
+      "our_measurement": "spine_abs_angle_deg",
+      "positives": 7,
+      "n": 20,
+      "roc_auc": 0.6153846153846154
+    },
+    "lssco": {
+      "our_measurement": "spine_curve_max_mm",
+      "positives": 6,
+      "n": 20,
+      "roc_auc": 0.5833333333333333
+    },
+    "lso": {
+      "our_measurement": "spine_abs_centre_offset_mm",
+      "positives": 4,
+      "n": 20,
+      "roc_auc": 0.71875
+    },
+    "lsc": {
+      "our_measurement": "crest_min_frac",
+      "positives": 2,
+      "n": 20,
+      "roc_auc": 0.3611111111111111
+    }
+  },
+  "note": "Indicative only (n=20, 2-7 positives per label). Images carry burned-in ROI lines and a different presentation than the organiser GE export; the organiser-domain classifier is NOT validated here."
+}

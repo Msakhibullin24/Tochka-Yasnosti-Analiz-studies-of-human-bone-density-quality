@@ -1,0 +1,47 @@
+{
+  "zip_run": {
+    "version": "1.0.0",
+    "files": 499,
+    "success": 499,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 162,
+    "studies": 100,
+    "max_seconds_per_study": 1.624,
+    "mean_seconds_per_image": 0.1318,
+    "total_seconds": 85.156
+  },
+  "folder_run": {
+    "version": "1.0.0",
+    "files": 499,
+    "success": 499,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 162,
+    "studies": 100,
+    "max_seconds_per_study": 1.334,
+    "mean_seconds_per_image": 0.1052,
+    "total_seconds": 54.348
+  },
+  "rows": 499,
+  "identical_quality_class": true,
+  "identical_violation_type": true,
+  "max_abs_prob_difference": 0.0,
+  "rows_with_explanation_png": 499,
+  "distinct_path_to_study": 100,
+  "anatomical_region_values": {
+    "Проксимальный отдел бедра": 333,
+    "Поясничный отдел позвоночника": 166
+  },
+  "violation_type_values": {
+    "": 337,
+    "Некорректная укладка": 92,
+    "Присутствуют посторонние предметы": 35,
+    "Некорректная область интереса": 26,
+    "Не выровнена ось позвоночника": 20
+  },
+  "quality_prob_range": [
+    0.0457,
+    0.99
+  ]
+}

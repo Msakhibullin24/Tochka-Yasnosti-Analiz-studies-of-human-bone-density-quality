@@ -1,0 +1,22 @@
+features (252, 1792)
+spine quality_class          n= 99 pos=32 C=0.001  AUC=0.648±0.035 AP=0.489 bestF1=0.568
+spine quality_class          n= 99 pos=32 C=0.01   AUC=0.669±0.033 AP=0.501 bestF1=0.582
+spine quality_class          n= 99 pos=32 C=0.1    AUC=0.673±0.033 AP=0.508 bestF1=0.575
+spine spine_coverage         n= 99 pos= 6 C=0.001  AUC=0.653±0.055 AP=0.390 bestF1=0.444
+spine spine_coverage         n= 99 pos= 6 C=0.01   AUC=0.663±0.047 AP=0.404 bestF1=0.462
+spine spine_coverage         n= 99 pos= 6 C=0.1    AUC=0.667±0.043 AP=0.409 bestF1=0.462
+spine spine_axis             n= 99 pos=10 C=0.001  AUC=0.492±0.089 AP=0.103 bestF1=0.206
+spine spine_axis             n= 99 pos=10 C=0.01   AUC=0.511±0.084 AP=0.118 bestF1=0.250
+spine spine_axis             n= 99 pos=10 C=0.1    AUC=0.509±0.083 AP=0.125 bestF1=0.227
+spine spine_artifact         n= 99 pos=17 C=0.001  AUC=0.739±0.054 AP=0.453 bestF1=0.438
+spine spine_artifact         n= 99 pos=17 C=0.01   AUC=0.776±0.058 AP=0.510 bestF1=0.500
+spine spine_artifact         n= 99 pos=17 C=0.1    AUC=0.788±0.054 AP=0.546 bestF1=0.516
+hip   quality_class          n=150 pos=41 C=0.001  AUC=0.733±0.022 AP=0.624 bestF1=0.541
+hip   quality_class          n=150 pos=41 C=0.01   AUC=0.747±0.025 AP=0.626 bestF1=0.568
+hip   quality_class          n=150 pos=41 C=0.1    AUC=0.752±0.027 AP=0.629 bestF1=0.568
+hip   hip_position_rotation  n=150 pos=36 C=0.001  AUC=0.725±0.026 AP=0.549 bestF1=0.516
+hip   hip_position_rotation  n=150 pos=36 C=0.01   AUC=0.738±0.035 AP=0.578 bestF1=0.508
+hip   hip_position_rotation  n=150 pos=36 C=0.1    AUC=0.740±0.036 AP=0.581 bestF1=0.524
+hip   hip_roi_coverage       n=150 pos= 7 C=0.001  AUC=0.820±0.009 AP=0.516 bestF1=0.667
+hip   hip_roi_coverage       n=150 pos= 7 C=0.01   AUC=0.809±0.009 AP=0.506 bestF1=0.667
+hip   hip_roi_coverage       n=150 pos= 7 C=0.1    AUC=0.805±0.014 AP=0.503 bestF1=0.667

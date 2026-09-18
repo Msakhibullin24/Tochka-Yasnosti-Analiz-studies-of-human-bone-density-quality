@@ -1,0 +1,17 @@
+# Direct runtime dependencies, pinned to the exact versions used for training and validation.
+# torch/torchvision CPU wheels come from https://download.pytorch.org/whl/cpu (see Dockerfile).
+# Transitive dependencies are pinned in requirements-lock.txt; everything is installed with --no-deps.
+torch==2.1.2+cpu
+torchvision==0.16.2+cpu
+numpy==1.24.3
+scipy==1.10.1
+scikit-learn==1.6.1
+joblib==1.6.0
+pandas==2.0.3
+pydicom==3.0.1
+# headless build of the validated opencv-python 4.7.0.72 (same cv2, no GUI libraries needed in the container)
+opencv-python-headless==4.7.0.72
+pillow==9.4.0
+fastapi==0.116.1
+uvicorn==0.35.0
+python-multipart==0.0.20

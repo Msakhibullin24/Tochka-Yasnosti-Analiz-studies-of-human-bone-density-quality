@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Osseo AI — контроль качества DXA</title>
+<style>
+  :root{
+    --bg:#f2f5f7; --panel:#ffffff; --panel-2:#eaeff2; --border:#d7dee3; --border-soft:#e4eaed;
+    --text:#132029; --text-dim:#51636d; --text-faint:#8194a0;
+    --accent:#0d6e6e; --accent-strong:#095656; --accent-ink:#e7f5f4;
+    --ok:#1a7f4e; --ok-bg:#e6f5ec; --warn:#b3660c; --warn-bg:#fbeedd; --bad:#b0311f; --bad-bg:#fbe6e2;
+    --focus:#1f8ecf;
+    --shadow:0 1px 2px rgba(19,32,41,.06), 0 6px 20px -8px rgba(19,32,41,.16);
+    --radius:10px;
+    --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0f1416; --panel:#161d20; --panel-2:#1c2429; --border:#2a343a; --border-soft:#232c31;
+      --text:#e7edf0; --text-dim:#a7b6bd; --text-faint:#748088;
+      --accent:#3fb7ae; --accent-strong:#63cdc4; --accent-ink:#132524;
+      --ok:#4fbf85; --ok-bg:#14261c; --warn:#d99a3f; --warn-bg:#2b2213; --bad:#e0685a; --bad-bg:#2c1815;
+      --focus:#5bb6ea;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -8px rgba(0,0,0,.5);
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg); color:var(--text); font-family:var(--sans); font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased}
+  :focus-visible{outline:2px solid var(--focus); outline-offset:2px; border-radius:4px}
+  button, input{font-family:inherit; font-size:inherit; color:inherit}
+  h1,h2,h3{margin:0; font-weight:600}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 20px 64px}
+
+  /* header */
+  header.top{position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--border-soft)}
+  .top-inner{max-width:1180px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+  .brand{display:flex; align-items:center; gap:10px}
+  .brand-mark{width:34px; height:34px; border-radius:9px; flex:none; background:linear-gradient(155deg, var(--accent), var(--accent-strong)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:15px; box-shadow:var(--shadow)}
+  .brand-text h1{font-size:16px; letter-spacing:.01em}
+  .brand-text .sub{font-size:11.5px; color:var(--text-faint)}
+  .status-pill{margin-left:auto; display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--text-dim); background:var(--panel); border:1px solid var(--border-soft); border-radius:999px; padding:6px 12px}
+  .dot{width:7px; height:7px; border-radius:50%; background:var(--text-faint); flex:none}
+  .dot.on{background:var(--ok); box-shadow:0 0 0 3px color-mix(in srgb, var(--ok) 20%, transparent)}
+  .local-note{display:flex; align-items:center; gap:6px; font-size:12px; color:var(--accent-strong); background:var(--accent-ink); border:1px solid color-mix(in srgb, var(--accent) 35%, transparent); border-radius:999px; padding:6px 11px}
+
+  section{margin-top:26px}
+  .card{background:var(--panel); border:1px solid var(--border-soft); border-radius:var(--radius); box-shadow:var(--shadow)}
+
+  /* upload */
+  .dropzone{border:1.5px dashed var(--border); border-radius:var(--radius); padding:34px 20px; text-align:center; cursor:pointer; transition:border-color .15s, background .15s; background:var(--panel)}
+  .dropzone.drag{border-color:var(--accent); background:var(--accent-ink)}
+  .dropzone svg{opacity:.55}
+  .dropzone p{margin:10px 0 2px; color:var(--text-dim); font-size:13.5px}
+  .dropzone .hint{font-size:12px; color:var(--text-faint)}
+  .file-list{margin-top:12px; font-size:12.5px; color:var(--text-dim); text-align:left}
+  .file-list ul{list-style:none; margin:6px 0 0; padding:0; max-height:110px; overflow:auto}
+  .file-list li{padding:3px 0; border-bottom:1px solid var(--border-soft); display:flex; justify-content:space-between; gap:8px}
+  .file-list li span:last-child{color:var(--text-faint); font-family:var(--mono); font-size:11px; flex:none}
+  .upload-actions{display:flex; align-items:center; gap:12px; margin-top:14px; flex-wrap:wrap}
+
+  .btn{appearance:none; border:1px solid var(--border); background:var(--panel); color:var(--text); border-radius:8px; padding:9px 16px; font-size:13.5px; font-weight:500; cursor:pointer; transition:background .12s, border-color .12s, transform .05s}
+  .btn:hover{border-color:var(--text-faint)}
+  .btn:active{transform:translateY(1px)}
+  .btn:disabled{opacity:.45; cursor:not-allowed}
+  .btn-primary{background:var(--accent); border-color:var(--accent); color:#fff}
+  .btn-primary:hover{background:var(--accent-strong); border-color:var(--accent-strong)}
+  .btn-sm{padding:6px 11px; font-size:12.5px}
+
+  .progress-wrap{margin-top:16px; display:none}
+  .progress-wrap.show{display:block}
+  .progress-track{height:8px; border-radius:999px; background:var(--panel-2); overflow:hidden; border:1px solid var(--border-soft)}
+  .progress-fill{height:100%; width:0%; background:linear-gradient(90deg, var(--accent), var(--accent-strong)); transition:width .3s ease}
+  .progress-label{margin-top:7px; font-size:12.5px; color:var(--text-dim); display:flex; justify-content:space-between}
+  .job-error{margin-top:12px; padding:10px 12px; border-radius:8px; background:var(--bad-bg); color:var(--bad); font-size:13px; display:none; white-space:pre-wrap; word-break:break-word}
+  .job-error.show{display:block}
+
+  /* summary tiles */
+  .tiles{display:grid; grid-template-columns:repeat(auto-fit, minmax(148px,1fr)); gap:10px; padding:16px}
+  .tile{background:var(--panel-2); border:1px solid var(--border-soft); border-radius:9px; padding:13px 14px}
+  .tile .n{font-size:22px; font-weight:650; letter-spacing:-.01em; font-variant-numeric:tabular-nums}
+  .tile .l{font-size:11.5px; color:var(--text-faint); margin-top:2px}
+  .tile.warn .n{color:var(--warn)}
+  .tile.bad .n{color:var(--bad)}
+  .downloads{display:flex; gap:8px; padding:0 16px 16px; flex-wrap:wrap}
+
+  /* results toolbar */
+  .toolbar{display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:14px 16px; border-bottom:1px solid var(--border-soft)}
+  .seg{display:flex; border:1px solid var(--border); border-radius:8px; overflow:hidden}
+  .seg button{border:0; background:var(--panel); padding:7px 13px; font-size:12.5px; cursor:pointer; color:var(--text-dim); border-right:1px solid var(--border)}
+  .seg button:last-child{border-right:0}
+  .seg button.active{background:var(--accent); color:#fff}
+  .search{flex:1 1 200px; min-width:160px; border:1px solid var(--border); border-radius:8px; padding:8px 11px; background:var(--bg); color:var(--text)}
+  .count{font-size:12px; color:var(--text-faint); margin-left:auto}
+
+  table.results{width:100%; border-collapse:collapse; font-size:13px}
+  table.results thead th{text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--text-faint); padding:9px 14px; border-bottom:1px solid var(--border-soft); position:sticky; top:53px; background:var(--panel)}
+  table.results tbody tr{border-bottom:1px solid var(--border-soft); cursor:pointer}
+  table.results tbody tr:hover{background:var(--panel-2)}
+  table.results tbody tr:focus-visible{background:var(--panel-2)}
+  table.results td{padding:9px 14px; vertical-align:middle}
+  .group-row td{background:var(--panel-2); font-size:11.5px; color:var(--text-dim); padding:6px 14px; font-weight:600}
+  .path{font-family:var(--mono); font-size:11.5px; color:var(--text-faint); max-width:220px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  .badge{display:inline-flex; align-items:center; gap:5px; padding:3px 9px; border-radius:999px; font-size:11.5px; font-weight:600; white-space:nowrap}
+  .badge.ok{background:var(--ok-bg); color:var(--ok)}
+  .badge.bad{background:var(--warn-bg); color:var(--warn)}
+  .badge.err{background:var(--bad-bg); color:var(--bad)}
+  .scorebar{width:64px; height:6px; border-radius:999px; background:var(--panel-2); overflow:hidden; display:inline-block; vertical-align:middle; border:1px solid var(--border-soft)}
+  .scorebar > i{display:block; height:100%; background:var(--accent)}
+  .viol-list{font-size:12px; color:var(--text-dim); max-width:300px}
+  .viol-list .none{color:var(--text-faint)}
+  .empty{padding:40px 20px; text-align:center; color:var(--text-faint); font-size:13.5px}
+
+  /* detail panel */
+  .overlay-bg{position:fixed; inset:0; background:rgba(10,16,19,.5); z-index:40; display:none}
+  .overlay-bg.show{display:block}
+  .panel{position:fixed; top:0; right:0; bottom:0; width:min(560px,100vw); background:var(--panel); z-index:41; box-shadow:-12px 0 30px -12px rgba(0,0,0,.3); transform:translateX(100%); transition:transform .22s ease; display:flex; flex-direction:column; border-left:1px solid var(--border-soft)}
+  .panel.show{transform:translateX(0)}
+  .panel-head{display:flex; align-items:flex-start; gap:10px; padding:16px 18px; border-bottom:1px solid var(--border-soft)}
+  .panel-head h3{font-size:14.5px}
+  .panel-head .path{white-space:normal; max-width:none}
+  .panel-close{margin-left:auto; border:0; background:transparent; color:var(--text-faint); font-size:20px; line-height:1; cursor:pointer; padding:4px 6px; border-radius:6px}
+  .panel-close:hover{background:var(--panel-2); color:var(--text)}
+  .panel-body{overflow:auto; padding:16px 18px; flex:1}
+  .panel-body h4{font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--text-faint); margin:20px 0 10px}
+  .panel-body h4:first-child{margin-top:0}
+  .overlay-img-wrap{background:#0b0f11; border-radius:9px; overflow:hidden; display:flex; align-items:center; justify-content:center; min-height:180px}
+  .overlay-img-wrap img{max-width:100%; display:block}
+  .overlay-placeholder{color:#6c7a80; font-size:12.5px; padding:40px 16px; text-align:center}
+  .crit-row{margin-bottom:9px}
+  .crit-row .crit-label{display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:4px}
+  .crit-row .crit-label span:last-child{font-variant-numeric:tabular-nums; color:var(--text-dim)}
+  .crit-track{height:7px; border-radius:999px; background:var(--panel-2); overflow:hidden; border:1px solid var(--border-soft)}
+  .crit-track > i{display:block; height:100%}
+  .meas-table{width:100%; border-collapse:collapse; font-size:12.5px}
+  .meas-table td{padding:5px 0; border-bottom:1px solid var(--border-soft)}
+  .meas-table td:last-child{text-align:right; font-variant-numeric:tabular-nums; color:var(--text-dim)}
+  details.all-meas{margin-top:12px; font-size:12.5px}
+  details.all-meas summary{cursor:pointer; color:var(--accent); font-size:12.5px}
+  .disclaimer{margin-top:18px; padding:11px 13px; border-radius:8px; background:var(--warn-bg); color:var(--warn); font-size:12px; line-height:1.5; border:1px solid color-mix(in srgb, var(--warn) 30%, transparent)}
+  .kv{font-size:12px; color:var(--text-faint); margin-top:4px}
+
+  @media (max-width:380px){ .wrap{padding:0 12px 40px} .tiles{grid-template-columns:repeat(2,1fr)} .panel{width:100vw} }
+  .sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">DXA</div>
+      <div class="brand-text">
+        <h1>Osseo AI — контроль качества денситометрии</h1>
+        <div class="sub" id="verLine">версия —</div>
+      </div>
+    </div>
+    <div class="local-note">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      работает локально, данные не покидают контур
+    </div>
+    <div class="status-pill"><span class="dot" id="healthDot"></span><span id="healthText">проверка сервиса…</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="card" id="uploadCard">
+    <div style="padding:16px">
+      <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Выбрать файлы для загрузки">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <p>Перетащите ZIP-архив или DICOM-файлы сюда, либо нажмите для выбора</p>
+        <div class="hint">.zip, .dcm или файлы без расширения — можно выбрать несколько</div>
+        <input type="file" id="fileInput" class="sr-only" multiple accept=".zip,.dcm">
+      </div>
+      <div class="file-list" id="fileList" style="display:none">
+        <strong id="fileListSummary"></strong>
+        <ul id="fileListItems"></ul>
+      </div>
+      <div class="upload-actions">
+        <button class="btn btn-primary" id="runBtn" disabled>Запустить проверку</button>
+        <button class="btn btn-sm" id="clearBtn" style="display:none">Очистить</button>
+      </div>
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label"><span id="progressText">Загрузка…</span><span id="progressPct"></span></div>
+      </div>
+      <div class="job-error" id="jobError"></div>
+    </div>
+  </section>
+
+  <section class="card" id="summaryCard" style="display:none">
+    <div class="tiles" id="tiles"></div>
+    <div class="downloads" id="downloads"></div>
+  </section>
+
+  <section class="card" id="resultsCard" style="display:none">
+    <div class="toolbar">
+      <div class="seg" role="group" aria-label="Фильтр результатов">
+        <button data-filter="all" class="active">Все</button>
+        <button data-filter="violations">Нарушения</button>
+        <button data-filter="failures">Ошибки</button>
+      </div>
+      <input type="search" class="search" id="searchInput" placeholder="Фильтр по пути или UID…" aria-label="Фильтр по пути или UID">
+      <span class="count" id="rowCount"></span>
+    </div>
+    <div style="overflow:auto">
+      <table class="results" id="resultsTable">
+        <thead>
+          <tr>
+            <th>Область</th>
+            <th>Результат</th>
+            <th>Оценка</th>
+            <th>Нарушения</th>
+            <th>Время, с</th>
+            <th>Файл</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+      <div class="empty" id="emptyState" style="display:none">Нет строк, соответствующих фильтру</div>
+    </div>
+  </section>
+
+</div>
+
+<div class="overlay-bg" id="overlayBg"></div>
+<aside class="panel" id="detailPanel" role="dialog" aria-modal="true" aria-labelledby="panelTitle" aria-hidden="true">
+  <div class="panel-head">
+    <div>
+      <h3 id="panelTitle">Изображение</h3>
+      <div class="path" id="panelPath"></div>
+    </div>
+    <button class="panel-close" id="panelClose" aria-label="Закрыть панель (Esc)">✕</button>
+  </div>
+  <div class="panel-body" id="panelBody"></div>
+</aside>
+
+<script>
+(function(){
+  "use strict";
+
+  var API = "/api/v1";
+  var state = { jobId:null, pollTimer:null, rows:[], summary:null, filter:"all", search:"" };
+
+  var el = {
+    dropzone: document.getElementById("dropzone"),
+    fileInput: document.getElementById("fileInput"),
+    fileList: document.getElementById("fileList"),
+    fileListSummary: document.getElementById("fileListSummary"),
+    fileListItems: document.getElementById("fileListItems"),
+    runBtn: document.getElementById("runBtn"),
+    clearBtn: document.getElementById("clearBtn"),
+    progressWrap: document.getElementById("progressWrap"),
+    progressFill: document.getElementById("progressFill"),
+    progressText: document.getElementById("progressText"),
+    progressPct: document.getElementById("progressPct"),
+    jobError: document.getElementById("jobError"),
+    summaryCard: document.getElementById("summaryCard"),
+    tiles: document.getElementById("tiles"),
+    downloads: document.getElementById("downloads"),
+    resultsCard: document.getElementById("resultsCard"),
+    resultsBody: document.getElementById("resultsBody"),
+    rowCount: document.getElementById("rowCount"),
+    emptyState: document.getElementById("emptyState"),
+    searchInput: document.getElementById("searchInput"),
+    overlayBg: document.getElementById("overlayBg"),
+    panel: document.getElementById("detailPanel"),
+    panelTitle: document.getElementById("panelTitle"),
+    panelPath: document.getElementById("panelPath"),
+    panelBody: document.getElementById("panelBody"),
+    panelClose: document.getElementById("panelClose"),
+    healthDot: document.getElementById("healthDot"),
+    healthText: document.getElementById("healthText"),
+    verLine: document.getElementById("verLine"),
+  };
+
+  // anatomical_region already carries the organiser's Russian label; the side is an extra column.
+  function regionLabel(row){
+    var base = row.anatomical_region || "Изображение";
+    if (row.laterality === "right") return base + " (правый)";
+    if (row.laterality === "left") return base + " (левый)";
+    return base;
+  }
+
+  var CRITERIA_RU = {
+    spine_coverage: "Укладка (подвздошные кости / Th12)",
+    spine_axis: "Ось позвоночника",
+    spine_artifact: "Артефакты и посторонние предметы",
+    hip_position_rotation: "Позиционирование и ротация",
+    hip_roi_coverage: "Область интереса (отступы 3/2 см)",
+    hip_metal_implant: "Металлоконструкция / эндопротез",
+    processing_failure: "Ошибка обработки",
+  };
+
+  var MEAS_RU = {
+    spine_angle_deg: "Наклон оси, °",
+    spine_curve_max_mm: "Макс. отклонение оси, мм",
+    crest_left_frac: "Гребень подвздошной кости (лев.)",
+    crest_right_frac: "Гребень подвздошной кости (прав.)",
+    shaft_angle_deg: "Угол диафиза, °",
+    lesser_troch_protrusion_mm: "Выступ малого вертела, мм",
+    troch_top_margin_mm: "Отступ сверху, мм",
+    ischium_bottom_margin_mm: "Отступ снизу, мм",
+    lateral_margin_mm: "Отступ сбоку, мм",
+  };
+
+  function fmt(n, d){
+    if (n === null || n === undefined || n === "" || isNaN(Number(n))) return "—";
+    return Number(n).toLocaleString("ru-RU", { minimumFractionDigits:0, maximumFractionDigits: d===undefined?2:d });
+  }
+  function pct(n){
+    var v = Number(n);
+    if (isNaN(v)) return "—";
+    return Math.round(v*100) + "%";
+  }
+  function safeJSON(s){
+    if (!s) return null;
+    try { return JSON.parse(s); } catch(e){ return null; }
+  }
+  function text(node, str){ node.textContent = str; return node; }
+  function el_(tag, cls){ var n = document.createElement(tag); if (cls) n.className = cls; return n; }
+  function mk(tag, cls, str){ return text(el_(tag, cls), str); }
+  function app(parent){ for (var i=1;i<arguments.length;i++) parent.appendChild(arguments[i]); return parent; }
+
+  /* ---------- health ---------- */
+  function loadHealth(){
+    fetch("/health").then(function(r){ return r.json(); }).then(function(h){
+      el.verLine.textContent = "версия " + (h.version || "—");
+      el.healthText.textContent = h.model_loaded ? "модель загружена" : "сервис готов";
+      el.healthDot.classList.add("on");
+    }).catch(function(){
+      el.healthText.textContent = "сервис недоступен";
+    });
+  }
+
+  /* ---------- upload ---------- */
+  var pendingFiles = [];
+
+  function addFiles(fileListLike){
+    var arr = Array.prototype.slice.call(fileListLike);
+    arr.forEach(function(f){ pendingFiles.push(f); });
+    renderFileList();
+  }
+
+  function renderFileList(){
+    if (!pendingFiles.length){
+      el.fileList.style.display = "none"; el.runBtn.disabled = true; el.clearBtn.style.display = "none";
+      return;
+    }
+    el.fileList.style.display = "block"; el.clearBtn.style.display = "inline-block"; el.runBtn.disabled = false;
+    text(el.fileListSummary, "Выбрано файлов: " + pendingFiles.length);
+    el.fileListItems.innerHTML = "";
+    pendingFiles.slice(0, 200).forEach(function(f){
+      el.fileListItems.appendChild(app(el_("li"), mk("span", null, f.name), mk("span", null, (f.size/1024).toFixed(0) + " КБ")));
+    });
+  }
+
+  el.dropzone.addEventListener("click", function(){ el.fileInput.click(); });
+  el.dropzone.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " "){ e.preventDefault(); el.fileInput.click(); } });
+  ["dragenter","dragover"].forEach(function(ev){ el.dropzone.addEventListener(ev, function(e){ e.preventDefault(); el.dropzone.classList.add("drag"); }); });
+  ["dragleave","drop"].forEach(function(ev){ el.dropzone.addEventListener(ev, function(e){ e.preventDefault(); el.dropzone.classList.remove("drag"); }); });
+  el.dropzone.addEventListener("drop", function(e){ if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) addFiles(e.dataTransfer.files); });
+  el.fileInput.addEventListener("change", function(){ if (el.fileInput.files.length) addFiles(el.fileInput.files); el.fileInput.value = ""; });
+  el.clearBtn.addEventListener("click", function(){ pendingFiles = []; renderFileList(); });
+  el.runBtn.addEventListener("click", function(){ if (pendingFiles.length) startJob(pendingFiles); });
+
+  function resetResults(){
+    el.summaryCard.style.display = "none";
+    el.resultsCard.style.display = "none";
+    state.rows = []; state.summary = null; state.jobId = null;
+    if (state.pollTimer) { clearTimeout(state.pollTimer); state.pollTimer = null; }
+  }
+
+  function startJob(files){
+    resetResults();
+    el.jobError.classList.remove("show");
+    el.runBtn.disabled = true;
+    el.progressWrap.classList.add("show");
+    text(el.progressText, "Загрузка файлов…");
+    text(el.progressPct, "");
+    el.progressFill.style.width = "3%";
+
+    var fd = new FormData();
+    files.forEach(function(f){ fd.append("files", f, f.name); });
+    fetch(API + "/batch", { method:"POST", body: fd })
+      .then(function(r){
+        if (!r.ok) return r.text().then(function(t){ throw new Error("HTTP " + r.status + ": " + t); });
+        return r.json();
+      })
+      .then(function(job){
+        state.jobId = job.id;
+        text(el.progressText, "Обработка…");
+        pollJob();
+      })
+      .catch(function(err){
+        showJobError("Не удалось отправить файлы: " + err.message);
+        el.runBtn.disabled = false;
+        el.progressWrap.classList.remove("show");
+      });
+  }
+
+  function showJobError(msg){
+    text(el.jobError, msg);
+    el.jobError.classList.add("show");
+  }
+
+  function pollJob(){
+    if (!state.jobId) return;
+    fetch(API + "/jobs/" + encodeURIComponent(state.jobId))
+      .then(function(r){ return r.json(); })
+      .then(function(job){
+        var total = job.total || 0, done = job.done || 0;
+        var frac = total > 0 ? done/total : (job.status === "queued" ? 0.02 : 0.06);
+        el.progressFill.style.width = Math.max(3, Math.round(frac*100)) + "%";
+        text(el.progressPct, total ? (done + " / " + total) : "");
+        if (job.status === "queued"){
+          text(el.progressText, "В очереди…");
+          state.pollTimer = setTimeout(pollJob, 1000);
+        } else if (job.status === "running"){
+          text(el.progressText, "Обработка изображений…");
+          state.pollTimer = setTimeout(pollJob, 1000);
+        } else if (job.status === "finished"){
+          el.progressFill.style.width = "100%";
+          text(el.progressText, "Готово");
+          el.runBtn.disabled = false;
+          onJobFinished(job);
+        } else if (job.status === "failed"){
+          text(el.progressText, "Ошибка обработки");
+          el.runBtn.disabled = false;
+          showJobError(job.error || "Сбой обработки задания");
+        } else {
+          state.pollTimer = setTimeout(pollJob, 1000);
+        }
+      })
+      .catch(function(err){
+        showJobError("Не удалось получить статус задания: " + err.message);
+        el.runBtn.disabled = false;
+      });
+  }
+
+  function onJobFinished(job){
+    state.summary = job.summary || {};
+    renderSummary(state.summary);
+    fetch(API + "/jobs/" + encodeURIComponent(state.jobId) + "/rows")
+      .then(function(r){ return r.json(); })
+      .then(function(rows){
+        state.rows = Array.isArray(rows) ? rows : [];
+        renderResults();
+      })
+      .catch(function(err){
+        showJobError("Не удалось загрузить строки результата: " + err.message);
+      });
+  }
+
+  /* ---------- summary ---------- */
+  function tile(value, label, kind){
+    return app(el_("div", "tile" + (kind ? " " + kind : "")), mk("div","n",value), mk("div","l",label));
+  }
+
+  function renderSummary(s){
+    el.tiles.innerHTML = "";
+    var failures = Number(s.failure || 0), violations = Number(s.violations || 0);
+    [tile(fmt(s.studies,0), "исследований"), tile(fmt(s.files,0), "изображений"),
+     tile(fmt(violations,0), "с нарушениями", violations > 0 ? "warn" : ""),
+     tile(fmt(failures,0), "ошибок обработки", failures > 0 ? "bad" : ""),
+     tile(fmt(s.mean_seconds_per_image,2) + " с", "среднее время на изображение"),
+     tile(fmt(s.max_seconds_per_study,2) + " с", "макс. время на исследование")
+    ].forEach(function(t){ el.tiles.appendChild(t); });
+
+    el.downloads.innerHTML = "";
+    var base = API + "/jobs/" + encodeURIComponent(state.jobId) + "/";
+    [["results.csv","Скачать CSV"], ["results.xlsx","Скачать XLSX"], ["additional_series.zip","ZIP с доп. сериями"]].forEach(function(pair){
+      var a = mk("a", "btn btn-sm", pair[1]);
+      a.href = base + pair[0]; a.setAttribute("download", pair[0]);
+      el.downloads.appendChild(a);
+    });
+    el.summaryCard.style.display = "block";
+  }
+
+  /* ---------- results table ---------- */
+  document.querySelectorAll(".seg button").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      document.querySelectorAll(".seg button").forEach(function(b){ b.classList.remove("active"); });
+      btn.classList.add("active");
+      state.filter = btn.getAttribute("data-filter");
+      renderResults();
+    });
+  });
+  el.searchInput.addEventListener("input", function(){
+    state.search = el.searchInput.value.trim().toLowerCase();
+    renderResults();
+  });
+
+  function rowMatches(row){
+    if (state.filter === "violations" && !(row.processing_status === "Success" && row.quality_class === "1")) return false;
+    if (state.filter === "failures" && row.processing_status !== "Failure") return false;
+    if (state.search){
+      var hay = ((row.path_to_study||"") + " " + (row.path_to_file||"") + " " + (row.study_uid||"") + " " + (row.image_uid||"")).toLowerCase();
+      if (hay.indexOf(state.search) === -1) return false;
+    }
+    return true;
+  }
+
+  function verdictBadge(row){
+    if (row.processing_status === "Failure") return mk("span", "badge err", "Ошибка обработки");
+    if (row.quality_class === "1") return mk("span", "badge bad", "Есть нарушение");
+    return mk("span", "badge ok", "Качественное");
+  }
+
+  function violationText(row){
+    if (row.violation_description) return row.violation_description;
+    if (row.violation_type){  // official organiser labels, already in Russian
+      return row.violation_type.split(";").filter(Boolean).join("; ");
+    }
+    return "";
+  }
+
+  function renderResults(){
+    if (!state.rows.length){
+      el.resultsCard.style.display = "none";
+      return;
+    }
+    el.resultsCard.style.display = "block";
+    var filtered = state.rows.filter(rowMatches);
+    text(el.rowCount, filtered.length + " из " + state.rows.length);
+    el.resultsBody.innerHTML = "";
+    el.emptyState.style.display = filtered.length ? "none" : "block";
+
+    var groups = {}, order = [];
+    filtered.forEach(function(row){
+      var key = row.path_to_study || "—";
+      if (!groups[key]){ groups[key] = []; order.push(key); }
+      groups[key].push(row);
+    });
+
+    order.forEach(function(studyKey){
+      var gtd = mk("td", null, "Исследование: " + studyKey + "  ·  " + groups[studyKey].length + " изобр.");
+      gtd.colSpan = 6;
+      el.resultsBody.appendChild(app(el_("tr", "group-row"), gtd));
+
+      groups[studyKey].forEach(function(row){
+        var tr = el_("tr"); tr.tabIndex = 0; tr.setAttribute("role", "button");
+
+        var tdVerdict = el_("td"); tdVerdict.appendChild(verdictBadge(row));
+
+        var tdScore = el_("td");
+        if (row.quality_prob !== undefined && row.quality_prob !== ""){
+          var fill = el_("i");
+          fill.style.width = Math.max(0, Math.min(100, (1 - Number(row.quality_prob)) * 100)) + "%";
+          var scoreTxt = mk("span", null, fmt(row.quality_prob, 2));
+          scoreTxt.style.cssText = "margin-left:8px;font-size:11.5px;color:var(--text-faint)";
+          app(tdScore, app(el_("span","scorebar"), fill), scoreTxt);
+        } else { text(tdScore, "—"); }
+
+        var tdViol = el_("td", "viol-list");
+        var vtxt = violationText(row);
+        vtxt ? text(tdViol, vtxt) : tdViol.appendChild(mk("span","none","—"));
+
+        var tdPath = el_("td", "path");
+        tdPath.title = row.path_to_file || "";
+        text(tdPath, row.path_to_file || "");
+
+        app(tr, mk("td", null, regionLabel(row)),
+          tdVerdict, tdScore, tdViol, mk("td", null, fmt(row.time_of_processing, 2)), tdPath);
+
+        tr.addEventListener("click", function(){ openDetail(row); });
+        tr.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " "){ e.preventDefault(); openDetail(row); } });
+        el.resultsBody.appendChild(tr);
+      });
+    });
+  }
+
+  /* ---------- detail panel ---------- */
+  var lastFocused = null;
+
+  function openDetail(row){
+    lastFocused = document.activeElement;
+    text(el.panelTitle, regionLabel(row));
+    text(el.panelPath, row.path_to_file || "");
+    el.panelBody.innerHTML = "";
+
+    function measRow(label, value){ return app(el_("tr"), mk("td",null,label), mk("td",null,value)); }
+
+    // overlay image
+    var wrap = el_("div", "overlay-img-wrap");
+    if (!row.explanation_png){
+      wrap.appendChild(mk("div", "overlay-placeholder", row.duplicate_of ?
+        "Точная копия другого изображения пакета — визуализация сохранена для оригинала" :
+        (row.processing_status === "Failure" ? "Изображение не обработано (ошибка), разметка недоступна" : "Визуализация не формировалась")));
+    } else {
+      var url = API + "/jobs/" + encodeURIComponent(state.jobId) + "/overlay?path=" + encodeURIComponent(row.explanation_png);
+      var img = document.createElement("img");
+      img.alt = "Изображение с QC-разметкой";
+      img.addEventListener("error", function(){
+        wrap.innerHTML = ""; wrap.appendChild(mk("div", "overlay-placeholder", "Изображение с разметкой недоступно"));
+      });
+      img.src = url;
+      wrap.appendChild(img);
+    }
+
+    // verdict + score
+    var scoreStr = row.quality_prob !== undefined && row.quality_prob !== "" ? fmt(row.quality_prob, 3) : "—";
+    var kv = mk("div", "kv", "Итоговая оценка качества: " + scoreStr + "   ·   Область определена с уверенностью " + pct(row.region_confidence));
+
+    app(el.panelBody, mk("h4",null,"Изображение с разметкой"), wrap, kv);
+    if (row.error_message){
+      var errBox = mk("div", "kv", "Сообщение: " + row.error_message + (row.error_code ? " (" + row.error_code + ")" : ""));
+      errBox.style.color = "var(--bad)";
+      el.panelBody.appendChild(errBox);
+    }
+
+    // criteria
+    var scores = safeJSON(row.violation_scores);
+    if (scores && Object.keys(scores).length){
+      el.panelBody.appendChild(mk("h4",null,"Критерии качества"));
+      Object.keys(scores).sort(function(a,b){ return scores[b]-scores[a]; }).forEach(function(code){
+        var p = Number(scores[code]);
+        var lab = app(el_("div","crit-label"), mk("span",null,CRITERIA_RU[code] || code), mk("span",null,pct(p)));
+        var fill = el_("i");
+        fill.style.width = Math.max(0, Math.min(100, p*100)) + "%";
+        fill.style.background = p >= 0.5 ? "var(--bad)" : "var(--accent)";
+        el.panelBody.appendChild(app(el_("div","crit-row"), lab, app(el_("div","crit-track"), fill)));
+      });
+    }
+
+    // measurements
+    var meas = safeJSON(row.measurements);
+    if (meas && Object.keys(meas).length){
+      el.panelBody.appendChild(mk("h4",null,"Ключевые измерения"));
+      var known = Object.keys(MEAS_RU).filter(function(k){ return meas[k] !== undefined && meas[k] !== null; });
+      var rest = Object.keys(meas).filter(function(k){ return known.indexOf(k) === -1; });
+      if (known.length){
+        var table = el_("table", "meas-table");
+        known.forEach(function(k){ table.appendChild(measRow(MEAS_RU[k], fmt(meas[k], 2))); });
+        el.panelBody.appendChild(table);
+      } else {
+        el.panelBody.appendChild(mk("div", "kv", "Ключевые измерения недоступны для этой области"));
+      }
+      if (rest.length){
+        var table2 = el_("table", "meas-table");
+        rest.forEach(function(k){ table2.appendChild(measRow(k, typeof meas[k] === "number" ? fmt(meas[k], 3) : String(meas[k]))); });
+        var det = app(document.createElement("details"), mk("summary",null,"Все измерения (" + rest.length + ")"), table2);
+        det.className = "all-meas";
+        el.panelBody.appendChild(det);
+      }
+    }
+
+    el.panelBody.appendChild(mk("div", "disclaimer", "Результат ИИ требует подтверждения специалистом."));
+
+    el.overlayBg.classList.add("show");
+    el.panel.classList.add("show");
+    el.panel.setAttribute("aria-hidden", "false");
+    el.panelClose.focus();
+  }
+
+  function closeDetail(){
+    el.overlayBg.classList.remove("show");
+    el.panel.classList.remove("show");
+    el.panel.setAttribute("aria-hidden", "true");
+    if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+  }
+
+  el.panelClose.addEventListener("click", closeDetail);
+  el.overlayBg.addEventListener("click", closeDetail);
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && el.panel.classList.contains("show")) closeDetail();
+  });
+
+  loadHealth();
+})();
+</script>
+</body>
+</html>

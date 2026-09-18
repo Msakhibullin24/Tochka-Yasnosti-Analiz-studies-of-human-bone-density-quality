@@ -1,0 +1,29 @@
+# Transitive runtime dependencies: generated from the validated environment by walking
+# importlib.metadata Requires of every package in requirements.txt (installed with --no-deps).
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+annotated-types==0.8.0
+anyio==4.14.2
+certifi==2026.7.22
+charset-normalizer==2.1.1
+click==8.4.2
+cloudpickle==3.1.2
+filelock==3.14.0
+fsspec==2026.7.0
+h11==0.16.0
+idna==3.19
+mpmath==1.3.0
+networkx==3.6.1
+pydantic==2.13.4
+pydantic_core==2.46.4
+python-dateutil==2.9.0.post0
+pytz==2023.4
+requests==2.28.2
+six==1.17.0
+starlette==0.47.3
+sympy==1.14.0
+threadpoolctl==3.7.0
+typing-inspection==0.4.4
+typing_extensions==4.16.0
+tzdata==2026.3
+urllib3==1.26.13

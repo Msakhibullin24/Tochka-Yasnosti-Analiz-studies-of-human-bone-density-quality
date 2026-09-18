@@ -1,0 +1,376 @@
+{
+  "protocol": "* unit of splitting = study folder (all images / exact pixel copies of a study stay together);\n  * repeated StratifiedGroupKFold(5); decision thresholds are chosen on INNER out-of-fold\n    predictions of the training part only, so reported F1 is not tuned on the evaluated fold;\n  * 95% CIs: bootstrap over studies (cluster bootstrap), 2000 resamples.",
+  "seed": 17,
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "encoder_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+  "images": 249,
+  "studies": 100,
+  "train_only_auxiliary_samples": {
+    "synthetic_spine": 201
+  },
+  "evaluation_scope": "organiser images only; auxiliary samples are never evaluated",
+  "region_router_cv_accuracy": 1.0,
+  "spine": {
+    "quality": {
+      "n": 99,
+      "positives": 32,
+      "sensitivity": 0.8125,
+      "specificity": 0.6716417910447762,
+      "balanced_accuracy": 0.742070895522388,
+      "f1": 0.65,
+      "confusion_tn_fp_fn_tp": [
+        45,
+        22,
+        6,
+        26
+      ],
+      "roc_auc": 0.8059701492537313,
+      "pr_auc": 0.658879757043441
+    },
+    "quality_ci95": {
+      "sensitivity": [
+        0.6666666666666666,
+        0.9428571428571428
+      ],
+      "specificity": [
+        0.5538461538461539,
+        0.7808219178082192
+      ],
+      "balanced_accuracy": [
+        0.6458742035546613,
+        0.8293916324158258
+      ],
+      "f1": [
+        0.5151515151515151,
+        0.7631578947368421
+      ],
+      "roc_auc": [
+        0.7107611274859785,
+        0.8955558292282431
+      ],
+      "pr_auc": [
+        0.4995788089120744,
+        0.8270159911791298
+      ]
+    },
+    "quality_auc_per_repeat": [
+      0.7849813432835822,
+      0.8278917910447762,
+      0.7980410447761194
+    ],
+    "criteria": {
+      "spine_coverage": {
+        "n": 99,
+        "positives": 6,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.956989247311828,
+        "balanced_accuracy": 0.8118279569892473,
+        "f1": 0.5714285714285714,
+        "confusion_tn_fp_fn_tp": [
+          89,
+          4,
+          2,
+          4
+        ],
+        "roc_auc": 0.7688172043010753,
+        "pr_auc": 0.5315860215053763,
+        "ci95": {
+          "sensitivity": [
+            0.2,
+            1.0
+          ],
+          "specificity": [
+            0.9120879120879121,
+            0.9894736842105263
+          ],
+          "balanced_accuracy": [
+            0.5787234042553192,
+            0.989136216466235
+          ],
+          "f1": [
+            0.18181818181818182,
+            0.8571428571428571
+          ],
+          "roc_auc": [
+            0.41051971326164877,
+            0.9979787234042552
+          ],
+          "pr_auc": [
+            0.0912743108868904,
+            0.9683333333333318
+          ]
+        },
+        "note": "criterion threshold chosen on pooled OOF (optimistic F1); AUC is threshold-free"
+      },
+      "spine_axis": {
+        "n": 99,
+        "positives": 10,
+        "sensitivity": 0.3,
+        "specificity": 0.9775280898876404,
+        "balanced_accuracy": 0.6387640449438202,
+        "f1": 0.4,
+        "confusion_tn_fp_fn_tp": [
+          87,
+          2,
+          7,
+          3
+        ],
+        "roc_auc": 0.7977528089887641,
+        "pr_auc": 0.3279366695924394,
+        "ci95": {
+          "sensitivity": [
+            0.0,
+            0.6666666666666666
+          ],
+          "specificity": [
+            0.9431654911180773,
+            1.0
+          ],
+          "balanced_accuracy": [
+            0.4947354423292273,
+            0.8125
+          ],
+          "f1": [
+            0.0,
+            0.7058823529411765
+          ],
+          "roc_auc": [
+            0.6899197240931112,
+            0.9000464876033057
+          ],
+          "pr_auc": [
+            0.1411156538608634,
+            0.6429665321388569
+          ]
+        },
+        "note": "criterion threshold chosen on pooled OOF (optimistic F1); AUC is threshold-free"
+      },
+      "spine_artifact": {
+        "n": 99,
+        "positives": 17,
+        "sensitivity": 0.7058823529411765,
+        "specificity": 0.9512195121951219,
+        "balanced_accuracy": 0.8285509325681493,
+        "f1": 0.7272727272727273,
+        "confusion_tn_fp_fn_tp": [
+          78,
+          4,
+          5,
+          12
+        ],
+        "roc_auc": 0.8694404591104734,
+        "pr_auc": 0.6883824091696987,
+        "ci95": {
+          "sensitivity": [
+            0.4760504201680672,
+            0.9232142857142857
+          ],
+          "specificity": [
+            0.9024390243902439,
+            0.9882352941176471
+          ],
+          "balanced_accuracy": [
+            0.7155162151067322,
+            0.933240034777956
+          ],
+          "f1": [
+            0.5383333333333333,
+            0.8717948717948718
+          ],
+          "roc_auc": [
+            0.7489216123754275,
+            0.9674868402113791
+          ],
+          "pr_auc": [
+            0.463457954107611,
+            0.9027892098080104
+          ]
+        },
+        "note": "criterion threshold chosen on pooled OOF (optimistic F1); AUC is threshold-free"
+      }
+    },
+    "violation_macro_f1": 0.5662337662337662
+  },
+  "hip": {
+    "quality": {
+      "n": 150,
+      "positives": 41,
+      "sensitivity": 0.5121951219512195,
+      "specificity": 0.8256880733944955,
+      "balanced_accuracy": 0.6689415976728574,
+      "f1": 0.5185185185185185,
+      "confusion_tn_fp_fn_tp": [
+        90,
+        19,
+        20,
+        21
+      ],
+      "roc_auc": 0.7762362944730365,
+      "pr_auc": 0.6482783442250155
+    },
+    "quality_ci95": {
+      "sensitivity": [
+        0.34283834586466166,
+        0.6756756756756757
+      ],
+      "specificity": [
+        0.7457627118644068,
+        0.8974537037037036
+      ],
+      "balanced_accuracy": [
+        0.5758855294081267,
+        0.7581672955034681
+      ],
+      "f1": [
+        0.3606137032366541,
+        0.6521853546910754
+      ],
+      "roc_auc": [
+        0.6654698569856985,
+        0.8680267982754707
+      ],
+      "pr_auc": [
+        0.4722181177562205,
+        0.801997538407172
+      ]
+    },
+    "quality_auc_per_repeat": [
+      0.7397628104721414,
+      0.8185276348176326,
+      0.7458044305213695
+    ],
+    "criteria": {
+      "hip_position_rotation": {
+        "n": 150,
+        "positives": 36,
+        "sensitivity": 0.4722222222222222,
+        "specificity": 0.8859649122807017,
+        "balanced_accuracy": 0.679093567251462,
+        "f1": 0.5151515151515151,
+        "confusion_tn_fp_fn_tp": [
+          101,
+          13,
+          19,
+          17
+        ],
+        "roc_auc": 0.7302631578947368,
+        "pr_auc": 0.5325605609250219,
+        "ci95": {
+          "sensitivity": [
+            0.2972972972972973,
+            0.6512298747763864
+          ],
+          "specificity": [
+            0.8124866452991453,
+            0.9537143221202854
+          ],
+          "balanced_accuracy": [
+            0.5885618696433081,
+            0.776289949293466
+          ],
+          "f1": [
+            0.3389830508474576,
+            0.6750081168831169
+          ],
+          "roc_auc": [
+            0.5955431100279073,
+            0.8460343328042442
+          ],
+          "pr_auc": [
+            0.3398264403866472,
+            0.7239983445468936
+          ]
+        },
+        "note": "criterion threshold chosen on pooled OOF (optimistic F1); AUC is threshold-free"
+      },
+      "hip_roi_coverage": {
+        "n": 150,
+        "positives": 7,
+        "sensitivity": 0.8571428571428571,
+        "specificity": 0.951048951048951,
+        "balanced_accuracy": 0.904095904095904,
+        "f1": 0.6,
+        "confusion_tn_fp_fn_tp": [
+          136,
+          7,
+          1,
+          6
+        ],
+        "roc_auc": 0.939060939060939,
+        "pr_auc": 0.6565934065934065,
+        "ci95": {
+          "sensitivity": [
+            0.5,
+            1.0
+          ],
+          "specificity": [
+            0.9130434782608695,
+            0.9852994458653027
+          ],
+          "balanced_accuracy": [
+            0.7263263703844689,
+            0.9863013698630136
+          ],
+          "f1": [
+            0.26666666666666666,
+            0.8181818181818182
+          ],
+          "roc_auc": [
+            0.828810470115982,
+            0.9977698956294847
+          ],
+          "pr_auc": [
+            0.16836131151392372,
+            0.9685515873015871
+          ]
+        },
+        "note": "criterion threshold chosen on pooled OOF (optimistic F1); AUC is threshold-free"
+      }
+    },
+    "violation_macro_f1": 0.5575757575757576
+  },
+  "overall": {
+    "quality": {
+      "n": 249,
+      "positives": 73,
+      "sensitivity": 0.6438356164383562,
+      "specificity": 0.7670454545454546,
+      "balanced_accuracy": 0.7054405354919053,
+      "f1": 0.5838509316770186,
+      "confusion_tn_fp_fn_tp": [
+        135,
+        41,
+        26,
+        47
+      ],
+      "roc_auc": 0.7915628891656289,
+      "pr_auc": 0.649485096033708
+    },
+    "quality_ci95": {
+      "sensitivity": [
+        0.5423728813559322,
+        0.7530948756976154
+      ],
+      "specificity": [
+        0.6909978598180846,
+        0.8359810044236273
+      ],
+      "balanced_accuracy": [
+        0.6410899663902457,
+        0.7701461406892279
+      ],
+      "f1": [
+        0.4895029431000654,
+        0.6709677419354839
+      ],
+      "roc_auc": [
+        0.7182332191428163,
+        0.8581364491224526
+      ],
+      "pr_auc": [
+        0.5181494530179618,
+        0.7711759789534451
+      ]
+    }
+  }
+}

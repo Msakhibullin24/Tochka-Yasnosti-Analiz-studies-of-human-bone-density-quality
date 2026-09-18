@@ -12,3 +12,7 @@ backend/*.egg-info/
 backend/exports/
 data/
 .venv-5090/
+competition/.cache/
+competition/out/
+competition/**/__pycache__/
+competition/labels/candidates_*

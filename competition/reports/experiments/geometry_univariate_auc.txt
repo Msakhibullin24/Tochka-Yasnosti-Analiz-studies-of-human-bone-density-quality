@@ -1,0 +1,7 @@
+spine quality_class crest_left_frac=0.33 | crest_min_frac=0.34 | crest_right_frac=0.35 | crest_height_mm=0.36 | tophat_lat_strong_frac=0.64 | sat_max_blob=0.36 | tophat_lat_p999=0.62
+spine spine_coverage crest_right_frac=0.08 | crest_height_mm=0.13 | crest_min_frac=0.16 | sat_max_blob=0.18 | tophat_lat_p999=0.19 | lateral_mean=0.21 | crest_left_frac=0.21
+spine spine_axis spine_abs_angle_deg=0.84 | spine_seg_max_abs_angle_deg=0.73 | spine_abs_centre_offset_mm=0.71 | spine_angle_deg=0.69 | spine_centre_offset_mm=0.33 | tophat_lat_strong_frac=0.37 | tophat_lat_p999=0.40
+spine spine_artifact tophat_lat_p999=0.92 | tophat_lat_strong_frac=0.89 | tophat_lat_p99=0.84 | rib_signal=0.79 | lateral_mean=0.64 | sat_max_blob=0.39 | crest_left_frac=0.41
+hip quality_class shaft_abs_angle_deg=0.76 | ischium_bottom_margin_mm=0.31 | image_height_mm=0.39 | bone_frac=0.60 | sat_frac=0.60 | shaft_angle_deg=0.41 | shaft_width_mm=0.59
+hip hip_position_rotation shaft_abs_angle_deg=0.76 | ischium_bottom_margin_mm=0.35 | shaft_angle_deg=0.38 | lateral_margin_mm=0.62 | lesser_troch_notch_mm=0.58 | shaft_width_mm=0.57 | bone_frac=0.56
+hip hip_roi_coverage image_height_mm=0.06 | ischium_bottom_margin_mm=0.14 | troch_top_margin_mm=0.21 | neck_start_height_mm=0.26 | sat_pixels=0.27 | bone_top_rows_frac=0.27 | shaft_abs_angle_deg=0.72
