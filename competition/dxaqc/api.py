@@ -6,6 +6,7 @@ GET  /api/v1/jobs/{id}        status + progress + summary
 GET  /api/v1/jobs/{id}/results.csv | results.xlsx | additional_series.zip | rows
 GET  /api/v1/jobs/{id}/overlay?path=<explanation_png>  PNG explanation
 POST /api/v1/analyze          multipart: single DICOM -> JSON verdict
+POST /api/v1/compare          multipart: baseline + followup DICOM (+ optional BMD, LSC) -> follow-up comparability
 GET  /health
 """
 from __future__ import annotations
@@ -19,7 +20,7 @@ import threading
 import uuid
 from pathlib import Path
 
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from pydantic import BaseModel
 
@@ -204,6 +205,31 @@ async def analyze(file: UploadFile = File(...)):
     res.pop("overlay", None)
     return json.loads(json.dumps({"processing_status": "Success", "study_uid": img.study_uid,
                                   "image_uid": img.image_uid, **res}, default=float).replace("NaN", "null"))
+
+
+@app.post("/api/v1/compare")
+async def compare_visits(baseline: UploadFile = File(...), followup: UploadFile = File(...),
+                         baseline_bmd: float | None = Form(None), followup_bmd: float | None = Form(None),
+                         lsc_percent: float | None = Form(None), precision_cv_percent: float | None = Form(None)):
+    """Dynamics: are two visits comparable by positioning, and is the (operator-supplied) BMD change significant?"""
+    from .dicom_io import DicomReadError, read_dxa
+    from .dynamics import compare
+    results = []
+    for upload in (baseline, followup):
+        payload = await upload.read(512 * 1024 * 1024 + 1)
+        if len(payload) > 512 * 1024 * 1024:
+            raise HTTPException(413, "file is too large")
+        with tempfile.NamedTemporaryFile(suffix=".dcm") as tmp:
+            tmp.write(payload)
+            tmp.flush()
+            try:
+                results.append(analyzer().analyze(read_dxa(tmp.name)))
+            except DicomReadError as exc:
+                return JSONResponse({"processing_status": "Failure", "error_code": exc.code,
+                                     "error_message": f"{upload.filename}: {exc}"}, 422)
+    out = compare(results[0], results[1], baseline_bmd=baseline_bmd, followup_bmd=followup_bmd,
+                  lsc_percent=lsc_percent, precision_cv_percent=precision_cv_percent).to_dict()
+    return json.loads(json.dumps({"processing_status": "Success", **out}, default=float).replace("NaN", "null"))
 
 
 @app.get("/", response_class=HTMLResponse)

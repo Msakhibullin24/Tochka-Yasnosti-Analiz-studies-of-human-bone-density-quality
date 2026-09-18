@@ -57,6 +57,7 @@ CRITERIA = {
         "spine_axis": ["spine_abs_angle_deg", "spine_seg_max_abs_angle_deg", "spine_curve_rms_mm",
                        "spine_curve_max_mm", "spine_abs_centre_offset_mm", "spine_seg_angle_range_deg"],
         "spine_artifact": ["tophat_lat_p999", "tophat_lat_p99", "tophat_lat_strong_frac", "tophat_col_p999",
+                           "tophat_top_lat_p999", "tophat_top_lat_p99", "tophat_top_strong_frac",
                            "sat_pixels", "sat_max_blob", "rib_signal", "lateral_mean"],
     },
     "hip": {

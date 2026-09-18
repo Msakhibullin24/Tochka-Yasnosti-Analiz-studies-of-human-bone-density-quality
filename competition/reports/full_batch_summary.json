@@ -7,9 +7,9 @@
     "success_rate": 1.0,
     "violations": 162,
     "studies": 100,
-    "max_seconds_per_study": 1.624,
-    "mean_seconds_per_image": 0.1318,
-    "total_seconds": 85.156
+    "max_seconds_per_study": 1.97,
+    "mean_seconds_per_image": 0.186,
+    "total_seconds": 122.882
   },
   "folder_run": {
     "version": "1.0.0",
@@ -19,9 +19,9 @@
     "success_rate": 1.0,
     "violations": 162,
     "studies": 100,
-    "max_seconds_per_study": 1.334,
-    "mean_seconds_per_image": 0.1052,
-    "total_seconds": 54.348
+    "max_seconds_per_study": 2.319,
+    "mean_seconds_per_image": 0.1925,
+    "total_seconds": 99.094
   },
   "rows": 499,
   "identical_quality_class": true,
@@ -36,12 +36,8 @@
   "violation_type_values": {
     "": 337,
     "Некорректная укладка": 92,
-    "Присутствуют посторонние предметы": 35,
+    "Присутствуют посторонние предметы": 36,
     "Некорректная область интереса": 26,
-    "Не выровнена ось позвоночника": 20
-  },
-  "quality_prob_range": [
-    0.0457,
-    0.99
-  ]
+    "Не выровнена ось позвоночника": 19
+  }
 }

@@ -137,6 +137,9 @@ def measure_spine(img: np.ndarray, pixel_mm: float = DEFAULT_PIXEL_MM) -> Measur
     th_lat = tophat[lateral]
     th_col = tophat[~lateral]
     col_vals = img[~lateral]
+    # Underwires / clips sit in the upper part of the frame: measure that zone separately.
+    top_rows = int(h * 0.15)
+    th_top = tophat[:top_rows][lateral[:top_rows]]
     features = {
         "spine_angle_deg": angle,
         "spine_abs_angle_deg": abs(angle),
@@ -158,6 +161,9 @@ def measure_spine(img: np.ndarray, pixel_mm: float = DEFAULT_PIXEL_MM) -> Measur
         "tophat_lat_p99": float(np.percentile(th_lat, 99)) if th_lat.size else 0.0,
         "tophat_col_p999": float(np.percentile(th_col, 99.9)) if th_col.size else 0.0,
         "tophat_lat_strong_frac": float((th_lat > 60).mean()) if th_lat.size else 0.0,
+        "tophat_top_lat_p999": float(np.percentile(th_top, 99.9)) if th_top.size else 0.0,
+        "tophat_top_lat_p99": float(np.percentile(th_top, 99)) if th_top.size else 0.0,
+        "tophat_top_strong_frac": float((th_top > 60).mean()) if th_top.size else 0.0,
         "column_p99": float(np.percentile(col_vals, 99)) if col_vals.size else 0.0,
         "column_mean": float(col_vals.mean()) if col_vals.size else 0.0,
         "lateral_mean": float(img[lateral].mean()),
