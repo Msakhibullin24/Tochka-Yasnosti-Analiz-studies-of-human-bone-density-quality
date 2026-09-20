@@ -1,0 +1,49 @@
+{
+  "version": "1.1.0",
+  "date": "2026-09-20",
+  "local_tests": {
+    "competition": 49,
+    "research_backend": 48,
+    "react": 26,
+    "lint": "passed",
+    "frontend_build": "passed"
+  },
+  "container_tests": {
+    "passed": 48,
+    "skipped": 1,
+    "reason": "organiser debug dataset not mounted",
+    "public_zip_script_smoke": "passed",
+    "pip_check": "passed"
+  },
+  "browser": {
+    "javascript_exceptions": 0,
+    "horizontal_overflow_at_390px": false,
+    "real_debug_dataset": true
+  },
+  "offline_batch": {
+    "version": "1.1.0",
+    "files": 499,
+    "success": 499,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 162,
+    "cancelled": false,
+    "studies": 100,
+    "max_seconds_per_study": 2.974,
+    "mean_seconds_per_image": 0.1404,
+    "total_seconds": 84.745
+  },
+  "offline_command_exit": 0,
+  "repeated_decisions_identical": true,
+  "additional_series_files": 1497,
+  "additional_series_zip_integrity": true,
+  "model_sha256": "3c28805dc7cca8a530daf59929d532543b6e38f72742bbca2092157879f23392",
+  "model_weights_replaced": false,
+  "validation_report": "decision_v2_validation.json",
+  "limitations": [
+    "quality CV uses known region; region router evaluated separately",
+    "ROI editor and expert measurements are not a clinically validated automatic ROI checker",
+    "no additional expert labels available",
+    "PACS out of scope"
+  ]
+}

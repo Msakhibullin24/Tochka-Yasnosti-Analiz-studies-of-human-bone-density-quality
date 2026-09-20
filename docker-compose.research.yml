@@ -1,0 +1,38 @@
+services:
+  api:
+    build:
+      context: ./backend
+    environment:
+      DXA_ALLOWED_ORIGINS: http://localhost:8080
+      OSSEO_DATASET_ROOT: /data/dataset
+      OSSEO_ANNOTATION_ROOT: /data/annotations
+      OSSEO_LONGITUDINAL_ROOT: /data/longitudinal
+      OSSEO_EXCLUSION_LOG: /data/runtime/exclusions.jsonl
+      OSSEO_AUDIT_LOG: /data/runtime/audit.jsonl
+      OSSEO_AUDIT_HMAC_KEY: ${OSSEO_AUDIT_HMAC_KEY:-}
+      OSSEO_AUTH_MODE: ${OSSEO_AUTH_MODE:-disabled}
+      OSSEO_CLINICAL_VALIDATION_ID: ${OSSEO_CLINICAL_VALIDATION_ID:-}
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    volumes:
+      - ./data/dataset:/data/dataset:ro
+      - ./data/annotations:/data/annotations
+      - ./data/longitudinal:/data/longitudinal
+      - ./data/runtime:/data/runtime
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      args:
+        VITE_WORKSPACE: research
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "${DXA_WEB_PORT:-8080}:8080"
+    restart: unless-stopped

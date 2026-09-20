@@ -13,13 +13,35 @@ from dataclasses import dataclass, field
 import cv2
 import numpy as np
 
-DEFAULT_PIXEL_MM = 0.607  # GE Lunar Prodigy export: ExposedArea(mm) / image size(px)
+DEFAULT_PIXEL_MM = 0.607  # Legacy uncertain fallback for uncalibrated inputs; NOT the organiser V2 scale
 
 
 @dataclass
 class Measurement:
     features: dict[str, float]
     overlay: dict[str, list] = field(default_factory=dict)
+
+
+def measure_image(pixels: np.ndarray, region: str, pixel_mm_y: float,
+                  pixel_mm_x: float | None = None) -> Measurement:
+    """Measure in an isotropic physical grid; return points in input pixel coordinates.
+
+    The caller supplies canonical hip orientation. CNN inputs are not resampled.
+    """
+    sx = pixel_mm_y if pixel_mm_x is None else pixel_mm_x
+    if not (np.isfinite(sx) and np.isfinite(pixel_mm_y) and sx > 0 and pixel_mm_y > 0):
+        raise ValueError("invalid physical pixel spacing")
+    width = max(1, round(pixels.shape[1] * sx / pixel_mm_y))
+    if width * pixels.shape[0] > 36_000_000:
+        raise ValueError("physical grid exceeds image size limit")
+    scale = width / pixels.shape[1]
+    physical = pixels if width == pixels.shape[1] else cv2.resize(
+        pixels, (width, pixels.shape[0]), interpolation=cv2.INTER_LINEAR)
+    result = (measure_spine if region == "spine" else measure_hip)(physical, pixel_mm_y)
+    if scale != 1:
+        result.overlay = {key: [((x + 0.5) / scale - 0.5, y) for x, y in points]
+                          for key, points in result.overlay.items()}
+    return result
 
 
 def _smooth(img: np.ndarray, sigma: float) -> np.ndarray:
@@ -171,7 +193,6 @@ def measure_spine(img: np.ndarray, pixel_mm: float = DEFAULT_PIXEL_MM) -> Measur
     overlay = {
         "centerline": [(float(x), float(y)) for y, x in zip(ys[::4], xc[::4])],
         "axis": [(float(a * lo + b), float(lo)), (float(a * hi + b), float(hi))],
-        "artifact_mask_threshold": [250],
     }
     return Measurement(features, overlay)
 

@@ -1,0 +1,131 @@
+{
+  "image": "osseo-dxaqc:1.5.0",
+  "cpu_limit": 4,
+  "memory_limit_bytes": 4294967296,
+  "network": "none",
+  "host": "Linux-7.2.5-3-omarchy-x86_64-with-glibc2.44",
+  "host_cpu_count": 12,
+  "input_sha256": "3a9bbb24721235f0b669c97c6d1940ee586966bc850efef54dca49582dbe3c7b",
+  "runs": [
+    {
+      "name": "a",
+      "exit_code": 0,
+      "wall_seconds": 184.74391699099942,
+      "summary": {
+        "version": "1.5.0",
+        "files": 499,
+        "success": 499,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 162,
+        "cancelled": false,
+        "studies": 100,
+        "max_seconds_per_study": 3.902,
+        "mean_seconds_per_image": 0.3101,
+        "total_seconds": 181.23,
+        "process_peak_rss_bytes": 510566400,
+        "cpu_count_visible": 12
+      },
+      "output_bytes": 183949269,
+      "output_artifacts": {
+        "summary.json": {
+          "bytes": 321,
+          "sha256": "0a7c2907eff3a049c9193e030970ff276b4d62e90176cedb9dd7ec2c6dbe6e80"
+        },
+        "additional_series.zip": {
+          "bytes": 181662116,
+          "sha256": "562826f99ada0a5c0b341291a1f4dc45fd72581b38f123b774cdd7235e0693dd"
+        },
+        "results.xlsx": {
+          "bytes": 1523463,
+          "sha256": "1abdc6c70b3ef08ec41a3b592765fce8cdf2be674c0c03a2a2a656a3a6a2d333"
+        },
+        "results.csv": {
+          "bytes": 763369,
+          "sha256": "7549bb17c389c13efdae38910eae0d72c381aa31b5afde2adc0eb23d1f60f1b5"
+        }
+      }
+    },
+    {
+      "name": "b",
+      "exit_code": 0,
+      "wall_seconds": 229.142514354,
+      "summary": {
+        "version": "1.5.0",
+        "files": 499,
+        "success": 499,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 162,
+        "cancelled": false,
+        "studies": 100,
+        "max_seconds_per_study": 10.406,
+        "mean_seconds_per_image": 0.3946,
+        "total_seconds": 226.022,
+        "process_peak_rss_bytes": 501805056,
+        "cpu_count_visible": 12
+      },
+      "output_bytes": 183949265,
+      "output_artifacts": {
+        "summary.json": {
+          "bytes": 323,
+          "sha256": "b11561f81c00786e62ac280be698fab62a077ca6e694eaaa3df1f9d451119070"
+        },
+        "additional_series.zip": {
+          "bytes": 181662116,
+          "sha256": "562826f99ada0a5c0b341291a1f4dc45fd72581b38f123b774cdd7235e0693dd"
+        },
+        "results.xlsx": {
+          "bytes": 1523460,
+          "sha256": "f1c93ecb653ab2989c4e1fa4bf21130d4da83d891051916f2733a1ca07d35ed4"
+        },
+        "results.csv": {
+          "bytes": 763366,
+          "sha256": "1f31720b1398e16951044035c47ac59166a0277a30e493300e8b937a2eecb766"
+        }
+      }
+    }
+  ],
+  "conditions": "Other host workloads, including CV, may be active; limits apply to the benchmark container.",
+  "date": "2026-09-20",
+  "host_cpu_model": "Intel Core i7-1265U",
+  "benchmark_image_id": "sha256:48adda6db9f00d76d7f913afb01d06398ed5ef5064638a90379467a728841f3b",
+  "release_image_id": "sha256:0c8d8f3b350cdede11929105e158303cfb377525a6daf6c45956da69f22e96a6",
+  "image_difference": "Release additionally checks that API processing worker is alive in readiness. Batch inference code and weights are unchanged from benchmark image.",
+  "release_image_bytes": 1520322653,
+  "input_manifest_sha256": "2c2b0254557b26aa89395100f2b684478bdc2cbffe3a59c8afd2bbf42cff9728",
+  "weights_sha256": "3c28805dc7cca8a530daf59929d532543b6e38f72742bbca2092157879f23392",
+  "validation_a": {
+    "valid": true,
+    "errors": [],
+    "warnings": [],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 3.9021,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "validation_b": {
+    "valid": true,
+    "errors": [],
+    "warnings": [],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 10.4063,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "checks": {
+    "container_tests": {
+      "passed": 56,
+      "skipped": 1,
+      "reason": "organiser debug set not mounted"
+    },
+    "organiser_debug_local": {
+      "passed": 1
+    },
+    "public_batch_script_smoke": true,
+    "frontend_tests_passed": 39,
+    "eslint": true,
+    "git_diff_check": true,
+    "browser_visual_review": false
+  }
+}

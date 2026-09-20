@@ -69,7 +69,7 @@ def test_blank_image_is_a_failure_not_a_good_study(tmp_path):
 
 def test_report_contract_columns_come_first_and_xlsx_is_valid(tmp_path):
     rows = [{"path_to_study": "s", "study_uid": "1.2", "image_uid": "1.2.3", "anatomical_region": "Поясничный отдел позвоночника",
-             "quality_class": 1, "violation_type": "Не выровнена ось позвоночника;Присутствуют посторонние предметы",
+             "quality_class": 1, "violation_type": "Не выравнена ось позвоночника;Присутствуют посторонние предметы",
              "processing_status": "Success",
              "time_of_processing": 0.5, "quality_prob": 0.9, "violation_description": "<&> кириллица"}]
     write_csv(rows, tmp_path / "r.csv")
@@ -82,7 +82,7 @@ def test_report_contract_columns_come_first_and_xlsx_is_valid(tmp_path):
         sheet = z.read("xl/worksheets/sheet1.xml").decode()
     import xml.dom.minidom
     xml.dom.minidom.parseString(sheet)
-    assert "Не выровнена ось позвоночника;Присутствуют посторонние предметы" in sheet and "&lt;&amp;&gt;" in sheet
+    assert "Не выравнена ось позвоночника;Присутствуют посторонние предметы" in sheet and "&lt;&amp;&gt;" in sheet
 
 
 def test_inverted_report_style_export_is_normalised_but_normal_frames_are_untouched(tmp_path):
@@ -117,8 +117,8 @@ def test_output_vocabulary_matches_the_organiser_closed_lists():
     assert set(REGION_LABEL.values()) == {"Поясничный отдел позвоночника", "Проксимальный отдел бедра"}
     spine = {VIOLATION_LABEL[c] for c in ("spine_coverage", "spine_axis", "spine_artifact")}
     hip = {VIOLATION_LABEL[c] for c in ("hip_position_rotation", "hip_roi_coverage", "hip_metal_implant")}
-    assert spine == {"Некорректная укладка", "Не выровнена ось позвоночника", "Присутствуют посторонние предметы"}
+    assert spine == {"Некорректная укладка", "Не выравнена ось позвоночника", "Присутствуют посторонние предметы"}
     assert hip == {"Некорректная укладка", "Некорректная область интереса"}
     assert official_violation_type([]) == ""
     assert official_violation_type(["hip_roi_coverage", "hip_metal_implant"]) == "Некорректная область интереса"
-    assert official_violation_type(["spine_axis", "spine_artifact"]) == "Не выровнена ось позвоночника;Присутствуют посторонние предметы"
+    assert official_violation_type(["spine_axis", "spine_artifact"]) == "Не выравнена ось позвоночника;Присутствуют посторонние предметы"

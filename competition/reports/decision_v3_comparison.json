@@ -1,0 +1,143 @@
+{
+  "scope": "paired comparison of the same five study folds, one repeat; no external clinical validation",
+  "f1_delta": 0.04520884520884527,
+  "paired_cluster_bootstrap_f1_delta_ci95": [
+    -0.013194113332110718,
+    0.10868241213056107
+  ],
+  "criteria": {
+    "spine_coverage": {
+      "v2": {
+        "n": 99,
+        "positives": 6,
+        "f1": 0.5333333333333333,
+        "sensitivity": 0.6666666666666666,
+        "tn_fp_fn_tp": [
+          88,
+          5,
+          2,
+          4
+        ]
+      },
+      "v3": {
+        "n": 99,
+        "positives": 6,
+        "f1": 0.7272727272727273,
+        "sensitivity": 0.6666666666666666,
+        "tn_fp_fn_tp": [
+          92,
+          1,
+          2,
+          4
+        ]
+      }
+    },
+    "spine_axis": {
+      "v2": {
+        "n": 99,
+        "positives": 10,
+        "f1": 0.24,
+        "sensitivity": 0.3,
+        "tn_fp_fn_tp": [
+          77,
+          12,
+          7,
+          3
+        ]
+      },
+      "v3": {
+        "n": 99,
+        "positives": 10,
+        "f1": 0.36363636363636365,
+        "sensitivity": 0.4,
+        "tn_fp_fn_tp": [
+          81,
+          8,
+          6,
+          4
+        ]
+      }
+    },
+    "spine_artifact": {
+      "v2": {
+        "n": 99,
+        "positives": 17,
+        "f1": 0.7777777777777778,
+        "sensitivity": 0.8235294117647058,
+        "tn_fp_fn_tp": [
+          77,
+          5,
+          3,
+          14
+        ]
+      },
+      "v3": {
+        "n": 99,
+        "positives": 17,
+        "f1": 0.6875,
+        "sensitivity": 0.6470588235294118,
+        "tn_fp_fn_tp": [
+          78,
+          4,
+          6,
+          11
+        ]
+      }
+    },
+    "hip_position_rotation": {
+      "v2": {
+        "n": 150,
+        "positives": 36,
+        "f1": 0.49411764705882355,
+        "sensitivity": 0.5833333333333334,
+        "tn_fp_fn_tp": [
+          86,
+          28,
+          15,
+          21
+        ]
+      },
+      "v3": {
+        "n": 150,
+        "positives": 36,
+        "f1": 0.6265060240963856,
+        "sensitivity": 0.7222222222222222,
+        "tn_fp_fn_tp": [
+          93,
+          21,
+          10,
+          26
+        ]
+      }
+    },
+    "hip_roi_coverage": {
+      "v2": {
+        "n": 150,
+        "positives": 7,
+        "f1": 0.4,
+        "sensitivity": 0.42857142857142855,
+        "tn_fp_fn_tp": [
+          138,
+          5,
+          4,
+          3
+        ]
+      },
+      "v3": {
+        "n": 150,
+        "positives": 7,
+        "f1": 0.4,
+        "sensitivity": 0.42857142857142855,
+        "tn_fp_fn_tp": [
+          138,
+          5,
+          4,
+          3
+        ]
+      }
+    }
+  },
+  "untyped_positive_predictions": 34,
+  "decision_sha256": "b5b734814ba5a87a5a3ec17155b3da2cc6d575a8bb50963f9e5b3e47b033abbf",
+  "geometry_sha256": "561c53959d0be5e972583c32aea8839f3f0d988a0d9a96a5415f3ff8ac2ae061"
+}

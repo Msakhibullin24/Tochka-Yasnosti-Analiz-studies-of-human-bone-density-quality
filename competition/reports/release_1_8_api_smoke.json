@@ -1,0 +1,44 @@
+{
+  "ready": {
+    "ready": true,
+    "version": "1.8.0",
+    "model": {
+      "trained_at_unix": 1789922126,
+      "calibration_version": "lct-v2-xy-1",
+      "sklearn": "1.6.1",
+      "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+      "seed": 17,
+      "code_sha256": "340a4dcda4fad1fc64932387205956431a83acb78bf3ab0edc7897e4785d4620",
+      "decision_version": "3",
+      "configuration": {
+        "repeats": 1,
+        "synthetic": "rotate",
+        "extra": []
+      }
+    },
+    "disk_free_bytes": 121566543872,
+    "jobs_in_recent_history": 4
+  },
+  "history_before": 4,
+  "job_id": "1b3af177302e4b6588aecabe99821001",
+  "status": "finished",
+  "files": 3,
+  "renamed_inputs": true,
+  "xy_scale_verified": 3,
+  "sr_limits_verified": 3,
+  "submission_columns": 9,
+  "submission_validation": {
+    "valid": true,
+    "profile": "competition_v2",
+    "errors": [],
+    "warnings": [
+      "Input completeness not checked: provide an independent path manifest",
+      "Failure explanations not available in this table",
+      "Additional DICOM series not checked"
+    ],
+    "images": 3,
+    "success": 3,
+    "max_seconds_per_study": 0.3365,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "Row 265: violation detected but type undetermined; typification requirement is incomplete",
+    "Row 268: violation detected but type undetermined; typification requirement is incomplete",
+    "Row 271: violation detected but type undetermined; typification requirement is incomplete",
+    "Row 325: violation detected but type undetermined; typification requirement is incomplete",
+    "Row 327: violation detected but type undetermined; typification requirement is incomplete",
+    "Row 330: violation detected but type undetermined; typification requirement is incomplete",
+    "Row 416: violation detected but type undetermined; typification requirement is incomplete",
+    "Row 425: violation detected but type undetermined; typification requirement is incomplete",
+    "Row 428: violation detected but type undetermined; typification requirement is incomplete"
+  ],
+  "images": 499,
+  "success": 499,
+  "max_seconds_per_study": 2.7203,
+  "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+}

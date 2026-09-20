@@ -2,6 +2,9 @@
 from __future__ import annotations
 
 import csv
+import os
+import tempfile
+from functools import wraps
 import zipfile
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -13,7 +16,7 @@ CONTRACT_COLUMNS = ["path_to_study", "study_uid", "image_uid", "anatomical_regio
 # quality_prob: name and range [0;1] approved by the organiser (needed for ROC-AUC).
 EXTRA_COLUMNS = ["quality_prob", "laterality", "violation_codes", "violation_scores", "violation_description", "measurements",
                  "region_confidence", "pixel_mm", "pixel_mm_source", "duplicate_of", "error_code", "error_message", "path_to_file",
-                 "explanation_png"]
+                 "explanation_png", "criterion_thresholds", "decision_reason", "decision_version", "pixel_mm_x", "row_id", "projection_assessment", "anatomy_assessment", "source_roi_assessment", "anatomical_checks_complete", "image_width", "image_height", "criterion_states", "violation_type_status", "review_reasons"]
 
 
 def columns(strict: bool) -> list[str]:
@@ -21,6 +24,22 @@ def columns(strict: bool) -> list[str]:
     return CONTRACT_COLUMNS + ["quality_prob"] if strict else CONTRACT_COLUMNS + EXTRA_COLUMNS
 
 
+def atomic_output(writer):
+    """Publish complete reports; a failed rewrite preserves the previous artifact."""
+    @wraps(writer)
+    def wrapped(rows, path, strict=False):
+        path = Path(path)
+        fd, temporary = tempfile.mkstemp(prefix="." + path.name, dir=path.parent)
+        os.close(fd)
+        try:
+            writer(rows, Path(temporary), strict)
+            os.replace(temporary, path)
+        finally:
+            Path(temporary).unlink(missing_ok=True)
+    return wrapped
+
+
+@atomic_output
 def write_csv(rows: list[dict], path: Path, strict: bool = False) -> None:
     with open(path, "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=columns(strict), extrasaction="ignore")
@@ -37,6 +56,7 @@ def _col(i: int) -> str:
     return s
 
 
+@atomic_output
 def write_xlsx(rows: list[dict], path: Path, strict: bool = False) -> None:
     cols = columns(strict)
     numeric = {"quality_class", "time_of_processing", "quality_prob", "region_confidence", "pixel_mm"}

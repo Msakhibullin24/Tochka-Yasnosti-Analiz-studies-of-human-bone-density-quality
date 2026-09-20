@@ -1,0 +1,19 @@
+{
+  "ready": {
+    "ready": true,
+    "version": "1.7.0",
+    "model": {
+      "trained_at_unix": 1789741200,
+      "sklearn": "1.6.1",
+      "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+      "seed": 17
+    },
+    "disk_free_bytes": 121871310848,
+    "jobs_in_recent_history": 4
+  },
+  "job_id": "12fdecc7d5974c098be521aa683a8068",
+  "images": 3,
+  "sr_limits_verified": 3,
+  "status": "finished",
+  "image_sha256": "4ebd5a1753958634d1d852328450bd4d2cffe9de3f37800b019dea3f26393bef"
+}

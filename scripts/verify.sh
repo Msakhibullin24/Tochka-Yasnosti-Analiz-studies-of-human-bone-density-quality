@@ -8,5 +8,6 @@ npm run lint
 npm test
 npm run build
 backend/.venv/bin/python -m pytest -q backend/tests
+backend/.venv/bin/python -m pytest -q competition/tests
 
 echo "All static checks, frontend tests, backend tests, and production build passed."

@@ -1,0 +1,138 @@
+{
+  "release": "1.6.0",
+  "date": "2026-09-20",
+  "benchmark": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cpus",
+      "4",
+      "--memory",
+      "4g",
+      "--user",
+      "1000:1000",
+      "-v",
+      "/home/robot/Downloads/Датасет/НД_для_обучения.zip:/data/input:ro",
+      "-v",
+      "/tmp/osseo-audit-1-6/final:/data/out",
+      "osseo-dxaqc:1.6.0",
+      "python",
+      "-m",
+      "dxaqc.cli",
+      "--input",
+      "/data/input",
+      "--output",
+      "/data/out"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 106.64872421799919,
+    "image_id": "sha256:478b46213cbd91d59bd0d41f7fff8300e72b070d2c7cf538d26ac43d6622ffe4",
+    "summary": {
+      "version": "1.6.0",
+      "files": 499,
+      "success": 499,
+      "failure": 0,
+      "success_rate": 1.0,
+      "violations": 162,
+      "cancelled": false,
+      "studies": 100,
+      "max_seconds_per_study": 5.433,
+      "mean_seconds_per_image": 0.1812,
+      "total_seconds": 105.175,
+      "process_peak_rss_bytes": 512913408,
+      "cpu_count_visible": 12
+    }
+  },
+  "projection_hypotheses": {
+    "candidate:frontal": 368,
+    "undetermined:unknown": 4
+  },
+  "source_roi_statuses": {
+    "absent": 372
+  },
+  "landmark_candidates": {
+    "iliac_crest_left": {
+      "candidate": 74,
+      "not_localized": 51
+    },
+    "iliac_crest_right": {
+      "candidate": 94,
+      "not_localized": 31
+    },
+    "vertebral_body_candidates": {
+      "candidate": 125
+    },
+    "Th12": {
+      "not_localized": 125
+    },
+    "greater_trochanter": {
+      "candidate": 247
+    },
+    "lesser_trochanter": {
+      "candidate": 135,
+      "not_localized": 112
+    },
+    "ischium": {
+      "candidate": 247
+    },
+    "femoral_neck": {
+      "candidate": 244,
+      "not_localized": 3
+    }
+  },
+  "clinical_validation": false,
+  "scope": "execution, input coverage and candidate availability; not localization accuracy",
+  "tests": {
+    "container_passed": 64,
+    "container_skipped": 1,
+    "skip_reason": "external organiser debug directory not mounted",
+    "ui_passed": 40,
+    "lint_passed": true,
+    "batch_script_smoke_passed": true
+  },
+  "api_smoke": {
+    "job": {
+      "id": "a238a746b0c041eaa74a87927947cb7b",
+      "status": "finished",
+      "done": 3,
+      "total": 3,
+      "summary": {
+        "version": "1.6.0",
+        "files": 3,
+        "success": 3,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 1,
+        "cancelled": false,
+        "studies": 2,
+        "max_seconds_per_study": 0.664,
+        "mean_seconds_per_image": 0.3271,
+        "total_seconds": 1.191,
+        "process_peak_rss_bytes": 541499392,
+        "cpu_count_visible": 12
+      },
+      "error": null,
+      "created_at": 1789916748.9146106,
+      "updated_at": 1789916750.1916091
+    },
+    "rows": 3,
+    "detail_assessment_available": true,
+    "source_roi_status": "absent"
+  },
+  "weights_sha256": "3c28805dc7cca8a530daf59929d532543b6e38f72742bbca2092157879f23392",
+  "results_sha256": "8fb79b77dd73d8eabdc8247ef60698a7cefcd8f0a570176022a6bbb236021ade",
+  "uncached_image_cases": 372,
+  "candidate_counts_scope": "Cases not marked duplicate_of by inference cache (normalized pixels AND physical scale); not raw-pixel-unique images or independent patients.",
+  "contract_and_quality_regression": {
+    "valid": true,
+    "errors": [],
+    "warnings": [],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 5.4327,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  }
+}

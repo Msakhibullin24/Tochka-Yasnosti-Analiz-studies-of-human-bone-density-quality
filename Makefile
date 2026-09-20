@@ -10,7 +10,7 @@ smoke:
 	./scripts/smoke.sh
 
 docker-up:
-	mkdir -p data/dataset data/annotations data/longitudinal data/runtime
+	mkdir -p data/runtime data/input
 	LOCAL_UID="$$(id -u)" LOCAL_GID="$$(id -g)" docker compose up --build
 
 docker-down:

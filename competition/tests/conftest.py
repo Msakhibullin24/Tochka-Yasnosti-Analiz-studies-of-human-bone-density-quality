@@ -51,3 +51,18 @@ def bundle_available():
     if not MODEL_PATH.exists():
         pytest.skip("models/bundle.joblib is not trained yet")
     return True
+
+
+@pytest.fixture
+def trusted_synthetic_router(monkeypatch):
+    """Workflow tests use drawn phantoms, not an evaluation of router confidence.
+
+    Preserve the region prediction but explicitly supply trusted routing. Scope rejection
+    and organiser images are tested separately without this fixture.
+    """
+    from dxaqc.model import RegionRouter
+    predict = RegionRouter.predict
+    def trusted(self, embedding):
+        regions, _ = predict(self, embedding)
+        return regions, np.ones(len(regions))
+    monkeypatch.setattr(RegionRouter, 'predict', trusted)

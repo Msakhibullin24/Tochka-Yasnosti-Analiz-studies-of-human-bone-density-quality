@@ -1,0 +1,19 @@
+{
+  "scope": "internal supplied label table audit; no relabelling performed",
+  "positive_without_type": [
+    {
+      "study_key": "2.25.339027809107632348165171236474821772940",
+      "excel_row": "8",
+      "region": "spine",
+      "comment": "сколиоз",
+      "first_source_path": "2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000001.dcm"
+    },
+    {
+      "study_key": "2.25.52532476139575422857225834315571570912",
+      "excel_row": "13",
+      "region": "spine",
+      "comment": "Сколиоз, не верня разметка",
+      "first_source_path": "2.25.52532476139575422857225834315571570912/series_001_2_CR/A2504247961 DXA/CR DXA/CR000000.dcm"
+    }
+  ]
+}

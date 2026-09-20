@@ -1,0 +1,21 @@
+{
+  "images": 499,
+  "fields_present": {
+    "ViewPosition": 499,
+    "ImageOrientationPatient": 0,
+    "GraphicAnnotationSequence": 0,
+    "ROIContourSequence": 0,
+    "StructureSetROISequence": 0,
+    "overlay_planes": 0,
+    "private_elements": 0
+  },
+  "expert_landmark_reference_available": false,
+  "source_archive_sha256": "3a9bbb24721235f0b669c97c6d1940ee586966bc850efef54dca49582dbe3c7b",
+  "scope": "DICOM structural inventory, not inference of burned-in annotations or expert anatomical validation",
+  "fields_nonempty": {
+    "ViewPosition": 0
+  },
+  "notes": [
+    "ViewPosition tag is present but empty in all 499 files."
+  ]
+}

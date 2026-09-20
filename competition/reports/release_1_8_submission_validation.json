@@ -1,0 +1,34 @@
+{
+  "valid": false,
+  "profile": "competition_v2",
+  "errors": [
+    "Row 24: competition output requires a violation type for quality_class=1",
+    "Row 27: competition output requires a violation type for quality_class=1",
+    "Row 103: competition output requires a violation type for quality_class=1",
+    "Row 127: competition output requires a violation type for quality_class=1",
+    "Row 130: competition output requires a violation type for quality_class=1",
+    "Row 265: competition output requires a violation type for quality_class=1",
+    "Row 268: competition output requires a violation type for quality_class=1",
+    "Row 271: competition output requires a violation type for quality_class=1",
+    "Row 325: competition output requires a violation type for quality_class=1",
+    "Row 327: competition output requires a violation type for quality_class=1",
+    "Row 330: competition output requires a violation type for quality_class=1",
+    "Row 416: competition output requires a violation type for quality_class=1",
+    "Row 425: competition output requires a violation type for quality_class=1",
+    "Row 428: competition output requires a violation type for quality_class=1",
+    "Row 433: competition output requires a violation type for quality_class=1",
+    "Row 438: competition output requires a violation type for quality_class=1",
+    "Row 442: competition output requires a violation type for quality_class=1",
+    "Row 469: competition output requires a violation type for quality_class=1",
+    "Row 470: competition output requires a violation type for quality_class=1"
+  ],
+  "warnings": [
+    "Input completeness not checked: provide an independent path manifest",
+    "Failure explanations not available in this table",
+    "Additional DICOM series not checked"
+  ],
+  "images": 499,
+  "success": 499,
+  "max_seconds_per_study": 1.499,
+  "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+}

@@ -4,8 +4,9 @@ Design rules (from the dataset audit):
 * UIDs in the organiser export violate the DICOM UID syntax (leading zeros, >64 chars).
   They are passed through verbatim - never validated, never rewritten.
 * No personal data is required; only technical tags are read.
-* PixelSpacing is absent. The physical scale is recovered from ExposedArea (0040,0303)
-  when it describes this image, otherwise the device constant is used.
+* Explicit spacing tags take priority. Missing spacing for the organiser GE Lunar
+  Prodigy Advance uses DOCX V2: Y=1.05 mm, X=0.6 mm. Other devices keep legacy
+  ExposedArea estimation or an explicitly uncertain fallback.
 * Any failure is turned into DicomReadError with a short machine-readable code.
 """
 from __future__ import annotations
@@ -18,6 +19,10 @@ from pathlib import Path
 import numpy as np
 
 from .geometry import DEFAULT_PIXEL_MM
+
+CALIBRATION_VERSION = "lct-v2-xy-1"
+ORGANISER_PIXEL_Y_MM = 1.05
+ORGANISER_PIXEL_X_MM = 0.6
 
 MAX_PIXELS = 6000 * 6000
 
@@ -41,6 +46,10 @@ class DxaImage:
     manufacturer: str = ""
     model_name: str = ""
     warnings: list[str] = field(default_factory=list)
+    pixel_mm_x: float | None = None
+    sop_class_uid: str = "1.2.840.10008.5.1.4.1.1.1"
+    view_position: str = ""
+    source_roi: dict = field(default_factory=lambda: {"status": "absent", "rois": [], "issues": []})
 
 
 def _text(ds, key: str) -> str:
@@ -55,7 +64,7 @@ def _to_uint8(arr: np.ndarray, photometric: str, ds) -> np.ndarray:
     a = np.asarray(arr)
     if a.ndim == 3 and a.shape[-1] in (3, 4):  # RGB secondary capture -> luminance
         a = a[..., :3].astype(np.float32) @ np.array([0.299, 0.587, 0.114], np.float32)
-    elif a.ndim == 3:  # multi-frame: first frame
+    elif a.ndim == 3 and a.shape[0] == 1:
         a = a[0]
     if a.ndim != 2:
         raise DicomReadError("UNSUPPORTED_PIXEL_LAYOUT", f"unsupported pixel array shape {a.shape}")
@@ -104,10 +113,13 @@ def _pixel_mm(ds, rows: int, cols: int) -> tuple[float, str]:
     for key in ("PixelSpacing", "ImagerPixelSpacing"):
         v = ds.get(key)
         try:
-            if v is not None and len(v) == 2 and 0.05 < float(v[0]) < 5:
+            if v is not None and len(v) == 2 and all(0.05 < float(x) < 5 for x in v):
                 return float(v[0]), key
         except Exception:
             pass
+    if (str(ds.get("Manufacturer", "")).strip().casefold() == "ge healthcare"
+            and str(ds.get("ManufacturerModelName", "")).strip().casefold() == "lunar prodigy advance"):
+        return ORGANISER_PIXEL_Y_MM, "organiser_v2"
     try:
         ea = ds.get((0x0040, 0x0303))
         if ea is not None:
@@ -143,6 +155,14 @@ def read_dxa(path: str | Path) -> DxaImage:
     if "PixelData" not in ds:
         raise DicomReadError("NO_PIXEL_DATA", "DICOM object has no PixelData (report/SR/presentation state)")
     try:
+        frames = int(ds.get("NumberOfFrames", 1) or 1)
+    except (ValueError, TypeError) as exc:
+        raise DicomReadError("INVALID_FRAME_COUNT", "invalid NumberOfFrames") from exc
+    if frames != 1:
+        raise DicomReadError("UNSUPPORTED_MULTIFRAME", "multi-frame DICOM requires explicit frame selection; export individual images")
+    if _text(ds, "ViewPosition").upper() in {"LL", "RL", "LAT", "LATERAL"}:
+        raise DicomReadError("UNSUPPORTED_PROJECTION", "lateral projection declared in ViewPosition is not supported")
+    try:
         declared = int(ds.get("Rows", 0) or 0) * int(ds.get("Columns", 0) or 0) * max(int(ds.get("NumberOfFrames", 1) or 1), 1)
     except Exception:
         declared = 0
@@ -169,6 +189,17 @@ def read_dxa(path: str | Path) -> DxaImage:
     if inverted:
         notes.append("POLARITY_INVERTED")
     mm, src = _pixel_mm(ds, *pixels.shape)
+    mm_x = float(ds.get(src)[1]) if src in {"PixelSpacing", "ImagerPixelSpacing"} else mm
+    if src == "organiser_v2":
+        mm_x = ORGANISER_PIXEL_X_MM
+    elif src in {"PixelSpacing", "ImagerPixelSpacing"} and (
+            str(ds.get("ManufacturerModelName", "")).strip().casefold() == "lunar prodigy advance"):
+        if not (np.isclose(mm, ORGANISER_PIXEL_Y_MM) and np.isclose(mm_x, ORGANISER_PIXEL_X_MM)):
+            notes.append("EXPLICIT_SCALE_DIFFERS_FROM_ORGANISER_V2")
+    if src == "device_default":
+        notes.append("ASSUMED_DEVICE_SCALE")
+    from .source_roi import extract_roi
+    source_roi = extract_roi(ds, pixels.shape, _text(ds, "SOPInstanceUID"))
     return DxaImage(
         path=str(path),
         pixels=pixels,
@@ -181,6 +212,10 @@ def read_dxa(path: str | Path) -> DxaImage:
         manufacturer=_text(ds, "Manufacturer"),
         model_name=_text(ds, "ManufacturerModelName"),
         warnings=notes,
+        pixel_mm_x=mm_x,
+        sop_class_uid=_text(ds, "SOPClassUID"),
+        view_position=_text(ds, "ViewPosition"),
+        source_roi=source_roi,
     )
 
 

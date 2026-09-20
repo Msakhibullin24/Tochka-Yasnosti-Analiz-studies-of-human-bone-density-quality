@@ -1,0 +1,435 @@
+{
+  "version": "1.8.0",
+  "image": "sha256:4672795d5308d217506c4ab2cf6ec6a3293a58d8cd9082d5d2a369c35be5e03f",
+  "calibration_version": "lct-v2-xy-1",
+  "model_sha256": "7f78fdcdb9c4116277f5cc9858ae6297c48e0d4fda9f87ed1f5dd01724fdd993",
+  "docx_sha256": "3e3e642bd77ad716890abd93ae3151c6fafe9daccedfbcf182603c953d9a2cc5",
+  "code_sha256": "c97c6f39f3e00bb2b53bee70b45ace5fd9260637e7400044766733a42ff26d05",
+  "tests": {
+    "local_with_debug": 83,
+    "container_passed": 82,
+    "container_skipped_external_debug": 1,
+    "frontend": 43,
+    "lint": "passed",
+    "build": "passed",
+    "public_run_sh_smoke": "passed"
+  },
+  "batch": {
+    "version": "1.8.0",
+    "submission_available": true,
+    "submission_valid": false,
+    "files": 499,
+    "success": 499,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 163,
+    "cancelled": false,
+    "studies": 100,
+    "max_seconds_per_study": 1.499,
+    "mean_seconds_per_image": 0.1348,
+    "total_seconds": 86.495,
+    "process_peak_rss_bytes": 493047808,
+    "cpu_count_visible": 12
+  },
+  "repeat_without_explanations": {
+    "version": "1.8.0",
+    "submission_available": true,
+    "submission_valid": false,
+    "files": 499,
+    "success": 499,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 163,
+    "cancelled": false,
+    "studies": 100,
+    "max_seconds_per_study": 1.077,
+    "mean_seconds_per_image": 0.1023,
+    "total_seconds": 52.802,
+    "process_peak_rss_bytes": 492244992,
+    "cpu_count_visible": 12
+  },
+  "scale_v2_verified_files": 499,
+  "working_validation_including_repeat": {
+    "valid": true,
+    "profile": "working_report",
+    "errors": [],
+    "warnings": [
+      "Row 24: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 27: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 103: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 127: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 130: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 265: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 268: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 271: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 325: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 327: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 330: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 416: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 425: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 428: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 433: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 438: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 442: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 469: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 470: violation detected but type undetermined; typification requirement is incomplete"
+    ],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 1.499,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "submission_validation": {
+    "valid": false,
+    "profile": "competition_v2",
+    "errors": [
+      "Row 24: competition output requires a violation type for quality_class=1",
+      "Row 27: competition output requires a violation type for quality_class=1",
+      "Row 103: competition output requires a violation type for quality_class=1",
+      "Row 127: competition output requires a violation type for quality_class=1",
+      "Row 130: competition output requires a violation type for quality_class=1",
+      "Row 265: competition output requires a violation type for quality_class=1",
+      "Row 268: competition output requires a violation type for quality_class=1",
+      "Row 271: competition output requires a violation type for quality_class=1",
+      "Row 325: competition output requires a violation type for quality_class=1",
+      "Row 327: competition output requires a violation type for quality_class=1",
+      "Row 330: competition output requires a violation type for quality_class=1",
+      "Row 416: competition output requires a violation type for quality_class=1",
+      "Row 425: competition output requires a violation type for quality_class=1",
+      "Row 428: competition output requires a violation type for quality_class=1",
+      "Row 433: competition output requires a violation type for quality_class=1",
+      "Row 438: competition output requires a violation type for quality_class=1",
+      "Row 442: competition output requires a violation type for quality_class=1",
+      "Row 469: competition output requires a violation type for quality_class=1",
+      "Row 470: competition output requires a violation type for quality_class=1"
+    ],
+    "warnings": [
+      "Input completeness not checked: provide an independent path manifest",
+      "Failure explanations not available in this table",
+      "Additional DICOM series not checked"
+    ],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 1.499,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "consistency": {
+    "rows": 499,
+    "success": 499,
+    "defects": {
+      "axis_over_5_not_reported": 0,
+      "axis_under_5_reported": 0,
+      "failed_criterion_suppressed": 0,
+      "forced_type": 0,
+      "forced_implant_rule": 0,
+      "trochanter_at_top_edge": 0
+    },
+    "type_undetermined": 19,
+    "examples": {
+      "type_undetermined": [
+        {
+          "path": "Исследования/2.25.102755089973625799055786462646268820450/series_002_2_CR/A2504257770 DXA/CR DXA/CR000001.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10030113050111051002020402141304",
+          "angle": 4.3303181412433025
+        },
+        {
+          "path": "Исследования/2.25.102755089973625799055786462646268820450/series_002_2_CR/A2504257770 DXA/CR DXA/CR000004.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07001207050006000600091513060701",
+          "angle": 4.3303181412433025
+        },
+        {
+          "path": "Исследования/2.25.132272637351979990811754009849547633391/series_003_3_CR/A2504141080 DXA/CR DXA/CR000002.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07151108041411120004040810151209",
+          "angle": 3.9010892799015773
+        },
+        {
+          "path": "Исследования/2.25.13983650679559142983913935144968795415/series_003_2_CR/A2504335111 DXA/CR DXA/CR000000.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01100509051301061200120505020711",
+          "angle": 0.20604938661772626
+        },
+        {
+          "path": "Исследования/2.25.13983650679559142983913935144968795415/series_003_2_CR/A2504335111 DXA/CR DXA/CR000003.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07080813110202150000000512100700",
+          "angle": 0.20604938661772626
+        },
+        {
+          "path": "Исследования/2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000002.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13001014110608151112110112061114",
+          "angle": 2.0528199205912427
+        },
+        {
+          "path": "Исследования/2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000005.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15000310101315070007100105150401",
+          "angle": 2.0528199205912427
+        },
+        {
+          "path": "Исследования/2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000008.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04041008080502040914000415071204",
+          "angle": 2.0528199205912427
+        },
+        {
+          "path": "Исследования/2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000003.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11100109131006120600020910050910",
+          "angle": 2.8690903854722865
+        },
+        {
+          "path": "Исследования/2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000005.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02040104021012120313090806030008",
+          "angle": 2.8690903854722865
+        },
+        {
+          "path": "Исследования/2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000008.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06130501091009001200080400150413",
+          "angle": 2.8690903854722865
+        },
+        {
+          "path": "Исследования/2.25.309085571913348252136520206003694446566/series_002_2_CR/A2504116267 DXA/CR DXA/CR000000.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03121103130007121510030803050514",
+          "angle": 2.188048615603742
+        },
+        {
+          "path": "Исследования/2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000001.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04091012040015061107090014081504",
+          "angle": 2.4735556672732897
+        },
+        {
+          "path": "Исследования/2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000004.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09100506150509030310111310041309",
+          "angle": 2.4735556672732897
+        },
+        {
+          "path": "Исследования/2.25.37515662379281069436632838996073181551/series_001_2_CR/A2504329840 DXA/CR DXA/CR000000.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05001409080504151204111500000514",
+          "angle": 4.111932730214303
+        },
+        {
+          "path": "Исследования/2.25.39068163399801173920284179500049527111/series_002_2_CR/A2504195842 DXA/CR DXA/CR000002.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15141302131508150312140605060212",
+          "angle": 1.3797442052661353
+        },
+        {
+          "path": "Исследования/2.25.52532476139575422857225834315571570912/series_001_2_CR/A2504247961 DXA/CR DXA/CR000000.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07120809010109050202061111011110",
+          "angle": 3.0367172450360433
+        },
+        {
+          "path": "Исследования/2.25.73070100851377917031356937075051545239/series_002_2_CR/A2504239110 DXA/CR DXA/CR000002.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03041015000108071402071509131313",
+          "angle": 2.9674277228067627
+        },
+        {
+          "path": "Исследования/2.25.73070100851377917031356937075051545239/series_002_2_CR/A2504239110 DXA/CR DXA/CR000003.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07150604010711031305090702140107",
+          "angle": 2.9674277228067627
+        }
+      ]
+    },
+    "results_sha256": "1b56b16fe99a7335f907389a90bec9deb5e6b9d9598d16574b8c2d4b90e28857",
+    "scope": "internal consistency, including duplicates; no expert accuracy claim"
+  },
+  "api_smoke": {
+    "ready": {
+      "ready": true,
+      "version": "1.8.0",
+      "model": {
+        "trained_at_unix": 1789922126,
+        "calibration_version": "lct-v2-xy-1",
+        "sklearn": "1.6.1",
+        "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+        "seed": 17,
+        "code_sha256": "340a4dcda4fad1fc64932387205956431a83acb78bf3ab0edc7897e4785d4620",
+        "decision_version": "3",
+        "configuration": {
+          "repeats": 1,
+          "synthetic": "rotate",
+          "extra": []
+        }
+      },
+      "disk_free_bytes": 121566543872,
+      "jobs_in_recent_history": 4
+    },
+    "history_before": 4,
+    "job_id": "1b3af177302e4b6588aecabe99821001",
+    "status": "finished",
+    "files": 3,
+    "renamed_inputs": true,
+    "xy_scale_verified": 3,
+    "sr_limits_verified": 3,
+    "submission_columns": 9,
+    "submission_validation": {
+      "valid": true,
+      "profile": "competition_v2",
+      "errors": [],
+      "warnings": [
+        "Input completeness not checked: provide an independent path manifest",
+        "Failure explanations not available in this table",
+        "Additional DICOM series not checked"
+      ],
+      "images": 3,
+      "success": 3,
+      "max_seconds_per_study": 0.3365,
+      "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+    }
+  },
+  "model_comparison": {
+    "scope": "same five outer study folds; all 249 held-out organiser images; old isotropic versus DOCX V2 physical calibration with retraining",
+    "old": {
+      "n": 249,
+      "positives": 73,
+      "sensitivity": 0.7945205479452054,
+      "specificity": 0.6931818181818182,
+      "balanced_accuracy": 0.7438511830635118,
+      "f1": 0.6270270270270271,
+      "confusion_tn_fp_fn_tp": [
+        122,
+        54,
+        15,
+        58
+      ],
+      "roc_auc": 0.8057285180572851,
+      "pr_auc": 0.655157041936214
+    },
+    "new": {
+      "n": 249,
+      "positives": 73,
+      "sensitivity": 0.6986301369863014,
+      "specificity": 0.7045454545454546,
+      "balanced_accuracy": 0.701587795765878,
+      "f1": 0.5795454545454546,
+      "confusion_tn_fp_fn_tp": [
+        124,
+        52,
+        22,
+        51
+      ],
+      "roc_auc": 0.800980697384807,
+      "pr_auc": 0.6677577310674837
+    },
+    "f1_delta": -0.047481572481572476,
+    "paired_cluster_bootstrap_f1_delta_ci95": [
+      -0.10370738486376403,
+      0.00455965973706956
+    ],
+    "unknown_positive_types": 34,
+    "regional_quality": {
+      "spine": {
+        "n": 99,
+        "positives": 32,
+        "sensitivity": 0.75,
+        "specificity": 0.6716417910447762,
+        "balanced_accuracy": 0.710820895522388,
+        "f1": 0.6153846153846154,
+        "confusion_tn_fp_fn_tp": [
+          45,
+          22,
+          8,
+          24
+        ],
+        "roc_auc": 0.7980410447761195,
+        "pr_auc": 0.6667896458499561
+      },
+      "hip": {
+        "n": 150,
+        "positives": 41,
+        "sensitivity": 0.6585365853658537,
+        "specificity": 0.7247706422018348,
+        "balanced_accuracy": 0.6916536137838443,
+        "f1": 0.5510204081632653,
+        "confusion_tn_fp_fn_tp": [
+          79,
+          30,
+          14,
+          27
+        ],
+        "roc_auc": 0.8024166480196913,
+        "pr_auc": 0.674551454779919
+      }
+    },
+    "limitations": [
+      "Internal study-held-out validation; not clinical validation",
+      "Labels do not independently validate geometric localisation",
+      "New scale is required by organiser even if performance deteriorates"
+    ],
+    "pipeline_criteria": {
+      "spine_coverage": {
+        "n": 99,
+        "f1": 0.5333333333333333,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.946236559139785,
+        "confusion_tn_fp_fn_tp": [
+          88,
+          5,
+          2,
+          4
+        ]
+      },
+      "spine_axis": {
+        "n": 99,
+        "f1": 0.16666666666666666,
+        "sensitivity": 0.1,
+        "specificity": 0.9887640449438202,
+        "confusion_tn_fp_fn_tp": [
+          88,
+          1,
+          9,
+          1
+        ]
+      },
+      "spine_artifact": {
+        "n": 99,
+        "f1": 0.7777777777777778,
+        "sensitivity": 0.8235294117647058,
+        "specificity": 0.9390243902439024,
+        "confusion_tn_fp_fn_tp": [
+          77,
+          5,
+          3,
+          14
+        ]
+      },
+      "hip_position_rotation": {
+        "n": 150,
+        "f1": 0.5352112676056338,
+        "sensitivity": 0.5277777777777778,
+        "specificity": 0.8596491228070176,
+        "confusion_tn_fp_fn_tp": [
+          98,
+          16,
+          17,
+          19
+        ]
+      },
+      "hip_roi_coverage": {
+        "n": 150,
+        "f1": 0.42857142857142855,
+        "sensitivity": 0.42857142857142855,
+        "specificity": 0.972027972027972,
+        "confusion_tn_fp_fn_tp": [
+          139,
+          4,
+          4,
+          3
+        ]
+      }
+    },
+    "pipeline_violation_macro_f1": 0.48831209479096804
+  },
+  "artifact_hashes": {
+    "results.csv": "1f9c286c5dc85f12c5eacb009a4e27428340f9173f9e1ebba2bb3ee55c865070",
+    "results_extended.csv": "1b56b16fe99a7335f907389a90bec9deb5e6b9d9598d16574b8c2d4b90e28857",
+    "submission.csv": "1f9c286c5dc85f12c5eacb009a4e27428340f9173f9e1ebba2bb3ee55c865070",
+    "results.xlsx": "4e88ee98960270990eaeb16a9d99706d97576caedef140e30ba4bb9bd93c41e9",
+    "submission.xlsx": "4e88ee98960270990eaeb16a9d99706d97576caedef140e30ba4bb9bd93c41e9",
+    "submission_validation.json": "2e184c97d85b00ef8b2adee698ee9c58e9c448be20f9cf5b874d6071b8e09e1a",
+    "additional_series.zip": "7a68300bf283df8273448894853cdc9571b1153a5710ce29d425fca2402c0ccf",
+    "summary.json": "82bdbe6ceb79e0afc2bd1d18fdf2e2bce44e176cbeefb1e6a26f7aed5548d125",
+    "expected-paths.json": "2c2b0254557b26aa89395100f2b684478bdc2cbffe3a59c8afd2bbf42cff9728"
+  },
+  "limitations": [
+    "19 full-archive positive files have undetermined violation type; strict submission acceptance fails",
+    "OOF F1 declined from 0.627 to 0.580; not an improvement claim",
+    "Axis type sensitivity 0.10 on 10 positive held-out labels",
+    "Anatomical landmarks/projections/ROI validation remain incomplete",
+    "No independent clinical validation or full DICOM conformance certification"
+  ]
+}

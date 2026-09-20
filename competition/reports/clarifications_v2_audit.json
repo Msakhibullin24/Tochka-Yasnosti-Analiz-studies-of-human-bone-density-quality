@@ -1,0 +1,115 @@
+{
+  "input_counts": {
+    "files": 499,
+    "ExposedArea_present": 499
+  },
+  "header_values": [
+    {
+      "tag": "PixelSpacing",
+      "value": "ABSENT",
+      "count": 499
+    },
+    {
+      "tag": "ImagerPixelSpacing",
+      "value": "ABSENT",
+      "count": 499
+    },
+    {
+      "tag": "NominalScannedPixelSpacing",
+      "value": "ABSENT",
+      "count": 499
+    },
+    {
+      "tag": "ManufacturerModelName",
+      "value": "Lunar Prodigy Advance",
+      "count": 499
+    },
+    {
+      "tag": "Manufacturer",
+      "value": "GE Healthcare",
+      "count": 499
+    }
+  ],
+  "output_scale": {
+    "ExposedArea Y=0.6028 X=0.6028": 39,
+    "ExposedArea Y=0.6078 X=0.6078": 26,
+    "device_default Y=0.607 X=0.607": 219,
+    "ExposedArea Y=0.6035 X=0.6035": 30,
+    "ExposedArea Y=0.6073 X=0.6073": 10,
+    "ExposedArea Y=0.6041 X=0.6041": 13,
+    "ExposedArea Y=0.653 X=0.653": 1,
+    "ExposedArea Y=0.6519 X=0.6519": 3,
+    "ExposedArea Y=0.6031 X=0.6031": 17,
+    "ExposedArea Y=0.6082 X=0.6082": 16,
+    "ExposedArea Y=0.6548 X=0.6548": 4,
+    "ExposedArea Y=0.6048 X=0.6048": 3,
+    "ExposedArea Y=0.6064 X=0.6064": 3,
+    "ExposedArea Y=0.6067 X=0.6067": 12,
+    "ExposedArea Y=0.6074 X=0.6074": 3,
+    "ExposedArea Y=0.6077 X=0.6077": 15,
+    "ExposedArea Y=0.6032 X=0.6032": 13,
+    "ExposedArea Y=0.6246 X=0.6246": 2,
+    "ExposedArea Y=0.6079 X=0.6079": 3,
+    "ExposedArea Y=0.6567 X=0.6567": 1,
+    "ExposedArea Y=0.6242 X=0.6242": 1,
+    "ExposedArea Y=0.6042 X=0.6042": 1,
+    "ExposedArea Y=0.607 X=0.607": 5,
+    "ExposedArea Y=0.6061 X=0.6061": 1,
+    "ExposedArea Y=0.6081 X=0.6081": 1,
+    "ExposedArea Y=0.6049 X=0.6049": 1,
+    "ExposedArea Y=0.6063 X=0.6063": 12,
+    "ExposedArea Y=0.6083 X=0.6083": 6,
+    "ExposedArea Y=0.6084 X=0.6084": 7,
+    "ExposedArea Y=0.6038 X=0.6038": 1,
+    "ExposedArea Y=0.6513 X=0.6513": 5,
+    "ExposedArea Y=0.6598 X=0.6598": 1,
+    "ExposedArea Y=0.6573 X=0.6573": 1,
+    "ExposedArea Y=0.6044 X=0.6044": 4,
+    "ExposedArea Y=0.6585 X=0.6585": 4,
+    "ExposedArea Y=0.6052 X=0.6052": 1,
+    "ExposedArea Y=0.6261 X=0.6261": 1,
+    "ExposedArea Y=0.6528 X=0.6528": 2,
+    "ExposedArea Y=0.6554 X=0.6554": 2,
+    "ExposedArea Y=0.6579 X=0.6579": 2,
+    "ExposedArea Y=0.6536 X=0.6536": 2,
+    "ExposedArea Y=0.6249 X=0.6249": 1,
+    "ExposedArea Y=0.6502 X=0.6502": 1,
+    "ExposedArea Y=0.6497 X=0.6497": 2,
+    "ExposedArea Y=0.608 X=0.608": 1
+  },
+  "axis_label_wrong_rows": 16,
+  "untyped_positive": 9,
+  "regions": {
+    "Поясничный отдел позвоночника": 166,
+    "Проксимальный отдел бедра": 333
+  },
+  "quality_prob_range": [
+    0.0457,
+    0.9542
+  ],
+  "source": {
+    "path": "/home/robot/Downloads/Разъяснения по вопросам ЛЦТ_V2.docx",
+    "sha256": "3e3e642bd77ad716890abd93ae3151c6fafe9daccedfbcf182603c953d9a2cc5"
+  },
+  "renamed_debug_checks": [
+    {
+      "original": "CR000000_ПОП.dcm",
+      "renamed": "0000.dcm",
+      "region": "spine",
+      "identical": true
+    },
+    {
+      "original": "CR000000_ППОБ.dcm",
+      "renamed": "0001.dcm",
+      "region": "hip_right",
+      "identical": true
+    },
+    {
+      "original": "CR000001_ЛПОБ.dcm",
+      "renamed": "0002.dcm",
+      "region": "hip_left",
+      "identical": true
+    }
+  ],
+  "scope": "Audit of release 1.7 outputs, all 499 training DICOM headers, current source and 3 renamed debug images. No new calibration or retraining performed."
+}

@@ -11,10 +11,11 @@ if [[ ! -x "$python_bin" ]]; then
   exit 2
 fi
 
+export DXAQC_DATA_DIR="${DXAQC_DATA_DIR:-$project_dir/data/runtime}"
 export DXA_ALLOWED_ORIGINS="${DXA_ALLOWED_ORIGINS:-http://localhost:$web_port,http://127.0.0.1:$web_port}"
 export ANALYSIS_API_TARGET="http://127.0.0.1:$api_port"
 
-"$python_bin" -m uvicorn app.main:app --app-dir "$project_dir/backend" --host 127.0.0.1 --port "$api_port" &
+"$python_bin" -m uvicorn dxaqc.api:app --app-dir "$project_dir/competition" --host 127.0.0.1 --port "$api_port" &
 api_pid=$!
 
 cleanup() {
@@ -23,4 +24,4 @@ cleanup() {
 trap cleanup EXIT INT TERM
 
 cd "$project_dir"
-exec npm run dev -- --host 127.0.0.1 --port "$web_port"
+npm run dev -- --host 127.0.0.1 --port "$web_port"

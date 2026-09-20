@@ -1,7 +1,7 @@
 """Quality model: region router + per-criterion ensembles + quality composition.
 
-One code path is used for training, cross-validation and production inference, so the
-validation numbers describe exactly what ships.
+Learned scores are shared by training and inference. Final decisions live in decision.py.
+Validation evaluates the region router separately from region-conditional quality models.
 
 Per criterion (e.g. spine_axis) three weak learners are averaged:
   * RandomForest on a compact, criterion-specific set of geometric measurements (mm / degrees);
@@ -30,7 +30,7 @@ REGION_LABEL = {
 }
 VIOLATION_LABEL = {
     "spine_coverage": "Некорректная укладка",
-    "spine_axis": "Не выровнена ось позвоночника",
+    "spine_axis": "Не выравнена ось позвоночника",
     "spine_artifact": "Присутствуют посторонние предметы",
     "hip_position_rotation": "Некорректная укладка",
     "hip_roi_coverage": "Некорректная область интереса",
@@ -171,9 +171,11 @@ class RegionRouter:
 def best_f1_threshold(y: np.ndarray, s: np.ndarray) -> float:
     """Threshold maximising F1; ties resolved toward the midpoint between neighbouring scores."""
     order = np.unique(s)
-    if len(order) < 2 or y.sum() == 0:
-        return 0.5
-    cands = (order[:-1] + order[1:]) / 2
+    if not len(order):
+        return 1.0
+    if y.sum() == 0:
+        return float(np.nextafter(order[-1], np.inf))
+    cands = np.r_[order[0], (order[:-1] + order[1:]) / 2]
     best_t, best_f = 0.5, -1.0
     for t in cands:
         pred = s >= t

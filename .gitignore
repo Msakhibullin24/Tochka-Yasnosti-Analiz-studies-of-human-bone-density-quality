@@ -16,3 +16,5 @@ competition/.cache/
 competition/out/
 competition/**/__pycache__/
 competition/labels/candidates_*
+
+competition/dxaqc/static/app/

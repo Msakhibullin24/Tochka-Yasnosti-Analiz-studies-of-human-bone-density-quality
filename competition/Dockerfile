@@ -1,5 +1,14 @@
+FROM node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b AS ui
+WORKDIR /ui
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY index.html tsconfig*.json vite.config.ts ./
+COPY src ./src
+COPY public ./public
+RUN npm run build
+
 # Osseo AI DXA-QC: fully offline inference container (CPU; GPU is not required).
-FROM python:3.11.9-slim-bookworm
+FROM python:3.11.9-slim-bookworm@sha256:8fb099199b9f2d70342674bd9dbccd3ed03a258f26bbd1d556822c6dfc60c317
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -15,17 +24,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-COPY requirements.txt requirements-lock.txt requirements-test.txt ./
+COPY competition/requirements.txt competition/requirements-lock.txt competition/requirements-test.txt ./
 # --no-deps: every package (direct and transitive) is pinned explicitly; the lock files are generated
 # from the validated environment by walking package metadata, so the closure is complete.
 RUN pip install --no-cache-dir --no-deps --extra-index-url https://download.pytorch.org/whl/cpu \
         -r requirements.txt -r requirements-lock.txt -r requirements-test.txt
+RUN python -m pip check
+# Fail the build if repository resolution changes the reviewed system runtime.
+RUN python -c "import subprocess; names=['gcc-12-base','libgcc-s1','libstdc++6','libgomp1']; versions=[subprocess.check_output(['dpkg-query','-W','-f=\${Version}',n],text=True) for n in names]; assert versions == ['12.2.0-14+deb12u1'] * 4, versions"
 
-COPY dxaqc ./dxaqc
-COPY weights ./weights
-COPY models ./models
-COPY train.py ./train.py
-COPY labels ./labels
+COPY competition/dxaqc ./dxaqc
+COPY competition/weights ./weights
+COPY competition/models ./models
+COPY competition/train.py ./train.py
+COPY competition/labels ./labels
+COPY --from=ui /ui/dist ./dxaqc/static/app
 
 # Integrity of shipped weights + import smoke test at build time (no network is used at run time).
 RUN python -c "import hashlib,sys;from dxaqc.embedding import WEIGHTS,WEIGHTS_SHA256 as h;\
@@ -36,5 +49,5 @@ RUN mkdir -p /work /data/in /data/out && chown -R 10001:10001 /work /data
 USER 10001:10001
 EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s \
-    CMD python -c "import urllib.request as u; u.urlopen('http://127.0.0.1:8000/health', timeout=3)"
+    CMD python -c "import urllib.request as u; u.urlopen('http://127.0.0.1:8000/api/v1/ready', timeout=3)"
 CMD ["uvicorn", "dxaqc.api:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]

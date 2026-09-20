@@ -1,0 +1,28 @@
+{
+  "ready": {
+    "ready": true,
+    "version": "1.9.0",
+    "model": {
+      "trained_at_unix": 1789922126,
+      "calibration_version": "lct-v2-xy-1",
+      "sklearn": "1.6.1",
+      "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+      "seed": 17,
+      "code_sha256": "340a4dcda4fad1fc64932387205956431a83acb78bf3ab0edc7897e4785d4620",
+      "decision_version": "3",
+      "configuration": {
+        "repeats": 1,
+        "synthetic": "rotate",
+        "extra": []
+      }
+    },
+    "disk_free_bytes": 121143472128,
+    "jobs_in_recent_history": 5
+  },
+  "history_before": 5,
+  "job": "df9482eab9224283a8bec64135145dc6",
+  "reprocess_job": "ec9aec1fc16a49629fb4d523c97677d3",
+  "source_files": 3,
+  "old_result_unchanged": true,
+  "unreviewed_package_not_final": true
+}

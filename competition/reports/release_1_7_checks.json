@@ -1,0 +1,167 @@
+{
+  "version": "1.7.0",
+  "decision_version": "3",
+  "image": "sha256:4ebd5a1753958634d1d852328450bd4d2cffe9de3f37800b019dea3f26393bef",
+  "runtime_container": "osseo-ai-local",
+  "cpu_limit": 4,
+  "memory_limit_bytes": 4294967296,
+  "network": "none",
+  "summary": {
+    "version": "1.7.0",
+    "files": 499,
+    "success": 499,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 174,
+    "cancelled": false,
+    "studies": 100,
+    "max_seconds_per_study": 2.72,
+    "mean_seconds_per_image": 0.1778,
+    "total_seconds": 108.527,
+    "process_peak_rss_bytes": 487772160,
+    "cpu_count_visible": 12
+  },
+  "tests": {
+    "server_passed": 74,
+    "server_skipped": 1,
+    "skipped_debug_test_separately_passed": 1,
+    "frontend_passed": 42,
+    "frontend_lint": "passed",
+    "frontend_build": "passed",
+    "public_run_sh_batch_smoke": "passed"
+  },
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      "Row 265: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 268: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 271: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 325: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 327: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 330: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 416: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 425: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 428: violation detected but type undetermined; typification requirement is incomplete"
+    ],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 2.7203,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "consistency": {
+    "rows": 499,
+    "success": 499,
+    "defects": {
+      "axis_over_5_not_reported": 0,
+      "axis_under_5_reported": 0,
+      "failed_criterion_suppressed": 0,
+      "forced_type": 0,
+      "forced_implant_rule": 0,
+      "trochanter_at_top_edge": 0
+    },
+    "type_undetermined": 9,
+    "examples": {
+      "type_undetermined": [
+        {
+          "path": "Исследования/2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000002.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13001014110608151112110112061114",
+          "angle": 3.8196684512128005
+        },
+        {
+          "path": "Исследования/2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000005.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15000310101315070007100105150401",
+          "angle": 3.8196684512128005
+        },
+        {
+          "path": "Исследования/2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000008.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04041008080502040914000415071204",
+          "angle": 3.8196684512128005
+        },
+        {
+          "path": "Исследования/2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000003.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11100109131006120600020910050910",
+          "angle": 4.628018630330496
+        },
+        {
+          "path": "Исследования/2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000005.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02040104021012120313090806030008",
+          "angle": 4.628018630330496
+        },
+        {
+          "path": "Исследования/2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000008.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06130501091009001200080400150413",
+          "angle": 4.628018630330496
+        },
+        {
+          "path": "Исследования/2.25.309085571913348252136520206003694446566/series_002_2_CR/A2504116267 DXA/CR DXA/CR000000.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03121103130007121510030803050514",
+          "angle": 3.7721490697255535
+        },
+        {
+          "path": "Исследования/2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000001.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04091012040015061107090014081504",
+          "angle": 4.336048387402253
+        },
+        {
+          "path": "Исследования/2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000004.dcm",
+          "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09100506150509030310111310041309",
+          "angle": 4.336048387402253
+        }
+      ]
+    },
+    "results_sha256": "a1d633568b382ca6bef1249d35a18332be0dd243bc38eccacdd7027d6b11252b",
+    "scope": "internal consistency, including duplicates; no expert accuracy claim"
+  },
+  "api_smoke": {
+    "ready": {
+      "ready": true,
+      "version": "1.7.0",
+      "model": {
+        "trained_at_unix": 1789741200,
+        "sklearn": "1.6.1",
+        "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+        "seed": 17
+      },
+      "disk_free_bytes": 121871310848,
+      "jobs_in_recent_history": 4
+    },
+    "job_id": "12fdecc7d5974c098be521aa683a8068",
+    "images": 3,
+    "sr_limits_verified": 3,
+    "status": "finished",
+    "image_sha256": "4ebd5a1753958634d1d852328450bd4d2cffe9de3f37800b019dea3f26393bef"
+  },
+  "artifacts": {
+    "results.csv": {
+      "bytes": 1529806,
+      "sha256": "a1d633568b382ca6bef1249d35a18332be0dd243bc38eccacdd7027d6b11252b"
+    },
+    "results.xlsx": {
+      "bytes": 2515776,
+      "sha256": "cd714a507c3613109e05cfb3f43a6f63d0effcfd9f73a609a249e35f971d67f4"
+    },
+    "additional_series.zip": {
+      "bytes": 201062634,
+      "sha256": "a4accebf1d93eba1e96884311cdcc5a60d0f10066d5dabff8a996060a3b9f29d"
+    },
+    "summary.json": {
+      "bytes": 321,
+      "sha256": "6a135e90e56b42cb79f105cfd10fd637f02177191b7e88fcd87b60a6efc138b7"
+    },
+    "expected-paths.json": {
+      "bytes": 62104,
+      "sha256": "2c2b0254557b26aa89395100f2b684478bdc2cbffe3a59c8afd2bbf42cff9728"
+    }
+  },
+  "models": {
+    "competition/models/bundle.joblib": "3c28805dc7cca8a530daf59929d532543b6e38f72742bbca2092157879f23392"
+  },
+  "limitations": [
+    "Not clinical validation",
+    "Input DICOM UID warnings retained; not full DICOM conformance",
+    "Th12, alternative projections, validated landmarks and anatomical source ROI verdict remain incomplete",
+    "9 positive files have undetermined violation type",
+    "OOF specificity and spine artifact classification worsened; see decision_v3_comparison.json"
+  ]
+}
