@@ -49,8 +49,8 @@ export default function CompetitionWorkspace() {
         if (!alive) return
         setJobs(history); setCatalog(labels); setReady(health.ready ? 'Сервис готов · локальная обработка' : 'Сервис не готов')
         const saved = readPosition()
-        if (!saved || selection.current !== 0) return
-        const current = history.find(item => item.id === saved.jobId)
+        if (selection.current !== 0) return
+        const current = history.find(item => item.id === saved?.jobId) || history[0]
         if (!current) return
         const token = ++selection.current
         setJob(current)
@@ -58,7 +58,7 @@ export default function CompetitionWorkspace() {
         const result = await request<Row[]>(`/jobs/${current.id}/worklist`)
         if (alive && token === selection.current) {
           setRows(result)
-          setSelected(result.find(r => rowKey(r) === saved.rowId) || result.find(needsReview) || result[0] || null)
+          setSelected(result.find(r => current.id === saved?.jobId && rowKey(r) === saved?.rowId) || result.find(needsReview) || result[0] || null)
         }
       })
       .catch(e => { if (alive) { setError(e.message); setReady('Нет подключения к сервису') } })
@@ -130,46 +130,48 @@ export default function CompetitionWorkspace() {
     setSelected(updated)
     setHasEdits(false)
   }
+  const finished = Boolean(job && ['finished', 'cancelled'].includes(job.status))
+  const uploadPanel = <section className="qc-upload" aria-labelledby="upload-title">
+    <div><h1 id="upload-title">Проверка исследований</h1><p>DICOM-файлы или один ZIP-архив</p></div>
+    <label className="qc-file-input">Выбрать файлы<input type="file" multiple onChange={e => setFiles(Array.from(e.target.files || []))} /></label>
+    <span className="qc-file-count" aria-live="polite">{files.length ? `Выбрано: ${files.length}` : 'Файлы не выбраны'}</span>
+    <button className="primary-button" disabled={busy || !files.length} onClick={upload}>{busy ? 'Загрузка…' : 'Начать проверку'}</button>
+  </section>
   return <div className="qc-workspace">
     <a href="#qc-main" className="skip-link">К исследованиям</a>
-    <header className="qc-header"><div><strong>Osseo AI</strong><p>Контроль качества денситометрии</p></div><span role="status">{ready}</span></header>
+    <header className="qc-header"><div><strong>Osseo</strong><span>Контроль качества DXA</span></div><span className="qc-service-status" role="status">{ready}</span></header>
     <main id="qc-main">
       {error && <p className="qc-error" role="alert">{error}</p>}
-      <section className="qc-card qc-upload" aria-label="Загрузка исследований">
-        <div><h1>Проверка исследований</h1><p>Загрузите DICOM или один ZIP-архив. Результаты и экспертные правки сохраняются локально.</p></div>
-        <label>Файлы исследования<input type="file" multiple onChange={e => setFiles(Array.from(e.target.files || []))} /></label>
-        <button className="primary-button" disabled={busy || !files.length} onClick={upload}>{busy ? 'Загрузка…' : `Проверить${files.length ? ` (${files.length})` : ''}`}</button>
-      </section>
-      <div className="qc-layout">
-        <aside className="qc-card qc-history"><h2>История пакетов</h2><button onClick={() => refresh().catch(e => setError(e.message))}>Обновить историю</button>
+      {job ? <details className="qc-new-batch"><summary>Загрузить новый пакет</summary>{uploadPanel}</details> : uploadPanel}
+      <details className="qc-batches" open={!job}>
+        <summary>Пакеты <span>{jobs.length}</span>{job && <small>{new Date(job.created_at * 1000).toLocaleString('ru-RU')} · {statuses[job.status] || job.status}</small>}</summary>
+        <div className="qc-history"><button className="qc-text-button" onClick={() => refresh().catch(e => setError(e.message))}>Обновить</button>
           {!jobs.length && <p>Загрузите первый пакет, чтобы начать проверку.</p>}
           {jobs.map(j => <button key={j.id} className={job?.id === j.id ? 'qc-selected' : ''} aria-pressed={job?.id === j.id} onClick={() => openJob(j)}>
             <strong>{new Date(j.created_at * 1000).toLocaleString('ru-RU')}</strong><span>{statuses[j.status] || j.status} · {j.summary?.files ?? j.total} файлов</span>
           </button>)}
-          {jobs.length === 200 && <p>Показаны последние 200 пакетов. Полная история сохранена в сервисе.</p>}
-        </aside>
-        <section className="qc-card qc-results" aria-label="Результаты пакета">
-          <h2>{job ? 'Исследования в пакете' : 'Выберите пакет'}</h2>
-          {job && <><p role="status">{statuses[job.status]} {job.total > 0 && `· ${job.done} / ${job.total}`}</p>
-            {job.originals_available && !['running', 'queued'].includes(job.status) && <div className="qc-actions"><a href={`${API}/jobs/${job.id}/source.zip`} download>Исходные DICOM</a><button disabled={busy} onClick={reprocessJob}>Повторить анализ новой версией</button><p>Создаётся отдельный пакет. Результаты и правки этого пакета сохранятся.</p></div>}
-            {job.error && <p className="qc-error">{job.error}</p>}
-            {['running', 'queued'].includes(job.status) && <><progress max={Math.max(1, job.total)} value={job.done} aria-label="Обработка пакета" /><button onClick={() => request(`/jobs/${job.id}/cancel`, { method: 'POST' }).catch(e => setError(e.message))}>Остановить обработку</button></>}
-            {!['running', 'queued'].includes(job.status) && <nav className="qc-actions" aria-label="Экспорт результатов">
+          {jobs.length === 200 && <p>Показаны последние 200 пакетов.</p>}
+        </div>
+      </details>
+      {!job && <section className="qc-empty"><h2>Выберите пакет или загрузите новый</h2><p>После обработки здесь появятся очередь снимков и форма решения.</p></section>}
+      {job && <>
+        <section className="qc-jobbar" aria-label="Текущий пакет">
+          <div><strong>{statuses[job.status] || job.status}</strong><span>{job.total > 0 ? `${job.done} из ${job.total} файлов` : 'Нет файлов'}</span></div>
+          {finished && <span className="qc-job-counts" role="status">{pending} требуют проверки · {rows.filter(r => r.processing_status !== 'Success').length} ошибок</span>}
+          {finished && <button className="primary-button" disabled={!next} onClick={() => next && selectRow(next)}>Следующий снимок</button>}
+          <details className="qc-menu"><summary>Действия</summary><div>
+            {job.originals_available && finished && <><a href={`${API}/jobs/${job.id}/source.zip`} download>Скачать исходные DICOM</a><button disabled={busy} onClick={reprocessJob}>Повторить анализ</button></>}
+            {finished && <nav aria-label="Экспорт результатов">
               {(['finished', 'cancelled'].includes(job.status) ? ['results.csv', 'results.xlsx', ...(job.summary?.submission_available ? ['submission.csv', 'submission.xlsx', 'submission_validation.json'] : []), 'additional_series.zip', 'reviews.json', 'reviewed.csv', 'review-package.zip', 'report.html', 'validation.json'] : ['results.csv', 'results.xlsx', 'report.html']).map(name => <a key={name} href={`${API}/jobs/${job.id}/${name}`} download>{({ 'submission.csv': 'CSV для сдачи', 'submission.xlsx': 'XLSX для сдачи', 'submission_validation.json': 'Проверка таблицы для сдачи', 'results.csv': 'CSV модели', 'results.xlsx': 'XLSX модели', 'additional_series.zip': 'Серии DICOM', 'review-package.zip': 'Пакет экспертной проверки', 'reviews.json': 'История правок', 'reviewed.csv': 'CSV специалиста', 'report.html': 'Отчёт для печати', 'validation.json': 'Проверка формата ТЗ' })[name]}</a>)}
             </nav>}
-            {job.summary?.submission_available && <p>{job.summary.submission_valid ? 'Таблица прошла проверку формата V2. Это не оценка точности модели.' : 'Таблица для сдачи требует исправлений. Подробности — в проверке таблицы для сдачи.'}</p>}
-            <div className="qc-actions"><label>Поиск<input value={search} onChange={e => setSearch(e.target.value)} /></label><label>Показать<select value={filter} onChange={e => setFilter(e.target.value as QueueFilter)}><option value="all">Все изображения</option><option value="pending">Требуют проверки</option><option value="completed">Проверка завершена</option><option value="actions">Есть открытые действия</option><option value="second_opinion">Нужно второе мнение</option><option value="violations">Нарушения ИИ</option><option value="failures">Ошибки обработки</option></select></label></div>
-            <p role="status">Исследований с идентификатором: {studies.filter(s => s.identified).length} · Файлов без идентификатора: {studies.filter(s => !s.identified).length} · Требуют проверки: {pending} · Ошибок обработки: {rows.filter(r => r.processing_status !== 'Success').length}</p>
-            <div className="qc-actions"><button disabled={!next} onClick={() => next && selectRow(next)}>Следующий непроверенный снимок</button>
-              {(filter !== 'all' || search) && <button onClick={() => { setFilter('all'); setSearch('') }}>Сбросить фильтры</button>}
-            </div>
-            <details><summary>Сводка контроля качества пакета</summary><p>Все показатели относятся к текущему пакету; повторные загрузки в других пакетах не объединены.</p><div className="qc-actions">
-              <button onClick={() => { setFilter('all'); setSearch('') }}>Всего изображений: {rows.length}</button>
-              <button onClick={() => { setFilter('violations'); setSearch('') }}>Нарушения ИИ: {rows.filter(r => r.processing_status === 'Success' && r.quality_class === '1').length}</button>
-              <button onClick={() => { setFilter('pending'); setSearch('') }}>Ожидают проверки: {pending}</button>
-              <button onClick={() => { setFilter('actions'); setSearch('') }}>Снимков с открытыми действиями: {rows.filter(r => Number(r.open_actions) > 0).length}</button>
-              <button onClick={() => { setFilter('second_opinion'); setSearch('') }}>Запросов второго мнения: {rows.filter(r => r.second_opinion_requested === '1').length}</button>
-            </div></details>
+          </div></details>
+        </section>
+        {job.error && <p className="qc-error">{job.error}</p>}
+        {job.summary?.submission_available && !job.summary.submission_valid && <p className="qc-warning">Таблица для сдачи требует исправлений. Откройте «Действия» → «Проверка таблицы для сдачи».</p>}
+        {['running', 'queued'].includes(job.status) ? <section className="qc-processing"><progress max={Math.max(1, job.total)} value={job.done} aria-label="Обработка пакета" /><p>Обработано {job.done} из {job.total}</p><button onClick={() => request(`/jobs/${job.id}/cancel`, { method: 'POST' }).catch(e => setError(e.message))}>Остановить</button></section> :
+        <div className="qc-workbench">
+          <aside className="qc-queue" aria-label="Очередь снимков">
+            <div className="qc-queue-head"><div><h2>Снимки</h2><span>{visible.length} из {rows.length}</span></div><label>Поиск<input placeholder="Имя файла или область" value={search} onChange={e => setSearch(e.target.value)} /></label><label>Фильтр<select value={filter} onChange={e => setFilter(e.target.value as QueueFilter)}><option value="all">Все снимки</option><option value="pending">Требуют проверки</option><option value="completed">Проверка завершена</option><option value="actions">Есть открытые действия</option><option value="second_opinion">Нужно второе мнение</option><option value="violations">Нарушения ИИ</option><option value="failures">Ошибки обработки</option></select></label></div>
             <div className="qc-row-list">{studies.map((study, index) => {
               const shown = study.rows.filter(r => visibleKeys.has(rowKey(r)))
               if (!shown.length) return null
@@ -178,8 +180,7 @@ export default function CompetitionWorkspace() {
               return <section key={study.key} className="qc-study" aria-label={`Группа ${index + 1}`}>
                 <h3>{study.identified ? `Исследование ${index + 1}` : 'Файл без идентификатора исследования'}</h3>
                 <p>{study.rows.length} снимков · {count ? `Ожидают проверки: ${count}` : failures ? 'Обработка неполная' : 'Проверка завершена'}{failures > 0 && ` · Ошибок: ${failures}`}</p>
-                {study.identified && <a href={`${API}/jobs/${job.id}/study-report.html?study_uid=${encodeURIComponent(study.rows[0].study_uid)}`} download>Скачать карточку исследования</a>}
-                {study.identified && <details><summary>Идентификатор исследования</summary><small>{study.rows[0].study_uid}</small></details>}
+                {study.identified && <details><summary>Данные исследования</summary><small>{study.rows[0].study_uid}</small><a href={`${API}/jobs/${job.id}/study-report.html?study_uid=${encodeURIComponent(study.rows[0].study_uid)}`} download>Скачать карточку</a></details>}
                 {shown.map((r, i) => <button key={rowKey(r) || i} className={selected && rowKey(selected) === rowKey(r) ? 'qc-selected' : ''} onClick={() => selectRow(r)} aria-pressed={Boolean(selected && rowKey(selected) === rowKey(r))}>
                   <strong>{r.anatomical_region || 'Не обработано'}</strong><span>{r.processing_status !== 'Success' ? r.error_message : modelVerdict(r)}</span>
                   <span>{Number(r.open_actions) > 0 && `Открытых действий: ${r.open_actions} · `}{r.second_opinion_requested === '1' && 'Нужно второе мнение · '}{reviewLabels[reviewStatus(r)]}{Number(r.review_revision) > 0 && ` · Версия ${r.review_revision}`}</span><small>{r.path_to_file}</small>
@@ -188,12 +189,14 @@ export default function CompetitionWorkspace() {
             })}</div>
             {rows.length > 0 && !visible.length && <p>Нет изображений по выбранным условиям. Сбросьте фильтры, чтобы увидеть все снимки.</p>}
             {selected && !visibleKeys.has(rowKey(selected)) && <p>Открытый снимок не соответствует текущему фильтру. Он остаётся открыт для завершения работы.</p>}
-
-          </>}
-        </section>
-      </div>
-      {job && ['finished', 'cancelled'].includes(job.status) && selected?.processing_status === 'Success' && <ImageReview key={job.id + selected.row_id} jobId={job.id} row={selected} catalog={catalog} onDirty={setHasEdits} onSaved={savedReview} zoom={zoom} onZoom={setZoom} />}
-      {selected?.processing_status === 'Failure' && <section className="qc-card"><h2>Изображение не обработано</h2><p>{selected.error_message}</p><code>{selected.error_code}</code></section>}
+          </aside>
+          <div className="qc-review-pane">
+            {selected?.processing_status === 'Success' && <ImageReview key={job.id + selected.row_id} jobId={job.id} row={selected} catalog={catalog} onDirty={setHasEdits} onSaved={savedReview} zoom={zoom} onZoom={setZoom} />}
+            {selected?.processing_status === 'Failure' && <section className="qc-empty"><h2>Снимок не обработан</h2><p>{selected.error_message}</p><code>{selected.error_code}</code></section>}
+            {!selected && <section className="qc-empty"><h2>Выберите снимок</h2><p>Результат модели и форма решения откроются здесь.</p></section>}
+          </div>
+        </div>}
+      </>}
     </main>
   </div>
 }
@@ -285,7 +288,7 @@ function ImageReview({ jobId, row, catalog, onDirty, onSaved, zoom, onZoom }: { 
   const criteria = parse<Record<string, number>>(row.violation_scores, {})
   const thresholds = parse<Record<string, number>>(row.criterion_thresholds, {})
   const allowed = detail ? catalog.regions[detail.region] || [] : []
-  return <section className="qc-card"><h2>{row.anatomical_region}</h2><p className="qc-path">{row.path_to_file}</p>
+  return <section className="qc-review"><h2>{row.anatomical_region}</h2><p className="qc-path">{row.path_to_file}</p>
     {error && <p className="qc-error" role="alert">{error}</p>}
     {recovered && <aside className="qc-card" aria-label="Восстановление черновика"><p>Найдена рабочая копия в этом браузере: {recovered.data.author || 'Автор не указан'}. {recovered.data.baseRevision !== (history.at(-1)?.revision || 0) && 'На сервере уже другая версия. Восстановленную копию нельзя записать поверх неё без разрешения конфликта.'}</p><button onClick={restoreDraft}>Восстановить рабочую копию</button><button onClick={() => { removeDraft(recovered.key); setRecovered(null) }}>Удалить найденную копию</button></aside>}
     {conflict && <aside className="qc-card"><p>На сервере версия {conflict.revision}, автор {conflict.author}. Сравните её с вашей разметкой ниже. Продолжение оставит вашу рабочую копию основой новой версии; исходные версии сохранятся в истории.</p><button onClick={() => { setBaseRevision(conflict.revision); setConflict(null); setError(''); setDirty(true) }}>Продолжить с моими правками после версии {conflict.revision}</button></aside>}
@@ -295,12 +298,12 @@ function ImageReview({ jobId, row, catalog, onDirty, onSaved, zoom, onZoom }: { 
         <label><input type="checkbox" checked={editable} disabled={original || saving} onChange={e => setEditable(e.target.checked)} /> Перемещать точки</label>
         <button onClick={() => onZoom(1)}>Сбросить масштаб</button>
       </div>
-      <p role="status">{original ? 'Показана исходная машинная разметка. Ваша версия сохранена в редакторе.' : editable ? 'Перемещайте точки мышью или стрелками: 1 пиксель, с Shift — 10. Escape отменяет перетаскивание.' : 'Показана ваша версия разметки. Включите перемещение точек для редактирования.'}</p>
+      {(original || editable) && <p role="status">{original ? 'Показана исходная машинная разметка.' : 'Точки перемещаются мышью или стрелками. Shift — шаг 10 пикселей.'}</p>}
       <div className="qc-viewer" tabIndex={0} aria-label="Просмотр изображения; при увеличении доступна прокрутка">
         {detail && <GeometryViewer key={`${original}-${editable}-${showLayers}`} detail={detail} source={API + base + '/original.png'} geometry={geometry} original={original} zoom={zoom} showLayers={showLayers} editable={editable && !saving} onChange={changeGeometry} highlight={highlight} />}
 
       </div>
-      {detail && <p>Предпросмотр в физических пропорциях; яркость нормализована. Масштаб пикселя: {detail.pixel_mm_x.toFixed(3)} × {detail.pixel_mm_y.toFixed(3)} мм. {detail.pixel_mm_source === 'device_default' ? 'Принят масштаб аппарата; требуется проверка.' : detail.pixel_mm_source === 'organiser_v2' ? 'Источник: разъяснения организатора V2.' : `Источник: ${detail.pixel_mm_source}.`}</p>}
+      {detail && <details><summary>Параметры изображения</summary><p>Физические пропорции, нормализованная яркость. Пиксель: {detail.pixel_mm_x.toFixed(3)} × {detail.pixel_mm_y.toFixed(3)} мм. {detail.pixel_mm_source === 'device_default' ? 'Масштаб аппарата требует проверки.' : detail.pixel_mm_source === 'organiser_v2' ? 'Источник: разъяснения организатора V2.' : `Источник: ${detail.pixel_mm_source}.`}</p></details>}
       <details><summary>Изменить ориентиры и ROI</summary><p>Координаты относительно исходного изображения: от 0 до 1. Изменения сохраняются с экспертным решением.</p>
         <div className="qc-actions"><button disabled={!undo.length} onClick={() => { setRedo([...redo, geometry]); setGeometry(undo[undo.length - 1]); setUndo(undo.slice(0, -1)); setDirty(true) }}>Отменить изменение</button><button disabled={!redo.length} onClick={() => { setUndo([...undo, geometry]); setGeometry(redo[redo.length - 1]); setRedo(redo.slice(0, -1)); setDirty(true) }}>Повторить изменение</button>
         <button onClick={() => changeGeometry([...geometry, { name: `roi_${Date.now()}`, kind: 'polygon', points: [{ x: 0.25, y: 0.25 }, { x: 0.75, y: 0.25 }, { x: 0.75, y: 0.75 }, { x: 0.25, y: 0.75 }] }])}>Добавить ROI</button><button disabled={geometry.length >= 40} onClick={() => { changeGeometry([...geometry, { name: `note_${Date.now()}`, kind: 'point', points: [{ x: .5, y: .5 }], note: '' }]); setEditable(true); setOriginal(false) }}>Добавить отметку</button></div>
@@ -311,25 +314,27 @@ function ImageReview({ jobId, row, catalog, onDirty, onSaved, zoom, onZoom }: { 
           <button onClick={() => changeGeometry(geometry.filter((_, i) => i !== gi))}>Удалить {g.name}</button>
         </fieldset>)}
       </details>
-    </div><div>
-      {detail && geometry.some(g => g.kind === 'polygon') && <RoiPanel base={base} geometry={geometry} onChange={next => { changeGeometry(next); setOriginal(false); setHighlight([]) }} />}
+    </div><div className="qc-decision">
       <h3>Результат модели</h3><p>{modelVerdict(row)}</p>
-      <p>Оценка наличия нарушения: {row.quality_prob}. Требует подтверждения специалистом.</p>
+      <p>Вероятность нарушения: {row.quality_prob}</p>
       {row.decision_reason === 'highest_scoring_criterion' && <p>Тип выбран как наиболее вероятный при положительном общем результате; его собственный порог не достигнут.</p>}
       {row.decision_reason === 'implant_rule' && <p>Применено дополнительное правило обнаружения импланта.</p>}
       {parse<string[]>(row.review_reasons, []).includes('suspected_metal_requires_review') && <p>Яркий участок требует проверки на металл; ошибка ROI автоматически не установлена.</p>}
       {parse<string[]>(row.review_reasons, []).includes('axis_model_measurement_disagreement') && <p>Измерение оси и классификатор расходятся. Итог критерия получен по измеренному углу; проверьте корректность оси.</p>}
-      <details><summary>Измерения модели</summary><dl>{Object.entries(parse<Record<string, number | null>>(row.measurements, {})).map(([key, value]) => <div key={key}><dt>{key}</dt><dd>{value === null ? 'Недоступно' : value}</dd></div>)}</dl></details>
-      <ul className="qc-criteria">{Object.entries(criteria).map(([key, value]) => <li key={key}><strong>{catalog.criteria[key] || key}</strong><span>Оценка {value.toFixed(3)} · порог {thresholds[key]?.toFixed(3) ?? 'не указан'} · {key === 'spine_axis' && row.decision_version === '3' ? 'итог определяется измеренным углом, а не этим score' : row.violation_codes.split(';').includes(key) ? 'выявлено' : 'не включено в итог'}</span></li>)}</ul>
-      {detail && <AnatomyPanel detail={detail} source={API + base + "/original.png"} geometry={geometry} onChange={next => { changeGeometry(next); setOriginal(false); setHighlight([]) }} />}
-      <CriteriaPanel codes={allowed} labels={catalog.criteria} scores={criteria} detected={row.violation_codes?.split(';') || []} angle={parse<Record<string, number | null>>(row.measurements, {}).spine_abs_angle_deg ?? null} onShow={keys => { setHighlight(keys); setShowLayers(true); setOriginal(true) }} />
+      <details className="qc-analysis-details"><summary>Подробности модели, ROI и анатомия</summary>
+        <h3>Измерения</h3><dl>{Object.entries(parse<Record<string, number | null>>(row.measurements, {})).map(([key, value]) => <div key={key}><dt>{key}</dt><dd>{value === null ? 'Недоступно' : value}</dd></div>)}</dl>
+        <ul className="qc-criteria">{Object.entries(criteria).map(([key, value]) => <li key={key}><strong>{catalog.criteria[key] || key}</strong><span>Оценка {value.toFixed(3)} · порог {thresholds[key]?.toFixed(3) ?? 'не указан'} · {key === 'spine_axis' && row.decision_version === '3' ? 'итог определяется измеренным углом, а не этим score' : row.violation_codes.split(';').includes(key) ? 'выявлено' : 'не включено в итог'}</span></li>)}</ul>
+        {detail && geometry.some(g => g.kind === 'polygon') && <RoiPanel base={base} geometry={geometry} onChange={next => { changeGeometry(next); setOriginal(false); setHighlight([]) }} />}
+        {detail && <AnatomyPanel detail={detail} source={API + base + "/original.png"} geometry={geometry} onChange={next => { changeGeometry(next); setOriginal(false); setHighlight([]) }} />}
+        <CriteriaPanel codes={allowed} labels={catalog.criteria} scores={criteria} detected={row.violation_codes?.split(';') || []} angle={parse<Record<string, number | null>>(row.measurements, {}).spine_abs_angle_deg ?? null} onShow={keys => { setHighlight(keys); setShowLayers(true); setOriginal(true) }} />
+      </details>
       <h3>Решение специалиста</h3><p>Правки сохраняются отдельно от ответа модели.</p>
       <label>Специалист<input value={author} autoComplete="name" onChange={e => { setAuthor(e.target.value); setDirty(true) }} /></label>
       <label>Качество<select value={quality} onChange={e => { setQuality(e.target.value as typeof quality); setDirty(true) }}><option value="0">Нарушений нет</option><option value="1">Есть нарушения</option><option value="unknown">Невозможно оценить</option></select></label>
       {quality === '1' && <fieldset><legend>Типы нарушений</legend>{allowed.map(code => <label key={code}><input type="checkbox" checked={violations.includes(code)} onChange={e => { setViolations(e.target.checked ? [...violations, code] : violations.filter(v => v !== code)); setDirty(true) }} /> {catalog.criteria[code] || code}</label>)}</fieldset>}
       <label>Вставить шаблон<select value="" onChange={e => { if (e.target.value) { setComment((comment + (comment ? '\n' : '') + e.target.value).slice(0, 2000)); setDirty(true) } }}><option value="">Выберите формулировку</option>{['Проверить расположение ROI в отмеченной области.', 'Требуется дополнительная оценка отмеченной области.', 'Сопоставить результат с исходным изображением.', 'Разметка изменена; требуется повторная проверка.'].map(t => <option key={t}>{t}</option>)}</select></label>
       <label>Комментарий<textarea value={comment} maxLength={2000} onChange={e => { setComment(e.target.value); setDirty(true) }} /></label>
-      <h3>Последующие действия</h3><p>Вопросы и результаты сохраняются вместе с версией решения.</p>
+      <details><summary>Последующие действия{followups.length ? ` (${followups.length})` : ''}</summary>
       {followups.map((action, index) => <fieldset key={action.id}><legend>Действие {index + 1}</legend>
         <label>Вид действия<select value={action.kind} onChange={e => { setFollowups(followups.map(a => a.id === action.id ? { ...a, kind: e.target.value as Followup['kind'] } : a)); setDirty(true) }}><option value="markup">Проверка разметки</option><option value="reprocess">Повторная обработка</option><option value="second_opinion">Второе мнение</option><option value="other">Другое</option></select></label>
         <label>Вопрос или задача<textarea maxLength={1000} value={action.question} onChange={e => { setFollowups(followups.map(a => a.id === action.id ? { ...a, question: e.target.value } : a)); setDirty(true) }} /></label>
@@ -337,7 +342,7 @@ function ImageReview({ jobId, row, catalog, onDirty, onSaved, zoom, onZoom }: { 
         <label><input type="checkbox" checked={action.state === 'done'} onChange={e => { setFollowups(followups.map(a => a.id === action.id ? { ...a, state: e.target.checked ? 'done' : 'open' } : a)); setDirty(true) }} /> Выполнено</label>
         <button onClick={() => { setFollowups(followups.filter(a => a.id !== action.id)); setDirty(true) }}>Удалить действие {index + 1}</button>
       </fieldset>)}
-      <button disabled={followups.length >= 30} onClick={() => { setFollowups([...followups, { id: crypto.randomUUID(), kind: 'second_opinion', question: '', state: 'open', resolution: '' }]); setDirty(true) }}>Добавить последующее действие</button>
+      <button disabled={followups.length >= 30} onClick={() => { setFollowups([...followups, { id: crypto.randomUUID(), kind: 'second_opinion', question: '', state: 'open', resolution: '' }]); setDirty(true) }}>Добавить последующее действие</button></details>
       {quality === '1' && !violations.length && <p id="missing-violation-type">Для подтверждения укажите тип нарушения после проверки снимка или выберите «Невозможно оценить». Черновик можно сохранить без типа.</p>}
       <div className="qc-actions"><button disabled={saving || !detail} onClick={() => save('draft')}>Сохранить черновик</button><button className="primary-button" aria-describedby={quality === '1' && !violations.length ? 'missing-violation-type' : undefined} disabled={saving || !detail || (quality === '1' && !violations.length)} onClick={() => save('confirmed')}>Подтвердить решение</button></div>
       <p role="status">{dirty ? draftMessage || 'Есть несохранённые изменения.' : message}</p>

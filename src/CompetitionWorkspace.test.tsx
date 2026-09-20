@@ -19,6 +19,13 @@ function mockAPI(submission = false) {
 }
 afterEach(() => { vi.unstubAllGlobals(); localStorage.clear() })
 describe('competition workspace', () => {
+  it('opens the latest package and keeps secondary tools collapsed', async () => {
+    vi.stubGlobal('fetch', mockAPI())
+    render(<CompetitionWorkspace />)
+    expect(await screen.findByRole('heading', { name: 'Поясничный отдел позвоночника' })).toBeInTheDocument()
+    expect(screen.getByText('Загрузить новый пакет').closest('details')).not.toHaveAttribute('open')
+    expect(screen.getByText('Подробности модели, ROI и анатомия').closest('details')).not.toHaveAttribute('open')
+  })
   it('loads durable history and uses the actual decision threshold', async () => {
     vi.stubGlobal('fetch', mockAPI())
     render(<CompetitionWorkspace />)
@@ -46,7 +53,7 @@ describe('competition workspace', () => {
     await waitFor(() => expect(screen.getByText(/Версия 1 сохранена/)).toBeInTheDocument())
     const post = fetch.mock.calls.find(([, init]) => init?.method === 'POST')
     expect(JSON.parse(String(post?.[1]?.body))).toMatchObject({ expected_revision: 0, author: 'Врач', status: 'confirmed', quality_class: 0 })
-    expect(screen.getByText(/Оценка наличия нарушения: 0.2/)).toBeInTheDocument()
+    expect(screen.getByText(/Вероятность нарушения: 0.2/)).toBeInTheDocument()
   })
   it('shows unavailable service rather than local demonstration predictions', async () => {
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('Сервис недоступен')))
@@ -59,12 +66,12 @@ describe('competition workspace', () => {
     const view = render(<CompetitionWorkspace />)
     fireEvent.click(await screen.findByRole('button', { name: /Обработано/ }))
     await screen.findByRole('img', { name: /Исходное изображение/ })
-    fireEvent.change(screen.getByLabelText('Показать'), { target: { value: 'pending' } })
+    fireEvent.change(screen.getByLabelText('Фильтр'), { target: { value: 'pending' } })
     fireEvent.change(screen.getByLabelText('Масштаб'), { target: { value: '2' } })
     view.unmount()
     render(<CompetitionWorkspace />)
     await screen.findByRole('img', { name: /Исходное изображение/ })
-    expect(screen.getByLabelText('Показать')).toHaveValue('pending')
+    expect(screen.getByLabelText('Фильтр')).toHaveValue('pending')
     expect(screen.getByLabelText('Масштаб')).toHaveValue('2')
   })
   it('edits points by keyboard, supports undo and protects original geometry', async () => {
@@ -109,7 +116,7 @@ describe('competition workspace', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Сохранить черновик' }))
     await screen.findByText(/Версия 1 сохранена/)
     expect(JSON.parse(String(fetch.mock.calls.find(([, init]) => init?.method === 'POST')?.[1]?.body)).followups[0]).toMatchObject({ question: 'Проверить ROI', state: 'open', kind: 'second_opinion' })
-    fireEvent.change(screen.getByLabelText('Показать'), { target: { value: 'second_opinion' } })
+    fireEvent.change(screen.getByLabelText('Фильтр'), { target: { value: 'second_opinion' } })
     expect(screen.getByText(/Открытых действий: 1/)).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Скачать отчёт версии 1' })).toHaveAttribute('href', '/api/v1/jobs/one/images/abc/reviews/1/report.html')
   })
