@@ -1,0 +1,63 @@
+{
+  "scope": "organiser DXA only; known anatomical region; image-only ResNet18 layer4 fine-tuning",
+  "limitations": "study-group CV, patient independence unverified; five fixed epochs; no external clinical validation",
+  "seed": 17,
+  "epochs": 5,
+  "input_size": 224,
+  "threads": 4,
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "encoder_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+  "current_pixel_hash_mismatches": 249,
+  "split": "StratifiedGroupKFold(5, shuffle=True, random_state=17), separately by spine/hip",
+  "overall": {
+    "n": 249,
+    "positives": 73,
+    "roc_auc": 0.6257783312577834,
+    "average_precision": 0.41019511689629196,
+    "threshold": 0.5,
+    "confusion_tn_fp_fn_tp": [
+      155,
+      21,
+      56,
+      17
+    ],
+    "sensitivity": 0.2328767123287671,
+    "specificity": 0.8806818181818182,
+    "f1": 0.3063063063063063
+  },
+  "regions": {
+    "spine": {
+      "n": 99,
+      "positives": 32,
+      "roc_auc": 0.6231343283582089,
+      "average_precision": 0.45293482324433165,
+      "threshold": 0.5,
+      "confusion_tn_fp_fn_tp": [
+        58,
+        9,
+        26,
+        6
+      ],
+      "sensitivity": 0.1875,
+      "specificity": 0.8656716417910447,
+      "f1": 0.2553191489361702
+    },
+    "hip": {
+      "n": 150,
+      "positives": 41,
+      "roc_auc": 0.6086372790333409,
+      "average_precision": 0.39458509592794905,
+      "threshold": 0.5,
+      "confusion_tn_fp_fn_tp": [
+        97,
+        12,
+        30,
+        11
+      ],
+      "sensitivity": 0.2682926829268293,
+      "specificity": 0.8899082568807339,
+      "f1": 0.34375
+    }
+  },
+  "elapsed_seconds": 237.7
+}

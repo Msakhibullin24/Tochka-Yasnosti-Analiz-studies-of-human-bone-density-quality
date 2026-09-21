@@ -1,0 +1,65 @@
+{
+  "scope": "paired OOF scores on the same organiser images",
+  "caveat": "baseline is the existing repeated-CV hybrid; CNN uses one 5-fold CV. This is exploratory model selection, not a locked independent test.",
+  "images": 249,
+  "studies": 100,
+  "by_region": {
+    "hip": {
+      "n": 150,
+      "positives": 41,
+      "cnn": {
+        "roc_auc": 0.6086,
+        "average_precision": 0.3946
+      },
+      "hybrid": {
+        "roc_auc": 0.7762,
+        "average_precision": 0.6483
+      },
+      "cnn_errors_hybrid_correct": 17,
+      "hybrid_errors_cnn_correct": 14,
+      "both_wrong": 25
+    },
+    "spine": {
+      "n": 99,
+      "positives": 32,
+      "cnn": {
+        "roc_auc": 0.6231,
+        "average_precision": 0.4529
+      },
+      "hybrid": {
+        "roc_auc": 0.8144,
+        "average_precision": 0.6486
+      },
+      "cnn_errors_hybrid_correct": 22,
+      "hybrid_errors_cnn_correct": 11,
+      "both_wrong": 13
+    }
+  },
+  "positive_criterion_misses": {
+    "spine_coverage": {
+      "positives": 6,
+      "cnn_quality_missed": 3,
+      "hybrid_quality_missed": 4
+    },
+    "spine_axis": {
+      "positives": 10,
+      "cnn_quality_missed": 9,
+      "hybrid_quality_missed": 4
+    },
+    "spine_artifact": {
+      "positives": 17,
+      "cnn_quality_missed": 15,
+      "hybrid_quality_missed": 2
+    },
+    "hip_position_rotation": {
+      "positives": 36,
+      "cnn_quality_missed": 28,
+      "hybrid_quality_missed": 18
+    },
+    "hip_roi_coverage": {
+      "positives": 7,
+      "cnn_quality_missed": 2,
+      "hybrid_quality_missed": 2
+    }
+  }
+}
