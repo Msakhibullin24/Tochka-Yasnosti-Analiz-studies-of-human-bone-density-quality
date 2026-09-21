@@ -181,6 +181,16 @@ def test_medial_pelvis_at_top_does_not_hide_lateral_trochanter_candidate():
     assert cap['verified'] is False
 
 
+def test_disconnected_pelvic_bone_is_not_a_femoral_neck_candidate():
+    from dxaqc.anatomy import detect_landmarks
+    pixels=np.zeros((150,120),np.uint8)
+    pixels[90:,30:52]=180  # distal shaft, without a visible proximal neck
+    pixels[30:60,62:85]=180  # separate pelvic structure in the neck search window
+    result=detect_landmarks(pixels,'hip_right',{'shaft_axis':[(41,120),(41,149)]})
+    neck=next(x for x in result['landmarks'] if x['name']=='femoral_neck')
+    assert neck['status']=='not_localized' and neck['points']==[]
+
+
 def test_trochanter_fallback_at_boundary_also_abstains_without_shaft_axis():
     from dxaqc.anatomy import detect_landmarks
     result=detect_landmarks(np.zeros((100,100),np.uint8),'hip_right',{'greater_trochanter_top':[(20,0)]})

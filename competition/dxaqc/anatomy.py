@@ -91,6 +91,7 @@ def detect_landmarks(pixels, region, overlay, pixel_mm_y=1., pixel_mm_x=1.):
             count, components = cv2.connectedComponents(mask)
             seed = components[int(.85*h):, max(0,int(sx-.08*w)):min(w,int(sx+.08*w)+1)]
             ids, sizes = np.unique(seed[seed>0], return_counts=True)
+            femur = np.zeros_like(mask, dtype=bool)
             if len(ids):
                 femur = components == ids[np.argmax(sizes)]
                 yy,xx = np.where(femur)
@@ -116,12 +117,12 @@ def detect_landmarks(pixels, region, overlay, pixel_mm_y=1., pixel_mm_x=1.):
             # must not be interpreted as a measured neck width.
             for y in range(int(.15*h),int(.55*h)):
                 for x in range(max(1,int(sx+.04*w)),min(w-1,int(sx+.38*w)),max(1,w//80)):
-                    if not mask[y,x]: continue
+                    if not femur[y,x]: continue
                     reach = int(min(h,w)*.25)
                     t = np.arange(-reach,reach+1)
                     xx, yy = np.rint(x+t*.707).astype(int), np.rint(y+t*.707).astype(int)
                     valid = (xx>=0)&(xx<w)&(yy>=0)&(yy<h)
-                    line=np.zeros(len(t),np.uint8);line[valid]=mask[yy[valid],xx[valid]]
+                    line=np.zeros(len(t),np.uint8);line[valid]=femur[yy[valid],xx[valid]]
                     left=np.where(line[:reach]==0)[0];right=np.where(line[reach+1:]==0)[0]
                     if not len(left) or not len(right):continue
                     a,b=int(left[-1]),int(reach+1+right[0])
