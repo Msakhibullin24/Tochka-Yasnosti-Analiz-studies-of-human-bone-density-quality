@@ -13,7 +13,7 @@ import numpy as np
 from dxaqc.dicom_io import read_dxa
 from dxaqc.geometry import measure_image
 from dxaqc.explain import render_overlay
-from dxaqc.anatomy import detect_landmarks
+from dxaqc.anatomy import detect_landmarks, display_overlay
 from dxaqc.model import CRITERIA, VIOLATION_LABEL, group_of
 
 
@@ -77,7 +77,9 @@ def audit(oof_path, labels_path, dataset, output, repeat=0):
                 'landmarks_clinically_validated': False,
                 'source_pixel_sha256':image.pixel_sha256}
         cases.append(item)
-        bgr = render_overlay(image.pixels, region, measurement.overlay, measurement.features, codes,
+        inspected_overlay = display_overlay({'region': region, 'overlay': measurement.overlay,
+                                             'anatomy_candidates': landmarks}, image.pixels.shape[1])
+        bgr = render_overlay(image.pixels, region, inspected_overlay, measurement.features, codes,
                              int(row['quality_pred']), float(row['quality_score']), image.pixel_mm, image.pixel_mm_x)
         ok, encoded = cv2.imencode('.png', bgr)
         if not ok:

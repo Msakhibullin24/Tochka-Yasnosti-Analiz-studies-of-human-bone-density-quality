@@ -104,7 +104,11 @@ def detect_landmarks(pixels, region, overlay, pixel_mm_y=1., pixel_mm_x=1.):
                     greater['points'] = [[float(x),float(y)] for x,y in original([(float(np.median(cap)),top)])]
                     greater['method'] = 'distal_shaft_connected_lateral_cap'
                     greater['status'] = 'candidate'
-                    if np.any(femur[0]):
+                    # The femoral head can merge with pelvis pixels that reach the
+                    # top edge. Only a top-edge path in the lateral cap corridor
+                    # makes this particular candidate ambiguous.
+                    lateral_edge = min(w, int(np.median(cap) + .1*w) + 1)
+                    if np.any(femur[0, :lateral_edge]):
                         greater.update(points=[], status='not_localized',
                                        method='ambiguous_component_at_image_boundary')
             candidates = []

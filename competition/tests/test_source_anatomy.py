@@ -168,6 +168,19 @@ def test_boundary_connected_bone_cannot_be_named_trochanter():
     assert overlay['greater_trochanter_top']==[(40,0)]
 
 
+def test_medial_pelvis_at_top_does_not_hide_lateral_trochanter_candidate():
+    from dxaqc.anatomy import detect_landmarks
+    pixels=np.zeros((150,120),np.uint8)
+    pixels[60:,35:65]=180
+    pixels[35:85,25:50]=180
+    pixels[:65,80:110]=180
+    pixels[60:65,45:90]=180  # joined head/pelvis component reaches the frame edge
+    result=detect_landmarks(pixels,'hip_right',{'shaft_axis':[(50,120),(50,149)]})
+    cap=next(x for x in result['landmarks'] if x['name']=='greater_trochanter')
+    assert cap['status']=='candidate' and 30 <= cap['points'][0][1] <= 40
+    assert cap['verified'] is False
+
+
 def test_trochanter_fallback_at_boundary_also_abstains_without_shaft_axis():
     from dxaqc.anatomy import detect_landmarks
     result=detect_landmarks(np.zeros((100,100),np.uint8),'hip_right',{'greater_trochanter_top':[(20,0)]})

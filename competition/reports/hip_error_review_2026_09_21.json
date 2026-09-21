@@ -16,13 +16,13 @@
     "missed_with_binary_positive": 5,
     "candidate_counts": {
       "missed": {
-        "greater_trochanter": 0,
+        "greater_trochanter": 11,
         "lesser_trochanter": 11,
         "femoral_neck": 15,
         "ischium": 17
       },
       "false_alarm": {
-        "greater_trochanter": 0,
+        "greater_trochanter": 8,
         "lesser_trochanter": 8,
         "femoral_neck": 15,
         "ischium": 16
