@@ -1,0 +1,77 @@
+{
+  "images": 150,
+  "reference_positives": 36,
+  "criterion_confusion_tn_fp_fn_tp": [
+    98,
+    16,
+    17,
+    19
+  ],
+  "landmark_candidate_counts": {
+    "greater_trochanter": {
+      "positive": 17,
+      "negative": 80
+    },
+    "lesser_trochanter": {
+      "positive": 23,
+      "negative": 58
+    },
+    "femoral_neck": {
+      "positive": 29,
+      "negative": 106
+    },
+    "ischium": {
+      "positive": 36,
+      "negative": 114
+    }
+  },
+  "features": {
+    "shaft_abs_angle_deg": {
+      "valid": 150,
+      "raw_auc": 0.7753411306042884,
+      "positive_median": 4.218334252187007,
+      "negative_median": 1.746518830041141
+    },
+    "lesser_troch_protrusion_mm": {
+      "valid": 150,
+      "raw_auc": 0.49329922027290446,
+      "positive_median": 2.141459134804429,
+      "negative_median": 1.746525726700741
+    },
+    "lesser_troch_notch_mm": {
+      "valid": 150,
+      "raw_auc": 0.5465399610136452,
+      "positive_median": 3.2258834123611453,
+      "negative_median": 13.679481983184814
+    },
+    "medial_concavity_mm": {
+      "valid": 150,
+      "raw_auc": 0.4956140350877193,
+      "positive_median": 4.7545226129858325,
+      "negative_median": 4.328551252896837
+    },
+    "shaft_width_mm": {
+      "valid": 150,
+      "raw_auc": 0.5614035087719298,
+      "positive_median": 29.400000000000002,
+      "negative_median": 28.35
+    },
+    "troch_top_margin_mm": {
+      "valid": 150,
+      "raw_auc": 0.47709551656920074,
+      "positive_median": 101.85000000000001,
+      "negative_median": 105.525
+    },
+    "lateral_margin_mm": {
+      "valid": 150,
+      "raw_auc": 0.6145224171539961,
+      "positive_median": 46.725,
+      "negative_median": 38.85
+    }
+  },
+  "scope": "exploratory univariate analysis on inspected organiser development images",
+  "repeat": 0,
+  "oof_sha256": "cc5397b212dd30235b3695c8deccd639a9bf5e858cfe7e766f271a1b14f1ea13",
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "limitations": "candidate availability is not landmark accuracy; no independent clinical reference"
+}
