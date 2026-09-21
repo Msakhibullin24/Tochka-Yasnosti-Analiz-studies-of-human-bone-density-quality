@@ -1,0 +1,32 @@
+{
+  "scope": "diagnostic review of already inspected internal OOF; not a new independent evaluation",
+  "oof_sha256": "cc5397b212dd30235b3695c8deccd639a9bf5e858cfe7e766f271a1b14f1ea13",
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "repeat": 0,
+  "evaluated_images": 249,
+  "count": 69,
+  "reason_counts": {
+    "untyped_positive": 34,
+    "missed_axis": 9,
+    "missed_hip_position_rotation": 17,
+    "false_hip_position_rotation": 16
+  },
+  "hip_position_rotation": {
+    "missed_with_binary_negative": 12,
+    "missed_with_binary_positive": 5,
+    "candidate_counts": {
+      "missed": {
+        "greater_trochanter": 0,
+        "lesser_trochanter": 11,
+        "femoral_neck": 15,
+        "ischium": 17
+      },
+      "false_alarm": {
+        "greater_trochanter": 0,
+        "lesser_trochanter": 8,
+        "femoral_neck": 15,
+        "ischium": 16
+      }
+    }
+  }
+}
