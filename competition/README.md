@@ -8,7 +8,7 @@ CLI, API и валидация используют общий модуль ит
 
 Из любой рабочей папки: `./run.sh build`, `./run.sh serve 8090` (если текущая папка — `competition`).
 Скрипт сам выбирает корень репозитория как build context. Прямой аналог из корня:
-`docker build -f competition/Dockerfile -t osseo-dxaqc:1.9.0 .`.
+`docker build -f competition/Dockerfile -t osseo-dxaqc:1.9.1 .`.
 Офлайн-инференс: `./run.sh batch /absolute/input /absolute/output`.
 
 Требования: Docker; для сборки — сеть, для работы — нет. CPU-инференс, GPU не требуется.

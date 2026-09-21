@@ -11,7 +11,6 @@ backend/exports
 
 competition/.cache
 competition/reports
-competition/experiments
 competition/out
 competition/dxaqc/static/app
 datasets

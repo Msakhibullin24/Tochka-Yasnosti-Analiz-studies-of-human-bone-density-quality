@@ -243,7 +243,7 @@ def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyz
             img = read_dxa(path)
             img.source_roi = merge_presentation_roi(img, presentations.get(img.image_uid, []))
             row["study_uid"], row["image_uid"] = img.study_uid, img.image_uid
-            cache_key = (img.pixel_sha256, img.pixel_mm, img.pixel_mm_x)
+            cache_key = (img.pixel_sha256, img.pixel_mm, img.pixel_mm_x, img.pixel_mm_source)
             if cache_key in cache:
                 res, first = cache[cache_key]
                 row["duplicate_of"] = first

@@ -37,6 +37,8 @@ COPY competition/dxaqc ./dxaqc
 COPY competition/weights ./weights
 COPY competition/models ./models
 COPY competition/train.py ./train.py
+COPY competition/experiments ./experiments
+COPY competition/audit_model_errors.py ./audit_model_errors.py
 COPY competition/labels ./labels
 COPY --from=ui /ui/dist ./dxaqc/static/app
 

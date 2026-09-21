@@ -38,11 +38,11 @@ SQL хранит историю заданий и неизменяемые эк�
 mkdir -p /absolute/backups /absolute/restored
 docker run --rm --network none --user "$(id -u):$(id -g)" \
   -v /absolute/osseo-data:/work -v /absolute/backups:/backup \
-  osseo-dxaqc:1.9.0 python -m dxaqc.maintenance backup \
+  osseo-dxaqc:1.9.1 python -m dxaqc.maintenance backup \
   --root /work/dxaqc-jobs --archive /backup/osseo.zip
 docker run --rm --network none --user "$(id -u):$(id -g)" \
   -v /absolute/restored:/work -v /absolute/backups:/backup:ro \
-  osseo-dxaqc:1.9.0 python -m dxaqc.maintenance restore \
+  osseo-dxaqc:1.9.1 python -m dxaqc.maintenance restore \
   --root /work/dxaqc-jobs --archive /backup/osseo.zip
 ```
 

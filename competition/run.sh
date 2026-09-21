@@ -8,7 +8,7 @@
 #
 # The container never needs the network at run time: batch mode runs with --network none.
 set -eu
-IMAGE="${DXAQC_IMAGE:-osseo-dxaqc:1.9.0}"
+IMAGE="${DXAQC_IMAGE:-osseo-dxaqc:1.9.1}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 cmd="${1:-help}"
 

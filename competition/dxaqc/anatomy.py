@@ -9,8 +9,12 @@ import cv2
 import numpy as np
 from scipy.signal import find_peaks
 
-from .geometry import spine_centerline
+from .geometry import measure_image, spine_centerline
 from .source_roi import contains
+
+STABILITY_POINT_MM = 5.0  # technical review distance, not validated landmark accuracy
+STABILITY_AXIS_DEG = 1.0
+STABILITY_TROCH_MM = 5.0
 
 
 def _candidate(name, points, method):
@@ -193,15 +197,61 @@ def evaluate_source_roi(source, landmarks, img, region):
     return {'status':source['status'],'rois':source['rois'],'issues':source['issues'],'checks':checks}
 
 
+def compare_hip_stability(base, altered, base_features, altered_features, pixel_mm_y, pixel_mm_x):
+    """Suppress only display candidates that fail a deterministic repeatability check."""
+    shifted = {item['name']: item['points'] for item in altered['landmarks']}
+    unstable = []
+    for item in base['landmarks']:
+        points, other = item['points'], shifted.get(item['name'], [])
+        distance = (float(np.linalg.norm((np.asarray(points[0]) - other[0]) *
+                                         [pixel_mm_x, pixel_mm_y])) if len(points) == len(other) == 1 else None)
+        changed = bool(points) != bool(other) or (distance is not None and distance > STABILITY_POINT_MM)
+        item['stability'] = {'status': 'unstable' if changed else 'repeatable' if points else 'unavailable',
+                             'shift_mm': round(distance, 3) if distance is not None else None,
+                             'test': 'brightness_1.1x_minus_3', 'limit_mm': STABILITY_POINT_MM}
+        if changed:
+            unstable.append(item['name'])
+            item['points'] = []
+            item['status'] = 'unstable'
+    changes = {}
+    for name, limit in (('shaft_abs_angle_deg', STABILITY_AXIS_DEG),
+                        ('lesser_troch_protrusion_mm', STABILITY_TROCH_MM)):
+        first, second = base_features.get(name), altered_features.get(name)
+        change = (abs(float(first-second)) if first is not None and second is not None
+                  and np.isfinite(first) and np.isfinite(second) else None)
+        changes[name] = {'delta': round(change, 3) if change is not None else None,
+                         'limit': limit, 'unstable': change is None or change > limit}
+    return {'status': 'needs_review' if unstable or any(x['unstable'] for x in changes.values())
+            else 'repeatable_under_test', 'test': 'brightness_1.1x_minus_3',
+            'unstable_landmarks': unstable, 'measurements': changes,
+            'clinical_validation': False}
+
+
 def image_assessment(img, result):
     """Shared single-image and batch contract. Cache only pixel-derived evidence."""
     if 'anatomy_candidates' not in result:
         result['anatomy_candidates'] = detect_landmarks(img.pixels, result['region'], result['overlay'], img.pixel_mm, img.pixel_mm_x or img.pixel_mm)
+        if result['region'] != 'spine':
+            if getattr(img, 'pixel_mm_source', '') in ('device_default', '', None):
+                stability = {'status': 'unavailable', 'reason': 'pixel_scale_uncertain',
+                             'clinical_validation': False}
+            else:
+                bright = np.clip(img.pixels.astype(np.float32) * 1.1 - 3, 0, 255).astype(np.uint8)
+                canonical = np.ascontiguousarray(bright[:, ::-1]) if result['region'] == 'hip_left' else bright
+                shifted_measurement = measure_image(canonical, result['region'], img.pixel_mm, img.pixel_mm_x)
+                shifted = detect_landmarks(bright, result['region'], shifted_measurement.overlay,
+                                           img.pixel_mm, img.pixel_mm_x or img.pixel_mm)
+                stability = compare_hip_stability(result['anatomy_candidates'], shifted, result['features'],
+                                                  shifted_measurement.features, img.pixel_mm,
+                                                  img.pixel_mm_x or img.pixel_mm)
+            result['anatomy_candidates']['stability'] = stability
+            if stability['status'] == 'needs_review' and 'hip_geometry_unstable' not in result['review_reasons']:
+                result['review_reasons'].append('hip_geometry_unstable')
         result['projection_pixels'] = assess_projection(img.pixels, result['region'], result['anatomy_candidates'])
     projection = {**result['projection_pixels'], 'declared_view_position': img.view_position}
     return {'projection': projection, 'anatomy': result['anatomy_candidates'],
             'source_roi': evaluate_source_roi(img.source_roi, result['anatomy_candidates'], img, result['region']),
-            'complete': False, 'version': '2'}
+            'complete': False, 'version': '3'}
 
 
 def display_overlay(result, width):

@@ -18,7 +18,9 @@ export default function AnatomyPanel({ detail, source, geometry, onChange }: { d
     <p><strong>Полная анатомическая проверка не подтверждена.</strong> Класс качества модели не означает, что все ориентиры и разметка проверены.</p>
     <p>Проекция: {a.projection.status === 'candidate' && a.projection.value === 'frontal' ? 'предположительно фронтальная' : 'не определена по изображению'}. {a.projection.reason}</p>
     {a.projection.declared_view_position && <p>Проекция в DICOM: {a.projection.declared_view_position}.</p>}
-    <ul>{a.anatomy.landmarks.map(l => <li key={l.name}>{names[l.name] || l.name}: {l.status === 'candidate' ? 'найден кандидат, требуется проверка' : 'не локализован'}</li>)}</ul>
+    {a.anatomy.stability?.status === 'needs_review' && <p>Часть ориентиров или измерений бедра меняется при технической проверке яркости. Эти точки не предлагаются для добавления; проверьте снимок вручную.</p>}
+    {a.anatomy.stability?.status === 'unavailable' && <p>Стабильность ориентиров в миллиметрах не проверена: масштаб снимка не подтверждён.</p>}
+    <ul>{a.anatomy.landmarks.map(l => <li key={l.name}>{names[l.name] || l.name}: {l.status === 'candidate' ? 'найден кандидат, требуется проверка' : l.status === 'unstable' ? 'нестабильный кандидат — скрыт' : 'не локализован'}</li>)}</ul>
     <details><summary>Посмотреть кандидаты и исходную ROI</summary>
       <p>Жёлтые точки — кандидаты ориентиров. Голубые контуры — разметка из DICOM. Ориентация исходного снимка сохранена.</p>
       <svg viewBox={`0 0 ${detail.width} ${detail.height}`} style={{ width: '100%', maxHeight: 500, background: '#111' }} role="img" aria-label="Исходное изображение с кандидатами ориентиров и контурами ROI">

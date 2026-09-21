@@ -19,3 +19,18 @@ it('shows absent ROI and only imports candidates after explicit action without o
   fireEvent.click(screen.getByRole('button', { name: 'Добавить кандидаты в черновик' }))
   expect(change.mock.calls[0][0]).toEqual([existing, { name: 'ischium', kind: 'point', points: [{ x: .5, y: .5 }], note: 'Автоматический кандидат; анатомия не подтверждена.' }])
 })
+
+it('explains unstable candidates and excludes them from the draft', () => {
+  const detail: ImageDetail = { width: 101, height: 201, region: 'hip_right', pixel_mm_x: 1, pixel_mm_y: 1, pixel_mm_source: 'PixelSpacing', geometry: {}, assessment: {
+    complete: false, projection: { value: 'unknown', status: 'undetermined', reason: 'Требуется проверка', declared_view_position: '' },
+    anatomy: { landmarks: [{ name: 'femoral_neck', status: 'unstable', points: [], verified: false }, { name: 'ischium', status: 'candidate', points: [[50, 100]], verified: false }],
+      stability: { status: 'needs_review', unstable_landmarks: ['femoral_neck'], measurements: {} } },
+    source_roi: { status: 'absent', issues: [], rois: [], checks: [] },
+  } }
+  const change = vi.fn()
+  render(<AnatomyPanel detail={detail} source="/image.png" geometry={[]} onChange={change} />)
+  expect(screen.getByText(/Шейка бедра: нестабильный кандидат/)).toBeInTheDocument()
+  expect(screen.getByText(/не предлагаются для добавления/)).toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: 'Добавить кандидаты в черновик' }))
+  expect(change.mock.calls[0][0].map((item: Geometry) => item.name)).toEqual(['ischium'])
+})
