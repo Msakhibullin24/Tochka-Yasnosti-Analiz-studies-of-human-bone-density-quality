@@ -2,6 +2,7 @@ import type { Criterion, LocalizedText, Study } from '../types'
 import { analyzeDicom, DicomAnalysisError } from './analysis'
 
 const API_BASE = (import.meta.env.VITE_ANALYSIS_API_URL || '/api/v1').replace(/\/$/, '')
+const REQUEST_TIMEOUT_MS = 30_000
 
 const t = (ru: string, en: string): LocalizedText => ({ ru, en })
 
@@ -60,13 +61,17 @@ export async function analyzeStudy(file: File): Promise<Study> {
   const formData = new FormData()
   formData.append('file', file)
   let response: Response
+  const controller = new AbortController()
+  const timeout = globalThis.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
   try {
-    response = await fetch(`${API_BASE}/studies/analyze`, { method: 'POST', body: formData })
+    response = await fetch(`${API_BASE}/studies/analyze`, { method: 'POST', body: formData, signal: controller.signal })
   } catch {
     return fallbackWithWarning(file, t(
       'ML-сервис недоступен; выполнен локальный технический pre-screening.',
       'The ML service is unavailable; local technical pre-screening was used.',
     ))
+  } finally {
+    globalThis.clearTimeout(timeout)
   }
   if (response.ok) {
     try {

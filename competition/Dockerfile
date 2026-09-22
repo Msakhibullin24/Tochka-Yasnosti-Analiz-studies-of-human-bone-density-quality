@@ -37,9 +37,12 @@ COPY competition/dxaqc ./dxaqc
 COPY docs/competition/specialist_sources.json ./specialist_sources.json
 COPY competition/weights ./weights
 COPY competition/models ./models
-COPY competition/train.py ./train.py
+# Keep the offline image's research CLI surface in sync with the repository.
+# The specialist tests and documented training commands import these modules
+# from the application root; copying only train.py made a freshly built image
+# fail before test collection completed.
+COPY competition/*.py ./
 COPY competition/experiments ./experiments
-COPY competition/audit_model_errors.py ./audit_model_errors.py
 COPY competition/labels ./labels
 COPY --from=ui /ui/dist ./dxaqc/static/app
 

@@ -192,6 +192,9 @@ def test_dataset_workbench_api_annotation_and_exports(tmp_path: Path, monkeypatc
     study = client.get(f"/api/v1/datasets/current/studies/{study_id}").json()
     assert study["assets"][0]["name"] == "p_0046.png"
     assert client.get(f"/api/v1/datasets/current/studies/{study_id}/raw/0.png").headers["content-type"] == "image/png"
+    assert client.get(f"/api/v1/datasets/current/studies/{study_id}/raw/6.png").status_code == 400
+    Image.new("L", (2, 2), color=1).save(tmp_path / "processed" / study_id / "p_dead.png")
+    assert client.get(f"/api/v1/datasets/current/studies/{study_id}/assets/p_dead.png").status_code == 404
 
     annotation = {
         "schemaVersion": "1.0.0",
@@ -217,7 +220,6 @@ def test_dataset_workbench_api_annotation_and_exports(tmp_path: Path, monkeypatc
     assert jsonl.status_code == 200
     assert json.loads(jsonl.text)["expert"]["readerId"] == "reader-01"
     assert client.get("/api/v1/audit/status").json()["eventCount"] == 3
-
     second = {
         **annotation,
         "overallAction": "repeat",
@@ -288,3 +290,11 @@ def test_dataset_workbench_api_annotation_and_exports(tmp_path: Path, monkeypatc
     assert client.get(f"/api/v1/longitudinal/measurements/{study_id}/baseline-candidates").json()["count"] == 0
     assert client.get("/api/v1/longitudinal/comparisons/CMP-00000000000000000000").status_code == 404
     assert client.get("/api/v1/longitudinal/comparisons/not-safe").status_code == 400
+
+
+def test_malformed_manifest_record_returns_contract_error(tmp_path: Path, monkeypatch) -> None:
+    (tmp_path / "manifest.jsonl").write_text("[]\n", encoding="utf-8")
+    monkeypatch.setattr("app.main.settings", replace(settings, dataset_root=tmp_path))
+    response = TestClient(app).get("/api/v1/datasets/current")
+    assert response.status_code == 500
+    assert response.json()["detail"]["code"] == "DATASET_INVALID"

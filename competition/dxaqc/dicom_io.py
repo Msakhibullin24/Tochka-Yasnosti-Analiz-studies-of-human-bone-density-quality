@@ -168,7 +168,14 @@ def read_dxa(path: str | Path) -> DxaImage:
         declared = 0
     if declared > MAX_PIXELS:  # checked on the header: decoding a bomb would be killed by the OOM killer
         raise DicomReadError("UNSUPPORTED_IMAGE_SIZE", f"declared pixel count {declared} exceeds the limit")
-    if not hasattr(ds.file_meta, "TransferSyntaxUID"):
+    # Force-reading a malformed preamble-less object may leave file_meta absent.
+    # Give pydicom a concrete metadata container before pixel_array tries to
+    # resolve the transfer syntax, so the caller receives a normal read error
+    # instead of an AttributeError from this boundary.
+    if getattr(ds, "file_meta", None) is None:
+        from pydicom.dataset import FileMetaDataset
+        ds.file_meta = FileMetaDataset()
+    if not getattr(ds.file_meta, "TransferSyntaxUID", None):
         from pydicom.uid import ImplicitVRLittleEndian
         ds.file_meta.TransferSyntaxUID = ImplicitVRLittleEndian
     try:

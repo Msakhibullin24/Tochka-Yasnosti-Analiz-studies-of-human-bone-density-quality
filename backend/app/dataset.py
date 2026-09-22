@@ -68,11 +68,32 @@ class DatasetRepository:
                     record = json.loads(line)
                 except json.JSONDecodeError as error:
                     raise DatasetContractError(f"Invalid JSON at manifest line {index}") from error
+                if not isinstance(record, dict):
+                    raise DatasetContractError(f"Manifest line {index} must contain an object")
                 study_id = str(record.get("studyId", ""))
                 if not STUDY_ID.fullmatch(study_id) or study_id in seen:
                     raise DatasetContractError(f"Invalid or duplicate studyId at manifest line {index}")
-                if record.get("privacy", {}).get("directIdentifiersExported") is not False:
+                privacy = record.get("privacy")
+                if not isinstance(privacy, dict) or privacy.get("directIdentifiersExported") is not False:
                     raise DatasetContractError(f"Study {study_id} is not marked as de-identified")
+                processed = record.get("processedImages", [])
+                if not isinstance(processed, list):
+                    raise DatasetContractError(f"Study {study_id} has invalid processedImages")
+                for image in processed:
+                    if not isinstance(image, dict):
+                        raise DatasetContractError(f"Study {study_id} has an invalid processed image entry")
+                    tag = str(image.get("tag", "")).removeprefix("0x").lower()
+                    if not re.fullmatch(r"[0-9a-f]{4}", tag):
+                        raise DatasetContractError(f"Study {study_id} has an invalid processed image tag")
+                raw = record.get("raw", {})
+                if not isinstance(raw, dict):
+                    raise DatasetContractError(f"Study {study_id} has invalid raw metadata")
+                try:
+                    transmission_count = int(raw.get("transmissionCount", 0))
+                except (TypeError, ValueError) as error:
+                    raise DatasetContractError(f"Study {study_id} has invalid transmissionCount") from error
+                if not 0 <= transmission_count <= 6:
+                    raise DatasetContractError(f"Study {study_id} has invalid transmissionCount")
                 seen.add(study_id)
                 records.append(record)
         return records
@@ -178,6 +199,16 @@ class DatasetRepository:
         self._validate_study_id(study_id)
         if not ASSET_NAME.fullmatch(asset_name):
             raise DatasetContractError("Unsupported processed asset name")
+        record = next((item for item in self.records() if item["studyId"] == study_id), None)
+        if record is None:
+            raise FileNotFoundError(study_id)
+        declared = {
+            f"p_{str(image.get('tag', '')).removeprefix('0x').lower()}.png"
+            for image in record.get("processedImages", [])
+            if isinstance(image, dict)
+        }
+        if asset_name not in declared:
+            raise FileNotFoundError(asset_name)
         path = _require_child(root, root / "processed" / study_id / asset_name)
         if not path.is_file():
             raise FileNotFoundError(path)
@@ -188,14 +219,22 @@ class DatasetRepository:
 
         root = self._available_root()
         self._validate_study_id(study_id)
-        if channel not in range(6):
-            raise DatasetContractError("Raw channel must be in the range 0..5")
+        record = next((item for item in self.records() if item["studyId"] == study_id), None)
+        if record is None:
+            raise FileNotFoundError(study_id)
+        raw = record.get("raw", {})
+        transmission_count = int(raw.get("transmissionCount", 0))
+        if channel not in range(transmission_count):
+            raise DatasetContractError(f"Raw channel must be in the range 0..{max(transmission_count - 1, 0)}")
         path = _require_child(root, root / "raw" / study_id / "transmissions.npy")
         if not path.is_file():
             raise FileNotFoundError(path)
         cube = np.load(path, mmap_mode="r", allow_pickle=False)
-        if cube.ndim != 3 or cube.shape[2] != 6 or cube.dtype != np.uint16:
-            raise DatasetContractError("Raw cube violates the height × width × 6 uint16 contract")
+        expected_shape = tuple(int(value) for value in raw.get("shape", []))
+        if cube.size > 36_000_000 or cube.ndim != 3 or cube.shape[2] != transmission_count or cube.dtype != np.uint16:
+            raise DatasetContractError("Raw cube violates the manifest uint16 contract")
+        if expected_shape and tuple(cube.shape) != expected_shape:
+            raise DatasetContractError("Raw cube dimensions differ from the manifest")
         values = np.asarray(cube[:, :, channel], dtype=np.float32)
         low, high = np.percentile(values, (1, 99))
         if high <= low:

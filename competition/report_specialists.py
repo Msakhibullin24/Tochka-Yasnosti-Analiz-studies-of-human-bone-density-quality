@@ -8,9 +8,6 @@ import html
 import json
 from pathlib import Path
 
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import average_precision_score, roc_auc_score, roc_curve, precision_recall_curve
 
@@ -21,6 +18,22 @@ from train_specialist import targets_for
 
 LABELS = dict(zip(OUTPUTS, ['Нарушение качества', 'Охват позвоночника', 'Ось позвоночника',
                           'Артефакт позвоночника', 'Укладка бедра', 'ROI бедра']))
+
+
+def _pyplot():
+    """Load the optional report renderer only when a chart is actually built.
+
+    Benchmark selection and prediction checks import ``load_run`` but do not
+    need the heavyweight plotting stack. Keeping that boundary lazy lets the
+    offline inference image run those checks without bundling matplotlib.
+    """
+    try:
+        import matplotlib
+        matplotlib.use('Agg')
+        import matplotlib.pyplot as plt
+    except ImportError as exc:
+        raise RuntimeError('Metric charts require the optional matplotlib dependency') from exc
+    return plt
 
 
 def measures(y, scores, threshold):
@@ -92,6 +105,7 @@ def load_run(directory, labels_path):
 def build(runs, labels_path, output, resamples=1000):
     if output.exists():
         raise ValueError('Choose a new report directory')
+    plt = _pyplot()
     loaded = [load_run(path, labels_path) for path in runs]
     output.mkdir(parents=True)
     summary = {'scope': 'internal study-held-out; no external/patient-level validation',
