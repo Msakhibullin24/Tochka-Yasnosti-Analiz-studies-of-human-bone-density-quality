@@ -2,6 +2,10 @@
   "name": "osseo-ai",
   "private": true,
   "version": "0.1.0",
+  "packageManager": "pnpm@12.5.1",
+  "engines": {
+    "node": ">=22.14.0"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,28 +15,28 @@
     "test": "NODE_ENV=test vitest run"
   },
   "dependencies": {
-    "@fontsource-variable/manrope": "^5.2.8",
-    "@vitejs/plugin-react": "latest",
-    "dicom-parser": "^1.8.21",
-    "lucide-react": "^0.468.0",
-    "react": "latest",
-    "react-dom": "latest",
-    "typescript": "latest",
-    "vite": "latest"
+    "@fontsource-variable/manrope": "5.2.8",
+    "@vitejs/plugin-react": "6.1.0",
+    "dicom-parser": "1.8.21",
+    "lucide-react": "0.468.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "typescript": "6.0.3",
+    "vite": "8.2.2"
   },
   "devDependencies": {
-    "@eslint/js": "latest",
-    "@testing-library/jest-dom": "latest",
-    "@testing-library/react": "latest",
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "eslint": "latest",
-    "eslint-plugin-react-hooks": "latest",
-    "eslint-plugin-react-refresh": "latest",
-    "globals": "latest",
-    "jsdom": "latest",
-    "typescript-eslint": "^8.68.0",
-    "vitest": "latest"
+    "@eslint/js": "10.0.1",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.2",
+    "@types/node": "26.3.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "eslint": "10.9.1",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.4",
+    "globals": "17.11.0",
+    "jsdom": "30.0.1",
+    "typescript-eslint": "8.68.0",
+    "vitest": "4.1.11"
   }
 }

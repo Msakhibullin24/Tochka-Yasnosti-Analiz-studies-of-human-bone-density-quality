@@ -47,7 +47,7 @@ docker run --rm --network none --user "$(id -u):$(id -g)" \
 ```
 
 Для установки непосредственно в Python использовать тот же модуль через
-`PYTHONPATH=competition backend/.venv/bin/python -m dxaqc.maintenance`; корень должен совпадать
+`PYTHONPATH=competition competition/.venv/bin/python -m dxaqc.maintenance`; корень должен совпадать
 с путём данных в среде, где будет запущен сервис.
 
 Backup блокирует работающий экземпляр через его lease. Restore допускается только в пустую папку,

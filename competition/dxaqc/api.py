@@ -585,7 +585,7 @@ if (UI_ROOT / "assets").is_dir():
 def index() -> str:
     target = UI_ROOT / "index.html"
     if not target.exists():
-        raise HTTPException(503, "UI not built; run npm run build and copy dist into competition/dxaqc/static/app")
+        raise HTTPException(503, "UI not built; run pnpm run build and copy dist into competition/dxaqc/static/app")
     return target.read_text(encoding="utf-8")
 
 

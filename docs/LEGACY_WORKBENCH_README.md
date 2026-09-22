@@ -62,11 +62,11 @@
 
 ## Запуск
 
-Требуется Node.js 22+.
+Требуются Node.js 22+, pnpm и uv.
 
 ```bash
-npm install
-npm run dev
+pnpm install --frozen-lockfile
+pnpm run dev
 ```
 
 Продукт откроется на `http://localhost:5173`.
@@ -117,10 +117,10 @@ Checkpoint занимает примерно 265 МБ, хранится в `back
 Проверка перед публикацией:
 
 ```bash
-npm run test
-npm run build
-npm run lint
-backend/.venv/bin/python -m pytest -q backend/tests
+pnpm test
+pnpm run build
+pnpm run lint
+uv run --project backend --extra test --locked python -m pytest -q backend/tests
 # либо все проверки одной командой
 make verify
 ```

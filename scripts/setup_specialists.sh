@@ -9,6 +9,7 @@ if [[ ! -f data/specialists/venv/pyvenv.cfg ]]; then
   uv venv --python "$python_bin" data/specialists/venv
 fi
 uv pip sync --python data/specialists/venv/bin/python \
+  --index-strategy unsafe-best-match \
   --extra-index-url https://download.pytorch.org/whl/cpu \
   competition/requirements-specialists-lock.txt
 HF_HUB_OFFLINE=1 data/specialists/venv/bin/python competition/check_specialists.py

@@ -4,10 +4,10 @@ set -euo pipefail
 project_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 api_port="${DXA_API_PORT:-8001}"
 web_port="${DXA_WEB_PORT:-5173}"
-python_bin="$project_dir/backend/.venv/bin/python"
+python_bin="${DXAQC_PYTHON:-$project_dir/competition/.venv/bin/python}"
 
 if [[ ! -x "$python_bin" ]]; then
-  echo "Backend environment is missing. Run: uv venv backend/.venv --python 3.11 && uv pip install --python backend/.venv/bin/python -e 'backend[test]'" >&2
+  echo "Competition environment is missing. Run: make setup" >&2
   exit 2
 fi
 
@@ -24,4 +24,4 @@ cleanup() {
 trap cleanup EXIT INT TERM
 
 cd "$project_dir"
-npm run dev -- --host 127.0.0.1 --port "$web_port"
+pnpm run dev --host 127.0.0.1 --port "$web_port"

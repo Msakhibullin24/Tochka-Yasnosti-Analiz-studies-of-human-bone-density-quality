@@ -1,14 +1,18 @@
 FROM node:22.14.0-bookworm-slim@sha256:1c18d9ab3af4585870b92e4dbc5cac5a0dc77dd13df1a5905cea89fc720eb05b AS ui
 WORKDIR /ui
-COPY package.json package-lock.json ./
-RUN npm ci
+COPY package.json pnpm-lock.yaml ./
+RUN npm install --global --no-fund --no-audit pnpm@12.5.1 \
+    && pnpm install --frozen-lockfile
 COPY index.html tsconfig*.json vite.config.ts ./
 COPY src ./src
 COPY public ./public
-RUN npm run build
+RUN pnpm run build
 
 # Osseo AI DXA-QC: fully offline inference container (CPU; GPU is not required).
+FROM ghcr.io/astral-sh/uv:0.12.3@sha256:2d890623d310b57771ce840f0da5eed5fc6d657da05ffaa45d82797b53fa3abc AS uv
 FROM python:3.11.9-slim-bookworm@sha256:8fb099199b9f2d70342674bd9dbccd3ed03a258f26bbd1d556822c6dfc60c317
+
+COPY --from=uv /uv /uvx /bin/
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -27,9 +31,10 @@ WORKDIR /app
 COPY competition/requirements.txt competition/requirements-lock.txt competition/requirements-test.txt ./
 # --no-deps: every package (direct and transitive) is pinned explicitly; the lock files are generated
 # from the validated environment by walking package metadata, so the closure is complete.
-RUN pip install --no-cache-dir --no-deps --extra-index-url https://download.pytorch.org/whl/cpu \
+RUN uv pip install --system --no-cache --no-deps --index-strategy unsafe-best-match \
+        --extra-index-url https://download.pytorch.org/whl/cpu \
         -r requirements.txt -r requirements-lock.txt -r requirements-test.txt
-RUN python -m pip check
+RUN uv pip check --system
 # Fail the build if repository resolution changes the reviewed system runtime.
 RUN python -c "import subprocess; names=['gcc-12-base','libgcc-s1','libstdc++6','libgomp1']; versions=[subprocess.check_output(['dpkg-query','-W','-f=\${Version}',n],text=True) for n in names]; assert versions == ['12.2.0-14+deb12u1'] * 4, versions"
 

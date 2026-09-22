@@ -17,6 +17,9 @@ CLI, API и валидация используют общий модуль ит
 20 ГБ распаковки суммарно по вложенным ZIP, 200 000 членов архивов, вложенность ограничена.
 Фактическое потребление ресурсов на целевом стенде нужно замерить при приёмке.
 
+Для локальной разработки и тестов установите окружения командой `make setup` из корня.
+Python-окружения создаются и синхронизируются через `uv`, frontend — через `pnpm`.
+
 ## Вход и выход
 
 Вход CLI: папка, DICOM-файл или ZIP с исследованиями. Веб-загрузка: один ZIP либо несколько DICOM.
@@ -89,7 +92,7 @@ spine AUC 0.814/F1 0.657, hip 0.776/0.519, overall 0.793/0.583.
 ## Проверки
 
 `./run.sh test` — тесты в контейнере без сети. Для локальной проверки из корня:
-`DXAQC_DEBUG_SET='/path/Для теста' backend/.venv/bin/python -m pytest -q competition/tests`.
+`DXAQC_DEBUG_SET='/path/Для теста' competition/.venv/bin/python -m pytest -q competition/tests`.
 `make verify` также проверяет React и исследовательский backend.
 
 Основные ошибки: `NO_PIXEL_DATA`, `PIXEL_DECODE_ERROR`, `EMPTY_IMAGE`, `UNSUPPORTED_IMAGE_SIZE`,

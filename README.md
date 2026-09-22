@@ -35,9 +35,9 @@ PACS в текущий объём разработки не входит.
 ./competition/run.sh batch /absolute/input.zip /absolute/output
 ```
 
-Разработка: подготовленный Python 3.11 в `backend/.venv`, зависимости из `competition/requirements*.txt`,
-Node.js 22.14+; `npm ci`, затем `make dev`. Интерфейс http://127.0.0.1:5173,
-API http://127.0.0.1:8001. `make verify` проверяет оба backend, интерфейс и сборку.
+Разработка: `uv` и Python 3.11; Node.js 22.14+ и `pnpm`. Выполните `make setup`, затем
+`make dev`. Интерфейс http://127.0.0.1:5173, API http://127.0.0.1:8001.
+`make verify` проверяет оба backend, интерфейс и сборку.
 
 Generated-кэши и результаты запусков не являются исходниками. Посмотреть границы каталогов,
 команды и безопасную очистку можно в [карте проекта](docs/PROJECT_MAP_RU.md); очистка выполняется
@@ -86,7 +86,7 @@ make metrics-specialists METRICS_DIR=data/specialists/experiments/new-run/report
 - [Аудит исходного состояния](docs/COMPETITION_READINESS_AUDIT_2026_09_19_RU.md)
 - [Карта проекта: исходники, данные и точки входа](docs/PROJECT_MAP_RU.md)
 
-Старый total-body/Hologic-workbench сохранён для исследований: `VITE_WORKSPACE=research npm run dev`
+Старый total-body/Hologic-workbench сохранён для исследований: `VITE_WORKSPACE=research pnpm run dev`
 с его прежним backend либо `docker compose -f docker-compose.research.yml up --build`.
 Это отдельный исследовательский режим, не конкурсный анализатор позвоночника/бедра.
 

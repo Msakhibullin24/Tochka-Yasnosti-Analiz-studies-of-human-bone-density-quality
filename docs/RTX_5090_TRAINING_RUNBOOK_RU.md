@@ -14,18 +14,18 @@ RTX 5090 имеет 32 GB памяти по спецификации NVIDIA. Э�
 
 ```bash
 nvidia-smi
-python3.11 -m venv .venv-5090
-.venv-5090/bin/python -m pip install torch==2.7.1 torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cu128
-.venv-5090/bin/python -m pip install -r backend/requirements-training.txt
+uv venv .venv-5090 --python 3.11
+uv pip install --python .venv-5090/bin/python torch==2.7.1 torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cu128
+uv pip install --python .venv-5090/bin/python -r backend/requirements-training.txt
 mkdir -p data/training-environment
 .venv-5090/bin/python backend/scripts/check_training_device.py --device cuda > data/training-environment/device-check.json
-.venv-5090/bin/python -m pip freeze > data/training-environment/requirements-resolved.txt
+uv pip freeze --python .venv-5090/bin/python > data/training-environment/requirements-resolved.txt
 nvidia-smi > data/training-environment/nvidia-smi.txt
 ```
 
 При ошибке CUDA сначала проверить драйвер, видимость устройства, версии wheel/runtime; не обходить проверку принудительным объявлением устройства поддерживаемым. Успешный запуск должен сообщить название устройства, CUDA runtime, compute capability, проверку конечности loss/градиентов и результат шага оптимизатора. Это проверка вычислений, не бенчмарк качества модели. Установка зависимостей использует интернет, медицинские изображения этим командам не передаются.
 
-Полный транзитивный lock пока не зафиксирован: `pip freeze` выше сохраняет фактически установленное окружение для последующего воспроизводимого образа. Финальный Docker base image и зависимости фиксируются после успешного GPU-прогона; текущая инструкция не является окончательным конкурсным контейнером.
+Полный транзитивный lock пока не зафиксирован: `uv pip freeze` выше сохраняет фактически установленное окружение для последующего воспроизводимого образа. Финальный Docker base image и зависимости фиксируются после успешного GPU-прогона; текущая инструкция не является окончательным конкурсным контейнером.
 
 ## Что переносить
 

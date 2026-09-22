@@ -8,7 +8,7 @@ experiment_dir="$(realpath -m "$2")"
 [[ -d "$dataset_dir" && ! -e "$experiment_dir" ]] || { echo 'Dataset must exist; output must be new.' >&2; exit 2; }
 python_bin="$project_dir/data/specialists/venv/bin/python"
 [[ -x "$python_bin" ]] || { echo 'Run make specialists first.' >&2; exit 2; }
-backend/.venv/bin/python backend/scripts/fetch_specialists.py --verify
+uv run --project backend --locked --extra test python backend/scripts/fetch_specialists.py --verify
 mkdir -p "$experiment_dir"
 export HF_HUB_OFFLINE=1
 unset DXAQC_SPECIALIST_PATH
