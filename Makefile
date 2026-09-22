@@ -1,4 +1,4 @@
-.PHONY: dev verify smoke docker-up docker-down dataset specialists specialists-verify dev-specialists
+.PHONY: dev verify smoke clean-generated docker-up docker-down dataset specialists specialists-verify dev-specialists
 
 SPECIALIST_MODEL ?= data/specialists/runs/convnextv2-bce-v1
 
@@ -20,6 +20,9 @@ verify:
 
 smoke:
 	./scripts/smoke.sh
+
+clean-generated:
+	bash scripts/clean_generated.sh $(if $(APPLY),--apply,)
 
 docker-up:
 	mkdir -p data/runtime data/input

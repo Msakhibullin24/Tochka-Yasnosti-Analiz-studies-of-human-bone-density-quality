@@ -1,7 +1,8 @@
 # Osseo AI — контроль качества DXA
 
-Основной продукт — локальное рабочее место для проверки DICOM позвоночника и бедра.
-React-интерфейс, FastAPI, обученная модель и все веса поставляются одним контейнером.
+Основной продукт — локальное рабочее место для проверки DICOM позвоночника и бедра в
+`competition/`. React-интерфейс, FastAPI и базовые release-веса поставляются одним
+контейнером. Старый total-body/Hologic-workbench сохранён отдельно для исследований.
 PACS в текущий объём разработки не входит.
 
 ## Рабочий процесс
@@ -24,7 +25,7 @@ PACS в текущий объём разработки не входит.
 
 Открыть http://127.0.0.1:8090. По умолчанию данные сохраняются в `competition/out/`.
 Другую папку задаёт `DXAQC_DATA=/absolute/path ./competition/run.sh serve 8090`.
-Для переноса без сети: `docker save osseo-dxaqc:1.9.0 -o osseo-dxaqc.tar`, затем `docker load -i osseo-dxaqc.tar`.
+Для переноса без сети: `docker save osseo-dxaqc:1.9.1 -o osseo-dxaqc.tar`, затем `docker load -i osseo-dxaqc.tar`.
 
 Альтернатива: `make docker-up` — интерфейс http://127.0.0.1:8080, данные `data/runtime/`.
 
@@ -37,6 +38,10 @@ PACS в текущий объём разработки не входит.
 Разработка: подготовленный Python 3.11 в `backend/.venv`, зависимости из `competition/requirements*.txt`,
 Node.js 22.14+; `npm ci`, затем `make dev`. Интерфейс http://127.0.0.1:5173,
 API http://127.0.0.1:8001. `make verify` проверяет оба backend, интерфейс и сборку.
+
+Generated-кэши и результаты запусков не являются исходниками. Посмотреть границы каталогов,
+команды и безопасную очистку можно в [карте проекта](docs/PROJECT_MAP_RU.md); очистка выполняется
+через `make clean-generated` (сначала dry-run) или `make clean-generated APPLY=1`.
 
 ## Область доказанности
 
@@ -79,6 +84,7 @@ make metrics-specialists METRICS_DIR=data/specialists/experiments/new-run/report
 - [Специализированная локализация Th12/L1–L4 и проверка DXA-to-3D](docs/SPECIALIZED_SPINE_MODEL_RU.md)
 - [Бинарный QC, типы нарушений, NHANES и локализация дефектов](docs/QC_CLASSIFICATION_AND_LOCALIZATION_RU.md)
 - [Аудит исходного состояния](docs/COMPETITION_READINESS_AUDIT_2026_09_19_RU.md)
+- [Карта проекта: исходники, данные и точки входа](docs/PROJECT_MAP_RU.md)
 
 Старый total-body/Hologic-workbench сохранён для исследований: `VITE_WORKSPACE=research npm run dev`
 с его прежним backend либо `docker compose -f docker-compose.research.yml up --build`.
@@ -87,6 +93,8 @@ make metrics-specialists METRICS_DIR=data/specialists/experiments/new-run/report
 
 Базовая матрица требований (срез 1.5.0): [матрица ТЗ](docs/FINAL_TZ_AUDIT_2026_09_20_RU.md), [презентация](docs/FINAL_PRESENTATION_RU.html).
 Полное соответствие ещё не достигнуто: автоматическая проекция, анатомические ориентиры и исходная ROI требуют доработки.
+
+## Исторические заметки о релизах
 
 Релиз 1.6: [исходная ROI, проекция и анатомические кандидаты](competition/docs/ANATOMICAL_CHECKS.md). Поддерживаемый импорт ROI реализован; подтверждённая локализация Th12 и полная анатомическая проверка ещё не завершены.
 
