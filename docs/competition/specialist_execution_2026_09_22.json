@@ -1,0 +1,503 @@
+{
+  "date": "2026-09-22",
+  "artifact_inventory": {
+    "source": {
+      "files": 9,
+      "bytes": 87874142
+    },
+    "weights": {
+      "files": 5,
+      "bytes": 345570974
+    },
+    "tabular_data": {
+      "files": 18,
+      "bytes": 146253360
+    }
+  },
+  "checkpoint_checks": {
+    "convnextv2_tiny": {
+      "status": "architecture_verified",
+      "output_shape": [
+        1,
+        768
+      ],
+      "checkpoint_sha256": "6652fd90fc9c23977659e58515778e16fbbcd43f0b01fc693089cebe6d64c2a9",
+      "clinical_validation": false
+    },
+    "tf_efficientnet_b4": {
+      "status": "architecture_verified",
+      "output_shape": [
+        1,
+        1792
+      ],
+      "checkpoint_sha256": "ede54280eab358dcd49d71f4dcabcedf14a0ac33267bac772b66110cbe168f79",
+      "clinical_validation": false
+    },
+    "dxa_to_3d": {
+      "status": "architecture_verified",
+      "output_shape": [
+        1,
+        1254
+      ],
+      "checkpoint_sha256": "9e86fb66b73ac27bfa60aa4695bb037d06acab8882e192f793d577711120e2c3",
+      "clinical_validation": false
+    },
+    "limitations": {
+      "dxa_to_3d": "Raw regression output only; preprocessing and curve order unverified. No Th12/L1-L4 labels.",
+      "human_skeletal_form": "Author checkpoint link HTTP 404; no inference possible.",
+      "vertenet": "No public checkpoint identified; lateral DXA only.",
+      "yolov8": "Downloaded COCO detection/segmentation weights; no DXA implant training."
+    },
+    "yolov8n_weights": {
+      "status": "architecture_verified_generic_coco",
+      "task": "detect",
+      "classes": 80,
+      "detections_on_blank": 0,
+      "dxa_artefact_model": false
+    },
+    "yolov8n_seg_weights": {
+      "status": "architecture_verified_generic_coco",
+      "task": "segment",
+      "classes": 80,
+      "detections_on_blank": 0,
+      "dxa_artefact_model": false
+    }
+  },
+  "experiments": {
+    "convnextv2-bce-v1": {
+      "model_sha256": "0daa11dacff6343ed144e1ee095c23b54be1bb19d8a6cf1f135ea96ec3812f2b",
+      "head_sha256": "978ffe26a1e9cb9eb001e6c31cbaea882a0c1a35ba2b997425343893e31dd4ef",
+      "backbone_sha256": "6652fd90fc9c23977659e58515778e16fbbcd43f0b01fc693089cebe6d64c2a9",
+      "split": {
+        "train": {
+          "images": 149,
+          "studies": 60
+        },
+        "validation": {
+          "images": 54,
+          "studies": 21
+        },
+        "test": {
+          "images": 46,
+          "studies": 19
+        }
+      },
+      "metrics": {
+        "quality": {
+          "training_supported": true,
+          "validation_known": 54,
+          "test_known": 46,
+          "threshold": 0.08240747451782227,
+          "n": 46,
+          "positives": 10,
+          "sensitivity": 0.8,
+          "specificity": 0.3611111111111111,
+          "balanced_accuracy": 0.5805555555555556,
+          "f1": 0.3902439024390244,
+          "confusion_tn_fp_fn_tp": [
+            13,
+            23,
+            2,
+            8
+          ],
+          "roc_auc": 0.6416666666666667,
+          "pr_auc": 0.4368481338481338
+        },
+        "spine_coverage": {
+          "training_supported": true,
+          "validation_known": 20,
+          "test_known": 19,
+          "threshold": null
+        },
+        "spine_axis": {
+          "training_supported": true,
+          "validation_known": 20,
+          "test_known": 19,
+          "threshold": 0.024976689368486404,
+          "n": 19,
+          "positives": 2,
+          "sensitivity": 0.0,
+          "specificity": 0.6470588235294118,
+          "balanced_accuracy": 0.3235294117647059,
+          "f1": 0.0,
+          "confusion_tn_fp_fn_tp": [
+            11,
+            6,
+            2,
+            0
+          ],
+          "roc_auc": 0.32352941176470584,
+          "pr_auc": 0.11309523809523808
+        },
+        "spine_artifact": {
+          "training_supported": true,
+          "validation_known": 20,
+          "test_known": 19,
+          "threshold": 0.31724414229393005,
+          "n": 19,
+          "positives": 4,
+          "sensitivity": 0.0,
+          "specificity": 0.9333333333333333,
+          "balanced_accuracy": 0.4666666666666667,
+          "f1": 0.0,
+          "confusion_tn_fp_fn_tp": [
+            14,
+            1,
+            4,
+            0
+          ],
+          "roc_auc": 0.7,
+          "pr_auc": 0.3471590909090909
+        },
+        "hip_position_rotation": {
+          "training_supported": true,
+          "validation_known": 34,
+          "test_known": 27,
+          "threshold": 0.24775779247283936,
+          "n": 27,
+          "positives": 3,
+          "sensitivity": 1.0,
+          "specificity": 0.625,
+          "balanced_accuracy": 0.8125,
+          "f1": 0.4,
+          "confusion_tn_fp_fn_tp": [
+            15,
+            9,
+            0,
+            3
+          ],
+          "roc_auc": 0.8194444444444444,
+          "pr_auc": 0.5277777777777778
+        },
+        "hip_roi_coverage": {
+          "training_supported": true,
+          "validation_known": 34,
+          "test_known": 27,
+          "threshold": 0.10438895970582962,
+          "n": 27,
+          "positives": 0,
+          "sensitivity": null,
+          "specificity": 0.9629629629629629,
+          "balanced_accuracy": null,
+          "f1": 0.0,
+          "confusion_tn_fp_fn_tp": [
+            26,
+            1,
+            0,
+            0
+          ]
+        }
+      },
+      "validation_scope": "fixed study-held-out internal split, known region; no external or patient-identity validation",
+      "duration_seconds": 60.2741230040001
+    },
+    "convnextv2-asl-v1": {
+      "model_sha256": "755acd2acabe4633a60cc1fc5db6c9a48973e49c1bce6ad85965c22751c0fa36",
+      "head_sha256": "83d9c9a337ebd2b9224c2d22b9c93caa707374a6e1a50cc1690a93566c715629",
+      "backbone_sha256": "6652fd90fc9c23977659e58515778e16fbbcd43f0b01fc693089cebe6d64c2a9",
+      "split": {
+        "train": {
+          "images": 149,
+          "studies": 60
+        },
+        "validation": {
+          "images": 54,
+          "studies": 21
+        },
+        "test": {
+          "images": 46,
+          "studies": 19
+        }
+      },
+      "metrics": {
+        "quality": {
+          "training_supported": true,
+          "validation_known": 54,
+          "test_known": 46,
+          "threshold": 0.7581274509429932,
+          "n": 46,
+          "positives": 10,
+          "sensitivity": 0.4,
+          "specificity": 0.8333333333333334,
+          "balanced_accuracy": 0.6166666666666667,
+          "f1": 0.4,
+          "confusion_tn_fp_fn_tp": [
+            30,
+            6,
+            6,
+            4
+          ],
+          "roc_auc": 0.6416666666666666,
+          "pr_auc": 0.43349048780083266
+        },
+        "spine_coverage": {
+          "training_supported": true,
+          "validation_known": 20,
+          "test_known": 19,
+          "threshold": null
+        },
+        "spine_axis": {
+          "training_supported": true,
+          "validation_known": 20,
+          "test_known": 19,
+          "threshold": 0.3863394856452942,
+          "n": 19,
+          "positives": 2,
+          "sensitivity": 0.5,
+          "specificity": 0.47058823529411764,
+          "balanced_accuracy": 0.4852941176470588,
+          "f1": 0.16666666666666666,
+          "confusion_tn_fp_fn_tp": [
+            8,
+            9,
+            1,
+            1
+          ],
+          "roc_auc": 0.4117647058823529,
+          "pr_auc": 0.12692307692307692
+        },
+        "spine_artifact": {
+          "training_supported": true,
+          "validation_known": 20,
+          "test_known": 19,
+          "threshold": 0.9043406248092651,
+          "n": 19,
+          "positives": 4,
+          "sensitivity": 0.0,
+          "specificity": 0.9333333333333333,
+          "balanced_accuracy": 0.4666666666666667,
+          "f1": 0.0,
+          "confusion_tn_fp_fn_tp": [
+            14,
+            1,
+            4,
+            0
+          ],
+          "roc_auc": 0.7,
+          "pr_auc": 0.3438852813852814
+        },
+        "hip_position_rotation": {
+          "training_supported": true,
+          "validation_known": 34,
+          "test_known": 27,
+          "threshold": 0.6312119364738464,
+          "n": 27,
+          "positives": 3,
+          "sensitivity": 1.0,
+          "specificity": 0.625,
+          "balanced_accuracy": 0.8125,
+          "f1": 0.4,
+          "confusion_tn_fp_fn_tp": [
+            15,
+            9,
+            0,
+            3
+          ],
+          "roc_auc": 0.7916666666666666,
+          "pr_auc": 0.5
+        },
+        "hip_roi_coverage": {
+          "training_supported": true,
+          "validation_known": 34,
+          "test_known": 27,
+          "threshold": 0.6944383382797241,
+          "n": 27,
+          "positives": 0,
+          "sensitivity": null,
+          "specificity": 1.0,
+          "balanced_accuracy": null,
+          "f1": 0.0,
+          "confusion_tn_fp_fn_tp": [
+            27,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "validation_scope": "fixed study-held-out internal split, known region; no external or patient-identity validation",
+      "duration_seconds": 57.10190884599979
+    },
+    "efficientnet-b4-bce-v1": {
+      "model_sha256": "24196551bd90d74a15ea552ecf1312e48959b038f01cb897d4ef4ff304b9b76c",
+      "head_sha256": "e39951538133f197a1548566fe221a9342e61edbba4133949b8cf912b7d4d3d5",
+      "backbone_sha256": "ede54280eab358dcd49d71f4dcabcedf14a0ac33267bac772b66110cbe168f79",
+      "split": {
+        "train": {
+          "images": 149,
+          "studies": 60
+        },
+        "validation": {
+          "images": 54,
+          "studies": 21
+        },
+        "test": {
+          "images": 46,
+          "studies": 19
+        }
+      },
+      "metrics": {
+        "quality": {
+          "training_supported": true,
+          "validation_known": 54,
+          "test_known": 46,
+          "threshold": 0.11566059291362762,
+          "n": 46,
+          "positives": 10,
+          "sensitivity": 0.8,
+          "specificity": 0.3055555555555556,
+          "balanced_accuracy": 0.5527777777777778,
+          "f1": 0.37209302325581395,
+          "confusion_tn_fp_fn_tp": [
+            11,
+            25,
+            2,
+            8
+          ],
+          "roc_auc": 0.5694444444444444,
+          "pr_auc": 0.3491136438928874
+        },
+        "spine_coverage": {
+          "training_supported": true,
+          "validation_known": 20,
+          "test_known": 19,
+          "threshold": null
+        },
+        "spine_axis": {
+          "training_supported": true,
+          "validation_known": 20,
+          "test_known": 19,
+          "threshold": 0.09527157247066498,
+          "n": 19,
+          "positives": 2,
+          "sensitivity": 0.5,
+          "specificity": 0.8823529411764706,
+          "balanced_accuracy": 0.6911764705882353,
+          "f1": 0.4,
+          "confusion_tn_fp_fn_tp": [
+            15,
+            2,
+            1,
+            1
+          ],
+          "roc_auc": 0.7058823529411764,
+          "pr_auc": 0.34090909090909094
+        },
+        "spine_artifact": {
+          "training_supported": true,
+          "validation_known": 20,
+          "test_known": 19,
+          "threshold": 0.0019385511986911297,
+          "n": 19,
+          "positives": 4,
+          "sensitivity": 0.75,
+          "specificity": 0.06666666666666667,
+          "balanced_accuracy": 0.4083333333333333,
+          "f1": 0.2857142857142857,
+          "confusion_tn_fp_fn_tp": [
+            1,
+            14,
+            1,
+            3
+          ],
+          "roc_auc": 0.43333333333333335,
+          "pr_auc": 0.4120065789473684
+        },
+        "hip_position_rotation": {
+          "training_supported": true,
+          "validation_known": 34,
+          "test_known": 27,
+          "threshold": 0.021520735695958138,
+          "n": 27,
+          "positives": 3,
+          "sensitivity": 1.0,
+          "specificity": 0.16666666666666666,
+          "balanced_accuracy": 0.5833333333333334,
+          "f1": 0.23076923076923078,
+          "confusion_tn_fp_fn_tp": [
+            4,
+            20,
+            0,
+            3
+          ],
+          "roc_auc": 0.5833333333333334,
+          "pr_auc": 0.173109243697479
+        },
+        "hip_roi_coverage": {
+          "training_supported": true,
+          "validation_known": 34,
+          "test_known": 27,
+          "threshold": 0.2522457242012024,
+          "n": 27,
+          "positives": 0,
+          "sensitivity": null,
+          "specificity": 1.0,
+          "balanced_accuracy": null,
+          "f1": 0.0,
+          "confusion_tn_fp_fn_tp": [
+            27,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "validation_scope": "fixed study-held-out internal split, known region; no external or patient-identity validation",
+      "duration_seconds": 64.74814804699963
+    }
+  },
+  "api_smoke": {
+    "version": "1.9.1",
+    "submission_available": true,
+    "submission_valid": true,
+    "files": 3,
+    "success": 3,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 1,
+    "cancelled": false,
+    "studies": 2,
+    "max_seconds_per_study": 2.936,
+    "mean_seconds_per_image": 1.5946,
+    "total_seconds": 6.078,
+    "process_peak_rss_bytes": 748617728,
+    "cpu_count_visible": 12
+  },
+  "container_smoke": {
+    "version": "1.9.1",
+    "submission_available": true,
+    "submission_valid": true,
+    "files": 3,
+    "success": 3,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 1,
+    "cancelled": false,
+    "studies": 2,
+    "max_seconds_per_study": 5.078,
+    "mean_seconds_per_image": 3.0566,
+    "total_seconds": 17.84,
+    "process_peak_rss_bytes": 715317248,
+    "cpu_count_visible": 12
+  },
+  "container_constraints": {
+    "network": "none",
+    "cpus": 4,
+    "memory_gib": 4
+  },
+  "container_image": "sha256:5e65046591c6e52f9a7cfe66dfb23600506ddc285452c334dd3f63bc1356e13a",
+  "primary_model_replaced": false,
+  "clinical_validation": false,
+  "verification": {
+    "frontend_tests_passed": 48,
+    "backend_tests_passed": 54,
+    "competition_tests_passed": 105,
+    "research_specialist_tests_passed": 7,
+    "full_verify": "passed",
+    "latest_targeted_tests": "12 passed; training export skipped in base environment and passed in research environment",
+    "docker_build": "passed",
+    "docker_compose_config": "passed",
+    "git_diff_check": "passed",
+    "assets_verified": 32
+  }
+}

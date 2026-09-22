@@ -163,6 +163,10 @@ class Analyzer:
         torch.manual_seed(0)
         torch.set_num_threads(max(1, min(8, os.cpu_count() or 1)))
         self.bundle = bundle or load_bundle()
+        self.specialist = None
+        if os.environ.get('DXAQC_SPECIALIST_PATH'):
+            from .specialist_qc import load_specialist
+            self.specialist = load_specialist(Path(os.environ['DXAQC_SPECIALIST_PATH']))
 
     def analyze(self, img: DxaImage) -> dict:
         from .embedding import embed
@@ -181,8 +185,15 @@ class Analyzer:
         crit = {k: float(v[0]) for k, v in crit.items()}
         decision = decide(group_of(region), score, crit, meas.features,
                           gm.quality_threshold, gm.criterion_thresholds)
-        return {"region": region, "region_confidence": confidence, **decision,
-                "criteria": crit, "features": meas.features, "overlay": meas.overlay}
+        result = {"region": region, "region_confidence": confidence, **decision,
+                  "criteria": crit, "features": meas.features, "overlay": meas.overlay}
+        if self.specialist is not None:
+            try:
+                result['specialist_qc'] = self.specialist.predict(img.pixels, region)
+            except (ValueError, RuntimeError) as exc:
+                result['specialist_qc'] = {'mode': 'shadow', 'status': 'unavailable',
+                                           'affects_decision': False, 'error': str(exc)[:200]}
+        return result
 
 
 def _row_base(rel: Path) -> dict:
@@ -260,6 +271,7 @@ def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyz
                 "criterion_states": json.dumps(res["criterion_states"], ensure_ascii=False),
                 "violation_type_status": res["violation_type_status"],
                 "review_reasons": json.dumps(res["review_reasons"], ensure_ascii=False),
+                "specialist_qc": json.dumps(res.get('specialist_qc'), ensure_ascii=False),
                 "image_width": img.pixels.shape[1],
                 "image_height": img.pixels.shape[0],
                 "anatomical_region": REGION_LABEL[res["region"]],

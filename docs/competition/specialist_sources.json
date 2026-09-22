@@ -1,0 +1,423 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-22",
+  "artifacts": [
+    {
+      "id": "dxa_to_3d",
+      "repository": "EmmanuelleB985/DXA-to-3D",
+      "revision": "e14cd1d81f38f445a1f34983bddb9bad57b355fd",
+      "url": "https://codeload.github.com/EmmanuelleB985/DXA-to-3D/tar.gz/e14cd1d81f38f445a1f34983bddb9bad57b355fd",
+      "path": "archives/dxa_to_3d.tar.gz",
+      "bytes": 29143561,
+      "sha256": "e4932fb03004430988fdb1e34a6c208699223fd7880ff909e489e355f9d66f9d",
+      "kind": "source",
+      "license": "MIT"
+    },
+    {
+      "id": "timm",
+      "repository": "huggingface/pytorch-image-models",
+      "revision": "b3aba4d7a1250c08e3f5795baca515d78b5d0d17",
+      "url": "https://codeload.github.com/huggingface/pytorch-image-models/tar.gz/b3aba4d7a1250c08e3f5795baca515d78b5d0d17",
+      "path": "archives/timm.tar.gz",
+      "bytes": 3615360,
+      "sha256": "291d6a57934e237cab20203f3b51b6673fc381d85debcae7dd532094ebed8fbf",
+      "kind": "source",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "asl",
+      "repository": "Alibaba-MIIL/ASL",
+      "revision": "8c9e0bd8d5d450cf19093363fc08aa7244ad4408",
+      "url": "https://codeload.github.com/Alibaba-MIIL/ASL/tar.gz/8c9e0bd8d5d450cf19093363fc08aa7244ad4408",
+      "path": "archives/asl.tar.gz",
+      "bytes": 1315721,
+      "sha256": "13f05d7846d711bc4dedb7eeef24eb434ea77e630d9db0446fdfa8be2d865e26",
+      "kind": "source",
+      "license": "MIT"
+    },
+    {
+      "id": "torchcam",
+      "repository": "frgfm/torch-cam",
+      "revision": "b374666ff63d7fa61185981c44a2878870888d4b",
+      "url": "https://codeload.github.com/frgfm/torch-cam/tar.gz/b374666ff63d7fa61185981c44a2878870888d4b",
+      "path": "archives/torchcam.tar.gz",
+      "bytes": 112748,
+      "sha256": "c6dc4ffbc6b92acc89de8f683b20b274ab987c76d3eeed40e7875217fdc20ebe",
+      "kind": "source",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "gradcam",
+      "repository": "jacobgil/pytorch-grad-cam",
+      "revision": "704393448a7b0c620ee2c2b9597723f1d7f17b3d",
+      "url": "https://codeload.github.com/jacobgil/pytorch-grad-cam/tar.gz/704393448a7b0c620ee2c2b9597723f1d7f17b3d",
+      "path": "archives/gradcam.tar.gz",
+      "bytes": 41504701,
+      "sha256": "7adf8551e9960adbeda11c34ba1f85e6f1c654b6287db974efb95a51bc18286a",
+      "kind": "source",
+      "license": "MIT"
+    },
+    {
+      "id": "ultralytics",
+      "repository": "ultralytics/ultralytics",
+      "revision": "ead936a4db88b320ec812b86d5d8c4ba6c46adb9",
+      "url": "https://codeload.github.com/ultralytics/ultralytics/tar.gz/ead936a4db88b320ec812b86d5d8c4ba6c46adb9",
+      "path": "archives/ultralytics.tar.gz",
+      "bytes": 2700305,
+      "sha256": "b6363969ff17684d0fb83181601bfe1bee7fac8bb962878e6e0003ab585fa156",
+      "kind": "source",
+      "license": "AGPL-3.0"
+    },
+    {
+      "id": "dxa_to_3d_weights",
+      "kind": "weights",
+      "url": "https://www.dropbox.com/scl/fi/be4dg1xccgl1fo9wn74i8/epoch-996-loss_valid-points-best_loss-0.0168.pt?rlkey=ytnrrctofyebqtkj5p4554px1&dl=1",
+      "path": "weights/dxa_to_3d.pt",
+      "bytes": 139454522,
+      "sha256": "9e86fb66b73ac27bfa60aa4695bb037d06acab8882e192f793d577711120e2c3"
+    },
+    {
+      "id": "convnextv2_tiny_weights",
+      "kind": "weights",
+      "url": "https://huggingface.co/timm/convnextv2_tiny.fcmae_ft_in22k_in1k/resolve/b1dd46230e80bf4cc3fa0c3c905db2c3ec53a817/model.safetensors",
+      "path": "weights/convnextv2_tiny.safetensors",
+      "bytes": 114561694,
+      "sha256": "6652fd90fc9c23977659e58515778e16fbbcd43f0b01fc693089cebe6d64c2a9"
+    },
+    {
+      "id": "efficientnet_b4_weights",
+      "kind": "weights",
+      "url": "https://huggingface.co/timm/tf_efficientnet_b4.ns_jft_in1k/resolve/40be4c2e3f4a91b2d9772137bfc2ea959e6e5260/model.safetensors",
+      "path": "weights/efficientnet_b4.safetensors",
+      "bytes": 77933206,
+      "sha256": "ede54280eab358dcd49d71f4dcabcedf14a0ac33267bac772b66110cbe168f79"
+    },
+    {
+      "id": "yolo26x_weights",
+      "kind": "weights",
+      "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26x.pt",
+      "path": "weights/yolo26x.pt",
+      "bytes": 118667365,
+      "sha256": "9fdd44a31c504547ffb81d2c6d9e6dac3493c8eaa8b0398d3f43bae6c7003e92"
+    },
+    {
+      "id": "yolo26x_seg_weights",
+      "kind": "weights",
+      "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26x-seg.pt",
+      "path": "weights/yolo26x-seg.pt",
+      "bytes": 142129861,
+      "sha256": "92b3de0065766a17180d6219858717dc9d03cdce8a3ca9576c97fd75aabb64f3"
+    },
+    {
+      "id": "nhanes_dxx",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXX.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/1999/DataFiles/DXX.xpt",
+      "bytes": 24737440,
+      "sha256": "9567c94c4a2efd3bb67817f051bec4e778c648c9a2dd222a894fe0ca78598d37",
+      "cycle": "1999-2000",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/1999/DataFiles/DXX.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxx_b",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXX_B.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2001/DataFiles/DXX_B.xpt",
+      "bytes": 32695200,
+      "sha256": "6eeb2dabff1fc4a33df2dfe2b46e86eb6f0986319f238f1cb8066e7d695852f6",
+      "cycle": "2001-2002",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2001/DataFiles/DXX_B.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxx_c",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXX_C.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2003/DataFiles/DXX_C.xpt",
+      "bytes": 30371680,
+      "sha256": "8840fcaa518d7ee0c3c64e826dfb512cf0ac9be5cd00b1895a9782cb885c91df",
+      "cycle": "2003-2004",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2003/DataFiles/DXX_C.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxx_d",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXX_D.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DXX_D.xpt",
+      "bytes": 29517840,
+      "sha256": "f5122f3660a0a90601e3f6d865a82091a80db099dd8db4efb861c6cb5310710b",
+      "cycle": "2005-2006",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DXX_D.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxx_g",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXX_G.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DXX_G.xpt",
+      "bytes": 4248640,
+      "sha256": "df4a9741ef55866ca039b0a01f55ab4d3dd55f83f4ee845ca03e8bfca9a65099",
+      "cycle": "2011-2012",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DXX_G.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxx_h",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXX_H.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DXX_H.xpt",
+      "bytes": 4502320,
+      "sha256": "792ebf3791156367832a01be0c96286ef8da1f540a1d674077f5af12951e99e5",
+      "cycle": "2013-2014",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DXX_H.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxx_i",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXX_I.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/DXX_I.xpt",
+      "bytes": 4314080,
+      "sha256": "56623a1b1c790e43d2c3d9792d30418de8553db53b55ef5e38ab2d00a8e983e8",
+      "cycle": "2015-2016",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/DXX_I.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxx_j",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXX_J.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DXX_J.xpt",
+      "bytes": 3818640,
+      "sha256": "de16420ff3f978f72dbcc6a83c64de041440f29ad1f516f5e1cc5476af994ff1",
+      "cycle": "2017-2018",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DXX_J.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxxspn_d",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXXSPN_D.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DXXSPN_D.xpt",
+      "bytes": 2167280,
+      "sha256": "eee11236ccb4dd973311945d3c1d2c81b5a54e9f0401b764f1f688c0e8af39ae",
+      "cycle": "2005-2006",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DXXSPN_D.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxxfem_d",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXXFEM_D.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DXXFEM_D.xpt",
+      "bytes": 1238720,
+      "sha256": "eb21ce5f183cfc8d6e121777a018aaa3ad75de8dee03e377c3653422c464f35c",
+      "cycle": "2005-2006",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DXXFEM_D.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxxspn_e",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXXSPN_E.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/DXXSPN_E.xpt",
+      "bytes": 2171200,
+      "sha256": "48c7db28ae1382f46f7d395de05ab12cf9f43f80ff1538479d0110fa72aca4ef",
+      "cycle": "2007-2008",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/DXXSPN_E.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxxfem_e",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXXFEM_E.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/DXXFEM_E.xpt",
+      "bytes": 1240960,
+      "sha256": "71d51e79bfa84442b2650d81f2db888f441d5913ec367011aede7b695a097619",
+      "cycle": "2007-2008",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2007/DataFiles/DXXFEM_E.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxxspn_f",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXXSPN_F.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2009/DataFiles/DXXSPN_F.xpt",
+      "bytes": 1575600,
+      "sha256": "7c3129e419faf17b56091a895492d6d48802827206792f00e0c91c1f5ecaa877",
+      "cycle": "2009-2010",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2009/DataFiles/DXXSPN_F.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxxfem_f",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXXFEM_F.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2009/DataFiles/DXXFEM_F.xpt",
+      "bytes": 1313120,
+      "sha256": "d7c39c85ff30576065bb6884ec2f65bf017e3baed26301cdaade667401a7425d",
+      "cycle": "2009-2010",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2009/DataFiles/DXXFEM_F.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxxspn_h",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXXSPN_H.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DXXSPN_H.xpt",
+      "bytes": 716080,
+      "sha256": "71d4f9062d5c12d0108c071036cebb0e9fb53fff368d569c734b350b5950ceca",
+      "cycle": "2013-2014",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DXXSPN_H.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxxfem_h",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXXFEM_H.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DXXFEM_H.xpt",
+      "bytes": 596800,
+      "sha256": "58a1a95ef469605647a91ee511f75c8acce5918df38333a201e79660d9821340",
+      "cycle": "2013-2014",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DXXFEM_H.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxxspn_j",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXXSPN_J.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DXXSPN_J.xpt",
+      "bytes": 560560,
+      "sha256": "85e00603efe027e87faeb4a48d7747c225ed1d12df7d5b261565c973abaa1f1c",
+      "cycle": "2017-2018",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DXXSPN_J.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "nhanes_dxxfem_j",
+      "kind": "tabular_data",
+      "path": "datasets/nhanes/DXXFEM_J.xpt",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DXXFEM_J.xpt",
+      "bytes": 467200,
+      "sha256": "b317e5b9f21f96c1e5a87a261611eb98822ab5eaf0f6d7811a988da8a4f3c206",
+      "cycle": "2017-2018",
+      "codebook": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DXXFEM_J.htm",
+      "limitation": "Derived table, not images. Never counted as image training data."
+    },
+    {
+      "id": "yolo26x_pose_weights",
+      "kind": "weights",
+      "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26x-pose.pt",
+      "path": "weights/yolo26x-pose.pt",
+      "bytes": 126242553,
+      "sha256": "08ed9e01d22a6f248b04f2f9992016aca9a32250b9ab57057d886a09d026700d"
+    },
+    {
+      "id": "totalbody_105_weights",
+      "kind": "weights",
+      "url": "https://drive.usercontent.google.com/download?id=1KSF1LceRbd3YttfgGk70JPoLobHW2zkr&export=download&confirm=t",
+      "path": "weights/totalbody_105.pth",
+      "bytes": 277761941,
+      "sha256": "92a90627ecde530a2c259fa864c578806cdda5b0718a26180e891779ad453ced"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "dxa_to_3d",
+      "protocol": "whole-body-ap",
+      "task": "spine-shape-regression",
+      "artifacts": [
+        "dxa_to_3d",
+        "dxa_to_3d_weights"
+      ],
+      "readiness": "requires_preprocessing_validation",
+      "limitation": "Checkpoint outputs 1254 scalars; upstream inference API is inconsistent. Not vertebral numbering."
+    },
+    {
+      "id": "convnextv2_tiny",
+      "protocol": "target-dxa-after-training",
+      "task": "qc-backbone",
+      "artifacts": [
+        "timm",
+        "convnextv2_tiny_weights"
+      ],
+      "readiness": "requires_target_training",
+      "limitation": "General image pretraining; not DXA quality weights."
+    },
+    {
+      "id": "efficientnet_b4",
+      "protocol": "target-dxa-after-training",
+      "task": "qc-backbone",
+      "artifacts": [
+        "timm",
+        "efficientnet_b4_weights"
+      ],
+      "readiness": "requires_target_training",
+      "limitation": "General image pretraining; not DXA quality weights."
+    },
+    {
+      "id": "yolo26x",
+      "protocol": "target-dxa-after-training",
+      "task": "object-detection-segmentation",
+      "artifacts": [
+        "ultralytics",
+        "yolo26x_weights",
+        "yolo26x_seg_weights"
+      ],
+      "readiness": "requires_target_training",
+      "limitation": "COCO classes, not implant or DXA artefact classes."
+    },
+    {
+      "id": "nhanes",
+      "protocol": "tabular",
+      "task": "qc-code-reference",
+      "artifacts": [
+        "nhanes_dxx",
+        "nhanes_dxx_b",
+        "nhanes_dxx_c",
+        "nhanes_dxx_d",
+        "nhanes_dxx_g",
+        "nhanes_dxx_h",
+        "nhanes_dxx_i",
+        "nhanes_dxx_j",
+        "nhanes_dxxspn_d",
+        "nhanes_dxxfem_d",
+        "nhanes_dxxspn_e",
+        "nhanes_dxxfem_e",
+        "nhanes_dxxspn_f",
+        "nhanes_dxxfem_f",
+        "nhanes_dxxspn_h",
+        "nhanes_dxxfem_h",
+        "nhanes_dxxspn_j",
+        "nhanes_dxxfem_j"
+      ],
+      "readiness": "images_unavailable",
+      "limitation": "Public XPT tables are not an image training set; raw image access not established."
+    },
+    {
+      "id": "yolo26x_pose",
+      "protocol": "target-dxa-after-training",
+      "task": "anatomical-keypoints",
+      "artifacts": [
+        "ultralytics",
+        "yolo26x_pose_weights"
+      ],
+      "readiness": "requires_target_training",
+      "limitation": "COCO human pose initialization; not DXA bone landmarks. Requires reviewed anatomical keypoints."
+    },
+    {
+      "id": "totalbody_105",
+      "protocol": "whole-body-air-ratio",
+      "task": "105-landmarks",
+      "artifacts": [
+        "totalbody_105_weights"
+      ],
+      "readiness": "research_inference_available",
+      "source": "https://github.com/hawaii-ai/dxa-pointplacement",
+      "revision": "7ac19eb9c99d9a5edc631446b45528e889d627ed",
+      "limitation": "Existing backend adapter. Whole-body air-ratio images only; not lumbar/hip localization or clinical validation."
+    }
+  ]
+}

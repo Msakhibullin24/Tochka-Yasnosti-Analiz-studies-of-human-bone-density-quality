@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import './competition.css'
 import RoiPanel from './competition/RoiPanel'
 import AnatomyPanel from './competition/AnatomyPanel'
+import SpecialistPanel from './competition/SpecialistPanel'
+import ModelRegistry from './competition/ModelRegistry'
 import CriteriaPanel from './competition/CriteriaPanel'
 import { readDraft, writeDraft, removeDraft, type Followup } from './competition/drafts'
 import GeometryViewer from './competition/GeometryViewer'
@@ -153,6 +155,7 @@ export default function CompetitionWorkspace() {
           {jobs.length === 200 && <p>Показаны последние 200 пакетов.</p>}
         </div>
       </details>
+      <ModelRegistry />
       {!job && <section className="qc-empty"><h2>Выберите пакет или загрузите новый</h2><p>После обработки здесь появятся очередь снимков и форма решения.</p></section>}
       {job && <>
         <section className="qc-jobbar" aria-label="Текущий пакет">
@@ -326,6 +329,7 @@ function ImageReview({ jobId, row, catalog, onDirty, onSaved, zoom, onZoom }: { 
         <ul className="qc-criteria">{Object.entries(criteria).map(([key, value]) => <li key={key}><strong>{catalog.criteria[key] || key}</strong><span>Оценка {value.toFixed(3)} · порог {thresholds[key]?.toFixed(3) ?? 'не указан'} · {key === 'spine_axis' && row.decision_version === '3' ? 'итог определяется измеренным углом, а не этим score' : row.violation_codes.split(';').includes(key) ? 'выявлено' : 'не включено в итог'}</span></li>)}</ul>
         {detail && geometry.some(g => g.kind === 'polygon') && <RoiPanel base={base} geometry={geometry} onChange={next => { changeGeometry(next); setOriginal(false); setHighlight([]) }} />}
         {detail && <AnatomyPanel detail={detail} source={API + base + "/original.png"} geometry={geometry} onChange={next => { changeGeometry(next); setOriginal(false); setHighlight([]) }} />}
+        <SpecialistPanel result={detail?.assessment?.specialist_qc} />
         <CriteriaPanel codes={allowed} labels={catalog.criteria} scores={criteria} detected={row.violation_codes?.split(';') || []} angle={parse<Record<string, number | null>>(row.measurements, {}).spine_abs_angle_deg ?? null} onShow={keys => { setHighlight(keys); setShowLayers(true); setOriginal(true) }} />
       </details>
       <h3>Решение специалиста</h3><p>Правки сохраняются отдельно от ответа модели.</p>

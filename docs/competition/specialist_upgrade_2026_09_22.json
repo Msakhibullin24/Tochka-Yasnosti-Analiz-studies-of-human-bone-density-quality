@@ -1,0 +1,323 @@
+{
+  "date": "2026-09-22",
+  "scope": "Regional QC finetuning, research asset integration and expert annotation pipeline",
+  "clinical_validation": false,
+  "production_decision_changed": false,
+  "runtime_mode": "regional specialists run in shadow mode alongside existing primary model",
+  "assets": {
+    "verified_artifacts": 34,
+    "weights": 7,
+    "source_archives": 9,
+    "nhanes_tables": 18,
+    "nhanes_images_downloaded": false,
+    "architecture_checks": {
+      "convnextv2_tiny": {
+        "status": "architecture_verified",
+        "output_shape": [
+          1,
+          768
+        ],
+        "checkpoint_sha256": "6652fd90fc9c23977659e58515778e16fbbcd43f0b01fc693089cebe6d64c2a9",
+        "clinical_validation": false
+      },
+      "tf_efficientnet_b4": {
+        "status": "architecture_verified",
+        "output_shape": [
+          1,
+          1792
+        ],
+        "checkpoint_sha256": "ede54280eab358dcd49d71f4dcabcedf14a0ac33267bac772b66110cbe168f79",
+        "clinical_validation": false
+      },
+      "dxa_to_3d": {
+        "status": "architecture_verified",
+        "output_shape": [
+          1,
+          1254
+        ],
+        "checkpoint_sha256": "9e86fb66b73ac27bfa60aa4695bb037d06acab8882e192f793d577711120e2c3",
+        "clinical_validation": false
+      },
+      "limitations": {
+        "dxa_to_3d": "Raw regression output only; preprocessing and curve order unverified. No Th12/L1-L4 labels.",
+        "human_skeletal_form": "Author checkpoint link HTTP 404; no inference possible.",
+        "vertenet": "No public checkpoint identified; lateral DXA only.",
+        "yolo26x": "Downloaded COCO detection/segmentation weights; no DXA implant training."
+      },
+      "yolo26x_weights": {
+        "status": "architecture_verified_generic_coco",
+        "task": "detect",
+        "classes": 80,
+        "detections_on_blank": 0,
+        "checkpoint_sha256": "9fdd44a31c504547ffb81d2c6d9e6dac3493c8eaa8b0398d3f43bae6c7003e92",
+        "dxa_artefact_model": false
+      },
+      "yolo26x_seg_weights": {
+        "status": "architecture_verified_generic_coco",
+        "task": "segment",
+        "classes": 80,
+        "detections_on_blank": 0,
+        "checkpoint_sha256": "92b3de0065766a17180d6219858717dc9d03cdce8a3ca9576c97fd75aabb64f3",
+        "dxa_artefact_model": false
+      },
+      "yolo26x_pose_weights": {
+        "status": "architecture_verified_generic_coco",
+        "task": "pose",
+        "classes": 1,
+        "detections_on_blank": 0,
+        "checkpoint_sha256": "08ed9e01d22a6f248b04f2f9992016aca9a32250b9ab57057d886a09d026700d",
+        "dxa_artefact_model": false
+      }
+    },
+    "totalbody_105_check": {
+      "status": "architecture_verified",
+      "landmarks": 105,
+      "input": "blank synthetic image",
+      "clinical_validation": false,
+      "model": "hawaii-ai/dxa-pointplacement",
+      "offline": true
+    },
+    "upstream_limitations": {
+      "human_skeletal_form_weights": {
+        "url": "https://utexas.box.com/s/n1aqy4k8a0ms6li3kh40k9n03zbz8aw7",
+        "http_status": 404
+      },
+      "vertenet_readme": {
+        "url": "https://raw.githubusercontent.com/zaidilyas89/VerteNet/main/weights_spinal/readme.txt",
+        "http_status": 200,
+        "excerpt": "place model file here"
+      }
+    }
+  },
+  "training_runs": {
+    "convnextv2-spine-finetune-v3": {
+      "backbone": "convnextv2_tiny",
+      "region_scope": "spine",
+      "train_mode": "last-stage",
+      "views": "full",
+      "epochs": 12,
+      "selected_epoch": 5,
+      "duration_seconds": 198.734006648001,
+      "model_sha256": "59664e1740d88b238280796f1a1af938cf6bd29bd7f34cad6828fbfc36b329c3",
+      "encoder_sha256": "947c4940b9350cc6a5306e46014b53646c2bd59c2ab834329cc0997c539e6b75",
+      "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+      "metadata_sha256": "44aa812e711ae7b966a0b03ce9e360429dc662f13ddacbc866495e63a7edce5d"
+    },
+    "convnextv2-hip-finetune-v3": {
+      "backbone": "convnextv2_tiny",
+      "region_scope": "hip",
+      "train_mode": "last-stage",
+      "views": "full",
+      "epochs": 12,
+      "selected_epoch": 2,
+      "duration_seconds": 254.31765279499996,
+      "model_sha256": "098d0c4b1cfcf85523ef213058bdcdd98269722886664ecacf677a6ba2d3d30b",
+      "encoder_sha256": "85227ed9f585d0501e47ff5aef8bc81ff3f2691d84830a821b2d4172aad62eb8",
+      "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+      "metadata_sha256": "a38486bce94e37a6ca3945904b4d51835ec06f62c77fc1d587ceb4eaf4bfe14d"
+    },
+    "convnextv2-hip-dualview-v3": {
+      "backbone": "convnextv2_tiny",
+      "region_scope": "hip",
+      "train_mode": "last-stage",
+      "views": "full-center",
+      "epochs": 12,
+      "selected_epoch": 2,
+      "duration_seconds": 415.8918008610017,
+      "model_sha256": "2fdf967c607a6e1ed419f59a07ff8bb8c80f40cd0f12132bfaec1a2e1c0016d7",
+      "encoder_sha256": "bc2c4e00b8faefa7865b24d264120c181148a0d39532bc11dccb761ca4a7574c",
+      "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+      "metadata_sha256": "ef49d84fe93b9a1ce1a14b79bbaad06b00880eb9e1b2be0b8ea1da3fb550a40a"
+    }
+  },
+  "paired_benchmark": {
+    "path": "data/specialists/benchmarks/paired-v3/metrics.json",
+    "sha256": "17c5fd009b02acdfbee45b9ba57bbe3149f5694e2910a37741276018ea351ed6",
+    "split": {
+      "train": {
+        "images": 149,
+        "studies": 60
+      },
+      "validation": {
+        "images": 54,
+        "studies": 21
+      },
+      "test": {
+        "images": 46,
+        "studies": 19
+      }
+    },
+    "test_metrics": {
+      "hybrid_refit": {
+        "n": 46,
+        "positives": 10,
+        "sensitivity": 0.8,
+        "specificity": 0.4722222222222222,
+        "balanced_accuracy": 0.6361111111111111,
+        "f1": 0.43243243243243246,
+        "confusion_tn_fp_fn_tp": [
+          17,
+          19,
+          2,
+          8
+        ],
+        "roc_auc": 0.8694444444444445,
+        "pr_auc": 0.7357196969696969,
+        "precision": 0.2962962962962963,
+        "accuracy": 0.5434782608695652
+      },
+      "joint_frozen_cnn": {
+        "n": 46,
+        "positives": 10,
+        "sensitivity": 0.8,
+        "specificity": 0.3611111111111111,
+        "balanced_accuracy": 0.5805555555555556,
+        "f1": 0.3902439024390244,
+        "confusion_tn_fp_fn_tp": [
+          13,
+          23,
+          2,
+          8
+        ],
+        "roc_auc": 0.6416666666666667,
+        "pr_auc": 0.4368481338481338,
+        "precision": 0.25806451612903225,
+        "accuracy": 0.45652173913043476
+      },
+      "regional_finetuned_cnn": {
+        "n": 46,
+        "positives": 10,
+        "sensitivity": 0.9,
+        "specificity": 0.4444444444444444,
+        "balanced_accuracy": 0.6722222222222223,
+        "f1": 0.46153846153846156,
+        "confusion_tn_fp_fn_tp": [
+          16,
+          20,
+          1,
+          9
+        ],
+        "roc_auc": 0.638888888888889,
+        "pr_auc": 0.40890501971147125,
+        "precision": 0.3103448275862069,
+        "accuracy": 0.5434782608695652
+      },
+      "validation_selected_fusion": {
+        "n": 46,
+        "positives": 10,
+        "sensitivity": 0.9,
+        "specificity": 0.4444444444444444,
+        "balanced_accuracy": 0.6722222222222223,
+        "f1": 0.46153846153846156,
+        "confusion_tn_fp_fn_tp": [
+          16,
+          20,
+          1,
+          9
+        ],
+        "roc_auc": 0.8333333333333333,
+        "pr_auc": 0.659949250113619,
+        "precision": 0.3103448275862069,
+        "accuracy": 0.5434782608695652
+      }
+    },
+    "fusion": {
+      "regional_weight": 0.5,
+      "threshold": 0.2303020941158349,
+      "selection": "validation AP then validation F1"
+    },
+    "limitations": [
+      "Internal development benchmark; this test was previously inspected.",
+      "No patient-identity or external validation. No synthetic augmentation in refit baseline.",
+      "CNN training features are supervised only on train; epoch/threshold/fusion selection uses validation."
+    ]
+  },
+  "verification": {
+    "frontend_tests_passed": 50,
+    "backend_tests_passed": 54,
+    "competition_tests_passed": 122,
+    "competition_tests_skipped": 8,
+    "research_tests_passed": 33,
+    "research_tests_skipped": 3,
+    "pose_training_fixture_tests_passed": 1,
+    "last_upgrade_tests_passed": 8,
+    "static_checks_and_build": "passed",
+    "api_smoke": {
+      "job_id": "6abf4d4c75b94de1b4750646653e461f",
+      "summary": {
+        "version": "1.9.1",
+        "submission_available": true,
+        "submission_valid": true,
+        "files": 3,
+        "success": 3,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 1,
+        "cancelled": false,
+        "studies": 2,
+        "max_seconds_per_study": 1.671,
+        "mean_seconds_per_image": 0.8623,
+        "total_seconds": 2.885,
+        "process_peak_rss_bytes": 875573248,
+        "cpu_count_visible": 12
+      },
+      "regional_model_selection": [
+        "spine",
+        "hip",
+        "hip"
+      ],
+      "inventory_capabilities": 9
+    },
+    "docker": {
+      "image": "osseo-specialists-v3:dev",
+      "image_id": "sha256:0b96c073926b8919626b13283e7965f83398d2067b63c5a2770980feefd5b4a4",
+      "network": "none",
+      "summary": {
+        "version": "1.9.1",
+        "submission_available": true,
+        "submission_valid": true,
+        "files": 3,
+        "success": 3,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 1,
+        "cancelled": false,
+        "studies": 2,
+        "max_seconds_per_study": 1.306,
+        "mean_seconds_per_image": 0.8638,
+        "total_seconds": 4.337,
+        "process_peak_rss_bytes": 863477760,
+        "cpu_count_visible": 12
+      }
+    },
+    "finetuned_cam": {
+      "path": "data/specialists/predictions/finetuned-cam-v3",
+      "model_matches_torchscript": true,
+      "meaning": "attribution, not expert defect localization"
+    }
+  },
+  "annotation_packet": {
+    "path": "data/specialists/annotations/review-v1",
+    "images": 249,
+    "studies": 100,
+    "review_counts": {
+      "pending": 249,
+      "agreed": 0,
+      "requires_adjudication": 0
+    },
+    "expert_anatomy_training_completed": false
+  },
+  "local_urls": {
+    "app": "http://127.0.0.1:5175",
+    "reports": "http://127.0.0.1:8093"
+  },
+  "current_code_sha256": {
+    "competition/train_specialist.py": "4dab0d0375b22ce07c5a31927795b44de774d0f535b9e87fc0b2440ccf3a79d6",
+    "competition/benchmark_specialists.py": "27401bd9544762c92b739713d625f441bb90a2f2bd5926a3b554e6cf64acd554",
+    "competition/dxaqc/specialist_qc.py": "1e39881c5c3e4679f3d356e0f719a1d94ede013f76f17e93db2562e58cab19ec",
+    "competition/import_annotations.py": "c5ad2984ef71c2c70b489c696d49256aa35a0cae534a8062ee3b8f0c216b337f",
+    "competition/train_detector.py": "a92627e849deabc037759dbf26ffc3373939d1a09d3c2c63fb329b3e42fb3cb3",
+    "competition/analyze_specialists.py": "14ae73b870e0ec552b1dc3437a244c7c205768dbd92d617c50364e44db3c6ace"
+  },
+  "provenance_note": "Current source hashes describe final code. Existing trained v3 metadata predates automatic source-hash recording; these are not claimed as exact hashes at training start."
+}

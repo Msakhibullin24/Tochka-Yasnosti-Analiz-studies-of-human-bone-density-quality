@@ -1,0 +1,7 @@
+# Optional research candidate; no source packages or downloads in application runtime.
+services:
+  osseo:
+    environment:
+      DXAQC_SPECIALIST_PATH: /opt/specialist
+    volumes:
+      - ./data/specialists/runs/${SPECIALIST_RUN:-convnextv2-bce-v1}:/opt/specialist:ro

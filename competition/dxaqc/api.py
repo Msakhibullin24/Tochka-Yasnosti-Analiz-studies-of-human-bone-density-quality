@@ -157,6 +157,9 @@ def ready():
             test.write(b"ready")
             test.flush()
         return {"ready": True, "version": __version__, "model": instance.bundle.meta,
+                "specialist_qc": (None if instance.specialist is None else
+                                  {'mode': 'shadow', 'affects_decision': False,
+                                   'model_sha256': instance.specialist.metadata['model_sha256']}),
                 "disk_free_bytes": shutil.disk_usage(DATA_DIR).free,
                 "jobs_in_recent_history": len(repository.list())}
     except Exception as exc:
@@ -584,3 +587,10 @@ def index() -> str:
     if not target.exists():
         raise HTTPException(503, "UI not built; run npm run build and copy dist into competition/dxaqc/static/app")
     return target.read_text(encoding="utf-8")
+
+
+@app.get("/api/v1/specialists")
+def specialist_inventory():
+    """Downloaded files never imply a trained/validated medical capability."""
+    from .specialist_catalog import inventory
+    return inventory()

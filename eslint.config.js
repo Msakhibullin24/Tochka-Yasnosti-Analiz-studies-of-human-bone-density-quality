@@ -5,7 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 
 export default [
-  { ignores: ['dist', 'node_modules', 'backend/.venv', '**/*.d.ts'] },
+  { ignores: ['dist', 'node_modules', 'backend/.venv', 'data', '**/*.d.ts'] },
   {
     files: ['*.{js,mjs}'],
     ...js.configs.recommended,

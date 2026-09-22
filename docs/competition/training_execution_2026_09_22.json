@@ -1,0 +1,291 @@
+{
+  "date": "2026-09-22",
+  "ultralytics": "8.4.40",
+  "device": "cpu",
+  "trained_task": "DXA binary/multilabel QC; frozen encoder, trained linear heads",
+  "report_path": "data/specialists/reports/qc-v2/index.html",
+  "application_url": "http://127.0.0.1:5174",
+  "metrics_url": "http://127.0.0.1:8092",
+  "clinical_validation": false,
+  "runs": [
+    {
+      "name": "convnextv2-bce-v2",
+      "epochs": 50,
+      "split": {
+        "train": {
+          "images": 149,
+          "studies": 60
+        },
+        "validation": {
+          "images": 54,
+          "studies": 21
+        },
+        "test": {
+          "images": 46,
+          "studies": 19
+        }
+      },
+      "model_sha256": "83dcd6ff7f606682bf1cef4a76ecf7ce790ebd5b16db92decba7da09eff85dca",
+      "quality_test": {
+        "n": 46,
+        "positives": 10,
+        "negatives": 36,
+        "roc_auc": 0.6416666666666667,
+        "average_precision": 0.4368481338481338,
+        "threshold": 0.08240747451782227,
+        "accuracy": 0.45652173913043476,
+        "precision": 0.25806451612903225,
+        "recall": 0.8,
+        "specificity": 0.3611111111111111,
+        "f1": 0.3902439024390244,
+        "balanced_accuracy": 0.5805555555555556,
+        "confusion_tn_fp_fn_tp": [
+          13,
+          23,
+          2,
+          8
+        ],
+        "ci95": {
+          "roc_auc": {
+            "low": 0.37411764705882355,
+            "high": 0.8461688311688312,
+            "defined_resamples": 1000
+          },
+          "average_precision": {
+            "low": 0.16192518939393938,
+            "high": 0.7255996342981637,
+            "defined_resamples": 1000
+          },
+          "accuracy": {
+            "low": 0.2799148936170213,
+            "high": 0.6511880687563195,
+            "defined_resamples": 1000
+          },
+          "precision": {
+            "low": 0.09084224598930482,
+            "high": 0.48278642936596217,
+            "defined_resamples": 1000
+          },
+          "recall": {
+            "low": 0.4444444444444444,
+            "high": 1.0,
+            "defined_resamples": 1000
+          },
+          "specificity": {
+            "low": 0.1891891891891892,
+            "high": 0.5626041666666666,
+            "defined_resamples": 1000
+          },
+          "f1": {
+            "low": 0.15384615384615385,
+            "high": 0.6250612745098039,
+            "defined_resamples": 1000
+          }
+        }
+      }
+    },
+    {
+      "name": "convnextv2-asl-v2",
+      "epochs": 50,
+      "split": {
+        "train": {
+          "images": 149,
+          "studies": 60
+        },
+        "validation": {
+          "images": 54,
+          "studies": 21
+        },
+        "test": {
+          "images": 46,
+          "studies": 19
+        }
+      },
+      "model_sha256": "880d6ba886bf134928e31d0c40d92f53d3a24bb434324d165365b563785b3d75",
+      "quality_test": {
+        "n": 46,
+        "positives": 10,
+        "negatives": 36,
+        "roc_auc": 0.6416666666666666,
+        "average_precision": 0.43349048780083266,
+        "threshold": 0.7581274509429932,
+        "accuracy": 0.7391304347826086,
+        "precision": 0.4,
+        "recall": 0.4,
+        "specificity": 0.8333333333333334,
+        "f1": 0.4,
+        "balanced_accuracy": 0.6166666666666667,
+        "confusion_tn_fp_fn_tp": [
+          30,
+          6,
+          6,
+          4
+        ],
+        "ci95": {
+          "roc_auc": {
+            "low": 0.3698769841269841,
+            "high": 0.8468554031354982,
+            "defined_resamples": 1000
+          },
+          "average_precision": {
+            "low": 0.16553804447595355,
+            "high": 0.7264629851940775,
+            "defined_resamples": 1000
+          },
+          "accuracy": {
+            "low": 0.6086956521739131,
+            "high": 0.8600116279069767,
+            "defined_resamples": 1000
+          },
+          "precision": {
+            "low": 0.1111111111111111,
+            "high": 0.6666666666666666,
+            "defined_resamples": 1000
+          },
+          "recall": {
+            "low": 0.1111111111111111,
+            "high": 0.75,
+            "defined_resamples": 1000
+          },
+          "specificity": {
+            "low": 0.7307692307692307,
+            "high": 0.9375473484848484,
+            "defined_resamples": 1000
+          },
+          "f1": {
+            "low": 0.11764705882352941,
+            "high": 0.6251644736842104,
+            "defined_resamples": 1000
+          }
+        }
+      }
+    },
+    {
+      "name": "efficientnet-b4-bce-v2",
+      "epochs": 50,
+      "split": {
+        "train": {
+          "images": 149,
+          "studies": 60
+        },
+        "validation": {
+          "images": 54,
+          "studies": 21
+        },
+        "test": {
+          "images": 46,
+          "studies": 19
+        }
+      },
+      "model_sha256": "44a7b4bdce9327096b9ac358f7111de0f8187af3dbc3236255569f47e9c0c682",
+      "quality_test": {
+        "n": 46,
+        "positives": 10,
+        "negatives": 36,
+        "roc_auc": 0.5694444444444444,
+        "average_precision": 0.3491136438928874,
+        "threshold": 0.11566059291362762,
+        "accuracy": 0.41304347826086957,
+        "precision": 0.24242424242424243,
+        "recall": 0.8,
+        "specificity": 0.3055555555555556,
+        "f1": 0.37209302325581395,
+        "balanced_accuracy": 0.5527777777777778,
+        "confusion_tn_fp_fn_tp": [
+          11,
+          25,
+          2,
+          8
+        ],
+        "ci95": {
+          "roc_auc": {
+            "low": 0.36361138861138864,
+            "high": 0.7973190284178187,
+            "defined_resamples": 1000
+          },
+          "average_precision": {
+            "low": 0.14692666427203066,
+            "high": 0.6725814463314461,
+            "defined_resamples": 1000
+          },
+          "accuracy": {
+            "low": 0.25,
+            "high": 0.5909090909090909,
+            "defined_resamples": 1000
+          },
+          "precision": {
+            "low": 0.1,
+            "high": 0.43756249999999997,
+            "defined_resamples": 1000
+          },
+          "recall": {
+            "low": 0.5555555555555556,
+            "high": 1.0,
+            "defined_resamples": 1000
+          },
+          "specificity": {
+            "low": 0.14705882352941177,
+            "high": 0.5,
+            "defined_resamples": 1000
+          },
+          "f1": {
+            "low": 0.1764066496163683,
+            "high": 0.5652173913043478,
+            "defined_resamples": 1000
+          }
+        }
+      }
+    }
+  ],
+  "yolo26x": {
+    "target_training": "blocked_missing_DXA_object_annotations",
+    "execution_checks": [
+      {
+        "task": "detect",
+        "checkpoint_parameters_finite": true,
+        "validation_and_test_exported": true,
+        "fixture": "synthetic_execution_test_only"
+      },
+      {
+        "task": "segment",
+        "checkpoint_parameters_finite": true,
+        "validation_and_test_exported": true,
+        "fixture": "synthetic_execution_test_only"
+      }
+    ]
+  },
+  "api_smoke": {
+    "version": "1.9.1",
+    "submission_available": true,
+    "submission_valid": true,
+    "files": 3,
+    "success": 3,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 1,
+    "cancelled": false,
+    "studies": 2,
+    "max_seconds_per_study": 4.374,
+    "mean_seconds_per_image": 2.2869,
+    "total_seconds": 9.412,
+    "process_peak_rss_bytes": 743669760,
+    "cpu_count_visible": 12
+  },
+  "tests": {
+    "real_training_integration": {
+      "passed": 21,
+      "skipped": 0
+    },
+    "final_fast_suite": {
+      "passed": 25,
+      "skipped": 2,
+      "skip_reason": "Opt-in real YOLO training already executed separately"
+    }
+  },
+  "limitations": [
+    "Internal split by study, not independently confirmed patient identity or external validation.",
+    "The same held-out test was viewed in previous v1 experiments; new model selection needs independent confirmation.",
+    "No Th12/L1-L4 or whole-skeleton model was trained in these runs.",
+    "YOLO test training uses synthetic fixtures, not DXA implant annotations."
+  ]
+}

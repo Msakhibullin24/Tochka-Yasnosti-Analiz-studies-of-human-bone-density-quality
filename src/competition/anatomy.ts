@@ -1,4 +1,7 @@
+import type { SpecialistAssessment } from './SpecialistPanel'
+
 export type AnatomicalAssessment = {
+  specialist_qc?: SpecialistAssessment
   complete: boolean
   projection: { value: string; status: string; reason: string; declared_view_position: string }
   anatomy: { landmarks: { name: string; status: string; points: number[][]; verified: boolean }[];

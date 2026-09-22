@@ -1,0 +1,176 @@
+{
+  "date": "2026-09-22",
+  "ultralytics": "8.4.0",
+  "torch": "2.1.2+cpu",
+  "device": "cpu",
+  "threads": 4,
+  "imgsz": 640,
+  "network_blocked": true,
+  "clinical_validation": false,
+  "models": {
+    "yolo26x": {
+      "task": "detect",
+      "classes": 80,
+      "samples": [
+        {
+          "shape": [
+            317,
+            300
+          ],
+          "detections": 1,
+          "masks": 0,
+          "speed_ms": {
+            "preprocess": 3.2113010001921793,
+            "inference": 1804.842109000674,
+            "postprocess": 0.7681219994992716
+          }
+        },
+        {
+          "shape": [
+            291,
+            280
+          ],
+          "detections": 1,
+          "masks": 0,
+          "speed_ms": {
+            "preprocess": 4.764471000271442,
+            "inference": 1916.7168919993856,
+            "postprocess": 0.28393899992806837
+          }
+        },
+        {
+          "shape": [
+            291,
+            280
+          ],
+          "detections": 2,
+          "masks": 0,
+          "speed_ms": {
+            "preprocess": 2.568234999671404,
+            "inference": 1937.6136190003308,
+            "postprocess": 0.3162240000165184
+          }
+        }
+      ]
+    },
+    "yolo26x-seg": {
+      "task": "segment",
+      "classes": 80,
+      "samples": [
+        {
+          "shape": [
+            317,
+            300
+          ],
+          "detections": 0,
+          "masks": 0,
+          "speed_ms": {
+            "preprocess": 4.572458000438928,
+            "inference": 2744.589304999863,
+            "postprocess": 0.45950899948365986
+          }
+        },
+        {
+          "shape": [
+            291,
+            280
+          ],
+          "detections": 1,
+          "masks": 1,
+          "speed_ms": {
+            "preprocess": 4.556476999823644,
+            "inference": 2834.740502999921,
+            "postprocess": 1.9022859996766783
+          }
+        },
+        {
+          "shape": [
+            291,
+            280
+          ],
+          "detections": 2,
+          "masks": 2,
+          "speed_ms": {
+            "preprocess": 2.5078449998545693,
+            "inference": 3346.603772999515,
+            "postprocess": 3.4667509999053436
+          }
+        }
+      ]
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "yolo26x_weights",
+      "kind": "weights",
+      "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26x.pt",
+      "path": "weights/yolo26x.pt",
+      "bytes": 118667365,
+      "sha256": "9fdd44a31c504547ffb81d2c6d9e6dac3493c8eaa8b0398d3f43bae6c7003e92"
+    },
+    {
+      "id": "yolo26x_seg_weights",
+      "kind": "weights",
+      "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26x-seg.pt",
+      "path": "weights/yolo26x-seg.pt",
+      "bytes": 142129861,
+      "sha256": "92b3de0065766a17180d6219858717dc9d03cdce8a3ca9576c97fd75aabb64f3"
+    }
+  ],
+  "architecture_checks": {
+    "convnextv2_tiny": {
+      "status": "architecture_verified",
+      "output_shape": [
+        1,
+        768
+      ],
+      "checkpoint_sha256": "6652fd90fc9c23977659e58515778e16fbbcd43f0b01fc693089cebe6d64c2a9",
+      "clinical_validation": false
+    },
+    "tf_efficientnet_b4": {
+      "status": "architecture_verified",
+      "output_shape": [
+        1,
+        1792
+      ],
+      "checkpoint_sha256": "ede54280eab358dcd49d71f4dcabcedf14a0ac33267bac772b66110cbe168f79",
+      "clinical_validation": false
+    },
+    "dxa_to_3d": {
+      "status": "architecture_verified",
+      "output_shape": [
+        1,
+        1254
+      ],
+      "checkpoint_sha256": "9e86fb66b73ac27bfa60aa4695bb037d06acab8882e192f793d577711120e2c3",
+      "clinical_validation": false
+    },
+    "limitations": {
+      "dxa_to_3d": "Raw regression output only; preprocessing and curve order unverified. No Th12/L1-L4 labels.",
+      "human_skeletal_form": "Author checkpoint link HTTP 404; no inference possible.",
+      "vertenet": "No public checkpoint identified; lateral DXA only.",
+      "yolo26x": "Downloaded COCO detection/segmentation weights; no DXA implant training."
+    },
+    "yolo26x_weights": {
+      "status": "architecture_verified_generic_coco",
+      "task": "detect",
+      "classes": 80,
+      "detections_on_blank": 0,
+      "checkpoint_sha256": "9fdd44a31c504547ffb81d2c6d9e6dac3493c8eaa8b0398d3f43bae6c7003e92",
+      "dxa_artefact_model": false
+    },
+    "yolo26x_seg_weights": {
+      "status": "architecture_verified_generic_coco",
+      "task": "segment",
+      "classes": 80,
+      "detections_on_blank": 0,
+      "checkpoint_sha256": "92b3de0065766a17180d6219858717dc9d03cdce8a3ca9576c97fd75aabb64f3",
+      "dxa_artefact_model": false
+    }
+  },
+  "tests": {
+    "passed": 13,
+    "command": "data/specialists/venv/bin/python -m pytest -q competition/tests/test_specialist_qc.py backend/tests/test_specialist_assets.py"
+  },
+  "scope": "Research detector replacement only. Generic COCO weights; no DXA implant training or changes to primary QC verdict."
+}

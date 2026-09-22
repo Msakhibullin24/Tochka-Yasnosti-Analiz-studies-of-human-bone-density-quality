@@ -52,13 +52,32 @@ API http://127.0.0.1:8001. `make verify` проверяет оба backend, ин
 При отсутствующем PixelSpacing используется оценка ExposedArea либо явно обозначенное допущение
 масштаба GE. Результаты требуют проверки специалистом. Модель не вычисляет BMD по картинке.
 
+## Обучение и метрики специализированных моделей
+
+```sh
+make train-specialists INPUT='/path/to/Исследования' OUTPUT=data/specialists/experiments/new-run
+make metrics-specialists METRICS_DIR=data/specialists/experiments/new-run/report
+```
+
+Отчёт доступен на `http://127.0.0.1:8092`: loss по эпохам, ROC/PR, матрицы ошибок,
+метрики JSON/CSV. Обучаются QC-головы над замороженными ConvNeXt-V2 / EfficientNet-B4.
+Для обучения YOLO26x нужны проверенные DXA bbox/mask-аннотации; формат и команды —
+в [инструкции обучения](competition/docs/SPECIALISTS.md).
+
+Региональное дообучение, парное сравнение с гибридом и пакет экспертной разметки:
+`make advance-specialists INPUT=... OUTPUT=...`. Подробности и ограничения авторских моделей —
+в [инструкции специализированных моделей](competition/docs/SPECIALISTS.md).
+
 ## Документация
 
+- [Установка специализированных моделей, обучение и экспериментальный запуск](competition/docs/SPECIALISTS.md)
 - [Запуск, хранение и восстановление](competition/docs/DEPLOYMENT.md)
 - [Инструкция специалисту](competition/docs/USER_GUIDE.md)
 - [API и конкурсный контракт](competition/README.md)
 - [Текущий этап реализации и следующий месяц](docs/IMPLEMENTATION_STATUS_RU.md)
 - [Полный проект продукта](docs/SELF_SUFFICIENT_PRODUCT_PLAN_RU.md)
+- [Специализированная локализация Th12/L1–L4 и проверка DXA-to-3D](docs/SPECIALIZED_SPINE_MODEL_RU.md)
+- [Бинарный QC, типы нарушений, NHANES и локализация дефектов](docs/QC_CLASSIFICATION_AND_LOCALIZATION_RU.md)
 - [Аудит исходного состояния](docs/COMPETITION_READINESS_AUDIT_2026_09_19_RU.md)
 
 Старый total-body/Hologic-workbench сохранён для исследований: `VITE_WORKSPACE=research npm run dev`

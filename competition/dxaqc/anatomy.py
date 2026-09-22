@@ -249,9 +249,12 @@ def image_assessment(img, result):
                 result['review_reasons'].append('hip_geometry_unstable')
         result['projection_pixels'] = assess_projection(img.pixels, result['region'], result['anatomy_candidates'])
     projection = {**result['projection_pixels'], 'declared_view_position': img.view_position}
-    return {'projection': projection, 'anatomy': result['anatomy_candidates'],
+    assessment = {'projection': projection, 'anatomy': result['anatomy_candidates'],
             'source_roi': evaluate_source_roi(img.source_roi, result['anatomy_candidates'], img, result['region']),
             'complete': False, 'version': '3'}
+    if 'specialist_qc' in result:
+        assessment['specialist_qc'] = result['specialist_qc']
+    return assessment
 
 
 def display_overlay(result, width):
