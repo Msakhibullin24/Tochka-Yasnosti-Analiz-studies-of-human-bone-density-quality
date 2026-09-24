@@ -1,4 +1,4 @@
-.PHONY: setup dev verify smoke clean-generated docker-up docker-down dataset specialists specialists-verify dev-specialists
+.PHONY: setup dev verify smoke clean-generated docker-up docker-down dataset specialists specialists-verify dxa-to3d-model dxa-to3d-verify dxa-candidates dxa-candidates-verify dev-specialists review-model-errors review-release-errors
 
 SPECIALIST_MODEL ?= data/specialists/runs/convnextv2-bce-v1
 
@@ -14,6 +14,19 @@ specialists:
 
 specialists-verify:
 	uv run --project backend --locked --extra test python backend/scripts/fetch_specialists.py --verify
+
+dxa-to3d-model:
+	uv run --project backend --locked --extra test python backend/scripts/fetch_specialists.py --only dxa_to_3d dxa_to_3d_weights
+
+dxa-to3d-verify:
+	uv run --project backend --locked --extra test python backend/scripts/fetch_specialists.py --verify --only dxa_to_3d dxa_to_3d_weights
+
+dxa-candidates:
+	@test -x data/specialists/venv/bin/python || (echo "Create the isolated specialists environment first; see competition/docs/SPECIALISTS.md" >&2; exit 2)
+	data/specialists/venv/bin/python competition/fetch_dxa_candidates.py
+
+dxa-candidates-verify:
+	python competition/fetch_dxa_candidates.py --verify
 
 dev:
 	./scripts/dev.sh
@@ -50,6 +63,22 @@ METRICS_PORT ?= 8092
 metrics-specialists:
 	@test -f "$(METRICS_DIR)/index.html" || (echo "Generate the metrics report first." >&2; exit 2)
 	uv run --project backend --locked --extra test python -m http.server "$(METRICS_PORT)" --bind 127.0.0.1 --directory "$(METRICS_DIR)"
+
+ERRORS_OOF ?= competition/reports/decision_v3_pipeline_cv_oof.csv
+ERRORS_LABELS ?= competition/labels/image_labels.csv
+ERRORS_DATASET ?=
+ERRORS_OUTPUT ?= data/specialists/review/decision-v3-errors
+review-model-errors:
+	@test -n "$(ERRORS_DATASET)" || (echo "ERRORS_DATASET=/path/to/НД_для_обучения/Исследования is required" >&2; exit 2)
+	competition/.venv/bin/python competition/audit_model_errors.py --oof "$(ERRORS_OOF)" --labels "$(ERRORS_LABELS)" --dataset "$(ERRORS_DATASET)" --output "$(ERRORS_OUTPUT)"
+
+RELEASE_REVIEW_RESULTS ?=
+RELEASE_REVIEW_DATASET ?=
+RELEASE_REVIEW_LABELS ?= competition/labels/image_labels.csv
+RELEASE_REVIEW_OUTPUT ?= data/specialists/review/release-untyped-cases
+review-release-errors:
+	@test -n "$(RELEASE_REVIEW_RESULTS)" -a -n "$(RELEASE_REVIEW_DATASET)" || (echo "RELEASE_REVIEW_RESULTS=extended_results.csv and RELEASE_REVIEW_DATASET=/path/to/Исследования are required" >&2; exit 2)
+	PYTHONPATH=competition competition/.venv/bin/python -m build_release_review --results "$(RELEASE_REVIEW_RESULTS)" --labels "$(RELEASE_REVIEW_LABELS)" --dataset "$(RELEASE_REVIEW_DATASET)" --output "$(RELEASE_REVIEW_OUTPUT)"
 
 .PHONY: advance-specialists
 advance-specialists:

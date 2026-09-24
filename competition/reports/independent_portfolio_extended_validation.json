@@ -1,0 +1,12 @@
+{
+  "valid": true,
+  "profile": "working_report",
+  "errors": [],
+  "warnings": [
+    "Additional DICOM series not checked"
+  ],
+  "images": 499,
+  "success": 499,
+  "max_seconds_per_study": 4.4764,
+  "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+}

@@ -54,6 +54,15 @@ def split_indices(labels: pd.DataFrame) -> tuple[np.ndarray, np.ndarray, np.ndar
     return partitions
 
 
+def resolve_device(requested: str) -> torch.device:
+    if requested not in ('cpu', 'cuda', 'auto'):
+        raise ValueError('Device must be cpu, cuda, or auto')
+    if requested == 'cuda' and not torch.cuda.is_available():
+        raise ValueError('CUDA was requested but is unavailable')
+    return torch.device('cuda' if requested == 'cuda' or
+                        (requested == 'auto' and torch.cuda.is_available()) else 'cpu')
+
+
 def run(args) -> dict:
     if args.output.exists():
         raise ValueError('Choose a new output directory; experiments are immutable')
@@ -61,6 +70,11 @@ def run(args) -> dict:
         raise ValueError('Invalid training configuration')
     torch.set_num_threads(args.threads)
     torch.manual_seed(17)
+    device = resolve_device(getattr(args, 'device', 'cpu'))
+    if device.type == 'cuda':
+        torch.cuda.manual_seed_all(17)
+        torch.backends.cudnn.benchmark = False
+        torch.backends.cudnn.deterministic = True
     start = time.perf_counter()
     provenance = {name: digest(Path(__file__).parent/name) for name in
                   ('train_specialist.py','dxaqc/specialist_qc.py','dxaqc/dicom_io.py')}
@@ -86,7 +100,7 @@ def run(args) -> dict:
     expected = next(a['sha256'] for a in catalog['artifacts'] if a['id'] == artifact_id)
     if digest(args.weights) != expected:
         raise ValueError('Backbone checkpoint checksum mismatch')
-    encoder = create_encoder(args.backbone, args.weights)
+    encoder = create_encoder(args.backbone, args.weights).to(device)
     encoder.requires_grad_(False)
     if train_mode == 'last-stage':
         prefix = torch.nn.Sequential(encoder.stem, *list(encoder.stages)[:-1]).eval()
@@ -108,7 +122,7 @@ def run(args) -> dict:
             raise ValueError('Image dimensions changed')
         # Full frame, original orientation. No unlabelled geometric augmentation.
         with torch.no_grad():
-            tensor = image_tensor(img.pixels, args.size)[None]
+            tensor = image_tensor(img.pixels, args.size)[None].to(device)
             tensors = [tensor]
             if views == 'full-center':
                 tensors.append(MultiViewQC.center_view(tensor))
@@ -116,7 +130,7 @@ def run(args) -> dict:
         if i % 25 == 0:
             print(f'features {i}/{len(labels)}', flush=True)
     x = torch.stack(features)
-    y = torch.from_numpy(targets)
+    y = torch.from_numpy(targets).to(device)
     supported = np.array([len(np.unique(targets[train, i][np.isfinite(targets[train, i])])) == 2
                           for i in range(len(OUTPUTS))])
     if not supported[0]:
@@ -125,9 +139,10 @@ def run(args) -> dict:
     training_targets[:, ~supported] = float('nan')
     with torch.no_grad():
         feature_dim = tail(x[0,0][None]).shape[1]
-    head = torch.nn.Linear(feature_dim*x.shape[1], len(OUTPUTS))
+    head = torch.nn.Linear(feature_dim*x.shape[1], len(OUTPUTS)).to(device)
     def predict_cached(indices):
-        return head(torch.cat([tail(x[indices, v]) for v in range(x.shape[1])], dim=1))
+        positions = torch.as_tensor(indices, dtype=torch.long, device=device)
+        return head(torch.cat([tail(x[positions, v]) for v in range(x.shape[1])], dim=1))
     parameters = [{'params': head.parameters(), 'lr': .003}]
     if train_mode == 'last-stage':
         parameters.append({'params': tail.parameters(), 'lr': 1e-5})
@@ -139,14 +154,17 @@ def run(args) -> dict:
     for epoch in range(args.epochs):
         for indices in np.array_split(rng.permutation(train), max(1, int(np.ceil(len(train)/batch_size)))):
             optimizer.zero_grad(set_to_none=True)
-            loss = masked_loss(predict_cached(indices), training_targets[indices], args.loss)
+            positions = torch.as_tensor(indices, dtype=torch.long, device=device)
+            loss = masked_loss(predict_cached(indices), training_targets[positions], args.loss)
             loss.backward()
             if train_mode == 'last-stage':
                 torch.nn.utils.clip_grad_norm_([p for group in optimizer.param_groups for p in group['params']], 1.0, error_if_nonfinite=True)
             optimizer.step()
         with torch.no_grad():
-            train_loss = float(masked_loss(predict_cached(train), training_targets[train], args.loss))
-            val_loss = float(masked_loss(predict_cached(val), training_targets[val], args.loss))
+            train_positions = torch.as_tensor(train, dtype=torch.long, device=device)
+            val_positions = torch.as_tensor(val, dtype=torch.long, device=device)
+            train_loss = float(masked_loss(predict_cached(train), training_targets[train_positions], args.loss))
+            val_loss = float(masked_loss(predict_cached(val), training_targets[val_positions], args.loss))
         if val_loss < best_loss:
             best_loss, best_epoch = val_loss, epoch+1
             best_state = (copy.deepcopy(head.state_dict()), copy.deepcopy(tail.state_dict()))
@@ -158,7 +176,7 @@ def run(args) -> dict:
         head.load_state_dict(best_state[0]); tail.load_state_dict(best_state[1])
     head.eval(); encoder.eval(); tail.eval()
     with torch.no_grad():
-        scores = np.concatenate([torch.sigmoid(predict_cached(idx)).numpy()
+        scores = np.concatenate([torch.sigmoid(predict_cached(idx)).cpu().numpy()
                                  for idx in np.array_split(np.arange(len(x)), max(1,len(x)//8))])
     thresholds, metrics = {}, {}
     for i, name in enumerate(OUTPUTS):
@@ -180,7 +198,7 @@ def run(args) -> dict:
                 metrics[name]['specificity'] = None
                 metrics[name]['balanced_accuracy'] = None
     args.output.mkdir(parents=True)
-    model = (ImageQC(encoder, head) if views == 'full' else MultiViewQC(encoder, head)).eval()
+    model = (ImageQC(encoder, head) if views == 'full' else MultiViewQC(encoder, head)).cpu().eval()
     example = torch.zeros(1, 3, args.size, args.size)
     traced = torch.jit.trace(model, example)
     traced.save(str(args.output / 'model.ts'))
@@ -196,7 +214,9 @@ def run(args) -> dict:
     report = {'schema_version': SCHEMA_VERSION, 'mode': 'shadow', 'clinical_validation': False,
               'outputs': list(OUTPUTS), 'preprocess_version': PREPROCESS_VERSION, 'input_size': args.size,
               'code_sha256': provenance,
-              'training_config': {'seed':17,'threads':args.threads,'device':'cpu','head_lr':.003,
+              'training_config': {'seed':17,'threads':args.threads,'device':device.type,
+                                  'gpu_name':torch.cuda.get_device_name(device) if device.type == 'cuda' else None,
+                                  'head_lr':.003,
                                   'tail_lr':1e-5 if train_mode=='last-stage' else None,'batch_size':batch_size,
                                   'torch':torch.__version__},
               'region_scope': region_scope, 'train_mode': train_mode, 'views': views,
@@ -236,6 +256,8 @@ def main():
     parser.add_argument('--epochs', type=int, default=50)
     parser.add_argument('--size', type=int, default=224)
     parser.add_argument('--threads', type=int, default=4)
+    parser.add_argument('--device', choices=['cpu', 'cuda', 'auto'], default='cpu',
+                        help='Training device; exported TorchScript remains CPU-loadable')
     run(parser.parse_args())
 
 

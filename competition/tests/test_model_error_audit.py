@@ -19,3 +19,15 @@ def test_existing_axis_and_untyped_cases_are_retained():
     row = {'quality_pred': '1', 'violation_type': ''}
     label = {'region': 'spine', 'spine_axis': '1'}
     assert review_reasons(row, label) == ['untyped_positive', 'missed_axis']
+
+
+def test_region_routing_error_is_reviewed_separately():
+    row = {'predicted_region': 'hip_right', 'quality_pred': '0', 'violation_type': ''}
+    label = {'region': 'spine', 'spine_axis': '0'}
+    assert review_reasons(row, label) == ['region_mismatch']
+
+
+def test_matching_region_does_not_add_review_reason():
+    row = {'predicted_region': 'hip_left', 'quality_pred': '0', 'violation_type': ''}
+    label = {'region': 'hip_left', 'hip_position_rotation': '0'}
+    assert review_reasons(row, label) == []

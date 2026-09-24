@@ -1,0 +1,1705 @@
+{
+  "protocol": "Ramathibodi BMD Annotation only; reference-mask-derived box with 4-pixel padding; bone-area ROI masks; one model load; CPU 4 threads",
+  "limitations": [
+    "Oracle prompt from reference mask; not autonomous detection or competition QC.",
+    "Source segmentations are vendor ROI bone areas, not independently reviewed anatomical contours.",
+    "Ten Hologic patients with burned-in ROI graphics; no external AP GE validation.",
+    "Mask coordinate correspondence is checked by raster size, not visually attested for every case."
+  ],
+  "model_sha256": "79d8c9dca6db4d69d3f905579e5250af05e859fff9c1f543e89a513c3028ce76",
+  "model_affects_decision": false,
+  "patients": 10,
+  "summary": {
+    "spine": {
+      "masks": 40,
+      "patients": 10,
+      "mean_dice": 0.8800054462374497,
+      "median_dice": 0.9142383710005295,
+      "mean_box_dice": 0.8121350388882005,
+      "mean_iou": 0.7968437275432327,
+      "patient_bootstrap": {
+        "mean_dice_95": [
+          0.8401862235790942,
+          0.9184416291339951
+        ],
+        "delta_dice_vs_filled_box_95": [
+          0.023401616162681254,
+          0.11726519582321036
+        ]
+      }
+    },
+    "hip": {
+      "masks": 20,
+      "patients": 10,
+      "mean_dice": 0.660046052655495,
+      "median_dice": 0.6063607099020463,
+      "mean_box_dice": 0.6512114745240327,
+      "mean_iou": 0.5082066762714434,
+      "patient_bootstrap": {
+        "mean_dice_95": [
+          0.6215414525856873,
+          0.6921435160221467
+        ],
+        "delta_dice_vs_filled_box_95": [
+          -0.023004361396631187,
+          0.03646733183927612
+        ]
+      }
+    }
+  },
+  "by_segment": {
+    "Femoral_Neck_bone_area": {
+      "masks": 10,
+      "mean_dice": 0.7629544309864784,
+      "mean_box_dice": 0.5020376255082626
+    },
+    "Femoral_Total_bone_area": {
+      "masks": 10,
+      "mean_dice": 0.5571376743245113,
+      "mean_box_dice": 0.800385323539803
+    },
+    "Lumbar_1_bone_area": {
+      "masks": 10,
+      "mean_dice": 0.9156217026543189,
+      "mean_box_dice": 0.8131081892876745
+    },
+    "Lumbar_2_bone_area": {
+      "masks": 10,
+      "mean_dice": 0.8257898976041614,
+      "mean_box_dice": 0.8165725645048078
+    },
+    "Lumbar_3_bone_area": {
+      "masks": 10,
+      "mean_dice": 0.8600618309855239,
+      "mean_box_dice": 0.8151562258793223
+    },
+    "Lumbar_4_bone_area": {
+      "masks": 10,
+      "mean_dice": 0.9185483537057941,
+      "mean_box_dice": 0.8037031758809979
+    }
+  },
+  "empty_reference_segments": [],
+  "cases": [
+    {
+      "patient_sha256": "8566ee8cc961a20f2f00208063764cfc75082eff5b90f989b36e4da08f935e2a",
+      "region": "spine",
+      "segment": "Lumbar_1_bone_area",
+      "image_sha256": "a569e10c5f824dbed04451a0c8d89dbcfdd73e911c74832ab2429553bbeb0343",
+      "reference_sha256": "6f1d0dc313006bcf24fd5f1fbc6c5137edccecc8c9d2d1009b22d1b6baeeadfd",
+      "oracle_box_xyxy": [
+        90,
+        70,
+        196,
+        131
+      ],
+      "lite_medsam": {
+        "dice": 0.9361077111383109,
+        "iou": 0.8798895536125173,
+        "reference_pixels": 4335,
+        "predicted_pixels": 3835
+      },
+      "filled_box_baseline": {
+        "dice": 0.8027034533839459,
+        "iou": 0.6704299412310547,
+        "reference_pixels": 4335,
+        "predicted_pixels": 6466
+      },
+      "model_predicted_iou": 0.8797650933265686,
+      "inference_seconds": 0.9617
+    },
+    {
+      "patient_sha256": "8566ee8cc961a20f2f00208063764cfc75082eff5b90f989b36e4da08f935e2a",
+      "region": "spine",
+      "segment": "Lumbar_2_bone_area",
+      "image_sha256": "a569e10c5f824dbed04451a0c8d89dbcfdd73e911c74832ab2429553bbeb0343",
+      "reference_sha256": "6f1d0dc313006bcf24fd5f1fbc6c5137edccecc8c9d2d1009b22d1b6baeeadfd",
+      "oracle_box_xyxy": [
+        90,
+        122,
+        188,
+        189
+      ],
+      "lite_medsam": {
+        "dice": 0.936207462523252,
+        "iou": 0.880065830076116,
+        "reference_pixels": 4772,
+        "predicted_pixels": 4367
+      },
+      "filled_box_baseline": {
+        "dice": 0.8417710354559887,
+        "iou": 0.7267742918062747,
+        "reference_pixels": 4772,
+        "predicted_pixels": 6566
+      },
+      "model_predicted_iou": 0.8712179064750671,
+      "inference_seconds": 0.9778
+    },
+    {
+      "patient_sha256": "8566ee8cc961a20f2f00208063764cfc75082eff5b90f989b36e4da08f935e2a",
+      "region": "spine",
+      "segment": "Lumbar_3_bone_area",
+      "image_sha256": "a569e10c5f824dbed04451a0c8d89dbcfdd73e911c74832ab2429553bbeb0343",
+      "reference_sha256": "6f1d0dc313006bcf24fd5f1fbc6c5137edccecc8c9d2d1009b22d1b6baeeadfd",
+      "oracle_box_xyxy": [
+        88,
+        180,
+        194,
+        250
+      ],
+      "lite_medsam": {
+        "dice": 0.8321955516406078,
+        "iou": 0.7126155006600038,
+        "reference_pixels": 5298,
+        "predicted_pixels": 3784
+      },
+      "filled_box_baseline": {
+        "dice": 0.8331498663311842,
+        "iou": 0.7140161725067385,
+        "reference_pixels": 5298,
+        "predicted_pixels": 7420
+      },
+      "model_predicted_iou": 0.8464307188987732,
+      "inference_seconds": 0.8783
+    },
+    {
+      "patient_sha256": "8566ee8cc961a20f2f00208063764cfc75082eff5b90f989b36e4da08f935e2a",
+      "region": "spine",
+      "segment": "Lumbar_4_bone_area",
+      "image_sha256": "a569e10c5f824dbed04451a0c8d89dbcfdd73e911c74832ab2429553bbeb0343",
+      "reference_sha256": "6f1d0dc313006bcf24fd5f1fbc6c5137edccecc8c9d2d1009b22d1b6baeeadfd",
+      "oracle_box_xyxy": [
+        80,
+        240,
+        194,
+        308
+      ],
+      "lite_medsam": {
+        "dice": 0.8683365446371226,
+        "iou": 0.7673098751418842,
+        "reference_pixels": 5080,
+        "predicted_pixels": 4262
+      },
+      "filled_box_baseline": {
+        "dice": 0.7917705735660848,
+        "iou": 0.6553147574819401,
+        "reference_pixels": 5080,
+        "predicted_pixels": 7752
+      },
+      "model_predicted_iou": 0.816945493221283,
+      "inference_seconds": 0.9466
+    },
+    {
+      "patient_sha256": "8566ee8cc961a20f2f00208063764cfc75082eff5b90f989b36e4da08f935e2a",
+      "region": "hip",
+      "segment": "Femoral_Neck_bone_area",
+      "image_sha256": "8bf9f3d7e503f505179467d59d8e64bece2ed42aeb68c59d8ff08ca720700c97",
+      "reference_sha256": "bbeb7448dd7c7086a30a3159f082f15bab59b65e283d67a8355de187c07de412",
+      "oracle_box_xyxy": [
+        90,
+        96,
+        163,
+        172
+      ],
+      "lite_medsam": {
+        "dice": 0.8134270101483216,
+        "iou": 0.6855263157894737,
+        "reference_pixels": 1880,
+        "predicted_pixels": 1963
+      },
+      "filled_box_baseline": {
+        "dice": 0.5061927840603123,
+        "iou": 0.33886085075702954,
+        "reference_pixels": 1880,
+        "predicted_pixels": 5548
+      },
+      "model_predicted_iou": 0.821709930896759,
+      "inference_seconds": 0.9629
+    },
+    {
+      "patient_sha256": "8566ee8cc961a20f2f00208063764cfc75082eff5b90f989b36e4da08f935e2a",
+      "region": "hip",
+      "segment": "Femoral_Total_bone_area",
+      "image_sha256": "8bf9f3d7e503f505179467d59d8e64bece2ed42aeb68c59d8ff08ca720700c97",
+      "reference_sha256": "bbeb7448dd7c7086a30a3159f082f15bab59b65e283d67a8355de187c07de412",
+      "oracle_box_xyxy": [
+        25,
+        52,
+        228,
+        267
+      ],
+      "lite_medsam": {
+        "dice": 0.5810658258398537,
+        "iou": 0.4095086554552687,
+        "reference_pixels": 29401,
+        "predicted_pixels": 21977
+      },
+      "filled_box_baseline": {
+        "dice": 0.8049995892998932,
+        "iou": 0.6736395921640509,
+        "reference_pixels": 29401,
+        "predicted_pixels": 43645
+      },
+      "model_predicted_iou": 0.9241942763328552,
+      "inference_seconds": 0.9471
+    },
+    {
+      "patient_sha256": "52c74ca87333280ea94cc514f6ceefec1f32fd5a44a108905dc9e46f88b7e0a2",
+      "region": "spine",
+      "segment": "Lumbar_1_bone_area",
+      "image_sha256": "6da2ea731fa67781c8848994c8a1d298ce35ec1e27a49c77357be27339e5761d",
+      "reference_sha256": "7b16f6b69caacab2e4dbbceb78cfdf24836ee60577b2c821cf22d99697470eb8",
+      "oracle_box_xyxy": [
+        72,
+        62,
+        165,
+        122
+      ],
+      "lite_medsam": {
+        "dice": 0.9156562291805463,
+        "iou": 0.8444335217498157,
+        "reference_pixels": 4063,
+        "predicted_pixels": 3442
+      },
+      "filled_box_baseline": {
+        "dice": 0.8426838120916728,
+        "iou": 0.7281362007168459,
+        "reference_pixels": 4063,
+        "predicted_pixels": 5580
+      },
+      "model_predicted_iou": 0.7971701622009277,
+      "inference_seconds": 1.2167
+    },
+    {
+      "patient_sha256": "52c74ca87333280ea94cc514f6ceefec1f32fd5a44a108905dc9e46f88b7e0a2",
+      "region": "spine",
+      "segment": "Lumbar_2_bone_area",
+      "image_sha256": "6da2ea731fa67781c8848994c8a1d298ce35ec1e27a49c77357be27339e5761d",
+      "reference_sha256": "7b16f6b69caacab2e4dbbceb78cfdf24836ee60577b2c821cf22d99697470eb8",
+      "oracle_box_xyxy": [
+        76,
+        112,
+        168,
+        178
+      ],
+      "lite_medsam": {
+        "dice": 0.8250239038382735,
+        "iou": 0.7021622878400372,
+        "reference_pixels": 4270,
+        "predicted_pixels": 3051
+      },
+      "filled_box_baseline": {
+        "dice": 0.8257590408044866,
+        "iou": 0.703227931488801,
+        "reference_pixels": 4270,
+        "predicted_pixels": 6072
+      },
+      "model_predicted_iou": 0.7048149704933167,
+      "inference_seconds": 1.339
+    },
+    {
+      "patient_sha256": "52c74ca87333280ea94cc514f6ceefec1f32fd5a44a108905dc9e46f88b7e0a2",
+      "region": "spine",
+      "segment": "Lumbar_3_bone_area",
+      "image_sha256": "6da2ea731fa67781c8848994c8a1d298ce35ec1e27a49c77357be27339e5761d",
+      "reference_sha256": "7b16f6b69caacab2e4dbbceb78cfdf24836ee60577b2c821cf22d99697470eb8",
+      "oracle_box_xyxy": [
+        78,
+        168,
+        172,
+        239
+      ],
+      "lite_medsam": {
+        "dice": 0.8610412926391382,
+        "iou": 0.7559899117276166,
+        "reference_pixels": 4757,
+        "predicted_pixels": 3598
+      },
+      "filled_box_baseline": {
+        "dice": 0.8322981366459627,
+        "iou": 0.7127659574468085,
+        "reference_pixels": 4757,
+        "predicted_pixels": 6674
+      },
+      "model_predicted_iou": 0.8502932190895081,
+      "inference_seconds": 1.1986
+    },
+    {
+      "patient_sha256": "52c74ca87333280ea94cc514f6ceefec1f32fd5a44a108905dc9e46f88b7e0a2",
+      "region": "spine",
+      "segment": "Lumbar_4_bone_area",
+      "image_sha256": "6da2ea731fa67781c8848994c8a1d298ce35ec1e27a49c77357be27339e5761d",
+      "reference_sha256": "7b16f6b69caacab2e4dbbceb78cfdf24836ee60577b2c821cf22d99697470eb8",
+      "oracle_box_xyxy": [
+        74,
+        229,
+        178,
+        300
+      ],
+      "lite_medsam": {
+        "dice": 0.934786917740337,
+        "iou": 0.8775586155563826,
+        "reference_pixels": 5346,
+        "predicted_pixels": 4744
+      },
+      "filled_box_baseline": {
+        "dice": 0.8399057344854673,
+        "iou": 0.7239978331527628,
+        "reference_pixels": 5346,
+        "predicted_pixels": 7384
+      },
+      "model_predicted_iou": 0.8767445683479309,
+      "inference_seconds": 1.3215
+    },
+    {
+      "patient_sha256": "52c74ca87333280ea94cc514f6ceefec1f32fd5a44a108905dc9e46f88b7e0a2",
+      "region": "hip",
+      "segment": "Femoral_Neck_bone_area",
+      "image_sha256": "9d3ac7a99973c96b6579413cc2f4b6ec4d9c41b360d547c98afad5122115e4d4",
+      "reference_sha256": "5559543ecef7a0e6a55bf3590133066e07ca46604e41f705ca6adf22a5408a77",
+      "oracle_box_xyxy": [
+        81,
+        90,
+        154,
+        163
+      ],
+      "lite_medsam": {
+        "dice": 0.8305863280194542,
+        "iou": 0.7102587800369686,
+        "reference_pixels": 1791,
+        "predicted_pixels": 1910
+      },
+      "filled_box_baseline": {
+        "dice": 0.5030898876404495,
+        "iou": 0.33608556952523927,
+        "reference_pixels": 1791,
+        "predicted_pixels": 5329
+      },
+      "model_predicted_iou": 0.6109513640403748,
+      "inference_seconds": 1.2167
+    },
+    {
+      "patient_sha256": "52c74ca87333280ea94cc514f6ceefec1f32fd5a44a108905dc9e46f88b7e0a2",
+      "region": "hip",
+      "segment": "Femoral_Total_bone_area",
+      "image_sha256": "9d3ac7a99973c96b6579413cc2f4b6ec4d9c41b360d547c98afad5122115e4d4",
+      "reference_sha256": "5559543ecef7a0e6a55bf3590133066e07ca46604e41f705ca6adf22a5408a77",
+      "oracle_box_xyxy": [
+        31,
+        48,
+        220,
+        255
+      ],
+      "lite_medsam": {
+        "dice": 0.5461356466876972,
+        "iou": 0.37564415513967997,
+        "reference_pixels": 27138,
+        "predicted_pixels": 18510
+      },
+      "filled_box_baseline": {
+        "dice": 0.8191243718024177,
+        "iou": 0.6936584617744038,
+        "reference_pixels": 27138,
+        "predicted_pixels": 39123
+      },
+      "model_predicted_iou": 0.9330007433891296,
+      "inference_seconds": 1.3254
+    },
+    {
+      "patient_sha256": "81a16fe30e67d812332cdeda986281b41f59243082b792c13f0e004af77bc0e0",
+      "region": "spine",
+      "segment": "Lumbar_1_bone_area",
+      "image_sha256": "1340978a67da4d0b4ff4c56fb06241dde598d5e38e1dc3c6aa8ff420763c29b7",
+      "reference_sha256": "12b359c71204e5f0e73979dbaa53f204a722380af8138dc8cbffa96e27060de8",
+      "oracle_box_xyxy": [
+        68,
+        48,
+        164,
+        128
+      ],
+      "lite_medsam": {
+        "dice": 0.9685846188492286,
+        "iou": 0.9390829694323144,
+        "reference_pixels": 4455,
+        "predicted_pixels": 4426
+      },
+      "filled_box_baseline": {
+        "dice": 0.7342398022249691,
+        "iou": 0.580078125,
+        "reference_pixels": 4455,
+        "predicted_pixels": 7680
+      },
+      "model_predicted_iou": 0.9068171381950378,
+      "inference_seconds": 1.2445
+    },
+    {
+      "patient_sha256": "81a16fe30e67d812332cdeda986281b41f59243082b792c13f0e004af77bc0e0",
+      "region": "spine",
+      "segment": "Lumbar_2_bone_area",
+      "image_sha256": "1340978a67da4d0b4ff4c56fb06241dde598d5e38e1dc3c6aa8ff420763c29b7",
+      "reference_sha256": "12b359c71204e5f0e73979dbaa53f204a722380af8138dc8cbffa96e27060de8",
+      "oracle_box_xyxy": [
+        58,
+        106,
+        157,
+        178
+      ],
+      "lite_medsam": {
+        "dice": 0.9602641197971937,
+        "iou": 0.9235654343388523,
+        "reference_pixels": 4349,
+        "predicted_pixels": 4132
+      },
+      "filled_box_baseline": {
+        "dice": 0.7578635531933432,
+        "iou": 0.6101290684624018,
+        "reference_pixels": 4349,
+        "predicted_pixels": 7128
+      },
+      "model_predicted_iou": 0.9075916409492493,
+      "inference_seconds": 1.2269
+    },
+    {
+      "patient_sha256": "81a16fe30e67d812332cdeda986281b41f59243082b792c13f0e004af77bc0e0",
+      "region": "spine",
+      "segment": "Lumbar_3_bone_area",
+      "image_sha256": "1340978a67da4d0b4ff4c56fb06241dde598d5e38e1dc3c6aa8ff420763c29b7",
+      "reference_sha256": "12b359c71204e5f0e73979dbaa53f204a722380af8138dc8cbffa96e27060de8",
+      "oracle_box_xyxy": [
+        54,
+        165,
+        162,
+        239
+      ],
+      "lite_medsam": {
+        "dice": 0.9654608624565706,
+        "iou": 0.933227973133149,
+        "reference_pixels": 4932,
+        "predicted_pixels": 4854
+      },
+      "filled_box_baseline": {
+        "dice": 0.7632311977715878,
+        "iou": 0.6171171171171171,
+        "reference_pixels": 4932,
+        "predicted_pixels": 7992
+      },
+      "model_predicted_iou": 0.9080201983451843,
+      "inference_seconds": 1.1867
+    },
+    {
+      "patient_sha256": "81a16fe30e67d812332cdeda986281b41f59243082b792c13f0e004af77bc0e0",
+      "region": "spine",
+      "segment": "Lumbar_4_bone_area",
+      "image_sha256": "1340978a67da4d0b4ff4c56fb06241dde598d5e38e1dc3c6aa8ff420763c29b7",
+      "reference_sha256": "12b359c71204e5f0e73979dbaa53f204a722380af8138dc8cbffa96e27060de8",
+      "oracle_box_xyxy": [
+        62,
+        216,
+        182,
+        302
+      ],
+      "lite_medsam": {
+        "dice": 0.9606401786545082,
+        "iou": 0.9242614145031334,
+        "reference_pixels": 5505,
+        "predicted_pixels": 5242
+      },
+      "filled_box_baseline": {
+        "dice": 0.6957345971563981,
+        "iou": 0.5334302325581395,
+        "reference_pixels": 5505,
+        "predicted_pixels": 10320
+      },
+      "model_predicted_iou": 0.9027568697929382,
+      "inference_seconds": 1.3336
+    },
+    {
+      "patient_sha256": "81a16fe30e67d812332cdeda986281b41f59243082b792c13f0e004af77bc0e0",
+      "region": "hip",
+      "segment": "Femoral_Neck_bone_area",
+      "image_sha256": "8f6ae0027873ada086740f956cbceb3d134489161ec0f83e1507094b83ec4495",
+      "reference_sha256": "de11384f02b911ee0b671b1ee17eb7dff2cbf821befdeb5e1a9d43edd2a6c54a",
+      "oracle_box_xyxy": [
+        84,
+        101,
+        151,
+        174
+      ],
+      "lite_medsam": {
+        "dice": 0.8482012284293653,
+        "iou": 0.7364144235652615,
+        "reference_pixels": 1683,
+        "predicted_pixels": 1736
+      },
+      "filled_box_baseline": {
+        "dice": 0.5120170368116824,
+        "iou": 0.34410141075444695,
+        "reference_pixels": 1683,
+        "predicted_pixels": 4891
+      },
+      "model_predicted_iou": 0.7026286721229553,
+      "inference_seconds": 1.2532
+    },
+    {
+      "patient_sha256": "81a16fe30e67d812332cdeda986281b41f59243082b792c13f0e004af77bc0e0",
+      "region": "hip",
+      "segment": "Femoral_Total_bone_area",
+      "image_sha256": "8f6ae0027873ada086740f956cbceb3d134489161ec0f83e1507094b83ec4495",
+      "reference_sha256": "de11384f02b911ee0b671b1ee17eb7dff2cbf821befdeb5e1a9d43edd2a6c54a",
+      "oracle_box_xyxy": [
+        21,
+        57,
+        220,
+        266
+      ],
+      "lite_medsam": {
+        "dice": 0.5159772842854721,
+        "iou": 0.3476882656995174,
+        "reference_pixels": 29296,
+        "predicted_pixels": 17896
+      },
+      "filled_box_baseline": {
+        "dice": 0.8265549395516808,
+        "iou": 0.7043831598182299,
+        "reference_pixels": 29296,
+        "predicted_pixels": 41591
+      },
+      "model_predicted_iou": 0.9240139126777649,
+      "inference_seconds": 1.2472
+    },
+    {
+      "patient_sha256": "a5062280775101377f2ed2a5ac021f9c5ba0be42d583135ef8e94df6316d979e",
+      "region": "spine",
+      "segment": "Lumbar_1_bone_area",
+      "image_sha256": "fa2ad29352786376e4346a58de730a998eb98c77463cd43f7f62549052fb423d",
+      "reference_sha256": "eb462d38125eba8f9a160acaf4c25c387574b5038f7a6c5210d35b49763a8f53",
+      "oracle_box_xyxy": [
+        84,
+        20,
+        172,
+        84
+      ],
+      "lite_medsam": {
+        "dice": 0.950416501388338,
+        "iou": 0.9055177626606198,
+        "reference_pixels": 3875,
+        "predicted_pixels": 3688
+      },
+      "filled_box_baseline": {
+        "dice": 0.8151888082465552,
+        "iou": 0.6880326704545454,
+        "reference_pixels": 3875,
+        "predicted_pixels": 5632
+      },
+      "model_predicted_iou": 0.8851169347763062,
+      "inference_seconds": 1.1927
+    },
+    {
+      "patient_sha256": "a5062280775101377f2ed2a5ac021f9c5ba0be42d583135ef8e94df6316d979e",
+      "region": "spine",
+      "segment": "Lumbar_2_bone_area",
+      "image_sha256": "fa2ad29352786376e4346a58de730a998eb98c77463cd43f7f62549052fb423d",
+      "reference_sha256": "eb462d38125eba8f9a160acaf4c25c387574b5038f7a6c5210d35b49763a8f53",
+      "oracle_box_xyxy": [
+        86,
+        74,
+        176,
+        143
+      ],
+      "lite_medsam": {
+        "dice": 0.9055742431523306,
+        "iou": 0.8274423710208562,
+        "reference_pixels": 4473,
+        "predicted_pixels": 3851
+      },
+      "filled_box_baseline": {
+        "dice": 0.8374052232518955,
+        "iou": 0.7202898550724638,
+        "reference_pixels": 4473,
+        "predicted_pixels": 6210
+      },
+      "model_predicted_iou": 0.8979242444038391,
+      "inference_seconds": 1.1852
+    },
+    {
+      "patient_sha256": "a5062280775101377f2ed2a5ac021f9c5ba0be42d583135ef8e94df6316d979e",
+      "region": "spine",
+      "segment": "Lumbar_3_bone_area",
+      "image_sha256": "fa2ad29352786376e4346a58de730a998eb98c77463cd43f7f62549052fb423d",
+      "reference_sha256": "eb462d38125eba8f9a160acaf4c25c387574b5038f7a6c5210d35b49763a8f53",
+      "oracle_box_xyxy": [
+        82,
+        135,
+        180,
+        208
+      ],
+      "lite_medsam": {
+        "dice": 0.9289010067114094,
+        "iou": 0.8672410417074603,
+        "reference_pixels": 5094,
+        "predicted_pixels": 4442
+      },
+      "filled_box_baseline": {
+        "dice": 0.8318092749836709,
+        "iou": 0.712049203242941,
+        "reference_pixels": 5094,
+        "predicted_pixels": 7154
+      },
+      "model_predicted_iou": 0.8376533389091492,
+      "inference_seconds": 1.3063
+    },
+    {
+      "patient_sha256": "a5062280775101377f2ed2a5ac021f9c5ba0be42d583135ef8e94df6316d979e",
+      "region": "spine",
+      "segment": "Lumbar_4_bone_area",
+      "image_sha256": "fa2ad29352786376e4346a58de730a998eb98c77463cd43f7f62549052fb423d",
+      "reference_sha256": "eb462d38125eba8f9a160acaf4c25c387574b5038f7a6c5210d35b49763a8f53",
+      "oracle_box_xyxy": [
+        84,
+        200,
+        182,
+        268
+      ],
+      "lite_medsam": {
+        "dice": 0.9723311996696262,
+        "iou": 0.9461523005826803,
+        "reference_pixels": 4947,
+        "predicted_pixels": 4739
+      },
+      "filled_box_baseline": {
+        "dice": 0.8521229868228404,
+        "iou": 0.7423469387755102,
+        "reference_pixels": 4947,
+        "predicted_pixels": 6664
+      },
+      "model_predicted_iou": 0.894160807132721,
+      "inference_seconds": 1.1797
+    },
+    {
+      "patient_sha256": "a5062280775101377f2ed2a5ac021f9c5ba0be42d583135ef8e94df6316d979e",
+      "region": "hip",
+      "segment": "Femoral_Neck_bone_area",
+      "image_sha256": "76c20be90eb48f0f88b68940c7c85d81144a81a72a3d28fc55ca55adb3e87ffb",
+      "reference_sha256": "53bf105c971ee1c0d1089764f64bf64ea560d5c42297ce764096282f8c46e90c",
+      "oracle_box_xyxy": [
+        76,
+        96,
+        148,
+        168
+      ],
+      "lite_medsam": {
+        "dice": 0.7500661200740545,
+        "iou": 0.6000846381718155,
+        "reference_pixels": 1659,
+        "predicted_pixels": 2122
+      },
+      "filled_box_baseline": {
+        "dice": 0.48487505480052606,
+        "iou": 0.32002314814814814,
+        "reference_pixels": 1659,
+        "predicted_pixels": 5184
+      },
+      "model_predicted_iou": 0.7441826462745667,
+      "inference_seconds": 1.2026
+    },
+    {
+      "patient_sha256": "a5062280775101377f2ed2a5ac021f9c5ba0be42d583135ef8e94df6316d979e",
+      "region": "hip",
+      "segment": "Femoral_Total_bone_area",
+      "image_sha256": "76c20be90eb48f0f88b68940c7c85d81144a81a72a3d28fc55ca55adb3e87ffb",
+      "reference_sha256": "53bf105c971ee1c0d1089764f64bf64ea560d5c42297ce764096282f8c46e90c",
+      "oracle_box_xyxy": [
+        21,
+        52,
+        202,
+        241
+      ],
+      "lite_medsam": {
+        "dice": 0.516217061314989,
+        "iou": 0.34790605004023145,
+        "reference_pixels": 21523,
+        "predicted_pixels": 13656
+      },
+      "filled_box_baseline": {
+        "dice": 0.7723749371994545,
+        "iou": 0.6291619164547342,
+        "reference_pixels": 21523,
+        "predicted_pixels": 34209
+      },
+      "model_predicted_iou": 0.9223745465278625,
+      "inference_seconds": 1.2145
+    },
+    {
+      "patient_sha256": "707b04df356a78990ef91862af70512a4a9abe612d9181b75fd33a1d2e7ed447",
+      "region": "spine",
+      "segment": "Lumbar_1_bone_area",
+      "image_sha256": "106cd04579a8cebc336b93f43b8933cd9f4283748c1bfc593fa38a2738017f88",
+      "reference_sha256": "ee9a7b1532b012ed47819e20483d6a6ab1a7045d09caa6a9c2661bc48e6a7836",
+      "oracle_box_xyxy": [
+        69,
+        96,
+        187,
+        148
+      ],
+      "lite_medsam": {
+        "dice": 0.9170430235322082,
+        "iou": 0.8467954345917471,
+        "reference_pixels": 4521,
+        "predicted_pixels": 3893
+      },
+      "filled_box_baseline": {
+        "dice": 0.8484564136248475,
+        "iou": 0.7367992177314211,
+        "reference_pixels": 4521,
+        "predicted_pixels": 6136
+      },
+      "model_predicted_iou": 0.8868380188941956,
+      "inference_seconds": 1.218
+    },
+    {
+      "patient_sha256": "707b04df356a78990ef91862af70512a4a9abe612d9181b75fd33a1d2e7ed447",
+      "region": "spine",
+      "segment": "Lumbar_2_bone_area",
+      "image_sha256": "106cd04579a8cebc336b93f43b8933cd9f4283748c1bfc593fa38a2738017f88",
+      "reference_sha256": "ee9a7b1532b012ed47819e20483d6a6ab1a7045d09caa6a9c2661bc48e6a7836",
+      "oracle_box_xyxy": [
+        84,
+        140,
+        180,
+        198
+      ],
+      "lite_medsam": {
+        "dice": 0.8698853178536032,
+        "iou": 0.7697318967677274,
+        "reference_pixels": 3935,
+        "predicted_pixels": 3128
+      },
+      "filled_box_baseline": {
+        "dice": 0.8281595285699253,
+        "iou": 0.7067169540229885,
+        "reference_pixels": 3935,
+        "predicted_pixels": 5568
+      },
+      "model_predicted_iou": 0.8126896023750305,
+      "inference_seconds": 1.2432
+    },
+    {
+      "patient_sha256": "707b04df356a78990ef91862af70512a4a9abe612d9181b75fd33a1d2e7ed447",
+      "region": "spine",
+      "segment": "Lumbar_3_bone_area",
+      "image_sha256": "106cd04579a8cebc336b93f43b8933cd9f4283748c1bfc593fa38a2738017f88",
+      "reference_sha256": "ee9a7b1532b012ed47819e20483d6a6ab1a7045d09caa6a9c2661bc48e6a7836",
+      "oracle_box_xyxy": [
+        82,
+        187,
+        175,
+        248
+      ],
+      "lite_medsam": {
+        "dice": 0.7806321033784835,
+        "iou": 0.640194075587334,
+        "reference_pixels": 3912,
+        "predicted_pixels": 2511
+      },
+      "filled_box_baseline": {
+        "dice": 0.8162754303599374,
+        "iou": 0.6895822316234796,
+        "reference_pixels": 3912,
+        "predicted_pixels": 5673
+      },
+      "model_predicted_iou": 0.8409890532493591,
+      "inference_seconds": 1.2079
+    },
+    {
+      "patient_sha256": "707b04df356a78990ef91862af70512a4a9abe612d9181b75fd33a1d2e7ed447",
+      "region": "spine",
+      "segment": "Lumbar_4_bone_area",
+      "image_sha256": "106cd04579a8cebc336b93f43b8933cd9f4283748c1bfc593fa38a2738017f88",
+      "reference_sha256": "ee9a7b1532b012ed47819e20483d6a6ab1a7045d09caa6a9c2661bc48e6a7836",
+      "oracle_box_xyxy": [
+        74,
+        236,
+        177,
+        296
+      ],
+      "lite_medsam": {
+        "dice": 0.8921187821075053,
+        "iou": 0.8052476815200181,
+        "reference_pixels": 4375,
+        "predicted_pixels": 3606
+      },
+      "filled_box_baseline": {
+        "dice": 0.8289909995262909,
+        "iou": 0.7079288025889967,
+        "reference_pixels": 4375,
+        "predicted_pixels": 6180
+      },
+      "model_predicted_iou": 0.7446896433830261,
+      "inference_seconds": 1.2583
+    },
+    {
+      "patient_sha256": "707b04df356a78990ef91862af70512a4a9abe612d9181b75fd33a1d2e7ed447",
+      "region": "hip",
+      "segment": "Femoral_Neck_bone_area",
+      "image_sha256": "47a670b6e075ee8a9144930a9fa6c73db4e15b55d3ceaadc2a4633eadaec2e2b",
+      "reference_sha256": "82737162fe3bda403b9cf2507a6c7bab8a0cb7ab04f3ce0b5f3657852a626792",
+      "oracle_box_xyxy": [
+        96,
+        102,
+        168,
+        178
+      ],
+      "lite_medsam": {
+        "dice": 0.8833880107366537,
+        "iou": 0.7911324786324786,
+        "reference_pixels": 1824,
+        "predicted_pixels": 1529
+      },
+      "filled_box_baseline": {
+        "dice": 0.5,
+        "iou": 0.3333333333333333,
+        "reference_pixels": 1824,
+        "predicted_pixels": 5472
+      },
+      "model_predicted_iou": 0.6886042356491089,
+      "inference_seconds": 1.2155
+    },
+    {
+      "patient_sha256": "707b04df356a78990ef91862af70512a4a9abe612d9181b75fd33a1d2e7ed447",
+      "region": "hip",
+      "segment": "Femoral_Total_bone_area",
+      "image_sha256": "47a670b6e075ee8a9144930a9fa6c73db4e15b55d3ceaadc2a4633eadaec2e2b",
+      "reference_sha256": "82737162fe3bda403b9cf2507a6c7bab8a0cb7ab04f3ce0b5f3657852a626792",
+      "oracle_box_xyxy": [
+        39,
+        61,
+        236,
+        246
+      ],
+      "lite_medsam": {
+        "dice": 0.5613810426773709,
+        "iou": 0.3902221917902017,
+        "reference_pixels": 23062,
+        "predicted_pixels": 17545
+      },
+      "filled_box_baseline": {
+        "dice": 0.7751020888298855,
+        "iou": 0.6327891343119769,
+        "reference_pixels": 23062,
+        "predicted_pixels": 36445
+      },
+      "model_predicted_iou": 0.8460622429847717,
+      "inference_seconds": 1.2327
+    },
+    {
+      "patient_sha256": "2edec7f3207b2802cf5fad3ad50d85947e69a62ab7d4230c0f7be3ebdbfd3b2c",
+      "region": "spine",
+      "segment": "Lumbar_1_bone_area",
+      "image_sha256": "f5c1a88aee653f2832ef243e54e9c08ce6f4f4f7306d2ab84b0bc28ff60aae51",
+      "reference_sha256": "178f031caa45bda31e8c37614ec17f4ecf69580353fbc7bc6112cb7fe35cb48f",
+      "oracle_box_xyxy": [
+        86,
+        66,
+        180,
+        130
+      ],
+      "lite_medsam": {
+        "dice": 0.9765986735076961,
+        "iou": 0.954267547077525,
+        "reference_pixels": 3957,
+        "predicted_pixels": 4034
+      },
+      "filled_box_baseline": {
+        "dice": 0.7935425649252983,
+        "iou": 0.6577460106382979,
+        "reference_pixels": 3957,
+        "predicted_pixels": 6016
+      },
+      "model_predicted_iou": 0.9212419986724854,
+      "inference_seconds": 1.1926
+    },
+    {
+      "patient_sha256": "2edec7f3207b2802cf5fad3ad50d85947e69a62ab7d4230c0f7be3ebdbfd3b2c",
+      "region": "spine",
+      "segment": "Lumbar_2_bone_area",
+      "image_sha256": "f5c1a88aee653f2832ef243e54e9c08ce6f4f4f7306d2ab84b0bc28ff60aae51",
+      "reference_sha256": "178f031caa45bda31e8c37614ec17f4ecf69580353fbc7bc6112cb7fe35cb48f",
+      "oracle_box_xyxy": [
+        94,
+        117,
+        192,
+        188
+      ],
+      "lite_medsam": {
+        "dice": 0.9275739644970414,
+        "iou": 0.864930478922975,
+        "reference_pixels": 4525,
+        "predicted_pixels": 3925
+      },
+      "filled_box_baseline": {
+        "dice": 0.7881215710180266,
+        "iou": 0.6503305547571141,
+        "reference_pixels": 4525,
+        "predicted_pixels": 6958
+      },
+      "model_predicted_iou": 0.9081326723098755,
+      "inference_seconds": 1.216
+    },
+    {
+      "patient_sha256": "2edec7f3207b2802cf5fad3ad50d85947e69a62ab7d4230c0f7be3ebdbfd3b2c",
+      "region": "spine",
+      "segment": "Lumbar_3_bone_area",
+      "image_sha256": "f5c1a88aee653f2832ef243e54e9c08ce6f4f4f7306d2ab84b0bc28ff60aae51",
+      "reference_sha256": "178f031caa45bda31e8c37614ec17f4ecf69580353fbc7bc6112cb7fe35cb48f",
+      "oracle_box_xyxy": [
+        96,
+        180,
+        196,
+        248
+      ],
+      "lite_medsam": {
+        "dice": 0.9200500398043898,
+        "iou": 0.8519376579612469,
+        "reference_pixels": 4736,
+        "predicted_pixels": 4057
+      },
+      "filled_box_baseline": {
+        "dice": 0.8210818307905686,
+        "iou": 0.6964705882352941,
+        "reference_pixels": 4736,
+        "predicted_pixels": 6800
+      },
+      "model_predicted_iou": 0.8958690166473389,
+      "inference_seconds": 1.1811
+    },
+    {
+      "patient_sha256": "2edec7f3207b2802cf5fad3ad50d85947e69a62ab7d4230c0f7be3ebdbfd3b2c",
+      "region": "spine",
+      "segment": "Lumbar_4_bone_area",
+      "image_sha256": "f5c1a88aee653f2832ef243e54e9c08ce6f4f4f7306d2ab84b0bc28ff60aae51",
+      "reference_sha256": "178f031caa45bda31e8c37614ec17f4ecf69580353fbc7bc6112cb7fe35cb48f",
+      "oracle_box_xyxy": [
+        84,
+        238,
+        188,
+        310
+      ],
+      "lite_medsam": {
+        "dice": 0.9529436152570481,
+        "iou": 0.9101168085527618,
+        "reference_pixels": 4914,
+        "predicted_pixels": 4734
+      },
+      "filled_box_baseline": {
+        "dice": 0.7924528301886793,
+        "iou": 0.65625,
+        "reference_pixels": 4914,
+        "predicted_pixels": 7488
+      },
+      "model_predicted_iou": 0.9083507061004639,
+      "inference_seconds": 1.2274
+    },
+    {
+      "patient_sha256": "2edec7f3207b2802cf5fad3ad50d85947e69a62ab7d4230c0f7be3ebdbfd3b2c",
+      "region": "hip",
+      "segment": "Femoral_Neck_bone_area",
+      "image_sha256": "b96d1065a762518e6371b576f4168857a4f2f3275beaeabdc802c640232e1ab3",
+      "reference_sha256": "75b0b137cfc57cf4d168b2e652d820250165bd3f2650465b4bb7c002541b07aa",
+      "oracle_box_xyxy": [
+        92,
+        115,
+        163,
+        193
+      ],
+      "lite_medsam": {
+        "dice": 0.7683715461493239,
+        "iou": 0.6238663484486874,
+        "reference_pixels": 1863,
+        "predicted_pixels": 1539
+      },
+      "filled_box_baseline": {
+        "dice": 0.5034454803404945,
+        "iou": 0.33640303358613216,
+        "reference_pixels": 1863,
+        "predicted_pixels": 5538
+      },
+      "model_predicted_iou": 0.6320931315422058,
+      "inference_seconds": 1.2271
+    },
+    {
+      "patient_sha256": "2edec7f3207b2802cf5fad3ad50d85947e69a62ab7d4230c0f7be3ebdbfd3b2c",
+      "region": "hip",
+      "segment": "Femoral_Total_bone_area",
+      "image_sha256": "b96d1065a762518e6371b576f4168857a4f2f3275beaeabdc802c640232e1ab3",
+      "reference_sha256": "75b0b137cfc57cf4d168b2e652d820250165bd3f2650465b4bb7c002541b07aa",
+      "oracle_box_xyxy": [
+        33,
+        73,
+        224,
+        288
+      ],
+      "lite_medsam": {
+        "dice": 0.6249128244866331,
+        "iou": 0.4544532416669015,
+        "reference_pixels": 28121,
+        "predicted_pixels": 23499
+      },
+      "filled_box_baseline": {
+        "dice": 0.8129101263261354,
+        "iou": 0.6847924022890539,
+        "reference_pixels": 28121,
+        "predicted_pixels": 41065
+      },
+      "model_predicted_iou": 0.9095366597175598,
+      "inference_seconds": 1.249
+    },
+    {
+      "patient_sha256": "c0a4fadcfe6a910260d6fc8fba0304f269271b4d970a126058cde23e7ed6b8ea",
+      "region": "spine",
+      "segment": "Lumbar_1_bone_area",
+      "image_sha256": "95deb11d954eb9b42d06e2fa2c4f900e35a9d9716bf3bd725dc805be51f689f5",
+      "reference_sha256": "77852523c91cf1e38ea88d3d362b512b7e235b9e1548a38dfd991e32a2045c78",
+      "oracle_box_xyxy": [
+        74,
+        90,
+        164,
+        150
+      ],
+      "lite_medsam": {
+        "dice": 0.7120291616038882,
+        "iou": 0.5528301886792453,
+        "reference_pixels": 3699,
+        "predicted_pixels": 2062
+      },
+      "filled_box_baseline": {
+        "dice": 0.8130563798219584,
+        "iou": 0.685,
+        "reference_pixels": 3699,
+        "predicted_pixels": 5400
+      },
+      "model_predicted_iou": 0.544504702091217,
+      "inference_seconds": 1.2271
+    },
+    {
+      "patient_sha256": "c0a4fadcfe6a910260d6fc8fba0304f269271b4d970a126058cde23e7ed6b8ea",
+      "region": "spine",
+      "segment": "Lumbar_2_bone_area",
+      "image_sha256": "95deb11d954eb9b42d06e2fa2c4f900e35a9d9716bf3bd725dc805be51f689f5",
+      "reference_sha256": "77852523c91cf1e38ea88d3d362b512b7e235b9e1548a38dfd991e32a2045c78",
+      "oracle_box_xyxy": [
+        76,
+        140,
+        170,
+        200
+      ],
+      "lite_medsam": {
+        "dice": 0.6527211487324942,
+        "iou": 0.48447368421052633,
+        "reference_pixels": 3769,
+        "predicted_pixels": 1872
+      },
+      "filled_box_baseline": {
+        "dice": 0.8011478371771708,
+        "iou": 0.6682624113475177,
+        "reference_pixels": 3769,
+        "predicted_pixels": 5640
+      },
+      "model_predicted_iou": 0.5848618745803833,
+      "inference_seconds": 1.2579
+    },
+    {
+      "patient_sha256": "c0a4fadcfe6a910260d6fc8fba0304f269271b4d970a126058cde23e7ed6b8ea",
+      "region": "spine",
+      "segment": "Lumbar_3_bone_area",
+      "image_sha256": "95deb11d954eb9b42d06e2fa2c4f900e35a9d9716bf3bd725dc805be51f689f5",
+      "reference_sha256": "77852523c91cf1e38ea88d3d362b512b7e235b9e1548a38dfd991e32a2045c78",
+      "oracle_box_xyxy": [
+        75,
+        189,
+        169,
+        251
+      ],
+      "lite_medsam": {
+        "dice": 0.7027115321790265,
+        "iou": 0.5416771594056913,
+        "reference_pixels": 3926,
+        "predicted_pixels": 2196
+      },
+      "filled_box_baseline": {
+        "dice": 0.8050030756612672,
+        "iou": 0.6736444749485244,
+        "reference_pixels": 3926,
+        "predicted_pixels": 5828
+      },
+      "model_predicted_iou": 0.5654625296592712,
+      "inference_seconds": 1.2908
+    },
+    {
+      "patient_sha256": "c0a4fadcfe6a910260d6fc8fba0304f269271b4d970a126058cde23e7ed6b8ea",
+      "region": "spine",
+      "segment": "Lumbar_4_bone_area",
+      "image_sha256": "95deb11d954eb9b42d06e2fa2c4f900e35a9d9716bf3bd725dc805be51f689f5",
+      "reference_sha256": "77852523c91cf1e38ea88d3d362b512b7e235b9e1548a38dfd991e32a2045c78",
+      "oracle_box_xyxy": [
+        80,
+        240,
+        178,
+        306
+      ],
+      "lite_medsam": {
+        "dice": 0.8588688946015424,
+        "iou": 0.7526469925658932,
+        "reference_pixels": 4439,
+        "predicted_pixels": 3341
+      },
+      "filled_box_baseline": {
+        "dice": 0.8139726780966352,
+        "iou": 0.6863017934446506,
+        "reference_pixels": 4439,
+        "predicted_pixels": 6468
+      },
+      "model_predicted_iou": 0.779984176158905,
+      "inference_seconds": 1.246
+    },
+    {
+      "patient_sha256": "c0a4fadcfe6a910260d6fc8fba0304f269271b4d970a126058cde23e7ed6b8ea",
+      "region": "hip",
+      "segment": "Femoral_Neck_bone_area",
+      "image_sha256": "010559a81f8c2e05b5070aac0ac9885fd95127b30be3a01eeb449f9c9a665f8d",
+      "reference_sha256": "a696932261840191d85b6193aa24d18d90a3c0811cacdccc81a85db705b4d75a",
+      "oracle_box_xyxy": [
+        81,
+        108,
+        142,
+        176
+      ],
+      "lite_medsam": {
+        "dice": 0.540140584535701,
+        "iou": 0.3699949315762798,
+        "reference_pixels": 1308,
+        "predicted_pixels": 1395
+      },
+      "filled_box_baseline": {
+        "dice": 0.47947214076246336,
+        "iou": 0.3153326904532305,
+        "reference_pixels": 1308,
+        "predicted_pixels": 4148
+      },
+      "model_predicted_iou": 0.7351617813110352,
+      "inference_seconds": 1.239
+    },
+    {
+      "patient_sha256": "c0a4fadcfe6a910260d6fc8fba0304f269271b4d970a126058cde23e7ed6b8ea",
+      "region": "hip",
+      "segment": "Femoral_Total_bone_area",
+      "image_sha256": "010559a81f8c2e05b5070aac0ac9885fd95127b30be3a01eeb449f9c9a665f8d",
+      "reference_sha256": "a696932261840191d85b6193aa24d18d90a3c0811cacdccc81a85db705b4d75a",
+      "oracle_box_xyxy": [
+        27,
+        64,
+        210,
+        253
+      ],
+      "lite_medsam": {
+        "dice": 0.5033611031312841,
+        "iou": 0.3363276901224615,
+        "reference_pixels": 21362,
+        "predicted_pixels": 13448
+      },
+      "filled_box_baseline": {
+        "dice": 0.7636240147276985,
+        "iou": 0.6176309017839072,
+        "reference_pixels": 21362,
+        "predicted_pixels": 34587
+      },
+      "model_predicted_iou": 0.8917099833488464,
+      "inference_seconds": 1.2419
+    },
+    {
+      "patient_sha256": "eeaf03cb927a150c62b8a5c27d056faff7b31e5268b11df533febb150b96e292",
+      "region": "spine",
+      "segment": "Lumbar_1_bone_area",
+      "image_sha256": "cb8bb4d524250ef9149339132fa82ca66a4e7032be478fbc222648f0e7543c35",
+      "reference_sha256": "8006816a09ff8546ac36ec04abbefff959febc116a36c7c8d53b687a5075ee6e",
+      "oracle_box_xyxy": [
+        56,
+        100,
+        156,
+        174
+      ],
+      "lite_medsam": {
+        "dice": 0.8970015781167806,
+        "iou": 0.8132392216711178,
+        "reference_pixels": 5216,
+        "predicted_pixels": 4289
+      },
+      "filled_box_baseline": {
+        "dice": 0.8268864933417882,
+        "iou": 0.7048648648648649,
+        "reference_pixels": 5216,
+        "predicted_pixels": 7400
+      },
+      "model_predicted_iou": 0.6823272109031677,
+      "inference_seconds": 1.2052
+    },
+    {
+      "patient_sha256": "eeaf03cb927a150c62b8a5c27d056faff7b31e5268b11df533febb150b96e292",
+      "region": "spine",
+      "segment": "Lumbar_2_bone_area",
+      "image_sha256": "cb8bb4d524250ef9149339132fa82ca66a4e7032be478fbc222648f0e7543c35",
+      "reference_sha256": "8006816a09ff8546ac36ec04abbefff959febc116a36c7c8d53b687a5075ee6e",
+      "oracle_box_xyxy": [
+        50,
+        164,
+        159,
+        238
+      ],
+      "lite_medsam": {
+        "dice": 0.5563454449710374,
+        "iou": 0.38537297100127665,
+        "reference_pixels": 5483,
+        "predicted_pixels": 2113
+      },
+      "filled_box_baseline": {
+        "dice": 0.8093586242527123,
+        "iou": 0.6797669228861889,
+        "reference_pixels": 5483,
+        "predicted_pixels": 8066
+      },
+      "model_predicted_iou": 0.5325334668159485,
+      "inference_seconds": 1.2214
+    },
+    {
+      "patient_sha256": "eeaf03cb927a150c62b8a5c27d056faff7b31e5268b11df533febb150b96e292",
+      "region": "spine",
+      "segment": "Lumbar_3_bone_area",
+      "image_sha256": "cb8bb4d524250ef9149339132fa82ca66a4e7032be478fbc222648f0e7543c35",
+      "reference_sha256": "8006816a09ff8546ac36ec04abbefff959febc116a36c7c8d53b687a5075ee6e",
+      "oracle_box_xyxy": [
+        48,
+        222,
+        172,
+        295
+      ],
+      "lite_medsam": {
+        "dice": 0.9128205128205128,
+        "iou": 0.839622641509434,
+        "reference_pixels": 5467,
+        "predicted_pixels": 5648
+      },
+      "filled_box_baseline": {
+        "dice": 0.7530821681934018,
+        "iou": 0.6039549270879364,
+        "reference_pixels": 5467,
+        "predicted_pixels": 9052
+      },
+      "model_predicted_iou": 0.6648074984550476,
+      "inference_seconds": 1.2037
+    },
+    {
+      "patient_sha256": "eeaf03cb927a150c62b8a5c27d056faff7b31e5268b11df533febb150b96e292",
+      "region": "spine",
+      "segment": "Lumbar_4_bone_area",
+      "image_sha256": "cb8bb4d524250ef9149339132fa82ca66a4e7032be478fbc222648f0e7543c35",
+      "reference_sha256": "8006816a09ff8546ac36ec04abbefff959febc116a36c7c8d53b687a5075ee6e",
+      "oracle_box_xyxy": [
+        58,
+        270,
+        190,
+        340
+      ],
+      "lite_medsam": {
+        "dice": 0.9459556836606017,
+        "iou": 0.8974534267646556,
+        "reference_pixels": 5368,
+        "predicted_pixels": 5734
+      },
+      "filled_box_baseline": {
+        "dice": 0.7349397590361446,
+        "iou": 0.580952380952381,
+        "reference_pixels": 5368,
+        "predicted_pixels": 9240
+      },
+      "model_predicted_iou": 0.8562495708465576,
+      "inference_seconds": 1.2067
+    },
+    {
+      "patient_sha256": "eeaf03cb927a150c62b8a5c27d056faff7b31e5268b11df533febb150b96e292",
+      "region": "hip",
+      "segment": "Femoral_Neck_bone_area",
+      "image_sha256": "e7fb86d557435014e5859267c1e39982c017931c2325cafe5ef0aa47bb770e3c",
+      "reference_sha256": "72b49fe20464c4bd376d3c0bfd2a3aec4d5b8a98e9556cd0b115874e8c43a075",
+      "oracle_box_xyxy": [
+        87,
+        105,
+        154,
+        189
+      ],
+      "lite_medsam": {
+        "dice": 0.6950477845351868,
+        "iou": 0.5326231691078562,
+        "reference_pixels": 1922,
+        "predicted_pixels": 2682
+      },
+      "filled_box_baseline": {
+        "dice": 0.5091390728476821,
+        "iou": 0.34150675195451313,
+        "reference_pixels": 1922,
+        "predicted_pixels": 5628
+      },
+      "model_predicted_iou": 0.7450411915779114,
+      "inference_seconds": 1.2314
+    },
+    {
+      "patient_sha256": "eeaf03cb927a150c62b8a5c27d056faff7b31e5268b11df533febb150b96e292",
+      "region": "hip",
+      "segment": "Femoral_Total_bone_area",
+      "image_sha256": "e7fb86d557435014e5859267c1e39982c017931c2325cafe5ef0aa47bb770e3c",
+      "reference_sha256": "72b49fe20464c4bd376d3c0bfd2a3aec4d5b8a98e9556cd0b115874e8c43a075",
+      "oracle_box_xyxy": [
+        19,
+        64,
+        224,
+        295
+      ],
+      "lite_medsam": {
+        "dice": 0.6042575744192209,
+        "iou": 0.43292914462192744,
+        "reference_pixels": 32252,
+        "predicted_pixels": 24353
+      },
+      "filled_box_baseline": {
+        "dice": 0.8102805029708443,
+        "iou": 0.681068524970964,
+        "reference_pixels": 32252,
+        "predicted_pixels": 47355
+      },
+      "model_predicted_iou": 0.9421865344047546,
+      "inference_seconds": 1.2222
+    },
+    {
+      "patient_sha256": "1b235e024cafdbe0276857da99dd5f05344376e06c77d724c065c6aa1e816ae0",
+      "region": "spine",
+      "segment": "Lumbar_1_bone_area",
+      "image_sha256": "19e8df1fc8a68fdf0cf6d5ea3a91f1c77c2efb62b037d41bbffbad8563d74bb4",
+      "reference_sha256": "32bb3113d8d70bde397006d12137bf437218508b320b60008e78ccbdcaaa3e6a",
+      "oracle_box_xyxy": [
+        82,
+        70,
+        182,
+        132
+      ],
+      "lite_medsam": {
+        "dice": 0.932993445010925,
+        "iou": 0.8744027303754266,
+        "reference_pixels": 4349,
+        "predicted_pixels": 3889
+      },
+      "filled_box_baseline": {
+        "dice": 0.8245331311024742,
+        "iou": 0.7014516129032258,
+        "reference_pixels": 4349,
+        "predicted_pixels": 6200
+      },
+      "model_predicted_iou": 0.8758403062820435,
+      "inference_seconds": 1.2278
+    },
+    {
+      "patient_sha256": "1b235e024cafdbe0276857da99dd5f05344376e06c77d724c065c6aa1e816ae0",
+      "region": "spine",
+      "segment": "Lumbar_2_bone_area",
+      "image_sha256": "19e8df1fc8a68fdf0cf6d5ea3a91f1c77c2efb62b037d41bbffbad8563d74bb4",
+      "reference_sha256": "32bb3113d8d70bde397006d12137bf437218508b320b60008e78ccbdcaaa3e6a",
+      "oracle_box_xyxy": [
+        84,
+        124,
+        184,
+        198
+      ],
+      "lite_medsam": {
+        "dice": 0.9014084507042254,
+        "iou": 0.8205128205128205,
+        "reference_pixels": 5462,
+        "predicted_pixels": 4762
+      },
+      "filled_box_baseline": {
+        "dice": 0.8493235888664282,
+        "iou": 0.7381081081081081,
+        "reference_pixels": 5462,
+        "predicted_pixels": 7400
+      },
+      "model_predicted_iou": 0.820758044719696,
+      "inference_seconds": 1.2717
+    },
+    {
+      "patient_sha256": "1b235e024cafdbe0276857da99dd5f05344376e06c77d724c065c6aa1e816ae0",
+      "region": "spine",
+      "segment": "Lumbar_3_bone_area",
+      "image_sha256": "19e8df1fc8a68fdf0cf6d5ea3a91f1c77c2efb62b037d41bbffbad8563d74bb4",
+      "reference_sha256": "32bb3113d8d70bde397006d12137bf437218508b320b60008e78ccbdcaaa3e6a",
+      "oracle_box_xyxy": [
+        82,
+        190,
+        184,
+        262
+      ],
+      "lite_medsam": {
+        "dice": 0.8715186013417361,
+        "iou": 0.7722932804900018,
+        "reference_pixels": 5359,
+        "predicted_pixels": 4479
+      },
+      "filled_box_baseline": {
+        "dice": 0.8437376997559631,
+        "iou": 0.7297113289760349,
+        "reference_pixels": 5359,
+        "predicted_pixels": 7344
+      },
+      "model_predicted_iou": 0.8594464063644409,
+      "inference_seconds": 1.2601
+    },
+    {
+      "patient_sha256": "1b235e024cafdbe0276857da99dd5f05344376e06c77d724c065c6aa1e816ae0",
+      "region": "spine",
+      "segment": "Lumbar_4_bone_area",
+      "image_sha256": "19e8df1fc8a68fdf0cf6d5ea3a91f1c77c2efb62b037d41bbffbad8563d74bb4",
+      "reference_sha256": "32bb3113d8d70bde397006d12137bf437218508b320b60008e78ccbdcaaa3e6a",
+      "oracle_box_xyxy": [
+        78,
+        254,
+        190,
+        322
+      ],
+      "lite_medsam": {
+        "dice": 0.8816264487934639,
+        "iou": 0.7883112470268434,
+        "reference_pixels": 5615,
+        "predicted_pixels": 4911
+      },
+      "filled_box_baseline": {
+        "dice": 0.8487642657395511,
+        "iou": 0.7372636554621849,
+        "reference_pixels": 5615,
+        "predicted_pixels": 7616
+      },
+      "model_predicted_iou": 0.8223711848258972,
+      "inference_seconds": 1.2046
+    },
+    {
+      "patient_sha256": "1b235e024cafdbe0276857da99dd5f05344376e06c77d724c065c6aa1e816ae0",
+      "region": "hip",
+      "segment": "Femoral_Neck_bone_area",
+      "image_sha256": "47ff18ac968e30c95356056d4dc659a85fb2efc866979193bfb8d9153c94b098",
+      "reference_sha256": "c61c1b2875287edd05930479e8646775689304242cb776e6eb20eb4cfa33b6f3",
+      "oracle_box_xyxy": [
+        88,
+        107,
+        162,
+        180
+      ],
+      "lite_medsam": {
+        "dice": 0.8918518518518519,
+        "iou": 0.8048128342245989,
+        "reference_pixels": 1863,
+        "predicted_pixels": 1512
+      },
+      "filled_box_baseline": {
+        "dice": 0.512869924294563,
+        "iou": 0.34487226952980377,
+        "reference_pixels": 1863,
+        "predicted_pixels": 5402
+      },
+      "model_predicted_iou": 0.7429971098899841,
+      "inference_seconds": 1.2096
+    },
+    {
+      "patient_sha256": "1b235e024cafdbe0276857da99dd5f05344376e06c77d724c065c6aa1e816ae0",
+      "region": "hip",
+      "segment": "Femoral_Total_bone_area",
+      "image_sha256": "47ff18ac968e30c95356056d4dc659a85fb2efc866979193bfb8d9153c94b098",
+      "reference_sha256": "c61c1b2875287edd05930479e8646775689304242cb776e6eb20eb4cfa33b6f3",
+      "oracle_box_xyxy": [
+        31,
+        58,
+        228,
+        281
+      ],
+      "lite_medsam": {
+        "dice": 0.52484364808349,
+        "iou": 0.35578848804848234,
+        "reference_pixels": 30892,
+        "predicted_pixels": 21234
+      },
+      "filled_box_baseline": {
+        "dice": 0.8257354022158961,
+        "iou": 0.7031936445789989,
+        "reference_pixels": 30892,
+        "predicted_pixels": 43931
+      },
+      "model_predicted_iou": 0.9124937653541565,
+      "inference_seconds": 1.2256
+    },
+    {
+      "patient_sha256": "c1d17b87a5a3905071d821268e78cd9f8b4741d3162de825054ef9d0543b5116",
+      "region": "spine",
+      "segment": "Lumbar_1_bone_area",
+      "image_sha256": "1027c1296748c99ece0278dd9bd2f62d1302f32703fb2daedace434ba29fb908",
+      "reference_sha256": "cb614af21ded335aed7088d6083d7ded498dde05a0761c0b37f544fe5d7ba661",
+      "oracle_box_xyxy": [
+        87,
+        78,
+        178,
+        150
+      ],
+      "lite_medsam": {
+        "dice": 0.9497860842152668,
+        "iou": 0.9043739279588336,
+        "reference_pixels": 4646,
+        "predicted_pixels": 4236
+      },
+      "filled_box_baseline": {
+        "dice": 0.8297910341132345,
+        "iou": 0.7090964590964591,
+        "reference_pixels": 4646,
+        "predicted_pixels": 6552
+      },
+      "model_predicted_iou": 0.9040233492851257,
+      "inference_seconds": 1.2269
+    },
+    {
+      "patient_sha256": "c1d17b87a5a3905071d821268e78cd9f8b4741d3162de825054ef9d0543b5116",
+      "region": "spine",
+      "segment": "Lumbar_2_bone_area",
+      "image_sha256": "1027c1296748c99ece0278dd9bd2f62d1302f32703fb2daedace434ba29fb908",
+      "reference_sha256": "cb614af21ded335aed7088d6083d7ded498dde05a0761c0b37f544fe5d7ba661",
+      "oracle_box_xyxy": [
+        85,
+        142,
+        178,
+        212
+      ],
+      "lite_medsam": {
+        "dice": 0.7228949199721643,
+        "iou": 0.5660418482999128,
+        "reference_pixels": 4588,
+        "predicted_pixels": 2597
+      },
+      "filled_box_baseline": {
+        "dice": 0.8268156424581006,
+        "iou": 0.7047619047619048,
+        "reference_pixels": 4588,
+        "predicted_pixels": 6510
+      },
+      "model_predicted_iou": 0.7801946401596069,
+      "inference_seconds": 1.2092
+    },
+    {
+      "patient_sha256": "c1d17b87a5a3905071d821268e78cd9f8b4741d3162de825054ef9d0543b5116",
+      "region": "spine",
+      "segment": "Lumbar_3_bone_area",
+      "image_sha256": "1027c1296748c99ece0278dd9bd2f62d1302f32703fb2daedace434ba29fb908",
+      "reference_sha256": "cb614af21ded335aed7088d6083d7ded498dde05a0761c0b37f544fe5d7ba661",
+      "oracle_box_xyxy": [
+        88,
+        204,
+        180,
+        276
+      ],
+      "lite_medsam": {
+        "dice": 0.8252868068833652,
+        "iou": 0.7025432349949136,
+        "reference_pixels": 4915,
+        "predicted_pixels": 3453
+      },
+      "filled_box_baseline": {
+        "dice": 0.8518935782996794,
+        "iou": 0.7419987922705314,
+        "reference_pixels": 4915,
+        "predicted_pixels": 6624
+      },
+      "model_predicted_iou": 0.8054086565971375,
+      "inference_seconds": 1.2099
+    },
+    {
+      "patient_sha256": "c1d17b87a5a3905071d821268e78cd9f8b4741d3162de825054ef9d0543b5116",
+      "region": "spine",
+      "segment": "Lumbar_4_bone_area",
+      "image_sha256": "1027c1296748c99ece0278dd9bd2f62d1302f32703fb2daedace434ba29fb908",
+      "reference_sha256": "cb614af21ded335aed7088d6083d7ded498dde05a0761c0b37f544fe5d7ba661",
+      "oracle_box_xyxy": [
+        83,
+        268,
+        182,
+        350
+      ],
+      "lite_medsam": {
+        "dice": 0.9178752719361857,
+        "iou": 0.8482157815379461,
+        "reference_pixels": 5859,
+        "predicted_pixels": 5173
+      },
+      "filled_box_baseline": {
+        "dice": 0.8383773341918866,
+        "iou": 0.7217294900221729,
+        "reference_pixels": 5859,
+        "predicted_pixels": 8118
+      },
+      "model_predicted_iou": 0.8796950578689575,
+      "inference_seconds": 1.197
+    },
+    {
+      "patient_sha256": "c1d17b87a5a3905071d821268e78cd9f8b4741d3162de825054ef9d0543b5116",
+      "region": "hip",
+      "segment": "Femoral_Neck_bone_area",
+      "image_sha256": "59c22080ed17fc639a8cc89782497e0b9c2b308af842dde7c272ffb02975cb88",
+      "reference_sha256": "24fafa0b41e2566d61c3fb108cf178a9d6e873979443ce0b0ba25ef0a043f25d",
+      "oracle_box_xyxy": [
+        93,
+        111,
+        161,
+        189
+      ],
+      "lite_medsam": {
+        "dice": 0.6084638453848717,
+        "iou": 0.43726053639846746,
+        "reference_pixels": 1812,
+        "predicted_pixels": 1189
+      },
+      "filled_box_baseline": {
+        "dice": 0.5092748735244519,
+        "iou": 0.3416289592760181,
+        "reference_pixels": 1812,
+        "predicted_pixels": 5304
+      },
+      "model_predicted_iou": 0.6978243589401245,
+      "inference_seconds": 1.2219
+    },
+    {
+      "patient_sha256": "c1d17b87a5a3905071d821268e78cd9f8b4741d3162de825054ef9d0543b5116",
+      "region": "hip",
+      "segment": "Femoral_Total_bone_area",
+      "image_sha256": "59c22080ed17fc639a8cc89782497e0b9c2b308af842dde7c272ffb02975cb88",
+      "reference_sha256": "24fafa0b41e2566d61c3fb108cf178a9d6e873979443ce0b0ba25ef0a043f25d",
+      "oracle_box_xyxy": [
+        29,
+        61,
+        222,
+        280
+      ],
+      "lite_medsam": {
+        "dice": 0.5932247323191036,
+        "iou": 0.42169118689230944,
+        "reference_pixels": 27778,
+        "predicted_pixels": 22375
+      },
+      "filled_box_baseline": {
+        "dice": 0.7931472624741238,
+        "iou": 0.6572030189036364,
+        "reference_pixels": 27778,
+        "predicted_pixels": 42267
+      },
+      "model_predicted_iou": 0.9165584444999695,
+      "inference_seconds": 1.289
+    }
+  ]
+}

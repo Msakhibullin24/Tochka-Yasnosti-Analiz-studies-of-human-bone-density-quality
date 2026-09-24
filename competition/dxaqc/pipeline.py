@@ -164,9 +164,18 @@ class Analyzer:
         torch.set_num_threads(max(1, min(8, os.cpu_count() or 1)))
         self.bundle = bundle or load_bundle()
         self.specialist = None
+        self.specialist_portfolio = None
+        if os.environ.get('DXAQC_SPECIALIST_PATH') and os.environ.get('DXAQC_SPECIALIST_PORTFOLIO'):
+            raise ValueError('Configure either one legacy specialist or an independent portfolio')
         if os.environ.get('DXAQC_SPECIALIST_PATH'):
             from .specialist_qc import load_specialist
-            self.specialist = load_specialist(Path(os.environ['DXAQC_SPECIALIST_PATH']))
+            legacy_path = Path(os.environ['DXAQC_SPECIALIST_PATH'])
+            if (legacy_path / 'portfolio.json').is_file():
+                raise ValueError('Use DXAQC_SPECIALIST_PORTFOLIO for independent model outputs')
+            self.specialist = load_specialist(legacy_path)
+        if os.environ.get('DXAQC_SPECIALIST_PORTFOLIO'):
+            from .specialist_qc import IndependentSpecialists
+            self.specialist_portfolio = IndependentSpecialists(Path(os.environ['DXAQC_SPECIALIST_PORTFOLIO']))
 
     def analyze(self, img: DxaImage) -> dict:
         from .embedding import embed
@@ -193,6 +202,8 @@ class Analyzer:
             except (ValueError, RuntimeError) as exc:
                 result['specialist_qc'] = {'mode': 'shadow', 'status': 'unavailable',
                                            'affects_decision': False, 'error': str(exc)[:200]}
+        if self.specialist_portfolio is not None:
+            result['specialist_outputs'] = self.specialist_portfolio.predict(img.pixels, region)
         return result
 
 
@@ -272,6 +283,7 @@ def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyz
                 "violation_type_status": res["violation_type_status"],
                 "review_reasons": json.dumps(res["review_reasons"], ensure_ascii=False),
                 "specialist_qc": json.dumps(res.get('specialist_qc'), ensure_ascii=False),
+                "specialist_outputs": json.dumps(res.get('specialist_outputs'), ensure_ascii=False),
                 "image_width": img.pixels.shape[1],
                 "image_height": img.pixels.shape[0],
                 "anatomical_region": REGION_LABEL[res["region"]],

@@ -1,8 +1,33 @@
 # Перенос на RTX 5090 и подготовка обучения
 
+**Обновление 24.09.2026:** конкурсный контур теперь находится в `competition/`.
+Три [независимые QC-модели](../competition/docs/INDEPENDENT_MODELS.md) уже обучены и
+поставляются раздельно. [`competition/train_specialist.py`](../competition/train_specialist.py)
+поддерживает `--device cuda` и `--device auto`; экспортируемый TorchScript остаётся
+загружаемым на CPU. Ниже сохранена историческая инструкция для старого `backend/`.
+Реальный запуск и скорость на RTX 5090 пока не проверены. Не устанавливайте
+`competition/requirements-specialists-lock.txt` целиком поверх CUDA-окружения:
+он содержит CPU-версии `torch` и `torchvision`.
+
+После подготовки совместимого CUDA-окружения сначала проверьте один неизменяемый
+эксперимент на целевой машине. Каждая модель сохраняет собственный encoder и head:
+
+```sh
+PYTHONPATH=competition /path/to/cuda-python competition/train_specialist.py \
+  --dataset /absolute/Исследования \
+  --weights /absolute/convnextv2_tiny.safetensors \
+  --backbone convnextv2_tiny --region spine --train-mode last-stage \
+  --device cuda --output data/specialists/runs/spine-cuda-candidate
+```
+
+Путь `--weights` должен указывать на checkpoint с SHA-256 из
+`docs/competition/specialist_sources.json`. Перед обучением перенесите исходные DICOM,
+веса и замороженную разметку. Новый результат остаётся `shadow`; сравнивайте его с
+текущим baseline на одинаковых разбиениях и не выбирайте модель по старому 46-снимочному test.
+
 ## Статус
 
-RTX 5090 находится на другой машине; доступа к ней в текущей сессии нет. На текущей машине проверен CPU forward/backward тест и выполнен вспомогательный study-level baseline; см. [результаты](EXTERNAL_DATASETS_VERIFIED_RU.md). GPU-инструкция подготовлена, но её выполнение на 5090 и скорость обучения пока не проверены. Полноценный train-loop конкурсного классификатора следует реализовать после подготовки подтверждённых меток; приведённая ниже команда не обучает модель качества.
+RTX 5090 находится на другой машине; доступа к ней в текущей сессии нет. На текущей машине проверен CPU forward/backward тест и выполнен вспомогательный study-level baseline; см. [результаты](EXTERNAL_DATASETS_VERIFIED_RU.md). GPU-инструкция подготовлена, но её выполнение на 5090 и скорость обучения пока не проверены. Историческая команда ниже относится к старому `backend/`; действующий тренер независимых QC-специалистов указан выше.
 
 ## Окружение
 

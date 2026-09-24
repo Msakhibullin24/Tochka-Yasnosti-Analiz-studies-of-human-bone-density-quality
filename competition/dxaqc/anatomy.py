@@ -254,6 +254,8 @@ def image_assessment(img, result):
             'complete': False, 'version': '3'}
     if 'specialist_qc' in result:
         assessment['specialist_qc'] = result['specialist_qc']
+    if 'specialist_outputs' in result:
+        assessment['specialist_outputs'] = result['specialist_outputs']
     return assessment
 
 

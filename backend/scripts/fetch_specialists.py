@@ -77,10 +77,26 @@ def extract_source(archive: Path, destination: Path, expected_sha256: str) -> di
     return result
 
 
-def prepare(catalog: dict, output: Path, *, verify: bool = False) -> dict:
+def prepare(catalog: dict, output: Path, *, verify: bool = False,
+            only: set[str] | None = None) -> dict:
     output.mkdir(parents=True, exist_ok=True)
-    result = {'schema_version': 1, 'artifacts': [], 'capabilities': catalog['capabilities']}
-    for artifact in catalog['artifacts']:
+    all_artifacts = catalog['artifacts']
+    known_ids = {artifact['id'] for artifact in all_artifacts}
+    if only is not None:
+        unknown = only - known_ids
+        if unknown:
+            raise ValueError(f'Unknown artifact IDs: {", ".join(sorted(unknown))}')
+        if not only:
+            raise ValueError('Select at least one artifact')
+        artifacts = [artifact for artifact in all_artifacts if artifact['id'] in only]
+    else:
+        artifacts = all_artifacts
+    result = {'schema_version': 1, 'artifacts': []}
+    if only is None:
+        result['capabilities'] = catalog['capabilities']
+    else:
+        result['scope'] = {'selected_artifact_ids': [artifact['id'] for artifact in artifacts]}
+    for artifact in artifacts:
         status = {'id': artifact['id'], 'path': artifact['path']}
         try:
             spec = file_spec(artifact)
@@ -103,7 +119,7 @@ def prepare(catalog: dict, output: Path, *, verify: bool = False) -> dict:
     result['artifacts_ready'] = all(x['status'] in ('downloaded', 'verified') for x in result['artifacts'])
     result['clinical_models_ready'] = False
     # Only this tool owns this receipt; it never rewrites application configuration.
-    report = output / 'assets-status.json'
+    report = output / ('assets-status.json' if only is None else 'selected-assets-status.json')
     with tempfile.NamedTemporaryFile('w', dir=output, delete=False) as stream:
         json.dump(result, stream, ensure_ascii=False, indent=2)
         temporary = Path(stream.name)
@@ -115,8 +131,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, default=ROOT / 'data/specialists')
     parser.add_argument('--verify', action='store_true')
+    parser.add_argument('--only', nargs='+', metavar='ARTIFACT_ID',
+                        help='Fetch/verify only these catalog artifacts and write a scoped receipt')
     args = parser.parse_args()
-    report = prepare(json.loads(CATALOG.read_text()), args.output, verify=args.verify)
+    report = prepare(json.loads(CATALOG.read_text()), args.output, verify=args.verify,
+                     only=set(args.only) if args.only is not None else None)
     raise SystemExit(0 if report['artifacts_ready'] else 1)
 
 

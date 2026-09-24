@@ -1,7 +1,11 @@
 export type SpecialistAssessment = {
   mode: 'shadow'
   affects_decision: false
-  status?: 'unavailable'
+  model_id?: string
+  backbone?: string
+  responsibility?: string
+  region_scope?: string
+  status?: 'ok' | 'unavailable' | 'not_applicable'
   predictions?: Record<string, { score: number | null; threshold: number | null; status: string }>
 }
 
@@ -15,16 +19,31 @@ const statuses: Record<string, string> = {
   undetermined: 'недостаточно данных для оценки',
 }
 
-export default function SpecialistPanel({ result }: { result?: SpecialistAssessment }) {
-  if (!result) return null
+const modelLabels: Record<string, string> = {
+  spine_convnext: 'ConvNeXt: позвоночник', hip_convnext: 'ConvNeXt: бедро',
+  general_efficientnet: 'EfficientNet: общая оценка',
+}
+
+function ModelResult({ name, result }: { name: string; result: SpecialistAssessment }) {
+  return <details><summary>{modelLabels[name] || name}</summary>
+    {result.status === 'not_applicable'
+      ? <p>Модель предназначена для другой анатомической области.</p>
+      : result.status === 'unavailable' || !result.predictions
+        ? <p>Оценка этой модели недоступна.</p>
+        : <ul>{Object.entries(result.predictions).filter(([, p]) => p.status !== 'not_applicable').map(([key, p]) =>
+          <li key={key}><strong>{labels[key] || key}:</strong> {statuses[p.status] || 'оценка недоступна'}
+            {p.score !== null ? ` · балл ${p.score.toFixed(3)}` : ''}
+            {p.threshold !== null ? ` · порог ${p.threshold.toFixed(3)}` : ''}</li>)}</ul>}
+  </details>
+}
+
+export default function SpecialistPanel({ result, results }: { result?: SpecialistAssessment; results?: Record<string, SpecialistAssessment> }) {
+  if (!result && !results) return null
   return <section aria-label="Экспериментальная оценка качества">
-    <h3>Экспериментальная оценка качества</h3>
-    <p>Дополнительная модель проходит проверку. Её результат не меняет основное заключение и экспертные правки.</p>
-    {result.status === 'unavailable' || !result.predictions
-      ? <p>Дополнительную оценку получить не удалось. Используйте основной результат и проверьте снимок вручную.</p>
-      : <details><summary>Посмотреть результат дополнительной модели</summary>
-        <ul>{Object.entries(result.predictions).filter(([, p]) => p.status !== 'not_applicable').map(([name, p]) =>
-          <li key={name}><strong>{labels[name] || name}:</strong> {statuses[p.status] || 'оценка недоступна'}</li>)}</ul>
-      </details>}
+    <h3>Независимые оценки моделей</h3>
+    <p>Каждая модель использует собственные веса и выдаёт свой результат. Эти оценки не меняют основной конкурсный вывод.</p>
+    {result && <ModelResult name="legacy_specialist" result={result} />}
+    {results && Object.entries(results).map(([name, prediction]) =>
+      <ModelResult key={name} name={name} result={prediction} />)}
   </section>
 }

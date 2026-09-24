@@ -1,0 +1,202 @@
+{
+  "release_version": "1.9.3",
+  "portfolio_manifest_sha256": "80fbff809a590856ef17bd1e35d2490f4d8be5e8221a3da3d5232e4f5fd8aa7e",
+  "models": {
+    "spine_convnext": {
+      "responsibility": "lumbar_spine_quality_and_criteria",
+      "region_scope": "spine",
+      "backbone": "convnextv2_tiny",
+      "model_sha256": "59664e1740d88b238280796f1a1af938cf6bd29bd7f34cad6828fbfc36b329c3",
+      "metadata_sha256": "44aa812e711ae7b966a0b03ce9e360429dc662f13ddacbc866495e63a7edce5d"
+    },
+    "hip_convnext": {
+      "responsibility": "proximal_femur_position_and_roi",
+      "region_scope": "hip",
+      "backbone": "convnextv2_tiny",
+      "model_sha256": "098d0c4b1cfcf85523ef213058bdcdd98269722886664ecacf677a6ba2d3d30b",
+      "metadata_sha256": "a38486bce94e37a6ca3945904b4d51835ec06f62c77fc1d587ceb4eaf4bfe14d"
+    },
+    "general_efficientnet": {
+      "responsibility": "general_dxa_quality_crosscheck",
+      "region_scope": "all",
+      "backbone": "tf_efficientnet_b4",
+      "model_sha256": "44a7b4bdce9327096b9ac358f7111de0f8187af3dbc3236255569f47e9c0c682",
+      "metadata_sha256": "a5cefeb41a4d7a7d6b9cb2a81a5751ca43bb6ee9945cae0362920a01d6b76bf7"
+    }
+  },
+  "smoke_unlabelled_dicom": {
+    "files": 3,
+    "success": 3,
+    "submission_valid": true,
+    "same_core_predictions": true,
+    "mean_seconds_per_image": 1.2091,
+    "peak_rss_bytes": 932843520,
+    "separate_outputs": [
+      {
+        "sample_index": 0,
+        "anatomical_region": "Поясничный отдел позвоночника",
+        "models": {
+          "spine_convnext": {
+            "status": "ok",
+            "quality_score": 0.7003462910652161
+          },
+          "hip_convnext": {
+            "status": "not_applicable",
+            "quality_score": null
+          },
+          "general_efficientnet": {
+            "status": "ok",
+            "quality_score": 0.9400804042816162
+          }
+        }
+      },
+      {
+        "sample_index": 1,
+        "anatomical_region": "Проксимальный отдел бедра",
+        "models": {
+          "spine_convnext": {
+            "status": "not_applicable",
+            "quality_score": null
+          },
+          "hip_convnext": {
+            "status": "ok",
+            "quality_score": 0.26125994324684143
+          },
+          "general_efficientnet": {
+            "status": "ok",
+            "quality_score": 0.16001373529434204
+          }
+        }
+      },
+      {
+        "sample_index": 2,
+        "anatomical_region": "Проксимальный отдел бедра",
+        "models": {
+          "spine_convnext": {
+            "status": "not_applicable",
+            "quality_score": null
+          },
+          "hip_convnext": {
+            "status": "ok",
+            "quality_score": 0.18067395687103271
+          },
+          "general_efficientnet": {
+            "status": "ok",
+            "quality_score": 0.0462479442358017
+          }
+        }
+      }
+    ]
+  },
+  "clinical_validation": false,
+  "quality_metrics_available": false,
+  "offline_container": {
+    "version": "1.9.3",
+    "files": 3,
+    "success": 3,
+    "submission_valid": true,
+    "same_core_predictions": true,
+    "mean_seconds_per_image": 0.8516,
+    "peak_rss_bytes": 969433088,
+    "model_statuses": [
+      {
+        "spine_convnext": "ok",
+        "hip_convnext": "not_applicable",
+        "general_efficientnet": "ok"
+      },
+      {
+        "spine_convnext": "not_applicable",
+        "hip_convnext": "ok",
+        "general_efficientnet": "ok"
+      },
+      {
+        "spine_convnext": "not_applicable",
+        "hip_convnext": "ok",
+        "general_efficientnet": "ok"
+      }
+    ]
+  },
+  "transfer_archive": {
+    "path": "data/specialists/exports/independent-portfolio-v1.tar",
+    "bytes": 295567360,
+    "sha256": "20ea38d6ff7400c86af200d03530fec45d41c36dedf8e9ec6ec1179d43d54659",
+    "included_in_git": false
+  },
+  "spine_shape_smoke": {
+    "protocol": "spine",
+    "dxa_to_3d_raw_shape": [
+      1,
+      1254
+    ],
+    "separate_json_per_model": true,
+    "clinical_validation": false
+  },
+  "dax_independent_smoke": {
+    "dax_resnet18_a_features": 512,
+    "dax_vit_t16_a_features": 192,
+    "dax_vit_t8_a_features": 192,
+    "merged": false
+  },
+  "api_detail_smoke": {
+    "processing_status": "Success",
+    "separate_model_ids": [
+      "general_efficientnet",
+      "hip_convnext",
+      "spine_convnext"
+    ]
+  },
+  "container_test_suite": {
+    "passed": 122,
+    "skipped": 5
+  },
+  "prior_internal_model_metrics": {
+    "convnextv2-spine-finetune-v3": {
+      "n": 19,
+      "positives": 7,
+      "f1": 0.5714285714285714,
+      "roc_auc": 0.6666666666666666,
+      "source_report": "data/specialists/reports/qc-v3/metrics.json"
+    },
+    "convnextv2-hip-finetune-v3": {
+      "n": 27,
+      "positives": 3,
+      "f1": 0.3333333333333333,
+      "roc_auc": 0.9166666666666666,
+      "source_report": "data/specialists/reports/qc-v3/metrics.json"
+    },
+    "efficientnet-b4-bce-v2": {
+      "n": 46,
+      "positives": 10,
+      "f1": 0.37209302325581395,
+      "roc_auc": 0.5694444444444444,
+      "source_report": "data/specialists/reports/qc-v2/metrics.json"
+    }
+  },
+  "full_offline_container": {
+    "version": "1.9.3",
+    "files": 499,
+    "success": 499,
+    "studies": 100,
+    "submission_valid": true,
+    "same_core_predictions": true,
+    "mean_seconds_per_image": 0.1925,
+    "max_seconds_per_study": 4.476,
+    "total_seconds": 100.198,
+    "peak_rss_bytes": 1000071168,
+    "model_status_counts": {
+      "spine_convnext": {
+        "ok": 166,
+        "not_applicable": 333
+      },
+      "hip_convnext": {
+        "not_applicable": 166,
+        "ok": 333
+      },
+      "general_efficientnet": {
+        "ok": 499
+      }
+    },
+    "strict_validation": "competition/reports/independent_portfolio_submission_validation.json",
+    "manifest_and_repeat_validation": "competition/reports/independent_portfolio_extended_validation.json"
+  }
+}

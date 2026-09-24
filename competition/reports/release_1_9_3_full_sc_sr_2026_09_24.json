@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-24",
+  "scope": "full offline container 1.9.3 core on supplied 499 training DICOM, SC/SR enabled; technical check, not independent accuracy",
+  "input_images": 499,
+  "source_manifest_sha256": "70f6b9fd57115ee883d392bbfe77517c50b9e23c1fd9475056e1a02f6917a6f9",
+  "summary": {
+    "version": "1.9.3",
+    "submission_available": true,
+    "submission_valid": true,
+    "files": 499,
+    "success": 499,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 144,
+    "cancelled": false,
+    "studies": 100,
+    "max_seconds_per_study": 1.285,
+    "mean_seconds_per_image": 0.1097,
+    "total_seconds": 78.309,
+    "process_peak_rss_bytes": 487063552,
+    "cpu_count_visible": 12
+  },
+  "strict_submission": {
+    "valid": true,
+    "images": 499,
+    "success": 499,
+    "errors": []
+  },
+  "independent_extended_and_series": {
+    "valid": true,
+    "profile": "working_report",
+    "errors": [],
+    "warnings": [],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 1.2848999999999997,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "derived_sc": 499,
+  "derived_sr": 499,
+  "additional_series_zip_bytes": 311931768,
+  "additional_series_zip_sha256": "0eec03303208e558f84ff26d8c20f7e9d6da554f881a06fbf7c25772c4c4e3ed",
+  "submission_sha256": "18fbcdb90675fe7f28442ca53d434dd992c35c7b2ce787d4896aaef7fa51f0bc",
+  "summary_sha256": "c03871c693b6109d0167e509cec158eec279c41cdeca673d9b34a232d46d4f73",
+  "full_validation_sha256": "6fffed35d2f1223f8f411788f3685109b415ccb34108281eb75bddc759693fd1",
+  "limitations": [
+    "Training DICOM; no accuracy claim",
+    "Laptop CPU only; RTX 5090 not measured",
+    "180-second limit compared to summed row processing time; container startup not attributed to a study"
+  ],
+  "container_image_id": "sha256:33dc14ecc6162eed8ee0709d752a1ae25c1e17bb28ecbe32822747210a0cca94"
+}

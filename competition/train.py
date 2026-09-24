@@ -39,6 +39,7 @@ from dxaqc.dicom_io import read_any, CALIBRATION_VERSION
 from dxaqc.embedding import WEIGHTS_SHA256, embed
 from dxaqc.geometry import measure_hip, measure_spine, measure_image
 from dxaqc.model import CRITERIA, SEED, GroupModel, QualityBundle, RegionRouter, best_f1_threshold, group_of
+from source_integrity import inspect_sources
 
 warnings.filterwarnings("ignore")
 HERE = Path(__file__).resolve().parent
@@ -75,9 +76,13 @@ def synthetic_spine(px: np.ndarray, kind: str, rng: np.random.Generator, angle_n
     return np.ascontiguousarray(px[: int(h * rng.uniform(0.70, 0.78))])  # "crop": iliac crests cut off
 
 
-def build_table(dataset: Path, labels: pd.DataFrame, cache: Path) -> tuple[list[dict], np.ndarray, np.ndarray]:
+def build_table(dataset: Path, labels: pd.DataFrame, cache: Path,
+                source_fingerprint: str) -> tuple[list[dict], np.ndarray, np.ndarray]:
     sources = "".join((HERE / "dxaqc" / n).read_text() for n in ("geometry.py", "embedding.py", "dicom_io.py"))
-    key = hashlib.sha256((labels.to_csv() + sources + WEIGHTS_SHA256 + str(dataset.resolve())).encode()).hexdigest()[:16]
+    # The label CSV may be unchanged while source DICOM pixels have changed.
+    # Bind cached measurements/embeddings to the audited decoded image set.
+    key = hashlib.sha256((labels.to_csv() + sources + WEIGHTS_SHA256 +
+                          str(dataset.resolve()) + source_fingerprint).encode()).hexdigest()[:16]
     f = cache / f"train_table_{key}.joblib"
     if f.exists():
         return joblib.load(f)
@@ -201,9 +206,23 @@ def main() -> None:
     ap.add_argument("--pipeline-cv", action="store_true", help="joint router/quality outer folds and raw input inference; writes report only")
     args = ap.parse_args()
     t0 = time.time()
+    source_specs = [('organiser', args.labels, args.dataset)]
+    for spec in args.extra:
+        name, csv_path, root = spec.split('=', 2)
+        source_specs.append((name, Path(csv_path), Path(root)))
+    source_integrity = inspect_sources(source_specs)
+    source_integrity_summary = {key: value for key, value in source_integrity.items() if key != 'entries'}
+    source_integrity_summary['entries_sha256'] = hashlib.sha256(
+        json.dumps(source_integrity['entries'], ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+    source_fingerprints = {
+        name: hashlib.sha256(json.dumps(
+            [(entry['path'], entry['pixel_sha256_current']) for entry in source_integrity['entries']
+             if entry['source'] == name], ensure_ascii=False).encode()).hexdigest()
+        for name, _, _ in source_specs}
     labels = pd.read_csv(args.labels)
     labels = labels[labels.quality_class.notna()].reset_index(drop=True)
-    feats, emb, raw_emb = build_table(args.dataset, labels, HERE / ".cache")
+    feats, emb, raw_emb = build_table(args.dataset, labels, HERE / ".cache",
+                                      source_fingerprints['organiser'])
     n_real = len(labels)
     aux_parent: list[int] = []
     aux_source: dict[str, int] = {}
@@ -212,7 +231,7 @@ def main() -> None:
         extra = pd.read_csv(csv_path)
         extra = extra[extra.quality_class.notna() & extra.region.isin(["spine", "hip_right", "hip_left"])].reset_index(drop=True)
         extra["study_key"] = name + ":" + extra.study_key.astype(str)
-        f2, e2, r2 = build_table(Path(root), extra, HERE / ".cache")
+        f2, e2, r2 = build_table(Path(root), extra, HERE / ".cache", source_fingerprints[name])
         feats, emb, raw_emb = feats + f2, np.vstack([emb, e2]), np.vstack([raw_emb, r2])
         labels = pd.concat([labels, extra], ignore_index=True)
         aux_parent += [-1] * len(extra)
@@ -256,6 +275,7 @@ def main() -> None:
                   'limitations': 'binary quality and router metrics only; no independent clinical validation; not an evaluation of already-fitted shipped weights',
                   'calibration_version': CALIBRATION_VERSION, 'seed': SEED, 'synthetic': args.synthetic, 'auxiliary': aux_source,
                   'labels_sha256': hashlib.sha256(args.labels.read_bytes()).hexdigest(),
+                  'source_integrity': source_integrity_summary,
                   'training_code_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                   'repeats': results}
         directory = HERE / 'reports'
@@ -273,6 +293,7 @@ def main() -> None:
                     "aggregation": "mean score and majority decision over repeats; see per-repeat metrics",
                     "code_sha256": hashlib.sha256(b"".join(p.read_bytes() for p in
                         sorted((HERE / "dxaqc").glob("*.py"))) + Path(__file__).read_bytes()).hexdigest(),
+                    "source_integrity": source_integrity_summary,
                     "configuration": {"repeats": args.repeats, "synthetic": args.synthetic, "extra": args.extra}}
     oof_rows = labels.iloc[:n_real][["pixel_sha256", "study_key", "region", "quality_class"]].copy()
     oof_rows["oof_score"], oof_rows["oof_pred"] = np.nan, np.nan

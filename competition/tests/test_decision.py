@@ -10,7 +10,7 @@ def test_independent_criteria_unknown_type_and_metal_warning():
     assert result['quality'] == 1 and result['violations'] == ['hip_roi_coverage']
     fallback = decide('spine', .8, {'spine_artifact': .3}, {}, .5, {'spine_artifact': .7})
     assert fallback['violations'] == [] and fallback['violation_type_status'] == 'undetermined'
-    assert fallback['quality'] == 1 and fallback['decision_reason'] == 'binary_only'
+    assert fallback['quality'] == 0 and fallback['decision_reason'] == 'binary_only_review'
     result = decide('hip', .2, {'hip_roi_coverage': .1}, {'sat_frac': .02}, .5, {})
     assert result['quality'] == 0 and result['score'] == .2 and not result['violations']
     assert 'suspected_metal_requires_review' in result['review_reasons']

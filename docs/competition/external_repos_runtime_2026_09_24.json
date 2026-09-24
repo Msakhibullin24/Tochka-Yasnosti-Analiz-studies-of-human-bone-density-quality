@@ -1,0 +1,73 @@
+{
+  "date": "2026-09-24",
+  "purpose": "Assess checkpoints from user-proposed repositories against the organizer's AP DXA quality-control task",
+  "repository_decisions": [
+    {
+      "repository": "https://github.com/EmmanuelleB985/DXA-to-3D",
+      "checkpoint_status": "downloaded_and_sha256_verified",
+      "source_license": "MIT",
+      "checkpoint_redistribution_license": "not established",
+      "task_fit": "DXA spine shape research only; no validated mapping to organizer QC types",
+      "evaluated": true
+    },
+    {
+      "repository": "https://github.com/naamiinepal/xrayto3D-morphometry",
+      "checkpoint_status": "no_applicable_2d_dxa_checkpoint",
+      "task_fit": "expects a segmented 3D pelvic or femoral volume",
+      "evaluated": false
+    },
+    {
+      "repository": "https://github.com/nkhong84/YUHS-VERTE-X",
+      "checkpoint_status": "no_public_inference_checkpoint_identified",
+      "task_fit": "lateral DXA VFA and radiographs for fracture/osteoporosis risk, not AP DXA positioning QC",
+      "evaluated": false
+    },
+    {
+      "repository": "https://github.com/sjsimons/SpineFM",
+      "checkpoint_status": "not_retained_due_to_domain_mismatch",
+      "task_fit": "ordinary spine radiographs and segmentation, not validated for DXA",
+      "evaluated": false
+    },
+    {
+      "repository": "https://github.com/wasserth/TotalSegmentator",
+      "checkpoint_status": "not_retained_due_to_domain_mismatch",
+      "task_fit": "CT/MR volume segmentation, not planar DXA",
+      "evaluated": false
+    },
+    {
+      "repository": "https://github.com/mlmed/torchxrayvision",
+      "checkpoint_status": "not_retained_due_to_domain_mismatch",
+      "task_fit": "chest radiograph classifiers with unrelated outputs",
+      "evaluated": false
+    }
+  ],
+  "dxa_to_3d_cpu_benchmark": {
+    "checkpoint_path": "data/specialists/weights/dxa_to_3d.pt",
+    "checkpoint_bytes": 139454522,
+    "checkpoint_sha256": "9e86fb66b73ac27bfa60aa4695bb037d06acab8882e192f793d577711120e2c3",
+    "input": "12 organizer lumbar DICOM from 12 distinct study keys; six reference QC class 0 and six class 1",
+    "sampling": "first six distinct-study images per class in image_labels.csv order",
+    "preprocessing": "competition read_dxa normalized pixels and image_tensor(224) letterbox/ImageNet normalization; upstream inference.py/utils.py describes 512 grayscale resize plus CLAHE and is inconsistent with this checkpoint's three-channel architecture, so training preprocessing is unresolved",
+    "runtime": "CPU, four PyTorch threads, torch.inference_mode, model loaded once",
+    "model_load_seconds": 0.622,
+    "images": 12,
+    "finite_outputs": 12,
+    "output_shape_each": [
+      1,
+      1254
+    ],
+    "inference_seconds": {
+      "median": 4.0329,
+      "mean": 4.0097,
+      "max": 4.3088
+    },
+    "output_standard_deviation_range": [
+      0.603883,
+      6.046686
+    ],
+    "qc_f1_or_auc": null,
+    "reason_accuracy_unavailable": "The checkpoint emits an uninterpreted shape vector. Organizer labels are QC classes and criteria, without paired 3D curves or validated output-coordinate mapping.",
+    "competition_decision_changed": false
+  },
+  "selection_rule": "Retain only checkpoints relevant to organizer AP DXA; research weights stay outside the competition verdict until output semantics and accuracy are validated."
+}

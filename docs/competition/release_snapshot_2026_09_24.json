@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "core_version": "1.9.2",
+  "portfolio_version": "1.9.3",
+  "portfolio_mode": "shadow",
+  "git_head": "d39ced107ff68a7b53677347692b1413b4d60723",
+  "working_tree_dirty_at_capture": true,
+  "reproducibility_note": "Hashes identify this working-tree snapshot; git HEAD alone is insufficient when dirty.",
+  "source_audit_sha256": "b12567da6068f54f5f8ba1cbb11093b459c4885b9ee9641d01ead0eb29027a17",
+  "source_summary": {
+    "labelled_images": 249,
+    "study_groups": 100,
+    "current_unique_pixels": 249,
+    "within_study_pixel_copies": 0,
+    "historical_hash_changed": 249,
+    "patient_disjointness_proven": false
+  },
+  "measured_core": {
+    "oof_images": 249,
+    "oof_studies": 100,
+    "f1": 0.5774647887323944,
+    "roc_auc": 0.800980697384807,
+    "criterion_macro_f1": 0.48831209479096804,
+    "container_images": 499,
+    "container_success": 499,
+    "strict_valid": true,
+    "max_seconds_per_study_without_sc_sr": 2.951,
+    "full_sc_sr_images": 499,
+    "max_seconds_per_study_with_sc_sr": 1.285
+  },
+  "files": {
+    "competition/models/bundle.joblib": {
+      "sha256": "7f78fdcdb9c4116277f5cc9858ae6297c48e0d4fda9f87ed1f5dd01724fdd993",
+      "bytes": 2693564
+    },
+    "competition/labels/image_labels.csv": {
+      "sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+      "bytes": 61510
+    },
+    "competition/reports/typed_v4_pipeline_oof.csv": {
+      "sha256": "711d074d91a32dc17fafac5420b5b63f49f7625f82f5a999e5d237c3a716410d",
+      "bytes": 50794
+    },
+    "competition/reports/typed_v4_metrics.json": {
+      "sha256": "abe99fd848a22c7c369c4accf721a0b05c379583f267364eb1beeafeda270ce6",
+      "bytes": 12038
+    },
+    "competition/reports/release_1_9_2_2026_09_24.json": {
+      "sha256": "b9b8594dbe51e35951e962ffb9a02a8ab42deb4eab4173fa4dc1f39fd5e64900",
+      "bytes": 3073
+    },
+    "competition/reports/release_1_9_3_full_sc_sr_2026_09_24.json": {
+      "sha256": "faad48bb087eeaf357e93d04332950c84f17da7686879d40fb2dbf224875e890",
+      "bytes": 1955
+    },
+    "competition/reports/typed_v4_container_submission_validation.json": {
+      "sha256": "7777c8b3d160412102a265717bd5dae6c902ad5219e14f5d1947e75ad91d66f6",
+      "bytes": 467
+    },
+    "competition/reports/typed_v4_container_extended_validation.json": {
+      "sha256": "e503ae2e91605a862c7a26bc85e891ae30ad6a28f05420cda8744f31b3139f25",
+      "bytes": 335
+    },
+    "data/specialists/runs/independent-portfolio-v1/portfolio.json": {
+      "sha256": "80fbff809a590856ef17bd1e35d2490f4d8be5e8221a3da3d5232e4f5fd8aa7e",
+      "bytes": 859
+    },
+    "data/specialists/exports/independent-portfolio-v1.tar": {
+      "sha256": "20ea38d6ff7400c86af200d03530fec45d41c36dedf8e9ec6ec1179d43d54659",
+      "bytes": 295567360
+    },
+    "competition/dxaqc/__init__.py": {
+      "sha256": "65894226f6dcfdd223509e28739c6e2418e339f9ab620920830ffd54d42f96f6",
+      "bytes": 22
+    },
+    "competition/dxaqc/anatomy.py": {
+      "sha256": "116c11f35dc343c336bb7f503b32fbd5532491acd8e02c4f2bf1fe5b13a1ec63",
+      "bytes": 17125
+    },
+    "competition/dxaqc/api.py": {
+      "sha256": "94471633afde1c44ee1a768792a719cd2b7aca982a362e97d55b4c5fb3146589",
+      "bytes": 28653
+    },
+    "competition/dxaqc/cli.py": {
+      "sha256": "1360f808a463221c776b0e8ac82f7654caec0fc0aa531416923e0702cdae35a6",
+      "bytes": 2308
+    },
+    "competition/dxaqc/decision.py": {
+      "sha256": "14df6f632ce8c805a4ef817b158ba27536addfe01482faaed78d485844727e60",
+      "bytes": 2685
+    },
+    "competition/dxaqc/dicom_io.py": {
+      "sha256": "d4ddff00492a3944af53359a973992fd2bcdd2b861786027b4056ababeabc4f8",
+      "bytes": 11881
+    },
+    "competition/dxaqc/dynamics.py": {
+      "sha256": "c5506b71832834a07c484c354e8dbd414e3c060da517b6c10f7a7d3e9c59e915",
+      "bytes": 7854
+    },
+    "competition/dxaqc/embedding.py": {
+      "sha256": "3ddcf6d564b67114b5c35a23d359bc2afe1215fd5681e82279fa95f8abcde139",
+      "bytes": 1723
+    },
+    "competition/dxaqc/explain.py": {
+      "sha256": "df7548801b5937072c18bd8b5f8bb06496ffffe421222a38918a20a452828ac6",
+      "bytes": 11726
+    },
+    "competition/dxaqc/geometry.py": {
+      "sha256": "3c8916962b28f68f83a9739915ebe5286e7aecf3a12a88098ae356b8dc8f28ff",
+      "bytes": 16035
+    },
+    "competition/dxaqc/maintenance.py": {
+      "sha256": "d3b10ad01c08de238c1cf7cfa28fd427e72da497069ed333a90cee39ab04cf05",
+      "bytes": 3778
+    },
+    "competition/dxaqc/model.py": {
+      "sha256": "6a6efe82e93b2cb4518979dd13a7d35f1dc410fe6ba02c8cfa3ed9b027b14e99",
+      "bytes": 8984
+    },
+    "competition/dxaqc/pipeline.py": {
+      "sha256": "f317686ef2c63cfdba4be4f6b7b9d9c519a79c94f5f5f5244e728fc26e539b75",
+      "bytes": 23396
+    },
+    "competition/dxaqc/report.py": {
+      "sha256": "ec6ce4e6e91a8457cb66da6c56a4522da35eded77222cb32140c211928822d2f",
+      "bytes": 5679
+    },
+    "competition/dxaqc/result_context.py": {
+      "sha256": "8eb4a8d516a3c01ca84855c5550eca25fa9ba365447dd74dbadf9ea6d89ac403",
+      "bytes": 3074
+    },
+    "competition/dxaqc/review.py": {
+      "sha256": "34a5ee3b1ae8db5fad34ae54714162fc9a87e843570368ac449e1169928ab081",
+      "bytes": 4761
+    },
+    "competition/dxaqc/review_report.py": {
+      "sha256": "f61ee3c8f999e300e5e9853c7b3f2b29da0d90c20f00b1a64c97ad3f41b92152",
+      "bytes": 4458
+    },
+    "competition/dxaqc/roi.py": {
+      "sha256": "1281e2509b71805913eba23d892161d165d2913e297e75ee9f7ce357b650cf6a",
+      "bytes": 2956
+    },
+    "competition/dxaqc/source_archive.py": {
+      "sha256": "0a5a6055717b9e1896f2e502b9571bedbc5d90c4bf8f1b24e6aa8e2b321f7a79",
+      "bytes": 1373
+    },
+    "competition/dxaqc/source_roi.py": {
+      "sha256": "7559f28efbe23a2e641367aad4854a46b6816778a71ffb5a25ed21f44bb25ffb",
+      "bytes": 10046
+    },
+    "competition/dxaqc/specialist_catalog.py": {
+      "sha256": "ba66b10fb9e76c43a83b2032ee0c17af5dd5c92429e45e199830bf52ca905a41",
+      "bytes": 1762
+    },
+    "competition/dxaqc/specialist_qc.py": {
+      "sha256": "d2435f47a2741fc7ff172a78c41db152a7d5715fa1a30e6e1ac74be702c49eae",
+      "bytes": 11571
+    },
+    "competition/dxaqc/store.py": {
+      "sha256": "be975c7dd7b60be0e411088ac2090c3d1904c9c38425d48aeedc3d93eb56b106",
+      "bytes": 5914
+    },
+    "competition/dxaqc/validate_anatomy.py": {
+      "sha256": "ac28b9c01c788a36c61e2f7ad57f4a56a0303179f1a0649dc17c512aca75ebff",
+      "bytes": 7122
+    },
+    "competition/dxaqc/validate_results.py": {
+      "sha256": "36010e4d6607b20216f6cdc8b2aefb3257d22576baaca95d253ee2b5df59edda",
+      "bytes": 9597
+    },
+    "competition/dxaqc/xlsx_read.py": {
+      "sha256": "18e1759760e679756e19e5183ba4c8ff8cd1952bc69cedfbd9639fd5a2caf17e",
+      "bytes": 1646
+    },
+    "competition/Dockerfile": {
+      "sha256": "26094868d43b9f105570c3fc546290d3334de67a742bbce760135fe8f0f9177b",
+      "bytes": 3271
+    },
+    "competition/run.sh": {
+      "sha256": "4d5f108014f2c4db9708e6b2c3ed0a5682049eb5fd77c74045de6f0b07d9b624",
+      "bytes": 2712
+    },
+    "competition/requirements-lock.txt": {
+      "sha256": "6f3fe5616c9d9ec9a88edc9bdf6ac7a824c72f00d94ee29f9939198f138df80f",
+      "bytes": 661
+    },
+    "competition/requirements-specialists-lock.txt": {
+      "sha256": "bd543084406ecc7c36ed0a05d07d9bf025c3d1401ddf60163d4122c084b0f4d4",
+      "bytes": 1005
+    },
+    "competition/train.py": {
+      "sha256": "b95d79483763bfa8586a090f08bf19e27e6af9e655d5c6083fc3220315498591",
+      "bytes": 24571
+    },
+    "competition/train_specialist.py": {
+      "sha256": "82271fc1663732de632ecbad24772ac9dcc6d8b56a41880e9cf5ba6e7f523344",
+      "bytes": 15456
+    },
+    "competition/source_integrity.py": {
+      "sha256": "85c2591efdccb7f8606eca45dd2916d746c81e3b89da5dbc9fc63ed9168d502f",
+      "bytes": 5852
+    },
+    "competition/ingest.py": {
+      "sha256": "c8e2c2d0ec18f1fefd122d84868d2134fb3c105ee1ff5e3b234517a6203b1875",
+      "bytes": 5845
+    },
+    "competition/pack_independent_specialists.py": {
+      "sha256": "582ba2a94df1f9c02e615fb59853c135acbdb65a2aceca269fc25382f01ae39d",
+      "bytes": 2834
+    }
+  },
+  "limits": [
+    "OOF is internal study-held-out evaluation, not independent clinical validation.",
+    "Patient-disjointness is unproven.",
+    "Full batch with SC/SR was measured on the laptop, not on RTX 5090."
+  ]
+}

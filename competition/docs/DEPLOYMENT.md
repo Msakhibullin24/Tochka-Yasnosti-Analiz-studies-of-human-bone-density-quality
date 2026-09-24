@@ -13,6 +13,34 @@ DXAQC_DATA=/absolute/osseo-data ./competition/run.sh serve 8090
 Сборка использует Node-stage и Python-stage. Для работы GPU и интернет не нужны.
 `./competition/run.sh batch /input.zip /output` принудительно использует `--network none`.
 
+### Перенос на ПК с RTX 5090
+
+Сначала перенести исходный репозиторий и архив
+`data/specialists/exports/independent-portfolio-v1.tar` вместе с его `.tar.sha256`.
+Для проверки [снимка baseline](../../docs/competition/release_snapshot_2026_09_24.json)
+также нужен локальный `data/specialists/audits/organiser_source_integrity_2026_09_24.json`;
+он содержит относительные пути к изображениям и не хранится в Git.
+
+```sh
+cd data/specialists/exports
+sha256sum -c independent-portfolio-v1.tar.sha256
+mkdir -p ../runs
+tar -xf independent-portfolio-v1.tar -C ../runs
+cd ../../..
+PYTHONPATH=competition python competition/release_snapshot.py \
+  --source-audit data/specialists/audits/organiser_source_integrity_2026_09_24.json \
+  --output docs/competition/release_snapshot_2026_09_24.json --verify
+./competition/run.sh build
+./competition/run.sh batch /absolute/input /absolute/new-output
+```
+
+Последняя команда запускает проверенный CPU-путь даже на ПК с GPU. Для отдельного
+показа shadow-моделей использовать `docker-compose.independent-specialists.yml` и
+[инструкцию портфеля](INDEPENDENT_MODELS.md). Перед новой конкурсной сдачей на 5090
+повторить строгую проверку CSV и независимую проверку SC/SR; время ноутбука не заменяет
+измерение на целевой машине. Обучение с CUDA требует отдельной проверки установленного
+PyTorch и доступности GPU на самом ПК.
+
 Сервис рассчитан на один worker-процесс на каталог данных: файловая блокировка не даёт
 двум экземплярам независимо восстанавливать/обрабатывать одну очередь. Не увеличивать
 `uvicorn --workers` без изменения модели владения очередью. HTTP-ожидание `wait=true` не блокирует event loop.
@@ -38,11 +66,11 @@ SQL хранит историю заданий и неизменяемые эк�
 mkdir -p /absolute/backups /absolute/restored
 docker run --rm --network none --user "$(id -u):$(id -g)" \
   -v /absolute/osseo-data:/work -v /absolute/backups:/backup \
-  osseo-dxaqc:1.9.1 python -m dxaqc.maintenance backup \
+  osseo-dxaqc:1.9.3 python -m dxaqc.maintenance backup \
   --root /work/dxaqc-jobs --archive /backup/osseo.zip
 docker run --rm --network none --user "$(id -u):$(id -g)" \
   -v /absolute/restored:/work -v /absolute/backups:/backup:ro \
-  osseo-dxaqc:1.9.1 python -m dxaqc.maintenance restore \
+  osseo-dxaqc:1.9.3 python -m dxaqc.maintenance restore \
   --root /work/dxaqc-jobs --archive /backup/osseo.zip
 ```
 

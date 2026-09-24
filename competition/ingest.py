@@ -1,6 +1,7 @@
 """Prepare a newly downloaded dataset for training: inventory -> de-duplication -> label template.
 
-    python ingest.py --name mydata --root /path/to/downloaded/folder [--pixel-mm 0.6]
+    python ingest.py --name mydata --root /path/to/downloaded/folder \
+        --reference-root /path/to/organiser/Исследования [--pixel-mm 0.6]
 
 What it does (no network, nothing is modified in --root):
   1. walks the folder, reads every DICOM / PNG / JPG, skips unreadable files (listed in the report);
@@ -26,6 +27,7 @@ import pandas as pd
 
 from dxaqc.dicom_io import RASTER_SUFFIXES, DicomReadError, looks_like_dicom, read_any
 from dxaqc.pipeline import LOW_REGION_CONFIDENCE, Analyzer
+from source_integrity import inspect_sources
 
 warnings.filterwarnings("ignore")
 HERE = Path(__file__).resolve().parent
@@ -37,9 +39,12 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--name", required=True)
     ap.add_argument("--root", required=True, type=Path)
+    ap.add_argument("--reference-root", required=True, type=Path,
+                    help="Organiser image root; decoded pixels are checked against current training labels")
     ap.add_argument("--pixel-mm", type=float, default=None, help="pixel size from the dataset documentation, if known")
     args = ap.parse_args()
-    known = set(pd.read_csv(HERE / "labels" / "image_labels.csv").pixel_sha256)
+    reference = inspect_sources([('organiser', HERE / 'labels' / 'image_labels.csv', args.reference_root)])
+    known = {row['pixel_sha256_current'] for row in reference['entries']}
     analyzer = Analyzer()
     rows, skipped, seen, thumbs = [], [], set(), []
     files = [p for p in sorted(args.root.rglob("*")) if p.is_file()
@@ -70,7 +75,11 @@ def main() -> None:
         if n % 50 == 0:
             print(f"{n}/{len(files)}", flush=True)
     out_csv = HERE / "labels" / f"candidates_{args.name}.csv"
-    pd.DataFrame(rows).to_csv(out_csv, index=False)
+    columns = ['pixel_sha256', 'study_key', 'first_source_path', 'rows', 'columns',
+               'pixel_mm', 'pixel_mm_source', *LABEL_COLUMNS, 'comment',
+               'suggested_region', 'suggested_region_confidence', 'suggested_quality_prob',
+               'suggested_violations', 'needs_attention']
+    pd.DataFrame(rows, columns=columns).to_csv(out_csv, index=False)
     sheets = HERE / "labels" / f"candidates_{args.name}_sheets"
     sheets.mkdir(exist_ok=True)
     for k in range(0, len(thumbs), 48):

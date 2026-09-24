@@ -1,0 +1,60 @@
+{
+  "scope": "study-held-out raw DICOM -> shared Analyzer with fold-trained router and quality models",
+  "limitations": "binary quality and router metrics only; no independent clinical validation; not an evaluation of already-fitted shipped weights",
+  "calibration_version": "lct-v2-xy-1",
+  "seed": 17,
+  "synthetic": "both",
+  "auxiliary": {
+    "synthetic_spine": 201
+  },
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "training_code_sha256": "1300911295fd2a7ca73a36980084e069f197d7f328711356836b7515fa1e4b3f",
+  "repeats": [
+    {
+      "repeat": 0,
+      "quality": {
+        "n": 249,
+        "positives": 73,
+        "sensitivity": 0.5342465753424658,
+        "specificity": 0.8522727272727273,
+        "balanced_accuracy": 0.6932596513075966,
+        "f1": 0.5652173913043478,
+        "confusion_tn_fp_fn_tp": [
+          150,
+          26,
+          34,
+          39
+        ],
+        "roc_auc": 0.800980697384807,
+        "pr_auc": 0.6712271488280949
+      },
+      "quality_ci95": {
+        "sensitivity": [
+          0.41333333333333333,
+          0.6538461538461539
+        ],
+        "specificity": [
+          0.7936128945960407,
+          0.9066029900332225
+        ],
+        "balanced_accuracy": [
+          0.6301547629261177,
+          0.7557818656089642
+        ],
+        "f1": [
+          0.45925318761384337,
+          0.6612934975869951
+        ],
+        "roc_auc": [
+          0.7322133104775652,
+          0.8648947730438036
+        ],
+        "pr_auc": [
+          0.5431480623156059,
+          0.7874143050010629
+        ]
+      },
+      "router_accuracy": 1.0
+    }
+  ]
+}

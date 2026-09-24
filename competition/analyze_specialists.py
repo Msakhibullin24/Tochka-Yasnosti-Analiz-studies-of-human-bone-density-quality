@@ -28,10 +28,15 @@ def run(args):
             'image_shape':list(image.pixels.shape),'models':{},'inventory':state}
     if args.protocol in ('spine','hip_left','hip_right'):
         if args.qc:
-            report['models']['trained_qc']=load_specialist(args.qc).predict(image.pixels,args.protocol)
+            candidate = load_specialist(args.qc)
+            prediction = candidate.predict(image.pixels,args.protocol)
+            if candidate.metadata.get('kind') == 'independent_portfolio':
+                report['models'].update(prediction)
+            else:
+                report['models']['trained_qc']=prediction
         else:
             report['models']['trained_qc']={'status':'not_configured'}
-    if entries['yolo26x']['artifacts_verified']:
+    if getattr(args, 'include_generic_coco', False) and entries['yolo26x']['artifacts_verified']:
         os.environ.setdefault('YOLO_CONFIG_DIR',str((args.assets/'ultralytics-config').resolve()))
         from ultralytics import YOLO
         for name in ('yolo26x','yolo26x-seg'):
@@ -54,18 +59,24 @@ def run(args):
             (args.output/'totalbody.log').write_text(completed.stdout+completed.stderr)
             report['models']['totalbody_105']=(json.loads((args.output/'totalbody.json').read_text()) if completed.returncode==0
                                               else {'status':'runtime_error','log':'totalbody.log'})
-        if entries['dxa_to_3d']['artifacts_verified']:
-            from check_specialists import shape_model
-            weights=torch.load(args.assets/'weights/dxa_to_3d.pt',map_location='cpu',weights_only=True)
-            model=shape_model(weights['linear.weight'].shape[0]);model.load_state_dict(weights,strict=True)
-            with torch.inference_mode():vector=model(image_tensor(image.pixels,224)[None]).numpy()
-            if not np.isfinite(vector).all():raise ValueError('Non-finite shape output')
-            np.save(args.output/'dxa-to-3d-raw.npy',vector)
-            report['models']['dxa_to_3d']={'status':'raw_research_output','shape':list(vector.shape),
-                'limitation':'Input transform and curve order unvalidated; no numbered vertebrae, physical angles or 3D reconstruction claimed.'}
     else:
-        for name in ('totalbody_105','dxa_to_3d'):
-            report['models'][name]={'status':'not_applicable','reason':'Whole-body source protocol required'}
+        report['models']['totalbody_105']={'status':'not_applicable','reason':'Whole-body source protocol required'}
+    if args.protocol=='spine' and entries['dxa_to_3d']['artifacts_verified']:
+        from check_specialists import shape_model
+        weights=torch.load(args.assets/'weights/dxa_to_3d.pt',map_location='cpu',weights_only=True)
+        model=shape_model(weights['linear.weight'].shape[0]);model.load_state_dict(weights,strict=True)
+        with torch.inference_mode():vector=model(image_tensor(image.pixels,224)[None]).numpy()
+        if not np.isfinite(vector).all():raise ValueError('Non-finite shape output')
+        np.save(args.output/'dxa-to-3d-raw.npy',vector)
+        report['models']['dxa_to_3d']={'status':'raw_research_output','responsibility':'spine_shape_research',
+            'shape':list(vector.shape),'output_file':'dxa-to-3d-raw.npy',
+            'limitation':'Input transform and curve order unvalidated; no numbered vertebrae, physical angles or 3D reconstruction claimed.'}
+    elif args.protocol!='spine':
+        report['models']['dxa_to_3d']={'status':'not_applicable','reason':'AP spine source protocol required'}
+    for name, result in report['models'].items():
+        if not all(char.isalnum() or char in '_-' for char in name):
+            raise ValueError('Unsafe model output ID')
+        (args.output / f'{name}.json').write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
     (args.output/'report.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')
     return report
 
@@ -74,6 +85,7 @@ if __name__=='__main__':
     p.add_argument('--input',type=Path,required=True)
     p.add_argument('--protocol',choices=['spine','hip_left','hip_right','whole-body-air-ratio'],required=True)
     p.add_argument('--qc',type=Path)
+    p.add_argument('--include-generic-coco',action='store_true',help='research only; COCO classes are not DXA QC types')
     p.add_argument('--assets',type=Path,default=Path('data/specialists'))
     p.add_argument('--output',type=Path,required=True)
     run(p.parse_args())

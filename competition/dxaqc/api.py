@@ -160,6 +160,10 @@ def ready():
                 "specialist_qc": (None if instance.specialist is None else
                                   {'mode': 'shadow', 'affects_decision': False,
                                    'model_sha256': instance.specialist.metadata['model_sha256']}),
+                "specialist_outputs": (None if instance.specialist_portfolio is None else
+                                       {'mode': 'shadow', 'affects_decision': False,
+                                        'portfolio_sha256': instance.specialist_portfolio.metadata['model_sha256'],
+                                        'models': list(instance.specialist_portfolio.models)}),
                 "disk_free_bytes": shutil.disk_usage(DATA_DIR).free,
                 "jobs_in_recent_history": len(repository.list())}
     except Exception as exc:

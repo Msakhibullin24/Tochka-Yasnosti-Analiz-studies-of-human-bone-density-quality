@@ -21,6 +21,8 @@ def review_reasons(row, label):
     """Select disagreements against existing labels without treating candidate points as truth."""
     predicted_types = row['violation_type'].split(';')
     reasons = []
+    if row.get('predicted_region') and row['predicted_region'] != label['region']:
+        reasons.append('region_mismatch')
     if row['quality_pred'] == '1' and not row['violation_type']:
         reasons.append('untyped_positive')
     if label.get('spine_axis') in ('1', '1.0') and VIOLATION_LABEL['spine_axis'] not in predicted_types:
@@ -62,6 +64,7 @@ def audit(oof_path, labels_path, dataset, output, repeat=0):
         codes = [k for k in CRITERIA[group_of(region)] if VIOLATION_LABEL[k] in row['violation_type'].split(';')]
         item = {'source_path':row['source_path'], 'fold':int(row['fold']), 'repeat':int(row['repeat']),
                 'review_reasons': reasons,
+                'reference_region': label['region'], 'predicted_region': region,
                 'reference_criteria':targets, 'reference_quality':int(float(label['quality_class'])),
                 'predicted_type':row['violation_type'], 'predicted_quality':int(row['quality_pred']),
                 'quality_score':float(row['quality_score']),
@@ -87,7 +90,7 @@ def audit(oof_path, labels_path, dataset, output, repeat=0):
         url = base64.b64encode(encoded.tobytes()).decode()
         cards.append('<article><h2>'+escape(row['source_path'])+'</h2><pre>'+escape(json.dumps(item,ensure_ascii=False,indent=2))+'</pre><img src="data:image/png;base64,'+url+'" alt="Измеренная ось и признаки; локализация не подтверждена"></article>')
     counts = {reason: sum(reason in item['review_reasons'] for item in cases)
-              for reason in ('untyped_positive', 'missed_axis', 'missed_hip_position_rotation',
+              for reason in ('region_mismatch', 'untyped_positive', 'missed_axis', 'missed_hip_position_rotation',
                              'false_hip_position_rotation')}
     result={'scope':'diagnostic review of already inspected internal OOF; not a new independent evaluation',
             'oof_sha256':hashlib.sha256(oof_path.read_bytes()).hexdigest(),
@@ -104,6 +107,15 @@ def audit(oof_path, labels_path, dataset, output, repeat=0):
             kind: {name: sum(item['landmark_candidates'].get(name) == 'candidate' for item in group)
                    for name in ('greater_trochanter', 'lesser_trochanter', 'femoral_neck', 'ischium')}
             for kind, group in (('missed', hip_misses), ('false_alarm', hip_false))},
+    }
+    untyped = [item for item in cases if 'untyped_positive' in item['review_reasons']]
+    summary['untyped_positive'] = {
+        'reference_quality_counts': {
+            str(value): sum(item['reference_quality'] == value for item in untyped)
+            for value in (0, 1)},
+        'reference_region_counts': {
+            region: sum(item['reference_region'] == region for item in untyped)
+            for region in ('spine', 'hip_right', 'hip_left')},
     }
     (output/'cases.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     (output/'summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')

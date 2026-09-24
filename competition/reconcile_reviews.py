@@ -1,24 +1,32 @@
 """Compare independent QC reviews without changing the organizer's labels."""
 import argparse
 import csv
+import hashlib
 import json
 from pathlib import Path
 from dxaqc.model import CRITERIA,group_of
-from dxaqc.specialist_qc import OUTPUTS
 
 
 def reconcile(packet,a_path,b_path,output):
     if output.exists():raise ValueError('Choose a new review comparison file')
-    source=json.loads((packet/'review-manifest.json').read_text())
-    ids={r['image_id'] for r in source['samples']}
+    manifest_path = packet/'review-manifest.json'
+    if not manifest_path.is_file():
+        manifest_path = packet/'manifest.json'
+    source=json.loads(manifest_path.read_text())
+    samples=source.get('samples', source.get('cases'))
+    if not isinstance(samples,list) or not samples:
+        raise ValueError('Review packet has no images')
+    ids={r['image_id'] for r in samples}
+    if len(ids)!=len(samples):
+        raise ValueError('Duplicate review image ID')
     def load(path):
-        with path.open(newline='') as f:rows=list(csv.DictReader(f))
+        with path.open(encoding='utf-8-sig',newline='') as f:rows=list(csv.DictReader(f))
         if len(rows)!=len(ids) or {r['image_id'] for r in rows}!=ids:
             raise ValueError('Each review must cover exactly the packet images')
         return {r['image_id']:r for r in rows}
     a,b=load(a_path),load(b_path)
     results=[]
-    for sample in source['samples']:
+    for sample in samples:
         ident=sample['image_id'];left,right=a[ident],b[ident]
         item={'image_id':ident,'status':'pending','agreed_labels':{},'disagreements':[]}
         if left['reviewed'].lower()=='true' and right['reviewed'].lower()=='true':
@@ -36,7 +44,9 @@ def reconcile(packet,a_path,b_path,output):
                 if quality!=int(any(criteria)):
                     item['status']='requires_adjudication';item['disagreements'].append('quality_vs_taxonomy')
         results.append(item)
-    report={'source_labels_sha256':source['labels_sha256'],'original_labels_changed':False,
+    report={'source_labels_sha256':source.get('labels_sha256'),
+            'review_packet_sha256':hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
+            'original_labels_changed':False,
             'counts':{s:sum(r['status']==s for r in results) for s in ('pending','agreed','requires_adjudication')},
             'images':results}
     output.parent.mkdir(parents=True,exist_ok=True);output.write_text(json.dumps(report,indent=2)+'\n')

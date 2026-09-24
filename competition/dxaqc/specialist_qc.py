@@ -173,5 +173,61 @@ class RegionalSpecialists:
         return result
 
 
+class IndependentSpecialists:
+    """Run every applicable model independently; never average their outputs."""
+
+    def __init__(self, directory: Path):
+        self.directory = Path(directory).resolve()
+        manifest = self.directory / 'portfolio.json'
+        spec = json.loads(manifest.read_text())
+        members = spec.get('members')
+        if spec.get('schema_version') != 1 or spec.get('kind') != 'independent' or not isinstance(members, dict) or not members:
+            raise ValueError('Invalid independent specialist portfolio')
+        self.models = {}
+        self.entries = {}
+        for name, entry in members.items():
+            if not isinstance(name, str) or not name or not all(c.isalnum() or c in '_-' for c in name):
+                raise ValueError('Invalid specialist model ID')
+            if (not isinstance(entry, dict) or entry.get('region_scope') not in ('all', 'spine', 'hip')
+                    or not isinstance(entry.get('path'), str) or not isinstance(entry.get('responsibility'), str)
+                    or not entry['responsibility']):
+                raise ValueError('Invalid specialist responsibility')
+            child = (self.directory / entry['path']).resolve()
+            if not child.is_relative_to(self.directory) or child == self.directory:
+                raise ValueError('Specialist member path escapes portfolio')
+            if digest(child / 'model.json') != entry.get('metadata_sha256'):
+                raise ValueError('Specialist member metadata checksum mismatch')
+            model = SpecialistQC(child)
+            if model.metadata.get('region_scope', 'all') != entry['region_scope']:
+                raise ValueError('Specialist region scope mismatch')
+            self.models[name] = model
+            self.entries[name] = entry
+        self.metadata = {'mode': 'shadow', 'kind': 'independent_portfolio',
+                         'model_sha256': digest(manifest)}
+
+    def predict(self, pixels: np.ndarray, region: str) -> dict[str, dict]:
+        if region not in ('spine', 'hip_left', 'hip_right'):
+            raise ValueError('Unsupported specialist region')
+        outputs = {}
+        group = group_of(region)
+        for name, model in self.models.items():
+            entry = self.entries[name]
+            scope = entry['region_scope']
+            identity = {'model_id': name, 'backbone': model.metadata.get('backbone'),
+                        'responsibility': entry['responsibility'], 'region_scope': scope,
+                        'model_sha256': model.metadata['model_sha256'],
+                        'mode': 'shadow', 'affects_decision': False}
+            if scope not in ('all', group):
+                outputs[name] = {**identity, 'status': 'not_applicable'}
+                continue
+            try:
+                outputs[name] = {**model.predict(pixels, region), **identity, 'status': 'ok'}
+            except Exception as exc:  # shadow model failure must not alter another model or core QC
+                outputs[name] = {**identity, 'status': 'unavailable', 'error': str(exc)[:200]}
+        return outputs
+
+
 def load_specialist(directory: Path):
+    if (Path(directory) / 'portfolio.json').is_file():
+        return IndependentSpecialists(directory)
     return RegionalSpecialists(directory) if (Path(directory)/'suite.json').is_file() else SpecialistQC(directory)

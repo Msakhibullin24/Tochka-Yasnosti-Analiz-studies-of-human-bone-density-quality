@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "profile": "competition_v2",
+  "errors": [],
+  "warnings": [
+    "Input completeness not checked: provide an independent path manifest",
+    "Failure explanations not available in this table",
+    "Additional DICOM series not checked"
+  ],
+  "images": 499,
+  "success": 499,
+  "max_seconds_per_study": 1.649,
+  "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+}

@@ -1,0 +1,93 @@
+{
+  "date": "2026-09-24",
+  "release_version": "1.9.2",
+  "decision_version": "4",
+  "model_bundle_sha256": "7f78fdcdb9c4116277f5cc9858ae6297c48e0d4fda9f87ed1f5dd01724fdd993",
+  "decision_code_sha256": "14df6f632ce8c805a4ef817b158ba27536addfe01482faaed78d485844727e60",
+  "labelled_oof": {
+    "report": "competition/reports/typed_v4_metrics.json",
+    "report_sha256": "abe99fd848a22c7c369c4accf721a0b05c379583f267364eb1beeafeda270ce6"
+  },
+  "local_runs": [
+    {
+      "version": "1.9.1",
+      "submission_available": true,
+      "submission_valid": true,
+      "files": 499,
+      "success": 499,
+      "failure": 0,
+      "success_rate": 1.0,
+      "violations": 144,
+      "cancelled": false,
+      "studies": 100,
+      "max_seconds_per_study": 1.649,
+      "mean_seconds_per_image": 0.1688,
+      "total_seconds": 87.076,
+      "process_peak_rss_bytes": 498057216,
+      "cpu_count_visible": 12
+    },
+    {
+      "version": "1.9.1",
+      "submission_available": true,
+      "submission_valid": true,
+      "files": 499,
+      "success": 499,
+      "failure": 0,
+      "success_rate": 1.0,
+      "violations": 144,
+      "cancelled": false,
+      "studies": 100,
+      "max_seconds_per_study": 1.813,
+      "mean_seconds_per_image": 0.1956,
+      "total_seconds": 100.647,
+      "process_peak_rss_bytes": 493469696,
+      "cpu_count_visible": 12
+    }
+  ],
+  "local_run_version_note": "Local runs used decision v4 before the package tag changed from 1.9.1 to 1.9.2; the offline container run identifies the release as 1.9.2 and reproduced the local predictions.",
+  "container_image": "osseo-dxaqc:1.9.2",
+  "container_run": {
+    "version": "1.9.2",
+    "submission_available": true,
+    "submission_valid": true,
+    "files": 499,
+    "success": 499,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 144,
+    "cancelled": false,
+    "studies": 100,
+    "max_seconds_per_study": 2.951,
+    "mean_seconds_per_image": 0.2467,
+    "total_seconds": 130.782,
+    "process_peak_rss_bytes": 493580288,
+    "cpu_count_visible": 12
+  },
+  "strict_validation": {
+    "valid": true,
+    "profile": "competition_v2",
+    "errors": [],
+    "warnings": [
+      "Input completeness not checked: provide an independent path manifest",
+      "Failure explanations not available in this table",
+      "Additional DICOM series not checked"
+    ],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 2.9514,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "manifest_and_repeat_validation": {
+    "valid": true,
+    "profile": "working_report",
+    "errors": [],
+    "warnings": [
+      "Additional DICOM series not checked"
+    ],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 2.9514,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "scope": "local and offline-container batch on supplied training DICOM; no external clinical validation"
+}

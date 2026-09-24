@@ -1,0 +1,7 @@
+# Optional independent shadow models. Every member keeps its own TorchScript encoder/head.
+services:
+  osseo:
+    environment:
+      DXAQC_SPECIALIST_PORTFOLIO: /opt/independent-specialists
+    volumes:
+      - ./data/specialists/runs/${SPECIALIST_PORTFOLIO:-independent-portfolio-v1}:/opt/independent-specialists:ro

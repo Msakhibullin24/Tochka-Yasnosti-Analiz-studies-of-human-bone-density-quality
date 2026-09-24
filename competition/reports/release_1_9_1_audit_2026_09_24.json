@@ -1,0 +1,202 @@
+{
+  "audit_date": "2026-09-24",
+  "release_version": "1.9.1",
+  "scope": "Full local organizer-training archive batch; engineering/release validation only, not independent clinical accuracy.",
+  "source": {
+    "git_commit": "d39ced107ff68a7b53677347692b1413b4d60723",
+    "worktree_dirty": true,
+    "docker_image": "osseo-dxaqc:audit-20260924",
+    "docker_image_id": "sha256:fefa6db506068988747376037f6027350ecf2e34cc23e8b9426439ac02ebac1f",
+    "bundle_sha256": "7f78fdcdb9c4116277f5cc9858ae6297c48e0d4fda9f87ed1f5dd01724fdd993",
+    "encoder_weights_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+    "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8"
+  },
+  "input": {
+    "dicom_files": 499,
+    "studies": 100,
+    "tree_sha256": "df43588812bed784bcdbc2ede2537c81165451ffb15483a35beaabb462235a7a",
+    "independent_manifest": "/tmp/dxaqc-release-audit-20260924-manifest.json"
+  },
+  "runs": [
+    {
+      "output": "/tmp/dxaqc-release-audit-20260924-v191",
+      "summary": {
+        "version": "1.9.1",
+        "submission_available": true,
+        "submission_valid": false,
+        "files": 499,
+        "success": 499,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 163,
+        "cancelled": false,
+        "studies": 100,
+        "max_seconds_per_study": 1.413,
+        "mean_seconds_per_image": 0.1176,
+        "total_seconds": 83.208,
+        "process_peak_rss_bytes": 493903872,
+        "cpu_count_visible": 12
+      },
+      "submission_csv_sha256": "68514cb1e1b2960d8a9dbb1593f9accddbafa2b68f4e7c316373cd916c306ff9",
+      "extended_csv_sha256": "ce8a2ae891453f7aaca5c1846a8e7b46ec5cb32e031796ce8f700a9ae9d2e92e",
+      "additional_series_zip_sha256": "b29ec78b12747b13ef8987f59f8ecd82990a121156b4e467006eda1cd554048d"
+    },
+    {
+      "output": "/tmp/dxaqc-release-audit-20260924-v191-repeat",
+      "summary": {
+        "version": "1.9.1",
+        "submission_available": true,
+        "submission_valid": false,
+        "files": 499,
+        "success": 499,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 163,
+        "cancelled": false,
+        "studies": 100,
+        "max_seconds_per_study": 1.34,
+        "mean_seconds_per_image": 0.1162,
+        "total_seconds": 82.257,
+        "process_peak_rss_bytes": 489676800,
+        "cpu_count_visible": 12
+      },
+      "submission_csv_sha256": "17d535ad8a7fa7e01d2544da1f0c7104025be835ab0b66ff82c25fc579cb2d04",
+      "extended_csv_sha256": "69eaaeb4689d7d9b20911a839dc2b74631690028b504d1160e3e483ae2a8a7ec",
+      "additional_series_zip_sha256": "b29ec78b12747b13ef8987f59f8ecd82990a121156b4e467006eda1cd554048d"
+    }
+  ],
+  "completeness_repeat_and_derived_series_validation": {
+    "valid": true,
+    "errors": [],
+    "input_manifest_matched": true,
+    "repeat_key_fields_match": true,
+    "sc_sr_sources_valid": true,
+    "warnings": [
+      "Row 24: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 27: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 103: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 127: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 130: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 265: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 268: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 271: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 325: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 327: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 330: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 416: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 425: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 428: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 433: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 438: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 442: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 469: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 470: violation detected but type undetermined; typification requirement is incomplete"
+    ]
+  },
+  "strict_competition_v2": {
+    "valid": false,
+    "error_count": 19,
+    "error_rows_csv_1_based": [
+      24,
+      27,
+      103,
+      127,
+      130,
+      265,
+      268,
+      271,
+      325,
+      327,
+      330,
+      416,
+      425,
+      428,
+      433,
+      438,
+      442,
+      469,
+      470
+    ],
+    "errors_identical_on_repeat": true,
+    "failure": "19 successful positive rows have no official violation_type"
+  },
+  "failure_diagnosis": {
+    "rows": 19,
+    "region": "lumbar spine",
+    "decision_reason": "binary_only",
+    "unique_normalized_pixel_groups": 11,
+    "matching_labeled_unique_groups": 11,
+    "reference_quality_by_unique_group": {
+      "1": 9,
+      "0": 2
+    },
+    "positive_groups_with_spine_axis_reference": 7,
+    "positive_groups_with_no_official_criterion_and_scoliosis_comment": 2,
+    "measured_spine_angle_range_degrees": [
+      0.21,
+      4.33
+    ],
+    "interpretation": "Local labels and the hard 5-degree axis rule disagree on several positives. Do not force a type or edit labels without expert/curator adjudication.",
+    "matching_reference_label_groups": 11,
+    "positive_groups_with_other_no_type_comment": 2,
+    "positive_no_type_comments": [
+      "сколиоз",
+      "Сколиоз, не верня разметка"
+    ],
+    "local_review_queue": "data/specialists/review/release-untyped-cases-2026-09-24/",
+    "review_queue_command": "make review-release-errors RELEASE_REVIEW_RESULTS=/path/to/results_extended.csv RELEASE_REVIEW_DATASET=/path/to/Исследования"
+  },
+  "test_suite": {
+    "scripts_verify": "passed",
+    "frontend_tests": "50 passed",
+    "backend_tests": "50 passed, 2 skipped",
+    "competition_tests": "115 passed, 5 skipped",
+    "container_competition_tests": "115 passed, 5 skipped",
+    "static_and_build": "eslint, TypeScript and Vite production build passed",
+    "pydicom_warnings": 68,
+    "warning_note": "Invalid UI values in local DICOM/test data; warnings did not cause batch or test failures.",
+    "container_smoke": "1 synthetic input: strict-valid, 1/1 success"
+  },
+  "adversarial_batch": {
+    "image": "osseo-dxaqc:verify-20260924",
+    "folder_archive_files": 4,
+    "folder_archive_success": 3,
+    "folder_archive_failure": 1,
+    "damaged_dicom": "Failure row emitted (error_code=NO_PIXEL_DATA); batch continued",
+    "duplicate_pair": "detected and linked by duplicate_of",
+    "multiple_violations": "two official types emitted, separated by semicolon",
+    "missing_scale": "both files processed using pixel_mm_source=device_default; duplicate linked",
+    "empty_zip": {
+      "files": 1,
+      "success": 0,
+      "failure": 1,
+      "error_code": "NO_DICOM_IMAGES",
+      "batch_exit_code": 0,
+      "strict_table_valid": true
+    },
+    "independent_manifest_and_series_validation": {
+      "valid": true,
+      "manifest_exact": true,
+      "derived_series_sources_valid": true
+    },
+    "known_gap": "Failure rows currently carry quality_class=1 and empty violation_type; strict validator accepts these rows. Confirm organizer meaning of Failure and tighten failure-row contract before release.",
+    "outputs": "/tmp/dxaqc-adversarial-20260924/"
+  },
+  "limitations": [
+    "Training archive is not an independent or closed test set.",
+    "Input DICOM headers contain invalid UI values; pydicom emitted warnings.",
+    "Strict gate remains failed; release is not ready for submission."
+  ],
+  "complete_release_validation": {
+    "input_manifest_exact": true,
+    "repeat_key_fields_identical": true,
+    "derived_sc_sr_source_references_valid": true,
+    "strict_v2_submission_valid": false,
+    "strict_v2_untyped_positive_rows": 19,
+    "release_ready": false
+  },
+  "verification_image": {
+    "tag": "osseo-dxaqc:verify-20260924",
+    "image_id": "sha256:d9485eac9dffe60e73b50256c8e3ae0d42eb8e0c163f22469191dee9caa13b30"
+  }
+}

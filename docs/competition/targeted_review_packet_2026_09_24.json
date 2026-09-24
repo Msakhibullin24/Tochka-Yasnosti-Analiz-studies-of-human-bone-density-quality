@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-24",
+  "source": "offline container 1.9.2 full batch",
+  "binary_only_rows": 19,
+  "unique_images": 11,
+  "blinded_images": 11,
+  "region_sources": {
+    "reference": 11,
+    "model_unverified": 0
+  },
+  "reviewers": 2,
+  "ground_truth_ready": false,
+  "review_counts": {
+    "pending": 11,
+    "agreed": 0,
+    "requires_adjudication": 0
+  },
+  "blind_manifest_sha256": "f8bf254a64546872ff6e08c72dd1033221989ce9fc629ed7ad98d6e6a0c74b81",
+  "private_output": "data/specialists/review/typed-v4-targeted-final-2026-09-24",
+  "privacy": "PNG pixels may contain personal annotations; do not publish the packet"
+}
