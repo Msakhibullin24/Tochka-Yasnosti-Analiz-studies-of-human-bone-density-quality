@@ -20,6 +20,7 @@ CORE_FILES = (
     'competition/reports/typed_v4_metrics.json',
     'competition/reports/release_1_9_2_2026_09_24.json',
     'competition/reports/release_1_9_3_full_sc_sr_2026_09_24.json',
+    'competition/reports/release_1_9_3_final_image_2026_09_24.json',
     'competition/reports/typed_v4_container_submission_validation.json',
     'competition/reports/typed_v4_container_extended_validation.json',
 )
@@ -41,7 +42,7 @@ def build(root: Path, source_audit: Path) -> dict:
     audit = json.loads(source_audit.read_text())
     metrics = json.loads((root / 'competition/reports/typed_v4_metrics.json').read_text())
     release = json.loads((root / 'competition/reports/release_1_9_2_2026_09_24.json').read_text())
-    full_series = json.loads((root / 'competition/reports/release_1_9_3_full_sc_sr_2026_09_24.json').read_text())
+    full_series = json.loads((root / 'competition/reports/release_1_9_3_final_image_2026_09_24.json').read_text())
     strict = json.loads((root / 'competition/reports/typed_v4_container_submission_validation.json').read_text())
     portfolio = json.loads((root / PORTFOLIO_FILES[0]).read_text())
     if release['release_version'] != '1.9.2' or release['decision_version'] != '4':
@@ -52,7 +53,8 @@ def build(root: Path, source_audit: Path) -> dict:
         raise ValueError('Full batch manifest or repeat failed')
     if (full_series['derived_sc'], full_series['derived_sr']) != (499, 499) or not (
             full_series['strict_submission']['valid'] and
-            full_series['independent_extended_and_series']['valid']):
+            full_series['independent_extended_and_series']['valid'] and
+            full_series['repeat_predictions_match']):
         raise ValueError('Full SC/SR batch did not pass independent validation')
     if portfolio['mode'] != 'shadow' or portfolio['affects_decision'] is not False:
         raise ValueError('Portfolio cannot be represented as an independent shadow')

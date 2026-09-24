@@ -3,7 +3,7 @@
   "core_version": "1.9.2",
   "portfolio_version": "1.9.3",
   "portfolio_mode": "shadow",
-  "git_head": "d39ced107ff68a7b53677347692b1413b4d60723",
+  "git_head": "0d6d217962126753186b3a662cd68164f3ad3669",
   "working_tree_dirty_at_capture": true,
   "reproducibility_note": "Hashes identify this working-tree snapshot; git HEAD alone is insufficient when dirty.",
   "source_audit_sha256": "b12567da6068f54f5f8ba1cbb11093b459c4885b9ee9641d01ead0eb29027a17",
@@ -26,7 +26,7 @@
     "strict_valid": true,
     "max_seconds_per_study_without_sc_sr": 2.951,
     "full_sc_sr_images": 499,
-    "max_seconds_per_study_with_sc_sr": 1.285
+    "max_seconds_per_study_with_sc_sr": 2.116
   },
   "files": {
     "competition/models/bundle.joblib": {
@@ -52,6 +52,10 @@
     "competition/reports/release_1_9_3_full_sc_sr_2026_09_24.json": {
       "sha256": "faad48bb087eeaf357e93d04332950c84f17da7686879d40fb2dbf224875e890",
       "bytes": 1955
+    },
+    "competition/reports/release_1_9_3_final_image_2026_09_24.json": {
+      "sha256": "ed3b85e33e31e93197c3c96b949a236d686f86c47aa6b6d805cdff4b311e1ccd",
+      "bytes": 2155
     },
     "competition/reports/typed_v4_container_submission_validation.json": {
       "sha256": "7777c8b3d160412102a265717bd5dae6c902ad5219e14f5d1947e75ad91d66f6",
