@@ -1,0 +1,868 @@
+{
+  "scope": "diagnostic localization against public bone-area ROIs; no reference or model modification",
+  "method": "intensity_minima",
+  "clinical_validation": false,
+  "patients": 10,
+  "reference_bodies": 40,
+  "matched_bodies": 40,
+  "unmatched_reference_bodies": 0,
+  "median_center_distance_pixels": 12.265201901159372,
+  "max_center_distance_pixels": 37.7408520152042,
+  "limitations": [
+    "Bone-area ROIs are not complete vertebral contours.",
+    "Matching uses the reference and cannot establish predicted L1-L4 numbering.",
+    "No Th12 or iliac crest annotation exists in this ROI source.",
+    "Raster-size agreement does not attest all source coordinate transforms.",
+    "Hologic source exports differ from organizer GE images."
+  ],
+  "cases": [
+    {
+      "patient_sha256": "8566ee8cc961a20f2f00208063764cfc75082eff5b90f989b36e4da08f935e2a",
+      "source_sha256": "a569e10c5f824dbed04451a0c8d89dbcfdd73e911c74832ab2429553bbeb0343",
+      "mask_sha256": "6f1d0dc313006bcf24fd5f1fbc6c5137edccecc8c9d2d1009b22d1b6baeeadfd",
+      "reference_centers": {
+        "Lumbar_1_bone_area": [
+          139.2791234140715,
+          100.86136101499423
+        ],
+        "Lumbar_2_bone_area": [
+          137.92979882648785,
+          154.5660100586756
+        ],
+        "Lumbar_3_bone_area": [
+          137.31653454133635,
+          214.67478293695734
+        ],
+        "Lumbar_4_bone_area": [
+          137.40866141732283,
+          272.3844488188976
+        ]
+      },
+      "candidate_centers": [
+        [
+          155.0,
+          47.0
+        ],
+        [
+          151.0,
+          100.0
+        ],
+        [
+          137.0,
+          155.0
+        ],
+        [
+          118.0,
+          205.0
+        ],
+        [
+          118.0,
+          239.0
+        ],
+        [
+          113.0,
+          296.0
+        ],
+        [
+          132.0,
+          341.0
+        ]
+      ],
+      "matches": [
+        {
+          "reference_index": 0,
+          "candidate_index": 1,
+          "distance_pixels": 11.752484449711842,
+          "reference_name": "Lumbar_1_bone_area",
+          "distance_fraction_of_image_height": 0.03084641587850877
+        },
+        {
+          "reference_index": 1,
+          "candidate_index": 2,
+          "distance_pixels": 1.0260960612481393,
+          "reference_name": "Lumbar_2_bone_area",
+          "distance_fraction_of_image_height": 0.00269316551508698
+        },
+        {
+          "reference_index": 2,
+          "candidate_index": 3,
+          "distance_pixels": 21.603933242904667,
+          "reference_name": "Lumbar_3_bone_area",
+          "distance_fraction_of_image_height": 0.056703236858017494
+        },
+        {
+          "reference_index": 3,
+          "candidate_index": 5,
+          "distance_pixels": 33.962876936042534,
+          "reference_name": "Lumbar_4_bone_area",
+          "distance_fraction_of_image_height": 0.08914140928095153
+        }
+      ],
+      "unmatched_references": 0,
+      "numbering_predicted": false,
+      "clinical_validation": false
+    },
+    {
+      "patient_sha256": "52c74ca87333280ea94cc514f6ceefec1f32fd5a44a108905dc9e46f88b7e0a2",
+      "source_sha256": "6da2ea731fa67781c8848994c8a1d298ce35ec1e27a49c77357be27339e5761d",
+      "mask_sha256": "7b16f6b69caacab2e4dbbceb78cfdf24836ee60577b2c821cf22d99697470eb8",
+      "reference_centers": {
+        "Lumbar_1_bone_area": [
+          117.57765198129461,
+          91.42923947821807
+        ],
+        "Lumbar_2_bone_area": [
+          121.62271662763466,
+          143.5496487119438
+        ],
+        "Lumbar_3_bone_area": [
+          124.61677527853689,
+          203.56338028169014
+        ],
+        "Lumbar_4_bone_area": [
+          124.80564908342686,
+          264.4034792368126
+        ]
+      },
+      "candidate_centers": [
+        [
+          119.0,
+          41.0
+        ],
+        [
+          117.0,
+          93.0
+        ],
+        [
+          113.0,
+          148.0
+        ],
+        [
+          115.0,
+          199.0
+        ],
+        [
+          142.0,
+          298.0
+        ],
+        [
+          147.0,
+          349.0
+        ]
+      ],
+      "matches": [
+        {
+          "reference_index": 0,
+          "candidate_index": 1,
+          "distance_pixels": 1.6736099988594244,
+          "reference_name": "Lumbar_1_bone_area",
+          "distance_fraction_of_image_height": 0.0041323703675541345
+        },
+        {
+          "reference_index": 1,
+          "candidate_index": 2,
+          "distance_pixels": 9.703446224284992,
+          "reference_name": "Lumbar_2_bone_area",
+          "distance_fraction_of_image_height": 0.023959126479716028
+        },
+        {
+          "reference_index": 2,
+          "candidate_index": 3,
+          "distance_pixels": 10.644566987585579,
+          "reference_name": "Lumbar_3_bone_area",
+          "distance_fraction_of_image_height": 0.02628288145082859
+        },
+        {
+          "reference_index": 3,
+          "candidate_index": 4,
+          "distance_pixels": 37.7408520152042,
+          "reference_name": "Lumbar_4_bone_area",
+          "distance_fraction_of_image_height": 0.09318728892643012
+        }
+      ],
+      "unmatched_references": 0,
+      "numbering_predicted": false,
+      "clinical_validation": false
+    },
+    {
+      "patient_sha256": "81a16fe30e67d812332cdeda986281b41f59243082b792c13f0e004af77bc0e0",
+      "source_sha256": "1340978a67da4d0b4ff4c56fb06241dde598d5e38e1dc3c6aa8ff420763c29b7",
+      "mask_sha256": "12b359c71204e5f0e73979dbaa53f204a722380af8138dc8cbffa96e27060de8",
+      "reference_centers": {
+        "Lumbar_1_bone_area": [
+          117.0368125701459,
+          85.98855218855219
+        ],
+        "Lumbar_2_bone_area": [
+          105.57921361232468,
+          142.7401701540584
+        ],
+        "Lumbar_3_bone_area": [
+          104.37469586374696,
+          199.3801703163017
+        ],
+        "Lumbar_4_bone_area": [
+          118.9952770208901,
+          258.2770208900999
+        ]
+      },
+      "candidate_centers": [
+        [
+          121.0,
+          25.0
+        ],
+        [
+          121.0,
+          76.0
+        ],
+        [
+          122.0,
+          136.0
+        ],
+        [
+          122.0,
+          198.0
+        ],
+        [
+          133.0,
+          253.0
+        ],
+        [
+          128.0,
+          285.0
+        ],
+        [
+          128.0,
+          327.0
+        ]
+      ],
+      "matches": [
+        {
+          "reference_index": 0,
+          "candidate_index": 1,
+          "distance_pixels": 10.746070417952058,
+          "reference_name": "Lumbar_1_bone_area",
+          "distance_fraction_of_image_height": 0.0265335072048199
+        },
+        {
+          "reference_index": 1,
+          "candidate_index": 2,
+          "distance_pixels": 17.75027096399722,
+          "reference_name": "Lumbar_2_bone_area",
+          "distance_fraction_of_image_height": 0.04382782954073388
+        },
+        {
+          "reference_index": 2,
+          "candidate_index": 3,
+          "distance_pixels": 17.679259486681524,
+          "reference_name": "Lumbar_3_bone_area",
+          "distance_fraction_of_image_height": 0.04365249255970747
+        },
+        {
+          "reference_index": 3,
+          "candidate_index": 4,
+          "distance_pixels": 14.965935159426541,
+          "reference_name": "Lumbar_4_bone_area",
+          "distance_fraction_of_image_height": 0.036952926319571706
+        }
+      ],
+      "unmatched_references": 0,
+      "numbering_predicted": false,
+      "clinical_validation": false
+    },
+    {
+      "patient_sha256": "a5062280775101377f2ed2a5ac021f9c5ba0be42d583135ef8e94df6316d979e",
+      "source_sha256": "fa2ad29352786376e4346a58de730a998eb98c77463cd43f7f62549052fb423d",
+      "mask_sha256": "eb462d38125eba8f9a160acaf4c25c387574b5038f7a6c5210d35b49763a8f53",
+      "reference_centers": {
+        "Lumbar_1_bone_area": [
+          127.00154838709678,
+          51.68206451612903
+        ],
+        "Lumbar_2_bone_area": [
+          130.69908338922423,
+          108.00491839928459
+        ],
+        "Lumbar_3_bone_area": [
+          131.09658421672555,
+          171.26835492736552
+        ],
+        "Lumbar_4_bone_area": [
+          131.53305033353547,
+          233.16777845158683
+        ]
+      },
+      "candidate_centers": [
+        [
+          126.0,
+          41.0
+        ],
+        [
+          129.0,
+          100.0
+        ],
+        [
+          130.0,
+          132.0
+        ],
+        [
+          130.0,
+          162.0
+        ],
+        [
+          116.0,
+          219.0
+        ],
+        [
+          113.0,
+          265.0
+        ],
+        [
+          107.0,
+          318.0
+        ]
+      ],
+      "matches": [
+        {
+          "reference_index": 0,
+          "candidate_index": 0,
+          "distance_pixels": 10.728914273981273,
+          "reference_name": "Lumbar_1_bone_area",
+          "distance_fraction_of_image_height": 0.030222293729524712
+        },
+        {
+          "reference_index": 1,
+          "candidate_index": 1,
+          "distance_pixels": 8.183251367442079,
+          "reference_name": "Lumbar_2_bone_area",
+          "distance_fraction_of_image_height": 0.023051412302653743
+        },
+        {
+          "reference_index": 2,
+          "candidate_index": 3,
+          "distance_pixels": 9.333000589520625,
+          "reference_name": "Lumbar_3_bone_area",
+          "distance_fraction_of_image_height": 0.0262901425056919
+        },
+        {
+          "reference_index": 3,
+          "candidate_index": 4,
+          "distance_pixels": 21.023834067966632,
+          "reference_name": "Lumbar_4_bone_area",
+          "distance_fraction_of_image_height": 0.059222067797089106
+        }
+      ],
+      "unmatched_references": 0,
+      "numbering_predicted": false,
+      "clinical_validation": false
+    },
+    {
+      "patient_sha256": "707b04df356a78990ef91862af70512a4a9abe612d9181b75fd33a1d2e7ed447",
+      "source_sha256": "106cd04579a8cebc336b93f43b8933cd9f4283748c1bfc593fa38a2738017f88",
+      "mask_sha256": "ee9a7b1532b012ed47819e20483d6a6ab1a7045d09caa6a9c2661bc48e6a7836",
+      "reference_centers": {
+        "Lumbar_1_bone_area": [
+          127.57553638575537,
+          121.38398584383985
+        ],
+        "Lumbar_2_bone_area": [
+          131.35095298602286,
+          167.81753494282083
+        ],
+        "Lumbar_3_bone_area": [
+          128.58282208588957,
+          216.33128834355827
+        ],
+        "Lumbar_4_bone_area": [
+          124.5856,
+          267.14925714285715
+        ]
+      },
+      "candidate_centers": [
+        [
+          112.0,
+          49.0
+        ],
+        [
+          116.0,
+          99.0
+        ],
+        [
+          132.0,
+          198.0
+        ],
+        [
+          134.0,
+          232.0
+        ],
+        [
+          137.0,
+          294.0
+        ]
+      ],
+      "matches": [
+        {
+          "reference_index": 0,
+          "candidate_index": 1,
+          "distance_pixels": 25.199917953738847,
+          "reference_name": "Lumbar_1_bone_area",
+          "distance_fraction_of_image_height": 0.06222201963886135
+        },
+        {
+          "reference_index": 1,
+          "candidate_index": 2,
+          "distance_pixels": 30.189442839413157,
+          "reference_name": "Lumbar_2_bone_area",
+          "distance_fraction_of_image_height": 0.07454183417139051
+        },
+        {
+          "reference_index": 2,
+          "candidate_index": 3,
+          "distance_pixels": 16.57873160183971,
+          "reference_name": "Lumbar_3_bone_area",
+          "distance_fraction_of_image_height": 0.04093513975762891
+        },
+        {
+          "reference_index": 3,
+          "candidate_index": 4,
+          "distance_pixels": 29.581746387602063,
+          "reference_name": "Lumbar_4_bone_area",
+          "distance_fraction_of_image_height": 0.07304134910519028
+        }
+      ],
+      "unmatched_references": 0,
+      "numbering_predicted": false,
+      "clinical_validation": false
+    },
+    {
+      "patient_sha256": "2edec7f3207b2802cf5fad3ad50d85947e69a62ab7d4230c0f7be3ebdbfd3b2c",
+      "source_sha256": "f5c1a88aee653f2832ef243e54e9c08ce6f4f4f7306d2ab84b0bc28ff60aae51",
+      "mask_sha256": "178f031caa45bda31e8c37614ec17f4ecf69580353fbc7bc6112cb7fe35cb48f",
+      "reference_centers": {
+        "Lumbar_1_bone_area": [
+          132.24311346980036,
+          97.76876421531463
+        ],
+        "Lumbar_2_bone_area": [
+          141.90696132596685,
+          153.82674033149172
+        ],
+        "Lumbar_3_bone_area": [
+          145.11127533783784,
+          213.09691722972974
+        ],
+        "Lumbar_4_bone_area": [
+          139.13024013024014,
+          273.7720797720798
+        ]
+      },
+      "candidate_centers": [
+        [
+          128.0,
+          16.0
+        ],
+        [
+          142.0,
+          98.0
+        ],
+        [
+          135.0,
+          157.0
+        ],
+        [
+          141.0,
+          213.0
+        ],
+        [
+          143.0,
+          248.0
+        ],
+        [
+          141.0,
+          314.0
+        ],
+        [
+          139.0,
+          353.0
+        ]
+      ],
+      "matches": [
+        {
+          "reference_index": 0,
+          "candidate_index": 1,
+          "distance_pixels": 9.75962626084166,
+          "reference_name": "Lumbar_1_bone_area",
+          "distance_fraction_of_image_height": 0.024097842619362125
+        },
+        {
+          "reference_index": 1,
+          "candidate_index": 2,
+          "distance_pixels": 7.601032277406996,
+          "reference_name": "Lumbar_2_bone_area",
+          "distance_fraction_of_image_height": 0.018767980931869127
+        },
+        {
+          "reference_index": 2,
+          "candidate_index": 3,
+          "distance_pixels": 4.112417519286207,
+          "reference_name": "Lumbar_3_bone_area",
+          "distance_fraction_of_image_height": 0.01015411733157088
+        },
+        {
+          "reference_index": 3,
+          "candidate_index": 4,
+          "distance_pixels": 26.060988799891078,
+          "reference_name": "Lumbar_4_bone_area",
+          "distance_fraction_of_image_height": 0.06434812049355822
+        }
+      ],
+      "unmatched_references": 0,
+      "numbering_predicted": false,
+      "clinical_validation": false
+    },
+    {
+      "patient_sha256": "c0a4fadcfe6a910260d6fc8fba0304f269271b4d970a126058cde23e7ed6b8ea",
+      "source_sha256": "95deb11d954eb9b42d06e2fa2c4f900e35a9d9716bf3bd725dc805be51f689f5",
+      "mask_sha256": "77852523c91cf1e38ea88d3d362b512b7e235b9e1548a38dfd991e32a2045c78",
+      "reference_centers": {
+        "Lumbar_1_bone_area": [
+          117.57042443903758,
+          119.9735063530684
+        ],
+        "Lumbar_2_bone_area": [
+          121.47519235871584,
+          169.66277527195544
+        ],
+        "Lumbar_3_bone_area": [
+          122.54406520631686,
+          218.76082526744779
+        ],
+        "Lumbar_4_bone_area": [
+          128.11173687767516,
+          271.8373507546745
+        ]
+      },
+      "candidate_centers": [
+        [
+          120.0,
+          15.0
+        ],
+        [
+          121.0,
+          66.0
+        ],
+        [
+          121.0,
+          109.0
+        ],
+        [
+          128.0,
+          173.0
+        ],
+        [
+          128.0,
+          206.0
+        ],
+        [
+          118.0,
+          266.0
+        ],
+        [
+          87.0,
+          334.0
+        ]
+      ],
+      "matches": [
+        {
+          "reference_index": 0,
+          "candidate_index": 2,
+          "distance_pixels": 11.496948734737545,
+          "reference_name": "Lumbar_1_bone_area",
+          "distance_fraction_of_image_height": 0.02824803128928144
+        },
+        {
+          "reference_index": 1,
+          "candidate_index": 3,
+          "distance_pixels": 7.328723193110257,
+          "reference_name": "Lumbar_2_bone_area",
+          "distance_fraction_of_image_height": 0.018006690892162794
+        },
+        {
+          "reference_index": 2,
+          "candidate_index": 4,
+          "distance_pixels": 13.878252266739358,
+          "reference_name": "Lumbar_3_bone_area",
+          "distance_fraction_of_image_height": 0.03409889991827852
+        },
+        {
+          "reference_index": 3,
+          "candidate_index": 5,
+          "distance_pixels": 11.675696403916758,
+          "reference_name": "Lumbar_4_bone_area",
+          "distance_fraction_of_image_height": 0.028687214751638226
+        }
+      ],
+      "unmatched_references": 0,
+      "numbering_predicted": false,
+      "clinical_validation": false
+    },
+    {
+      "patient_sha256": "eeaf03cb927a150c62b8a5c27d056faff7b31e5268b11df533febb150b96e292",
+      "source_sha256": "cb8bb4d524250ef9149339132fa82ca66a4e7032be478fbc222648f0e7543c35",
+      "mask_sha256": "8006816a09ff8546ac36ec04abbefff959febc116a36c7c8d53b687a5075ee6e",
+      "reference_centers": {
+        "Lumbar_1_bone_area": [
+          105.92235429447852,
+          137.14129601226995
+        ],
+        "Lumbar_2_bone_area": [
+          101.92102863395951,
+          199.7380995805216
+        ],
+        "Lumbar_3_bone_area": [
+          108.79787817815986,
+          255.8726906895921
+        ],
+        "Lumbar_4_bone_area": [
+          122.375,
+          305.49087183308495
+        ]
+      },
+      "candidate_centers": [
+        [
+          108.0,
+          124.0
+        ],
+        [
+          115.0,
+          174.0
+        ],
+        [
+          124.0,
+          228.0
+        ],
+        [
+          128.0,
+          287.0
+        ],
+        [
+          92.0,
+          335.0
+        ],
+        [
+          95.0,
+          371.0
+        ]
+      ],
+      "matches": [
+        {
+          "reference_index": 0,
+          "candidate_index": 0,
+          "distance_pixels": 13.304520756486264,
+          "reference_name": "Lumbar_1_bone_area",
+          "distance_fraction_of_image_height": 0.032850668534533986
+        },
+        {
+          "reference_index": 1,
+          "candidate_index": 1,
+          "distance_pixels": 28.87056047274721,
+          "reference_name": "Lumbar_2_bone_area",
+          "distance_fraction_of_image_height": 0.07128533450061039
+        },
+        {
+          "reference_index": 2,
+          "candidate_index": 2,
+          "distance_pixels": 31.7488802033039,
+          "reference_name": "Lumbar_3_bone_area",
+          "distance_fraction_of_image_height": 0.07839229679828123
+        },
+        {
+          "reference_index": 3,
+          "candidate_index": 3,
+          "distance_pixels": 19.327518364952457,
+          "reference_name": "Lumbar_4_bone_area",
+          "distance_fraction_of_image_height": 0.047722267567783846
+        }
+      ],
+      "unmatched_references": 0,
+      "numbering_predicted": false,
+      "clinical_validation": false
+    },
+    {
+      "patient_sha256": "1b235e024cafdbe0276857da99dd5f05344376e06c77d724c065c6aa1e816ae0",
+      "source_sha256": "19e8df1fc8a68fdf0cf6d5ea3a91f1c77c2efb62b037d41bbffbad8563d74bb4",
+      "mask_sha256": "32bb3113d8d70bde397006d12137bf437218508b320b60008e78ccbdcaaa3e6a",
+      "reference_centers": {
+        "Lumbar_1_bone_area": [
+          131.9429753966429,
+          101.51621062313176
+        ],
+        "Lumbar_2_bone_area": [
+          132.7244599047968,
+          160.61406078359576
+        ],
+        "Lumbar_3_bone_area": [
+          131.76824034334763,
+          225.9234931890278
+        ],
+        "Lumbar_4_bone_area": [
+          135.67497773820125,
+          287.91237756010685
+        ]
+      },
+      "candidate_centers": [
+        [
+          130.0,
+          44.0
+        ],
+        [
+          120.0,
+          101.0
+        ],
+        [
+          120.0,
+          134.0
+        ],
+        [
+          132.0,
+          166.0
+        ],
+        [
+          144.0,
+          223.0
+        ],
+        [
+          143.0,
+          277.0
+        ],
+        [
+          112.0,
+          319.0
+        ],
+        [
+          106.0,
+          351.0
+        ]
+      ],
+      "matches": [
+        {
+          "reference_index": 0,
+          "candidate_index": 1,
+          "distance_pixels": 11.954126263857676,
+          "reference_name": "Lumbar_1_bone_area",
+          "distance_fraction_of_image_height": 0.029227692576669132
+        },
+        {
+          "reference_index": 1,
+          "candidate_index": 3,
+          "distance_pixels": 5.434444166284099,
+          "reference_name": "Lumbar_2_bone_area",
+          "distance_fraction_of_image_height": 0.01328714955081687
+        },
+        {
+          "reference_index": 2,
+          "candidate_index": 4,
+          "distance_pixels": 12.57627753846107,
+          "reference_name": "Lumbar_3_bone_area",
+          "distance_fraction_of_image_height": 0.03074884483731313
+        },
+        {
+          "reference_index": 3,
+          "candidate_index": 5,
+          "distance_pixels": 13.142904365100232,
+          "reference_name": "Lumbar_4_bone_area",
+          "distance_fraction_of_image_height": 0.03213424050146756
+        }
+      ],
+      "unmatched_references": 0,
+      "numbering_predicted": false,
+      "clinical_validation": false
+    },
+    {
+      "patient_sha256": "c1d17b87a5a3905071d821268e78cd9f8b4741d3162de825054ef9d0543b5116",
+      "source_sha256": "1027c1296748c99ece0278dd9bd2f62d1302f32703fb2daedace434ba29fb908",
+      "mask_sha256": "cb614af21ded335aed7088d6083d7ded498dde05a0761c0b37f544fe5d7ba661",
+      "reference_centers": {
+        "Lumbar_1_bone_area": [
+          131.95458458889368,
+          114.39195006457167
+        ],
+        "Lumbar_2_bone_area": [
+          131.63491717523976,
+          176.98975588491717
+        ],
+        "Lumbar_3_bone_area": [
+          132.79389623601222,
+          239.06388606307223
+        ],
+        "Lumbar_4_bone_area": [
+          133.56903908516813,
+          309.3647380098993
+        ]
+      },
+      "candidate_centers": [
+        [
+          123.0,
+          51.0
+        ],
+        [
+          129.0,
+          113.0
+        ],
+        [
+          130.0,
+          147.0
+        ],
+        [
+          123.0,
+          179.0
+        ],
+        [
+          122.0,
+          239.0
+        ],
+        [
+          128.0,
+          275.0
+        ],
+        [
+          115.0,
+          344.0
+        ]
+      ],
+      "matches": [
+        {
+          "reference_index": 0,
+          "candidate_index": 1,
+          "distance_pixels": 3.266051909444969,
+          "reference_name": "Lumbar_1_bone_area",
+          "distance_fraction_of_image_height": 0.008064325702333256
+        },
+        {
+          "reference_index": 1,
+          "candidate_index": 3,
+          "distance_pixels": 8.86582630246475,
+          "reference_name": "Lumbar_2_bone_area",
+          "distance_fraction_of_image_height": 0.021890929141888272
+        },
+        {
+          "reference_index": 2,
+          "candidate_index": 4,
+          "distance_pixels": 10.794085296256165,
+          "reference_name": "Lumbar_3_bone_area",
+          "distance_fraction_of_image_height": 0.026652062459891768
+        },
+        {
+          "reference_index": 3,
+          "candidate_index": 5,
+          "distance_pixels": 34.81306385282901,
+          "reference_name": "Lumbar_4_bone_area",
+          "distance_fraction_of_image_height": 0.08595818235266423
+        }
+      ],
+      "unmatched_references": 0,
+      "numbering_predicted": false,
+      "clinical_validation": false
+    }
+  ]
+}

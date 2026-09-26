@@ -19,6 +19,9 @@ EXTRA_COLUMNS = ["quality_prob", "laterality", "violation_codes", "violation_sco
                  "explanation_png", "criterion_thresholds", "decision_reason", "decision_version", "pixel_mm_x", "row_id", "projection_assessment", "anatomy_assessment", "source_roi_assessment", "anatomical_checks_complete", "image_width", "image_height", "criterion_states", "violation_type_status", "review_reasons"]
 EXTRA_COLUMNS.append('specialist_qc')
 EXTRA_COLUMNS.append('specialist_outputs')
+EXTRA_COLUMNS.append('requirement_checks')
+EXTRA_COLUMNS.append('learned_anatomy')
+EXTRA_COLUMNS.append('joint_evidence')
 
 
 def columns(strict: bool) -> list[str]:

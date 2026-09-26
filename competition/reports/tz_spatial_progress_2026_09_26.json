@@ -1,0 +1,99 @@
+{
+  "date": "2026-09-26",
+  "release_version": "1.10.0",
+  "release_code_hashes_unchanged": true,
+  "release_modified": false,
+  "full_tz_compliance": false,
+  "remaining_untyped_release_answers": 19,
+  "spatial_buu": {
+    "bodies": 500,
+    "within_half_body_height": 377,
+    "numbered_center_hit_rate": 0.754,
+    "median_error_body_heights_all_bodies": 0.26610966362679866,
+    "p95_error_body_heights_all_bodies": 1.2689467435608968
+  },
+  "spatial_expanded_buu": {
+    "bodies": 7990,
+    "within_half_body_height": 5742,
+    "numbered_center_hit_rate": 0.7186483103879849,
+    "median_error_body_heights_all_bodies": 0.28644371775271704,
+    "p95_error_body_heights_all_bodies": 1.3486353476236586
+  },
+  "dxa_adaptation": {
+    "adapted_oof": {
+      "bodies": 40,
+      "within_half_roi_bbox_height": 31,
+      "numbered_roi_center_hit_rate": 0.775,
+      "median_error_roi_heights": 0.3015327960707337
+    },
+    "frozen_buu_same_inference": {
+      "bodies": 40,
+      "within_half_roi_bbox_height": 5,
+      "numbered_roi_center_hit_rate": 0.125,
+      "median_error_roi_heights": 1.145581116404414
+    },
+    "train_only_roi_layout": {
+      "bodies": 40,
+      "within_half_roi_bbox_height": 35,
+      "numbered_roi_center_hit_rate": 0.875,
+      "median_error_roi_heights": 0.2885608781254898
+    },
+    "paired_patient_bootstrap_delta_hit_rate_ci95": [
+      0.4,
+      0.85
+    ]
+  },
+  "buu_after_dxa_adaptation": {
+    "bodies": 500,
+    "within_half_body_height": 311,
+    "numbered_center_hit_rate": 0.622,
+    "median_error_body_heights_all_bodies": 0.32366694782396827,
+    "p95_error_body_heights_all_bodies": 1.3943528196289166
+  },
+  "spinal_ai": {
+    "images": 20000,
+    "exact_duplicate_images": 0,
+    "cross_split_duplicates": 0,
+    "polygon_audit": {
+      "Spinal_AI2024_test_annotation.zip": {
+        "polygons": 68815,
+        "self_intersecting_quads": 68815,
+        "out_of_bounds": 5
+      },
+      "Spinal_AI2024_train__annotation.zip": {
+        "polygons": 273450,
+        "self_intersecting_quads": 273450,
+        "out_of_bounds": 10
+      }
+    },
+    "normalized_coco": {
+      "test": {
+        "accepted": 68810,
+        "quarantined": 5
+      },
+      "train": {
+        "accepted": 273440,
+        "quarantined": 10
+      }
+    }
+  },
+  "dataset_acquisition_statuses": {
+    "verified": 5489
+  },
+  "notes": [
+    "Candidates are not promoted: DXA adaptation loses to layout prior and reduces BUU retention; projection transfer to AASCE fails.",
+    "No external dataset supplies organizer quality-violation type ground truth."
+  ],
+  "nhanes_acquisition_snapshot": {
+    "selection": "1000 uniformly sampled source files; seed 17; disk-bounded subset, not full cohort",
+    "statuses": {
+      "downloaded": 3
+    },
+    "background_unit": "osseo-dataset-nhanes-retry-20260926"
+  },
+  "verification": {
+    "competition_tests_passed": 203,
+    "competition_tests_skipped": 5,
+    "git_diff_check": true
+  }
+}

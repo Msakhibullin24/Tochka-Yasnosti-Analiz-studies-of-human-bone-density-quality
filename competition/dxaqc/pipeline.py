@@ -45,7 +45,7 @@ def check_output(input_path: Path, out_dir: Path):
     source, output = input_path.resolve(), out_dir.resolve()
     if source == output or (input_path.is_dir() and source in output.parents):
         raise OutputConflictError("output must be outside the input directory")
-    reserved = ('submission.csv', 'submission.xlsx', 'submission_validation.json', 'results_extended.csv', 'results.csv', 'results.xlsx', 'summary.json', 'additional_series',
+    reserved = ('submission.csv', 'submission.xlsx', 'submission_validation.json', 'requirements.json', 'timing.json', 'results_extended.csv', 'results.csv', 'results.xlsx', 'summary.json', 'additional_series',
                 'additional_series.zip', 'images', '_extracted')
     if any((out_dir / name).exists() or (out_dir / name).is_symlink() for name in reserved):
         raise OutputConflictError("output contains a previous run; choose a new output directory")
@@ -70,7 +70,8 @@ def load_bundle(path: Path = MODEL_PATH) -> QualityBundle:
 
 def failure_row(path: str, code: str, message: str) -> dict:
     return {"path_to_study": path, "path_to_file": path, "study_uid": "", "image_uid": "",
-            "quality_class": 1, "violation_type": "", "processing_status": "Failure",
+            "anatomical_region": "", "quality_class": None, "quality_prob": None,
+            "violation_type": "", "processing_status": "Failure",
             "time_of_processing": 0.0, "error_code": code, "error_message": message[:300]}
 
 
@@ -84,6 +85,8 @@ def write_tables(rows: list[dict], out_dir: Path, opts: Options) -> None:
     from .validate_results import validate
     acceptance = validate(out_dir / "submission.csv", competition=True)
     (out_dir / "submission_validation.json").write_text(json.dumps(acceptance, ensure_ascii=False, indent=2))
+    from .requirements import evaluate_requirements
+    (out_dir / 'requirements.json').write_text(json.dumps(evaluate_requirements(rows), ensure_ascii=False, indent=2), encoding='utf-8')
 
 
 def write_failure_report(input_path: Path, out_dir: Path, exc: Exception,
@@ -163,7 +166,31 @@ class Analyzer:
 
         torch.manual_seed(0)
         torch.set_num_threads(max(1, min(8, os.cpu_count() or 1)))
+        self.workflow_profile = None
+        if os.environ.get('DXAQC_WORKFLOW_PROFILE'):
+            from .workflow_profile import configure_profile
+            self.workflow_profile = configure_profile(os.environ['DXAQC_WORKFLOW_PROFILE'], MODEL_PATH)
         self.bundle = bundle or load_bundle()
+        self.projection_model = None
+        if os.environ.get('DXAQC_PROJECTION_MODEL'):
+            from .projection_model import ProjectionModel
+            self.projection_model = ProjectionModel(Path(os.environ['DXAQC_PROJECTION_MODEL']))
+        self.quality_review = None
+        if os.environ.get('DXAQC_QUALITY_REVIEW_MODEL'):
+            import joblib
+            from .joint_quality import JointQualityModel
+            review_bundle = joblib.load(Path(os.environ['DXAQC_QUALITY_REVIEW_MODEL']))
+            if (review_bundle.get('schema_version') != 1 or review_bundle.get('mode') != 'review_untyped'
+                    or review_bundle.get('clinical_validation') is not False
+                    or set(review_bundle.get('models', {})) != {'spine', 'hip'}
+                    or any(not isinstance(m, JointQualityModel) or m.group != group
+                           for group, m in review_bundle['models'].items())):
+                raise ValueError('Incompatible supervised quality review')
+            self.quality_review = review_bundle['models']
+        self.learned_anatomy = None
+        if os.environ.get('DXAQC_ANATOMY_MODEL'):
+            from .learned_anatomy import AnatomyPortfolio
+            self.learned_anatomy = AnatomyPortfolio(Path(os.environ['DXAQC_ANATOMY_MODEL']))
         self.specialist = None
         self.specialist_portfolio = None
         if os.environ.get('DXAQC_SPECIALIST_PATH') and os.environ.get('DXAQC_SPECIALIST_PORTFOLIO'):
@@ -197,9 +224,20 @@ class Analyzer:
         crit = {k: float(v[0]) for k, v in crit.items()}
         decision = decide(group_of(region), score, crit, meas.features,
                           gm.quality_threshold, gm.criterion_thresholds)
+        if self.quality_review is not None:
+            decision = self.quality_review[group_of(region)].review_untyped(
+                decision, meas.features, embed(px)[None] if region == 'hip_left' else raw_embedding)
         result = {"region": region, "region_confidence": confidence,
                   "laterality_confidence": side_confidence if region != "spine" else None, **decision,
                   "criteria": crit, "features": meas.features, "overlay": meas.overlay}
+        if self.projection_model is not None:
+            result['learned_projection'] = self.projection_model.predict(img.pixels, region)
+        if self.learned_anatomy is not None:
+            try:
+                result['learned_anatomy'] = self.learned_anatomy.predict(img.pixels, region)
+            except (ValueError, RuntimeError) as exc:
+                result['learned_anatomy'] = {'status': 'unavailable', 'regions': [],
+                                             'affects_decision': False, 'error': str(exc)[:200]}
         if self.specialist is not None:
             try:
                 result['specialist_qc'] = self.specialist.predict(img.pixels, region)
@@ -208,6 +246,8 @@ class Analyzer:
                                            'affects_decision': False, 'error': str(exc)[:200]}
         if self.specialist_portfolio is not None:
             result['specialist_outputs'] = self.specialist_portfolio.predict(img.pixels, region)
+        if self.workflow_profile is not None:
+            result['workflow_profile_id'] = self.workflow_profile['profile_id']
         return result
 
 
@@ -263,7 +303,7 @@ def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyz
         t0 = time.perf_counter()
         rel = path.relative_to(root)
         row_id = hashlib.sha256(rel.as_posix().encode()).hexdigest()[:24]
-        row = {"row_id": row_id, **_row_base(rel), "study_uid": "", "image_uid": "", "anatomical_region": "", "quality_class": 1,
+        row = {"row_id": row_id, **_row_base(rel), "study_uid": "", "image_uid": "", "anatomical_region": "", "quality_class": None,
                "violation_type": "", "processing_status": "Failure"}
         try:
             img = read_dxa(path)
@@ -282,12 +322,15 @@ def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyz
                 "projection_assessment": json.dumps(projection, ensure_ascii=False),
                 "anatomy_assessment": json.dumps(res['anatomy_candidates'], ensure_ascii=False),
                 "source_roi_assessment": json.dumps(source_roi, ensure_ascii=False),
-                "anatomical_checks_complete": "false",
+                "anatomical_checks_complete": str(assessment['complete']).lower(),
+                "requirement_checks": json.dumps(assessment['checks'], ensure_ascii=False),
                 "criterion_states": json.dumps(res["criterion_states"], ensure_ascii=False),
                 "violation_type_status": res["violation_type_status"],
                 "review_reasons": json.dumps(res["review_reasons"], ensure_ascii=False),
                 "specialist_qc": json.dumps(res.get('specialist_qc'), ensure_ascii=False),
                 "specialist_outputs": json.dumps(res.get('specialist_outputs'), ensure_ascii=False),
+                "learned_anatomy": json.dumps(res.get('learned_anatomy'), ensure_ascii=False),
+                "joint_evidence": json.dumps(res.get('joint_evidence'), ensure_ascii=False),
                 "image_width": img.pixels.shape[1],
                 "image_height": img.pixels.shape[0],
                 "anatomical_region": REGION_LABEL[res["region"]],
@@ -322,6 +365,7 @@ def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyz
                     geometry = {k: [(img.pixels.shape[1] - 1 - x, y) for x, y in pts]
                                 for k, pts in geometry.items()}
                 detail = {"row_id": row_id, "region": res["region"], "width": img.pixels.shape[1],
+                          "learned_anatomy": res.get('learned_anatomy'), "joint_evidence": res.get('joint_evidence'),
                           "height": img.pixels.shape[0], "pixel_mm_x": img.pixel_mm_x or img.pixel_mm,
                           "pixel_mm_y": img.pixel_mm, "pixel_mm_source": img.pixel_mm_source,
                           "geometry": geometry, "model": analyzer.bundle.meta, "assessment": assessment}
@@ -332,10 +376,12 @@ def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyz
                 cache[cache_key] = (res, img.image_uid)
         except DicomReadError as exc:
             row["study_uid"], row["image_uid"] = read_identifiers(path)
-            row.update({"violation_codes": "processing_failure", "error_code": exc.code, "error_message": str(exc)[:300]})
+            row.update({"processing_status": "Failure", "quality_class": None, "quality_prob": None,
+                        "violation_type": "", "violation_codes": "processing_failure", "error_code": exc.code, "error_message": str(exc)[:300]})
         except Exception as exc:  # never let one file stop the batch
             row["study_uid"], row["image_uid"] = read_identifiers(path)
-            row.update({"violation_codes": "processing_failure", "error_code": "INTERNAL_ERROR",
+            row.update({"processing_status": "Failure", "quality_class": None, "quality_prob": None,
+                        "violation_type": "", "violation_codes": "processing_failure", "error_code": "INTERNAL_ERROR",
                         "error_message": f"{type(exc).__name__}: {exc}"[:300]})
             try:
                 with open(out_dir / "errors.log", "a", encoding="utf-8") as log:
@@ -448,7 +494,20 @@ def run_batch(input_path: Path, out_dir: Path, opts: Options | None = None, anal
                "studies": len(by_study), "max_seconds_per_study": round(max(by_study.values(), default=0.0), 3),
                "mean_seconds_per_image": round(float(np.mean(times)), 4),
                "total_seconds": round(time.perf_counter() - t0, 3)}
+    active_profile = getattr(analyzer, 'workflow_profile', None)
+    if active_profile is not None:
+        summary['workflow_profile_id'] = active_profile['profile_id']
     summary['process_peak_rss_bytes'] = int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * (1 if sys.platform == 'darwin' else 1024))
     summary['cpu_count_visible'] = os.cpu_count()
+    from .requirements import evaluate_requirements, timing_report
+    timing = timing_report(rows, time.perf_counter() - t0)
+    (out_dir / 'timing.json').write_text(json.dumps(timing, ensure_ascii=False, indent=2), encoding='utf-8')
+    requirements = evaluate_requirements(rows, timing)
+    (out_dir / 'requirements.json').write_text(json.dumps(requirements, ensure_ascii=False, indent=2), encoding='utf-8')
+    summary['typification_complete'] = requirements['typification_complete']
+    summary['anatomical_checks_complete'] = requirements['anatomical_checks_complete']
+    summary['untyped_violations'] = requirements['untyped_violations']
+    summary['requirements_complete'] = requirements['complete']
+    summary['max_seconds_per_study_upper_bound'] = timing['max_study_upper_bound_seconds']
     (out_dir / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
     return summary

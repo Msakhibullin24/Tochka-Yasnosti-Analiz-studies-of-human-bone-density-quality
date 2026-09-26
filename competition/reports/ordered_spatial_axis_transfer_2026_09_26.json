@@ -1,0 +1,2705 @@
+{
+  "clinical_validation": false,
+  "release_modified": false,
+  "protocol": "Joint order-constrained heatmaps; fixed physical 5 degree rule; no GE training or threshold fitting",
+  "images": 99,
+  "model_sha256": "c60454c5f05815ddbbbe0aeeed0e5fa59c9f36b751207092ca877689b74f0655",
+  "decoder_code_sha256": "b44a8e6a5705a572bef9d668704805f31da4546b468526f64a45537e142ea3d8",
+  "metrics": {
+    "n": 99,
+    "positives": 10,
+    "negatives": 89,
+    "tn_fp_fn_tp": [
+      33,
+      56,
+      4,
+      6
+    ],
+    "accuracy": 0.3939393939393939,
+    "precision": 0.0967741935483871,
+    "sensitivity": 0.6,
+    "specificity": 0.3707865168539326,
+    "f1": 0.16666666666666666,
+    "balanced_accuracy": 0.4853932584269663
+  },
+  "cases": [
+    {
+      "source_path": "1.2.840.113619.2.110.512719.20250403090444/series_004_3_CR/DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "56ad4aacfcff91ebd87a697ab40ed7eb257148b788d424a74ebd245fea0f07e1",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 56.63395129875554,
+      "numbered_centers": [
+        [
+          26.25,
+          133.6625
+        ],
+        [
+          3.75,
+          140.8875
+        ],
+        [
+          153.75,
+          184.23749999999998
+        ],
+        [
+          153.75,
+          191.4625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "1.2.840.113619.2.110.512719.20250403092052/series_003_3_CR/DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "e0f9e102f359e379857c746bef855e85e898fe0fb062025e555099d01ded4a12",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 72.82013440412535,
+      "numbered_centers": [
+        [
+          3.75,
+          194.775
+        ],
+        [
+          153.75,
+          202.725
+        ],
+        [
+          153.75,
+          210.67499999999998
+        ],
+        [
+          153.75,
+          218.625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "1.2.840.113619.2.110.512719.20250407113211/series_001_2_CR/DXA/CR DXA/CR000003.dcm",
+      "pixel_sha256": "6fbbb0ee2636360bba8f492b60a69210c1a440072c455e44394a8e8ee1c7a603",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -0.4050296915078257,
+      "numbered_centers": [
+        [
+          153.75,
+          3.6375
+        ],
+        [
+          138.75,
+          163.6875
+        ],
+        [
+          153.75,
+          192.7875
+        ],
+        [
+          153.75,
+          207.3375
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.10245777060263212829333021434108890537/series_003_2_CR/A2504412435 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "7b9332bd3916dda3cbbea33e1515ccd57894856c9347a42e48f2a0ec6c70234a",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -3.759627436830892,
+      "numbered_centers": [
+        [
+          161.25,
+          59.625
+        ],
+        [
+          146.25,
+          91.425
+        ],
+        [
+          146.25,
+          131.17499999999998
+        ],
+        [
+          146.25,
+          170.92499999999998
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.102755089973625799055786462646268820450/series_002_2_CR/A2504257770 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "dd972bae91d6de06d64bc3e0402212415b81e00a7d594a8401ff5d0ee75b7692",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": 35.252382470064845,
+      "numbered_centers": [
+        [
+          26.25,
+          147.08749999999998
+        ],
+        [
+          41.25,
+          154.2625
+        ],
+        [
+          168.75,
+          161.4375
+        ],
+        [
+          161.25,
+          233.1875
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.102965897799404973225419898683246248872/series_001_2_CR/A250726353 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "0360deed5046b19b50c5f8758b6ef99f92717fa6abc2420a147a5be527f92121",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -41.55563044887505,
+      "numbered_centers": [
+        [
+          296.25,
+          169.3125
+        ],
+        [
+          296.25,
+          200.8125
+        ],
+        [
+          153.75,
+          240.1875
+        ],
+        [
+          168.75,
+          271.6875
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.103868781101960771917584077315578649178/series_001_3_CR/A2507485409 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "260ed19b51c6497555dce7b6fac2d01237b98a838d12def48fcaccb55c8c14de",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -58.8188925256483,
+      "numbered_centers": [
+        [
+          273.75,
+          3.6125000000000003
+        ],
+        [
+          251.25,
+          25.287499999999998
+        ],
+        [
+          161.25,
+          39.737500000000004
+        ],
+        [
+          161.25,
+          46.9625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.105033841136787477881326326053319223817/series_001_2_CR/A250790559 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "8ba035f35da9fb5b8591d66ff8bed4fecd5f8815db4692868158c3c42248cd4c",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 22.38903790259178,
+      "numbered_centers": [
+        [
+          48.75,
+          3.975
+        ],
+        [
+          153.75,
+          131.17499999999998
+        ],
+        [
+          153.75,
+          139.125
+        ],
+        [
+          153.75,
+          162.975
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.108537195937431169718850276671337677972/series_002_2_CR/A250479795 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "dcdbb40ff5cb372a8f7208c149729280e1d84d0647317ee633d9f8839f3b27de",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 48.13478181650745,
+      "numbered_centers": [
+        [
+          3.75,
+          155.3375
+        ],
+        [
+          3.75,
+          162.5625
+        ],
+        [
+          146.25,
+          227.5875
+        ],
+        [
+          146.25,
+          234.8125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.11175860580562939441493697221497597640/series_003_2_CR/A2507431060 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "995de81fe5e6848706a42532d01ec31e025269667dd1e00134daee3c59c1fa30",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 3.824547827921468,
+      "numbered_centers": [
+        [
+          131.25,
+          74.8125
+        ],
+        [
+          138.75,
+          82.6875
+        ],
+        [
+          138.75,
+          106.3125
+        ],
+        [
+          153.75,
+          240.1875
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.112621744005021908434051268014787122937/series_002_2_CR/A2504301685 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "d70393b397fa6c1cfdfa4e99f813cddf1cd098974c18f0d4eb7b0020897844dc",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 8.114826911312164,
+      "numbered_centers": [
+        [
+          108.75,
+          3.6375
+        ],
+        [
+          116.25,
+          18.1875
+        ],
+        [
+          146.25,
+          127.3125
+        ],
+        [
+          138.75,
+          134.5875
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.114887542067602662452692698814728642117/series_001_2_CR/A2504131887 DXA/CR DXA/CR000004.dcm",
+      "pixel_sha256": "5ed88ae70c5d250410e41fe9266f452144d732dd9ab853fdf47605548cb85923",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 49.2538364361192,
+      "numbered_centers": [
+        [
+          3.75,
+          188.0
+        ],
+        [
+          161.25,
+          196.0
+        ],
+        [
+          161.25,
+          212.0
+        ],
+        [
+          146.25,
+          236.0
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.116822802042655971810859435524105064465/series_003_2_CR/A2507273296 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "c2e7c2f9d0dd96a32b69119809053fd3cea98622808247cedc2d2b42eba2a14e",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 0.9818672823176612,
+      "numbered_centers": [
+        [
+          153.75,
+          3.975
+        ],
+        [
+          146.25,
+          35.775
+        ],
+        [
+          161.25,
+          210.67499999999998
+        ],
+        [
+          153.75,
+          242.475
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.122446767306607067205618235949445789306/series_001_2_CR/A2504255080 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "c3a724822b47baff914e0e7d2c87af06fad4530e9f211f0231b073cfc762ccb8",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 4.252479586426729,
+      "numbered_centers": [
+        [
+          131.25,
+          3.975
+        ],
+        [
+          131.25,
+          43.725
+        ],
+        [
+          138.75,
+          51.675000000000004
+        ],
+        [
+          138.75,
+          59.625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.123175695355749859846173904788591707879/series_001_2_CR/A250722449 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "9d3950472fa5196a8d76107395ca5b1bcd076487e6a0d22578b67333196ebf21",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -35.34054747856083,
+      "numbered_centers": [
+        [
+          296.25,
+          32.5125
+        ],
+        [
+          131.25,
+          148.11249999999998
+        ],
+        [
+          146.25,
+          155.3375
+        ],
+        [
+          146.25,
+          162.5625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.124890633326693921702195356152595253940/series_002_2_CR/A2504263153 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "785e026712f6d620615f140b539c20b61ede1e0271867b0e3e972d0ee5f41d38",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 78.6518142404945,
+      "numbered_centers": [
+        [
+          3.75,
+          133.6625
+        ],
+        [
+          3.75,
+          140.8875
+        ],
+        [
+          161.25,
+          148.11249999999998
+        ],
+        [
+          161.25,
+          155.3375
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.125521310320333648427417313254965624364/series_001_2_CR/A250444126 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "8e704ff027711b6a94b1154dc24802d1745e634c9d6867fe858587dee613b0d0",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 0.0,
+      "numbered_centers": [
+        [
+          153.75,
+          3.2875
+        ],
+        [
+          153.75,
+          49.3125
+        ],
+        [
+          153.75,
+          154.51250000000002
+        ],
+        [
+          153.75,
+          161.0875
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.126293418391331346694592071563510265596/series_002_3_CR/A2507250865 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "e428be489472ea5b0ff39e32a8417bd4b9ca4b553cdbf054a8f69cd7274d8974",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -64.2198618701524,
+      "numbered_centers": [
+        [
+          296.25,
+          170.3875
+        ],
+        [
+          161.25,
+          178.3125
+        ],
+        [
+          168.75,
+          186.2375
+        ],
+        [
+          153.75,
+          202.08749999999998
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.127126130998341190348103034690069487890/series_002_2_CR/A250428736 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "befb36959905d91575f7082f050d6f0b447a68681f548e7404d3edb9843644e5",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": -11.459448795961723,
+      "numbered_centers": [
+        [
+          198.75,
+          3.9625000000000004
+        ],
+        [
+          123.75,
+          67.3625
+        ],
+        [
+          138.75,
+          138.6875
+        ],
+        [
+          138.75,
+          146.6125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.12798473087614376830819854616447908612/series_002_2_CR/A2507538847 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "bd310da5a2874ef2741678154a90d7a282deb05ca51c82efa6b374558f77398b",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 2.1939574088131475,
+      "numbered_centers": [
+        [
+          146.25,
+          107.325
+        ],
+        [
+          146.25,
+          115.27499999999999
+        ],
+        [
+          153.75,
+          218.625
+        ],
+        [
+          153.75,
+          226.57500000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.128197189461989832465575162384360009377/series_001_2_CR/A2507216909 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "fbf3b74894872db74011f83380d0a9f86ed055e8793ed675cdd4b8ae00c836c0",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 72.31658265299646,
+      "numbered_centers": [
+        [
+          3.75,
+          178.3125
+        ],
+        [
+          146.25,
+          186.2375
+        ],
+        [
+          153.75,
+          194.16250000000002
+        ],
+        [
+          146.25,
+          202.08749999999998
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.128630285053087246379265602913470285158/series_003_2_CR/A2504394821 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "623f0b8fe46c1239aefe723005f3633af73ccef4c1a319a29fee59ccfb70eda5",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 53.393944663718244,
+      "numbered_centers": [
+        [
+          3.75,
+          199.5375
+        ],
+        [
+          153.75,
+          215.1875
+        ],
+        [
+          161.25,
+          230.8375
+        ],
+        [
+          153.75,
+          254.3125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.128990540359421489042453547244535073735/series_002_2_CR/A2507388698 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "4695ad5b504c9d09111e75eb0023ef3d28756d009d6222327732277ff8ddb027",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -3.9100711058742537,
+      "numbered_centers": [
+        [
+          176.25,
+          100.0
+        ],
+        [
+          168.75,
+          108.0
+        ],
+        [
+          161.25,
+          196.0
+        ],
+        [
+          161.25,
+          204.0
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.13069823278093578548407087310307113784/series_003_2_CR/A2507242667 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "8f1292d2c798972caa6405ac6fceb406d4e44445864765a58f912a8124a36641",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 4.818767718744013,
+      "numbered_centers": [
+        [
+          146.25,
+          244.38750000000002
+        ],
+        [
+          146.25,
+          252.9625
+        ],
+        [
+          153.75,
+          261.53749999999997
+        ],
+        [
+          153.75,
+          295.83750000000003
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.132083163398091874662674590622589534350/series_003_2_CR/A2507386583 DXA Exam/CR DXA Images/CR000001.dcm",
+      "pixel_sha256": "88faffc5e4482a10b2a60b292333483b6b9f4f32005c5194b579951e654eb193",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -52.98286682781365,
+      "numbered_centers": [
+        [
+          296.25,
+          100.0
+        ],
+        [
+          296.25,
+          108.0
+        ],
+        [
+          131.25,
+          172.0
+        ],
+        [
+          123.75,
+          180.0
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.132272637351979990811754009849547633391/series_003_3_CR/A2504141080 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "2a975a4fdb317ecd377e9b25142e080b280093cfa2f04a4230a234d5d1bb4f88",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -31.56056970344285,
+      "numbered_centers": [
+        [
+          296.25,
+          97.53750000000001
+        ],
+        [
+          3.75,
+          169.7875
+        ],
+        [
+          131.25,
+          177.01250000000002
+        ],
+        [
+          63.75,
+          285.3875
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.13325817932854000792938662637654885530/series_002_2_CR/A2507365486 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "9b32c7ee495a878b84dad013a99d82bb3c4241c9bbf1e532259a32469d71c256",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -6.868168202541371,
+      "numbered_centers": [
+        [
+          183.75,
+          3.9625000000000004
+        ],
+        [
+          146.25,
+          146.6125
+        ],
+        [
+          153.75,
+          154.5375
+        ],
+        [
+          153.75,
+          162.46249999999998
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.134456506307367483341018281460841912845/series_002_2_CR/A2507120612 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "9288e050697877014e72b85a790726e76daba41f6511f1d9ef45e3e5cd222d59",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -23.048747600171588,
+      "numbered_centers": [
+        [
+          258.75,
+          35.4375
+        ],
+        [
+          251.25,
+          122.0625
+        ],
+        [
+          168.75,
+          129.9375
+        ],
+        [
+          168.75,
+          137.8125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.135241889065705954191821710363605596815/series_003_3_CR/A250715060 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "2182de8bcf3f98fce74761ea069db4e2b641730eb98f9a5a7107e41add62b91a",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 2.183633742776851,
+      "numbered_centers": [
+        [
+          131.25,
+          4.325
+        ],
+        [
+          153.75,
+          177.325
+        ],
+        [
+          153.75,
+          185.975
+        ],
+        [
+          146.25,
+          281.125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.13566237352084812982996047541944701548/series_002_2_CR/A2504268931 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "461ce8c5784b713420d114c290c68ae72720927cfaaa016063a6842b3dcb5b2e",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 7.334249385818575,
+      "numbered_centers": [
+        [
+          131.25,
+          132.0
+        ],
+        [
+          138.75,
+          140.0
+        ],
+        [
+          138.75,
+          148.0
+        ],
+        [
+          153.75,
+          220.0
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.137344827330550141320158285144101816664/series_003_3_CR/A2507146630 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "792c50771f400b4d909a0479f55b95896d570a12b9c21cfdbf5eb123cfec9314",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 1.27562766487572,
+      "numbered_centers": [
+        [
+          146.25,
+          3.9625000000000004
+        ],
+        [
+          153.75,
+          11.8875
+        ],
+        [
+          153.75,
+          106.98750000000001
+        ],
+        [
+          153.75,
+          114.9125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.137675513852774974135210999345676405116/series_001_2_CR/A2504106597 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "6c4bb826080b375bddba1b84817f7163aa60f2f0fd0f23ce186e0292e5836aec",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -73.39264721215409,
+      "numbered_centers": [
+        [
+          296.25,
+          106.98750000000001
+        ],
+        [
+          131.25,
+          114.9125
+        ],
+        [
+          138.75,
+          122.8375
+        ],
+        [
+          138.75,
+          130.7625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.13983650679559142983913935144968795415/series_003_2_CR/A2504335111 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "770a0d85b0a4043878c7441250b3c4e812b92e5e330c662c78b090abb3b59673",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -49.13052822487167,
+      "numbered_centers": [
+        [
+          296.25,
+          68.6375
+        ],
+        [
+          153.75,
+          75.8625
+        ],
+        [
+          153.75,
+          83.08749999999999
+        ],
+        [
+          138.75,
+          119.21249999999999
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.144941557565802351596730914409170713112/series_001_2_CR/A250728979 DXA/CR DXA/CR000006.dcm",
+      "pixel_sha256": "7df5cdb7f2a8e2933dc62f880946be6e847a763ceae0ae16c572af3be3f1eaf1",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -27.794418987849276,
+      "numbered_centers": [
+        [
+          296.25,
+          92.57499999999999
+        ],
+        [
+          138.75,
+          165.02499999999998
+        ],
+        [
+          138.75,
+          181.125
+        ],
+        [
+          146.25,
+          253.575
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.145848300160680194368420189079847088556/series_002_2_CR/A2504248615 DXA Exam/CR DXA Images/CR000002.dcm",
+      "pixel_sha256": "5f54289575fa2719163a79ee99767eec044a555372e338339fdd7cd7e8924909",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -6.5868896180121785,
+      "numbered_centers": [
+        [
+          123.75,
+          3.6125000000000003
+        ],
+        [
+          296.25,
+          68.6375
+        ],
+        [
+          138.75,
+          169.7875
+        ],
+        [
+          138.75,
+          198.6875
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.151186844055172005615813066162721550889/series_002_2_CR/A250436130 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "bcfc296c95fd660fbe168c8321c5dd8fa40f124e328d83b42ee5118d841184d1",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 0.0,
+      "numbered_centers": [
+        [
+          138.75,
+          4.3
+        ],
+        [
+          138.75,
+          30.099999999999998
+        ],
+        [
+          138.75,
+          55.9
+        ],
+        [
+          138.75,
+          219.29999999999998
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.156021661584944120526934974594604520993/series_003_2_CR/A2507142228 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "e4e8b0c79708c672efaf342f1dc4775fe37e38fb5cc12ca0844bb57e15138ff5",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -51.099864859895376,
+      "numbered_centers": [
+        [
+          296.25,
+          35.4375
+        ],
+        [
+          296.25,
+          43.3125
+        ],
+        [
+          123.75,
+          114.1875
+        ],
+        [
+          123.75,
+          122.0625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.156375884487675936513403083218009333856/series_003_2_CR/A250727121 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "c39a14af2314a7d34b2fc1248dc56d0dba09831967971b80a8c05246120071cf",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 2.2855810074276723,
+      "numbered_centers": [
+        [
+          138.75,
+          3.9625000000000004
+        ],
+        [
+          153.75,
+          210.0125
+        ],
+        [
+          153.75,
+          217.9375
+        ],
+        [
+          153.75,
+          225.8625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.156389075510671877606923458507011517218/series_001_2_CR/A2507389755 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "dd220bc45cf525a8137b8665d59dbb1520fbce07637f5d0075c5fa9fc3372cf4",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 0.0,
+      "numbered_centers": [
+        [
+          161.25,
+          3.6125000000000003
+        ],
+        [
+          161.25,
+          10.8375
+        ],
+        [
+          161.25,
+          39.737500000000004
+        ],
+        [
+          161.25,
+          46.9625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.157462338378550185821790046400986801350/series_001_2_CR/A2507498707 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "7d2a498d2fa2c8d4fea153a092698771850ac1e8f2a74bbbe50560f926d03dfe",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -1.5584685777735738,
+      "numbered_centers": [
+        [
+          153.75,
+          3.6125000000000003
+        ],
+        [
+          153.75,
+          25.287499999999998
+        ],
+        [
+          146.25,
+          162.5625
+        ],
+        [
+          146.25,
+          177.01250000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.158197739569377798130962967413133224194/series_002_2_CR/A2504245497 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "2d8c3341476e41295ace62baa649646447983d45a7aa7e372c188e9c9134c4d9",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -67.00484608985748,
+      "numbered_centers": [
+        [
+          296.25,
+          170.9625
+        ],
+        [
+          153.75,
+          178.2375
+        ],
+        [
+          153.75,
+          192.7875
+        ],
+        [
+          146.25,
+          200.0625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.158646777318759504110695916200521633609/series_003_6_CR/A2507266260 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -74.40942108733564,
+      "numbered_centers": [
+        [
+          296.25,
+          125.5625
+        ],
+        [
+          296.25,
+          132.7375
+        ],
+        [
+          138.75,
+          139.9125
+        ],
+        [
+          138.75,
+          154.2625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.159930383074323525630608416881201447861/series_002_2_CR/A2507139428 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "fd84428715d03f5574d524da4e66b53e26ec7b3656179b381354a4c26b498790",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -39.6487186910815,
+      "numbered_centers": [
+        [
+          296.25,
+          104.7625
+        ],
+        [
+          146.25,
+          119.21249999999999
+        ],
+        [
+          146.25,
+          162.5625
+        ],
+        [
+          153.75,
+          177.01250000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.164566280810634620154538016595892212884/series_001_2_CR/A2504291878 DXA Exam/CR DXA Images/CR000001.dcm",
+      "pixel_sha256": "fe06d40b71943d5d806b17e6cd9ffb4866bb6f5efe194d07c88178c68202d5a2",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -47.512739762528895,
+      "numbered_centers": [
+        [
+          296.25,
+          197.3125
+        ],
+        [
+          296.25,
+          204.4875
+        ],
+        [
+          153.75,
+          254.71249999999998
+        ],
+        [
+          153.75,
+          283.4125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.165091430504580219034019815337441064349/series_001_2_CR/A2504415443 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "b309dbe0fc1206a11b96c9c6e024a866da0420edc26e9ad375c6b640610571c2",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -71.13641244437595,
+      "numbered_centers": [
+        [
+          296.25,
+          168.6125
+        ],
+        [
+          3.75,
+          175.78750000000002
+        ],
+        [
+          131.25,
+          182.96249999999998
+        ],
+        [
+          131.25,
+          190.1375
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.165355673991587715046346525964554729786/series_003_3_CR/A2506448267 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "97ec0e50688079d7390adbc7be9ae4e9bf9e98f30347f11e47759d9f8b0bb8ee",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -1.9681496786910542,
+      "numbered_centers": [
+        [
+          146.25,
+          75.2875
+        ],
+        [
+          146.25,
+          91.13749999999999
+        ],
+        [
+          146.25,
+          146.6125
+        ],
+        [
+          138.75,
+          154.5375
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.167344201679287285499405412654740659745/series_003_2_CR/A2504249537 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "412a61c72cdfd840ad341c169fe87420c42497cc499f2b251fc628de7056a5a4",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -78.40272901455668,
+      "numbered_centers": [
+        [
+          296.25,
+          164.25
+        ],
+        [
+          296.25,
+          171.55
+        ],
+        [
+          146.25,
+          178.85000000000002
+        ],
+        [
+          138.75,
+          186.14999999999998
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.16773626720107440979805052259711419763/series_004_2_CR/A2507537392 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "36569073534a07d1a3927dc98fd08fd74d096a044bbbf8a468490d267d926609",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -44.42226687364828,
+      "numbered_centers": [
+        [
+          296.25,
+          191.4625
+        ],
+        [
+          153.75,
+          205.9125
+        ],
+        [
+          153.75,
+          227.5875
+        ],
+        [
+          153.75,
+          256.4875
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.168317503020329569414190677927680518621/series_004_2_CR/A2507557128 DXA/CR DXA/CR000003.dcm",
+      "pixel_sha256": "5b9f7be4bdb5ee53ae07f4deab4e575da6a540fa27c918cd4a0c3cf686f6d0f9",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 0.9168926077814666,
+      "numbered_centers": [
+        [
+          146.25,
+          3.2375000000000003
+        ],
+        [
+          153.75,
+          67.9875
+        ],
+        [
+          153.75,
+          87.41250000000001
+        ],
+        [
+          146.25,
+          106.83749999999999
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.169242707068684757906797344800977707240/series_003_2_CR/A2507185832 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "0059a1315dca2feca115ccfd940dab7025b7667e936328434b245044047e3b59",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 0.0,
+      "numbered_centers": [
+        [
+          153.75,
+          10.6875
+        ],
+        [
+          153.75,
+          160.3125
+        ],
+        [
+          153.75,
+          167.4375
+        ],
+        [
+          153.75,
+          174.5625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.172445998420765569384934552191547932566/series_004_2_CR/A2507368766 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "efc0c25174246011196d9233435cd64bcb52dd7fd099e6c470ded7b90cc6de5b",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -69.60109056612181,
+      "numbered_centers": [
+        [
+          296.25,
+          129.9375
+        ],
+        [
+          296.25,
+          137.8125
+        ],
+        [
+          138.75,
+          161.4375
+        ],
+        [
+          138.75,
+          169.3125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.173731186748227489808861376513577450951/series_002_2_CR/A2507188958 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "7eb980c70b6eaaa2fa2309a1a75789e5de3967aaebfe939f64a89c6921f26a48",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -59.35213666752946,
+      "numbered_centers": [
+        [
+          296.25,
+          97.53750000000001
+        ],
+        [
+          3.75,
+          140.8875
+        ],
+        [
+          161.25,
+          148.11249999999998
+        ],
+        [
+          161.25,
+          155.3375
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": -21.126833435066064,
+      "numbered_centers": [
+        [
+          228.75,
+          3.975
+        ],
+        [
+          296.25,
+          91.425
+        ],
+        [
+          131.25,
+          162.975
+        ],
+        [
+          138.75,
+          170.92499999999998
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.175881661753775295785039265792986971602/series_003_2_CR/A2507266462 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "735dd4c8ad6b846c93aec4360bab13b93621ddd3bd419e64f11d173bd862ad6e",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -1.5547991234883363,
+      "numbered_centers": [
+        [
+          146.25,
+          3.9375
+        ],
+        [
+          146.25,
+          11.8125
+        ],
+        [
+          138.75,
+          161.4375
+        ],
+        [
+          138.75,
+          169.3125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.175903805423871105435148927871625232853/series_001_2_CR/A2507159447 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "f72b3b9326f10bf0d39c6516d8b4ed5b87d59cee05908870322ff6a5bb637bba",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 1.2432339760533797,
+      "numbered_centers": [
+        [
+          138.75,
+          3.9375
+        ],
+        [
+          146.25,
+          90.5625
+        ],
+        [
+          146.25,
+          129.9375
+        ],
+        [
+          146.25,
+          200.8125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.17706555930735581384953296958427669848/series_004_3_CR/A2504146513 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "13a784b0466c4b17b34d16c1a173ac4ab4e10126d60d375fc90e044036e244e8",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 48.33245989275232,
+      "numbered_centers": [
+        [
+          3.75,
+          168.6125
+        ],
+        [
+          3.75,
+          175.78750000000002
+        ],
+        [
+          146.25,
+          240.3625
+        ],
+        [
+          146.25,
+          247.53750000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.177745077805190810016231350557005569203/series_002_2_CR/A2504273759 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "fe4af16335b15f0d10ff1dfce36fcbc4cf0fc8b46925dde40628cbe8353593c3",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 1.1438188640181355,
+      "numbered_centers": [
+        [
+          146.25,
+          3.975
+        ],
+        [
+          146.25,
+          147.07500000000002
+        ],
+        [
+          153.75,
+          194.775
+        ],
+        [
+          153.75,
+          226.57500000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.178533355209696795441380751187185128893/series_003_2_CR/A2507155452 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "1297e6ee3c8a2c3456ea47930752692f23e5dfed1b3626a74b4ffac2b2f257d1",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -27.068595199825598,
+      "numbered_centers": [
+        [
+          296.25,
+          35.6625
+        ],
+        [
+          296.25,
+          138.6875
+        ],
+        [
+          131.25,
+          225.8625
+        ],
+        [
+          138.75,
+          233.78750000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.181196659018348153828200695057897449628/series_004_2_CR/A2507370620 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "8bb0c116bfeffb7b201250aa456eba3e1c44ef53cc6b4e381dfca244943b4a71",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 61.55669849410703,
+      "numbered_centers": [
+        [
+          3.75,
+          138.6875
+        ],
+        [
+          168.75,
+          178.3125
+        ],
+        [
+          168.75,
+          186.2375
+        ],
+        [
+          168.75,
+          194.16250000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.184198356665635336833172191504278054074/series_004_2_CR/A250788286 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "6c47df67b471cfba22b2213bad9adeaa86a2af1a756db710387f706a1b007c61",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -0.6338339837881016,
+      "numbered_centers": [
+        [
+          168.75,
+          3.6375
+        ],
+        [
+          161.25,
+          25.4625
+        ],
+        [
+          168.75,
+          98.2125
+        ],
+        [
+          161.25,
+          134.5875
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.186201010600484120326273381077449377115/series_004_2_CR/A250777475 DXA/CR DXA/CR000007.dcm",
+      "pixel_sha256": "9bf53a6b6abf6a9eeb76a6f0b4f5403b2804d53550037b7c078388d57aa8d9df",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 3.3725897750942004,
+      "numbered_centers": [
+        [
+          138.75,
+          3.9375
+        ],
+        [
+          138.75,
+          66.9375
+        ],
+        [
+          153.75,
+          161.4375
+        ],
+        [
+          153.75,
+          169.3125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000003.dcm",
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": 2.3218689439346165,
+      "numbered_centers": [
+        [
+          146.25,
+          3.975
+        ],
+        [
+          153.75,
+          194.775
+        ],
+        [
+          168.75,
+          218.625
+        ],
+        [
+          161.25,
+          250.42499999999998
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.190807933410234695931591553323782771995/series_002_3_CR/A250762254 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "ebc5555cd374e7637b29f9e768843bfeb2ed2a0b2ce1c73c44236c3650e2ee4f",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -65.57334005737638,
+      "numbered_centers": [
+        [
+          296.25,
+          194.16250000000002
+        ],
+        [
+          296.25,
+          202.08749999999998
+        ],
+        [
+          153.75,
+          210.0125
+        ],
+        [
+          153.75,
+          233.78750000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.215177279960644564778148238928738915103/series_002_2_CR/A2504147013 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "ce33655f362d1d3498bcc40e71394c8910481e82cb1dcf10f149986f96bce501",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -4.687103936195017,
+      "numbered_centers": [
+        [
+          296.25,
+          32.737500000000004
+        ],
+        [
+          26.25,
+          40.0125
+        ],
+        [
+          33.75,
+          47.2875
+        ],
+        [
+          123.75,
+          156.4125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.217397325224876728316360420804118329081/series_002_2_CR/A250474631 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "dace1623fe5c10039ae5b7989b0882d70a3b61cce0fa1b2dba2ac5126920ad29",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 2.111711750816382,
+      "numbered_centers": [
+        [
+          146.25,
+          3.975
+        ],
+        [
+          146.25,
+          59.625
+        ],
+        [
+          153.75,
+          123.22500000000001
+        ],
+        [
+          153.75,
+          139.125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.220866240977467582196609708837940253840/series_001_2_CR/A2504258893 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "f1c9f2178251059ce2dbaab75766b4c39070b613d75ad36ce028fca644977431",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": -68.16635517685876,
+      "numbered_centers": [
+        [
+          296.25,
+          162.46249999999998
+        ],
+        [
+          296.25,
+          170.3875
+        ],
+        [
+          116.25,
+          202.08749999999998
+        ],
+        [
+          116.25,
+          210.0125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.234651502352368356456298825489565282446/series_002_2_CR/A2504307193 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "6851e7220f16231b43c3592b5761d6a3d1b4481208510f752af27d6c8aeeee2d",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 15.609192973074352,
+      "numbered_centers": [
+        [
+          41.25,
+          3.6375
+        ],
+        [
+          63.75,
+          18.1875
+        ],
+        [
+          161.25,
+          185.5125
+        ],
+        [
+          161.25,
+          258.2625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.247714038039430659432048101646401574824/series_002_2_CR/A2504238024 DXA Exam/CR DXA Images/CR000002.dcm",
+      "pixel_sha256": "c6d474b1e3fa1bd1a405c7eaa1aeaef9dc04e1da67ec0764e8c7710747c70b23",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -45.3875540262397,
+      "numbered_centers": [
+        [
+          296.25,
+          153.5625
+        ],
+        [
+          296.25,
+          161.4375
+        ],
+        [
+          146.25,
+          232.3125
+        ],
+        [
+          146.25,
+          248.0625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.269648774413746842548908998641183395622/series_001_2_CR/A2504393664 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "2e079ec6c4b4fc082859b27ed3d4b09c1840acc217906af15a35030b46f52369",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": -0.9294579207632772,
+      "numbered_centers": [
+        [
+          138.75,
+          51.5125
+        ],
+        [
+          138.75,
+          162.46249999999998
+        ],
+        [
+          138.75,
+          178.3125
+        ],
+        [
+          131.25,
+          194.16250000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.269742577365511543488820993979123763373/series_003_2_CR/A250477751 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "b2ef25a5d5afe313737dbdfd7c488758fd6f1cc373715887c2a5a31f1657c911",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -5.58656134243936,
+      "numbered_centers": [
+        [
+          191.25,
+          3.9375
+        ],
+        [
+          123.75,
+          19.6875
+        ],
+        [
+          131.25,
+          169.3125
+        ],
+        [
+          131.25,
+          192.9375
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.272690031744216183651627058502316132741/series_002_2_CR/A2504373414 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "6975c7e897a547a9d76e7d758c33ff03b7852ada25d46406721e7566629ae158",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 10.201668450278683,
+      "numbered_centers": [
+        [
+          3.75,
+          36.225
+        ],
+        [
+          258.75,
+          100.625
+        ],
+        [
+          183.75,
+          108.67500000000001
+        ],
+        [
+          161.25,
+          293.825
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.276415754443998872860614500027519740375/series_002_2_CR/A2504387089 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "e2c45132fa21d821c849c723255b4cacaee7d02939cff88b295b5a531e566654",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 21.957834099122973,
+      "numbered_centers": [
+        [
+          3.75,
+          25.4625
+        ],
+        [
+          3.75,
+          192.7875
+        ],
+        [
+          168.75,
+          207.3375
+        ],
+        [
+          176.25,
+          214.6125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.277752758923974029595977676354128739670/series_002_2_CR/A2504223752 DXA/CR DXA/CR000004.dcm",
+      "pixel_sha256": "1f78c63e34c9bcbda41f7bbd8b8a9264a6fad83cab8bf6acb568ee41af72c456",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 74.00568910283947,
+      "numbered_centers": [
+        [
+          3.75,
+          174.5625
+        ],
+        [
+          138.75,
+          181.6875
+        ],
+        [
+          146.25,
+          188.8125
+        ],
+        [
+          146.25,
+          195.9375
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.286999464611662854355201599068538813496/series_003_2_CR/A2504223477 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "a5df06a86bdbd5a62678bd9dae377afb08f66aee3a471c451c8764189b9ee5ef",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 65.75524009301589,
+      "numbered_centers": [
+        [
+          3.75,
+          163.6875
+        ],
+        [
+          3.75,
+          170.9625
+        ],
+        [
+          146.25,
+          200.0625
+        ],
+        [
+          153.75,
+          207.3375
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.29638026465755240167985424461715024381/series_004_3_CR/A2504115579 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "1dd45ead4854d4c45c477e9b4f3883987e37880d9bffd9263300a07a81a76c03",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 1.1120623035215718,
+      "numbered_centers": [
+        [
+          138.75,
+          3.9375
+        ],
+        [
+          138.75,
+          11.8125
+        ],
+        [
+          146.25,
+          224.4375
+        ],
+        [
+          146.25,
+          232.3125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.306921081709806079165809721263236241032/series_002_2_CR/A2504381177 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "1d1bea6e7f908ef2fa188a6605891cce21ec2391320420adaf0be7426de26467",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -29.584807144437185,
+      "numbered_centers": [
+        [
+          296.25,
+          35.2125
+        ],
+        [
+          3.75,
+          191.7125
+        ],
+        [
+          146.25,
+          215.1875
+        ],
+        [
+          146.25,
+          223.01250000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.307021710202910067378603383388989711646/series_004_2_CR/A2504110565 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "7115fbeff04625489b5d015037ed14ef3d6be5ba3065bf5e476bb1bc92cf1137",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -9.088877825424918,
+      "numbered_centers": [
+        [
+          206.25,
+          3.975
+        ],
+        [
+          221.25,
+          43.725
+        ],
+        [
+          161.25,
+          147.07500000000002
+        ],
+        [
+          153.75,
+          242.475
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.309085571913348252136520206003694446566/series_002_2_CR/A2504116267 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "ee1b63e8b78e4347f7852452ed7a6dfc44dad01e1472c9f9135878c831193bf0",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": -2.519143598059078,
+      "numbered_centers": [
+        [
+          161.25,
+          3.5625
+        ],
+        [
+          146.25,
+          117.5625
+        ],
+        [
+          153.75,
+          124.6875
+        ],
+        [
+          153.75,
+          131.8125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.314147167453134440746270747484612743945/series_002_2_CR/A2504224780 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "a521f376012eaacf5cb9e9e188c75a7b23604cd47ce12f69c2921eedff03bde6",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -71.02102963988138,
+      "numbered_centers": [
+        [
+          296.25,
+          137.8125
+        ],
+        [
+          296.25,
+          153.5625
+        ],
+        [
+          161.25,
+          161.4375
+        ],
+        [
+          153.75,
+          169.3125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.322202456901330781765399791024580391565/series_002_2_CR/A2504350020 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "1f32ec8f43dc943146973d471d77ba2d314e376e12069790cdad19d9b4c08622",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 79.97244412004176,
+      "numbered_centers": [
+        [
+          3.75,
+          134.5875
+        ],
+        [
+          3.75,
+          141.86249999999998
+        ],
+        [
+          183.75,
+          149.1375
+        ],
+        [
+          183.75,
+          156.4125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.338439598607961312040815816824093323492/series_002_2_CR/A2504147124 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "03308b1bfaf49a413bc05425ee2cf613127c07f61d27eefe76b071ed7d46af4f",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 72.87099266871358,
+      "numbered_centers": [
+        [
+          3.75,
+          162.46249999999998
+        ],
+        [
+          3.75,
+          170.3875
+        ],
+        [
+          161.25,
+          178.3125
+        ],
+        [
+          161.25,
+          194.16250000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "fbd0184157ebe3f022a4c36fb140e5ff661b07f4b8b700ad9a7f48ca713e3fc1",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 29.08184137742234,
+      "numbered_centers": [
+        [
+          3.75,
+          25.287499999999998
+        ],
+        [
+          3.75,
+          61.4125
+        ],
+        [
+          161.25,
+          97.53750000000001
+        ],
+        [
+          176.25,
+          213.13750000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.340839477910528898406207279980417945/series_001_2_CR/A2504224555 DXA Exam/CR DXA Images/CR000002.dcm",
+      "pixel_sha256": "0ba87ba4957862d14794f284ffce3e7284aaabb0986808c87349510bf48d20dd",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 8.88744430487139,
+      "numbered_centers": [
+        [
+          131.25,
+          3.9625000000000004
+        ],
+        [
+          138.75,
+          35.6625
+        ],
+        [
+          138.75,
+          43.587500000000006
+        ],
+        [
+          146.25,
+          51.5125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.37515662379281069436632838996073181551/series_001_2_CR/A2504329840 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "ef2e3d247a93bc1cd67f7d44f023898ec2fbdcccefe308bd765dc22c4665bad8",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": 4.002926094717468,
+      "numbered_centers": [
+        [
+          116.25,
+          3.6375
+        ],
+        [
+          116.25,
+          10.9125
+        ],
+        [
+          138.75,
+          163.6875
+        ],
+        [
+          138.75,
+          207.3375
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.39068163399801173920284179500049527111/series_002_2_CR/A2504195842 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "da97fcfc654fe6f7912aeba96a6a648c6ea64553b1d9b8fa6a875055a8b7cc9f",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": -55.650476607750996,
+      "numbered_centers": [
+        [
+          296.25,
+          170.92499999999998
+        ],
+        [
+          296.25,
+          178.875
+        ],
+        [
+          131.25,
+          210.67499999999998
+        ],
+        [
+          138.75,
+          242.475
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.48906424954135283790354958243772558962/series_001_2_CR/A2504185596 DXA Exam/CR DXA Images/CR000002.dcm",
+      "pixel_sha256": "094c9cbeb964e14d20850e9c48ec4a00d4fcf00a24cd9a54018609645197164e",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 5.562087230209394,
+      "numbered_centers": [
+        [
+          138.75,
+          131.17499999999998
+        ],
+        [
+          146.25,
+          162.975
+        ],
+        [
+          153.75,
+          186.82500000000002
+        ],
+        [
+          146.25,
+          194.775
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.52532476139575422857225834315571570912/series_001_2_CR/A2504247961 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "59d6dbcb3cc7308c4f57ba6f811a249e8d3040df13092b75cda74fa505b1b626",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -58.33716509843036,
+      "numbered_centers": [
+        [
+          296.25,
+          169.3125
+        ],
+        [
+          296.25,
+          192.9375
+        ],
+        [
+          123.75,
+          224.4375
+        ],
+        [
+          131.25,
+          240.1875
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.52982400970721161435951723390541696819/series_001_2_CR/A2504331065 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "c116e7d87c8c3e98a9c5383ec6906e5975450b0d464856460ce9c53283f6439a",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 1.0058917297357461,
+      "numbered_centers": [
+        [
+          138.75,
+          3.9625000000000004
+        ],
+        [
+          138.75,
+          75.2875
+        ],
+        [
+          146.25,
+          83.2125
+        ],
+        [
+          138.75,
+          91.13749999999999
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.54396839637320114639948764487283877793/series_003_2_CR/A2504111090 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "99e1fb1d61a939c22ef464f240925d5dbd80a445e5b9d94259eab2cf771d90b0",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -1.864248598172479,
+      "numbered_centers": [
+        [
+          183.75,
+          3.9625000000000004
+        ],
+        [
+          176.25,
+          11.8875
+        ],
+        [
+          176.25,
+          19.8125
+        ],
+        [
+          168.75,
+          194.16250000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.59542620917302828428419211045951914336/series_001_2_CR/A2504303391 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "200d1950b9535ccacc4dc5d66ec427cfeaeb4aa9c4c6fc1dc72abe888f6da294",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -12.036038205530033,
+      "numbered_centers": [
+        [
+          221.25,
+          3.9375
+        ],
+        [
+          153.75,
+          169.3125
+        ],
+        [
+          161.25,
+          177.1875
+        ],
+        [
+          153.75,
+          185.0625
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.65954778282254353457041255543338557112/series_004_3_CR/A2504246289 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "b845768fcb60a0e6957795f7fe3b724862f4603f58aaf67c76a388207fa3be72",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 0.4856363680466279,
+      "numbered_centers": [
+        [
+          153.75,
+          3.975
+        ],
+        [
+          153.75,
+          139.125
+        ],
+        [
+          161.25,
+          162.975
+        ],
+        [
+          153.75,
+          186.82500000000002
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.66397484472966116002950503539482860450/series_001_2_CR/A2504194637 DXA/CR DXA/CR000004.dcm",
+      "pixel_sha256": "631e0fa48191afb36c98d7d6d709b51e69a1569b1736a4d213cb0b80c2c55ba5",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 0.0,
+      "numbered_centers": [
+        [
+          153.75,
+          3.975
+        ],
+        [
+          153.75,
+          59.625
+        ],
+        [
+          153.75,
+          67.575
+        ],
+        [
+          153.75,
+          75.52499999999999
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.73070100851377917031356937075051545239/series_002_2_CR/A2504239110 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "794516213732ca94b7230139400a15db8b31684d59d85d3a0bd232e6cb1eab55",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": 29.079230424628058,
+      "numbered_centers": [
+        [
+          131.25,
+          3.5875000000000004
+        ],
+        [
+          213.75,
+          39.462500000000006
+        ],
+        [
+          213.75,
+          46.6375
+        ],
+        [
+          146.25,
+          53.8125
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.76710355977373089612172037086913478687/series_002_3_CR/A2504104830 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "f0fd62360cda0a7b0d3dc038ba4a214a1e92109fd5ee8798f784726784427f28",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -0.10248753125900573,
+      "numbered_centers": [
+        [
+          168.75,
+          3.975
+        ],
+        [
+          168.75,
+          11.924999999999999
+        ],
+        [
+          176.25,
+          194.775
+        ],
+        [
+          161.25,
+          210.67499999999998
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.78999454687125053757525542837745968726/series_004_3_CR/A2504222617 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "f66ee3260748142e67e99fef7cc9e407464252bc85a30c8192cd0e9d97f2b2c2",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 54.41627975744374,
+      "numbered_centers": [
+        [
+          3.75,
+          162.975
+        ],
+        [
+          3.75,
+          170.92499999999998
+        ],
+        [
+          153.75,
+          210.67499999999998
+        ],
+        [
+          153.75,
+          234.525
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.82912555346523716720160717883917565880/series_002_2_CR/A2504149480 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "6a0368d93d1074b48254d1630cf957d49992a810f2a510e0253616333949be33",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 2.0067945327154595,
+      "numbered_centers": [
+        [
+          146.25,
+          3.6375
+        ],
+        [
+          146.25,
+          40.0125
+        ],
+        [
+          153.75,
+          134.5875
+        ],
+        [
+          153.75,
+          141.86249999999998
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.87718478011637131470224319788530286374/series_002_2_CR/A2504337993 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "320d9e16a60b7caef46e10278820e438aa261beb828da68c97950f0067625b79",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -21.23782659271735,
+      "numbered_centers": [
+        [
+          296.25,
+          3.6125000000000003
+        ],
+        [
+          296.25,
+          148.11249999999998
+        ],
+        [
+          153.75,
+          155.3375
+        ],
+        [
+          153.75,
+          184.23749999999998
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.87869906212286587478854831452123526595/series_002_2_CR/A250419699 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "5c2897457a7341ea9042324875ae699bddc32f49ecbf4f8514b6b72086c75c80",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 1.8220119763023142,
+      "numbered_centers": [
+        [
+          123.75,
+          3.9625000000000004
+        ],
+        [
+          131.25,
+          162.46249999999998
+        ],
+        [
+          131.25,
+          170.3875
+        ],
+        [
+          138.75,
+          265.4875
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    },
+    {
+      "source_path": "2.25.91981043841368764114007975581101713077/series_003_2_CR/A250496619 DXA/CR DXA/CR000004.dcm",
+      "pixel_sha256": "ee5c35e899b25188043d0113c47c11e93553a6f0f0f449def7a06eaf86d0c15e",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -46.218747927656075,
+      "numbered_centers": [
+        [
+          296.25,
+          123.22500000000001
+        ],
+        [
+          296.25,
+          131.17499999999998
+        ],
+        [
+          153.75,
+          202.725
+        ],
+        [
+          146.25,
+          210.67499999999998
+        ]
+      ],
+      "status": "candidate",
+      "verified": false,
+      "order_basis": "constrained heatmap decoding, not anatomical verification"
+    }
+  ],
+  "limitations": [
+    "An order prior cannot verify identity, visibility or transition anatomy.",
+    "No independent clinical GE center reference.",
+    "This diagnostic follows examination of the unconstrained failure, so post-selection risk applies."
+  ]
+}

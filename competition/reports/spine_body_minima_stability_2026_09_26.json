@@ -1,0 +1,3797 @@
+{
+  "scope": "unnumbered candidate brightness repeatability; no clinical accuracy or anatomical numbering",
+  "clinical_validation": false,
+  "images": 99,
+  "source_identity": {
+    "schema_version": 1,
+    "sources": [
+      {
+        "name": "organizer",
+        "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+        "labelled_images": 249
+      }
+    ],
+    "labelled_images": 249,
+    "study_groups": 100,
+    "current_unique_pixels": 249,
+    "within_study_pixel_copies": 0,
+    "historical_hash_changed": 249,
+    "patient_disjointness_proven": false,
+    "identity_protocol": "freshly decoded pixels; source-namespaced study groups"
+  },
+  "evaluation_code_sha256": "ab369dcc5c75eea0adbed70e0724177486398ba1940d1e7301de26b4962d002e",
+  "counts": {
+    "repeatable": 93,
+    "unstable": 6,
+    "unavailable": 0
+  },
+  "cases": [
+    {
+      "pixel_sha256": "56ad4aacfcff91ebd87a697ab40ed7eb257148b788d424a74ebd245fea0f07e1",
+      "points": [
+        [
+          149.5,
+          48.0
+        ],
+        [
+          151.2543859649123,
+          96.0
+        ],
+        [
+          151.2543859649123,
+          119.0
+        ],
+        [
+          153.00877192982458,
+          147.0
+        ],
+        [
+          156.51754385964912,
+          196.0
+        ],
+        [
+          168.7982456140351,
+          233.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "e0f9e102f359e379857c746bef855e85e898fe0fb062025e555099d01ded4a12",
+      "points": [
+        [
+          147.74561403508773,
+          43.0
+        ],
+        [
+          145.99122807017545,
+          82.0
+        ],
+        [
+          151.2543859649123,
+          134.0
+        ],
+        [
+          151.2543859649123,
+          171.0
+        ],
+        [
+          156.51754385964912,
+          228.0
+        ],
+        [
+          156.51754385964912,
+          267.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "6fbbb0ee2636360bba8f492b60a69210c1a440072c455e44394a8e8ee1c7a603",
+      "points": [
+        [
+          140.7280701754386,
+          53.0
+        ],
+        [
+          142.48245614035088,
+          100.0
+        ],
+        [
+          144.23684210526318,
+          178.0
+        ],
+        [
+          140.7280701754386,
+          229.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 4,
+        "second_count": 4,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "7b9332bd3916dda3cbbea33e1515ccd57894856c9347a42e48f2a0ec6c70234a",
+      "points": [
+        [
+          160.0263157894737,
+          33.0
+        ],
+        [
+          160.0263157894737,
+          60.0
+        ],
+        [
+          158.27192982456143,
+          85.0
+        ],
+        [
+          149.5,
+          200.0
+        ],
+        [
+          156.51754385964912,
+          236.0
+        ],
+        [
+          160.0263157894737,
+          279.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "dd972bae91d6de06d64bc3e0402212415b81e00a7d594a8401ff5d0ee75b7692",
+      "points": [
+        [
+          191.60526315789474,
+          55.0
+        ],
+        [
+          181.07894736842107,
+          108.0
+        ],
+        [
+          174.06140350877195,
+          144.0
+        ],
+        [
+          172.30701754385967,
+          195.0
+        ],
+        [
+          167.04385964912282,
+          226.0
+        ],
+        [
+          163.53508771929825,
+          264.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "0360deed5046b19b50c5f8758b6ef99f92717fa6abc2420a147a5be527f92121",
+      "points": [
+        [
+          140.7280701754386,
+          19.0
+        ],
+        [
+          144.23684210526318,
+          70.0
+        ],
+        [
+          144.23684210526318,
+          101.0
+        ],
+        [
+          147.74561403508773,
+          127.0
+        ],
+        [
+          149.5,
+          179.0
+        ],
+        [
+          154.76315789473685,
+          213.0
+        ],
+        [
+          154.76315789473685,
+          238.0
+        ],
+        [
+          149.5,
+          269.0
+        ]
+      ],
+      "stability": {
+        "status": "unstable",
+        "max_shift_mm": 1.05,
+        "first_count": 8,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "260ed19b51c6497555dce7b6fac2d01237b98a838d12def48fcaccb55c8c14de",
+      "points": [
+        [
+          156.51754385964912,
+          37.0
+        ],
+        [
+          156.51754385964912,
+          95.0
+        ],
+        [
+          151.2543859649123,
+          175.0
+        ],
+        [
+          149.5,
+          200.0
+        ],
+        [
+          149.5,
+          237.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "8ba035f35da9fb5b8591d66ff8bed4fecd5f8815db4692868158c3c42248cd4c",
+      "points": [
+        [
+          138.97368421052633,
+          47.0
+        ],
+        [
+          144.23684210526318,
+          91.0
+        ],
+        [
+          147.74561403508773,
+          137.0
+        ],
+        [
+          149.5,
+          189.0
+        ],
+        [
+          154.76315789473685,
+          228.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "dcdbb40ff5cb372a8f7208c149729280e1d84d0647317ee633d9f8839f3b27de",
+      "points": [
+        [
+          137.21929824561406,
+          35.0
+        ],
+        [
+          142.48245614035088,
+          107.0
+        ],
+        [
+          145.99122807017545,
+          160.0
+        ],
+        [
+          144.23684210526318,
+          213.0
+        ],
+        [
+          138.97368421052633,
+          253.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.0526315789473641,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "995de81fe5e6848706a42532d01ec31e025269667dd1e00134daee3c59c1fa30",
+      "points": [
+        [
+          145.99122807017545,
+          35.0
+        ],
+        [
+          142.48245614035088,
+          81.0
+        ],
+        [
+          137.21929824561406,
+          134.0
+        ],
+        [
+          135.46491228070175,
+          162.0
+        ],
+        [
+          135.46491228070175,
+          188.0
+        ],
+        [
+          145.99122807017545,
+          249.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "d70393b397fa6c1cfdfa4e99f813cddf1cd098974c18f0d4eb7b0020897844dc",
+      "points": [
+        [
+          126.69298245614036,
+          52.0
+        ],
+        [
+          140.7280701754386,
+          135.0
+        ],
+        [
+          144.23684210526318,
+          162.0
+        ],
+        [
+          149.5,
+          201.0
+        ],
+        [
+          151.2543859649123,
+          241.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "5ed88ae70c5d250410e41fe9266f452144d732dd9ab853fdf47605548cb85923",
+      "points": [
+        [
+          137.21929824561406,
+          28.0
+        ],
+        [
+          145.99122807017545,
+          75.0
+        ],
+        [
+          153.00877192982458,
+          123.0
+        ],
+        [
+          153.00877192982458,
+          150.0
+        ],
+        [
+          153.00877192982458,
+          183.0
+        ],
+        [
+          153.00877192982458,
+          209.0
+        ],
+        [
+          153.00877192982458,
+          248.0
+        ],
+        [
+          167.04385964912282,
+          273.0
+        ]
+      ],
+      "stability": {
+        "status": "unstable",
+        "max_shift_mm": 0.0,
+        "first_count": 8,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "c2e7c2f9d0dd96a32b69119809053fd3cea98622808247cedc2d2b42eba2a14e",
+      "points": [
+        [
+          151.2543859649123,
+          22.0
+        ],
+        [
+          151.2543859649123,
+          47.0
+        ],
+        [
+          151.2543859649123,
+          101.0
+        ],
+        [
+          154.76315789473685,
+          149.0
+        ],
+        [
+          156.51754385964912,
+          178.0
+        ],
+        [
+          158.27192982456143,
+          211.0
+        ],
+        [
+          156.51754385964912,
+          237.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "c3a724822b47baff914e0e7d2c87af06fad4530e9f211f0231b073cfc762ccb8",
+      "points": [
+        [
+          137.21929824561406,
+          46.0
+        ],
+        [
+          137.21929824561406,
+          74.0
+        ],
+        [
+          137.21929824561406,
+          149.0
+        ],
+        [
+          138.97368421052633,
+          179.0
+        ],
+        [
+          142.48245614035088,
+          212.0
+        ],
+        [
+          144.23684210526318,
+          270.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "9d3950472fa5196a8d76107395ca5b1bcd076487e6a0d22578b67333196ebf21",
+      "points": [
+        [
+          145.99122807017545,
+          65.0
+        ],
+        [
+          144.23684210526318,
+          107.0
+        ],
+        [
+          140.7280701754386,
+          154.0
+        ],
+        [
+          140.7280701754386,
+          191.0
+        ],
+        [
+          153.00877192982458,
+          227.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "785e026712f6d620615f140b539c20b61ede1e0271867b0e3e972d0ee5f41d38",
+      "points": [
+        [
+          174.06140350877195,
+          15.0
+        ],
+        [
+          172.30701754385967,
+          39.0
+        ],
+        [
+          168.7982456140351,
+          66.0
+        ],
+        [
+          165.28947368421055,
+          90.0
+        ],
+        [
+          167.04385964912282,
+          118.0
+        ],
+        [
+          163.53508771929825,
+          148.0
+        ],
+        [
+          163.53508771929825,
+          175.0
+        ],
+        [
+          161.78070175438597,
+          226.0
+        ],
+        [
+          160.0263157894737,
+          255.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 9,
+        "second_count": 9,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "8e704ff027711b6a94b1154dc24802d1745e634c9d6867fe858587dee613b0d0",
+      "points": [
+        [
+          156.51754385964912,
+          14.0
+        ],
+        [
+          156.51754385964912,
+          39.0
+        ],
+        [
+          153.00877192982458,
+          69.0
+        ],
+        [
+          153.00877192982458,
+          90.0
+        ],
+        [
+          151.2543859649123,
+          142.0
+        ],
+        [
+          151.2543859649123,
+          163.0
+        ],
+        [
+          151.2543859649123,
+          185.0
+        ],
+        [
+          154.76315789473685,
+          239.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 8,
+        "second_count": 8,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "e428be489472ea5b0ff39e32a8417bd4b9ca4b553cdbf054a8f69cd7274d8974",
+      "points": [
+        [
+          151.2543859649123,
+          36.0
+        ],
+        [
+          153.00877192982458,
+          109.0
+        ],
+        [
+          154.76315789473685,
+          136.0
+        ],
+        [
+          153.00877192982458,
+          185.0
+        ],
+        [
+          153.00877192982458,
+          227.0
+        ],
+        [
+          151.2543859649123,
+          266.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "befb36959905d91575f7082f050d6f0b447a68681f548e7404d3edb9843644e5",
+      "points": [
+        [
+          133.71052631578948,
+          38.0
+        ],
+        [
+          142.48245614035088,
+          115.0
+        ],
+        [
+          142.48245614035088,
+          156.0
+        ],
+        [
+          149.5,
+          221.0
+        ],
+        [
+          153.00877192982458,
+          276.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "bd310da5a2874ef2741678154a90d7a282deb05ca51c82efa6b374558f77398b",
+      "points": [
+        [
+          133.71052631578948,
+          20.0
+        ],
+        [
+          137.21929824561406,
+          66.0
+        ],
+        [
+          144.23684210526318,
+          93.0
+        ],
+        [
+          149.5,
+          193.0
+        ],
+        [
+          142.48245614035088,
+          250.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "fbf3b74894872db74011f83380d0a9f86ed055e8793ed675cdd4b8ae00c836c0",
+      "points": [
+        [
+          147.74561403508773,
+          24.0
+        ],
+        [
+          147.74561403508773,
+          51.0
+        ],
+        [
+          149.5,
+          81.0
+        ],
+        [
+          147.74561403508773,
+          135.0
+        ],
+        [
+          144.23684210526318,
+          226.0
+        ],
+        [
+          144.23684210526318,
+          275.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "623f0b8fe46c1239aefe723005f3633af73ccef4c1a319a29fee59ccfb70eda5",
+      "points": [
+        [
+          147.74561403508773,
+          32.0
+        ],
+        [
+          153.00877192982458,
+          107.0
+        ],
+        [
+          156.51754385964912,
+          139.0
+        ],
+        [
+          160.0263157894737,
+          196.0
+        ],
+        [
+          160.0263157894737,
+          224.0
+        ],
+        [
+          160.0263157894737,
+          252.0
+        ],
+        [
+          172.30701754385967,
+          286.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "4695ad5b504c9d09111e75eb0023ef3d28756d009d6222327732277ff8ddb027",
+      "points": [
+        [
+          165.28947368421055,
+          31.0
+        ],
+        [
+          161.78070175438597,
+          137.0
+        ],
+        [
+          161.78070175438597,
+          163.0
+        ],
+        [
+          158.27192982456143,
+          211.0
+        ],
+        [
+          154.76315789473685,
+          274.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "8f1292d2c798972caa6405ac6fceb406d4e44445864765a58f912a8124a36641",
+      "points": [
+        [
+          151.2543859649123,
+          28.0
+        ],
+        [
+          151.2543859649123,
+          77.0
+        ],
+        [
+          154.76315789473685,
+          116.0
+        ],
+        [
+          153.00877192982458,
+          203.0
+        ],
+        [
+          154.76315789473685,
+          250.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "88faffc5e4482a10b2a60b292333483b6b9f4f32005c5194b579951e654eb193",
+      "points": [
+        [
+          116.16666666666667,
+          49.0
+        ],
+        [
+          116.16666666666667,
+          83.0
+        ],
+        [
+          123.1842105263158,
+          109.0
+        ],
+        [
+          124.93859649122808,
+          145.0
+        ],
+        [
+          128.44736842105263,
+          214.0
+        ],
+        [
+          123.1842105263158,
+          243.0
+        ],
+        [
+          128.44736842105263,
+          293.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "2a975a4fdb317ecd377e9b25142e080b280093cfa2f04a4230a234d5d1bb4f88",
+      "points": [
+        [
+          130.20175438596493,
+          30.0
+        ],
+        [
+          126.69298245614036,
+          75.0
+        ],
+        [
+          138.97368421052633,
+          166.0
+        ],
+        [
+          149.5,
+          201.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 4,
+        "second_count": 4,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "9b32c7ee495a878b84dad013a99d82bb3c4241c9bbf1e532259a32469d71c256",
+      "points": [
+        [
+          138.97368421052633,
+          57.0
+        ],
+        [
+          145.99122807017545,
+          103.0
+        ],
+        [
+          153.00877192982458,
+          155.0
+        ],
+        [
+          153.00877192982458,
+          193.0
+        ],
+        [
+          151.2543859649123,
+          235.0
+        ],
+        [
+          153.00877192982458,
+          269.0
+        ]
+      ],
+      "stability": {
+        "status": "unstable",
+        "max_shift_mm": 5.258424845517494,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "9288e050697877014e72b85a790726e76daba41f6511f1d9ef45e3e5cd222d59",
+      "points": [
+        [
+          163.53508771929825,
+          51.0
+        ],
+        [
+          165.28947368421055,
+          98.0
+        ],
+        [
+          170.55263157894737,
+          144.0
+        ],
+        [
+          174.06140350877195,
+          186.0
+        ],
+        [
+          172.30701754385967,
+          240.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "2182de8bcf3f98fce74761ea069db4e2b641730eb98f9a5a7107e41add62b91a",
+      "points": [
+        [
+          140.7280701754386,
+          46.0
+        ],
+        [
+          145.99122807017545,
+          75.0
+        ],
+        [
+          147.74561403508773,
+          102.0
+        ],
+        [
+          151.2543859649123,
+          177.0
+        ],
+        [
+          151.2543859649123,
+          206.0
+        ],
+        [
+          147.74561403508773,
+          263.0
+        ],
+        [
+          149.5,
+          307.0
+        ]
+      ],
+      "stability": {
+        "status": "unstable",
+        "max_shift_mm": 1.0526315789473641,
+        "first_count": 7,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "461ce8c5784b713420d114c290c68ae72720927cfaaa016063a6842b3dcb5b2e",
+      "points": [
+        [
+          138.97368421052633,
+          16.0
+        ],
+        [
+          137.21929824561406,
+          67.0
+        ],
+        [
+          137.21929824561406,
+          97.0
+        ],
+        [
+          138.97368421052633,
+          124.0
+        ],
+        [
+          140.7280701754386,
+          150.0
+        ],
+        [
+          147.74561403508773,
+          223.0
+        ],
+        [
+          138.97368421052633,
+          284.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "792c50771f400b4d909a0479f55b95896d570a12b9c21cfdbf5eb123cfec9314",
+      "points": [
+        [
+          144.23684210526318,
+          32.0
+        ],
+        [
+          145.99122807017545,
+          60.0
+        ],
+        [
+          147.74561403508773,
+          110.0
+        ],
+        [
+          147.74561403508773,
+          139.0
+        ],
+        [
+          149.5,
+          166.0
+        ],
+        [
+          151.2543859649123,
+          208.0
+        ],
+        [
+          149.5,
+          260.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "6c4bb826080b375bddba1b84817f7163aa60f2f0fd0f23ce186e0292e5836aec",
+      "points": [
+        [
+          137.21929824561406,
+          44.0
+        ],
+        [
+          138.97368421052633,
+          87.0
+        ],
+        [
+          138.97368421052633,
+          116.0
+        ],
+        [
+          140.7280701754386,
+          163.0
+        ],
+        [
+          144.23684210526318,
+          202.0
+        ],
+        [
+          147.74561403508773,
+          241.0
+        ],
+        [
+          147.74561403508773,
+          274.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "770a0d85b0a4043878c7441250b3c4e812b92e5e330c662c78b090abb3b59673",
+      "points": [
+        [
+          145.99122807017545,
+          25.0
+        ],
+        [
+          145.99122807017545,
+          51.0
+        ],
+        [
+          147.74561403508773,
+          75.0
+        ],
+        [
+          147.74561403508773,
+          125.0
+        ],
+        [
+          147.74561403508773,
+          187.0
+        ],
+        [
+          147.74561403508773,
+          234.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "7df5cdb7f2a8e2933dc62f880946be6e847a763ceae0ae16c572af3be3f1eaf1",
+      "points": [
+        [
+          135.46491228070175,
+          23.0
+        ],
+        [
+          137.21929824561406,
+          74.0
+        ],
+        [
+          142.48245614035088,
+          132.0
+        ],
+        [
+          147.74561403508773,
+          179.0
+        ],
+        [
+          147.74561403508773,
+          242.0
+        ],
+        [
+          144.23684210526318,
+          281.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.0526315789473641,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "5f54289575fa2719163a79ee99767eec044a555372e338339fdd7cd7e8924909",
+      "points": [
+        [
+          133.71052631578948,
+          36.0
+        ],
+        [
+          140.7280701754386,
+          103.0
+        ],
+        [
+          142.48245614035088,
+          127.0
+        ],
+        [
+          145.99122807017545,
+          162.0
+        ],
+        [
+          137.21929824561406,
+          211.0
+        ],
+        [
+          138.97368421052633,
+          256.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "bcfc296c95fd660fbe168c8321c5dd8fa40f124e328d83b42ee5118d841184d1",
+      "points": [
+        [
+          142.48245614035088,
+          34.0
+        ],
+        [
+          142.48245614035088,
+          64.0
+        ],
+        [
+          137.21929824561406,
+          127.0
+        ],
+        [
+          140.7280701754386,
+          165.0
+        ],
+        [
+          140.7280701754386,
+          193.0
+        ],
+        [
+          130.20175438596493,
+          254.0
+        ],
+        [
+          130.20175438596493,
+          291.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "e4e8b0c79708c672efaf342f1dc4775fe37e38fb5cc12ca0844bb57e15138ff5",
+      "points": [
+        [
+          131.9561403508772,
+          12.0
+        ],
+        [
+          126.69298245614036,
+          63.0
+        ],
+        [
+          128.44736842105263,
+          114.0
+        ],
+        [
+          131.9561403508772,
+          167.0
+        ],
+        [
+          135.46491228070175,
+          203.0
+        ],
+        [
+          133.71052631578948,
+          262.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "c39a14af2314a7d34b2fc1248dc56d0dba09831967971b80a8c05246120071cf",
+      "points": [
+        [
+          151.2543859649123,
+          67.0
+        ],
+        [
+          156.51754385964912,
+          126.0
+        ],
+        [
+          156.51754385964912,
+          183.0
+        ],
+        [
+          153.00877192982458,
+          219.0
+        ],
+        [
+          149.5,
+          244.0
+        ],
+        [
+          151.2543859649123,
+          282.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "dd220bc45cf525a8137b8665d59dbb1520fbce07637f5d0075c5fa9fc3372cf4",
+      "points": [
+        [
+          153.00877192982458,
+          73.0
+        ],
+        [
+          153.00877192982458,
+          98.0
+        ],
+        [
+          153.00877192982458,
+          129.0
+        ],
+        [
+          153.00877192982458,
+          182.0
+        ],
+        [
+          154.76315789473685,
+          219.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "7d2a498d2fa2c8d4fea153a092698771850ac1e8f2a74bbbe50560f926d03dfe",
+      "points": [
+        [
+          149.5,
+          25.0
+        ],
+        [
+          147.74561403508773,
+          67.0
+        ],
+        [
+          145.99122807017545,
+          93.0
+        ],
+        [
+          144.23684210526318,
+          146.0
+        ],
+        [
+          145.99122807017545,
+          203.0
+        ],
+        [
+          145.99122807017545,
+          249.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "2d8c3341476e41295ace62baa649646447983d45a7aa7e372c188e9c9134c4d9",
+      "points": [
+        [
+          158.27192982456143,
+          23.0
+        ],
+        [
+          158.27192982456143,
+          50.0
+        ],
+        [
+          156.51754385964912,
+          75.0
+        ],
+        [
+          153.00877192982458,
+          126.0
+        ],
+        [
+          153.00877192982458,
+          150.0
+        ],
+        [
+          151.2543859649123,
+          174.0
+        ],
+        [
+          147.74561403508773,
+          215.0
+        ],
+        [
+          151.2543859649123,
+          266.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 8,
+        "second_count": 8,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "points": [
+        [
+          167.04385964912282,
+          25.0
+        ],
+        [
+          145.99122807017545,
+          47.0
+        ],
+        [
+          137.21929824561406,
+          99.0
+        ],
+        [
+          135.46491228070175,
+          139.0
+        ],
+        [
+          137.21929824561406,
+          177.0
+        ],
+        [
+          137.21929824561406,
+          214.0
+        ],
+        [
+          138.97368421052633,
+          249.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "fd84428715d03f5574d524da4e66b53e26ec7b3656179b381354a4c26b498790",
+      "points": [
+        [
+          142.48245614035088,
+          46.0
+        ],
+        [
+          142.48245614035088,
+          97.0
+        ],
+        [
+          145.99122807017545,
+          137.0
+        ],
+        [
+          144.23684210526318,
+          161.0
+        ],
+        [
+          142.48245614035088,
+          193.0
+        ],
+        [
+          142.48245614035088,
+          243.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.0526315789473641,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "fe06d40b71943d5d806b17e6cd9ffb4866bb6f5efe194d07c88178c68202d5a2",
+      "points": [
+        [
+          145.99122807017545,
+          25.0
+        ],
+        [
+          145.99122807017545,
+          76.0
+        ],
+        [
+          149.5,
+          105.0
+        ],
+        [
+          149.5,
+          131.0
+        ],
+        [
+          153.00877192982458,
+          156.0
+        ],
+        [
+          154.76315789473685,
+          185.0
+        ],
+        [
+          153.00877192982458,
+          211.0
+        ],
+        [
+          153.00877192982458,
+          240.0
+        ]
+      ],
+      "stability": {
+        "status": "unstable",
+        "max_shift_mm": 0.0,
+        "first_count": 8,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "b309dbe0fc1206a11b96c9c6e024a866da0420edc26e9ad375c6b640610571c2",
+      "points": [
+        [
+          138.97368421052633,
+          29.0
+        ],
+        [
+          137.21929824561406,
+          59.0
+        ],
+        [
+          135.46491228070175,
+          81.0
+        ],
+        [
+          135.46491228070175,
+          108.0
+        ],
+        [
+          133.71052631578948,
+          155.0
+        ],
+        [
+          126.69298245614036,
+          198.0
+        ],
+        [
+          124.93859649122808,
+          237.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "97ec0e50688079d7390adbc7be9ae4e9bf9e98f30347f11e47759d9f8b0bb8ee",
+      "points": [
+        [
+          144.23684210526318,
+          51.0
+        ],
+        [
+          142.48245614035088,
+          97.0
+        ],
+        [
+          142.48245614035088,
+          142.0
+        ],
+        [
+          145.99122807017545,
+          191.0
+        ],
+        [
+          145.99122807017545,
+          233.0
+        ],
+        [
+          145.99122807017545,
+          278.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "412a61c72cdfd840ad341c169fe87420c42497cc499f2b251fc628de7056a5a4",
+      "points": [
+        [
+          151.2543859649123,
+          35.0
+        ],
+        [
+          156.51754385964912,
+          60.0
+        ],
+        [
+          158.27192982456143,
+          84.0
+        ],
+        [
+          158.27192982456143,
+          107.0
+        ],
+        [
+          156.51754385964912,
+          154.0
+        ],
+        [
+          149.5,
+          210.0
+        ],
+        [
+          145.99122807017545,
+          258.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.0526315789473641,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "36569073534a07d1a3927dc98fd08fd74d096a044bbbf8a468490d267d926609",
+      "points": [
+        [
+          144.23684210526318,
+          64.0
+        ],
+        [
+          147.74561403508773,
+          95.0
+        ],
+        [
+          149.5,
+          142.0
+        ],
+        [
+          147.74561403508773,
+          176.0
+        ],
+        [
+          149.5,
+          206.0
+        ],
+        [
+          153.00877192982458,
+          234.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "5b9f7be4bdb5ee53ae07f4deab4e575da6a540fa27c918cd4a0c3cf686f6d0f9",
+      "points": [
+        [
+          149.5,
+          44.0
+        ],
+        [
+          151.2543859649123,
+          65.0
+        ],
+        [
+          151.2543859649123,
+          99.0
+        ],
+        [
+          153.00877192982458,
+          145.0
+        ],
+        [
+          151.2543859649123,
+          168.0
+        ],
+        [
+          153.00877192982458,
+          222.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "0059a1315dca2feca115ccfd940dab7025b7667e936328434b245044047e3b59",
+      "points": [
+        [
+          153.00877192982458,
+          14.0
+        ],
+        [
+          154.76315789473685,
+          58.0
+        ],
+        [
+          156.51754385964912,
+          100.0
+        ],
+        [
+          154.76315789473685,
+          156.0
+        ],
+        [
+          153.00877192982458,
+          182.0
+        ],
+        [
+          153.00877192982458,
+          221.0
+        ],
+        [
+          151.2543859649123,
+          256.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.0526315789473812,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "efc0c25174246011196d9233435cd64bcb52dd7fd099e6c470ded7b90cc6de5b",
+      "points": [
+        [
+          130.20175438596493,
+          26.0
+        ],
+        [
+          131.9561403508772,
+          53.0
+        ],
+        [
+          131.9561403508772,
+          96.0
+        ],
+        [
+          137.21929824561406,
+          148.0
+        ],
+        [
+          140.7280701754386,
+          181.0
+        ],
+        [
+          142.48245614035088,
+          210.0
+        ],
+        [
+          144.23684210526318,
+          236.0
+        ],
+        [
+          144.23684210526318,
+          270.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 8,
+        "second_count": 8,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "7eb980c70b6eaaa2fa2309a1a75789e5de3967aaebfe939f64a89c6921f26a48",
+      "points": [
+        [
+          165.28947368421055,
+          20.0
+        ],
+        [
+          165.28947368421055,
+          45.0
+        ],
+        [
+          163.53508771929825,
+          91.0
+        ],
+        [
+          161.78070175438597,
+          138.0
+        ],
+        [
+          160.0263157894737,
+          181.0
+        ],
+        [
+          154.76315789473685,
+          226.0
+        ],
+        [
+          160.0263157894737,
+          258.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "points": [
+        [
+          126.69298245614036,
+          40.0
+        ],
+        [
+          133.71052631578948,
+          66.0
+        ],
+        [
+          126.69298245614036,
+          93.0
+        ],
+        [
+          133.71052631578948,
+          146.0
+        ],
+        [
+          138.97368421052633,
+          186.0
+        ],
+        [
+          138.97368421052633,
+          221.0
+        ],
+        [
+          140.7280701754386,
+          259.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.0526315789473641,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "735dd4c8ad6b846c93aec4360bab13b93621ddd3bd419e64f11d173bd862ad6e",
+      "points": [
+        [
+          147.74561403508773,
+          34.0
+        ],
+        [
+          142.48245614035088,
+          88.0
+        ],
+        [
+          138.97368421052633,
+          128.0
+        ],
+        [
+          137.21929824561406,
+          188.0
+        ],
+        [
+          137.21929824561406,
+          276.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "f72b3b9326f10bf0d39c6516d8b4ed5b87d59cee05908870322ff6a5bb637bba",
+      "points": [
+        [
+          144.23684210526318,
+          30.0
+        ],
+        [
+          142.48245614035088,
+          60.0
+        ],
+        [
+          144.23684210526318,
+          85.0
+        ],
+        [
+          145.99122807017545,
+          113.0
+        ],
+        [
+          145.99122807017545,
+          141.0
+        ],
+        [
+          147.74561403508773,
+          167.0
+        ],
+        [
+          145.99122807017545,
+          227.0
+        ],
+        [
+          142.48245614035088,
+          276.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.0526315789473641,
+        "first_count": 8,
+        "second_count": 8,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "13a784b0466c4b17b34d16c1a173ac4ab4e10126d60d375fc90e044036e244e8",
+      "points": [
+        [
+          130.20175438596493,
+          19.0
+        ],
+        [
+          135.46491228070175,
+          55.0
+        ],
+        [
+          138.97368421052633,
+          79.0
+        ],
+        [
+          142.48245614035088,
+          103.0
+        ],
+        [
+          147.74561403508773,
+          145.0
+        ],
+        [
+          149.5,
+          182.0
+        ],
+        [
+          149.5,
+          219.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "fe4af16335b15f0d10ff1dfce36fcbc4cf0fc8b46925dde40628cbe8353593c3",
+      "points": [
+        [
+          153.00877192982458,
+          45.0
+        ],
+        [
+          153.00877192982458,
+          79.0
+        ],
+        [
+          156.51754385964912,
+          129.0
+        ],
+        [
+          156.51754385964912,
+          164.0
+        ],
+        [
+          154.76315789473685,
+          204.0
+        ],
+        [
+          156.51754385964912,
+          244.0
+        ],
+        [
+          175.81578947368422,
+          287.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 2.1052631578947283,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "1297e6ee3c8a2c3456ea47930752692f23e5dfed1b3626a74b4ffac2b2f257d1",
+      "points": [
+        [
+          114.4122807017544,
+          13.0
+        ],
+        [
+          117.92105263157896,
+          67.0
+        ],
+        [
+          124.93859649122808,
+          117.0
+        ],
+        [
+          131.9561403508772,
+          152.0
+        ],
+        [
+          130.20175438596493,
+          180.0
+        ],
+        [
+          137.21929824561406,
+          229.0
+        ],
+        [
+          138.97368421052633,
+          272.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "8bb0c116bfeffb7b201250aa456eba3e1c44ef53cc6b4e381dfca244943b4a71",
+      "points": [
+        [
+          163.53508771929825,
+          23.0
+        ],
+        [
+          165.28947368421055,
+          50.0
+        ],
+        [
+          165.28947368421055,
+          77.0
+        ],
+        [
+          165.28947368421055,
+          107.0
+        ],
+        [
+          167.04385964912282,
+          145.0
+        ],
+        [
+          170.55263157894737,
+          187.0
+        ],
+        [
+          174.06140350877195,
+          221.0
+        ],
+        [
+          174.06140350877195,
+          270.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 8,
+        "second_count": 8,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "6c47df67b471cfba22b2213bad9adeaa86a2af1a756db710387f706a1b007c61",
+      "points": [
+        [
+          163.53508771929825,
+          30.0
+        ],
+        [
+          163.53508771929825,
+          70.0
+        ],
+        [
+          161.78070175438597,
+          101.0
+        ],
+        [
+          161.78070175438597,
+          158.0
+        ],
+        [
+          160.0263157894737,
+          200.0
+        ],
+        [
+          154.76315789473685,
+          258.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "9bf53a6b6abf6a9eeb76a6f0b4f5403b2804d53550037b7c078388d57aa8d9df",
+      "points": [
+        [
+          138.97368421052633,
+          19.0
+        ],
+        [
+          140.7280701754386,
+          44.0
+        ],
+        [
+          140.7280701754386,
+          75.0
+        ],
+        [
+          144.23684210526318,
+          101.0
+        ],
+        [
+          149.5,
+          153.0
+        ],
+        [
+          149.5,
+          196.0
+        ],
+        [
+          149.5,
+          252.0
+        ],
+        [
+          145.99122807017545,
+          287.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 8,
+        "second_count": 8,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "points": [
+        [
+          145.99122807017545,
+          31.0
+        ],
+        [
+          160.0263157894737,
+          124.0
+        ],
+        [
+          163.53508771929825,
+          185.0
+        ],
+        [
+          165.28947368421055,
+          225.0
+        ],
+        [
+          158.27192982456143,
+          265.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "ebc5555cd374e7637b29f9e768843bfeb2ed2a0b2ce1c73c44236c3650e2ee4f",
+      "points": [
+        [
+          154.76315789473685,
+          46.0
+        ],
+        [
+          156.51754385964912,
+          90.0
+        ],
+        [
+          156.51754385964912,
+          142.0
+        ],
+        [
+          158.27192982456143,
+          168.0
+        ],
+        [
+          156.51754385964912,
+          193.0
+        ],
+        [
+          156.51754385964912,
+          224.0
+        ],
+        [
+          167.04385964912282,
+          277.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "ce33655f362d1d3498bcc40e71394c8910481e82cb1dcf10f149986f96bce501",
+      "points": [
+        [
+          119.67543859649123,
+          21.0
+        ],
+        [
+          121.42982456140352,
+          66.0
+        ],
+        [
+          126.69298245614036,
+          131.0
+        ],
+        [
+          126.69298245614036,
+          154.0
+        ],
+        [
+          126.69298245614036,
+          184.0
+        ],
+        [
+          131.9561403508772,
+          233.0
+        ],
+        [
+          133.71052631578948,
+          261.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.4867862122703523,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "dace1623fe5c10039ae5b7989b0882d70a3b61cce0fa1b2dba2ac5126920ad29",
+      "points": [
+        [
+          149.5,
+          43.0
+        ],
+        [
+          153.00877192982458,
+          109.0
+        ],
+        [
+          154.76315789473685,
+          134.0
+        ],
+        [
+          160.0263157894737,
+          169.0
+        ],
+        [
+          160.0263157894737,
+          201.0
+        ],
+        [
+          163.53508771929825,
+          254.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "f1c9f2178251059ce2dbaab75766b4c39070b613d75ad36ce028fca644977431",
+      "points": [
+        [
+          95.1140350877193,
+          24.0
+        ],
+        [
+          98.62280701754386,
+          75.0
+        ],
+        [
+          109.14912280701755,
+          129.0
+        ],
+        [
+          119.67543859649123,
+          185.0
+        ],
+        [
+          126.69298245614036,
+          228.0
+        ],
+        [
+          128.44736842105263,
+          269.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "6851e7220f16231b43c3592b5761d6a3d1b4481208510f752af27d6c8aeeee2d",
+      "points": [
+        [
+          149.5,
+          21.0
+        ],
+        [
+          151.2543859649123,
+          59.0
+        ],
+        [
+          156.51754385964912,
+          108.0
+        ],
+        [
+          156.51754385964912,
+          138.0
+        ],
+        [
+          160.0263157894737,
+          194.0
+        ],
+        [
+          154.76315789473685,
+          230.0
+        ],
+        [
+          138.97368421052633,
+          253.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "c6d474b1e3fa1bd1a405c7eaa1aeaef9dc04e1da67ec0764e8c7710747c70b23",
+      "points": [
+        [
+          149.5,
+          37.0
+        ],
+        [
+          149.5,
+          62.0
+        ],
+        [
+          147.74561403508773,
+          87.0
+        ],
+        [
+          147.74561403508773,
+          115.0
+        ],
+        [
+          149.5,
+          184.0
+        ],
+        [
+          151.2543859649123,
+          236.0
+        ],
+        [
+          153.00877192982458,
+          289.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.0526315789473641,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "2e079ec6c4b4fc082859b27ed3d4b09c1840acc217906af15a35030b46f52369",
+      "points": [
+        [
+          133.71052631578948,
+          50.0
+        ],
+        [
+          137.21929824561406,
+          102.0
+        ],
+        [
+          138.97368421052633,
+          152.0
+        ],
+        [
+          138.97368421052633,
+          185.0
+        ],
+        [
+          144.23684210526318,
+          241.0
+        ],
+        [
+          137.21929824561406,
+          272.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "b2ef25a5d5afe313737dbdfd7c488758fd6f1cc373715887c2a5a31f1657c911",
+      "points": [
+        [
+          119.67543859649123,
+          57.0
+        ],
+        [
+          123.1842105263158,
+          119.0
+        ],
+        [
+          128.44736842105263,
+          159.0
+        ],
+        [
+          142.48245614035088,
+          240.0
+        ],
+        [
+          144.23684210526318,
+          273.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "6975c7e897a547a9d76e7d758c33ff03b7852ada25d46406721e7566629ae158",
+      "points": [
+        [
+          186.34210526315792,
+          17.0
+        ],
+        [
+          184.58771929824562,
+          58.0
+        ],
+        [
+          184.58771929824562,
+          98.0
+        ],
+        [
+          172.30701754385967,
+          142.0
+        ],
+        [
+          165.28947368421055,
+          188.0
+        ],
+        [
+          165.28947368421055,
+          213.0
+        ],
+        [
+          160.0263157894737,
+          248.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "e2c45132fa21d821c849c723255b4cacaee7d02939cff88b295b5a531e566654",
+      "points": [
+        [
+          151.2543859649123,
+          61.0
+        ],
+        [
+          154.76315789473685,
+          113.0
+        ],
+        [
+          163.53508771929825,
+          136.0
+        ],
+        [
+          165.28947368421055,
+          192.0
+        ],
+        [
+          147.74561403508773,
+          248.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "1f78c63e34c9bcbda41f7bbd8b8a9264a6fad83cab8bf6acb568ee41af72c456",
+      "points": [
+        [
+          142.48245614035088,
+          27.0
+        ],
+        [
+          142.48245614035088,
+          50.0
+        ],
+        [
+          142.48245614035088,
+          83.0
+        ],
+        [
+          144.23684210526318,
+          108.0
+        ],
+        [
+          147.74561403508773,
+          163.0
+        ],
+        [
+          149.5,
+          205.0
+        ],
+        [
+          151.2543859649123,
+          244.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "a5df06a86bdbd5a62678bd9dae377afb08f66aee3a471c451c8764189b9ee5ef",
+      "points": [
+        [
+          145.99122807017545,
+          35.0
+        ],
+        [
+          149.5,
+          66.0
+        ],
+        [
+          151.2543859649123,
+          90.0
+        ],
+        [
+          151.2543859649123,
+          117.0
+        ],
+        [
+          153.00877192982458,
+          151.0
+        ],
+        [
+          153.00877192982458,
+          175.0
+        ],
+        [
+          151.2543859649123,
+          209.0
+        ],
+        [
+          149.5,
+          260.0
+        ]
+      ],
+      "stability": {
+        "status": "unstable",
+        "max_shift_mm": 0.0,
+        "first_count": 8,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "1dd45ead4854d4c45c477e9b4f3883987e37880d9bffd9263300a07a81a76c03",
+      "points": [
+        [
+          138.97368421052633,
+          24.0
+        ],
+        [
+          137.21929824561406,
+          72.0
+        ],
+        [
+          137.21929824561406,
+          118.0
+        ],
+        [
+          140.7280701754386,
+          168.0
+        ],
+        [
+          144.23684210526318,
+          218.0
+        ],
+        [
+          147.74561403508773,
+          267.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "1d1bea6e7f908ef2fa188a6605891cce21ec2391320420adaf0be7426de26467",
+      "points": [
+        [
+          147.74561403508773,
+          53.0
+        ],
+        [
+          145.99122807017545,
+          81.0
+        ],
+        [
+          144.23684210526318,
+          108.0
+        ],
+        [
+          144.23684210526318,
+          159.0
+        ],
+        [
+          142.48245614035088,
+          206.0
+        ],
+        [
+          140.7280701754386,
+          242.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.0526315789473641,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "7115fbeff04625489b5d015037ed14ef3d6be5ba3065bf5e476bb1bc92cf1137",
+      "points": [
+        [
+          153.00877192982458,
+          12.0
+        ],
+        [
+          153.00877192982458,
+          57.0
+        ],
+        [
+          153.00877192982458,
+          106.0
+        ],
+        [
+          156.51754385964912,
+          154.0
+        ],
+        [
+          154.76315789473685,
+          182.0
+        ],
+        [
+          153.00877192982458,
+          210.0
+        ],
+        [
+          154.76315789473685,
+          267.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "ee1b63e8b78e4347f7852452ed7a6dfc44dad01e1472c9f9135878c831193bf0",
+      "points": [
+        [
+          158.27192982456143,
+          39.0
+        ],
+        [
+          154.76315789473685,
+          71.0
+        ],
+        [
+          147.74561403508773,
+          138.0
+        ],
+        [
+          145.99122807017545,
+          174.0
+        ],
+        [
+          145.99122807017545,
+          241.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "a521f376012eaacf5cb9e9e188c75a7b23604cd47ce12f69c2921eedff03bde6",
+      "points": [
+        [
+          149.5,
+          10.0
+        ],
+        [
+          149.5,
+          39.0
+        ],
+        [
+          149.5,
+          91.0
+        ],
+        [
+          149.5,
+          126.0
+        ],
+        [
+          151.2543859649123,
+          205.0
+        ],
+        [
+          154.76315789473685,
+          249.0
+        ],
+        [
+          154.76315789473685,
+          287.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "1f32ec8f43dc943146973d471d77ba2d314e376e12069790cdad19d9b4c08622",
+      "points": [
+        [
+          174.06140350877195,
+          35.0
+        ],
+        [
+          175.81578947368422,
+          69.0
+        ],
+        [
+          179.3245614035088,
+          92.0
+        ],
+        [
+          177.5701754385965,
+          122.0
+        ],
+        [
+          177.5701754385965,
+          157.0
+        ],
+        [
+          170.55263157894737,
+          215.0
+        ],
+        [
+          170.55263157894737,
+          238.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "03308b1bfaf49a413bc05425ee2cf613127c07f61d27eefe76b071ed7d46af4f",
+      "points": [
+        [
+          147.74561403508773,
+          37.0
+        ],
+        [
+          156.51754385964912,
+          86.0
+        ],
+        [
+          167.04385964912282,
+          135.0
+        ],
+        [
+          170.55263157894737,
+          180.0
+        ],
+        [
+          168.7982456140351,
+          240.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "fbd0184157ebe3f022a4c36fb140e5ff661b07f4b8b700ad9a7f48ca713e3fc1",
+      "points": [
+        [
+          154.76315789473685,
+          59.0
+        ],
+        [
+          163.53508771929825,
+          151.0
+        ],
+        [
+          163.53508771929825,
+          211.0
+        ],
+        [
+          163.53508771929825,
+          243.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.4867862122703643,
+        "first_count": 4,
+        "second_count": 4,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "0ba87ba4957862d14794f284ffce3e7284aaabb0986808c87349510bf48d20dd",
+      "points": [
+        [
+          137.21929824561406,
+          19.0
+        ],
+        [
+          142.48245614035088,
+          69.0
+        ],
+        [
+          145.99122807017545,
+          121.0
+        ],
+        [
+          149.5,
+          172.0
+        ],
+        [
+          151.2543859649123,
+          218.0
+        ],
+        [
+          149.5,
+          256.0
+        ],
+        [
+          156.51754385964912,
+          290.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "ef2e3d247a93bc1cd67f7d44f023898ec2fbdcccefe308bd765dc22c4665bad8",
+      "points": [
+        [
+          123.1842105263158,
+          26.0
+        ],
+        [
+          124.93859649122808,
+          51.0
+        ],
+        [
+          130.20175438596493,
+          96.0
+        ],
+        [
+          135.46491228070175,
+          145.0
+        ],
+        [
+          142.48245614035088,
+          188.0
+        ],
+        [
+          147.74561403508773,
+          224.0
+        ],
+        [
+          149.5,
+          263.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "da97fcfc654fe6f7912aeba96a6a648c6ea64553b1d9b8fa6a875055a8b7cc9f",
+      "points": [
+        [
+          130.20175438596493,
+          38.0
+        ],
+        [
+          135.46491228070175,
+          85.0
+        ],
+        [
+          137.21929824561406,
+          155.0
+        ],
+        [
+          137.21929824561406,
+          181.0
+        ],
+        [
+          140.7280701754386,
+          210.0
+        ],
+        [
+          137.21929824561406,
+          259.0
+        ],
+        [
+          131.9561403508772,
+          290.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "094c9cbeb964e14d20850e9c48ec4a00d4fcf00a24cd9a54018609645197164e",
+      "points": [
+        [
+          133.71052631578948,
+          25.0
+        ],
+        [
+          135.46491228070175,
+          70.0
+        ],
+        [
+          142.48245614035088,
+          115.0
+        ],
+        [
+          149.5,
+          161.0
+        ],
+        [
+          149.5,
+          192.0
+        ],
+        [
+          151.2543859649123,
+          245.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "59d6dbcb3cc7308c4f57ba6f811a249e8d3040df13092b75cda74fa505b1b626",
+      "points": [
+        [
+          142.48245614035088,
+          30.0
+        ],
+        [
+          138.97368421052633,
+          92.0
+        ],
+        [
+          130.20175438596493,
+          146.0
+        ],
+        [
+          123.1842105263158,
+          185.0
+        ],
+        [
+          123.1842105263158,
+          250.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "c116e7d87c8c3e98a9c5383ec6906e5975450b0d464856460ce9c53283f6439a",
+      "points": [
+        [
+          144.23684210526318,
+          26.0
+        ],
+        [
+          145.99122807017545,
+          71.0
+        ],
+        [
+          145.99122807017545,
+          121.0
+        ],
+        [
+          147.74561403508773,
+          170.0
+        ],
+        [
+          153.00877192982458,
+          259.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "99e1fb1d61a939c22ef464f240925d5dbd80a445e5b9d94259eab2cf771d90b0",
+      "points": [
+        [
+          167.04385964912282,
+          13.0
+        ],
+        [
+          170.55263157894737,
+          57.0
+        ],
+        [
+          172.30701754385967,
+          120.0
+        ],
+        [
+          170.55263157894737,
+          175.0
+        ],
+        [
+          168.7982456140351,
+          206.0
+        ],
+        [
+          161.78070175438597,
+          259.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.0526315789473641,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "200d1950b9535ccacc4dc5d66ec427cfeaeb4aa9c4c6fc1dc72abe888f6da294",
+      "points": [
+        [
+          153.00877192982458,
+          15.0
+        ],
+        [
+          154.76315789473685,
+          68.0
+        ],
+        [
+          156.51754385964912,
+          94.0
+        ],
+        [
+          154.76315789473685,
+          119.0
+        ],
+        [
+          156.51754385964912,
+          174.0
+        ],
+        [
+          154.76315789473685,
+          223.0
+        ],
+        [
+          154.76315789473685,
+          267.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "b845768fcb60a0e6957795f7fe3b724862f4603f58aaf67c76a388207fa3be72",
+      "points": [
+        [
+          158.27192982456143,
+          42.0
+        ],
+        [
+          156.51754385964912,
+          92.0
+        ],
+        [
+          156.51754385964912,
+          142.0
+        ],
+        [
+          158.27192982456143,
+          189.0
+        ],
+        [
+          158.27192982456143,
+          230.0
+        ],
+        [
+          158.27192982456143,
+          267.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "631e0fa48191afb36c98d7d6d709b51e69a1569b1736a4d213cb0b80c2c55ba5",
+      "points": [
+        [
+          156.51754385964912,
+          44.0
+        ],
+        [
+          160.0263157894737,
+          98.0
+        ],
+        [
+          160.0263157894737,
+          153.0
+        ],
+        [
+          160.0263157894737,
+          189.0
+        ],
+        [
+          160.0263157894737,
+          250.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "794516213732ca94b7230139400a15db8b31684d59d85d3a0bd232e6cb1eab55",
+      "points": [
+        [
+          131.9561403508772,
+          35.0
+        ],
+        [
+          137.21929824561406,
+          75.0
+        ],
+        [
+          138.97368421052633,
+          102.0
+        ],
+        [
+          142.48245614035088,
+          124.0
+        ],
+        [
+          145.99122807017545,
+          173.0
+        ],
+        [
+          149.5,
+          213.0
+        ],
+        [
+          147.74561403508773,
+          262.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "f0fd62360cda0a7b0d3dc038ba4a214a1e92109fd5ee8798f784726784427f28",
+      "points": [
+        [
+          168.7982456140351,
+          36.0
+        ],
+        [
+          165.28947368421055,
+          91.0
+        ],
+        [
+          163.53508771929825,
+          142.0
+        ],
+        [
+          161.78070175438597,
+          196.0
+        ],
+        [
+          160.0263157894737,
+          237.0
+        ],
+        [
+          133.71052631578948,
+          282.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "f66ee3260748142e67e99fef7cc9e407464252bc85a30c8192cd0e9d97f2b2c2",
+      "points": [
+        [
+          147.74561403508773,
+          65.0
+        ],
+        [
+          149.5,
+          120.0
+        ],
+        [
+          153.00877192982458,
+          165.0
+        ],
+        [
+          158.27192982456143,
+          223.0
+        ],
+        [
+          174.06140350877195,
+          257.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "6a0368d93d1074b48254d1630cf957d49992a810f2a510e0253616333949be33",
+      "points": [
+        [
+          142.48245614035088,
+          42.0
+        ],
+        [
+          147.74561403508773,
+          84.0
+        ],
+        [
+          147.74561403508773,
+          108.0
+        ],
+        [
+          147.74561403508773,
+          150.0
+        ],
+        [
+          147.74561403508773,
+          183.0
+        ],
+        [
+          149.5,
+          223.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.4867862122703523,
+        "first_count": 6,
+        "second_count": 6,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "320d9e16a60b7caef46e10278820e438aa261beb828da68c97950f0067625b79",
+      "points": [
+        [
+          158.27192982456143,
+          53.0
+        ],
+        [
+          158.27192982456143,
+          80.0
+        ],
+        [
+          156.51754385964912,
+          131.0
+        ],
+        [
+          153.00877192982458,
+          194.0
+        ],
+        [
+          151.2543859649123,
+          231.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "5c2897457a7341ea9042324875ae699bddc32f49ecbf4f8514b6b72086c75c80",
+      "points": [
+        [
+          124.93859649122808,
+          53.0
+        ],
+        [
+          126.69298245614036,
+          78.0
+        ],
+        [
+          126.69298245614036,
+          105.0
+        ],
+        [
+          131.9561403508772,
+          153.0
+        ],
+        [
+          137.21929824561406,
+          185.0
+        ],
+        [
+          144.23684210526318,
+          241.0
+        ],
+        [
+          142.48245614035088,
+          285.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 1.05,
+        "first_count": 7,
+        "second_count": 7,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    },
+    {
+      "pixel_sha256": "ee5c35e899b25188043d0113c47c11e93553a6f0f0f449def7a06eaf86d0c15e",
+      "points": [
+        [
+          135.46491228070175,
+          23.0
+        ],
+        [
+          137.21929824561406,
+          80.0
+        ],
+        [
+          140.7280701754386,
+          145.0
+        ],
+        [
+          140.7280701754386,
+          191.0
+        ],
+        [
+          140.7280701754386,
+          254.0
+        ]
+      ],
+      "stability": {
+        "status": "repeatable",
+        "max_shift_mm": 0.0,
+        "first_count": 5,
+        "second_count": 5,
+        "technical_limit_mm": 5.0,
+        "clinical_validation": false
+      }
+    }
+  ]
+}

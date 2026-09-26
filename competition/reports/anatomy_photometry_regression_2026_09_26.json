@@ -1,0 +1,31 @@
+{
+  "comparison": {
+    "aasce/lumbar_crop": {
+      "images": 85,
+      "baseline_mean_dice": 0.5026115022940223,
+      "candidate_mean_dice": 0.5269011042800956,
+      "delta": 0.024289601986073328
+    },
+    "aasce/original": {
+      "images": 85,
+      "baseline_mean_dice": 0.37773394635552743,
+      "candidate_mean_dice": 0.39939421278136433,
+      "delta": 0.021660266425836905
+    },
+    "ramathibodi/original": {
+      "images": 2,
+      "baseline_mean_dice": 0.8892592283507149,
+      "candidate_mean_dice": 0.8009690248862258,
+      "delta": -0.08829020346448913
+    }
+  },
+  "ordinary_field_regressions": [
+    "ramathibodi/original"
+  ],
+  "ordinary_fields_non_decreasing": false,
+  "scope": "descriptive paired source-holdout guard; no statistical noninferiority or clinical validation",
+  "clinical_validation": false,
+  "baseline_report_sha256": "dcc5081a9fbb713450dd1765f9443666065f34c92c46a639a47d1a7358dd966d",
+  "candidate_report_sha256": "4dff1972cef2474138eb12a25e277c454e5c708101751f993449e5c562d88a63",
+  "code_sha256": "7814772c9a7056ed92ba574641212c536d0acd750cb9122e86a20257f59e73a9"
+}

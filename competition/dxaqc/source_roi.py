@@ -9,7 +9,18 @@ from __future__ import annotations
 import cv2
 import numpy as np
 
+from .mask_raster import encode_raster
+
 MAX_POINTS = 32768
+
+
+def roi_purpose(label):
+    """Interpret only an explicit region label, never infer purpose from shape."""
+    return {'ROI_FEMORAL_NECK': 'femoral_neck', 'FEMORAL_NECK': 'femoral_neck',
+            'ROI_TOTAL_HIP': 'total_hip', 'TOTAL_HIP': 'total_hip',
+            'ROI_SCAN_COVERAGE': 'scan_coverage', 'SCAN_COVERAGE': 'scan_coverage',
+            **{f'ROI_{name}': name for name in ('L1', 'L2', 'L3', 'L4')},
+            **{name: name for name in ('L1', 'L2', 'L3', 'L4')}}.get(str(label).strip().upper(), 'unknown')
 
 
 def extract_roi(ds, shape, image_uid):
@@ -50,14 +61,9 @@ def extract_roi(ds, shape, image_uid):
                     parent = hierarchy[0, parent, 3]
                 outlines.append({'points': points.tolist(), 'depth': depth})
             # Exact raster membership, independent of contour display semantics.
-            flat = mask.reshape(-1)
-            edges = np.diff(np.r_[0, flat, 0].astype(np.int8))
-            starts, stops = np.where(edges == 1)[0], np.where(edges == -1)[0]
-            if len(starts) > 65536:
-                raise ValueError('ROI raster run count exceeds limit')
-            raster = {'shape': [rows, cols], 'origin': origin,
-                      'runs': np.column_stack((starts, stops)).tolist()}
+            raster = encode_raster(mask, origin)
             result['rois'].append({'raster': raster, 'id': f'overlay-{group:04x}', 'source': 'DICOM_OVERLAY_R',
+                                  'purpose': roi_purpose(ds[group, 0x1500].value if (group, 0x1500) in ds else ''),
                                   'source_uid': str(ds.get('SOPInstanceUID', '')),
                                   'coordinate_system': 'original_pixel_centres',
                                   'contours': outlines, 'area_pixels': int(len(xs)),
@@ -100,6 +106,7 @@ def extract_roi(ds, shape, image_uid):
                 if cv2.contourArea(points.astype(np.float32)) <= 0:
                     raise ValueError('zero area ROI')
                 result['rois'].append({'id': f'graphic-{i}-{j}', 'source': 'DICOM_GRAPHIC_ROI',
+                                      'purpose': roi_purpose(layer),
                                       'source_uid': str(ds.get('SOPInstanceUID', '')),
                                       'coordinate_system': 'original_pixel_centres',
                                       'contours': [{'points': points.tolist(), 'depth': 0}],

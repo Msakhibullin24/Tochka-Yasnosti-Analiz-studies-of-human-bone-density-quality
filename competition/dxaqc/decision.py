@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import math
 
-VERSION = "4"
+VERSION = "5"
 IMPLANT_SAT_FRAC = 0.015
 AXIS_LIMIT_DEG = 5.0
 
@@ -31,9 +31,10 @@ def decide(group: str, score: float, criteria: dict[str, float], features: dict,
         states[key] = state
     violations = [key for key, state in states.items() if state['status'] == 'fail']
     binary_signal = score >= quality_threshold
-    # The submission contract requires every positive class to name a supported
-    # violation. Keep an untyped binary alarm for review, never as a verdict.
-    quality = int(bool(violations))
+    # Binary detection and typification are separate tasks. An unknown type must
+    # never turn a detected violation into a normal image. Export the binary
+    # answer unchanged; acceptance reports the missing typification explicitly.
+    quality = int(bool(violations) or binary_signal)
     type_status = 'identified' if violations else 'undetermined' if binary_signal else 'not_detected'
     if type_status == 'undetermined':
         review.append('violation_type_undetermined')

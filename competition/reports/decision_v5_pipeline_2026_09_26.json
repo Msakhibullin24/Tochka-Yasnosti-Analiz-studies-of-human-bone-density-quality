@@ -1,0 +1,79 @@
+{
+  "scope": "study-held-out raw DICOM -> shared Analyzer with fold-trained router and quality models",
+  "limitations": "binary quality and router metrics only; no independent clinical validation; not an evaluation of already-fitted shipped weights",
+  "calibration_version": "lct-v2-xy-1",
+  "seed": 17,
+  "synthetic": "rotate",
+  "auxiliary": {
+    "synthetic_spine": 134
+  },
+  "decision_version": "5",
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "source_integrity": {
+    "schema_version": 1,
+    "sources": [
+      {
+        "name": "organiser",
+        "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+        "labelled_images": 249
+      }
+    ],
+    "labelled_images": 249,
+    "study_groups": 100,
+    "current_unique_pixels": 249,
+    "within_study_pixel_copies": 0,
+    "historical_hash_changed": 249,
+    "patient_disjointness_proven": false,
+    "identity_protocol": "freshly decoded pixels; source-namespaced study groups",
+    "entries_sha256": "7bb8ff9352b1af6912391121e86862c5799ed34d8dfcf624a085d085f3714d19"
+  },
+  "training_code_sha256": "7118b38b3691f67fbb54daa8545e7d7ff14a391615afa1d2cfcc073a24906a79",
+  "repeats": [
+    {
+      "repeat": 0,
+      "quality": {
+        "n": 249,
+        "positives": 73,
+        "sensitivity": 0.6986301369863014,
+        "specificity": 0.7045454545454546,
+        "balanced_accuracy": 0.701587795765878,
+        "f1": 0.5795454545454546,
+        "confusion_tn_fp_fn_tp": [
+          124,
+          52,
+          22,
+          51
+        ],
+        "roc_auc": 0.800980697384807,
+        "pr_auc": 0.6677577310674837
+      },
+      "quality_ci95": {
+        "sensitivity": [
+          0.6,
+          0.8
+        ],
+        "specificity": [
+          0.625,
+          0.776536312849162
+        ],
+        "balanced_accuracy": [
+          0.6345462335252235,
+          0.7661641411883903
+        ],
+        "f1": [
+          0.48483907396950876,
+          0.6600584415584413
+        ],
+        "roc_auc": [
+          0.7294686454496581,
+          0.8660204991087342
+        ],
+        "pr_auc": [
+          0.5382925363396109,
+          0.7849078486317461
+        ]
+      },
+      "router_accuracy": 1.0
+    }
+  ]
+}

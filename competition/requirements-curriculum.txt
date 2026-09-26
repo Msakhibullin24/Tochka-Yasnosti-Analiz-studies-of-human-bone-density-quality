@@ -1,0 +1,2 @@
+# Optional CT curriculum renderer; install into the isolated research environment.
+nibabel==5.3.2

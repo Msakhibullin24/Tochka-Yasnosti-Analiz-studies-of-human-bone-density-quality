@@ -3,13 +3,13 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import CompetitionWorkspace from './CompetitionWorkspace'
 
 const row = { row_id: 'abc', anatomical_region: 'Поясничный отдел позвоночника', quality_class: '0', processing_status: 'Success', path_to_file: 'study/a.dcm', violation_codes: '', violation_scores: '{"spine_axis":0.4}', criterion_thresholds: '{"spine_axis":0.3}', quality_prob: '0.2' }
-function mockAPI(submission = false) {
+function mockAPI(submission = false, requirements?: boolean) {
   return vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
     const url = String(input)
     let data: unknown = {}
     if (url.endsWith('/ready')) data = { ready: true }
     else if (url.endsWith('/catalog')) data = { criteria: { spine_axis: 'Наклон оси' }, regions: { spine: ['spine_axis'] } }
-    else if (url.includes('/jobs?')) data = [{ id: 'one', status: 'finished', created_at: 1, total: 1, done: 1, summary: { files: 1, submission_available: submission, submission_valid: false } }]
+    else if (url.includes('/jobs?')) data = [{ id: 'one', status: 'finished', created_at: 1, total: 1, done: 1, summary: { files: 1, submission_available: submission, submission_valid: false, requirements_complete: requirements } }]
     else if (url.endsWith('/worklist')) data = [row]
     else if (url.endsWith('/reviews') && init?.method === 'POST') data = { ...JSON.parse(String(init.body)), revision: 1 }
     else if (url.endsWith('/reviews')) data = []
@@ -33,14 +33,22 @@ describe('competition workspace', () => {
     expect(await screen.findByText(/порог 0.300/)).toBeInTheDocument()
     expect(await screen.findByRole('img', { name: /Исходное изображение/ })).toBeInTheDocument()
     expect(screen.queryByText('Демонстрационный режим')).not.toBeInTheDocument()
-    expect(screen.queryByRole('link', { name: 'CSV для сдачи' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: 'CSV по формату ТЗ' })).not.toBeInTheDocument()
   })
   it('offers strict exports for new jobs and shows failed acceptance', async () => {
     vi.stubGlobal('fetch', mockAPI(true))
     render(<CompetitionWorkspace />)
     fireEvent.click(await screen.findByRole('button', { name: /Обработано/ }))
-    expect(await screen.findByRole('link', { name: 'CSV для сдачи' })).toHaveAttribute('href', '/api/v1/jobs/one/submission.csv')
+    expect(await screen.findByRole('link', { name: 'CSV по формату ТЗ' })).toHaveAttribute('href', '/api/v1/jobs/one/submission.csv')
     expect(screen.getByText(/Таблица для сдачи требует исправлений/)).toBeInTheDocument()
+  })
+  it('exposes incomplete required checks separately from file format', async () => {
+    vi.stubGlobal('fetch', mockAPI(true, false))
+    render(<CompetitionWorkspace />)
+    fireEvent.click(await screen.findByRole('button', { name: /Обработано/ }))
+    expect(await screen.findByText(/Часть обязательных проверок не завершена/)).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Покрытие требований ТЗ' })).toHaveAttribute('href', '/api/v1/jobs/one/requirements.json')
+    expect(screen.getByRole('link', { name: 'Полное время обработки' })).toHaveAttribute('href', '/api/v1/jobs/one/timing.json')
   })
   it('saves an expert revision without replacing the model result', async () => {
     const fetch = mockAPI(); vi.stubGlobal('fetch', fetch)

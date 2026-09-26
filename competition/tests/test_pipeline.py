@@ -36,7 +36,7 @@ def test_every_file_gets_a_row_and_failures_do_not_stop_the_batch(study_dir, tmp
     assert by_uid["1.2"]["duplicate_of"] == "1.1"
     assert by_uid["1.2"]["quality_class"] == by_uid["1.1"]["quality_class"]
     bad = next(r for r in rows if r["processing_status"] == "Failure")
-    assert bad["quality_class"] == "1" and bad["error_code"] and bad["violation_type"] == ""  # closed list only
+    assert bad["quality_class"] == "" and bad["quality_prob"] == "" and bad["error_code"] and bad["violation_type"] == ""
     allowed = {"", "Некорректная укладка", "Не выравнена ось позвоночника", "Присутствуют посторонние предметы",
                "Некорректная область интереса"}
     for r in rows:

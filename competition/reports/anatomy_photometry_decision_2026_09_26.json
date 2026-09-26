@@ -1,0 +1,110 @@
+{
+  "status": "rejected_for_promotion",
+  "retained_profile": "no-new-labels-20260926-v2-lumbar-candidate",
+  "reason": "Ordinary DXA holdout Dice decreases; GE axis availability and polarity prediction agreement do not improve",
+  "clinical_validation": false,
+  "source_holdout_summary": {
+    "aasce/original/original": {
+      "mean_image_dice": 0.39939421278136433,
+      "images": 85
+    },
+    "aasce/original/inverse": {
+      "mean_image_dice": 0.3146204131337388,
+      "images": 85
+    },
+    "aasce/lumbar_crop/original": {
+      "mean_image_dice": 0.5269011042800956,
+      "images": 85
+    },
+    "aasce/lumbar_crop/inverse": {
+      "mean_image_dice": 0.5102260866175853,
+      "images": 85
+    },
+    "ramathibodi/original/original": {
+      "mean_image_dice": 0.8009690248862258,
+      "images": 2
+    },
+    "ramathibodi/original/inverse": {
+      "mean_image_dice": 0.5322986170180948,
+      "images": 2
+    }
+  },
+  "ge_transfer_summary": {
+    "lumbar_refinement": {
+      "annotated": {},
+      "unlabelled_ge": {
+        "unique_pixel_rasters": 99,
+        "unique_pixel_axis_available": {
+          "original": 58,
+          "inverted": 36
+        },
+        "images": 166,
+        "axis_available": {
+          "original": 90,
+          "inverted": 54
+        },
+        "mean_polarity_prediction_dice": 0.18533420370187895,
+        "clinical_accuracy": null
+      }
+    },
+    "photometry_refinement": {
+      "annotated": {},
+      "unlabelled_ge": {
+        "unique_pixel_rasters": 99,
+        "unique_pixel_axis_available": {
+          "original": 46,
+          "inverted": 38
+        },
+        "images": 166,
+        "axis_available": {
+          "original": 75,
+          "inverted": 60
+        },
+        "mean_polarity_prediction_dice": 0.15655020629018832,
+        "clinical_accuracy": null
+      }
+    }
+  },
+  "regression_review": {
+    "comparison": {
+      "aasce/lumbar_crop": {
+        "images": 85,
+        "baseline_mean_dice": 0.5026115022940223,
+        "candidate_mean_dice": 0.5269011042800956,
+        "delta": 0.024289601986073328
+      },
+      "aasce/original": {
+        "images": 85,
+        "baseline_mean_dice": 0.37773394635552743,
+        "candidate_mean_dice": 0.39939421278136433,
+        "delta": 0.021660266425836905
+      },
+      "ramathibodi/original": {
+        "images": 2,
+        "baseline_mean_dice": 0.8892592283507149,
+        "candidate_mean_dice": 0.8009690248862258,
+        "delta": -0.08829020346448913
+      }
+    },
+    "ordinary_field_regressions": [
+      "ramathibodi/original"
+    ],
+    "ordinary_fields_non_decreasing": false,
+    "scope": "descriptive paired source-holdout guard; no statistical noninferiority or clinical validation",
+    "clinical_validation": false,
+    "baseline_report_sha256": "dcc5081a9fbb713450dd1765f9443666065f34c92c46a639a47d1a7358dd966d",
+    "candidate_report_sha256": "4dff1972cef2474138eb12a25e277c454e5c708101751f993449e5c562d88a63",
+    "code_sha256": "7814772c9a7056ed92ba574641212c536d0acd750cb9122e86a20257f59e73a9"
+  },
+  "training_augmentations": 364,
+  "test_results": "32 targeted tests passed; then 17 no-new-labels tests passed with new regression guard",
+  "existing_profiles_checksums_verified": [
+    "no-new-labels-20260926-v1",
+    "no-new-labels-20260926-v2-lumbar-candidate"
+  ],
+  "model_sha256": "7ccb7232168f1c8a170ec7b3ba76cbce7fd5fbbb929b8f538ed2889801653215",
+  "reports_sha256": {
+    "competition/reports/anatomy_photometry_transfer_2026_09_26.json": "ec49c439dc4beed4827f1a25addd16999bddb112acacb860f9697bb467a5455e",
+    "competition/reports/anatomy_photometry_regression_2026_09_26.json": "cfae643e6d2f2f724c9b0e75d2c743268c6f3544e043703fbece1931e8b694b3"
+  }
+}

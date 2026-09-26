@@ -20,3 +20,5 @@ python leakage_check.py --dataset /tmp/dxa/Исследования             
 ```
 Имена в архиве записаны в кодировке UTF-8; если `unzip` показывает «кракозябры», используйте
 `python -c "import sys; sys.path.insert(0,'competition'); from pathlib import Path; from dxaqc.pipeline import safe_extract; safe_extract(Path('datasets/organizer/НД_для_обучения.zip'), Path('/tmp/dxa'))"`.
+
+Актуальные внешние данные находятся в `data/external/`: [перечень, проверки и загрузки](../docs/DATASETS_FOR_TZ_2026_09_26_RU.md).

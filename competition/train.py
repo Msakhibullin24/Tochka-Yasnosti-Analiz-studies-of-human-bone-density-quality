@@ -181,7 +181,13 @@ def pipeline_cv(dataset, labels, feats, emb, raw_emb, n_real, repeats):
                                'source_path': labels.first_source_path[i], 'true_region': reg[i],
                                'predicted_region': result['region'], 'quality_true': int(y[i]),
                                'quality_score': result['score'], 'quality_pred': result['quality'],
-                               'violation_type': official_violation_type(result['violations'])})
+                               'violation_type': official_violation_type(result['violations']),
+                               'decision_version': result['decision_version'],
+                               'decision_reason': result['decision_reason'],
+                               'quality_threshold': result['quality_threshold'],
+                               'criterion_scores': json.dumps(result['criteria'], sort_keys=True),
+                               'criterion_thresholds': json.dumps(result['criterion_thresholds'], sort_keys=True),
+                               'criterion_states': json.dumps(result['criterion_states'], sort_keys=True)})
             print(f'pipeline CV repeat={rep} fold={fold} images={len(te)}', flush=True)
     table = pd.DataFrame(output)
     reports = []
@@ -274,6 +280,7 @@ def main() -> None:
         report = {'scope': 'study-held-out raw DICOM -> shared Analyzer with fold-trained router and quality models',
                   'limitations': 'binary quality and router metrics only; no independent clinical validation; not an evaluation of already-fitted shipped weights',
                   'calibration_version': CALIBRATION_VERSION, 'seed': SEED, 'synthetic': args.synthetic, 'auxiliary': aux_source,
+                  'decision_version': DECISION_VERSION,
                   'labels_sha256': hashlib.sha256(args.labels.read_bytes()).hexdigest(),
                   'source_integrity': source_integrity_summary,
                   'training_code_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

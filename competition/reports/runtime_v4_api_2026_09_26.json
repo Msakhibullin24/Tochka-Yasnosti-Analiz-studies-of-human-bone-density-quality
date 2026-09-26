@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "source_sha256": "bf4b8b5f23673e0cdc0c7389df211263a128dfd4d3916937008decdeef969752",
+      "region": "spine",
+      "mask_regions": 5,
+      "complete": false
+    },
+    {
+      "source_sha256": "f9e8420399e560eeaf94a92488cb86d583b4be41e9c098a8bfaa1e13b244340f",
+      "region": "hip_right",
+      "mask_regions": 1,
+      "complete": false
+    },
+    {
+      "source_sha256": "81b9b3e150df3ba3a49e7e70caa2d71429efd746b9821ce6d38804f6c39ad76d",
+      "region": "hip_left",
+      "mask_regions": 2,
+      "complete": false
+    }
+  ],
+  "valid": true
+}

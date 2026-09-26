@@ -1,0 +1,343 @@
+{
+  "scope": "Repeat audit of immutable release 1.10.0; saved full runs, not a new inference or clinical certification",
+  "release_version": "1.10.0",
+  "source_documents": {
+    "/home/robot/Downloads/Вся информация по задаче МинЗдрав РФ/4. ДепЗдрав.pdf": "12d7415f5f0eb1d26f3a9d1afa5a441c2a3d2722eea65c902c52e7519523f800",
+    "/home/robot/Downloads/Вся информация по задаче МинЗдрав РФ/Методические_рекомендации_по_проведению_двухэнергетической_рентгеновской_а_9GGgT4T.pdf": "cb6131792b99f352698b8e51d9b1756d1999e2c0964b470517efb37a04fa3be3",
+    "/home/robot/Downloads/Вся информация по задаче МинЗдрав РФ/Разъяснения по вопросам ЛЦТ_V2.docx": "3e3e642bd77ad716890abd93ae3151c6fafe9daccedfbcf182603c953d9a2cc5"
+  },
+  "input_files": 499,
+  "runtime_hashes_match": true,
+  "runtime_hash_checks": {
+    "competition/dxaqc/__init__.py": true,
+    "competition/dxaqc/anatomy.py": true,
+    "competition/dxaqc/api.py": true,
+    "competition/dxaqc/cli.py": true,
+    "competition/dxaqc/decision.py": true,
+    "competition/dxaqc/dicom_io.py": true,
+    "competition/dxaqc/dynamics.py": true,
+    "competition/dxaqc/embedding.py": true,
+    "competition/dxaqc/explain.py": true,
+    "competition/dxaqc/geometry.py": true,
+    "competition/dxaqc/maintenance.py": true,
+    "competition/dxaqc/model.py": true,
+    "competition/dxaqc/pipeline.py": true,
+    "competition/dxaqc/report.py": true,
+    "competition/dxaqc/requirements.py": true,
+    "competition/dxaqc/result_context.py": true,
+    "competition/dxaqc/review.py": true,
+    "competition/dxaqc/review_report.py": true,
+    "competition/dxaqc/roi.py": true,
+    "competition/dxaqc/source_archive.py": true,
+    "competition/dxaqc/source_roi.py": true,
+    "competition/dxaqc/specialist_catalog.py": true,
+    "competition/dxaqc/specialist_qc.py": true,
+    "competition/dxaqc/store.py": true,
+    "competition/dxaqc/validate_anatomy.py": true,
+    "competition/dxaqc/validate_results.py": true,
+    "competition/dxaqc/xlsx_read.py": true
+  },
+  "technical": {
+    "valid": true,
+    "profile": "working_report",
+    "errors": [],
+    "warnings": [
+      "Row 24: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 27: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 103: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 127: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 130: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 265: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 268: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 271: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 325: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 327: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 330: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 416: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 425: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 428: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 433: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 438: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 442: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 469: violation detected but type undetermined; typification requirement is incomplete",
+      "Row 470: violation detected but type undetermined; typification requirement is incomplete"
+    ],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 5.654999999999999,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "strict_submission": {
+    "valid": false,
+    "profile": "competition_v2",
+    "errors": [
+      "Row 24: competition output requires a violation type for quality_class=1",
+      "Row 27: competition output requires a violation type for quality_class=1",
+      "Row 103: competition output requires a violation type for quality_class=1",
+      "Row 127: competition output requires a violation type for quality_class=1",
+      "Row 130: competition output requires a violation type for quality_class=1",
+      "Row 265: competition output requires a violation type for quality_class=1",
+      "Row 268: competition output requires a violation type for quality_class=1",
+      "Row 271: competition output requires a violation type for quality_class=1",
+      "Row 325: competition output requires a violation type for quality_class=1",
+      "Row 327: competition output requires a violation type for quality_class=1",
+      "Row 330: competition output requires a violation type for quality_class=1",
+      "Row 416: competition output requires a violation type for quality_class=1",
+      "Row 425: competition output requires a violation type for quality_class=1",
+      "Row 428: competition output requires a violation type for quality_class=1",
+      "Row 433: competition output requires a violation type for quality_class=1",
+      "Row 438: competition output requires a violation type for quality_class=1",
+      "Row 442: competition output requires a violation type for quality_class=1",
+      "Row 469: competition output requires a violation type for quality_class=1",
+      "Row 470: competition output requires a violation type for quality_class=1"
+    ],
+    "warnings": [
+      "Input completeness not checked: provide an independent path manifest",
+      "Failure explanations not available in this table",
+      "Additional DICOM series not checked"
+    ],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 5.654999999999999,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "requirements": {
+    "version": 1,
+    "complete": false,
+    "images": 499,
+    "success": 499,
+    "failure": 0,
+    "untyped_violations": 19,
+    "typification_complete": false,
+    "anatomical_checks_complete": false,
+    "checks": {
+      "Th12": {
+        "undetermined": 166
+      },
+      "iliac_crest_left": {
+        "undetermined": 166
+      },
+      "iliac_crest_right": {
+        "undetermined": 166
+      },
+      "projection": {
+        "undetermined": 499
+      },
+      "vertebral_numbering_and_roi": {
+        "undetermined": 166
+      },
+      "source_roi": {
+        "not_applicable": 499
+      },
+      "greater_trochanter": {
+        "undetermined": 333
+      },
+      "femoral_neck": {
+        "undetermined": 333
+      },
+      "ischium": {
+        "undetermined": 333
+      },
+      "lesser_trochanter": {
+        "undetermined": 333
+      },
+      "scan_coverage": {
+        "undetermined": 333
+      },
+      "rotation": {
+        "undetermined": 333
+      }
+    },
+    "blockers": [
+      "violation_type_undetermined",
+      "anatomical_checks_incomplete"
+    ],
+    "scope": "coverage of required evidence, not external clinical certification or organiser approval"
+  },
+  "new_external_benchmark": "competition/reports/buu_frozen_transfer_2026_09_26.json; evaluated separately, not a clinical DXA test",
+  "physician_annotations_future_available": false,
+  "original_roi_absent_accepted_as_input_fact": true,
+  "artifact_hash_checks": {
+    "competition/reports/decision_v5_metrics_2026_09_26.json": true,
+    "competition/reports/decision_v5_pipeline_2026_09_26_oof.csv": true,
+    "data/specialists/tz-alignment-1.10-20260926/c/summary.json": true,
+    "data/specialists/tz-alignment-1.10-20260926/c/requirements.json": true,
+    "data/specialists/tz-alignment-1.10-20260926/c/timing.json": true,
+    "data/specialists/tz-alignment-1.10-20260926/c/submission.csv": true,
+    "data/specialists/tz-alignment-1.10-20260926/c/results_extended.csv": true,
+    "data/specialists/tz-alignment-1.10-20260926/c/additional_series.zip": true,
+    "data/specialists/tz-alignment-1.10-20260926/c/submission_validation.json": true,
+    "data/specialists/tz-alignment-1.10-20260926/c/full_validation.json": true,
+    "data/specialists/tz-alignment-1.10-20260926/d/summary.json": true,
+    "data/specialists/tz-alignment-1.10-20260926/d/requirements.json": true,
+    "data/specialists/tz-alignment-1.10-20260926/d/timing.json": true,
+    "data/specialists/tz-alignment-1.10-20260926/d/submission.csv": true,
+    "data/specialists/tz-alignment-1.10-20260926/d/results_extended.csv": true,
+    "data/specialists/tz-alignment-1.10-20260926/d/additional_series.zip": true,
+    "data/specialists/tz-alignment-1.10-20260926/d/submission_validation.json": true,
+    "data/specialists/tz-alignment-1.10-20260926/d/full_validation.json": true
+  },
+  "artifact_hashes_match": true,
+  "recomputed_oof_metrics_match_release": true,
+  "oof_report": "competition/reports/tz_recheck_oof_2026_09_26.json",
+  "external_buu_summary": {
+    "images": 800,
+    "patients": 400,
+    "unique_pixels": 800,
+    "projection": {
+      "projection": {
+        "model_sha256": "385387377fd20764f30a107e49412a62f35b887949895e239c4ab1ce7b665376",
+        "binary_threshold": 0.5,
+        "binary_metrics": {
+          "n": 800,
+          "positives": 400,
+          "negatives": 400,
+          "tn_fp_fn_tp": [
+            3,
+            397,
+            0,
+            400
+          ],
+          "accuracy": 0.50375,
+          "precision": 0.5018820577164367,
+          "sensitivity": 1.0,
+          "specificity": 0.0075,
+          "f1": 0.6683375104427736,
+          "balanced_accuracy": 0.50375,
+          "roc_auc": 0.7263687499999999,
+          "average_precision": 0.7278173287079551
+        },
+        "abstentions": 601,
+        "accepted_errors": 48
+      },
+      "projection_adapted": {
+        "model_sha256": "a102c41857a2a5f0323f3164b199dea885e55fcc0aea0e6da52f0115ce272a41",
+        "binary_threshold": 0.5,
+        "binary_metrics": {
+          "n": 800,
+          "positives": 400,
+          "negatives": 400,
+          "tn_fp_fn_tp": [
+            332,
+            68,
+            359,
+            41
+          ],
+          "accuracy": 0.46625,
+          "precision": 0.3761467889908257,
+          "sensitivity": 0.1025,
+          "specificity": 0.83,
+          "f1": 0.16110019646365423,
+          "balanced_accuracy": 0.46625,
+          "roc_auc": 0.50691875,
+          "average_precision": 0.49251751564460267
+        },
+        "abstentions": 784,
+        "accepted_errors": 4
+      }
+    },
+    "localization": {
+      "released_midpoints": {
+        "matched": 958,
+        "missed": 1042,
+        "extra_candidates": 1042,
+        "recall": 0.479,
+        "precision": 0.479,
+        "median_matched_error_body_heights": 0.25807738036446076
+      },
+      "intensity_minima": {
+        "matched": 347,
+        "missed": 1653,
+        "extra_candidates": 2134,
+        "recall": 0.1735,
+        "precision": 0.13986295848448208,
+        "median_matched_error_body_heights": 0.3337541238508674
+      }
+    },
+    "clinical_dxa_validation": false
+  },
+  "new_projection_candidate": {
+    "training_source": "BUU only; no DXA fitted",
+    "training_patients": 300,
+    "held_out_patients": 100,
+    "held_out_images": 200,
+    "held_out_buu_metrics": {
+      "n": 200,
+      "positives": 100,
+      "negatives": 100,
+      "tn_fp_fn_tp": [
+        100,
+        0,
+        0,
+        100
+      ],
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "sensitivity": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "balanced_accuracy": 1.0,
+      "roc_auc": 1.0,
+      "average_precision": 1.0
+    },
+    "held_out_buu_undetermined": 3,
+    "transfer": {
+      "public_DXA_branch": {
+        "metrics": {
+          "n": 40,
+          "positives": 20,
+          "negatives": 20,
+          "tn_fp_fn_tp": [
+            15,
+            5,
+            0,
+            20
+          ],
+          "accuracy": 0.875,
+          "precision": 0.8,
+          "sensitivity": 1.0,
+          "specificity": 0.75,
+          "f1": 0.8888888888888888,
+          "balanced_accuracy": 0.875,
+          "roc_auc": 0.9500000000000001,
+          "average_precision": 0.9151039034494917
+        },
+        "undetermined": 38
+      },
+      "weak_organizer_AP_protocol": {
+        "metrics": {
+          "n": 99,
+          "positives": 0,
+          "negatives": 99,
+          "tn_fp_fn_tp": [
+            0,
+            99,
+            0,
+            0
+          ],
+          "accuracy": 0.0,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.0,
+          "f1": 0.0,
+          "balanced_accuracy": null,
+          "roc_auc": null,
+          "average_precision": null
+        },
+        "undetermined": 4
+      }
+    },
+    "model_sha256": "d2f6cf451ecdbc3511206c233c574f2b1b636fc47c365a5a3d2074b6d56e8e92",
+    "clinical_validation": false,
+    "limitations": [
+      "Plain radiographs are not DXA.",
+      "No lateral GE DXA reference.",
+      "Organizer AP references are weak protocol labels.",
+      "Only AP/lateral spine, not unsupported views or hip projection."
+    ]
+  },
+  "tests": {
+    "passed": 181,
+    "skipped": 5
+  }
+}

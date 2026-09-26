@@ -10,7 +10,7 @@ import GeometryViewer from './competition/GeometryViewer'
 import { originalGeometry, type Geometry, type ImageDetail as Detail } from './competition/geometry'
 import { modelVerdict, groupStudies, needsReview, nextPending, readPosition, reviewLabels, reviewStatus, rowKey, savePosition, visibleRows, type QueueFilter, type Row } from './competition/worklist'
 
-type Job = { originals_available?: boolean; id: string; status: string; done: number; total: number; created_at: number; error?: string; summary?: { submission_available?: boolean; submission_valid?: boolean; files: number; success: number; failure: number } }
+type Job = { originals_available?: boolean; id: string; status: string; done: number; total: number; created_at: number; error?: string; summary?: { submission_available?: boolean; submission_valid?: boolean; requirements_complete?: boolean; files: number; success: number; failure: number } }
 type Review = { revision: number; author: string; status: 'draft' | 'confirmed' | 'not_evaluable'; quality_class: 0 | 1 | null; violations: string[]; comment: string; geometry: Geometry[]; followups?: Followup[]; measurements?: Record<string, { length_mm: number; angle_from_vertical_deg: number }> }
 type Catalog = { criteria: Record<string, string>; regions: Record<string, string[]> }
 const API = '/api/v1'
@@ -165,12 +165,13 @@ export default function CompetitionWorkspace() {
           <details className="qc-menu"><summary>Действия</summary><div>
             {job.originals_available && finished && <><a href={`${API}/jobs/${job.id}/source.zip`} download>Скачать исходные DICOM</a><button disabled={busy} onClick={reprocessJob}>Повторить анализ</button></>}
             {finished && <nav aria-label="Экспорт результатов">
-              {(['finished', 'cancelled'].includes(job.status) ? ['results.csv', 'results.xlsx', ...(job.summary?.submission_available ? ['submission.csv', 'submission.xlsx', 'submission_validation.json'] : []), 'additional_series.zip', 'reviews.json', 'reviewed.csv', 'review-package.zip', 'report.html', 'validation.json'] : ['results.csv', 'results.xlsx', 'report.html']).map(name => <a key={name} href={`${API}/jobs/${job.id}/${name}`} download>{({ 'submission.csv': 'CSV для сдачи', 'submission.xlsx': 'XLSX для сдачи', 'submission_validation.json': 'Проверка таблицы для сдачи', 'results.csv': 'CSV модели', 'results.xlsx': 'XLSX модели', 'additional_series.zip': 'Серии DICOM', 'review-package.zip': 'Пакет экспертной проверки', 'reviews.json': 'История правок', 'reviewed.csv': 'CSV специалиста', 'report.html': 'Отчёт для печати', 'validation.json': 'Проверка формата ТЗ' })[name]}</a>)}
+              {(['finished', 'cancelled'].includes(job.status) ? ['results.csv', 'results.xlsx', ...(job.summary?.submission_available ? ['submission.csv', 'submission.xlsx', 'submission_validation.json'] : []), ...(job.summary?.requirements_complete !== undefined ? ['requirements.json', 'timing.json'] : []), 'additional_series.zip', 'reviews.json', 'reviewed.csv', 'review-package.zip', 'report.html', 'validation.json'] : ['results.csv', 'results.xlsx', 'report.html']).map(name => <a key={name} href={`${API}/jobs/${job.id}/${name}`} download>{({ 'submission.csv': 'CSV по формату ТЗ', 'submission.xlsx': 'XLSX по формату ТЗ', 'submission_validation.json': 'Проверка таблицы для сдачи', 'requirements.json': 'Покрытие требований ТЗ', 'timing.json': 'Полное время обработки', 'results.csv': 'CSV модели', 'results.xlsx': 'XLSX модели', 'additional_series.zip': 'Серии DICOM', 'review-package.zip': 'Пакет экспертной проверки', 'reviews.json': 'История правок', 'reviewed.csv': 'CSV специалиста', 'report.html': 'Отчёт для печати', 'validation.json': 'Проверка формата ТЗ' })[name]}</a>)}
             </nav>}
           </div></details>
         </section>
         {job.error && <p className="qc-error">{job.error}</p>}
         {job.summary?.submission_available && !job.summary.submission_valid && <p className="qc-warning">Таблица для сдачи требует исправлений. Откройте «Действия» → «Проверка таблицы для сдачи».</p>}
+        {job.summary?.requirements_complete === false && <p className="qc-warning">Часть обязательных проверок не завершена. Откройте «Действия» → «Покрытие требований ТЗ».</p>}
         {['running', 'queued'].includes(job.status) ? <section className="qc-processing"><progress max={Math.max(1, job.total)} value={job.done} aria-label="Обработка пакета" /><p>Обработано {job.done} из {job.total}</p><button onClick={() => request(`/jobs/${job.id}/cancel`, { method: 'POST' }).catch(e => setError(e.message))}>Остановить</button></section> :
         <div className="qc-workbench">
           <aside className="qc-queue" aria-label="Очередь снимков">
@@ -320,7 +321,7 @@ function ImageReview({ jobId, row, catalog, onDirty, onSaved, zoom, onZoom }: { 
     </div><div className="qc-decision">
       <h3>Результат модели</h3><p>{modelVerdict(row)}</p>
       <p>Балл модели: {row.quality_prob} из 1. Калибровка как клинической вероятности не подтверждена.</p>
-      {row.decision_reason === 'binary_only_review' && <p className="qc-warning">Общий детектор подал сигнал, но тип нарушения не установлен. В конкурсной таблице указан класс 0. Проверьте снимок вручную.</p>}
+      {row.decision_reason === 'binary_only_review' && <p className="qc-warning">Общий детектор подал сигнал, но тип нарушения не установлен. Проверьте снимок и уточните тип нарушения. Машинный класс: {row.quality_class}; исходный ответ сохраняется.</p>}
       {row.anatomical_checks_complete === 'false' && <p className="qc-warning">Полная проверка анатомических ориентиров не подтверждена. Проверьте ориентиры и разметку перед подтверждением решения.</p>}
       {row.decision_reason === 'highest_scoring_criterion' && <p>Тип выбран как наиболее вероятный при положительном общем результате; его собственный порог не достигнут.</p>}
       {row.decision_reason === 'implant_rule' && <p>Применено дополнительное правило обнаружения импланта.</p>}

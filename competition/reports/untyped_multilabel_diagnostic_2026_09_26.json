@@ -1,0 +1,312 @@
+{
+  "clinical_validation": false,
+  "release_modified": false,
+  "images": 19,
+  "unique_images": 11,
+  "candidate_typed": 7,
+  "candidate_normal": 12,
+  "cases": [
+    {
+      "path_to_file": "2.25.102755089973625799055786462646268820450/series_002_2_CR/A2504257770 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "dd972bae91d6de06d64bc3e0402212415b81e00a7d594a8401ff5d0ee75b7692",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [],
+      "guarded_candidate_type": "",
+      "axis_measured_deg": 4.3303181412433025,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.102755089973625799055786462646268820450/series_002_2_CR/A2504257770 DXA/CR DXA/CR000004.dcm",
+      "pixel_sha256": "dd972bae91d6de06d64bc3e0402212415b81e00a7d594a8401ff5d0ee75b7692",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [],
+      "guarded_candidate_type": "",
+      "axis_measured_deg": 4.3303181412433025,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.132272637351979990811754009849547633391/series_003_3_CR/A2504141080 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "2a975a4fdb317ecd377e9b25142e080b280093cfa2f04a4230a234d5d1bb4f88",
+      "existing_reference_quality": "0",
+      "existing_reference_codes": [],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [],
+      "guarded_candidate_type": "",
+      "axis_measured_deg": 3.9010892799015773,
+      "criterion_conflicts": [],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.13983650679559142983913935144968795415/series_003_2_CR/A2504335111 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "770a0d85b0a4043878c7441250b3c4e812b92e5e330c662c78b090abb3b59673",
+      "existing_reference_quality": "0",
+      "existing_reference_codes": [],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [
+        "spine_artifact"
+      ],
+      "guarded_candidate_type": "Присутствуют посторонние предметы",
+      "axis_measured_deg": 0.20604938661772626,
+      "criterion_conflicts": [],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.13983650679559142983913935144968795415/series_003_2_CR/A2504335111 DXA/CR DXA/CR000003.dcm",
+      "pixel_sha256": "770a0d85b0a4043878c7441250b3c4e812b92e5e330c662c78b090abb3b59673",
+      "existing_reference_quality": "0",
+      "existing_reference_codes": [],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [
+        "spine_artifact"
+      ],
+      "guarded_candidate_type": "Присутствуют посторонние предметы",
+      "axis_measured_deg": 0.20604938661772626,
+      "criterion_conflicts": [],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [
+        "spine_artifact"
+      ],
+      "guarded_candidate_type": "Присутствуют посторонние предметы",
+      "axis_measured_deg": 2.0528199205912427,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000005.dcm",
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [
+        "spine_artifact"
+      ],
+      "guarded_candidate_type": "Присутствуют посторонние предметы",
+      "axis_measured_deg": 2.0528199205912427,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000008.dcm",
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [
+        "spine_artifact"
+      ],
+      "guarded_candidate_type": "Присутствуют посторонние предметы",
+      "axis_measured_deg": 2.0528199205912427,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000003.dcm",
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [],
+      "guarded_candidate_type": "",
+      "axis_measured_deg": 2.8690903854722865,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000005.dcm",
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [],
+      "guarded_candidate_type": "",
+      "axis_measured_deg": 2.8690903854722865,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000008.dcm",
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [],
+      "guarded_candidate_type": "",
+      "axis_measured_deg": 2.8690903854722865,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.309085571913348252136520206003694446566/series_002_2_CR/A2504116267 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "ee1b63e8b78e4347f7852452ed7a6dfc44dad01e1472c9f9135878c831193bf0",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [],
+      "guarded_candidate_type": "",
+      "axis_measured_deg": 2.188048615603742,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000001.dcm",
+      "pixel_sha256": "fbd0184157ebe3f022a4c36fb140e5ff661b07f4b8b700ad9a7f48ca713e3fc1",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [],
+      "guarded_candidate_type": "",
+      "axis_measured_deg": 2.4735556672732897,
+      "criterion_conflicts": [],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000004.dcm",
+      "pixel_sha256": "fbd0184157ebe3f022a4c36fb140e5ff661b07f4b8b700ad9a7f48ca713e3fc1",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [],
+      "guarded_candidate_type": "",
+      "axis_measured_deg": 2.4735556672732897,
+      "criterion_conflicts": [],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.37515662379281069436632838996073181551/series_001_2_CR/A2504329840 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "ef2e3d247a93bc1cd67f7d44f023898ec2fbdcccefe308bd765dc22c4665bad8",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [],
+      "guarded_candidate_type": "",
+      "axis_measured_deg": 4.111932730214303,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.39068163399801173920284179500049527111/series_002_2_CR/A2504195842 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "da97fcfc654fe6f7912aeba96a6a648c6ea64553b1d9b8fa6a875055a8b7cc9f",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis",
+        "spine_artifact"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [
+        "spine_artifact"
+      ],
+      "guarded_candidate_type": "Присутствуют посторонние предметы",
+      "axis_measured_deg": 1.3797442052661353,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.52532476139575422857225834315571570912/series_001_2_CR/A2504247961 DXA/CR DXA/CR000000.dcm",
+      "pixel_sha256": "59d6dbcb3cc7308c4f57ba6f811a249e8d3040df13092b75cda74fa505b1b626",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [
+        "spine_artifact"
+      ],
+      "guarded_candidate_type": "Присутствуют посторонние предметы",
+      "axis_measured_deg": 3.0367172450360433,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.73070100851377917031356937075051545239/series_002_2_CR/A2504239110 DXA/CR DXA/CR000002.dcm",
+      "pixel_sha256": "794516213732ca94b7230139400a15db8b31684d59d85d3a0bd232e6cb1eab55",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [],
+      "guarded_candidate_type": "",
+      "axis_measured_deg": 2.9674277228067627,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "path_to_file": "2.25.73070100851377917031356937075051545239/series_002_2_CR/A2504239110 DXA/CR DXA/CR000003.dcm",
+      "pixel_sha256": "794516213732ca94b7230139400a15db8b31684d59d85d3a0bd232e6cb1eab55",
+      "existing_reference_quality": "1",
+      "existing_reference_codes": [
+        "spine_axis"
+      ],
+      "reference_used_in_final_model_training": true,
+      "guarded_candidate_codes": [],
+      "guarded_candidate_type": "",
+      "axis_measured_deg": 2.9674277228067627,
+      "criterion_conflicts": [
+        "axis_score_without_measurement_above_5deg"
+      ],
+      "original_verdict_changed": false
+    }
+  ],
+  "limitations": [
+    "Diagnostic in-sample hypotheses only: these images were included in final model fitting.",
+    "Poor nested OOF metrics prohibit treating these hypotheses as resolution of missing types.",
+    "Existing source labels are never copied into inference predictions."
+  ]
+}

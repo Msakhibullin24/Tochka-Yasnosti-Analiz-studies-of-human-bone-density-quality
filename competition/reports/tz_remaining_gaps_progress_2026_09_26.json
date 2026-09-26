@@ -1,0 +1,212 @@
+{
+  "release_version": "1.10.0",
+  "release_modified": false,
+  "clinical_validation": false,
+  "full_tz_compliance": false,
+  "release_untyped_answers": 19,
+  "runtime_hashes_match": true,
+  "typifier_rejected_because": "guarded replacement reduces sensitivity and both quality/type F1",
+  "typifier_metrics": {
+    "released_v5": {
+      "f1": 0.5795454545454546,
+      "sensitivity": 0.6986301369863014,
+      "macro_type_f1": 0.48831209479096804,
+      "untyped": 34
+    },
+    "guarded_all_images": {
+      "f1": 0.4782608695652174,
+      "sensitivity": 0.6027397260273972,
+      "macro_type_f1": 0.32929337772844985,
+      "untyped": 0
+    },
+    "guarded_untyped_only": {
+      "f1": 0.5660377358490566,
+      "sensitivity": 0.6164383561643836,
+      "macro_type_f1": 0.4616849816849816,
+      "untyped": 0
+    },
+    "unguarded_all_images": {
+      "f1": 0.5024630541871922,
+      "sensitivity": 0.6986301369863014,
+      "macro_type_f1": 0.34929337772844987,
+      "untyped": 0
+    },
+    "unguarded_untyped_only": {
+      "f1": 0.5748502994011976,
+      "sensitivity": 0.6575342465753424,
+      "macro_type_f1": 0.46471528471528467,
+      "untyped": 0
+    }
+  },
+  "projection_transfer": {
+    "baseline": {
+      "aasce": {
+        "metrics": {
+          "n": 98,
+          "positives": 0,
+          "negatives": 98,
+          "tn_fp_fn_tp": [
+            27,
+            71,
+            0,
+            0
+          ],
+          "accuracy": 0.2755102040816326,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.2755102040816326,
+          "f1": 0.0,
+          "balanced_accuracy": null,
+          "roc_auc": null,
+          "average_precision": null
+        },
+        "undetermined": 64,
+        "accepted_errors": 32
+      },
+      "nhanes": {
+        "metrics": {
+          "n": 13,
+          "positives": 13,
+          "negatives": 0,
+          "tn_fp_fn_tp": [
+            0,
+            0,
+            0,
+            13
+          ],
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "f1": 1.0,
+          "balanced_accuracy": null,
+          "roc_auc": null,
+          "average_precision": null
+        },
+        "undetermined": 8,
+        "accepted_errors": 0
+      },
+      "ukb": {
+        "metrics": {
+          "n": 2,
+          "positives": 1,
+          "negatives": 1,
+          "tn_fp_fn_tp": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "f1": 1.0,
+          "balanced_accuracy": 1.0,
+          "roc_auc": 1.0,
+          "average_precision": 1.0
+        },
+        "undetermined": 0,
+        "accepted_errors": 0
+      }
+    },
+    "augmented": {
+      "aasce": {
+        "metrics": {
+          "n": 98,
+          "positives": 0,
+          "negatives": 98,
+          "tn_fp_fn_tp": [
+            41,
+            57,
+            0,
+            0
+          ],
+          "accuracy": 0.41836734693877553,
+          "precision": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.41836734693877553,
+          "f1": 0.0,
+          "balanced_accuracy": null,
+          "roc_auc": null,
+          "average_precision": null
+        },
+        "undetermined": 76,
+        "accepted_errors": 12
+      },
+      "nhanes": {
+        "metrics": {
+          "n": 13,
+          "positives": 13,
+          "negatives": 0,
+          "tn_fp_fn_tp": [
+            0,
+            0,
+            1,
+            12
+          ],
+          "accuracy": 0.9230769230769231,
+          "precision": 1.0,
+          "sensitivity": 0.9230769230769231,
+          "specificity": 0.0,
+          "f1": 0.96,
+          "balanced_accuracy": null,
+          "roc_auc": null,
+          "average_precision": null
+        },
+        "undetermined": 11,
+        "accepted_errors": 0
+      },
+      "ukb": {
+        "metrics": {
+          "n": 2,
+          "positives": 1,
+          "negatives": 1,
+          "tn_fp_fn_tp": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "f1": 1.0,
+          "balanced_accuracy": 1.0,
+          "roc_auc": 1.0,
+          "average_precision": 1.0
+        },
+        "undetermined": 0,
+        "accepted_errors": 0
+      }
+    }
+  },
+  "ordered_axis_metrics": {
+    "n": 99,
+    "positives": 10,
+    "negatives": 89,
+    "tn_fp_fn_tp": [
+      33,
+      56,
+      4,
+      6
+    ],
+    "accuracy": 0.3939393939393939,
+    "precision": 0.0967741935483871,
+    "sensitivity": 0.6,
+    "specificity": 0.3707865168539326,
+    "f1": 0.16666666666666666,
+    "balanced_accuracy": 0.4853932584269663
+  },
+  "verification": {
+    "competition_tests_passed": 217,
+    "competition_tests_skipped": 5,
+    "git_diff_check": true,
+    "nhanes_downloader_targeted_tests_passed": 3
+  },
+  "nhanes_acquisition_snapshot": {
+    "downloaded": 22
+  },
+  "nhanes_background_unit": "osseo-dataset-nhanes-resume2-20260926"
+}

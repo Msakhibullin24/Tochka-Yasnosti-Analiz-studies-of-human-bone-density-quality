@@ -1,0 +1,3708 @@
+{
+  "protocol": "Paired fixed source holdout, original/cropped field and polarity; diagnostic post-selection audit only",
+  "clinical_validation": false,
+  "annotated_evaluation_performed": false,
+  "summary": {
+    "lumbar_refinement": {
+      "annotated": {},
+      "unlabelled_ge": {
+        "unique_pixel_rasters": 99,
+        "unique_pixel_axis_available": {
+          "original": 58,
+          "inverted": 36
+        },
+        "images": 166,
+        "axis_available": {
+          "original": 90,
+          "inverted": 54
+        },
+        "mean_polarity_prediction_dice": 0.18533420370187895,
+        "clinical_accuracy": null
+      }
+    },
+    "photometry_refinement": {
+      "annotated": {},
+      "unlabelled_ge": {
+        "unique_pixel_rasters": 99,
+        "unique_pixel_axis_available": {
+          "original": 46,
+          "inverted": 38
+        },
+        "images": 166,
+        "axis_available": {
+          "original": 75,
+          "inverted": 60
+        },
+        "mean_polarity_prediction_dice": 0.15655020629018832,
+        "clinical_accuracy": null
+      }
+    }
+  },
+  "annotated": [],
+  "unlabelled_ge": [
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "5425b80b6807a24b981242f59428ba946c5c81f0527515be730272765da9b6fc",
+      "pixel_sha256": "56ad4aacfcff91ebd87a697ab40ed7eb257148b788d424a74ebd245fea0f07e1",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.08249360577360927,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "5425b80b6807a24b981242f59428ba946c5c81f0527515be730272765da9b6fc",
+      "pixel_sha256": "56ad4aacfcff91ebd87a697ab40ed7eb257148b788d424a74ebd245fea0f07e1",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.11410486576629635,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "bed12bffcc802d19b1f15a25b7288a2067b31f760eb1221fae2809301c3a6263",
+      "pixel_sha256": "56ad4aacfcff91ebd87a697ab40ed7eb257148b788d424a74ebd245fea0f07e1",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.08249360577360927,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "bed12bffcc802d19b1f15a25b7288a2067b31f760eb1221fae2809301c3a6263",
+      "pixel_sha256": "56ad4aacfcff91ebd87a697ab40ed7eb257148b788d424a74ebd245fea0f07e1",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.11410486576629635,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "9d1afaeae434a67bb1dd1a3f7b48d7524523011d6cc254f9175fceb972bb09cb",
+      "pixel_sha256": "e0f9e102f359e379857c746bef855e85e898fe0fb062025e555099d01ded4a12",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07566987984630244,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "9d1afaeae434a67bb1dd1a3f7b48d7524523011d6cc254f9175fceb972bb09cb",
+      "pixel_sha256": "e0f9e102f359e379857c746bef855e85e898fe0fb062025e555099d01ded4a12",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -7.569876390576319
+      },
+      "polarity_prediction_dice": 0.1324536750372061,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "f734505589342cd00a98e10cc3157c05157d18a8076ae5544e66d4216eb0db0d",
+      "pixel_sha256": "e0f9e102f359e379857c746bef855e85e898fe0fb062025e555099d01ded4a12",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07566987984630244,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "f734505589342cd00a98e10cc3157c05157d18a8076ae5544e66d4216eb0db0d",
+      "pixel_sha256": "e0f9e102f359e379857c746bef855e85e898fe0fb062025e555099d01ded4a12",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -7.569876390576319
+      },
+      "polarity_prediction_dice": 0.1324536750372061,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "941d0313187bf6836ab7b06908469ce93840bb02c1d6abe68ca24c88ea8952ea",
+      "pixel_sha256": "6fbbb0ee2636360bba8f492b60a69210c1a440072c455e44394a8e8ee1c7a603",
+      "axis_candidates_deg": {
+        "original": -1.7254616872012072,
+        "inverted": 6.288350073669957
+      },
+      "polarity_prediction_dice": 0.11134597836052128,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "941d0313187bf6836ab7b06908469ce93840bb02c1d6abe68ca24c88ea8952ea",
+      "pixel_sha256": "6fbbb0ee2636360bba8f492b60a69210c1a440072c455e44394a8e8ee1c7a603",
+      "axis_candidates_deg": {
+        "original": 4.404590831637563,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.23032484929749367,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "dd9353edfcc89b55f95da03e42be1c97b8739d1d066936dfc0a0362aa3bfd60a",
+      "pixel_sha256": "6fbbb0ee2636360bba8f492b60a69210c1a440072c455e44394a8e8ee1c7a603",
+      "axis_candidates_deg": {
+        "original": -1.7254616872012072,
+        "inverted": 6.288350073669957
+      },
+      "polarity_prediction_dice": 0.11134597836052128,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "dd9353edfcc89b55f95da03e42be1c97b8739d1d066936dfc0a0362aa3bfd60a",
+      "pixel_sha256": "6fbbb0ee2636360bba8f492b60a69210c1a440072c455e44394a8e8ee1c7a603",
+      "axis_candidates_deg": {
+        "original": 4.404590831637563,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.23032484929749367,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "cd044e4f0b5746f47ff354d0ef4ec853759ec79369cf3daf97f42e133b204fdd",
+      "pixel_sha256": "7b9332bd3916dda3cbbea33e1515ccd57894856c9347a42e48f2a0ec6c70234a",
+      "axis_candidates_deg": {
+        "original": -8.037950893398975,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15184612382058427,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "cd044e4f0b5746f47ff354d0ef4ec853759ec79369cf3daf97f42e133b204fdd",
+      "pixel_sha256": "7b9332bd3916dda3cbbea33e1515ccd57894856c9347a42e48f2a0ec6c70234a",
+      "axis_candidates_deg": {
+        "original": -9.139143168907067,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2582342048270645,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "866b85c526476c5095c1d782c1a050a0c2827448d016987eda54460269acd060",
+      "pixel_sha256": "dd972bae91d6de06d64bc3e0402212415b81e00a7d594a8401ff5d0ee75b7692",
+      "axis_candidates_deg": {
+        "original": -1.0071872490624871,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.12499170974653562,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "866b85c526476c5095c1d782c1a050a0c2827448d016987eda54460269acd060",
+      "pixel_sha256": "dd972bae91d6de06d64bc3e0402212415b81e00a7d594a8401ff5d0ee75b7692",
+      "axis_candidates_deg": {
+        "original": 5.249839180424364,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.31873437877074867,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "9d6dcd8885017a43bb778d632ba21d7a1b9d1bf278ff50047c96891faab4c872",
+      "pixel_sha256": "dd972bae91d6de06d64bc3e0402212415b81e00a7d594a8401ff5d0ee75b7692",
+      "axis_candidates_deg": {
+        "original": -1.0071872490624871,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.12499170974653562,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "9d6dcd8885017a43bb778d632ba21d7a1b9d1bf278ff50047c96891faab4c872",
+      "pixel_sha256": "dd972bae91d6de06d64bc3e0402212415b81e00a7d594a8401ff5d0ee75b7692",
+      "axis_candidates_deg": {
+        "original": 5.249839180424364,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.31873437877074867,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "4617e647aa1cefd9f26328a134a978dad5744423661de7b09d72a1f2f7196efb",
+      "pixel_sha256": "0360deed5046b19b50c5f8758b6ef99f92717fa6abc2420a147a5be527f92121",
+      "axis_candidates_deg": {
+        "original": 7.599000676570692,
+        "inverted": -10.267398745821044
+      },
+      "polarity_prediction_dice": 0.2335191333095093,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "4617e647aa1cefd9f26328a134a978dad5744423661de7b09d72a1f2f7196efb",
+      "pixel_sha256": "0360deed5046b19b50c5f8758b6ef99f92717fa6abc2420a147a5be527f92121",
+      "axis_candidates_deg": {
+        "original": 7.5146077458625005,
+        "inverted": -4.106266090531903
+      },
+      "polarity_prediction_dice": 0.20282315736288875,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "9ea614cf44c6b19b8409fdf5b86838293fe2c454744779f901e1e596d56039b7",
+      "pixel_sha256": "260ed19b51c6497555dce7b6fac2d01237b98a838d12def48fcaccb55c8c14de",
+      "axis_candidates_deg": {
+        "original": -17.9836030612634,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2118824241198345,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "9ea614cf44c6b19b8409fdf5b86838293fe2c454744779f901e1e596d56039b7",
+      "pixel_sha256": "260ed19b51c6497555dce7b6fac2d01237b98a838d12def48fcaccb55c8c14de",
+      "axis_candidates_deg": {
+        "original": -7.665972342929767,
+        "inverted": -6.777158273881082
+      },
+      "polarity_prediction_dice": 0.20199518800587754,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "0e09740c9898748293a3efc3b1bf9a14763c3413ebcb6fa82f6217fd9ea015e7",
+      "pixel_sha256": "8ba035f35da9fb5b8591d66ff8bed4fecd5f8815db4692868158c3c42248cd4c",
+      "axis_candidates_deg": {
+        "original": 52.64374301635925,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1373853453215637,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "0e09740c9898748293a3efc3b1bf9a14763c3413ebcb6fa82f6217fd9ea015e7",
+      "pixel_sha256": "8ba035f35da9fb5b8591d66ff8bed4fecd5f8815db4692868158c3c42248cd4c",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1569081036566493,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "dfe1e8d0558d6952a93baea1ebc13f5a494f8f9ab3a6df095fec4d3aaf021266",
+      "pixel_sha256": "8ba035f35da9fb5b8591d66ff8bed4fecd5f8815db4692868158c3c42248cd4c",
+      "axis_candidates_deg": {
+        "original": 52.64374301635925,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1373853453215637,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "dfe1e8d0558d6952a93baea1ebc13f5a494f8f9ab3a6df095fec4d3aaf021266",
+      "pixel_sha256": "8ba035f35da9fb5b8591d66ff8bed4fecd5f8815db4692868158c3c42248cd4c",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1569081036566493,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "5179d78ae757b50cc540c2794569aa1b4bbd28f038faaf9610a6a491688dfd94",
+      "pixel_sha256": "dcdbb40ff5cb372a8f7208c149729280e1d84d0647317ee633d9f8839f3b27de",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.11534747046533916,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "5179d78ae757b50cc540c2794569aa1b4bbd28f038faaf9610a6a491688dfd94",
+      "pixel_sha256": "dcdbb40ff5cb372a8f7208c149729280e1d84d0647317ee633d9f8839f3b27de",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07307210333526122,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "fe35fca5b68242062fe802f8f3437c5b6a7f51eba355ce88d0835bbfb2514cee",
+      "pixel_sha256": "995de81fe5e6848706a42532d01ec31e025269667dd1e00134daee3c59c1fa30",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.13809263560352197,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "fe35fca5b68242062fe802f8f3437c5b6a7f51eba355ce88d0835bbfb2514cee",
+      "pixel_sha256": "995de81fe5e6848706a42532d01ec31e025269667dd1e00134daee3c59c1fa30",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.34022729447881067,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "8ed56c7fcf2990cfb807c3f92ac338e19e57ef875ef5bf9038deca7714759b58",
+      "pixel_sha256": "995de81fe5e6848706a42532d01ec31e025269667dd1e00134daee3c59c1fa30",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.13809263560352197,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "8ed56c7fcf2990cfb807c3f92ac338e19e57ef875ef5bf9038deca7714759b58",
+      "pixel_sha256": "995de81fe5e6848706a42532d01ec31e025269667dd1e00134daee3c59c1fa30",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.34022729447881067,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "cab71857d4c46164b7b7201dd37016286e16f768c149991f0f9f4c5c00cdd26b",
+      "pixel_sha256": "d70393b397fa6c1cfdfa4e99f813cddf1cd098974c18f0d4eb7b0020897844dc",
+      "axis_candidates_deg": {
+        "original": 5.471532694397483,
+        "inverted": -19.149875472143325
+      },
+      "polarity_prediction_dice": 0.07169598430043952,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "cab71857d4c46164b7b7201dd37016286e16f768c149991f0f9f4c5c00cdd26b",
+      "pixel_sha256": "d70393b397fa6c1cfdfa4e99f813cddf1cd098974c18f0d4eb7b0020897844dc",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -28.453011022049957
+      },
+      "polarity_prediction_dice": 0.04300532823626772,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "8b19503fff610e4d9e070239903a8ebb8b1c20c491f9fdaa67e88bf5140d91d7",
+      "pixel_sha256": "5ed88ae70c5d250410e41fe9266f452144d732dd9ab853fdf47605548cb85923",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.14806468729345826,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "8b19503fff610e4d9e070239903a8ebb8b1c20c491f9fdaa67e88bf5140d91d7",
+      "pixel_sha256": "5ed88ae70c5d250410e41fe9266f452144d732dd9ab853fdf47605548cb85923",
+      "axis_candidates_deg": {
+        "original": -38.17071944227423,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.08059461816181818,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "b76749aa1df32a870fdcbda9b2244a7ec6d1663287e31e0ded6491b066ecf517",
+      "pixel_sha256": "5ed88ae70c5d250410e41fe9266f452144d732dd9ab853fdf47605548cb85923",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.14806468729345826,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "b76749aa1df32a870fdcbda9b2244a7ec6d1663287e31e0ded6491b066ecf517",
+      "pixel_sha256": "5ed88ae70c5d250410e41fe9266f452144d732dd9ab853fdf47605548cb85923",
+      "axis_candidates_deg": {
+        "original": -38.17071944227423,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.08059461816181818,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "f31f70649d7ab9bf2f700429d4b8c88340902ecfd754324b35ebe99bea9421aa",
+      "pixel_sha256": "5ed88ae70c5d250410e41fe9266f452144d732dd9ab853fdf47605548cb85923",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.14806468729345826,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "f31f70649d7ab9bf2f700429d4b8c88340902ecfd754324b35ebe99bea9421aa",
+      "pixel_sha256": "5ed88ae70c5d250410e41fe9266f452144d732dd9ab853fdf47605548cb85923",
+      "axis_candidates_deg": {
+        "original": -38.17071944227423,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.08059461816181818,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "28d389e3806968a22a421b619a8a5ebb0b5ca4db95a773f3490b57995db2bacf",
+      "pixel_sha256": "c2e7c2f9d0dd96a32b69119809053fd3cea98622808247cedc2d2b42eba2a14e",
+      "axis_candidates_deg": {
+        "original": -0.07347930913313391,
+        "inverted": -7.163688532397765
+      },
+      "polarity_prediction_dice": 0.40744918544866937,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "28d389e3806968a22a421b619a8a5ebb0b5ca4db95a773f3490b57995db2bacf",
+      "pixel_sha256": "c2e7c2f9d0dd96a32b69119809053fd3cea98622808247cedc2d2b42eba2a14e",
+      "axis_candidates_deg": {
+        "original": -4.0432678093899215,
+        "inverted": 2.1554933990213576
+      },
+      "polarity_prediction_dice": 0.3100236378110873,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "5451b2d51a3530618215a04e874a51cd3ebc62307781e3683258479577907ed3",
+      "pixel_sha256": "c3a724822b47baff914e0e7d2c87af06fad4530e9f211f0231b073cfc762ccb8",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -1.1015103877241077
+      },
+      "polarity_prediction_dice": 0.029830365366399644,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "5451b2d51a3530618215a04e874a51cd3ebc62307781e3683258479577907ed3",
+      "pixel_sha256": "c3a724822b47baff914e0e7d2c87af06fad4530e9f211f0231b073cfc762ccb8",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -0.7907809990906024
+      },
+      "polarity_prediction_dice": 0.029500338024706533,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "edb330129b99f8bae2be35048e2125fbff76e1b7214c5eb44469ba00bb457070",
+      "pixel_sha256": "c3a724822b47baff914e0e7d2c87af06fad4530e9f211f0231b073cfc762ccb8",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -1.1015103877241077
+      },
+      "polarity_prediction_dice": 0.029830365366399644,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "edb330129b99f8bae2be35048e2125fbff76e1b7214c5eb44469ba00bb457070",
+      "pixel_sha256": "c3a724822b47baff914e0e7d2c87af06fad4530e9f211f0231b073cfc762ccb8",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -0.7907809990906024
+      },
+      "polarity_prediction_dice": 0.029500338024706533,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "87c4a14906b6f6e71673d3e9fa860f29b0ff67a00395a89004a11d2115728895",
+      "pixel_sha256": "9d3950472fa5196a8d76107395ca5b1bcd076487e6a0d22578b67333196ebf21",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2657851848951301,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "87c4a14906b6f6e71673d3e9fa860f29b0ff67a00395a89004a11d2115728895",
+      "pixel_sha256": "9d3950472fa5196a8d76107395ca5b1bcd076487e6a0d22578b67333196ebf21",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.245276351323086,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "b3c1057558a5eb53e1b7f9eff717f168c6d6bc6c3f81bff0633f5ea590f81e87",
+      "pixel_sha256": "785e026712f6d620615f140b539c20b61ede1e0271867b0e3e972d0ee5f41d38",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.26718844390971036,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "b3c1057558a5eb53e1b7f9eff717f168c6d6bc6c3f81bff0633f5ea590f81e87",
+      "pixel_sha256": "785e026712f6d620615f140b539c20b61ede1e0271867b0e3e972d0ee5f41d38",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -9.67410292662445
+      },
+      "polarity_prediction_dice": 0.21354538629163689,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "324726fde33a0c4d454b2c3047e97b11956a53c914cfcd483071c540130beb61",
+      "pixel_sha256": "8e704ff027711b6a94b1154dc24802d1745e634c9d6867fe858587dee613b0d0",
+      "axis_candidates_deg": {
+        "original": -2.1626530893102216,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.012825813275209883,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "324726fde33a0c4d454b2c3047e97b11956a53c914cfcd483071c540130beb61",
+      "pixel_sha256": "8e704ff027711b6a94b1154dc24802d1745e634c9d6867fe858587dee613b0d0",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.0,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "9a6809965bd9bef2229bd9c96afeb12744caa8d42919224537157d62dbb36c28",
+      "pixel_sha256": "e428be489472ea5b0ff39e32a8417bd4b9ca4b553cdbf054a8f69cd7274d8974",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2249271049597985,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "9a6809965bd9bef2229bd9c96afeb12744caa8d42919224537157d62dbb36c28",
+      "pixel_sha256": "e428be489472ea5b0ff39e32a8417bd4b9ca4b553cdbf054a8f69cd7274d8974",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -18.305230438047897
+      },
+      "polarity_prediction_dice": 0.20079515621878452,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "5fde811774a829dab9e619cbdc6e204769095b548294ccfd9bc18785e2651fa1",
+      "pixel_sha256": "befb36959905d91575f7082f050d6f0b447a68681f548e7404d3edb9843644e5",
+      "axis_candidates_deg": {
+        "original": 18.96294524647088,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1583518395205425,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "5fde811774a829dab9e619cbdc6e204769095b548294ccfd9bc18785e2651fa1",
+      "pixel_sha256": "befb36959905d91575f7082f050d6f0b447a68681f548e7404d3edb9843644e5",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.18184314480540073,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "c9ea19d779eadf3bffd37b010dc08d9700f4a51db6fcce96550519ec40145a20",
+      "pixel_sha256": "befb36959905d91575f7082f050d6f0b447a68681f548e7404d3edb9843644e5",
+      "axis_candidates_deg": {
+        "original": 18.96294524647088,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1583518395205425,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "c9ea19d779eadf3bffd37b010dc08d9700f4a51db6fcce96550519ec40145a20",
+      "pixel_sha256": "befb36959905d91575f7082f050d6f0b447a68681f548e7404d3edb9843644e5",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.18184314480540073,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "8237138740effd403dcc895c7c3033b3e1ed0f0eea0a971e7dbbe741a7191687",
+      "pixel_sha256": "bd310da5a2874ef2741678154a90d7a282deb05ca51c82efa6b374558f77398b",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2811664818350225,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "8237138740effd403dcc895c7c3033b3e1ed0f0eea0a971e7dbbe741a7191687",
+      "pixel_sha256": "bd310da5a2874ef2741678154a90d7a282deb05ca51c82efa6b374558f77398b",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.277715908682564,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "344a810643c063bb41582bbab9cf9b09f80abe68cd47ade72cf069327cfa94a0",
+      "pixel_sha256": "fbf3b74894872db74011f83380d0a9f86ed055e8793ed675cdd4b8ae00c836c0",
+      "axis_candidates_deg": {
+        "original": -8.122157632465932,
+        "inverted": -0.18645011031552083
+      },
+      "polarity_prediction_dice": 0.33687440769789245,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "344a810643c063bb41582bbab9cf9b09f80abe68cd47ade72cf069327cfa94a0",
+      "pixel_sha256": "fbf3b74894872db74011f83380d0a9f86ed055e8793ed675cdd4b8ae00c836c0",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.20330572609724062,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "530ebba2a70e693b2867c4ccb53f0e3fae688bfd033810f9840732e301490e13",
+      "pixel_sha256": "623f0b8fe46c1239aefe723005f3633af73ccef4c1a319a29fee59ccfb70eda5",
+      "axis_candidates_deg": {
+        "original": -0.7220333065240574,
+        "inverted": 12.841398855370167
+      },
+      "polarity_prediction_dice": 0.30417778361027326,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "530ebba2a70e693b2867c4ccb53f0e3fae688bfd033810f9840732e301490e13",
+      "pixel_sha256": "623f0b8fe46c1239aefe723005f3633af73ccef4c1a319a29fee59ccfb70eda5",
+      "axis_candidates_deg": {
+        "original": -12.537644518071865,
+        "inverted": 1.5156627964332179
+      },
+      "polarity_prediction_dice": 0.3969678972495741,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "d0c43244bab1f7aa4b2dd2d555e48d37914d928a9a550997b9795104b11a4719",
+      "pixel_sha256": "4695ad5b504c9d09111e75eb0023ef3d28756d009d6222327732277ff8ddb027",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.09955083907408305,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "d0c43244bab1f7aa4b2dd2d555e48d37914d928a9a550997b9795104b11a4719",
+      "pixel_sha256": "4695ad5b504c9d09111e75eb0023ef3d28756d009d6222327732277ff8ddb027",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.13055605265250936,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "d3762a28a099aae2bbb1725c7c98a2cae1305741a01d80b221ca3e3c58ce6d40",
+      "pixel_sha256": "4695ad5b504c9d09111e75eb0023ef3d28756d009d6222327732277ff8ddb027",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.09955083907408305,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "d3762a28a099aae2bbb1725c7c98a2cae1305741a01d80b221ca3e3c58ce6d40",
+      "pixel_sha256": "4695ad5b504c9d09111e75eb0023ef3d28756d009d6222327732277ff8ddb027",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.13055605265250936,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "909d0c0ba28e7d9c38e3f3757e0e889d84c149199d783297264ca5ee45ea3b58",
+      "pixel_sha256": "8f1292d2c798972caa6405ac6fceb406d4e44445864765a58f912a8124a36641",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -5.2840667463987225
+      },
+      "polarity_prediction_dice": 0.1233691665270926,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "909d0c0ba28e7d9c38e3f3757e0e889d84c149199d783297264ca5ee45ea3b58",
+      "pixel_sha256": "8f1292d2c798972caa6405ac6fceb406d4e44445864765a58f912a8124a36641",
+      "axis_candidates_deg": {
+        "original": 1.9931374995055469,
+        "inverted": -0.34326029368914196
+      },
+      "polarity_prediction_dice": 0.1990650576989079,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "3283e152cbb0da2192db33ba798502383ec23c1171b4417a9272adab23a28212",
+      "pixel_sha256": "88faffc5e4482a10b2a60b292333483b6b9f4f32005c5194b579951e654eb193",
+      "axis_candidates_deg": {
+        "original": 0.32976177046640376,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1617417907195352,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "3283e152cbb0da2192db33ba798502383ec23c1171b4417a9272adab23a28212",
+      "pixel_sha256": "88faffc5e4482a10b2a60b292333483b6b9f4f32005c5194b579951e654eb193",
+      "axis_candidates_deg": {
+        "original": -0.5526205567655749,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.0728114379467948,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "81882e0bf3ac5ea70e1fc2a8b90eaa33ee3ef66005333e43d457af10acd239ea",
+      "pixel_sha256": "2a975a4fdb317ecd377e9b25142e080b280093cfa2f04a4230a234d5d1bb4f88",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 15.349983839726503
+      },
+      "polarity_prediction_dice": 0.11336539794420585,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "81882e0bf3ac5ea70e1fc2a8b90eaa33ee3ef66005333e43d457af10acd239ea",
+      "pixel_sha256": "2a975a4fdb317ecd377e9b25142e080b280093cfa2f04a4230a234d5d1bb4f88",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1420890858664397,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "abb4956826ea8bc28f9299cd2f527e319cc1aa4aead081620bce6ecc1d873795",
+      "pixel_sha256": "9b32c7ee495a878b84dad013a99d82bb3c4241c9bbf1e532259a32469d71c256",
+      "axis_candidates_deg": {
+        "original": 1.9997526318884735,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1418061300456365,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "abb4956826ea8bc28f9299cd2f527e319cc1aa4aead081620bce6ecc1d873795",
+      "pixel_sha256": "9b32c7ee495a878b84dad013a99d82bb3c4241c9bbf1e532259a32469d71c256",
+      "axis_candidates_deg": {
+        "original": -49.828041361558434,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.05452323073056779,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "55a266493d738f69757ab1b9dc97b2174ccae097c9643c5371336e89a433be18",
+      "pixel_sha256": "9b32c7ee495a878b84dad013a99d82bb3c4241c9bbf1e532259a32469d71c256",
+      "axis_candidates_deg": {
+        "original": 1.9997526318884735,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1418061300456365,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "55a266493d738f69757ab1b9dc97b2174ccae097c9643c5371336e89a433be18",
+      "pixel_sha256": "9b32c7ee495a878b84dad013a99d82bb3c4241c9bbf1e532259a32469d71c256",
+      "axis_candidates_deg": {
+        "original": -49.828041361558434,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.05452323073056779,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "28566081316614c35eea15d9b7101d963ce952b9c767e64323df67f5ee5a9a94",
+      "pixel_sha256": "9b32c7ee495a878b84dad013a99d82bb3c4241c9bbf1e532259a32469d71c256",
+      "axis_candidates_deg": {
+        "original": 1.9997526318884735,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1418061300456365,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "28566081316614c35eea15d9b7101d963ce952b9c767e64323df67f5ee5a9a94",
+      "pixel_sha256": "9b32c7ee495a878b84dad013a99d82bb3c4241c9bbf1e532259a32469d71c256",
+      "axis_candidates_deg": {
+        "original": -49.828041361558434,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.05452323073056779,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "552a6e9947b708783203419ed72013f058ffb03aac68a6ac1f14cfdbb0db1fb1",
+      "pixel_sha256": "9288e050697877014e72b85a790726e76daba41f6511f1d9ef45e3e5cd222d59",
+      "axis_candidates_deg": {
+        "original": 0.6846973127821641,
+        "inverted": -23.588331428602835
+      },
+      "polarity_prediction_dice": 0.15755228559901835,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "552a6e9947b708783203419ed72013f058ffb03aac68a6ac1f14cfdbb0db1fb1",
+      "pixel_sha256": "9288e050697877014e72b85a790726e76daba41f6511f1d9ef45e3e5cd222d59",
+      "axis_candidates_deg": {
+        "original": -3.8422964371368327,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.21362016531790493,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "fdd4c5b43a338d9827f0544a99384cf957d31a57f2d6353f07c84c95ccae4bcc",
+      "pixel_sha256": "2182de8bcf3f98fce74761ea069db4e2b641730eb98f9a5a7107e41add62b91a",
+      "axis_candidates_deg": {
+        "original": -3.9346303234744315,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1221623687301204,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "fdd4c5b43a338d9827f0544a99384cf957d31a57f2d6353f07c84c95ccae4bcc",
+      "pixel_sha256": "2182de8bcf3f98fce74761ea069db4e2b641730eb98f9a5a7107e41add62b91a",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 30.70604703369395
+      },
+      "polarity_prediction_dice": 0.026495426947771784,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "8da646d19ee2e4a8ef91a9e795b815e977804494e6213c2e10fdf92b89b64dcf",
+      "pixel_sha256": "461ce8c5784b713420d114c290c68ae72720927cfaaa016063a6842b3dcb5b2e",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.32707529827711307,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "8da646d19ee2e4a8ef91a9e795b815e977804494e6213c2e10fdf92b89b64dcf",
+      "pixel_sha256": "461ce8c5784b713420d114c290c68ae72720927cfaaa016063a6842b3dcb5b2e",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.20064093974719727,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "035bdd57320b92499d8392117921265b0eb1f6370b794380c70f7ff042c59f53",
+      "pixel_sha256": "792c50771f400b4d909a0479f55b95896d570a12b9c21cfdbf5eb123cfec9314",
+      "axis_candidates_deg": {
+        "original": -0.7849468739543192,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.09334589155228745,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "035bdd57320b92499d8392117921265b0eb1f6370b794380c70f7ff042c59f53",
+      "pixel_sha256": "792c50771f400b4d909a0479f55b95896d570a12b9c21cfdbf5eb123cfec9314",
+      "axis_candidates_deg": {
+        "original": -11.915884835163313,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.0437636761487965,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "234c949057e905f9f1ec170391a3e8d6c4fcce6fe0bbb89d66f533244d4cd580",
+      "pixel_sha256": "6c4bb826080b375bddba1b84817f7163aa60f2f0fd0f23ce186e0292e5836aec",
+      "axis_candidates_deg": {
+        "original": -0.5953506390561684,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.16876995321605712,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "234c949057e905f9f1ec170391a3e8d6c4fcce6fe0bbb89d66f533244d4cd580",
+      "pixel_sha256": "6c4bb826080b375bddba1b84817f7163aa60f2f0fd0f23ce186e0292e5836aec",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2701589957305281,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "cde6edaa7c779247805fb20c5109e144dbacd72adf51228947b10be3be168c00",
+      "pixel_sha256": "770a0d85b0a4043878c7441250b3c4e812b92e5e330c662c78b090abb3b59673",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 36.61557218078396
+      },
+      "polarity_prediction_dice": 0.24703482242401062,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "cde6edaa7c779247805fb20c5109e144dbacd72adf51228947b10be3be168c00",
+      "pixel_sha256": "770a0d85b0a4043878c7441250b3c4e812b92e5e330c662c78b090abb3b59673",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 39.74414674142062
+      },
+      "polarity_prediction_dice": 0.18499570785219754,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "66ca2f8b7158c5ebe867c0fc6b18419534ba2bee345f90e67d784471614e9269",
+      "pixel_sha256": "770a0d85b0a4043878c7441250b3c4e812b92e5e330c662c78b090abb3b59673",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 36.61557218078396
+      },
+      "polarity_prediction_dice": 0.24703482242401062,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "66ca2f8b7158c5ebe867c0fc6b18419534ba2bee345f90e67d784471614e9269",
+      "pixel_sha256": "770a0d85b0a4043878c7441250b3c4e812b92e5e330c662c78b090abb3b59673",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 39.74414674142062
+      },
+      "polarity_prediction_dice": 0.18499570785219754,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "5061f7c4dbcd5339ced7bdc5fac8f9885f16709960985b9b799a364e4a7e339e",
+      "pixel_sha256": "7df5cdb7f2a8e2933dc62f880946be6e847a763ceae0ae16c572af3be3f1eaf1",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -0.43848192277257214
+      },
+      "polarity_prediction_dice": 0.269667833719176,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "5061f7c4dbcd5339ced7bdc5fac8f9885f16709960985b9b799a364e4a7e339e",
+      "pixel_sha256": "7df5cdb7f2a8e2933dc62f880946be6e847a763ceae0ae16c572af3be3f1eaf1",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -3.3652773996409118
+      },
+      "polarity_prediction_dice": 0.27594512962034706,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "ccffb7f171bc147cf8fe5bc6e3188da87b77720d4bf7244eeb7a588b35385129",
+      "pixel_sha256": "7df5cdb7f2a8e2933dc62f880946be6e847a763ceae0ae16c572af3be3f1eaf1",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -0.43848192277257214
+      },
+      "polarity_prediction_dice": 0.269667833719176,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "ccffb7f171bc147cf8fe5bc6e3188da87b77720d4bf7244eeb7a588b35385129",
+      "pixel_sha256": "7df5cdb7f2a8e2933dc62f880946be6e847a763ceae0ae16c572af3be3f1eaf1",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -3.3652773996409118
+      },
+      "polarity_prediction_dice": 0.27594512962034706,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "b9ee32e0f18929490607c1d3b1b791703f91ca56ea7a7345fff957af724defd7",
+      "pixel_sha256": "7df5cdb7f2a8e2933dc62f880946be6e847a763ceae0ae16c572af3be3f1eaf1",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -0.43848192277257214
+      },
+      "polarity_prediction_dice": 0.269667833719176,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "b9ee32e0f18929490607c1d3b1b791703f91ca56ea7a7345fff957af724defd7",
+      "pixel_sha256": "7df5cdb7f2a8e2933dc62f880946be6e847a763ceae0ae16c572af3be3f1eaf1",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -3.3652773996409118
+      },
+      "polarity_prediction_dice": 0.27594512962034706,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "c4ec907c668950ca9c0c84989745d75dcc180066776e75e684a54fa50af88b93",
+      "pixel_sha256": "5f54289575fa2719163a79ee99767eec044a555372e338339fdd7cd7e8924909",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.16687744031044505,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "c4ec907c668950ca9c0c84989745d75dcc180066776e75e684a54fa50af88b93",
+      "pixel_sha256": "5f54289575fa2719163a79ee99767eec044a555372e338339fdd7cd7e8924909",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.12041615114229051,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "71c8e351af310cf704da0b3b5e9491f03f5ec8f8b6f9e4e94e359d055eb9be6d",
+      "pixel_sha256": "bcfc296c95fd660fbe168c8321c5dd8fa40f124e328d83b42ee5118d841184d1",
+      "axis_candidates_deg": {
+        "original": 1.352612624956897,
+        "inverted": -4.296656397906049
+      },
+      "polarity_prediction_dice": 0.22706728678602828,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "71c8e351af310cf704da0b3b5e9491f03f5ec8f8b6f9e4e94e359d055eb9be6d",
+      "pixel_sha256": "bcfc296c95fd660fbe168c8321c5dd8fa40f124e328d83b42ee5118d841184d1",
+      "axis_candidates_deg": {
+        "original": 0.7386646663793425,
+        "inverted": -4.824348061305095
+      },
+      "polarity_prediction_dice": 0.14450912843301264,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "4362466fb7395f0c5dcd4bd6f379f30db78542e40eee3d290690894e438d38f7",
+      "pixel_sha256": "e4e8b0c79708c672efaf342f1dc4775fe37e38fb5cc12ca0844bb57e15138ff5",
+      "axis_candidates_deg": {
+        "original": 1.425430630417813,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.10368061408708021,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "4362466fb7395f0c5dcd4bd6f379f30db78542e40eee3d290690894e438d38f7",
+      "pixel_sha256": "e4e8b0c79708c672efaf342f1dc4775fe37e38fb5cc12ca0844bb57e15138ff5",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.11790152047694487,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "09aeefb31105c960432029818eb70f1e920f3ae9cb9be5746e0b85878bbd59ca",
+      "pixel_sha256": "e4e8b0c79708c672efaf342f1dc4775fe37e38fb5cc12ca0844bb57e15138ff5",
+      "axis_candidates_deg": {
+        "original": 1.425430630417813,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.10368061408708021,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "09aeefb31105c960432029818eb70f1e920f3ae9cb9be5746e0b85878bbd59ca",
+      "pixel_sha256": "e4e8b0c79708c672efaf342f1dc4775fe37e38fb5cc12ca0844bb57e15138ff5",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.11790152047694487,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "5aa32e19d16c35a0eabee4094f9491c47455020df636dc56bce06db62f98d47c",
+      "pixel_sha256": "e4e8b0c79708c672efaf342f1dc4775fe37e38fb5cc12ca0844bb57e15138ff5",
+      "axis_candidates_deg": {
+        "original": 1.425430630417813,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.10368061408708021,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "5aa32e19d16c35a0eabee4094f9491c47455020df636dc56bce06db62f98d47c",
+      "pixel_sha256": "e4e8b0c79708c672efaf342f1dc4775fe37e38fb5cc12ca0844bb57e15138ff5",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.11790152047694487,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "44317343860e44f24ebab8b80d7d8dc19aa53cc0f4e8548566d02819f1fbcb84",
+      "pixel_sha256": "c39a14af2314a7d34b2fc1248dc56d0dba09831967971b80a8c05246120071cf",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2157080968260377,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "44317343860e44f24ebab8b80d7d8dc19aa53cc0f4e8548566d02819f1fbcb84",
+      "pixel_sha256": "c39a14af2314a7d34b2fc1248dc56d0dba09831967971b80a8c05246120071cf",
+      "axis_candidates_deg": {
+        "original": -0.020707971734852393,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.24098099528739914,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "88c4ed82a1fc5511418dee8e816405bf873d76de5b1cc5df0abcefb10d995d23",
+      "pixel_sha256": "c39a14af2314a7d34b2fc1248dc56d0dba09831967971b80a8c05246120071cf",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2157080968260377,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "88c4ed82a1fc5511418dee8e816405bf873d76de5b1cc5df0abcefb10d995d23",
+      "pixel_sha256": "c39a14af2314a7d34b2fc1248dc56d0dba09831967971b80a8c05246120071cf",
+      "axis_candidates_deg": {
+        "original": -0.020707971734852393,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.24098099528739914,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "0f76c38ce7fa5a01fdab74cb969e145d0048df5e337b9868b760d0f29f9810e2",
+      "pixel_sha256": "c39a14af2314a7d34b2fc1248dc56d0dba09831967971b80a8c05246120071cf",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2157080968260377,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "0f76c38ce7fa5a01fdab74cb969e145d0048df5e337b9868b760d0f29f9810e2",
+      "pixel_sha256": "c39a14af2314a7d34b2fc1248dc56d0dba09831967971b80a8c05246120071cf",
+      "axis_candidates_deg": {
+        "original": -0.020707971734852393,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.24098099528739914,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "397df798285bc9c2189a83122c3b18b302b52fe0e74547b787cd601d57b5eb07",
+      "pixel_sha256": "dd220bc45cf525a8137b8665d59dbb1520fbce07637f5d0075c5fa9fc3372cf4",
+      "axis_candidates_deg": {
+        "original": 6.730698896936708,
+        "inverted": -0.025949470038411485
+      },
+      "polarity_prediction_dice": 0.11673881094703281,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "397df798285bc9c2189a83122c3b18b302b52fe0e74547b787cd601d57b5eb07",
+      "pixel_sha256": "dd220bc45cf525a8137b8665d59dbb1520fbce07637f5d0075c5fa9fc3372cf4",
+      "axis_candidates_deg": {
+        "original": 25.03692188486173,
+        "inverted": 0.5116178486781304
+      },
+      "polarity_prediction_dice": 0.07321023211490502,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "14871d77e38d8ada805b7e3af20559691022320d99fae8301839c0d63e98dbe7",
+      "pixel_sha256": "dd220bc45cf525a8137b8665d59dbb1520fbce07637f5d0075c5fa9fc3372cf4",
+      "axis_candidates_deg": {
+        "original": 6.730698896936708,
+        "inverted": -0.025949470038411485
+      },
+      "polarity_prediction_dice": 0.11673881094703281,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "14871d77e38d8ada805b7e3af20559691022320d99fae8301839c0d63e98dbe7",
+      "pixel_sha256": "dd220bc45cf525a8137b8665d59dbb1520fbce07637f5d0075c5fa9fc3372cf4",
+      "axis_candidates_deg": {
+        "original": 25.03692188486173,
+        "inverted": 0.5116178486781304
+      },
+      "polarity_prediction_dice": 0.07321023211490502,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "d72ad88f5e2e3a439142e2bcff5d5a5c89a15f203b136efdf619afd55f2eacf1",
+      "pixel_sha256": "7d2a498d2fa2c8d4fea153a092698771850ac1e8f2a74bbbe50560f926d03dfe",
+      "axis_candidates_deg": {
+        "original": -3.491797021447167,
+        "inverted": -36.64952648719928
+      },
+      "polarity_prediction_dice": 0.35201929453235836,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "d72ad88f5e2e3a439142e2bcff5d5a5c89a15f203b136efdf619afd55f2eacf1",
+      "pixel_sha256": "7d2a498d2fa2c8d4fea153a092698771850ac1e8f2a74bbbe50560f926d03dfe",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -0.9329359741723975
+      },
+      "polarity_prediction_dice": 0.1397336271214864,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "d3a557d712355491eccb51680c566cdec78a9458e9dba64088e00a29b98b6eb2",
+      "pixel_sha256": "7d2a498d2fa2c8d4fea153a092698771850ac1e8f2a74bbbe50560f926d03dfe",
+      "axis_candidates_deg": {
+        "original": -3.491797021447167,
+        "inverted": -36.64952648719928
+      },
+      "polarity_prediction_dice": 0.35201929453235836,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "d3a557d712355491eccb51680c566cdec78a9458e9dba64088e00a29b98b6eb2",
+      "pixel_sha256": "7d2a498d2fa2c8d4fea153a092698771850ac1e8f2a74bbbe50560f926d03dfe",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -0.9329359741723975
+      },
+      "polarity_prediction_dice": 0.1397336271214864,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "300161ed50d37fbd0f267df413b1787937c3ffb31375e079b21454fb874082dd",
+      "pixel_sha256": "2d8c3341476e41295ace62baa649646447983d45a7aa7e372c188e9c9134c4d9",
+      "axis_candidates_deg": {
+        "original": -6.598954133635391,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.32205563359896006,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "300161ed50d37fbd0f267df413b1787937c3ffb31375e079b21454fb874082dd",
+      "pixel_sha256": "2d8c3341476e41295ace62baa649646447983d45a7aa7e372c188e9c9134c4d9",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -1.1159284688548878
+      },
+      "polarity_prediction_dice": 0.2729698795489361,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "f7c6f44f6401661b2ee3342f6e350c6eb532fb382e0164bc15abce5469d5ac6a",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15795667574981812,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "f7c6f44f6401661b2ee3342f6e350c6eb532fb382e0164bc15abce5469d5ac6a",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15852097500516626,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "0d17b25aa47008ab45c16e107092094c6cdb4a9f1700214a9a346b68559bd276",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15795667574981812,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "0d17b25aa47008ab45c16e107092094c6cdb4a9f1700214a9a346b68559bd276",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15852097500516626,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "25be5dd2c73bf729c4cf8b760797e536b2a99a7b251aefb919c19fdf5de8b7d5",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15795667574981812,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "25be5dd2c73bf729c4cf8b760797e536b2a99a7b251aefb919c19fdf5de8b7d5",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15852097500516626,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "c5b6210c42f5c04bda325250df87a379154868a0691ba8c5526c0115b647df38",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15795667574981812,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "c5b6210c42f5c04bda325250df87a379154868a0691ba8c5526c0115b647df38",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15852097500516626,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "c89d6ed6742361fff6bf2f21e8abe4bf201f1d534b6d3e0a9cc9dcb8cec73bfe",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15795667574981812,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "c89d6ed6742361fff6bf2f21e8abe4bf201f1d534b6d3e0a9cc9dcb8cec73bfe",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15852097500516626,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "2e847585ac5731b72d8bdc2af6441bef7e83de991339f9221b4a7183d8cb9a9e",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15795667574981812,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "2e847585ac5731b72d8bdc2af6441bef7e83de991339f9221b4a7183d8cb9a9e",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15852097500516626,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "5070a8036b9766966bf4eefc17e77126bcc8a213ddd7d86d94da71f563f76d1b",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15795667574981812,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "5070a8036b9766966bf4eefc17e77126bcc8a213ddd7d86d94da71f563f76d1b",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15852097500516626,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "4db88f57ed4452bd3bd4dde4388d2fbe2d570ab071189ad3b7d35c7312404a34",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15795667574981812,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "4db88f57ed4452bd3bd4dde4388d2fbe2d570ab071189ad3b7d35c7312404a34",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15852097500516626,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "f6eadd216e1805d5246d825e19364843b3023c7844e0e5a3fee184f1ad488270",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15795667574981812,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "f6eadd216e1805d5246d825e19364843b3023c7844e0e5a3fee184f1ad488270",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15852097500516626,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "71ecfc0716104c1cc0ec0de1b2fd99341622ee4a88f30f396697b7ba034f8a3b",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15795667574981812,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "71ecfc0716104c1cc0ec0de1b2fd99341622ee4a88f30f396697b7ba034f8a3b",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15852097500516626,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "490a65c3844e1ec4c21eb1b4f060e87d471a3bdf943f82771c52f980bb8e9805",
+      "pixel_sha256": "fd84428715d03f5574d524da4e66b53e26ec7b3656179b381354a4c26b498790",
+      "axis_candidates_deg": {
+        "original": -4.1028417842938865,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.09754776377573102,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "490a65c3844e1ec4c21eb1b4f060e87d471a3bdf943f82771c52f980bb8e9805",
+      "pixel_sha256": "fd84428715d03f5574d524da4e66b53e26ec7b3656179b381354a4c26b498790",
+      "axis_candidates_deg": {
+        "original": 15.83498073905059,
+        "inverted": 7.873931569486272
+      },
+      "polarity_prediction_dice": 0.07451822683610763,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "2f145e86255455029630ab8c26abe9f39f394579f8aeacd6ed9e111ba5b511c6",
+      "pixel_sha256": "fe06d40b71943d5d806b17e6cd9ffb4866bb6f5efe194d07c88178c68202d5a2",
+      "axis_candidates_deg": {
+        "original": 15.091331282996531,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.10177476234732831,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "2f145e86255455029630ab8c26abe9f39f394579f8aeacd6ed9e111ba5b511c6",
+      "pixel_sha256": "fe06d40b71943d5d806b17e6cd9ffb4866bb6f5efe194d07c88178c68202d5a2",
+      "axis_candidates_deg": {
+        "original": 0.7725274892655235,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15595115611631558,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "8ab054b259f008295e231c6de51d18030b2b5a936b94d85693e1bfafb2bedec2",
+      "pixel_sha256": "b309dbe0fc1206a11b96c9c6e024a866da0420edc26e9ad375c6b640610571c2",
+      "axis_candidates_deg": {
+        "original": 1.5566262471499144,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.3430828994058062,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "8ab054b259f008295e231c6de51d18030b2b5a936b94d85693e1bfafb2bedec2",
+      "pixel_sha256": "b309dbe0fc1206a11b96c9c6e024a866da0420edc26e9ad375c6b640610571c2",
+      "axis_candidates_deg": {
+        "original": 4.662807425919747,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.035590982940698616,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "0f85aa9293c971bc2efdf340b2a4ab5429e6fa66206c0796c637d2e9da1a4904",
+      "pixel_sha256": "b309dbe0fc1206a11b96c9c6e024a866da0420edc26e9ad375c6b640610571c2",
+      "axis_candidates_deg": {
+        "original": 1.5566262471499144,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.3430828994058062,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "0f85aa9293c971bc2efdf340b2a4ab5429e6fa66206c0796c637d2e9da1a4904",
+      "pixel_sha256": "b309dbe0fc1206a11b96c9c6e024a866da0420edc26e9ad375c6b640610571c2",
+      "axis_candidates_deg": {
+        "original": 4.662807425919747,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.035590982940698616,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "3cfd0dca43930c0c40e068865dde5f1d649cc78f7a8dac011929cccdd150ca3e",
+      "pixel_sha256": "97ec0e50688079d7390adbc7be9ae4e9bf9e98f30347f11e47759d9f8b0bb8ee",
+      "axis_candidates_deg": {
+        "original": -4.832817633827355,
+        "inverted": -9.712042438321971
+      },
+      "polarity_prediction_dice": 0.4429492496468904,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "3cfd0dca43930c0c40e068865dde5f1d649cc78f7a8dac011929cccdd150ca3e",
+      "pixel_sha256": "97ec0e50688079d7390adbc7be9ae4e9bf9e98f30347f11e47759d9f8b0bb8ee",
+      "axis_candidates_deg": {
+        "original": -10.495093192902548,
+        "inverted": -1.9133826773777478
+      },
+      "polarity_prediction_dice": 0.3643263900739742,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "6e725a0b4a1059a3a2d47d5908e8699fa5fd8d7b200f752028a82a11b07b51c9",
+      "pixel_sha256": "412a61c72cdfd840ad341c169fe87420c42497cc499f2b251fc628de7056a5a4",
+      "axis_candidates_deg": {
+        "original": -8.237914697359221,
+        "inverted": 7.059532394103788
+      },
+      "polarity_prediction_dice": 0.15909086884040105,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "6e725a0b4a1059a3a2d47d5908e8699fa5fd8d7b200f752028a82a11b07b51c9",
+      "pixel_sha256": "412a61c72cdfd840ad341c169fe87420c42497cc499f2b251fc628de7056a5a4",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 3.9935407124485067
+      },
+      "polarity_prediction_dice": 0.13000535058566035,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "194eb6e23dd3b3172f63d54541b109861b7f89001bac3d157657a10e3553c41e",
+      "pixel_sha256": "412a61c72cdfd840ad341c169fe87420c42497cc499f2b251fc628de7056a5a4",
+      "axis_candidates_deg": {
+        "original": -8.237914697359221,
+        "inverted": 7.059532394103788
+      },
+      "polarity_prediction_dice": 0.15909086884040105,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "194eb6e23dd3b3172f63d54541b109861b7f89001bac3d157657a10e3553c41e",
+      "pixel_sha256": "412a61c72cdfd840ad341c169fe87420c42497cc499f2b251fc628de7056a5a4",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 3.9935407124485067
+      },
+      "polarity_prediction_dice": 0.13000535058566035,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "490dd0a33b01c285547f40206fe8585bf01bec5cb1f6f2b39520e27621967235",
+      "pixel_sha256": "36569073534a07d1a3927dc98fd08fd74d096a044bbbf8a468490d267d926609",
+      "axis_candidates_deg": {
+        "original": -3.083947867912411,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.11462496937309202,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "490dd0a33b01c285547f40206fe8585bf01bec5cb1f6f2b39520e27621967235",
+      "pixel_sha256": "36569073534a07d1a3927dc98fd08fd74d096a044bbbf8a468490d267d926609",
+      "axis_candidates_deg": {
+        "original": 2.760955859401095,
+        "inverted": -8.929493530939247
+      },
+      "polarity_prediction_dice": 0.1010059629033483,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "1a97d0da46b6e294d21cbc70a5dd5c26fe287ffb844d6d4f5f86396f1f838ae7",
+      "pixel_sha256": "36569073534a07d1a3927dc98fd08fd74d096a044bbbf8a468490d267d926609",
+      "axis_candidates_deg": {
+        "original": -3.083947867912411,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.11462496937309202,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "1a97d0da46b6e294d21cbc70a5dd5c26fe287ffb844d6d4f5f86396f1f838ae7",
+      "pixel_sha256": "36569073534a07d1a3927dc98fd08fd74d096a044bbbf8a468490d267d926609",
+      "axis_candidates_deg": {
+        "original": 2.760955859401095,
+        "inverted": -8.929493530939247
+      },
+      "polarity_prediction_dice": 0.1010059629033483,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "5f40ec47a61a102a557fa93957a6b2ede8745f76bb05ff459c4f58a4ed8940cd",
+      "pixel_sha256": "36569073534a07d1a3927dc98fd08fd74d096a044bbbf8a468490d267d926609",
+      "axis_candidates_deg": {
+        "original": -3.083947867912411,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.11462496937309202,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "5f40ec47a61a102a557fa93957a6b2ede8745f76bb05ff459c4f58a4ed8940cd",
+      "pixel_sha256": "36569073534a07d1a3927dc98fd08fd74d096a044bbbf8a468490d267d926609",
+      "axis_candidates_deg": {
+        "original": 2.760955859401095,
+        "inverted": -8.929493530939247
+      },
+      "polarity_prediction_dice": 0.1010059629033483,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "a3f036ef4d644992078aa618dad70baba25c28a6712b3e24a5c623eb2c5b88eb",
+      "pixel_sha256": "5b9f7be4bdb5ee53ae07f4deab4e575da6a540fa27c918cd4a0c3cf686f6d0f9",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1044169030028304,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "a3f036ef4d644992078aa618dad70baba25c28a6712b3e24a5c623eb2c5b88eb",
+      "pixel_sha256": "5b9f7be4bdb5ee53ae07f4deab4e575da6a540fa27c918cd4a0c3cf686f6d0f9",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 6.58988405600241
+      },
+      "polarity_prediction_dice": 0.1869244548706216,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "9a085e11b3bdaee7b9a9fe64d65fc2e643e19ec5d1e28aa7ec15e5a2c9ce4520",
+      "pixel_sha256": "5b9f7be4bdb5ee53ae07f4deab4e575da6a540fa27c918cd4a0c3cf686f6d0f9",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1044169030028304,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "9a085e11b3bdaee7b9a9fe64d65fc2e643e19ec5d1e28aa7ec15e5a2c9ce4520",
+      "pixel_sha256": "5b9f7be4bdb5ee53ae07f4deab4e575da6a540fa27c918cd4a0c3cf686f6d0f9",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 6.58988405600241
+      },
+      "polarity_prediction_dice": 0.1869244548706216,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "1c0172e2e255a00e0b12c04c56266a3a90d194d4c1719c407bf29051986c0443",
+      "pixel_sha256": "5b9f7be4bdb5ee53ae07f4deab4e575da6a540fa27c918cd4a0c3cf686f6d0f9",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1044169030028304,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "1c0172e2e255a00e0b12c04c56266a3a90d194d4c1719c407bf29051986c0443",
+      "pixel_sha256": "5b9f7be4bdb5ee53ae07f4deab4e575da6a540fa27c918cd4a0c3cf686f6d0f9",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 6.58988405600241
+      },
+      "polarity_prediction_dice": 0.1869244548706216,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "116cdc9345532f0602450dd502097832eff3a7f95cc41d1b5d420525b717d8ed",
+      "pixel_sha256": "0059a1315dca2feca115ccfd940dab7025b7667e936328434b245044047e3b59",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.32059987545685986,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "116cdc9345532f0602450dd502097832eff3a7f95cc41d1b5d420525b717d8ed",
+      "pixel_sha256": "0059a1315dca2feca115ccfd940dab7025b7667e936328434b245044047e3b59",
+      "axis_candidates_deg": {
+        "original": 0.2193842307826639,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15800773259339335,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "65735060e9d19b311a89b52db2f7270acb7455d1a8d8d8adffb046de98b8e4a0",
+      "pixel_sha256": "efc0c25174246011196d9233435cd64bcb52dd7fd099e6c470ded7b90cc6de5b",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.17195014637819006,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "65735060e9d19b311a89b52db2f7270acb7455d1a8d8d8adffb046de98b8e4a0",
+      "pixel_sha256": "efc0c25174246011196d9233435cd64bcb52dd7fd099e6c470ded7b90cc6de5b",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.14367898238835258,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "6572bc39a7c462028fd6c2e0ca602cf7cc14f85a5710869fa3544dfeb58f8513",
+      "pixel_sha256": "7eb980c70b6eaaa2fa2309a1a75789e5de3967aaebfe939f64a89c6921f26a48",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.14578942688173752,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "6572bc39a7c462028fd6c2e0ca602cf7cc14f85a5710869fa3544dfeb58f8513",
+      "pixel_sha256": "7eb980c70b6eaaa2fa2309a1a75789e5de3967aaebfe939f64a89c6921f26a48",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.05283337665713543,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "2e17ee8205b34448a6788b7f4bbcf02b96800cc3f3d5e77996b9561b1b80ef07",
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "axis_candidates_deg": {
+        "original": 0.27624560141573157,
+        "inverted": 2.5914604567539095
+      },
+      "polarity_prediction_dice": 0.3211241466128988,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "2e17ee8205b34448a6788b7f4bbcf02b96800cc3f3d5e77996b9561b1b80ef07",
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "axis_candidates_deg": {
+        "original": -0.4646885546275241,
+        "inverted": 7.352996844469788
+      },
+      "polarity_prediction_dice": 0.15991050077153277,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "0c07822ca93a499799a0762ff9f1f39df4c4760a5fda63480b5daa15d59fd0e4",
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "axis_candidates_deg": {
+        "original": 0.27624560141573157,
+        "inverted": 2.5914604567539095
+      },
+      "polarity_prediction_dice": 0.3211241466128988,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "0c07822ca93a499799a0762ff9f1f39df4c4760a5fda63480b5daa15d59fd0e4",
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "axis_candidates_deg": {
+        "original": -0.4646885546275241,
+        "inverted": 7.352996844469788
+      },
+      "polarity_prediction_dice": 0.15991050077153277,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "5f8e944ae054b8a594b880f4f6b3982b6ead3999d58476bd24d0166bf1cdd87b",
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "axis_candidates_deg": {
+        "original": 0.27624560141573157,
+        "inverted": 2.5914604567539095
+      },
+      "polarity_prediction_dice": 0.3211241466128988,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "5f8e944ae054b8a594b880f4f6b3982b6ead3999d58476bd24d0166bf1cdd87b",
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "axis_candidates_deg": {
+        "original": -0.4646885546275241,
+        "inverted": 7.352996844469788
+      },
+      "polarity_prediction_dice": 0.15991050077153277,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "a8ca36578072d0202db89d006a1a2e05f2aa4f894072e94cd7e710866e2ff75a",
+      "pixel_sha256": "735dd4c8ad6b846c93aec4360bab13b93621ddd3bd419e64f11d173bd862ad6e",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.36624483118960804,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "a8ca36578072d0202db89d006a1a2e05f2aa4f894072e94cd7e710866e2ff75a",
+      "pixel_sha256": "735dd4c8ad6b846c93aec4360bab13b93621ddd3bd419e64f11d173bd862ad6e",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -2.617971157513173
+      },
+      "polarity_prediction_dice": 0.33946506656888065,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "c8a36249afa275f3b55db7515e449fd36116156c7584f053052b99ad114eebd4",
+      "pixel_sha256": "f72b3b9326f10bf0d39c6516d8b4ed5b87d59cee05908870322ff6a5bb637bba",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07072164957461682,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "c8a36249afa275f3b55db7515e449fd36116156c7584f053052b99ad114eebd4",
+      "pixel_sha256": "f72b3b9326f10bf0d39c6516d8b4ed5b87d59cee05908870322ff6a5bb637bba",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.01004079071226859,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "03bd681df276bf18420656848d19753908ce2143cce6ccf20d9eb31241c06300",
+      "pixel_sha256": "13a784b0466c4b17b34d16c1a173ac4ab4e10126d60d375fc90e044036e244e8",
+      "axis_candidates_deg": {
+        "original": 4.4160940246324545,
+        "inverted": -1.42896491669162
+      },
+      "polarity_prediction_dice": 0.23262680470236827,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "03bd681df276bf18420656848d19753908ce2143cce6ccf20d9eb31241c06300",
+      "pixel_sha256": "13a784b0466c4b17b34d16c1a173ac4ab4e10126d60d375fc90e044036e244e8",
+      "axis_candidates_deg": {
+        "original": 5.495802348000043,
+        "inverted": -4.250251099413561
+      },
+      "polarity_prediction_dice": 0.1881204564727461,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "911082fb7275fffaff3955ce05f350ab429578916e4401fbbc34c6e00a0bdcc3",
+      "pixel_sha256": "13a784b0466c4b17b34d16c1a173ac4ab4e10126d60d375fc90e044036e244e8",
+      "axis_candidates_deg": {
+        "original": 4.4160940246324545,
+        "inverted": -1.42896491669162
+      },
+      "polarity_prediction_dice": 0.23262680470236827,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "911082fb7275fffaff3955ce05f350ab429578916e4401fbbc34c6e00a0bdcc3",
+      "pixel_sha256": "13a784b0466c4b17b34d16c1a173ac4ab4e10126d60d375fc90e044036e244e8",
+      "axis_candidates_deg": {
+        "original": 5.495802348000043,
+        "inverted": -4.250251099413561
+      },
+      "polarity_prediction_dice": 0.1881204564727461,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "848ddd203fbaadf7408511f404a3bc8a8455ba625a509b41983b2da6adb6ba9b",
+      "pixel_sha256": "fe4af16335b15f0d10ff1dfce36fcbc4cf0fc8b46925dde40628cbe8353593c3",
+      "axis_candidates_deg": {
+        "original": -2.509958392046901,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.13094011536678313,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "848ddd203fbaadf7408511f404a3bc8a8455ba625a509b41983b2da6adb6ba9b",
+      "pixel_sha256": "fe4af16335b15f0d10ff1dfce36fcbc4cf0fc8b46925dde40628cbe8353593c3",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.16215063496927645,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "290d5439d29c476cd896f4a5d2383a7c650fb3255a61010e954cff645033cbb1",
+      "pixel_sha256": "fe4af16335b15f0d10ff1dfce36fcbc4cf0fc8b46925dde40628cbe8353593c3",
+      "axis_candidates_deg": {
+        "original": -2.509958392046901,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.13094011536678313,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "290d5439d29c476cd896f4a5d2383a7c650fb3255a61010e954cff645033cbb1",
+      "pixel_sha256": "fe4af16335b15f0d10ff1dfce36fcbc4cf0fc8b46925dde40628cbe8353593c3",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.16215063496927645,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "692bc6d7f004d7f283ad9e739e6e527cfa4186cbd007381509a3d6b9025eb6cf",
+      "pixel_sha256": "1297e6ee3c8a2c3456ea47930752692f23e5dfed1b3626a74b4ffac2b2f257d1",
+      "axis_candidates_deg": {
+        "original": 9.487941365160227,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.12939668302249227,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "692bc6d7f004d7f283ad9e739e6e527cfa4186cbd007381509a3d6b9025eb6cf",
+      "pixel_sha256": "1297e6ee3c8a2c3456ea47930752692f23e5dfed1b3626a74b4ffac2b2f257d1",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1604580245816801,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "5adcc8dc102f2cc56e88fda41f64dfedbba5cdef311a107de656f5ecee56eda5",
+      "pixel_sha256": "8bb0c116bfeffb7b201250aa456eba3e1c44ef53cc6b4e381dfca244943b4a71",
+      "axis_candidates_deg": {
+        "original": -0.6720587640574,
+        "inverted": 11.699531886513578
+      },
+      "polarity_prediction_dice": 0.2027719070066696,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "5adcc8dc102f2cc56e88fda41f64dfedbba5cdef311a107de656f5ecee56eda5",
+      "pixel_sha256": "8bb0c116bfeffb7b201250aa456eba3e1c44ef53cc6b4e381dfca244943b4a71",
+      "axis_candidates_deg": {
+        "original": -1.7669577720074707,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07087182448036952,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "694e2046e2e3ed3f16ea1856c052997f3ca148d6ceda96151923cf50cd0872f9",
+      "pixel_sha256": "8bb0c116bfeffb7b201250aa456eba3e1c44ef53cc6b4e381dfca244943b4a71",
+      "axis_candidates_deg": {
+        "original": -0.6720587640574,
+        "inverted": 11.699531886513578
+      },
+      "polarity_prediction_dice": 0.2027719070066696,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "694e2046e2e3ed3f16ea1856c052997f3ca148d6ceda96151923cf50cd0872f9",
+      "pixel_sha256": "8bb0c116bfeffb7b201250aa456eba3e1c44ef53cc6b4e381dfca244943b4a71",
+      "axis_candidates_deg": {
+        "original": -1.7669577720074707,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07087182448036952,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "fafbf962bce56850a810c17121a07e9e4a301c401e13f376f1f716002a8afb54",
+      "pixel_sha256": "8bb0c116bfeffb7b201250aa456eba3e1c44ef53cc6b4e381dfca244943b4a71",
+      "axis_candidates_deg": {
+        "original": -0.6720587640574,
+        "inverted": 11.699531886513578
+      },
+      "polarity_prediction_dice": 0.2027719070066696,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "fafbf962bce56850a810c17121a07e9e4a301c401e13f376f1f716002a8afb54",
+      "pixel_sha256": "8bb0c116bfeffb7b201250aa456eba3e1c44ef53cc6b4e381dfca244943b4a71",
+      "axis_candidates_deg": {
+        "original": -1.7669577720074707,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07087182448036952,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "9122181a1061b7af0cf1d6b3a01d185f635be8d6ba57fbd153b702ed7a1d12da",
+      "pixel_sha256": "6c47df67b471cfba22b2213bad9adeaa86a2af1a756db710387f706a1b007c61",
+      "axis_candidates_deg": {
+        "original": -9.390955468364538,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.10211325270891031,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "9122181a1061b7af0cf1d6b3a01d185f635be8d6ba57fbd153b702ed7a1d12da",
+      "pixel_sha256": "6c47df67b471cfba22b2213bad9adeaa86a2af1a756db710387f706a1b007c61",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.08060663959875806,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "0550db6ab61745648648916111144c071f260f09254e3f6f166ca936112ca202",
+      "pixel_sha256": "9bf53a6b6abf6a9eeb76a6f0b4f5403b2804d53550037b7c078388d57aa8d9df",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07231369371698171,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "0550db6ab61745648648916111144c071f260f09254e3f6f166ca936112ca202",
+      "pixel_sha256": "9bf53a6b6abf6a9eeb76a6f0b4f5403b2804d53550037b7c078388d57aa8d9df",
+      "axis_candidates_deg": {
+        "original": -20.830626135702207,
+        "inverted": 18.655836954997604
+      },
+      "polarity_prediction_dice": 0.04559962573953356,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "869a8f975b8ae7d546be22dcf074cb1f1778680983fdbcb165eed3fd381704a1",
+      "pixel_sha256": "9bf53a6b6abf6a9eeb76a6f0b4f5403b2804d53550037b7c078388d57aa8d9df",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07231369371698171,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "869a8f975b8ae7d546be22dcf074cb1f1778680983fdbcb165eed3fd381704a1",
+      "pixel_sha256": "9bf53a6b6abf6a9eeb76a6f0b4f5403b2804d53550037b7c078388d57aa8d9df",
+      "axis_candidates_deg": {
+        "original": -20.830626135702207,
+        "inverted": 18.655836954997604
+      },
+      "polarity_prediction_dice": 0.04559962573953356,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "0b08538bef1a1eb860f1d8f838fd42655455ba4b525e32c00f63d12ec59c18ef",
+      "pixel_sha256": "9bf53a6b6abf6a9eeb76a6f0b4f5403b2804d53550037b7c078388d57aa8d9df",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07231369371698171,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "0b08538bef1a1eb860f1d8f838fd42655455ba4b525e32c00f63d12ec59c18ef",
+      "pixel_sha256": "9bf53a6b6abf6a9eeb76a6f0b4f5403b2804d53550037b7c078388d57aa8d9df",
+      "axis_candidates_deg": {
+        "original": -20.830626135702207,
+        "inverted": 18.655836954997604
+      },
+      "polarity_prediction_dice": 0.04559962573953356,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "141a52d6ccd464aab8c47adcd5bd9d7f28a30513a6d7249e51a2f41bac53d4b3",
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2031878191880871,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "141a52d6ccd464aab8c47adcd5bd9d7f28a30513a6d7249e51a2f41bac53d4b3",
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "axis_candidates_deg": {
+        "original": -17.95805288132301,
+        "inverted": 2.805024576529578
+      },
+      "polarity_prediction_dice": 0.215337001313671,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "da674acd2e2b672a4beadcb7de39a22e33c7ccdbfbeb8a26f9ff71a5a0b40521",
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2031878191880871,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "da674acd2e2b672a4beadcb7de39a22e33c7ccdbfbeb8a26f9ff71a5a0b40521",
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "axis_candidates_deg": {
+        "original": -17.95805288132301,
+        "inverted": 2.805024576529578
+      },
+      "polarity_prediction_dice": 0.215337001313671,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "7d453de01921f003c9e1890a9cd2db9cdf07d89300455fd1395ba3cf815b4b5d",
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2031878191880871,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "7d453de01921f003c9e1890a9cd2db9cdf07d89300455fd1395ba3cf815b4b5d",
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "axis_candidates_deg": {
+        "original": -17.95805288132301,
+        "inverted": 2.805024576529578
+      },
+      "polarity_prediction_dice": 0.215337001313671,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "667f7dd39fc7e9485afb422df0f42e7400403e5f212f4bc1d9ee917a6bcc743c",
+      "pixel_sha256": "ebc5555cd374e7637b29f9e768843bfeb2ed2a0b2ce1c73c44236c3650e2ee4f",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 9.85349805701829
+      },
+      "polarity_prediction_dice": 0.24890118015740295,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "667f7dd39fc7e9485afb422df0f42e7400403e5f212f4bc1d9ee917a6bcc743c",
+      "pixel_sha256": "ebc5555cd374e7637b29f9e768843bfeb2ed2a0b2ce1c73c44236c3650e2ee4f",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.12109189373638432,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "38a98a29d5babb0f73c3f2ae68df08a00470a48cb77292a217506584290f0721",
+      "pixel_sha256": "ce33655f362d1d3498bcc40e71394c8910481e82cb1dcf10f149986f96bce501",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.20080220446178831,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "38a98a29d5babb0f73c3f2ae68df08a00470a48cb77292a217506584290f0721",
+      "pixel_sha256": "ce33655f362d1d3498bcc40e71394c8910481e82cb1dcf10f149986f96bce501",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1440397301144738,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "7dba3c90af8a21120c82ea0c79e4af102962c73a5ed9e2c94fe037adcdf52f34",
+      "pixel_sha256": "ce33655f362d1d3498bcc40e71394c8910481e82cb1dcf10f149986f96bce501",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.20080220446178831,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "7dba3c90af8a21120c82ea0c79e4af102962c73a5ed9e2c94fe037adcdf52f34",
+      "pixel_sha256": "ce33655f362d1d3498bcc40e71394c8910481e82cb1dcf10f149986f96bce501",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1440397301144738,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "0169d523b8fa0d3690d279d2faca50e873c9e4866b88c5455bc468a09f536432",
+      "pixel_sha256": "dace1623fe5c10039ae5b7989b0882d70a3b61cce0fa1b2dba2ac5126920ad29",
+      "axis_candidates_deg": {
+        "original": -2.797145210283953,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1784882231341722,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "0169d523b8fa0d3690d279d2faca50e873c9e4866b88c5455bc468a09f536432",
+      "pixel_sha256": "dace1623fe5c10039ae5b7989b0882d70a3b61cce0fa1b2dba2ac5126920ad29",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.14484217749313816,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "92d14215801782fa5618711a295cba798da681f705cd8d7907531dcba3e201e1",
+      "pixel_sha256": "dace1623fe5c10039ae5b7989b0882d70a3b61cce0fa1b2dba2ac5126920ad29",
+      "axis_candidates_deg": {
+        "original": -2.797145210283953,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1784882231341722,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "92d14215801782fa5618711a295cba798da681f705cd8d7907531dcba3e201e1",
+      "pixel_sha256": "dace1623fe5c10039ae5b7989b0882d70a3b61cce0fa1b2dba2ac5126920ad29",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.14484217749313816,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "99d1123c95c58399a664adbbd2b9afab25e973836c2d020ad74f8c44b215f63d",
+      "pixel_sha256": "dace1623fe5c10039ae5b7989b0882d70a3b61cce0fa1b2dba2ac5126920ad29",
+      "axis_candidates_deg": {
+        "original": -2.797145210283953,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1784882231341722,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "99d1123c95c58399a664adbbd2b9afab25e973836c2d020ad74f8c44b215f63d",
+      "pixel_sha256": "dace1623fe5c10039ae5b7989b0882d70a3b61cce0fa1b2dba2ac5126920ad29",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.14484217749313816,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "da465da86bb8e1d106e81bd8bcfffd0259a100cfddc1a50f28b91febafdfce48",
+      "pixel_sha256": "f1c9f2178251059ce2dbaab75766b4c39070b613d75ad36ce028fca644977431",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 5.829080963404303
+      },
+      "polarity_prediction_dice": 0.1860495678894779,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "da465da86bb8e1d106e81bd8bcfffd0259a100cfddc1a50f28b91febafdfce48",
+      "pixel_sha256": "f1c9f2178251059ce2dbaab75766b4c39070b613d75ad36ce028fca644977431",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.18465896847584942,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "98c56bcff44c48375f76c1dda94b3fe435cd19c79bbc8dc3806fef21ae40cf8f",
+      "pixel_sha256": "6851e7220f16231b43c3592b5761d6a3d1b4481208510f752af27d6c8aeeee2d",
+      "axis_candidates_deg": {
+        "original": 9.919899250884487,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15389225633292966,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "98c56bcff44c48375f76c1dda94b3fe435cd19c79bbc8dc3806fef21ae40cf8f",
+      "pixel_sha256": "6851e7220f16231b43c3592b5761d6a3d1b4481208510f752af27d6c8aeeee2d",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.28980496645512993,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "7a61ff5f83bd24c97568b495a8dd1e6f0e9dc2349593e237bb9791459413de42",
+      "pixel_sha256": "6851e7220f16231b43c3592b5761d6a3d1b4481208510f752af27d6c8aeeee2d",
+      "axis_candidates_deg": {
+        "original": 9.919899250884487,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15389225633292966,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "7a61ff5f83bd24c97568b495a8dd1e6f0e9dc2349593e237bb9791459413de42",
+      "pixel_sha256": "6851e7220f16231b43c3592b5761d6a3d1b4481208510f752af27d6c8aeeee2d",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.28980496645512993,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "ba4472a98be4cd2f02b345855079155e66d0bede8cd54b0ee36374cd58f1ff39",
+      "pixel_sha256": "6851e7220f16231b43c3592b5761d6a3d1b4481208510f752af27d6c8aeeee2d",
+      "axis_candidates_deg": {
+        "original": 9.919899250884487,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15389225633292966,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "ba4472a98be4cd2f02b345855079155e66d0bede8cd54b0ee36374cd58f1ff39",
+      "pixel_sha256": "6851e7220f16231b43c3592b5761d6a3d1b4481208510f752af27d6c8aeeee2d",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.28980496645512993,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "acfbe92b95d57968e8f9ead6ff0b58286228fe4f62a720f09692b0f0e306fa03",
+      "pixel_sha256": "c6d474b1e3fa1bd1a405c7eaa1aeaef9dc04e1da67ec0764e8c7710747c70b23",
+      "axis_candidates_deg": {
+        "original": -1.582972430185994,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.301833281894533,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "acfbe92b95d57968e8f9ead6ff0b58286228fe4f62a720f09692b0f0e306fa03",
+      "pixel_sha256": "c6d474b1e3fa1bd1a405c7eaa1aeaef9dc04e1da67ec0764e8c7710747c70b23",
+      "axis_candidates_deg": {
+        "original": -2.662717140759684,
+        "inverted": 0.42151904299056525
+      },
+      "polarity_prediction_dice": 0.32534734217216266,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "15bedfa6e5cf85460175c56327e20072cdd383cbac64acf8b39bc419bf4c9158",
+      "pixel_sha256": "2e079ec6c4b4fc082859b27ed3d4b09c1840acc217906af15a35030b46f52369",
+      "axis_candidates_deg": {
+        "original": -1.2400345929499326,
+        "inverted": -0.051444183792099626
+      },
+      "polarity_prediction_dice": 0.20475220786913378,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "15bedfa6e5cf85460175c56327e20072cdd383cbac64acf8b39bc419bf4c9158",
+      "pixel_sha256": "2e079ec6c4b4fc082859b27ed3d4b09c1840acc217906af15a35030b46f52369",
+      "axis_candidates_deg": {
+        "original": 1.141629142101874,
+        "inverted": 17.539531026854746
+      },
+      "polarity_prediction_dice": 0.24388993884259352,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "fffaa2f0bc8baf5dfcf98c725c5c801c7054077cd7c0beedc8ffe33fc59af558",
+      "pixel_sha256": "b2ef25a5d5afe313737dbdfd7c488758fd6f1cc373715887c2a5a31f1657c911",
+      "axis_candidates_deg": {
+        "original": -2.098937759709348,
+        "inverted": 6.957193877041794
+      },
+      "polarity_prediction_dice": 0.23203462976229286,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "fffaa2f0bc8baf5dfcf98c725c5c801c7054077cd7c0beedc8ffe33fc59af558",
+      "pixel_sha256": "b2ef25a5d5afe313737dbdfd7c488758fd6f1cc373715887c2a5a31f1657c911",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1214990663335383,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "3c0cc6c07e1349742b00e8bab66860749c836dc63ade1a18fb36f2f6a173e118",
+      "pixel_sha256": "6975c7e897a547a9d76e7d758c33ff03b7852ada25d46406721e7566629ae158",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07966929725667042,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "3c0cc6c07e1349742b00e8bab66860749c836dc63ade1a18fb36f2f6a173e118",
+      "pixel_sha256": "6975c7e897a547a9d76e7d758c33ff03b7852ada25d46406721e7566629ae158",
+      "axis_candidates_deg": {
+        "original": 39.73168182656778,
+        "inverted": 24.988951221601475
+      },
+      "polarity_prediction_dice": 0.034765861061091446,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "4b37dbfe4a28657c9198ff4ee8a9bf4283def427ad03b2482f0a3306835651c8",
+      "pixel_sha256": "6975c7e897a547a9d76e7d758c33ff03b7852ada25d46406721e7566629ae158",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07966929725667042,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "4b37dbfe4a28657c9198ff4ee8a9bf4283def427ad03b2482f0a3306835651c8",
+      "pixel_sha256": "6975c7e897a547a9d76e7d758c33ff03b7852ada25d46406721e7566629ae158",
+      "axis_candidates_deg": {
+        "original": 39.73168182656778,
+        "inverted": 24.988951221601475
+      },
+      "polarity_prediction_dice": 0.034765861061091446,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "5ad0153a4700ad5aed35f13fe230d282db9e46f96a248f2b46e3c2a18821a67b",
+      "pixel_sha256": "6975c7e897a547a9d76e7d758c33ff03b7852ada25d46406721e7566629ae158",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07966929725667042,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "5ad0153a4700ad5aed35f13fe230d282db9e46f96a248f2b46e3c2a18821a67b",
+      "pixel_sha256": "6975c7e897a547a9d76e7d758c33ff03b7852ada25d46406721e7566629ae158",
+      "axis_candidates_deg": {
+        "original": 39.73168182656778,
+        "inverted": 24.988951221601475
+      },
+      "polarity_prediction_dice": 0.034765861061091446,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "8a922baf4ee65adbc945407d5721667f6dd79f291bcb03a7b4a63e083bc73af7",
+      "pixel_sha256": "e2c45132fa21d821c849c723255b4cacaee7d02939cff88b295b5a531e566654",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 4.678290427854315
+      },
+      "polarity_prediction_dice": 0.2613402330642167,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "8a922baf4ee65adbc945407d5721667f6dd79f291bcb03a7b4a63e083bc73af7",
+      "pixel_sha256": "e2c45132fa21d821c849c723255b4cacaee7d02939cff88b295b5a531e566654",
+      "axis_candidates_deg": {
+        "original": 30.306403804433078,
+        "inverted": 5.6532208311411
+      },
+      "polarity_prediction_dice": 0.2455654983390944,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "396b2fa3761b92e85e19ee9da2251ce101763f29eb46cd0239eef69befd851d5",
+      "pixel_sha256": "e2c45132fa21d821c849c723255b4cacaee7d02939cff88b295b5a531e566654",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 4.678290427854315
+      },
+      "polarity_prediction_dice": 0.2613402330642167,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "396b2fa3761b92e85e19ee9da2251ce101763f29eb46cd0239eef69befd851d5",
+      "pixel_sha256": "e2c45132fa21d821c849c723255b4cacaee7d02939cff88b295b5a531e566654",
+      "axis_candidates_deg": {
+        "original": 30.306403804433078,
+        "inverted": 5.6532208311411
+      },
+      "polarity_prediction_dice": 0.2455654983390944,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "db94dc987eb8364628d3c4cc4070167bead3aa43d206ff50ab6f94618656fb56",
+      "pixel_sha256": "1f78c63e34c9bcbda41f7bbd8b8a9264a6fad83cab8bf6acb568ee41af72c456",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -6.380629363801463
+      },
+      "polarity_prediction_dice": 0.030675200369024967,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "db94dc987eb8364628d3c4cc4070167bead3aa43d206ff50ab6f94618656fb56",
+      "pixel_sha256": "1f78c63e34c9bcbda41f7bbd8b8a9264a6fad83cab8bf6acb568ee41af72c456",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.0,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "21cd3a585a2e23c1ea5157f55affb4d9cdbdcdb2cd44d60f0721a54446fd10c8",
+      "pixel_sha256": "1f78c63e34c9bcbda41f7bbd8b8a9264a6fad83cab8bf6acb568ee41af72c456",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -6.380629363801463
+      },
+      "polarity_prediction_dice": 0.030675200369024967,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "21cd3a585a2e23c1ea5157f55affb4d9cdbdcdb2cd44d60f0721a54446fd10c8",
+      "pixel_sha256": "1f78c63e34c9bcbda41f7bbd8b8a9264a6fad83cab8bf6acb568ee41af72c456",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.0,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "07139888515ed322f47884cafcfb3b18019504b6d0bde2846bbce7442c68b621",
+      "pixel_sha256": "a5df06a86bdbd5a62678bd9dae377afb08f66aee3a471c451c8764189b9ee5ef",
+      "axis_candidates_deg": {
+        "original": -9.43265994080369,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1485024105036414,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "07139888515ed322f47884cafcfb3b18019504b6d0bde2846bbce7442c68b621",
+      "pixel_sha256": "a5df06a86bdbd5a62678bd9dae377afb08f66aee3a471c451c8764189b9ee5ef",
+      "axis_candidates_deg": {
+        "original": -15.408703291453078,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07476001163579947,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "32b72e86e6a0e2236b54036ac2ff5a1796a183f112d44502aa5c9fbd90cffc1b",
+      "pixel_sha256": "a5df06a86bdbd5a62678bd9dae377afb08f66aee3a471c451c8764189b9ee5ef",
+      "axis_candidates_deg": {
+        "original": -9.43265994080369,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1485024105036414,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "32b72e86e6a0e2236b54036ac2ff5a1796a183f112d44502aa5c9fbd90cffc1b",
+      "pixel_sha256": "a5df06a86bdbd5a62678bd9dae377afb08f66aee3a471c451c8764189b9ee5ef",
+      "axis_candidates_deg": {
+        "original": -15.408703291453078,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07476001163579947,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "4ab4fe687f010200801e4672376ee059e9d5b2e131957992c5d2c0186d7be951",
+      "pixel_sha256": "1dd45ead4854d4c45c477e9b4f3883987e37880d9bffd9263300a07a81a76c03",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.36567229745821056,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "4ab4fe687f010200801e4672376ee059e9d5b2e131957992c5d2c0186d7be951",
+      "pixel_sha256": "1dd45ead4854d4c45c477e9b4f3883987e37880d9bffd9263300a07a81a76c03",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.4297157407572625,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "d9aebc78f74ac59e4a08f5be61f07ae7914763a0408691e89540b703601afcd1",
+      "pixel_sha256": "1d1bea6e7f908ef2fa188a6605891cce21ec2391320420adaf0be7426de26467",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2622617485680688,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "d9aebc78f74ac59e4a08f5be61f07ae7914763a0408691e89540b703601afcd1",
+      "pixel_sha256": "1d1bea6e7f908ef2fa188a6605891cce21ec2391320420adaf0be7426de26467",
+      "axis_candidates_deg": {
+        "original": 6.647186206596154,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.19915167064447964,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "985d631c05fb61a61d792c1c00e63b03c293aa8d1e5d1b9c1f69a592abec7db0",
+      "pixel_sha256": "7115fbeff04625489b5d015037ed14ef3d6be5ba3065bf5e476bb1bc92cf1137",
+      "axis_candidates_deg": {
+        "original": -2.9363774676904724,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.27038739619541285,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "985d631c05fb61a61d792c1c00e63b03c293aa8d1e5d1b9c1f69a592abec7db0",
+      "pixel_sha256": "7115fbeff04625489b5d015037ed14ef3d6be5ba3065bf5e476bb1bc92cf1137",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.17696348346878607,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "38c70fc0dfda1a14b557685bb83ec5b39223192835c023b7ed8016f389ccee62",
+      "pixel_sha256": "7115fbeff04625489b5d015037ed14ef3d6be5ba3065bf5e476bb1bc92cf1137",
+      "axis_candidates_deg": {
+        "original": -2.9363774676904724,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.27038739619541285,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "38c70fc0dfda1a14b557685bb83ec5b39223192835c023b7ed8016f389ccee62",
+      "pixel_sha256": "7115fbeff04625489b5d015037ed14ef3d6be5ba3065bf5e476bb1bc92cf1137",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.17696348346878607,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "8d94443d002d5cffa5ad6b4ebe83d3c40e6bde9fd4b6ca2cb2553ae6d6918fef",
+      "pixel_sha256": "7115fbeff04625489b5d015037ed14ef3d6be5ba3065bf5e476bb1bc92cf1137",
+      "axis_candidates_deg": {
+        "original": -2.9363774676904724,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.27038739619541285,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "8d94443d002d5cffa5ad6b4ebe83d3c40e6bde9fd4b6ca2cb2553ae6d6918fef",
+      "pixel_sha256": "7115fbeff04625489b5d015037ed14ef3d6be5ba3065bf5e476bb1bc92cf1137",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.17696348346878607,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "838557b5b98d16dfabf9eb7db54933f0daaea3c5369b9ebe094d60c4dd5ef7dc",
+      "pixel_sha256": "ee1b63e8b78e4347f7852452ed7a6dfc44dad01e1472c9f9135878c831193bf0",
+      "axis_candidates_deg": {
+        "original": -9.55299264997106,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.15706998378131057,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "838557b5b98d16dfabf9eb7db54933f0daaea3c5369b9ebe094d60c4dd5ef7dc",
+      "pixel_sha256": "ee1b63e8b78e4347f7852452ed7a6dfc44dad01e1472c9f9135878c831193bf0",
+      "axis_candidates_deg": {
+        "original": -15.473217482095514,
+        "inverted": -5.132695046759414
+      },
+      "polarity_prediction_dice": 0.12370237273381603,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "49d72af5028537d6c7e6dc303daef05adca441e57962f2838b642618c1704b08",
+      "pixel_sha256": "a521f376012eaacf5cb9e9e188c75a7b23604cd47ce12f69c2921eedff03bde6",
+      "axis_candidates_deg": {
+        "original": -7.179033475165973,
+        "inverted": 18.992824525962277
+      },
+      "polarity_prediction_dice": 0.19863608656301995,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "49d72af5028537d6c7e6dc303daef05adca441e57962f2838b642618c1704b08",
+      "pixel_sha256": "a521f376012eaacf5cb9e9e188c75a7b23604cd47ce12f69c2921eedff03bde6",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 8.435311949306396
+      },
+      "polarity_prediction_dice": 0.1614586601471384,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "083e6f32f35c9898decbaa756cfbbb4bc68fa83cd89b3ba340b52a7b645e8594",
+      "pixel_sha256": "1f32ec8f43dc943146973d471d77ba2d314e376e12069790cdad19d9b4c08622",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.166870990717697,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "083e6f32f35c9898decbaa756cfbbb4bc68fa83cd89b3ba340b52a7b645e8594",
+      "pixel_sha256": "1f32ec8f43dc943146973d471d77ba2d314e376e12069790cdad19d9b4c08622",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.13532980426438004,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "e4f7aada89427d12ecd0d01593cf463445762215b24d5e621d598374b28bc162",
+      "pixel_sha256": "03308b1bfaf49a413bc05425ee2cf613127c07f61d27eefe76b071ed7d46af4f",
+      "axis_candidates_deg": {
+        "original": 9.41952008603829,
+        "inverted": 8.123168067830953
+      },
+      "polarity_prediction_dice": 0.2798899207065609,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "e4f7aada89427d12ecd0d01593cf463445762215b24d5e621d598374b28bc162",
+      "pixel_sha256": "03308b1bfaf49a413bc05425ee2cf613127c07f61d27eefe76b071ed7d46af4f",
+      "axis_candidates_deg": {
+        "original": 10.293997757300511,
+        "inverted": 9.25212160452498
+      },
+      "polarity_prediction_dice": 0.3533016905976994,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "544f1d5f4689d0d8f83989179470c29d98fd2fb7c9d2e0dc8d874df12066c2e1",
+      "pixel_sha256": "fbd0184157ebe3f022a4c36fb140e5ff661b07f4b8b700ad9a7f48ca713e3fc1",
+      "axis_candidates_deg": {
+        "original": 11.67754725782258,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.18411846652954172,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "544f1d5f4689d0d8f83989179470c29d98fd2fb7c9d2e0dc8d874df12066c2e1",
+      "pixel_sha256": "fbd0184157ebe3f022a4c36fb140e5ff661b07f4b8b700ad9a7f48ca713e3fc1",
+      "axis_candidates_deg": {
+        "original": -0.22932834498761379,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.06297145389714981,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "a72fd24e56f8e92ea6ecda971c425c9798407c9d7717523359e23333e8d9f010",
+      "pixel_sha256": "fbd0184157ebe3f022a4c36fb140e5ff661b07f4b8b700ad9a7f48ca713e3fc1",
+      "axis_candidates_deg": {
+        "original": 11.67754725782258,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.18411846652954172,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "a72fd24e56f8e92ea6ecda971c425c9798407c9d7717523359e23333e8d9f010",
+      "pixel_sha256": "fbd0184157ebe3f022a4c36fb140e5ff661b07f4b8b700ad9a7f48ca713e3fc1",
+      "axis_candidates_deg": {
+        "original": -0.22932834498761379,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.06297145389714981,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "0419a123fcab3b7383b888a746c4e4b6a8e4eb0f8e40f62729b482d8cc32b4c3",
+      "pixel_sha256": "0ba87ba4957862d14794f284ffce3e7284aaabb0986808c87349510bf48d20dd",
+      "axis_candidates_deg": {
+        "original": 4.361264870249059,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.14314797286745934,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "0419a123fcab3b7383b888a746c4e4b6a8e4eb0f8e40f62729b482d8cc32b4c3",
+      "pixel_sha256": "0ba87ba4957862d14794f284ffce3e7284aaabb0986808c87349510bf48d20dd",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1018341786188217,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "5187a56d548d9a1f6327e2e0b9171245c867df875ede6c1c28e7fffe80864cb6",
+      "pixel_sha256": "ef2e3d247a93bc1cd67f7d44f023898ec2fbdcccefe308bd765dc22c4665bad8",
+      "axis_candidates_deg": {
+        "original": 7.063478954618522,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2547870081886249,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "5187a56d548d9a1f6327e2e0b9171245c867df875ede6c1c28e7fffe80864cb6",
+      "pixel_sha256": "ef2e3d247a93bc1cd67f7d44f023898ec2fbdcccefe308bd765dc22c4665bad8",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07086868135868442,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "155d8e09bbc3ba317754ce177be78310cc8cf5d92b937474adb29acfa43d8627",
+      "pixel_sha256": "da97fcfc654fe6f7912aeba96a6a648c6ea64553b1d9b8fa6a875055a8b7cc9f",
+      "axis_candidates_deg": {
+        "original": -0.6267307731907257,
+        "inverted": -11.97358835492787
+      },
+      "polarity_prediction_dice": 0.33582087193545607,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "155d8e09bbc3ba317754ce177be78310cc8cf5d92b937474adb29acfa43d8627",
+      "pixel_sha256": "da97fcfc654fe6f7912aeba96a6a648c6ea64553b1d9b8fa6a875055a8b7cc9f",
+      "axis_candidates_deg": {
+        "original": -5.938466370057192,
+        "inverted": -8.764482323741708
+      },
+      "polarity_prediction_dice": 0.1498581179549951,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "e6430d244a69307f7b80fcdc5170bd1e24df85d18f16ca004c01cbd8ba8c0e88",
+      "pixel_sha256": "094c9cbeb964e14d20850e9c48ec4a00d4fcf00a24cd9a54018609645197164e",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": -16.57165974271545
+      },
+      "polarity_prediction_dice": 0.07087582445434262,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "e6430d244a69307f7b80fcdc5170bd1e24df85d18f16ca004c01cbd8ba8c0e88",
+      "pixel_sha256": "094c9cbeb964e14d20850e9c48ec4a00d4fcf00a24cd9a54018609645197164e",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.12357493754999681,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "1b650e9b8cafa60e65ff852f944a0cda6a20ba75356465e4b4e355493de8fb6d",
+      "pixel_sha256": "59d6dbcb3cc7308c4f57ba6f811a249e8d3040df13092b75cda74fa505b1b626",
+      "axis_candidates_deg": {
+        "original": -25.2592643620528,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07265924675686243,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "1b650e9b8cafa60e65ff852f944a0cda6a20ba75356465e4b4e355493de8fb6d",
+      "pixel_sha256": "59d6dbcb3cc7308c4f57ba6f811a249e8d3040df13092b75cda74fa505b1b626",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.051066002808630155,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "2d4956fbe541a04aaa334e9b90bca145e00278051508dd622aed4845fdaca3e8",
+      "pixel_sha256": "c116e7d87c8c3e98a9c5383ec6906e5975450b0d464856460ce9c53283f6439a",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2346831914986578,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "2d4956fbe541a04aaa334e9b90bca145e00278051508dd622aed4845fdaca3e8",
+      "pixel_sha256": "c116e7d87c8c3e98a9c5383ec6906e5975450b0d464856460ce9c53283f6439a",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2369053062169999,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "b3bce2649f15cb9bd0db1f856b0787ba5390eb322c501ced06de0e0231528ad1",
+      "pixel_sha256": "c116e7d87c8c3e98a9c5383ec6906e5975450b0d464856460ce9c53283f6439a",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2346831914986578,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "b3bce2649f15cb9bd0db1f856b0787ba5390eb322c501ced06de0e0231528ad1",
+      "pixel_sha256": "c116e7d87c8c3e98a9c5383ec6906e5975450b0d464856460ce9c53283f6439a",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2369053062169999,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "8f1159ddb36b20b8ff53bfc6b6d89984a5a02ef290516a153047de52e41a2e15",
+      "pixel_sha256": "99e1fb1d61a939c22ef464f240925d5dbd80a445e5b9d94259eab2cf771d90b0",
+      "axis_candidates_deg": {
+        "original": 0.8976308181193507,
+        "inverted": 34.29477400235525
+      },
+      "polarity_prediction_dice": 0.2606609871497788,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "8f1159ddb36b20b8ff53bfc6b6d89984a5a02ef290516a153047de52e41a2e15",
+      "pixel_sha256": "99e1fb1d61a939c22ef464f240925d5dbd80a445e5b9d94259eab2cf771d90b0",
+      "axis_candidates_deg": {
+        "original": 5.516938274908778,
+        "inverted": -2.4099850362746342
+      },
+      "polarity_prediction_dice": 0.103962691950943,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "f2cf1914ff1767d66912c0853486b9706b45de0046bac75574f6d5bc8fca90f7",
+      "pixel_sha256": "200d1950b9535ccacc4dc5d66ec427cfeaeb4aa9c4c6fc1dc72abe888f6da294",
+      "axis_candidates_deg": {
+        "original": 0.1418116934397313,
+        "inverted": 2.724130999139836
+      },
+      "polarity_prediction_dice": 0.5298112868520548,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "f2cf1914ff1767d66912c0853486b9706b45de0046bac75574f6d5bc8fca90f7",
+      "pixel_sha256": "200d1950b9535ccacc4dc5d66ec427cfeaeb4aa9c4c6fc1dc72abe888f6da294",
+      "axis_candidates_deg": {
+        "original": 0.6233864893427891,
+        "inverted": 1.7334651836684831
+      },
+      "polarity_prediction_dice": 0.31763807961485785,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "563fee76f51357fe73a24a2ed67b3995843e47d4d5a14140bbc7991efbd187cc",
+      "pixel_sha256": "b845768fcb60a0e6957795f7fe3b724862f4603f58aaf67c76a388207fa3be72",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07646349293372952,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "563fee76f51357fe73a24a2ed67b3995843e47d4d5a14140bbc7991efbd187cc",
+      "pixel_sha256": "b845768fcb60a0e6957795f7fe3b724862f4603f58aaf67c76a388207fa3be72",
+      "axis_candidates_deg": {
+        "original": -9.662227590700132,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.24479638773102202,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "1ca925b12e2eb22cb22f31f5f70dea44610fe163056f62ef9471cd916f676bc7",
+      "pixel_sha256": "631e0fa48191afb36c98d7d6d709b51e69a1569b1736a4d213cb0b80c2c55ba5",
+      "axis_candidates_deg": {
+        "original": 0.5646633720737212,
+        "inverted": 16.222187885646562
+      },
+      "polarity_prediction_dice": 0.35325953603906984,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "1ca925b12e2eb22cb22f31f5f70dea44610fe163056f62ef9471cd916f676bc7",
+      "pixel_sha256": "631e0fa48191afb36c98d7d6d709b51e69a1569b1736a4d213cb0b80c2c55ba5",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.12881124667479102,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "29b6bbdd605fd6114832d43d507b28d79287838cbfb6642340313ccac5e304ea",
+      "pixel_sha256": "631e0fa48191afb36c98d7d6d709b51e69a1569b1736a4d213cb0b80c2c55ba5",
+      "axis_candidates_deg": {
+        "original": 0.5646633720737212,
+        "inverted": 16.222187885646562
+      },
+      "polarity_prediction_dice": 0.35325953603906984,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "29b6bbdd605fd6114832d43d507b28d79287838cbfb6642340313ccac5e304ea",
+      "pixel_sha256": "631e0fa48191afb36c98d7d6d709b51e69a1569b1736a4d213cb0b80c2c55ba5",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.12881124667479102,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "c478fe16380b9ea93fc4944e048ff4838ed71da7ede411a714be2f3ccc6d4091",
+      "pixel_sha256": "631e0fa48191afb36c98d7d6d709b51e69a1569b1736a4d213cb0b80c2c55ba5",
+      "axis_candidates_deg": {
+        "original": 0.5646633720737212,
+        "inverted": 16.222187885646562
+      },
+      "polarity_prediction_dice": 0.35325953603906984,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "c478fe16380b9ea93fc4944e048ff4838ed71da7ede411a714be2f3ccc6d4091",
+      "pixel_sha256": "631e0fa48191afb36c98d7d6d709b51e69a1569b1736a4d213cb0b80c2c55ba5",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.12881124667479102,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "af156e3b1720da56a2b62338985b889e1e197dd770d99de8d639ac3bb0b8767f",
+      "pixel_sha256": "794516213732ca94b7230139400a15db8b31684d59d85d3a0bd232e6cb1eab55",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2018618148772628,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "af156e3b1720da56a2b62338985b889e1e197dd770d99de8d639ac3bb0b8767f",
+      "pixel_sha256": "794516213732ca94b7230139400a15db8b31684d59d85d3a0bd232e6cb1eab55",
+      "axis_candidates_deg": {
+        "original": 4.797956541968995,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.11079058163106191,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "1084f92c73061a5d2486cf8e6ecd963f8c1d91e6a12a250c6b3a8b5db9ec4598",
+      "pixel_sha256": "794516213732ca94b7230139400a15db8b31684d59d85d3a0bd232e6cb1eab55",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2018618148772628,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "1084f92c73061a5d2486cf8e6ecd963f8c1d91e6a12a250c6b3a8b5db9ec4598",
+      "pixel_sha256": "794516213732ca94b7230139400a15db8b31684d59d85d3a0bd232e6cb1eab55",
+      "axis_candidates_deg": {
+        "original": 4.797956541968995,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.11079058163106191,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "d0a13d5713ce5f98e4496dda59c432c91054b5a17650dcbd3eb387aba7a30d10",
+      "pixel_sha256": "f0fd62360cda0a7b0d3dc038ba4a214a1e92109fd5ee8798f784726784427f28",
+      "axis_candidates_deg": {
+        "original": 9.202458157519375,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.2691488028787924,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "d0a13d5713ce5f98e4496dda59c432c91054b5a17650dcbd3eb387aba7a30d10",
+      "pixel_sha256": "f0fd62360cda0a7b0d3dc038ba4a214a1e92109fd5ee8798f784726784427f28",
+      "axis_candidates_deg": {
+        "original": 3.6315515592054863,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.24948512399450298,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "2a4f80bda1d2afe1516825f751e0b325f4de48796484cc149782455dbcf27f5f",
+      "pixel_sha256": "f66ee3260748142e67e99fef7cc9e407464252bc85a30c8192cd0e9d97f2b2c2",
+      "axis_candidates_deg": {
+        "original": 2.706034811401679,
+        "inverted": 5.056147747953722
+      },
+      "polarity_prediction_dice": 0.16637945303318696,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "2a4f80bda1d2afe1516825f751e0b325f4de48796484cc149782455dbcf27f5f",
+      "pixel_sha256": "f66ee3260748142e67e99fef7cc9e407464252bc85a30c8192cd0e9d97f2b2c2",
+      "axis_candidates_deg": {
+        "original": 13.191088224739456,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.07946428571428571,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "64ed52b2559a75d441271307a03ebefd8fca7cf56d3e79514740cff5ca0d1906",
+      "pixel_sha256": "6a0368d93d1074b48254d1630cf957d49992a810f2a510e0253616333949be33",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 11.258459255649553
+      },
+      "polarity_prediction_dice": 0.09725042947585796,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "64ed52b2559a75d441271307a03ebefd8fca7cf56d3e79514740cff5ca0d1906",
+      "pixel_sha256": "6a0368d93d1074b48254d1630cf957d49992a810f2a510e0253616333949be33",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.03812962374055442,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "beb5148723b09b2329286e277dd81086732581973cb0db93f369a2bc680f67d7",
+      "pixel_sha256": "6a0368d93d1074b48254d1630cf957d49992a810f2a510e0253616333949be33",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": 11.258459255649553
+      },
+      "polarity_prediction_dice": 0.09725042947585796,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "beb5148723b09b2329286e277dd81086732581973cb0db93f369a2bc680f67d7",
+      "pixel_sha256": "6a0368d93d1074b48254d1630cf957d49992a810f2a510e0253616333949be33",
+      "axis_candidates_deg": {
+        "original": null,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.03812962374055442,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "1c87d8e9b33dd0a70f181f8f08fc93f9c8e6f21a0e4ed57a9acc144c5d94813b",
+      "pixel_sha256": "320d9e16a60b7caef46e10278820e438aa261beb828da68c97950f0067625b79",
+      "axis_candidates_deg": {
+        "original": -2.594288866518716,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1656766195132357,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "1c87d8e9b33dd0a70f181f8f08fc93f9c8e6f21a0e4ed57a9acc144c5d94813b",
+      "pixel_sha256": "320d9e16a60b7caef46e10278820e438aa261beb828da68c97950f0067625b79",
+      "axis_candidates_deg": {
+        "original": 13.905827618157959,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.015021459227467811,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "1b6010bb19a00d74c6f94cd2b1964bc92e7bcf4a9effe2eb7c38fe69269e96f5",
+      "pixel_sha256": "5c2897457a7341ea9042324875ae699bddc32f49ecbf4f8514b6b72086c75c80",
+      "axis_candidates_deg": {
+        "original": 2.0633151027285086,
+        "inverted": -10.903389721774026
+      },
+      "polarity_prediction_dice": 0.2948662817958409,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "1b6010bb19a00d74c6f94cd2b1964bc92e7bcf4a9effe2eb7c38fe69269e96f5",
+      "pixel_sha256": "5c2897457a7341ea9042324875ae699bddc32f49ecbf4f8514b6b72086c75c80",
+      "axis_candidates_deg": {
+        "original": 0.012864696078041029,
+        "inverted": -9.485245137322561
+      },
+      "polarity_prediction_dice": 0.2784261097131997,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "7487de18494bf107c78c5b4b44fe84fff2087f06b16217165daed364b0daeaa6",
+      "pixel_sha256": "ee5c35e899b25188043d0113c47c11e93553a6f0f0f449def7a06eaf86d0c15e",
+      "axis_candidates_deg": {
+        "original": 4.237233039272509,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.17611185222724268,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "7487de18494bf107c78c5b4b44fe84fff2087f06b16217165daed364b0daeaa6",
+      "pixel_sha256": "ee5c35e899b25188043d0113c47c11e93553a6f0f0f449def7a06eaf86d0c15e",
+      "axis_candidates_deg": {
+        "original": 2.7505463474411553,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1487344381029948,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "22b7a09cc4cbd468c803c3795e5f33f66419d4fafe2ce9fd0fe022e801180416",
+      "pixel_sha256": "ee5c35e899b25188043d0113c47c11e93553a6f0f0f449def7a06eaf86d0c15e",
+      "axis_candidates_deg": {
+        "original": 4.237233039272509,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.17611185222724268,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "22b7a09cc4cbd468c803c3795e5f33f66419d4fafe2ce9fd0fe022e801180416",
+      "pixel_sha256": "ee5c35e899b25188043d0113c47c11e93553a6f0f0f449def7a06eaf86d0c15e",
+      "axis_candidates_deg": {
+        "original": 2.7505463474411553,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1487344381029948,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "lumbar_refinement",
+      "source_sha256": "e47e0263d4f00b93772fc4261fc9f008d7134c4862436aeeecf84e16e6fec924",
+      "pixel_sha256": "ee5c35e899b25188043d0113c47c11e93553a6f0f0f449def7a06eaf86d0c15e",
+      "axis_candidates_deg": {
+        "original": 4.237233039272509,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.17611185222724268,
+      "clinical_accuracy": null
+    },
+    {
+      "model": "photometry_refinement",
+      "source_sha256": "e47e0263d4f00b93772fc4261fc9f008d7134c4862436aeeecf84e16e6fec924",
+      "pixel_sha256": "ee5c35e899b25188043d0113c47c11e93553a6f0f0f449def7a06eaf86d0c15e",
+      "axis_candidates_deg": {
+        "original": 2.7505463474411553,
+        "inverted": null
+      },
+      "polarity_prediction_dice": 0.1487344381029948,
+      "clinical_accuracy": null
+    }
+  ],
+  "models_sha256": {
+    "lumbar_refinement": "bd589c93f3eeb23ebd77b5702c3da4e81ca95987bf2ef9cd8af1fafb5cba4393",
+    "photometry_refinement": "7ccb7232168f1c8a170ec7b3ba76cbce7fd5fbbb929b8f538ed2889801653215"
+  },
+  "code_sha256": "07e719249f5944939a4873d881b7787ef400d8b414452a8fe66ac3e7853e59ae",
+  "limitations": [
+    "GE has no reference masks: axis availability and stability cannot establish numbering accuracy.",
+    "Published source holdouts have been inspected previously; this is not an independent confirmation.",
+    "AASCE image groups do not establish patient separation.",
+    "Inverted rasters are stress tests; DICOM decoding already normalizes polarity.",
+    "Source rows are selected by predicted region, not reference region; duplicate pixel counts are reported separately."
+  ]
+}

@@ -146,7 +146,7 @@ make verify
 - `backend/third_party/dxa_pointplacement/` — зафиксированные исходники upstream под Apache 2.0;
 - `src/types.ts` — единая доменная модель;
 - `src/styles.css` — токены, адаптивность, состояния и доступность;
-- `docs/API.md` — контракт для подключения ML-бэкенда.
+- `docs/LEGACY_API.md` — контракт для подключения ML-бэкенда.
 - `docs/HOLOGIC_APEX_INGEST.md` — безопасный ingest проприетарных Hologic P/R, формат данных и CLI.
 - `docs/WORLD_CLASS_METRICS.md` — полный протокол метрик, safety-gates, статистики и мониторинга;
 - `docs/metrics.registry.json` — машиночитаемый реестр primary и hard-gate метрик.
@@ -183,4 +183,4 @@ OSSEO_PSEUDONYM_KEY='secret-at-least-16-bytes' \
 детерминированно по `patientGroupId`, поэтому исследования одного пациента не
 попадают в разные части выборки.
 
-План доведения до конкурсной и клинической модели и таксономия ошибок описаны в [docs/COMPETITION_STRATEGY.md](docs/COMPETITION_STRATEGY.md). Полная система primary/secondary/monitoring метрик, safety-gates и статистический протокол находятся в [docs/WORLD_CLASS_METRICS.md](docs/WORLD_CLASS_METRICS.md). Логика безопасного сравнения — в [docs/LONGITUDINAL_ANALYSIS.md](docs/LONGITUDINAL_ANALYSIS.md), полный продуктовый backlog — в [docs/PRODUCT_ROADMAP.md](docs/PRODUCT_ROADMAP.md), контракт inference-сервиса — в [docs/API.md](docs/API.md).
+План доведения до конкурсной и клинической модели и таксономия ошибок описаны в [docs/COMPETITION_STRATEGY.md](docs/COMPETITION_STRATEGY.md). Полная система primary/secondary/monitoring метрик, safety-gates и статистический протокол находятся в [docs/WORLD_CLASS_METRICS.md](docs/WORLD_CLASS_METRICS.md). Логика безопасного сравнения — в [docs/LONGITUDINAL_ANALYSIS.md](docs/LONGITUDINAL_ANALYSIS.md), полный продуктовый backlog — в [docs/PRODUCT_ROADMAP.md](docs/PRODUCT_ROADMAP.md), контракт inference-сервиса — в [docs/LEGACY_API.md](docs/LEGACY_API.md).

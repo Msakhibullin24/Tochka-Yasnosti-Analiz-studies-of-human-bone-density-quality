@@ -88,8 +88,6 @@ class Review(BaseModel):
 
     def for_region(self, region: str):
         allowed = set(CRITERIA["spine" if region == "spine" else "hip"])
-        if region != "spine":
-            allowed.add("hip_metal_implant")
         if not set(self.violations) <= allowed:
             raise ValueError("violation does not belong to this anatomical region")
 

@@ -111,14 +111,27 @@ def evaluate(labels_path: Path, oof_path: Path, repeats: int = 1000) -> dict:
         pred = np.array([int(predicted[i] == 1 and official in rows[i]['violation_type'].split(';'))
                          for i in indexed])
         metrics = binary_metrics(y, pred)
+        criterion_scores = []
+        for i in indexed:
+            raw = rows[i].get('criterion_scores')
+            value = json.loads(raw).get(criterion) if raw else None
+            criterion_scores.append(value)
+        if criterion_scores and all(value is not None for value in criterion_scores):
+            values = np.asarray(criterion_scores, dtype=float)
+            if not np.isfinite(values).all() or ((values < 0) | (values > 1)).any():
+                raise ValueError('Criterion scores must be finite values in [0, 1]')
+            metrics = binary_metrics(y, pred, values)
+            metrics['ci95_study_bootstrap'] = cluster_ci(y, pred, studies[indexed], values, repeats)
+        else:
+            metrics['ci95_study_bootstrap'] = cluster_ci(y, pred, studies[indexed], repeats=repeats)
         metrics['official_type'] = official
-        metrics['ci95_study_bootstrap'] = cluster_ci(y, pred, studies[indexed], repeats=repeats)
         by_criterion[criterion] = metrics
     macro_f1 = float(np.mean([item['f1'] for item in by_criterion.values()]))
     untyped = sum(row['quality_pred'] == '1' and not row['violation_type'].strip() for row in rows)
     wrong_class_type = sum(row['quality_pred'] == '0' and bool(row['violation_type'].strip()) for row in rows)
     return {
         'protocol': 'one-repeat study-held-out OOF; fixed decisions from saved inference path',
+        'decision_versions': sorted({r.get('decision_version', 'legacy_unrecorded') for r in rows}),
         'labels_sha256': sha256(labels_path), 'predictions_sha256': sha256(oof_path),
         'labelled_images': len(rows), 'studies': len(fold_by_study), 'unlabelled_train_images_excluded': 3,
         'separate_test_dicom_without_labels': 3, 'bootstrap_resamples': repeats,
@@ -127,7 +140,7 @@ def evaluate(labels_path: Path, oof_path: Path, repeats: int = 1000) -> dict:
         'predicted_normal_with_type': wrong_class_type,
         'limitations': ['Internal cross-validation is not a closed or independent clinical test.',
                         'Saved OOF models differ from the already fitted shipped weights.',
-                        'Official type metrics use final text decisions; no per-type probability was saved, so type AUC is unavailable.',
+                        'Type F1 uses final text decisions; type AUC is available only when matching criterion scores were saved.',
                         'No patient identifier proves patient-disjoint folds.'],
     }
 

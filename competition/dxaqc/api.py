@@ -157,6 +157,7 @@ def ready():
             test.write(b"ready")
             test.flush()
         return {"ready": True, "version": __version__, "model": instance.bundle.meta,
+                "workflow_profile_id": instance.workflow_profile.get("profile_id") if instance.workflow_profile else None,
                 "specialist_qc": (None if instance.specialist is None else
                                   {'mode': 'shadow', 'affects_decision': False,
                                    'model_sha256': instance.specialist.metadata['model_sha256']}),
@@ -174,8 +175,8 @@ def ready():
 def catalog():
     from .model import CRITERIA, VIOLATION_RU
     return {"criteria": VIOLATION_RU, "regions": {"spine": list(CRITERIA["spine"]),
-            "hip_left": [*CRITERIA["hip"], "hip_metal_implant"],
-            "hip_right": [*CRITERIA["hip"], "hip_metal_implant"]}}
+            "hip_left": list(CRITERIA["hip"]),
+            "hip_right": list(CRITERIA["hip"])}}
 
 
 @app.post("/api/v1/batch")
@@ -526,7 +527,7 @@ def validation_report(job_id: str):
 
 @app.get("/api/v1/jobs/{job_id}/{name}")
 def job_file(job_id: str, name: str):
-    if name not in {"results.csv", "results.xlsx", "results_extended.csv", "submission.csv", "submission.xlsx", "submission_validation.json", "additional_series.zip", "summary.json"}:
+    if name not in {"results.csv", "results.xlsx", "results_extended.csv", "submission.csv", "submission.xlsx", "submission_validation.json", "requirements.json", "timing.json", "additional_series.zip", "summary.json"}:
         raise HTTPException(404, "unknown artefact")
     path = Path(_job(job_id)["out"]) / name
     if not path.exists():
@@ -550,6 +551,11 @@ async def analyze(file: UploadFile = File(...)):
             res["assessment"] = await asyncio.to_thread(image_assessment, img, res)
         except DicomReadError as exc:
             return JSONResponse({"processing_status": "Failure", "error_code": exc.code, "error_message": str(exc)}, 422)
+        except Exception as exc:
+            import logging
+            logging.getLogger(__name__).exception('Single-image analysis failed')
+            return JSONResponse({"processing_status": "Failure", "error_code": "INTERNAL_ERROR",
+                                 "error_message": f"{type(exc).__name__}: {exc}"[:300]}, 500)
     res.pop("overlay", None)
     return json.loads(json.dumps({"processing_status": "Success", "study_uid": img.study_uid,
                                   "image_uid": img.image_uid, **res}, default=float).replace("NaN", "null"))

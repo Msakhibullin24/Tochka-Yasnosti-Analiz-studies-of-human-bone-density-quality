@@ -1,0 +1,162 @@
+{
+  "profile_id": "no-new-labels-20260926-v2-lumbar-candidate",
+  "profile_sha256": "9ffaea4b3e89962027f2767e7242c20da771691cd23c07a34c17f2ba33d40339",
+  "clinical_validation": false,
+  "container_summary": {
+    "version": "1.10.0",
+    "submission_available": true,
+    "submission_valid": true,
+    "files": 499,
+    "success": 499,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 157,
+    "cancelled": false,
+    "studies": 100,
+    "max_seconds_per_study": 5.214,
+    "mean_seconds_per_image": 0.5833,
+    "total_seconds": 299.38,
+    "process_peak_rss_bytes": 501596160,
+    "cpu_count_visible": 12,
+    "typification_complete": true,
+    "anatomical_checks_complete": false,
+    "untyped_violations": 0,
+    "requirements_complete": false,
+    "max_seconds_per_study_upper_bound": 13.509673263999868,
+    "profile_id": "no-new-labels-20260926-v2-lumbar-candidate"
+  },
+  "quality_predictions_unchanged_vs_v1": {
+    "valid": true,
+    "profile": "competition_v2",
+    "errors": [],
+    "warnings": [
+      "Input completeness not checked: provide an independent path manifest",
+      "Failure explanations not available in this table",
+      "Additional DICOM series not checked"
+    ],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 5.214099999999999,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "input_manifest_validation": {
+    "valid": true,
+    "profile": "working_report",
+    "errors": [],
+    "warnings": [
+      "Additional DICOM series not checked"
+    ],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 5.214099999999999,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "debug_sc_sr_validation": {
+    "valid": true,
+    "profile": "competition_v2",
+    "errors": [],
+    "warnings": [
+      "Input completeness not checked: provide an independent path manifest",
+      "Failure explanations not available in this table"
+    ],
+    "images": 3,
+    "success": 3,
+    "max_seconds_per_study": 2.9415,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "transfer_summary": {
+    "stage1": {
+      "annotated": {
+        "aasce/original/original": {
+          "mean_image_dice": 0.39341173304239974,
+          "images": 85
+        },
+        "aasce/original/inverted": {
+          "mean_image_dice": 0.12874978152360142,
+          "images": 85
+        },
+        "aasce/lumbar_crop/original": {
+          "mean_image_dice": 0.12028311354367634,
+          "images": 85
+        },
+        "aasce/lumbar_crop/inverted": {
+          "mean_image_dice": 0.023180382780352445,
+          "images": 85
+        },
+        "ramathibodi/original/original": {
+          "mean_image_dice": 0.8042597621245935,
+          "images": 2
+        },
+        "ramathibodi/original/inverted": {
+          "mean_image_dice": 0.3512795684656422,
+          "images": 2
+        }
+      },
+      "unlabelled_ge": {
+        "images": 166,
+        "axis_available": {
+          "original": 14,
+          "inverted": 9
+        },
+        "mean_polarity_prediction_dice": 0.011440380964920739,
+        "clinical_accuracy": null,
+        "unique_pixel_rasters": 99,
+        "unique_pixel_axis_available": {
+          "original": 8,
+          "inverted": 4
+        }
+      }
+    },
+    "lumbar_refinement": {
+      "annotated": {
+        "aasce/original/original": {
+          "mean_image_dice": 0.37773394635552743,
+          "images": 85
+        },
+        "aasce/original/inverted": {
+          "mean_image_dice": 0.1064513148660718,
+          "images": 85
+        },
+        "aasce/lumbar_crop/original": {
+          "mean_image_dice": 0.5026115022940223,
+          "images": 85
+        },
+        "aasce/lumbar_crop/inverted": {
+          "mean_image_dice": 0.464633635622762,
+          "images": 85
+        },
+        "ramathibodi/original/original": {
+          "mean_image_dice": 0.8892592283507149,
+          "images": 2
+        },
+        "ramathibodi/original/inverted": {
+          "mean_image_dice": 0.4032076522180459,
+          "images": 2
+        }
+      },
+      "unlabelled_ge": {
+        "images": 166,
+        "axis_available": {
+          "original": 90,
+          "inverted": 54
+        },
+        "mean_polarity_prediction_dice": 0.18533420370187895,
+        "clinical_accuracy": null,
+        "unique_pixel_rasters": 99,
+        "unique_pixel_axis_available": {
+          "original": 58,
+          "inverted": 36
+        }
+      }
+    }
+  },
+  "roi_curriculum": {
+    "spine_pairs": 40,
+    "hip_neck_pairs": 10,
+    "train_pairs": 40,
+    "test_pairs": 10,
+    "clinical_targets_known": false
+  },
+  "tests": "30 targeted tests passed, then 15 no-new-labels tests passed after deduplication guard",
+  "image_id": "sha256:c45f504b2d456a66697c8b0ba67987160ebd9d0e1db02541187c2b6941eb5472"
+}

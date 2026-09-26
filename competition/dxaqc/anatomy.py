@@ -175,6 +175,7 @@ def assess_projection(pixels, region, landmarks, declared=''):
 def evaluate_source_roi(source, landmarks, img, region):
     checks=[]
     for roi in source['rois']:
+        purpose = roi.get('purpose', 'unknown')
         x0,y0,x1,y1=roi['bounds'];h,w=img.pixels.shape
         sx=img.pixel_mm_x or img.pixel_mm
         edge='right' if region=='hip_left' else 'left'
@@ -188,10 +189,17 @@ def evaluate_source_roi(source, landmarks, img, region):
                 covered[item['name']]=None if not item['points'] else all(contains(roi,p) for p in item['points'])
         # Different clinical ROIs (neck-only, total hip, individual vertebrae) have
         # different inclusion rules. Report relationships without guessing intent.
-        checks.append({'roi_id':roi['id'], 'status':'needs_review', 'anatomical_validity':'undetermined',
+        relationships = []
+        if purpose == 'femoral_neck' and region != 'spine':
+            for name, expected in (('femoral_neck', True), ('greater_trochanter', False)):
+                relationships.append({'landmark': name, 'expected_inside': expected,
+                                      'candidate_inside': covered.get(name), 'status': 'undetermined',
+                                      'reason': 'Подтвердите ориентир; точка не заменяет контур структуры.'})
+        checks.append({'roi_id':roi['id'], 'purpose': purpose, 'status':'needs_review', 'anatomical_validity':'undetermined',
+                       'anatomical_relationships': relationships,
                        'candidate_landmarks_inside':covered,
                        'margins_mm':{k:round(v,3) for k,v in margins.items()} if region!='spine' else None,
-                       'margin_status':('pass' if all(margins[k]>=v-1e-8 for k,v in {'top':30,'bottom':30,'side':20}.items()) else 'fail') if known_scale and region!='spine' else 'unavailable',
+                       'margin_status':('pass' if all(margins[k]>=v-1e-8 for k,v in {'top':30,'bottom':30,'side':20}.items()) else 'fail') if known_scale and region!='spine' and purpose=='scan_coverage' else 'not_applicable' if purpose!='scan_coverage' else 'unavailable',
                        'scale_source':img.pixel_mm_source,'edge':edge,
                        'reason':'Назначение исходной ROI и анатомические ориентиры требуют подтверждения; попадание кандидатов не доказывает корректность разметки.'})
     return {'status':source['status'],'rois':source['rois'],'issues':source['issues'],'checks':checks}
@@ -244,18 +252,50 @@ def image_assessment(img, result):
                 stability = compare_hip_stability(result['anatomy_candidates'], shifted, result['features'],
                                                   shifted_measurement.features, img.pixel_mm,
                                                   img.pixel_mm_x or img.pixel_mm)
+            stability['scope'] = 'heuristic_geometry_only'
             result['anatomy_candidates']['stability'] = stability
             if stability['status'] == 'needs_review' and 'hip_geometry_unstable' not in result['review_reasons']:
                 result['review_reasons'].append('hip_geometry_unstable')
+        learned = result.get('learned_anatomy', {})
+        if learned.get('status') == 'evaluated':
+            by_name = {r['name']: r for r in learned['regions']}
+            if result['region'] == 'spine':
+                for item in result['anatomy_candidates']['landmarks']:
+                    if item['name'] == 'Th12':
+                        item.update(points=[by_name['Th12']['center']] if 'Th12' in by_name else [],
+                                    method='learned_named_vertebral_mask',
+                                    status='candidate' if 'Th12' in by_name else 'not_localized')
+                result['anatomy_candidates']['landmarks'].append({
+                    'name': 'numbered_vertebral_centers', 'points': [by_name[f'L{i}']['center'] for i in range(1,5) if f'L{i}' in by_name],
+                    'method': 'learned_named_mask_centers', 'status': 'candidate', 'verified': False})
+            elif 'femoral_neck_roi' in by_name:
+                for item in result['anatomy_candidates']['landmarks']:
+                    if item['name'] == 'femoral_neck':
+                        item.update(points=[by_name['femoral_neck_roi']['center']], status='candidate',
+                                    method='learned_vendor_neck_roi_center',
+                                    stability={'status': 'not_evaluated', 'reason': 'learned_mask_stability_not_tested'})
+            result['anatomy_candidates']['learned_model_sha256'] = learned['model_sha256']
         result['projection_pixels'] = assess_projection(img.pixels, result['region'], result['anatomy_candidates'])
     projection = {**result['projection_pixels'], 'declared_view_position': img.view_position}
+    if result.get('learned_projection') is not None:
+        projection = {**result['learned_projection'], 'declared_view_position': img.view_position,
+                      'heuristic_candidate': result['projection_pixels']}
+    from .requirements import image_checks
+    source_roi = evaluate_source_roi(img.source_roi, result['anatomy_candidates'], img, result['region'])
+    if result.get('learned_anatomy', {}).get('status') == 'evaluated':
+        from .anatomical_roi import compare_source_rois
+        source_roi['named_mask_comparison'] = compare_source_rois(
+            img.source_roi, result['learned_anatomy']['regions'], img.pixels.shape)
+    checks = image_checks(img, result, projection, source_roi)
     assessment = {'projection': projection, 'anatomy': result['anatomy_candidates'],
-            'source_roi': evaluate_source_roi(img.source_roi, result['anatomy_candidates'], img, result['region']),
-            'complete': False, 'version': '3'}
+            'source_roi': source_roi, 'checks': checks,
+            'complete': all(c['status'] in ('evaluated', 'not_applicable') for c in checks), 'version': '4'}
     if 'specialist_qc' in result:
         assessment['specialist_qc'] = result['specialist_qc']
     if 'specialist_outputs' in result:
         assessment['specialist_outputs'] = result['specialist_outputs']
+    if 'learned_anatomy' in result:
+        assessment['learned_anatomy'] = result['learned_anatomy']
     return assessment
 
 

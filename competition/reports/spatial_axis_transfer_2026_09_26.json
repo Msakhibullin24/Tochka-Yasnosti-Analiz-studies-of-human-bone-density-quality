@@ -1,0 +1,2685 @@
+{
+  "clinical_validation": false,
+  "release_modified": false,
+  "model_sha256": "c60454c5f05815ddbbbe0aeeed0e5fa59c9f36b751207092ca877689b74f0655",
+  "code_sha256": "ed3cb94cb793c6f5e75799c15506361a81967817c4af37df1e2bce7197249188",
+  "axis_limit_deg": 5.0,
+  "protocol": "Fixed 5-degree rule; L1-L4 physical x/y spacing; DXA ROI model never trained on organizer images",
+  "public_oof": {
+    "patients": 10,
+    "undetermined": 0,
+    "median_absolute_error_deg": 2.320390996849437,
+    "max_absolute_error_deg": 10.020831932850799,
+    "cases": [
+      {
+        "source_sha256": "a569e10c5f824dbed04451a0c8d89dbcfdd73e911c74832ab2429553bbeb0343",
+        "reference_roi_axis_deg": -0.6152296594790254,
+        "oof_candidate_axis_deg": -0.533413755631272,
+        "clinical_validation": false
+      },
+      {
+        "source_sha256": "6da2ea731fa67781c8848994c8a1d298ce35ec1e27a49c77357be27339e5761d",
+        "reference_roi_axis_deg": 2.411178611163091,
+        "oof_candidate_axis_deg": 3.6840218771070687,
+        "clinical_validation": false
+      },
+      {
+        "source_sha256": "1340978a67da4d0b4ff4c56fb06241dde598d5e38e1dc3c6aa8ff420763c29b7",
+        "reference_roi_axis_deg": 0.51760833532936,
+        "oof_candidate_axis_deg": 4.050051285189045,
+        "clinical_validation": false
+      },
+      {
+        "source_sha256": "fa2ad29352786376e4346a58de730a998eb98c77463cd43f7f62549052fb423d",
+        "reference_roi_axis_deg": 1.2997426014823723,
+        "oof_candidate_axis_deg": 4.2260178302723315,
+        "clinical_validation": false
+      },
+      {
+        "source_sha256": "106cd04579a8cebc336b93f43b8933cd9f4283748c1bfc593fa38a2738017f88",
+        "reference_roi_axis_deg": -1.424560693561482,
+        "oof_candidate_axis_deg": -11.44539262641228,
+        "clinical_validation": false
+      },
+      {
+        "source_sha256": "f5c1a88aee653f2832ef243e54e9c08ce6f4f4f7306d2ab84b0bc28ff60aae51",
+        "reference_roi_axis_deg": 2.2672783308894093,
+        "oof_candidate_axis_deg": 4.30921560814094,
+        "clinical_validation": false
+      },
+      {
+        "source_sha256": "95deb11d954eb9b42d06e2fa2c4f900e35a9d9716bf3bd725dc805be51f689f5",
+        "reference_roi_axis_deg": 3.719008041676509,
+        "oof_candidate_axis_deg": 1.1201633252291658,
+        "clinical_validation": false
+      },
+      {
+        "source_sha256": "cb8bb4d524250ef9149339132fa82ca66a4e7032be478fbc222648f0e7543c35",
+        "reference_roi_axis_deg": 5.502236380280431,
+        "oof_candidate_axis_deg": 8.567733110218905,
+        "clinical_validation": false
+      },
+      {
+        "source_sha256": "19e8df1fc8a68fdf0cf6d5ea3a91f1c77c2efb62b037d41bbffbad8563d74bb4",
+        "reference_roi_axis_deg": 0.936460725238534,
+        "oof_candidate_axis_deg": 0.20528948062657415,
+        "clinical_validation": false
+      },
+      {
+        "source_sha256": "1027c1296748c99ece0278dd9bd2f62d1302f32703fb2daedace434ba29fb908",
+        "reference_roi_axis_deg": 0.5345987134722292,
+        "oof_candidate_axis_deg": -0.9366179461528658,
+        "clinical_validation": false
+      }
+    ]
+  },
+  "organizer_axis_metrics": {
+    "n": 31,
+    "positives": 4,
+    "negatives": 27,
+    "tn_fp_fn_tp": [
+      14,
+      13,
+      2,
+      2
+    ],
+    "accuracy": 0.5161290322580645,
+    "precision": 0.13333333333333333,
+    "sensitivity": 0.5,
+    "specificity": 0.5185185185185185,
+    "f1": 0.21052631578947367,
+    "balanced_accuracy": 0.5092592592592593
+  },
+  "organizer_undetermined": 68,
+  "cases": [
+    {
+      "source_path": "1.2.840.113619.2.110.512719.20250403090444/series_004_3_CR/DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "5425b80b6807a24b981242f59428ba946c5c81f0527515be730272765da9b6fc",
+      "pixel_sha256": "56ad4aacfcff91ebd87a697ab40ed7eb257148b788d424a74ebd245fea0f07e1",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          26.19014136493206,
+          133.56136793587356
+        ],
+        [
+          4.469504859298468,
+          140.92162605272605
+        ],
+        [
+          153.57939396053553,
+          191.27097692955286
+        ],
+        [
+          155.70197966415435,
+          140.99370741378516
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "1.2.840.113619.2.110.512719.20250403092052/series_003_3_CR/DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "9d1afaeae434a67bb1dd1a3f7b48d7524523011d6cc254f9175fceb972bb09cb",
+      "pixel_sha256": "e0f9e102f359e379857c746bef855e85e898fe0fb062025e555099d01ded4a12",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.530589483692893,
+          313.9172409058636
+        ],
+        [
+          152.722331257537,
+          209.67390044946225
+        ],
+        [
+          153.90952352900058,
+          204.96845731325448
+        ],
+        [
+          153.4955123718828,
+          202.9440496634692
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "1.2.840.113619.2.110.512719.20250407113211/series_001_2_CR/DXA/CR DXA/CR000003.dcm",
+      "source_sha256": "941d0313187bf6836ab7b06908469ce93840bb02c1d6abe68ca24c88ea8952ea",
+      "pixel_sha256": "6fbbb0ee2636360bba8f492b60a69210c1a440072c455e44394a8e8ee1c7a603",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -0.8323818276069678,
+      "numbered_centers": [
+        [
+          154.78584243915975,
+          5.485181135404855
+        ],
+        [
+          139.78317210450768,
+          164.96132343783975
+        ],
+        [
+          152.01867165975273,
+          193.35967973610386
+        ],
+        [
+          151.8194339890033,
+          207.5802096155472
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.10245777060263212829333021434108890537/series_003_2_CR/A2504412435 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "cd044e4f0b5746f47ff354d0ef4ec853759ec79369cf3daf97f42e133b204fdd",
+      "pixel_sha256": "7b9332bd3916dda3cbbea33e1515ccd57894856c9347a42e48f2a0ec6c70234a",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -3.815673189851312,
+      "numbered_centers": [
+        [
+          161.25674206763506,
+          59.19932614937425
+        ],
+        [
+          149.59060232620686,
+          90.37087501538917
+        ],
+        [
+          147.6993269054219,
+          133.31670470503158
+        ],
+        [
+          146.90954329445958,
+          169.48579149730503
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.102755089973625799055786462646268820450/series_002_2_CR/A2504257770 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "866b85c526476c5095c1d782c1a050a0c2827448d016987eda54460269acd060",
+      "pixel_sha256": "dd972bae91d6de06d64bc3e0402212415b81e00a7d594a8401ff5d0ee75b7692",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.827270582318306,
+          175.78867671564223
+        ],
+        [
+          4.455662537366152,
+          175.84315220285208
+        ],
+        [
+          169.9987721722573,
+          161.41769648836924
+        ],
+        [
+          162.16870799660683,
+          233.439195129741
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.102965897799404973225419898683246248872/series_001_2_CR/A250726353 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "4617e647aa1cefd9f26328a134a978dad5744423661de7b09d72a1f2f7196efb",
+      "pixel_sha256": "0360deed5046b19b50c5f8758b6ef99f92717fa6abc2420a147a5be527f92121",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.935513947275467,
+          310.8584053951199
+        ],
+        [
+          4.329157856554957,
+          311.0163311261422
+        ],
+        [
+          155.44137379154563,
+          240.7949072951451
+        ],
+        [
+          167.7071421314031,
+          272.4128253296949
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.103868781101960771917584077315578649178/series_001_3_CR/A2507485409 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "9ea614cf44c6b19b8409fdf5b86838293fe2c454744779f901e1e596d56039b7",
+      "pixel_sha256": "260ed19b51c6497555dce7b6fac2d01237b98a838d12def48fcaccb55c8c14de",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          274.2567401798442,
+          4.167418205598369
+        ],
+        [
+          250.9213658887893,
+          23.984029099904003
+        ],
+        [
+          160.7466292195022,
+          45.4424185121432
+        ],
+        [
+          154.10761247389019,
+          26.59725388195366
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.105033841136787477881326326053319223817/series_001_2_CR/A250790559 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "0e09740c9898748293a3efc3b1bf9a14763c3413ebcb6fa82f6217fd9ea015e7",
+      "pixel_sha256": "8ba035f35da9fb5b8591d66ff8bed4fecd5f8815db4692868158c3c42248cd4c",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.320979490003083,
+          313.7896847477532
+        ],
+        [
+          151.51235279627144,
+          132.16861009374261
+        ],
+        [
+          153.38823594152927,
+          186.7289288252592
+        ],
+        [
+          152.3071753140539,
+          162.3071938784793
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.108537195937431169718850276671337677972/series_002_2_CR/A250479795 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "5179d78ae757b50cc540c2794569aa1b4bbd28f038faaf9610a6a491688dfd94",
+      "pixel_sha256": "dcdbb40ff5cb372a8f7208c149729280e1d84d0647317ee633d9f8839f3b27de",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.876365512609482,
+          155.53626840608194
+        ],
+        [
+          4.506618725135922,
+          155.43727010004224
+        ],
+        [
+          152.63902690261602,
+          104.67520892750473
+        ],
+        [
+          144.8163466528058,
+          236.77481486224568
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.11175860580562939441493697221497597640/series_003_2_CR/A2507431060 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "fe35fca5b68242062fe802f8f3437c5b6a7f51eba355ce88d0835bbfb2514cee",
+      "pixel_sha256": "995de81fe5e6848706a42532d01ec31e025269667dd1e00134daee3c59c1fa30",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 3.1803023487077033,
+      "numbered_centers": [
+        [
+          133.51767506450415,
+          73.79464752785861
+        ],
+        [
+          138.49734124727547,
+          83.62035322235897
+        ],
+        [
+          140.10521415621042,
+          104.88574639800936
+        ],
+        [
+          151.75859383307397,
+          239.59628871269524
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.112621744005021908434051268014787122937/series_002_2_CR/A2504301685 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "cab71857d4c46164b7b7201dd37016286e16f768c149991f0f9f4c5c00cdd26b",
+      "pixel_sha256": "d70393b397fa6c1cfdfa4e99f813cddf1cd098974c18f0d4eb7b0020897844dc",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          115.40067734196782,
+          18.51935795126483
+        ],
+        [
+          200.52872400730848,
+          5.630817506834864
+        ],
+        [
+          140.07652538828552,
+          133.73092625783758
+        ],
+        [
+          145.7883163355291,
+          128.29643509313465
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.114887542067602662452692698814728642117/series_001_2_CR/A2504131887 DXA/CR DXA/CR000004.dcm",
+      "source_sha256": "8b19503fff610e4d9e070239903a8ebb8b1c20c491f9fdaa67e88bf5140d91d7",
+      "pixel_sha256": "5ed88ae70c5d250410e41fe9266f452144d732dd9ab853fdf47605548cb85923",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.404543419368565,
+          203.53210201859474
+        ],
+        [
+          161.59903440624475,
+          195.0690702199936
+        ],
+        [
+          159.7621312737465,
+          212.5213898420334
+        ],
+        [
+          147.90413662791252,
+          236.40247517824173
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.116822802042655971810859435524105064465/series_003_2_CR/A2507273296 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "28d389e3806968a22a421b619a8a5ebb0b5ca4db95a773f3490b57995db2bacf",
+      "pixel_sha256": "c2e7c2f9d0dd96a32b69119809053fd3cea98622808247cedc2d2b42eba2a14e",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 0.6863361702803793,
+      "numbered_centers": [
+        [
+          154.4998616259545,
+          4.221251035295427
+        ],
+        [
+          147.50691208988428,
+          36.30847813747823
+        ],
+        [
+          160.49592638388276,
+          210.72151823826132
+        ],
+        [
+          152.64234292320907,
+          242.09145371820776
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.122446767306607067205618235949445789306/series_001_2_CR/A2504255080 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "5451b2d51a3530618215a04e874a51cd3ebc62307781e3683258479577907ed3",
+      "pixel_sha256": "c3a724822b47baff914e0e7d2c87af06fad4530e9f211f0231b073cfc762ccb8",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          131.8581595737487,
+          4.714012276008725
+        ],
+        [
+          152.235648650676,
+          202.77853635549545
+        ],
+        [
+          137.19619170762599,
+          58.8285950023681
+        ],
+        [
+          139.74537909496576,
+          61.3116027770564
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.123175695355749859846173904788591707879/series_001_2_CR/A250722449 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "87c4a14906b6f6e71673d3e9fa860f29b0ff67a00395a89004a11d2115728895",
+      "pixel_sha256": "9d3950472fa5196a8d76107395ca5b1bcd076487e6a0d22578b67333196ebf21",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.506731121000485,
+          285.2746324165331
+        ],
+        [
+          132.73133427836,
+          150.10003857058473
+        ],
+        [
+          139.604630805552,
+          177.60185202043502
+        ],
+        [
+          139.65841826051474,
+          142.3079581834376
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.124890633326693921702195356152595253940/series_002_2_CR/A2504263153 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "b3c1057558a5eb53e1b7f9eff717f168c6d6bc6c3f81bff0633f5ea590f81e87",
+      "pixel_sha256": "785e026712f6d620615f140b539c20b61ede1e0271867b0e3e972d0ee5f41d38",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.687112756073475,
+          183.77103174217044
+        ],
+        [
+          162.11113636381924,
+          189.31337538030928
+        ],
+        [
+          161.8280015140772,
+          153.55099915210158
+        ],
+        [
+          161.35869478806853,
+          149.89323380393907
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.125521310320333648427417313254965624364/series_001_2_CR/A250444126 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "324726fde33a0c4d454b2c3047e97b11956a53c914cfcd483071c540130beb61",
+      "pixel_sha256": "8e704ff027711b6a94b1154dc24802d1745e634c9d6867fe858587dee613b0d0",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          154.23592341248877,
+          3.54514283927856
+        ],
+        [
+          152.83284223638475,
+          49.28416718309745
+        ],
+        [
+          153.16147302277386,
+          161.1341019953601
+        ],
+        [
+          153.15378814470023,
+          159.70995403821578
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.126293418391331346694592071563510265596/series_002_3_CR/A2507250865 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "9a6809965bd9bef2229bd9c96afeb12744caa8d42919224537157d62dbb36c28",
+      "pixel_sha256": "e428be489472ea5b0ff39e32a8417bd4b9ca4b553cdbf054a8f69cd7274d8974",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.44792607426643,
+          193.1211469083093
+        ],
+        [
+          162.91301680728793,
+          178.3854224529117
+        ],
+        [
+          167.06203130073845,
+          187.55235964488236
+        ],
+        [
+          154.30306255817413,
+          201.92369641661645
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.127126130998341190348103034690069487890/series_002_2_CR/A250428736 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "5fde811774a829dab9e619cbdc6e204769095b548294ccfd9bc18785e2651fa1",
+      "pixel_sha256": "befb36959905d91575f7082f050d6f0b447a68681f548e7404d3edb9843644e5",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          34.06177282333374,
+          138.55844649430364
+        ],
+        [
+          145.93491752631962,
+          4.825455455249175
+        ],
+        [
+          139.80799762532115,
+          144.34675988517702
+        ],
+        [
+          138.11061752960086,
+          139.3265456309542
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.12798473087614376830819854616447908612/series_002_2_CR/A2507538847 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "8237138740effd403dcc895c7c3033b3e1ed0f0eea0a971e7dbbe741a7191687",
+      "pixel_sha256": "bd310da5a2874ef2741678154a90d7a282deb05ca51c82efa6b374558f77398b",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          146.03295726701617,
+          113.5294156294316
+        ],
+        [
+          145.7733448036015,
+          115.19667337518185
+        ],
+        [
+          133.3873871807009,
+          26.275298842415214
+        ],
+        [
+          151.82032275013626,
+          226.15001747701317
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.128197189461989832465575162384360009377/series_001_2_CR/A2507216909 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "344a810643c063bb41582bbab9cf9b09f80abe68cd47ade72cf069327cfa94a0",
+      "pixel_sha256": "fbf3b74894872db74011f83380d0a9f86ed055e8793ed675cdd4b8ae00c836c0",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.607496997341514,
+          194.25118866944683
+        ],
+        [
+          147.18382886610925,
+          192.47651880211197
+        ],
+        [
+          151.6259989212267,
+          192.76879882870708
+        ],
+        [
+          146.58872488886118,
+          200.6147015599534
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.128630285053087246379265602913470285158/series_003_2_CR/A2504394821 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "530ebba2a70e693b2867c4ccb53f0e3fae688bfd033810f9840732e301490e13",
+      "pixel_sha256": "623f0b8fe46c1239aefe723005f3633af73ccef4c1a319a29fee59ccfb70eda5",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 52.49186172541028,
+      "numbered_centers": [
+        [
+          4.703789362683892,
+          199.4612461188808
+        ],
+        [
+          154.24506646580994,
+          214.86236650422214
+        ],
+        [
+          160.6887193210423,
+          229.0471395432949
+        ],
+        [
+          155.04405012354255,
+          255.01953505687416
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.128990540359421489042453547244535073735/series_002_2_CR/A2507388698 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "d0c43244bab1f7aa4b2dd2d555e48d37914d928a9a550997b9795104b11a4719",
+      "pixel_sha256": "4695ad5b504c9d09111e75eb0023ef3d28756d009d6222327732277ff8ddb027",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          174.16682733222842,
+          106.63398140668869
+        ],
+        [
+          169.59084620699286,
+          108.15060216188431
+        ],
+        [
+          161.5636669099331,
+          202.47511047124863
+        ],
+        [
+          161.28939801827073,
+          202.3899523615837
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.13069823278093578548407087310307113784/series_003_2_CR/A2507242667 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "909d0c0ba28e7d9c38e3f3757e0e889d84c149199d783297264ca5ee45ea3b58",
+      "pixel_sha256": "8f1292d2c798972caa6405ac6fceb406d4e44445864765a58f912a8124a36641",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          145.02210080623627,
+          245.48524721981957
+        ],
+        [
+          146.78218211978674,
+          252.0460868488997
+        ],
+        [
+          153.97737739607692,
+          243.3067426139489
+        ],
+        [
+          153.65203270688653,
+          235.84224997814746
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.132083163398091874662674590622589534350/series_003_2_CR/A2507386583 DXA Exam/CR DXA Images/CR000001.dcm",
+      "source_sha256": "3283e152cbb0da2192db33ba798502383ec23c1171b4417a9272adab23a28212",
+      "pixel_sha256": "88faffc5e4482a10b2a60b292333483b6b9f4f32005c5194b579951e654eb193",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.2599251829088,
+          100.55694597959518
+        ],
+        [
+          295.9927297057584,
+          100.57498621195555
+        ],
+        [
+          125.55824247188866,
+          188.38129764795303
+        ],
+        [
+          125.67746325396001,
+          181.8218376636505
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.132272637351979990811754009849547633391/series_003_3_CR/A2504141080 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "81882e0bf3ac5ea70e1fc2a8b90eaa33ee3ef66005333e43d457af10acd239ea",
+      "pixel_sha256": "2a975a4fdb317ecd377e9b25142e080b280093cfa2f04a4230a234d5d1bb4f88",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.4240364235011,
+          285.31686241436694
+        ],
+        [
+          3.92944952970538,
+          285.33067568347667
+        ],
+        [
+          132.94346557930112,
+          175.57188892939595
+        ],
+        [
+          65.05102790688397,
+          285.27114663575196
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.13325817932854000792938662637654885530/series_002_2_CR/A2507365486 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "abb4956826ea8bc28f9299cd2f527e319cc1aa4aead081620bce6ecc1d873795",
+      "pixel_sha256": "9b32c7ee495a878b84dad013a99d82bb3c4241c9bbf1e532259a32469d71c256",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.676794954575598,
+          169.78586425567045
+        ],
+        [
+          146.31856916472316,
+          147.54256296940147
+        ],
+        [
+          152.68073371611536,
+          161.88581709144637
+        ],
+        [
+          153.3798794914037,
+          162.95437499815597
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.134456506307367483341018281460841912845/series_002_2_CR/A2507120612 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "552a6e9947b708783203419ed72013f058ffb03aac68a6ac1f14cfdbb0db1fb1",
+      "pixel_sha256": "9288e050697877014e72b85a790726e76daba41f6511f1d9ef45e3e5cd222d59",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -76.55371513398248,
+      "numbered_centers": [
+        [
+          294.83279186300933,
+          120.79629855137318
+        ],
+        [
+          251.72871205955744,
+          123.38891723379493
+        ],
+        [
+          169.97244715690613,
+          130.01724285352975
+        ],
+        [
+          167.34751221723855,
+          138.17098199995235
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.135241889065705954191821710363605596815/series_003_3_CR/A250715060 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "fdd4c5b43a338d9827f0544a99384cf957d31a57f2d6353f07c84c95ccae4bcc",
+      "pixel_sha256": "2182de8bcf3f98fce74761ea069db4e2b641730eb98f9a5a7107e41add62b91a",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          133.2122788578272,
+          6.405958803743124
+        ],
+        [
+          152.74325941689312,
+          186.61776910237967
+        ],
+        [
+          153.8871434982866,
+          142.0307562427595
+        ],
+        [
+          146.27294233068824,
+          280.7136714234948
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.13566237352084812982996047541944701548/series_002_2_CR/A2504268931 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "8da646d19ee2e4a8ef91a9e795b815e977804494e6213c2e10fdf92b89b64dcf",
+      "pixel_sha256": "461ce8c5784b713420d114c290c68ae72720927cfaaa016063a6842b3dcb5b2e",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          133.11142651364207,
+          131.40876057744026
+        ],
+        [
+          139.31133219972253,
+          139.82756805419922
+        ],
+        [
+          140.14749884605408,
+          147.69228276610374
+        ],
+        [
+          139.54857252538204,
+          114.8857005238533
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.137344827330550141320158285144101816664/series_003_3_CR/A2507146630 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "035bdd57320b92499d8392117921265b0eb1f6370b794380c70f7ff042c59f53",
+      "pixel_sha256": "792c50771f400b4d909a0479f55b95896d570a12b9c21cfdbf5eb123cfec9314",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          147.90540680056438,
+          4.175580449833069
+        ],
+        [
+          4.438406168483198,
+          194.4325266121421
+        ],
+        [
+          147.93234991841018,
+          176.56908316076732
+        ],
+        [
+          153.0922156199813,
+          107.62681352198123
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.137675513852774974135210999345676405116/series_001_2_CR/A2504106597 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "234c949057e905f9f1ec170391a3e8d6c4fcce6fe0bbb89d66f533244d4cd580",
+      "pixel_sha256": "6c4bb826080b375bddba1b84817f7163aa60f2f0fd0f23ce186e0292e5836aec",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          26.7226430028677,
+          201.85825395118445
+        ],
+        [
+          144.55623493529856,
+          5.083800760935992
+        ],
+        [
+          145.75605427846313,
+          209.19002970168367
+        ],
+        [
+          140.09990511462092,
+          114.29717367794365
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.13983650679559142983913935144968795415/series_003_2_CR/A2504335111 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "cde6edaa7c779247805fb20c5109e144dbacd72adf51228947b10be3be168c00",
+      "pixel_sha256": "770a0d85b0a4043878c7441250b3c4e812b92e5e330c662c78b090abb3b59673",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.105562169570476,
+          148.2627214799868
+        ],
+        [
+          153.20576422847807,
+          76.41720930309965
+        ],
+        [
+          152.78854569420218,
+          78.22030871482566
+        ],
+        [
+          144.32613805867732,
+          71.23108695130796
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.144941557565802351596730914409170713112/series_001_2_CR/A250728979 DXA/CR DXA/CR000006.dcm",
+      "source_sha256": "5061f7c4dbcd5339ced7bdc5fac8f9885f16709960985b9b799a364e4a7e339e",
+      "pixel_sha256": "7df5cdb7f2a8e2933dc62f880946be6e847a763ceae0ae16c572af3be3f1eaf1",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -28.023249429888793,
+      "numbered_centers": [
+        [
+          295.80553201027215,
+          93.09172582877801
+        ],
+        [
+          138.22501435875893,
+          165.82500457316638
+        ],
+        [
+          137.90104480460286,
+          180.7070094794035
+        ],
+        [
+          148.07940325699747,
+          251.4508384563029
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.145848300160680194368420189079847088556/series_002_2_CR/A2504248615 DXA Exam/CR DXA Images/CR000002.dcm",
+      "source_sha256": "c4ec907c668950ca9c0c84989745d75dcc180066776e75e684a54fa50af88b93",
+      "pixel_sha256": "5f54289575fa2719163a79ee99767eec044a555372e338339fdd7cd7e8924909",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.34798498265445,
+          219.42419716767037
+        ],
+        [
+          295.78729032553383,
+          285.23932445162643
+        ],
+        [
+          139.5190695952624,
+          168.99778304323556
+        ],
+        [
+          138.3371531870216,
+          196.52676613163203
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.151186844055172005615813066162721550889/series_002_2_CR/A250436130 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "71c8e351af310cf704da0b3b5e9491f03f5ec8f8b6f9e4e94e359d055eb9be6d",
+      "pixel_sha256": "bcfc296c95fd660fbe168c8321c5dd8fa40f124e328d83b42ee5118d841184d1",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.2755508944392,
+          219.3757669173181
+        ],
+        [
+          137.36484752967954,
+          31.443020121753218
+        ],
+        [
+          138.54653164744377,
+          54.02038218230009
+        ],
+        [
+          136.42209228593856,
+          219.73008766099812
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.156021661584944120526934974594604520993/series_003_2_CR/A2507142228 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "4362466fb7395f0c5dcd4bd6f379f30db78542e40eee3d290690894e438d38f7",
+      "pixel_sha256": "e4e8b0c79708c672efaf342f1dc4775fe37e38fb5cc12ca0844bb57e15138ff5",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.17309894785285,
+          208.40200711414218
+        ],
+        [
+          131.8059292808175,
+          223.6854090448469
+        ],
+        [
+          125.21828128024936,
+          115.82871767878532
+        ],
+        [
+          123.5702955443412,
+          106.45639814157039
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.156375884487675936513403083218009333856/series_003_2_CR/A250727121 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "44317343860e44f24ebab8b80d7d8dc19aa53cc0f4e8548566d02819f1fbcb84",
+      "pixel_sha256": "c39a14af2314a7d34b2fc1248dc56d0dba09831967971b80a8c05246120071cf",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 2.662381618240137,
+      "numbered_centers": [
+        [
+          137.90893839206547,
+          4.618675850937143
+        ],
+        [
+          138.11842303024605,
+          5.042183894314803
+        ],
+        [
+          155.9406895749271,
+          215.8312861280516
+        ],
+        [
+          155.15618179924786,
+          224.09981155442074
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.156389075510671877606923458507011517218/series_001_2_CR/A2507389755 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "397df798285bc9c2189a83122c3b18b302b52fe0e74547b787cd601d57b5eb07",
+      "pixel_sha256": "dd220bc45cf525a8137b8665d59dbb1520fbce07637f5d0075c5fa9fc3372cf4",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -1.1269078091707365,
+      "numbered_centers": [
+        [
+          161.22451594099402,
+          4.384294984908775
+        ],
+        [
+          160.65232459455729,
+          4.931503405794501
+        ],
+        [
+          159.91835871711373,
+          39.16762555707246
+        ],
+        [
+          159.53366809990257,
+          41.39430898744613
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.157462338378550185821790046400986801350/series_001_2_CR/A2507498707 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "d72ad88f5e2e3a439142e2bcff5d5a5c89a15f203b136efdf619afd55f2eacf1",
+      "pixel_sha256": "7d2a498d2fa2c8d4fea153a092698771850ac1e8f2a74bbbe50560f926d03dfe",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.4340028669685,
+          183.53618716783822
+        ],
+        [
+          152.69325968809426,
+          25.63560743685812
+        ],
+        [
+          147.14752474799752,
+          162.82850112440065
+        ],
+        [
+          148.45499843358994,
+          174.91037875204347
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.158197739569377798130962967413133224194/series_002_2_CR/A2504245497 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "300161ed50d37fbd0f267df413b1787937c3ffb31375e079b21454fb874082dd",
+      "pixel_sha256": "2d8c3341476e41295ace62baa649646447983d45a7aa7e372c188e9c9134c4d9",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.62116319313645,
+          207.307729965169
+        ],
+        [
+          153.77124725840986,
+          178.66832504728808
+        ],
+        [
+          152.5784431770444,
+          192.27819118760527
+        ],
+        [
+          147.85992298275232,
+          200.89481539092958
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.158646777318759504110695916200521633609/series_003_6_CR/A2507266260 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "f7c6f44f6401661b2ee3342f6e350c6eb532fb382e0164bc15abce5469d5ac6a",
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.323621955700219,
+          168.68194300867617
+        ],
+        [
+          4.069570591673255,
+          169.04859293126503
+        ],
+        [
+          131.56952859833837,
+          154.5090039651841
+        ],
+        [
+          136.71267691534013,
+          154.43581291511657
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.159930383074323525630608416881201447861/series_002_2_CR/A2507139428 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "490a65c3844e1ec4c21eb1b4f060e87d471a3bdf943f82771c52f980bb8e9805",
+      "pixel_sha256": "fd84428715d03f5574d524da4e66b53e26ec7b3656179b381354a4c26b498790",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -38.75985587196532,
+      "numbered_centers": [
+        [
+          295.626641465351,
+          104.7671348282136
+        ],
+        [
+          144.42414443939924,
+          118.16808997271583
+        ],
+        [
+          147.39462532103062,
+          163.39017681377007
+        ],
+        [
+          152.5943231396377,
+          176.83211471773686
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.164566280810634620154538016595892212884/series_001_2_CR/A2504291878 DXA Exam/CR DXA Images/CR000001.dcm",
+      "source_sha256": "2f145e86255455029630ab8c26abe9f39f394579f8aeacd6ed9e111ba5b511c6",
+      "pixel_sha256": "fe06d40b71943d5d806b17e6cd9ffb4866bb6f5efe194d07c88178c68202d5a2",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          294.396820650436,
+          282.9634890435729
+        ],
+        [
+          295.2324998419499,
+          283.17466003440205
+        ],
+        [
+          152.9868736770004,
+          255.3130691593513
+        ],
+        [
+          154.07579375663772,
+          283.0501912611071
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.165091430504580219034019815337441064349/series_001_2_CR/A2504415443 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "8ab054b259f008295e231c6de51d18030b2b5a936b94d85693e1bfafb2bedec2",
+      "pixel_sha256": "b309dbe0fc1206a11b96c9c6e024a866da0420edc26e9ad375c6b640610571c2",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -39.5134344199256,
+      "numbered_centers": [
+        [
+          295.3187056258321,
+          175.5269610332325
+        ],
+        [
+          4.378759511746466,
+          175.62043126346543
+        ],
+        [
+          130.54033275693655,
+          188.60263206539673
+        ],
+        [
+          129.7424773313105,
+          190.89967460380865
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.165355673991587715046346525964554729786/series_003_3_CR/A2506448267 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "3cfd0dca43930c0c40e068865dde5f1d649cc78f7a8dac011929cccdd150ca3e",
+      "pixel_sha256": "97ec0e50688079d7390adbc7be9ae4e9bf9e98f30347f11e47759d9f8b0bb8ee",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          145.50995785742998,
+          73.83780980333685
+        ],
+        [
+          145.75529677793384,
+          88.24456770885735
+        ],
+        [
+          138.63121127709746,
+          194.63574801012874
+        ],
+        [
+          144.89987069740891,
+          139.2319329207763
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.167344201679287285499405412654740659745/series_003_2_CR/A2504249537 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "6e725a0b4a1059a3a2d47d5908e8699fa5fd8d7b200f752028a82a11b07b51c9",
+      "pixel_sha256": "412a61c72cdfd840ad341c169fe87420c42497cc499f2b251fc628de7056a5a4",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          294.97716799378395,
+          178.94721456319093
+        ],
+        [
+          295.70232164114714,
+          186.17972845062616
+        ],
+        [
+          147.84880455583334,
+          185.7815664291382
+        ],
+        [
+          140.9999416116625,
+          184.81977245621385
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.16773626720107440979805052259711419763/series_004_2_CR/A2507537392 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "490dd0a33b01c285547f40206fe8585bf01bec5cb1f6f2b39520e27621967235",
+      "pixel_sha256": "36569073534a07d1a3927dc98fd08fd74d096a044bbbf8a468490d267d926609",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -44.32221348315899,
+      "numbered_centers": [
+        [
+          295.05911679938436,
+          191.55680065769704
+        ],
+        [
+          154.76284621283412,
+          206.10628209197895
+        ],
+        [
+          155.59637680649757,
+          228.18202378042042
+        ],
+        [
+          153.40885849669576,
+          256.6552456246689
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.168317503020329569414190677927680518621/series_004_2_CR/A2507557128 DXA/CR DXA/CR000003.dcm",
+      "source_sha256": "a3f036ef4d644992078aa618dad70baba25c28a6712b3e24a5c623eb2c5b88eb",
+      "pixel_sha256": "5b9f7be4bdb5ee53ae07f4deab4e575da6a540fa27c918cd4a0c3cf686f6d0f9",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.826368885114789,
+          152.21049671377986
+        ],
+        [
+          153.62307753413916,
+          68.14214551262558
+        ],
+        [
+          152.88483780808747,
+          87.70965977087617
+        ],
+        [
+          145.5101542174816,
+          106.9609405208379
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.169242707068684757906797344800977707240/series_003_2_CR/A2507185832 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "116cdc9345532f0602450dd502097832eff3a7f95cc41d1b5d420525b717d8ed",
+      "pixel_sha256": "0059a1315dca2feca115ccfd940dab7025b7667e936328434b245044047e3b59",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          153.94931830465794,
+          9.3860656125471
+        ],
+        [
+          153.44429042190313,
+          167.57224382366985
+        ],
+        [
+          155.22316927090287,
+          167.48298424948007
+        ],
+        [
+          148.5045605711639,
+          152.7203304679133
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.172445998420765569384934552191547932566/series_004_2_CR/A2507368766 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "65735060e9d19b311a89b52db2f7270acb7455d1a8d8d8adffb046de98b8e4a0",
+      "pixel_sha256": "efc0c25174246011196d9233435cd64bcb52dd7fd099e6c470ded7b90cc6de5b",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.3247590921819,
+          129.93038028571755
+        ],
+        [
+          4.391866084188223,
+          216.8165818147827
+        ],
+        [
+          144.09710006788373,
+          169.20631783269346
+        ],
+        [
+          138.69829388335347,
+          144.8357889605686
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.173731186748227489808861376513577450951/series_002_2_CR/A2507188958 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "6572bc39a7c462028fd6c2e0ca602cf7cc14f85a5710869fa3544dfeb58f8513",
+      "pixel_sha256": "7eb980c70b6eaaa2fa2309a1a75789e5de3967aaebfe939f64a89c6921f26a48",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          294.9609510228038,
+          97.60426288619637
+        ],
+        [
+          4.433635133318603,
+          162.58600258752702
+        ],
+        [
+          160.27306146919727,
+          153.79442666787654
+        ],
+        [
+          159.75690007209778,
+          149.3880256052129
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "2e17ee8205b34448a6788b7f4bbcf02b96800cc3f3d5e77996b9561b1b80ef07",
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          228.6823248770088,
+          5.288755385018885
+        ],
+        [
+          229.29832998197526,
+          4.597902150917798
+        ],
+        [
+          137.69315890967846,
+          170.7974486734718
+        ],
+        [
+          138.3477468509227,
+          169.68095729090274
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.175881661753775295785039265792986971602/series_003_2_CR/A2507266462 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "a8ca36578072d0202db89d006a1a2e05f2aa4f894072e94cd7e710866e2ff75a",
+      "pixel_sha256": "735dd4c8ad6b846c93aec4360bab13b93621ddd3bd419e64f11d173bd862ad6e",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          146.00060475524515,
+          4.444211406167597
+        ],
+        [
+          145.52228674292564,
+          4.839799588546157
+        ],
+        [
+          138.42919869348407,
+          167.7749421223998
+        ],
+        [
+          144.16235508397222,
+          58.93053090758622
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.175903805423871105435148927871625232853/series_001_2_CR/A2507159447 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "c8a36249afa275f3b55db7515e449fd36116156c7584f053052b99ad114eebd4",
+      "pixel_sha256": "f72b3b9326f10bf0d39c6516d8b4ed5b87d59cee05908870322ff6a5bb637bba",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 1.3422595714023249,
+      "numbered_centers": [
+        [
+          137.9159997124225,
+          4.978750160895288
+        ],
+        [
+          144.4479177519679,
+          90.48290714481845
+        ],
+        [
+          144.8070772178471,
+          128.4939721939154
+        ],
+        [
+          145.95631482079625,
+          199.657719835639
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.17706555930735581384953296958427669848/series_004_3_CR/A2504146513 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "03bd681df276bf18420656848d19753908ce2143cce6ccf20d9eb31241c06300",
+      "pixel_sha256": "13a784b0466c4b17b34d16c1a173ac4ab4e10126d60d375fc90e044036e244e8",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 49.873019408615995,
+      "numbered_centers": [
+        [
+          4.669560547918081,
+          175.48060085857287
+        ],
+        [
+          4.384501297026873,
+          176.18691755346953
+        ],
+        [
+          146.8190992064774,
+          239.79177163727582
+        ],
+        [
+          147.69357696175575,
+          248.33943906063212
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.177745077805190810016231350557005569203/series_002_2_CR/A2504273759 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "848ddd203fbaadf7408511f404a3bc8a8455ba625a509b41983b2da6adb6ba9b",
+      "pixel_sha256": "fe4af16335b15f0d10ff1dfce36fcbc4cf0fc8b46925dde40628cbe8353593c3",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 0.9912390528854343,
+      "numbered_centers": [
+        [
+          146.88364148139954,
+          6.566358211264014
+        ],
+        [
+          147.44334999471903,
+          145.88754762466996
+        ],
+        [
+          152.5128504820168,
+          194.3009524650872
+        ],
+        [
+          153.72917016036808,
+          228.67492338493466
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.178533355209696795441380751187185128893/series_003_2_CR/A2507155452 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "692bc6d7f004d7f283ad9e739e6e527cfa4186cbd007381509a3d6b9025eb6cf",
+      "pixel_sha256": "1297e6ee3c8a2c3456ea47930752692f23e5dfed1b3626a74b4ffac2b2f257d1",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.334534291178,
+          138.83281287318096
+        ],
+        [
+          295.9651205688715,
+          138.62431088662706
+        ],
+        [
+          131.75596391782165,
+          227.5217383428477
+        ],
+        [
+          136.90058471169323,
+          234.38954484350978
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.181196659018348153828200695057897449628/series_004_2_CR/A2507370620 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "5adcc8dc102f2cc56e88fda41f64dfedbba5cdef311a107de656f5ecee56eda5",
+      "pixel_sha256": "8bb0c116bfeffb7b201250aa456eba3e1c44ef53cc6b4e381dfca244943b4a71",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.801667891442776,
+          138.73323830394074
+        ],
+        [
+          163.3908075839281,
+          192.44117137230933
+        ],
+        [
+          168.92146130092442,
+          172.0480705058202
+        ],
+        [
+          167.97649218700826,
+          194.89443860119206
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.184198356665635336833172191504278054074/series_004_2_CR/A250788286 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "9122181a1061b7af0cf1d6b3a01d185f635be8d6ba57fbd153b702ed7a1d12da",
+      "pixel_sha256": "6c47df67b471cfba22b2213bad9adeaa86a2af1a756db710387f706a1b007c61",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          27.304437831044197,
+          148.8896745180711
+        ],
+        [
+          4.5055456180125475,
+          134.6641894027591
+        ],
+        [
+          166.7987549258396,
+          99.57636552639306
+        ],
+        [
+          161.7703002691269,
+          135.93751434939915
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.186201010600484120326273381077449377115/series_004_2_CR/A250777475 DXA/CR DXA/CR000007.dcm",
+      "source_sha256": "0550db6ab61745648648916111144c071f260f09254e3f6f166ca936112ca202",
+      "pixel_sha256": "9bf53a6b6abf6a9eeb76a6f0b4f5403b2804d53550037b7c078388d57aa8d9df",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          138.366742269136,
+          4.525275685591623
+        ],
+        [
+          138.29709347337484,
+          68.00162753462791
+        ],
+        [
+          158.97630717605352,
+          167.92733712913468
+        ],
+        [
+          154.39422834198922,
+          162.98385155643336
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000003.dcm",
+      "source_sha256": "141a52d6ccd464aab8c47adcd5bd9d7f28a30513a6d7249e51a2f41bac53d4b3",
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          146.66357025504112,
+          4.907333774026483
+        ],
+        [
+          156.5472231991589,
+          194.9675995917991
+        ],
+        [
+          163.43503961339593,
+          187.95560583304612
+        ],
+        [
+          154.18199552223086,
+          83.99791574813425
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.190807933410234695931591553323782771995/series_002_3_CR/A250762254 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "667f7dd39fc7e9485afb422df0f42e7400403e5f212f4bc1d9ee917a6bcc743c",
+      "pixel_sha256": "ebc5555cd374e7637b29f9e768843bfeb2ed2a0b2ce1c73c44236c3650e2ee4f",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.34765982069075,
+          209.49153362759387
+        ],
+        [
+          3.983904995257035,
+          312.9654577066889
+        ],
+        [
+          155.46526766382158,
+          202.81268461197612
+        ],
+        [
+          153.6962796980515,
+          231.45716983517633
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.215177279960644564778148238928738915103/series_002_2_CR/A2504147013 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "38a98a29d5babb0f73c3f2ae68df08a00470a48cb77292a217506584290f0721",
+      "pixel_sha256": "ce33655f362d1d3498bcc40e71394c8910481e82cb1dcf10f149986f96bce501",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.39682345464826,
+          149.18600174244494
+        ],
+        [
+          26.186917573213577,
+          39.50673974789679
+        ],
+        [
+          36.11198072321713,
+          46.51652432586998
+        ],
+        [
+          123.97198333404958,
+          157.07621097005904
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.217397325224876728316360420804118329081/series_002_2_CR/A250474631 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "0169d523b8fa0d3690d279d2faca50e873c9e4866b88c5455bc468a09f536432",
+      "pixel_sha256": "dace1623fe5c10039ae5b7989b0882d70a3b61cce0fa1b2dba2ac5126920ad29",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 1.6090672141172466,
+      "numbered_centers": [
+        [
+          147.19729498028755,
+          6.493023343384266
+        ],
+        [
+          147.14104129001498,
+          6.518259097449481
+        ],
+        [
+          153.32137034274638,
+          123.47366104200482
+        ],
+        [
+          153.37887642905116,
+          139.17652056813242
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.220866240977467582196609708837940253840/series_001_2_CR/A2504258893 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "da465da86bb8e1d106e81bd8bcfffd0259a100cfddc1a50f28b91febafdfce48",
+      "pixel_sha256": "f1c9f2178251059ce2dbaab75766b4c39070b613d75ad36ce028fca644977431",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": -69.56684068120505,
+      "numbered_centers": [
+        [
+          295.15294935554266,
+          162.45389273865146
+        ],
+        [
+          295.81568095833063,
+          170.3324692371301
+        ],
+        [
+          115.66157877445221,
+          202.7420729774982
+        ],
+        [
+          121.80179314222187,
+          203.53672769051047
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.234651502352368356456298825489565282446/series_002_2_CR/A2504307193 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "98c56bcff44c48375f76c1dda94b3fe435cd19c79bbc8dc3806fef21ae40cf8f",
+      "pixel_sha256": "6851e7220f16231b43c3592b5761d6a3d1b4481208510f752af27d6c8aeeee2d",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.687664032098837,
+          286.9956909040804
+        ],
+        [
+          4.36199019124615,
+          287.201847869347
+        ],
+        [
+          162.76355791836977,
+          183.92262232806533
+        ],
+        [
+          162.36836683005095,
+          257.7300317203626
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.247714038039430659432048101646401574824/series_002_2_CR/A2504238024 DXA Exam/CR DXA Images/CR000002.dcm",
+      "source_sha256": "acfbe92b95d57968e8f9ead6ff0b58286228fe4f62a720f09692b0f0e306fa03",
+      "pixel_sha256": "c6d474b1e3fa1bd1a405c7eaa1aeaef9dc04e1da67ec0764e8c7710747c70b23",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          294.8124866816215,
+          310.4661506972043
+        ],
+        [
+          295.5494033679133,
+          310.74658249746426
+        ],
+        [
+          145.93344658613205,
+          230.35848116967827
+        ],
+        [
+          147.70265081897378,
+          247.4016069844365
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.269648774413746842548908998641183395622/series_001_2_CR/A2504393664 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "15bedfa6e5cf85460175c56327e20072cdd383cbac64acf8b39bc419bf4c9158",
+      "pixel_sha256": "2e079ec6c4b4fc082859b27ed3d4b09c1840acc217906af15a35030b46f52369",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": -0.7578595015234126,
+      "numbered_centers": [
+        [
+          138.44478853046894,
+          51.96357027031482
+        ],
+        [
+          138.81220150273293,
+          165.06417990592308
+        ],
+        [
+          137.36581874080002,
+          178.04518877370282
+        ],
+        [
+          132.82362615689635,
+          194.3837600974366
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.269742577365511543488820993979123763373/series_003_2_CR/A250477751 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "fffaa2f0bc8baf5dfcf98c725c5c801c7054077cd7c0beedc8ffe33fc59af558",
+      "pixel_sha256": "b2ef25a5d5afe313737dbdfd7c488758fd6f1cc373715887c2a5a31f1657c911",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.36893147043884,
+          35.88368443236686
+        ],
+        [
+          125.24545557796955,
+          5.712389236316085
+        ],
+        [
+          133.57143390923738,
+          169.9736709217541
+        ],
+        [
+          130.86914375424385,
+          191.6791170355864
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.272690031744216183651627058502316132741/series_002_2_CR/A2504373414 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "3c0cc6c07e1349742b00e8bab66860749c836dc63ade1a18fb36f2f6a173e118",
+      "pixel_sha256": "6975c7e897a547a9d76e7d758c33ff03b7852ada25d46406721e7566629ae158",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 10.596944025750487,
+      "numbered_centers": [
+        [
+          4.63772754650563,
+          36.90030556628481
+        ],
+        [
+          259.5654616691172,
+          107.64769054483622
+        ],
+        [
+          185.950684142299,
+          109.56345827933401
+        ],
+        [
+          159.29935321211815,
+          293.2546852711588
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.276415754443998872860614500027519740375/series_002_2_CR/A2504387089 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "8a922baf4ee65adbc945407d5721667f6dd79f291bcb03a7b4a63e083bc73af7",
+      "pixel_sha256": "e2c45132fa21d821c849c723255b4cacaee7d02939cff88b295b5a531e566654",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 21.915629093750166,
+      "numbered_centers": [
+        [
+          4.0894142794422805,
+          25.750325772492214
+        ],
+        [
+          4.397012502886355,
+          192.5975085626822
+        ],
+        [
+          169.34722951613367,
+          208.8445923046209
+        ],
+        [
+          174.32206884026527,
+          213.56309969332068
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.277752758923974029595977676354128739670/series_002_2_CR/A2504223752 DXA/CR DXA/CR000004.dcm",
+      "source_sha256": "db94dc987eb8364628d3c4cc4070167bead3aa43d206ff50ab6f94618656fb56",
+      "pixel_sha256": "1f78c63e34c9bcbda41f7bbd8b8a9264a6fad83cab8bf6acb568ee41af72c456",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.65226773172617,
+          188.36003806628287
+        ],
+        [
+          144.56012271344662,
+          176.21024818858132
+        ],
+        [
+          147.29730874300003,
+          195.4914533821866
+        ],
+        [
+          144.642004519701,
+          197.6320139458403
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.286999464611662854355201599068538813496/series_003_2_CR/A2504223477 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "07139888515ed322f47884cafcfb3b18019504b6d0bde2846bbce7442c68b621",
+      "pixel_sha256": "a5df06a86bdbd5a62678bd9dae377afb08f66aee3a471c451c8764189b9ee5ef",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.0349392835051,
+          287.081916652713
+        ],
+        [
+          295.6600120784424,
+          287.18042285449775
+        ],
+        [
+          146.8609907850623,
+          206.59733486808835
+        ],
+        [
+          151.76923932507634,
+          207.01347310468554
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.29638026465755240167985424461715024381/series_004_3_CR/A2504115579 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "4ab4fe687f010200801e4672376ee059e9d5b2e131957992c5d2c0186d7be951",
+      "pixel_sha256": "1dd45ead4854d4c45c477e9b4f3883987e37880d9bffd9263300a07a81a76c03",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.10224340861896,
+          310.75978248870524
+        ],
+        [
+          138.3138102153316,
+          5.805964692262933
+        ],
+        [
+          152.1196218347177,
+          239.77321205777116
+        ],
+        [
+          148.68949768133461,
+          231.63191407592967
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.306921081709806079165809721263236241032/series_002_2_CR/A2504381177 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "d9aebc78f74ac59e4a08f5be61f07ae7914763a0408691e89540b703601afcd1",
+      "pixel_sha256": "1d1bea6e7f908ef2fa188a6605891cce21ec2391320420adaf0be7426de26467",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -28.82816544658633,
+      "numbered_centers": [
+        [
+          295.4662720207125,
+          35.12672363170423
+        ],
+        [
+          4.3514118902385235,
+          191.78438669987955
+        ],
+        [
+          144.80938003398478,
+          220.76135533289053
+        ],
+        [
+          146.19199119508266,
+          224.2666910032742
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.307021710202910067378603383388989711646/series_004_2_CR/A2504110565 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "985d631c05fb61a61d792c1c00e63b03c293aa8d1e5d1b9c1f69a592abec7db0",
+      "pixel_sha256": "7115fbeff04625489b5d015037ed14ef3d6be5ba3065bf5e476bb1bc92cf1137",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.6202087961137295,
+          171.21233084723352
+        ],
+        [
+          220.78591011464596,
+          44.61546476818621
+        ],
+        [
+          160.95688411965966,
+          147.50182695183904
+        ],
+        [
+          161.66394721716642,
+          131.57620115429162
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.309085571913348252136520206003694446566/series_002_2_CR/A2504116267 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "838557b5b98d16dfabf9eb7db54933f0daaea3c5369b9ebe094d60c4dd5ef7dc",
+      "pixel_sha256": "ee1b63e8b78e4347f7852452ed7a6dfc44dad01e1472c9f9135878c831193bf0",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.537090273574,
+          146.0877719486598
+        ],
+        [
+          147.77357982471585,
+          116.67874974338338
+        ],
+        [
+          150.9317428409122,
+          130.71479024004657
+        ],
+        [
+          151.65039915125817,
+          131.5933969009202
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.314147167453134440746270747484612743945/series_002_2_CR/A2504224780 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "49d72af5028537d6c7e6dc303daef05adca441e57962f2838b642618c1704b08",
+      "pixel_sha256": "a521f376012eaacf5cb9e9e188c75a7b23604cd47ce12f69c2921eedff03bde6",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.639419559389353,
+          200.3968732059002
+        ],
+        [
+          152.99863753840327,
+          200.60170083492994
+        ],
+        [
+          155.8141405787319,
+          169.02600726205856
+        ],
+        [
+          154.78141888976097,
+          167.87700272351503
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.322202456901330781765399791024580391565/series_002_2_CR/A2504350020 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "083e6f32f35c9898decbaa756cfbbb4bc68fa83cd89b3ba340b52a7b645e8594",
+      "pixel_sha256": "1f32ec8f43dc943146973d471d77ba2d314e376e12069790cdad19d9b4c08622",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          26.867568008601665,
+          163.9278098601848
+        ],
+        [
+          257.56689759436995,
+          4.742730792565271
+        ],
+        [
+          184.9928042013198,
+          155.39153208006172
+        ],
+        [
+          184.30635605938733,
+          154.34299869574608
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.338439598607961312040815816824093323492/series_002_2_CR/A2504147124 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "e4f7aada89427d12ecd0d01593cf463445762215b24d5e621d598374b28bc162",
+      "pixel_sha256": "03308b1bfaf49a413bc05425ee2cf613127c07f61d27eefe76b071ed7d46af4f",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.68543391674757,
+          178.17676462959497
+        ],
+        [
+          4.345280569978058,
+          178.33990310574882
+        ],
+        [
+          161.93707164376974,
+          178.26477193944157
+        ],
+        [
+          160.4728309996426,
+          195.20517813963818
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "544f1d5f4689d0d8f83989179470c29d98fd2fb7c9d2e0dc8d874df12066c2e1",
+      "pixel_sha256": "fbd0184157ebe3f022a4c36fb140e5ff661b07f4b8b700ad9a7f48ca713e3fc1",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          4.302925989031792,
+          26.72198454020545
+        ],
+        [
+          4.149594905320555,
+          126.50548678864725
+        ],
+        [
+          161.2344427406788,
+          99.2027628434822
+        ],
+        [
+          174.94841295294464,
+          211.0125447251834
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.340839477910528898406207279980417945/series_001_2_CR/A2504224555 DXA Exam/CR DXA Images/CR000002.dcm",
+      "source_sha256": "0419a123fcab3b7383b888a746c4e4b6a8e4eb0f8e40f62729b482d8cc32b4c3",
+      "pixel_sha256": "0ba87ba4957862d14794f284ffce3e7284aaabb0986808c87349510bf48d20dd",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.2317055501044,
+          201.69611749788749
+        ],
+        [
+          139.38369152136147,
+          34.42906691627577
+        ],
+        [
+          140.7099683303386,
+          44.87394934976473
+        ],
+        [
+          140.21873680874705,
+          43.97751042414457
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.37515662379281069436632838996073181551/series_001_2_CR/A2504329840 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "5187a56d548d9a1f6327e2e0b9171245c867df875ede6c1c28e7fffe80864cb6",
+      "pixel_sha256": "ef2e3d247a93bc1cd67f7d44f023898ec2fbdcccefe308bd765dc22c4665bad8",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": 3.8263264640899552,
+      "numbered_centers": [
+        [
+          116.42213894985616,
+          4.240795847587287
+        ],
+        [
+          117.34501082450151,
+          4.842391402088106
+        ],
+        [
+          138.2484966237098,
+          163.06383036570622
+        ],
+        [
+          138.9615149796009,
+          207.7009862266481
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.39068163399801173920284179500049527111/series_002_2_CR/A2504195842 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "155d8e09bbc3ba317754ce177be78310cc8cf5d92b937474adb29acfa43d8627",
+      "pixel_sha256": "da97fcfc654fe6f7912aeba96a6a648c6ea64553b1d9b8fa6a875055a8b7cc9f",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": -56.42794168933925,
+      "numbered_centers": [
+        [
+          295.1981999538839,
+          170.94145340826364
+        ],
+        [
+          295.78596892766654,
+          179.0252248769626
+        ],
+        [
+          130.8914758823812,
+          211.70768193695696
+        ],
+        [
+          140.102977193892,
+          240.30965089313688
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.48906424954135283790354958243772558962/series_001_2_CR/A2504185596 DXA Exam/CR DXA Images/CR000002.dcm",
+      "source_sha256": "e6430d244a69307f7b80fcdc5170bd1e24df85d18f16ca004c01cbd8ba8c0e88",
+      "pixel_sha256": "094c9cbeb964e14d20850e9c48ec4a00d4fcf00a24cd9a54018609645197164e",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 4.32952085195423,
+      "numbered_centers": [
+        [
+          141.24539220705628,
+          131.54031063839793
+        ],
+        [
+          146.1860260181129,
+          161.33460354488344
+        ],
+        [
+          152.66740051098168,
+          193.93648591395467
+        ],
+        [
+          146.7989720776677,
+          194.20895613413305
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.52532476139575422857225834315571570912/series_001_2_CR/A2504247961 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "1b650e9b8cafa60e65ff852f944a0cda6a20ba75356465e4b4e355493de8fb6d",
+      "pixel_sha256": "59d6dbcb3cc7308c4f57ba6f811a249e8d3040df13092b75cda74fa505b1b626",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -58.99443157747004,
+      "numbered_centers": [
+        [
+          295.12118054553866,
+          169.43508851900697
+        ],
+        [
+          295.8226726669818,
+          192.83433795394376
+        ],
+        [
+          123.03205518051982,
+          225.10619134549052
+        ],
+        [
+          130.22628681734204,
+          238.16394468722865
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.52982400970721161435951723390541696819/series_001_2_CR/A2504331065 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "2d4956fbe541a04aaa334e9b90bca145e00278051508dd622aed4845fdaca3e8",
+      "pixel_sha256": "c116e7d87c8c3e98a9c5383ec6906e5975450b0d464856460ce9c53283f6439a",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          27.209672648459673,
+          312.82335374671965
+        ],
+        [
+          155.50076523330063,
+          215.94670346677304
+        ],
+        [
+          144.21531597152352,
+          81.55726493634285
+        ],
+        [
+          144.53709974884987,
+          66.2113805084955
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.54396839637320114639948764487283877793/series_003_2_CR/A2504111090 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "8f1159ddb36b20b8ff53bfc6b6d89984a5a02ef290516a153047de52e41a2e15",
+      "pixel_sha256": "99e1fb1d61a939c22ef464f240925d5dbd80a445e5b9d94259eab2cf771d90b0",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -1.8922026984882176,
+      "numbered_centers": [
+        [
+          181.08772484119982,
+          5.296625494258478
+        ],
+        [
+          177.28036556392908,
+          7.177914396114648
+        ],
+        [
+          175.6589636206627,
+          20.557052832096815
+        ],
+        [
+          167.6577651500702,
+          193.74008751548826
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.59542620917302828428419211045951914336/series_001_2_CR/A2504303391 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "f2cf1914ff1767d66912c0853486b9706b45de0046bac75574f6d5bc8fca90f7",
+      "pixel_sha256": "200d1950b9535ccacc4dc5d66ec427cfeaeb4aa9c4c6fc1dc72abe888f6da294",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          220.52656643092632,
+          4.76005713106133
+        ],
+        [
+          155.1446112524718,
+          185.2999864909798
+        ],
+        [
+          161.3728839531541,
+          169.4012783691287
+        ],
+        [
+          159.40955378115177,
+          162.62385726626962
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.65954778282254353457041255543338557112/series_004_3_CR/A2504246289 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "563fee76f51357fe73a24a2ed67b3995843e47d4d5a14140bbc7991efbd187cc",
+      "pixel_sha256": "b845768fcb60a0e6957795f7fe3b724862f4603f58aaf67c76a388207fa3be72",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          154.90311121568084,
+          7.140818931162357
+        ],
+        [
+          154.33546892367303,
+          137.52462481968107
+        ],
+        [
+          159.39590323716402,
+          163.11410893388094
+        ],
+        [
+          161.70070907101035,
+          37.53695014491677
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.66397484472966116002950503539482860450/series_001_2_CR/A2504194637 DXA/CR DXA/CR000004.dcm",
+      "source_sha256": "1ca925b12e2eb22cb22f31f5f70dea44610fe163056f62ef9471cd916f676bc7",
+      "pixel_sha256": "631e0fa48191afb36c98d7d6d709b51e69a1569b1736a4d213cb0b80c2c55ba5",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 0.414968286906217,
+      "numbered_centers": [
+        [
+          153.76604160759598,
+          4.181439901236445
+        ],
+        [
+          155.21847716532648,
+          60.06810917928815
+        ],
+        [
+          154.4816370215267,
+          66.79759669471532
+        ],
+        [
+          154.44706929847598,
+          75.1380059055984
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.73070100851377917031356937075051545239/series_002_2_CR/A2504239110 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "af156e3b1720da56a2b62338985b889e1e197dd770d99de8d639ac3bb0b8767f",
+      "pixel_sha256": "794516213732ca94b7230139400a15db8b31684d59d85d3a0bd232e6cb1eab55",
+      "reference_axis_label": "1",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          131.26884092576802,
+          4.519462437136099
+        ],
+        [
+          144.00301594287157,
+          183.983632499259
+        ],
+        [
+          138.53850843384862,
+          103.17373175453395
+        ],
+        [
+          144.79310424998403,
+          47.82562005994842
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.76710355977373089612172037086913478687/series_002_3_CR/A2504104830 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "d0a13d5713ce5f98e4496dda59c432c91054b5a17650dcbd3eb387aba7a30d10",
+      "pixel_sha256": "f0fd62360cda0a7b0d3dc038ba4a214a1e92109fd5ee8798f784726784427f28",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -0.38029171075511975,
+      "numbered_centers": [
+        [
+          168.81019180174917,
+          4.427792149409652
+        ],
+        [
+          168.7789875548333,
+          5.584215721674263
+        ],
+        [
+          174.6706321835518,
+          196.29631480285897
+        ],
+        [
+          159.25604238174856,
+          208.1617211342789
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.78999454687125053757525542837745968726/series_004_3_CR/A2504222617 DXA/CR DXA/CR000002.dcm",
+      "source_sha256": "2a4f80bda1d2afe1516825f751e0b325f4de48796484cc149782455dbcf27f5f",
+      "pixel_sha256": "f66ee3260748142e67e99fef7cc9e407464252bc85a30c8192cd0e9d97f2b2c2",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 54.557250602864684,
+      "numbered_centers": [
+        [
+          4.984566690400243,
+          163.30114026255907
+        ],
+        [
+          4.513858091086149,
+          170.2784525513649
+        ],
+        [
+          152.3836810514331,
+          211.04921592045574
+        ],
+        [
+          154.12907651625574,
+          233.58074358589946
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.82912555346523716720160717883917565880/series_002_2_CR/A2504149480 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "64ed52b2559a75d441271307a03ebefd8fca7cf56d3e79514740cff5ca0d1906",
+      "pixel_sha256": "6a0368d93d1074b48254d1630cf957d49992a810f2a510e0253616333949be33",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": 2.408850955579542,
+      "numbered_centers": [
+        [
+          144.21247819438577,
+          4.3809365794993935
+        ],
+        [
+          145.1361856609583,
+          39.94413985982537
+        ],
+        [
+          154.866365455091,
+          134.29907096195964
+        ],
+        [
+          152.20622641034424,
+          141.15114930449053
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.87718478011637131470224319788530286374/series_002_2_CR/A2504337993 DXA/CR DXA/CR000000.dcm",
+      "source_sha256": "1c87d8e9b33dd0a70f181f8f08fc93f9c8e6f21a0e4ed57a9acc144c5d94813b",
+      "pixel_sha256": "320d9e16a60b7caef46e10278820e438aa261beb828da68c97950f0067625b79",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": -25.620845017090247,
+      "numbered_centers": [
+        [
+          295.05899189505726,
+          4.431239244085736
+        ],
+        [
+          295.4664012277499,
+          4.477663992368616
+        ],
+        [
+          154.737487770617,
+          155.89493961017578
+        ],
+        [
+          154.0029958449304,
+          184.11392085570841
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.87869906212286587478854831452123526595/series_002_2_CR/A250419699 DXA/CR DXA/CR000001.dcm",
+      "source_sha256": "1b6010bb19a00d74c6f94cd2b1964bc92e7bcf4a9effe2eb7c38fe69269e96f5",
+      "pixel_sha256": "5c2897457a7341ea9042324875ae699bddc32f49ecbf4f8514b6b72086c75c80",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          124.41242842236534,
+          4.311611584597268
+        ],
+        [
+          132.22462439909577,
+          210.89137237155808
+        ],
+        [
+          132.0415553636849,
+          163.7948515649885
+        ],
+        [
+          138.46720048226416,
+          263.7988695476204
+        ]
+      ],
+      "original_verdict_changed": false
+    },
+    {
+      "source_path": "2.25.91981043841368764114007975581101713077/series_003_2_CR/A250496619 DXA/CR DXA/CR000004.dcm",
+      "source_sha256": "7487de18494bf107c78c5b4b44fe84fff2087f06b16217165daed364b0daeaa6",
+      "pixel_sha256": "ee5c35e899b25188043d0113c47c11e93553a6f0f0f449def7a06eaf86d0c15e",
+      "reference_axis_label": "0",
+      "candidate_axis_deg": null,
+      "numbered_centers": [
+        [
+          295.45374339446425,
+          123.00578321311623
+        ],
+        [
+          152.29638847522438,
+          204.2755249578506
+        ],
+        [
+          152.97242598608136,
+          202.01362590305507
+        ],
+        [
+          145.88394809514284,
+          209.955328460969
+        ]
+      ],
+      "original_verdict_changed": false
+    }
+  ],
+  "limitations": [
+    "An estimated angle is not clinical verification of the predicted vertebral identities.",
+    "Public ROI center axis is a weak surrogate, not anatomical axis ground truth.",
+    "Organizer criterion labels are existing references; no new physician annotation or label correction.",
+    "Organizers provide GE spacing via protocol fallback; coordinate uncertainty remains."
+  ],
+  "followup_coverage_audit": {
+    "total_images": 99,
+    "determinate_images": 31,
+    "metrics_scope": "original organizer_axis_metrics covers determinate images only",
+    "total_reference_axis_positives": 10,
+    "detected_reference_axis_positives": 2,
+    "positive_reference_cases_unavailable": 6,
+    "full_cohort_axis_detection_sensitivity": 0.2
+  }
+}

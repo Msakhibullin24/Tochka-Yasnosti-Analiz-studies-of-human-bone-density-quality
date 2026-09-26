@@ -1,0 +1,153 @@
+{
+  "release_version": "1.10.0",
+  "release_changed": false,
+  "full_tz_compliance": false,
+  "untyped_release_rows": 19,
+  "projection": {
+    "buu": {
+      "metrics": {
+        "n": 800,
+        "positives": 400,
+        "negatives": 400,
+        "tn_fp_fn_tp": [
+          400,
+          0,
+          1,
+          399
+        ],
+        "accuracy": 0.99875,
+        "precision": 1.0,
+        "sensitivity": 0.9975,
+        "specificity": 1.0,
+        "f1": 0.9987484355444305,
+        "balanced_accuracy": 0.99875,
+        "roc_auc": 1.0,
+        "average_precision": 1.0
+      },
+      "undetermined": 30,
+      "accepted_errors": 0
+    },
+    "organizer": {
+      "metrics": {
+        "n": 99,
+        "positives": 0,
+        "negatives": 99,
+        "tn_fp_fn_tp": [
+          99,
+          0,
+          0,
+          0
+        ],
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "f1": 0.0,
+        "balanced_accuracy": null,
+        "roc_auc": null,
+        "average_precision": null
+      },
+      "undetermined": 0,
+      "accepted_errors": 0
+    },
+    "ramathibodi": {
+      "metrics": {
+        "n": 40,
+        "positives": 20,
+        "negatives": 20,
+        "tn_fp_fn_tp": [
+          20,
+          0,
+          0,
+          20
+        ],
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 1.0,
+        "f1": 1.0,
+        "balanced_accuracy": 1.0,
+        "roc_auc": 1.0,
+        "average_precision": 1.0
+      },
+      "undetermined": 0,
+      "accepted_errors": 0
+    }
+  },
+  "independent_GE_examples": {
+    "training_overlap": false,
+    "scope": "Two independent public spine examples only; no clinical validation",
+    "cases": [
+      {
+        "source_sha256": "6731e516007c6c470885c79dcc354e1c3c120e0d8cdba90834d45592699ffa5c",
+        "pixel_sha256": "2663724f0fb06ae7d0e777ade747d85308e744470dd6c9ffd9231707a9b4372a",
+        "manufacturer": "GE Healthcare",
+        "model": "Lunar iDXA",
+        "view_position_tag": "",
+        "reference": "frontal",
+        "reference_basis": "AI visual assessment of independent public example; not physician ground truth",
+        "clinical_validation": false,
+        "candidate": {
+          "value": "frontal",
+          "status": "candidate",
+          "lateral_score": 0.004760097460265055,
+          "method": "multisource_frozen_resnet18_lr",
+          "clinical_validation": false,
+          "model_affects_decision": false
+        },
+        "forced_binary_correct": true
+      },
+      {
+        "source_sha256": "d8ee49649cccac8d8e0a54255fe746bbaa21cfe4406b4f69de11db02205fae83",
+        "pixel_sha256": "59c67f96a3ee8b0bde8e32887d749efecae6c2bd671e75cda97239522f95f5af",
+        "manufacturer": "GE Healthcare",
+        "model": "Lunar iDXA",
+        "view_position_tag": "",
+        "reference": "lateral",
+        "reference_basis": "AI visual assessment of independent public example; not physician ground truth",
+        "clinical_validation": false,
+        "candidate": {
+          "value": "lateral",
+          "status": "candidate",
+          "lateral_score": 0.9625026005115364,
+          "method": "multisource_frozen_resnet18_lr",
+          "clinical_validation": false,
+          "model_affects_decision": false
+        },
+        "forced_binary_correct": true
+      }
+    ],
+    "training_identity_checked": true
+  },
+  "anatomy": {
+    "learned": {
+      "bodies": 2000,
+      "within_half_body_height": 722,
+      "numbered_center_hit_rate": 0.361,
+      "median_error_body_heights_all_bodies": 0.6473551925938974,
+      "p95_error_body_heights_all_bodies": 1.6371193222214562
+    },
+    "layout_prior": {
+      "bodies": 2000,
+      "within_half_body_height": 281,
+      "numbered_center_hit_rate": 0.1405,
+      "median_error_body_heights_all_bodies": 1.1252770566724277,
+      "p95_error_body_heights_all_bodies": 2.6195531804199765
+    },
+    "paired_patient_bootstrap_hit_rate_difference_ci95": {
+      "low": 0.1849875,
+      "high": 0.259025,
+      "resamples": 1000
+    }
+  },
+  "tests": {
+    "passed": 184,
+    "skipped": 5
+  },
+  "next_gaps": [
+    "numbered body detection/segmentation and DXA transfer",
+    "Th12/iliac crest visibility",
+    "hip landmarks and rotation",
+    "19 untyped release answers"
+  ]
+}

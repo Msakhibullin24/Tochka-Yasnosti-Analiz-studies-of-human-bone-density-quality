@@ -1,0 +1,59 @@
+{
+  "profile_id": "no-new-labels-20260926-v1",
+  "repeat_local_vs_offline_container": {
+    "valid": true,
+    "profile": "competition_v2",
+    "errors": [],
+    "warnings": [
+      "Input completeness not checked: provide an independent path manifest",
+      "Failure explanations not available in this table",
+      "Additional DICOM series not checked"
+    ],
+    "images": 499,
+    "success": 499,
+    "max_seconds_per_study": 5.0636,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "debug_sc_sr": {
+    "valid": true,
+    "profile": "competition_v2",
+    "errors": [],
+    "warnings": [
+      "Input completeness not checked: provide an independent path manifest",
+      "Failure explanations not available in this table"
+    ],
+    "images": 3,
+    "success": 3,
+    "max_seconds_per_study": 0.5796,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "container_summary": {
+    "version": "1.10.0",
+    "submission_available": true,
+    "submission_valid": true,
+    "files": 499,
+    "success": 499,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 157,
+    "cancelled": false,
+    "studies": 100,
+    "max_seconds_per_study": 1.932,
+    "mean_seconds_per_image": 0.2247,
+    "total_seconds": 115.591,
+    "process_peak_rss_bytes": 506699776,
+    "cpu_count_visible": 12,
+    "typification_complete": true,
+    "anatomical_checks_complete": false,
+    "untyped_violations": 0,
+    "requirements_complete": false,
+    "max_seconds_per_study_upper_bound": 5.392361259000055,
+    "profile_id": "no-new-labels-20260926-v1"
+  },
+  "container_image": "sha256:c45f504b2d456a66697c8b0ba67987160ebd9d0e1db02541187c2b6941eb5472",
+  "limitations": [
+    "Clinical anatomy criteria are not validated",
+    "Strict submission omits file paths: repeat compares study/image identity and predictions",
+    "Sensitivity and AUC decrease relative to baseline; optional candidate only"
+  ]
+}

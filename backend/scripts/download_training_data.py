@@ -7,7 +7,6 @@ import hashlib
 import json
 from pathlib import Path
 import shutil
-import tempfile
 import time
 from urllib.parse import quote
 from urllib.request import Request, urlopen
@@ -42,28 +41,49 @@ def download(directory: Path, source: dict, spec: dict) -> str:
     url = spec.get("url") or source["base_url"] + quote(spec["path"])
     if not url.startswith("https://"):
         raise ValueError("Downloads must use HTTPS")
+    temporary = target.with_name(target.name + ".part")
+    if temporary.is_symlink():
+        raise ValueError(f"Unsafe partial destination: {temporary}")
     for attempt in range(3):
-        with tempfile.NamedTemporaryFile(dir=target.parent, prefix=".download-", delete=False) as file:
-            temporary = Path(file.name)
         try:
-            with urlopen(Request(url, headers={"User-Agent": "OsseoAI-data-download/1"}), timeout=60) as response:
-                with temporary.open("wb") as output:
-                    total = 0
+            offset = temporary.stat().st_size if temporary.exists() else 0
+            if offset > spec["bytes"]:
+                raise ValueError(f"Partial exceeds expected size: {spec['path']}")
+            if offset == spec["bytes"]:
+                if not matches(temporary, spec):
+                    raise ValueError(f"Size/checksum mismatch: {spec['path']}")
+                temporary.replace(target)
+                return "downloaded"
+            headers = {"User-Agent": "OsseoAI-data-download/1"}
+            if offset:
+                headers["Range"] = f"bytes={offset}-"
+            with urlopen(Request(url, headers=headers), timeout=60) as response:
+                resumed = offset and getattr(response, "status", None) == 206
+                if resumed:
+                    content_range = response.headers.get("Content-Range", "")
+                    if not content_range.startswith(f"bytes {offset}-") or not content_range.endswith(f"/{spec['bytes']}"):
+                        raise ValueError("Invalid Content-Range in resumed download")
+                # A server may ignore Range. In that case restart, never append
+                # a complete response to a partial file.
+                with temporary.open("ab" if resumed else "wb") as output:
+                    total = offset if resumed else 0
                     for chunk in iter(lambda: response.read(1024 * 1024), b""):
                         total += len(chunk)
                         if total > spec["bytes"]:
                             raise ValueError(f"Response exceeds expected size: {spec['path']}")
                         output.write(chunk)
+            if total != spec["bytes"]:
+                raise OSError(f"Interrupted response: {total}/{spec['bytes']} bytes for {spec['path']}")
             if not matches(temporary, spec):
                 raise ValueError(f"Size/checksum mismatch: {spec['path']}")
             temporary.replace(target)
             return "downloaded"
-        except (OSError, ValueError):
+        except (OSError, ValueError) as exc:
+            if isinstance(exc, ValueError):
+                temporary.unlink(missing_ok=True)
             if attempt == 2:
                 raise
             time.sleep(attempt + 1)
-        finally:
-            temporary.unlink(missing_ok=True)
     raise RuntimeError("Unreachable")
 
 

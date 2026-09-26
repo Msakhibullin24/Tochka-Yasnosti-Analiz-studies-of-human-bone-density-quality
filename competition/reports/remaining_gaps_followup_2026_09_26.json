@@ -1,0 +1,47 @@
+{
+  "scope": "follow-up diagnostics under explicit absence of future physician labels; no released verdict changes",
+  "release": "1.10.0",
+  "untyped_rows": 19,
+  "untyped_unique_images": 11,
+  "reference_row_categories": {
+    "reference_normal": 3,
+    "source_taxonomy_conflict": 3,
+    "reference_typed_positive": 13
+  },
+  "source_taxonomy_conflict_groups": 3,
+  "axis_alternatives": {
+    "released_v5": {
+      "quality_f1": 0.5795454545454546,
+      "axis_confusion_tn_fp_fn_tp": [
+        88,
+        1,
+        9,
+        1
+      ],
+      "untyped": 34
+    },
+    "learned_axis": {
+      "quality_f1": 0.5698324022346368,
+      "axis_confusion_tn_fp_fn_tp": [
+        82,
+        7,
+        7,
+        3
+      ],
+      "untyped": 30
+    },
+    "measured_or_learned_axis": {
+      "quality_f1": 0.5698324022346368,
+      "axis_confusion_tn_fp_fn_tp": [
+        82,
+        7,
+        7,
+        3
+      ],
+      "untyped": 30
+    }
+  },
+  "projection_report": "public_projection_candidate_2026_09_26.json",
+  "anatomy_report": "public_anatomy_localization_2026_09_26.json",
+  "requirements_complete": false
+}

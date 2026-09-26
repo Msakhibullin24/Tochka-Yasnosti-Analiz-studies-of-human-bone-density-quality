@@ -10,7 +10,7 @@ from .model import REGION_LABEL, VIOLATION_LABEL, CRITERIA
 from .report import CONTRACT_COLUMNS
 
 
-def validate(path, repeat=None, manifest=None, series=None, competition=False):
+def validate(path, repeat=None, manifest=None, series=None, competition=False, timing=None):
     errors, warnings = [], []
     try:
         with open(path, encoding="utf-8-sig", newline="") as stream:
@@ -75,9 +75,32 @@ def validate(path, repeat=None, manifest=None, series=None, competition=False):
                     fail("invalid quality_prob")
         if status == "Failure" and "error_message" in columns and not r.get("error_message"):
             fail("failure without explanation")
+        if status == 'Failure':
+            if r.get('quality_class') not in ('', None):
+                warnings.append(f'Row {i}: legacy Failure class is not a quality prediction')
+            if r.get('violation_type'):
+                fail('processing failure must not invent a violation type')
     for uid, seconds in times.items():
         if seconds > 180:
             errors.append(f"Study {uid}: processing time exceeds 180 seconds ({seconds:.3f})")
+    if timing is not None:
+        from .requirements import timing_report
+        try:
+            measured = json.loads(Path(timing).read_text())
+            expected_timing = timing_report(rows, float(measured['batch_seconds']))
+            if measured.get('version') != 1 or measured['study_image_seconds'].keys() != expected_timing['study_image_seconds'].keys():
+                raise ValueError('timing study identities differ from table')
+            for name in ('study_image_seconds', 'study_upper_bound_seconds'):
+                for key, value in expected_timing[name].items():
+                    actual = float(measured[name][key])
+                    if not math.isfinite(actual) or abs(actual - value) > .001:
+                        raise ValueError('timing differs from table or shared overhead')
+            if not expected_timing['within_180_seconds']:
+                errors.append('End-to-end study upper bound exceeds 180 seconds')
+        except (OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
+            errors.append(f'Invalid end-to-end timing: {exc}')
+    else:
+        warnings.append('End-to-end timing not checked: provide timing.json; table durations exclude shared overhead')
     if manifest is not None:
         if "path_to_file" not in columns:
             errors.append("path_to_file is required for input manifest comparison")
@@ -150,13 +173,14 @@ def main():
     parser.add_argument('--manifest', type=Path, help='JSON array of expected relative input paths, independently collected')
     parser.add_argument('--series', type=Path, help='additional_series.zip: check readable SC/SR and source links')
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--timing', type=Path, help='timing.json from the same run, including shared preparation/publication')
     parser.add_argument('--competition', action='store_true', help='strict V2 submission contract; unresolved types are errors')
     args = parser.parse_args()
     try:
         manifest = json.loads(args.manifest.read_text()) if args.manifest else None
         if manifest is not None and (not isinstance(manifest, list) or not all(isinstance(p, str) for p in manifest)):
             raise ValueError('manifest must be an array of paths')
-        result = validate(args.results, args.repeat, manifest, args.series, competition=args.competition)
+        result = validate(args.results, args.repeat, manifest, args.series, competition=args.competition, timing=args.timing)
     except (OSError, ValueError, csv.Error) as exc:
         result = {"valid": False, "errors": [str(exc)]}
     payload = json.dumps(result, ensure_ascii=False, indent=2)

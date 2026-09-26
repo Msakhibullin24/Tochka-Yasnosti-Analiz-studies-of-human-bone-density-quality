@@ -173,7 +173,7 @@ def write_sr(row: dict, study_uid: str, source_uid: str, source_sop_class: str, 
     import json
     stable_keys = ('anatomical_region', 'quality_class', 'quality_prob', 'violation_codes', 'violation_type',
                    'measurements', 'decision_version', 'projection_assessment', 'anatomy_assessment',
-                   'source_roi_assessment', 'criterion_states', 'review_reasons')
+                   'source_roi_assessment', 'criterion_states', 'review_reasons', 'requirement_checks')
     content_hash = hashlib.sha256(json.dumps({k: row.get(k) for k in stable_keys}, sort_keys=True,
                                            ensure_ascii=False).encode()).hexdigest()
     sop = derived_uid(source_uid, "sr:v3:" + content_hash)
@@ -206,6 +206,10 @@ def write_sr(row: dict, study_uid: str, source_uid: str, source_sop_class: str, 
     items.append(text_item(("DISCLAIMER", "Disclaimer"),
                            "Результат работы ИИ-сервиса; требует подтверждения специалистом."))
     items.append(text_item(("QC-LIMITS", "Assessment limits"), "\n".join(assessment_notes(row))))
+    from .result_context import parsed
+    for check in parsed(row, 'requirement_checks', []):
+        items.append(text_item(('REQ-CHECK', 'Required check'),
+                               f"{check['id']}: {check['status']}; {check.get('reason', '')}"))
     for key in ('projection_assessment', 'anatomy_assessment', 'source_roi_assessment', 'criterion_states', 'review_reasons'):
         if row.get(key):
             items.append(text_item((key.upper().replace('_', '-')[:16], key), str(row[key])))

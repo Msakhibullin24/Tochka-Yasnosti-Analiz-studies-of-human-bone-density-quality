@@ -1,0 +1,174 @@
+{
+  "created_at": "2026-09-26T11:14:38.308798+00:00",
+  "new_data_budget_bytes": 35000000000,
+  "datasets": {
+    "ramathibodi": {
+      "expected_bytes": 65642416,
+      "verified_bytes": 65642416,
+      "statuses": {
+        "verified": 1
+      }
+    },
+    "hipray": {
+      "expected_bytes": 6837599,
+      "verified_bytes": 6837599,
+      "statuses": {
+        "verified": 281
+      }
+    },
+    "mtddh": {
+      "expected_bytes": 1871869324,
+      "verified_bytes": 1871869324,
+      "statuses": {
+        "verified": 1
+      }
+    },
+    "medpelvis3d": {
+      "expected_bytes": 15217313122,
+      "verified_bytes": 15217313122,
+      "statuses": {
+        "verified": 10
+      }
+    },
+    "lumase": {
+      "expected_bytes": 2939692238,
+      "verified_bytes": 2939692238,
+      "statuses": {
+        "verified": 1
+      }
+    },
+    "ppcnet-2d": {
+      "expected_bytes": 399249417,
+      "verified_bytes": 399249417,
+      "statuses": {
+        "verified": 5189
+      }
+    },
+    "pelvic-tilt": {
+      "expected_bytes": 287048034,
+      "verified_bytes": 287048034,
+      "statuses": {
+        "verified": 1
+      }
+    },
+    "pelvic-tilt-annotations": {
+      "expected_bytes": 148225,
+      "verified_bytes": 148225,
+      "statuses": {
+        "verified": 3
+      }
+    },
+    "pelvis-anatomical-landmarks": {
+      "expected_bytes": 2575932,
+      "verified_bytes": 2575932,
+      "statuses": {
+        "verified": 26
+      }
+    },
+    "deepfluoro": {
+      "expected_bytes": 4054551378,
+      "verified_bytes": 4054551378,
+      "statuses": {
+        "verified": 1491
+      }
+    },
+    "femur-fluoroscopy": {
+      "expected_bytes": 404640595,
+      "verified_bytes": 404640595,
+      "statuses": {
+        "verified": 120
+      }
+    },
+    "lumbar-spine-raw1200": {
+      "expected_bytes": 46916972,
+      "verified_bytes": 46916972,
+      "statuses": {
+        "verified": 2
+      }
+    },
+    "verse19-metadata": {
+      "expected_bytes": 46493,
+      "verified_bytes": 46493,
+      "statuses": {
+        "verified": 4
+      }
+    },
+    "verse20-metadata": {
+      "expected_bytes": 25319,
+      "verified_bytes": 25319,
+      "statuses": {
+        "verified": 3
+      }
+    },
+    "buu-lspine": {
+      "expected_bytes": 4940693150,
+      "verified_bytes": 4940693150,
+      "statuses": {
+        "verified": 2
+      }
+    },
+    "cgmh-pelvisseg": {
+      "expected_bytes": 1981004323,
+      "verified_bytes": 1981004323,
+      "statuses": {
+        "verified": 1
+      }
+    },
+    "ukbiobank-example": {
+      "expected_bytes": 1827100,
+      "verified_bytes": 1827100,
+      "statuses": {
+        "verified": 1
+      }
+    },
+    "aasce": {
+      "expected_bytes": 82578453,
+      "verified_bytes": 82578453,
+      "statuses": {
+        "verified": 1
+      }
+    },
+    "spinal-ai2024": {
+      "expected_bytes": 457753090,
+      "verified_bytes": 457753090,
+      "statuses": {
+        "verified": 1
+      }
+    },
+    "verse19": {
+      "expected_bytes": 12253938153,
+      "verified_bytes": 0,
+      "statuses": {
+        "downloading": 3
+      }
+    },
+    "aasce-kaggle": {
+      "expected_bytes": 58274855,
+      "verified_bytes": 58274855,
+      "statuses": {
+        "verified": 1
+      }
+    },
+    "dexa-osteo": {
+      "expected_bytes": 40498262,
+      "verified_bytes": 40498262,
+      "statuses": {
+        "verified": 1
+      }
+    },
+    "dxa-v1": {
+      "expected_bytes": 6734873,
+      "verified_bytes": 6734873,
+      "statuses": {
+        "verified": 1
+      }
+    }
+  },
+  "new_catalog_bytes": 17155399091,
+  "catalog_verified_bytes": 32865921170,
+  "nhanes_completed": 50,
+  "nhanes_target": 1000,
+  "clinical_validation_complete": false,
+  "live_audit": "data/external/dataset-acquisition-audit.json",
+  "report": "docs/DATASETS_FOR_TZ_2026_09_26_RU.md"
+}

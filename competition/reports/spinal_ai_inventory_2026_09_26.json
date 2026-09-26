@@ -1,0 +1,53 @@
+{
+  "source": "https://github.com/Ernestchenchen/Spinal-AI2024",
+  "revision": "693acc5aee5620e9b25dcc15accdaff42d1f930e",
+  "clinical_validation": false,
+  "images": 20000,
+  "exact_duplicate_images": 0,
+  "cross_split_duplicates": 0,
+  "errors": [],
+  "annotation_counts": {
+    "16": 3702,
+    "17": 8364,
+    "18": 5956,
+    "15": 713,
+    "19": 1061,
+    "20": 36,
+    "13": 22,
+    "14": 115,
+    "12": 7,
+    "11": 4,
+    "0": 1,
+    "1": 18,
+    "21": 1
+  },
+  "limitations": [
+    "Synthetic images, not independent clinical data.",
+    "COCO category text and random transcriptions do not explicitly identify numbered anatomical levels.",
+    "Do not infer Th12 or L1-L5 labels by sorting polygons without verifying source conventions.",
+    "Original corner ordering must be verified before treating segmentation arrays as rasterizable COCO polygons."
+  ],
+  "polygon_audit": {
+    "Spinal_AI2024_test_annotation.zip": {
+      "polygons": 68815,
+      "self_intersecting_quads": 68815,
+      "out_of_bounds": 5
+    },
+    "Spinal_AI2024_train__annotation.zip": {
+      "polygons": 273450,
+      "self_intersecting_quads": 273450,
+      "out_of_bounds": 10
+    }
+  },
+  "normalized_coco": {
+    "test": {
+      "accepted": 68810,
+      "quarantined": 5
+    },
+    "train": {
+      "accepted": 273440,
+      "quarantined": 10
+    }
+  },
+  "conversion_code": "competition/spinal_ai_annotations.py"
+}

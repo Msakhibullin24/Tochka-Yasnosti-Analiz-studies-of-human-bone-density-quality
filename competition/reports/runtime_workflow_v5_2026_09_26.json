@@ -1,0 +1,113 @@
+{
+  "created_at_utc": "2026-09-26T20:58:21.176656+00:00",
+  "profile_id": "no-new-labels-runtime-v5-20260926",
+  "profile_sha256": "1db1711ae79da804168850acda19c3795385a993281558d7fdbe5f3cd4e0dfa7",
+  "container_image": "sha256:617aea7565b7aeb0f0c2b2691979b12d67d1bf24e1a1f4bbe2b12ce876c95172",
+  "api_batch": {
+    "profile_id": "no-new-labels-runtime-v5-20260926",
+    "summary": {
+      "version": "1.10.0",
+      "submission_available": true,
+      "submission_valid": true,
+      "files": 499,
+      "success": 499,
+      "failure": 0,
+      "success_rate": 1.0,
+      "violations": 157,
+      "cancelled": false,
+      "studies": 100,
+      "max_seconds_per_study": 4.879,
+      "mean_seconds_per_image": 0.4422,
+      "total_seconds": 260.475,
+      "workflow_profile_id": "no-new-labels-runtime-v5-20260926",
+      "process_peak_rss_bytes": 572268544,
+      "cpu_count_visible": 12,
+      "typification_complete": true,
+      "anatomical_checks_complete": false,
+      "untyped_violations": 0,
+      "requirements_complete": false,
+      "max_seconds_per_study_upper_bound": 44.67954760600009
+    },
+    "strict_repeat_sc_sr": {
+      "valid": true,
+      "profile": "competition_v2",
+      "errors": [],
+      "warnings": [
+        "Input completeness not checked: provide an independent path manifest",
+        "Failure explanations not available in this table"
+      ],
+      "images": 499,
+      "success": 499,
+      "max_seconds_per_study": 4.879099999999999,
+      "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+    },
+    "input_manifest": {
+      "valid": true,
+      "profile": "working_report",
+      "errors": [],
+      "warnings": [
+        "Additional DICOM series not checked"
+      ],
+      "images": 499,
+      "success": 499,
+      "max_seconds_per_study": 4.879099999999999,
+      "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+    },
+    "api_ready": true,
+    "clinical_validation": false
+  },
+  "build_run_script_smoke": {
+    "valid": true,
+    "profile": "competition_v2",
+    "errors": [],
+    "warnings": [
+      "Input completeness not checked: provide an independent path manifest",
+      "Failure explanations not available in this table"
+    ],
+    "images": 3,
+    "success": 3,
+    "max_seconds_per_study": 2.0692,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "hip_stability_review_flags": {
+    "v2": 148,
+    "runtime_v5": 148,
+    "scope": "technical review flags, not clinical error counts"
+  },
+  "numbered_candidate_reporting": {
+    "spine_rows": 166,
+    "with_levels": 166,
+    "confirmed": 0
+  },
+  "checks": {
+    "competition": "259 passed, 5 skipped",
+    "frontend": "52 passed plus lint and build",
+    "backend": "53 passed, 2 skipped",
+    "git_diff_check": true
+  },
+  "clinical_validation": false,
+  "quality_model_weights_changed": false,
+  "limitations": [
+    "Anatomical criteria retain candidate/undetermined status",
+    "Source holdout is previously inspected and rare criteria have few positives",
+    "No H200 timing or full DICOM conformance claimed"
+  ],
+  "neck_candidate_reporting": {
+    "v2": {
+      "with_points": 228,
+      "unstable": 78
+    },
+    "runtime_v5": {
+      "with_points": 229,
+      "unstable": 77
+    }
+  },
+  "build_run_script_repeat_guard": "Existing results rejected before build or inference",
+  "tcp_api_script_smoke": {
+    "ready": true,
+    "success": 3,
+    "failure": 0,
+    "profile_id": "no-new-labels-runtime-v5-20260926",
+    "bind": "127.0.0.1:18073"
+  }
+}

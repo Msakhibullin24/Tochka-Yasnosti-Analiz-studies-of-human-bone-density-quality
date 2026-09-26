@@ -1,0 +1,599 @@
+{
+  "clinical_validation": false,
+  "release_modified": false,
+  "protocol": "Frozen BUU model; untouched named DXA bone-area ROIs; numbering never reassigned from references",
+  "model_sha256": "8bc51b5388ad6d9fa93ae3305ebbb25e8fc21844a7ea0972bf5c96a555b748e9",
+  "code_sha256": "840ac333c7fd14d92564c0a540cdc98bcb7597b7d09f5a09f90c05de048716c1",
+  "patients": 10,
+  "reference_bodies": 40,
+  "within_half_roi_bbox_height": 5,
+  "numbered_roi_center_hit_rate": 0.125,
+  "median_error_roi_heights": 1.619483529824136,
+  "cases": [
+    {
+      "source_sha256": "a569e10c5f824dbed04451a0c8d89dbcfdd73e911c74832ab2429553bbeb0343",
+      "mask_sha256": "6f1d0dc313006bcf24fd5f1fbc6c5137edccecc8c9d2d1009b22d1b6baeeadfd",
+      "levels": [
+        {
+          "level": "L1",
+          "reference_roi_center": [
+            139.2791234140715,
+            100.86136101499423
+          ],
+          "prediction": [
+            117.63075058748946,
+            165.1124177198857
+          ],
+          "roi_bbox_height": 53,
+          "error_roi_heights": 1.2792467208949838
+        },
+        {
+          "level": "L2",
+          "reference_roi_center": [
+            137.92979882648785,
+            154.5660100586756
+          ],
+          "prediction": [
+            65.41628915714101,
+            118.36135676326231
+          ],
+          "roi_bbox_height": 59,
+          "error_roi_heights": 1.3737166327848533
+        },
+        {
+          "level": "L3",
+          "reference_roi_center": [
+            137.31653454133635,
+            214.67478293695734
+          ],
+          "prediction": [
+            65.39091007737443,
+            118.62092783907428
+          ],
+          "roi_bbox_height": 62,
+          "error_roi_heights": 1.935459578724973
+        },
+        {
+          "level": "L4",
+          "reference_roi_center": [
+            137.40866141732283,
+            272.3844488188976
+          ],
+          "prediction": [
+            136.94989807493985,
+            242.97390489354729
+          ],
+          "roi_bbox_height": 60,
+          "error_roi_heights": 0.4902353623485572
+        }
+      ]
+    },
+    {
+      "source_sha256": "6da2ea731fa67781c8848994c8a1d298ce35ec1e27a49c77357be27339e5761d",
+      "mask_sha256": "7b16f6b69caacab2e4dbbceb78cfdf24836ee60577b2c821cf22d99697470eb8",
+      "levels": [
+        {
+          "level": "L1",
+          "reference_roi_center": [
+            117.57765198129461,
+            91.42923947821807
+          ],
+          "prediction": [
+            187.69411815032365,
+            219.9011052986607
+          ],
+          "roi_bbox_height": 52,
+          "error_roi_heights": 2.814621266800306
+        },
+        {
+          "level": "L2",
+          "reference_roi_center": [
+            121.62271662763466,
+            143.5496487119438
+          ],
+          "prediction": [
+            15.787139899795875,
+            123.39458083338103
+          ],
+          "roi_bbox_height": 58,
+          "error_roi_heights": 1.8575452763731963
+        },
+        {
+          "level": "L3",
+          "reference_roi_center": [
+            124.61677527853689,
+            203.56338028169014
+          ],
+          "prediction": [
+            12.089414931088685,
+            136.63852424063953
+          ],
+          "roi_bbox_height": 63,
+          "error_roi_heights": 2.078173848948874
+        },
+        {
+          "level": "L4",
+          "reference_roi_center": [
+            124.80564908342686,
+            264.4034792368126
+          ],
+          "prediction": [
+            3.9100895313546062,
+            195.68800168158486
+          ],
+          "roi_bbox_height": 63,
+          "error_roi_heights": 2.2072941436054627
+        }
+      ]
+    },
+    {
+      "source_sha256": "1340978a67da4d0b4ff4c56fb06241dde598d5e38e1dc3c6aa8ff420763c29b7",
+      "mask_sha256": "12b359c71204e5f0e73979dbaa53f204a722380af8138dc8cbffa96e27060de8",
+      "levels": [
+        {
+          "level": "L1",
+          "reference_roi_center": [
+            117.0368125701459,
+            85.98855218855219
+          ],
+          "prediction": [
+            142.2469774373807,
+            176.4666636865586
+          ],
+          "roi_bbox_height": 72,
+          "error_roi_heights": 1.3045091161506486
+        },
+        {
+          "level": "L2",
+          "reference_roi_center": [
+            105.57921361232468,
+            142.7401701540584
+          ],
+          "prediction": [
+            143.23334902059287,
+            187.0721864271909
+          ],
+          "roi_bbox_height": 64,
+          "error_roi_heights": 0.9088273668098198
+        },
+        {
+          "level": "L3",
+          "reference_roi_center": [
+            104.37469586374696,
+            199.3801703163017
+          ],
+          "prediction": [
+            11.773117071017623,
+            108.71310311037816
+          ],
+          "roi_bbox_height": 66,
+          "error_roi_heights": 1.9636018439860925
+        },
+        {
+          "level": "L4",
+          "reference_roi_center": [
+            118.9952770208901,
+            258.2770208900999
+          ],
+          "prediction": [
+            40.532008327171205,
+            136.80643923114985
+          ],
+          "roi_bbox_height": 78,
+          "error_roi_heights": 1.8539537305501375
+        }
+      ]
+    },
+    {
+      "source_sha256": "fa2ad29352786376e4346a58de730a998eb98c77463cd43f7f62549052fb423d",
+      "mask_sha256": "eb462d38125eba8f9a160acaf4c25c387574b5038f7a6c5210d35b49763a8f53",
+      "levels": [
+        {
+          "level": "L1",
+          "reference_roi_center": [
+            127.00154838709678,
+            51.68206451612903
+          ],
+          "prediction": [
+            147.75166432540865,
+            75.40338793490082
+          ],
+          "roi_bbox_height": 56,
+          "error_roi_heights": 0.5627886153532453
+        },
+        {
+          "level": "L2",
+          "reference_roi_center": [
+            130.69908338922423,
+            108.00491839928459
+          ],
+          "prediction": [
+            117.33622592594475,
+            74.12962653208524
+          ],
+          "roi_bbox_height": 61,
+          "error_roi_heights": 0.5969782726035575
+        },
+        {
+          "level": "L3",
+          "reference_roi_center": [
+            131.09658421672555,
+            171.26835492736552
+          ],
+          "prediction": [
+            36.131974975019695,
+            208.47203370649368
+          ],
+          "roi_bbox_height": 65,
+          "error_roi_heights": 1.5691094012741647
+        },
+        {
+          "level": "L4",
+          "reference_roi_center": [
+            131.53305033353547,
+            233.16777845158683
+          ],
+          "prediction": [
+            137.73312884476036,
+            190.838155710604
+          ],
+          "roi_bbox_height": 60,
+          "error_roi_heights": 0.7130213365475276
+        }
+      ]
+    },
+    {
+      "source_sha256": "106cd04579a8cebc336b93f43b8933cd9f4283748c1bfc593fa38a2738017f88",
+      "mask_sha256": "ee9a7b1532b012ed47819e20483d6a6ab1a7045d09caa6a9c2661bc48e6a7836",
+      "levels": [
+        {
+          "level": "L1",
+          "reference_roi_center": [
+            127.57553638575537,
+            121.38398584383985
+          ],
+          "prediction": [
+            112.96068759001791,
+            226.54043513978831
+          ],
+          "roi_bbox_height": 44,
+          "error_roi_heights": 2.4128907247776046
+        },
+        {
+          "level": "L2",
+          "reference_roi_center": [
+            131.35095298602286,
+            167.81753494282083
+          ],
+          "prediction": [
+            47.61996736917644,
+            144.5890738433227
+          ],
+          "roi_bbox_height": 50,
+          "error_roi_heights": 1.7378652833196755
+        },
+        {
+          "level": "L3",
+          "reference_roi_center": [
+            128.58282208588957,
+            216.33128834355827
+          ],
+          "prediction": [
+            20.79215071629733,
+            247.6762212223839
+          ],
+          "roi_bbox_height": 53,
+          "error_roi_heights": 2.118031358526474
+        },
+        {
+          "level": "L4",
+          "reference_roi_center": [
+            124.5856,
+            267.14925714285715
+          ],
+          "prediction": [
+            118.05835112854838,
+            270.24837573990226
+          ],
+          "roi_bbox_height": 52,
+          "error_roi_heights": 0.13895413698435016
+        }
+      ]
+    },
+    {
+      "source_sha256": "f5c1a88aee653f2832ef243e54e9c08ce6f4f4f7306d2ab84b0bc28ff60aae51",
+      "mask_sha256": "178f031caa45bda31e8c37614ec17f4ecf69580353fbc7bc6112cb7fe35cb48f",
+      "levels": [
+        {
+          "level": "L1",
+          "reference_roi_center": [
+            132.24311346980036,
+            97.76876421531463
+          ],
+          "prediction": [
+            84.53359909448773,
+            179.52079610992223
+          ],
+          "roi_bbox_height": 56,
+          "error_roi_heights": 1.6902700696712258
+        },
+        {
+          "level": "L2",
+          "reference_roi_center": [
+            141.90696132596685,
+            153.82674033149172
+          ],
+          "prediction": [
+            66.02528184158727,
+            129.30305144470185
+          ],
+          "roi_bbox_height": 63,
+          "error_roi_heights": 1.2658111243252888
+        },
+        {
+          "level": "L3",
+          "reference_roi_center": [
+            145.11127533783784,
+            213.09691722972974
+          ],
+          "prediction": [
+            35.40958789922297,
+            145.6669641570188
+          ],
+          "roi_bbox_height": 60,
+          "error_roi_heights": 2.1461372793325655
+        },
+        {
+          "level": "L4",
+          "reference_roi_center": [
+            139.13024013024014,
+            273.7720797720798
+          ],
+          "prediction": [
+            148.20403978116812,
+            278.4344773096964
+          ],
+          "roi_bbox_height": 64,
+          "error_roi_heights": 0.1593993477908885
+        }
+      ]
+    },
+    {
+      "source_sha256": "95deb11d954eb9b42d06e2fa2c4f900e35a9d9716bf3bd725dc805be51f689f5",
+      "mask_sha256": "77852523c91cf1e38ea88d3d362b512b7e235b9e1548a38dfd991e32a2045c78",
+      "levels": [
+        {
+          "level": "L1",
+          "reference_roi_center": [
+            117.57042443903758,
+            119.9735063530684
+          ],
+          "prediction": [
+            110.33040826246143,
+            119.0640858946368
+          ],
+          "roi_bbox_height": 52,
+          "error_roi_heights": 0.14032517156550497
+        },
+        {
+          "level": "L2",
+          "reference_roi_center": [
+            121.47519235871584,
+            169.66277527195544
+          ],
+          "prediction": [
+            97.61764903459698,
+            138.85905541777612
+          ],
+          "roi_bbox_height": 52,
+          "error_roi_heights": 0.7492727071062071
+        },
+        {
+          "level": "L3",
+          "reference_roi_center": [
+            122.54406520631686,
+            218.76082526744779
+          ],
+          "prediction": [
+            22.09898508377373,
+            199.71221374664455
+          ],
+          "roi_bbox_height": 54,
+          "error_roi_heights": 1.8932469443658642
+        },
+        {
+          "level": "L4",
+          "reference_roi_center": [
+            128.11173687767516,
+            271.8373507546745
+          ],
+          "prediction": [
+            5.860054583847522,
+            217.18592673055826
+          ],
+          "roi_bbox_height": 58,
+          "error_roi_heights": 2.308816528193719
+        }
+      ]
+    },
+    {
+      "source_sha256": "cb8bb4d524250ef9149339132fa82ca66a4e7032be478fbc222648f0e7543c35",
+      "mask_sha256": "8006816a09ff8546ac36ec04abbefff959febc116a36c7c8d53b687a5075ee6e",
+      "levels": [
+        {
+          "level": "L1",
+          "reference_roi_center": [
+            105.92235429447852,
+            137.14129601226995
+          ],
+          "prediction": [
+            130.205400499329,
+            156.8302951650694
+          ],
+          "roi_bbox_height": 66,
+          "error_roi_heights": 0.47366918124005153
+        },
+        {
+          "level": "L2",
+          "reference_roi_center": [
+            101.92102863395951,
+            199.7380995805216
+          ],
+          "prediction": [
+            137.56520493347196,
+            166.33989862748422
+          ],
+          "roi_bbox_height": 66,
+          "error_roi_heights": 0.7400932998678119
+        },
+        {
+          "level": "L3",
+          "reference_roi_center": [
+            108.79787817815986,
+            255.8726906895921
+          ],
+          "prediction": [
+            142.9604957677424,
+            148.24887580890208
+          ],
+          "roi_bbox_height": 65,
+          "error_roi_heights": 1.7371656143293608
+        },
+        {
+          "level": "L4",
+          "reference_roi_center": [
+            122.375,
+            305.49087183308495
+          ],
+          "prediction": [
+            117.71265433859081,
+            260.8114106319845
+          ],
+          "roi_bbox_height": 62,
+          "error_roi_heights": 0.7245493989372204
+        }
+      ]
+    },
+    {
+      "source_sha256": "19e8df1fc8a68fdf0cf6d5ea3a91f1c77c2efb62b037d41bbffbad8563d74bb4",
+      "mask_sha256": "32bb3113d8d70bde397006d12137bf437218508b320b60008e78ccbdcaaa3e6a",
+      "levels": [
+        {
+          "level": "L1",
+          "reference_roi_center": [
+            131.9429753966429,
+            101.51621062313176
+          ],
+          "prediction": [
+            28.616937701031564,
+            127.60128564946353
+          ],
+          "roi_bbox_height": 54,
+          "error_roi_heights": 1.973478230294744
+        },
+        {
+          "level": "L2",
+          "reference_roi_center": [
+            132.7244599047968,
+            160.61406078359576
+          ],
+          "prediction": [
+            30.037210121098905,
+            139.43861535042527
+          ],
+          "roi_bbox_height": 66,
+          "error_roi_heights": 1.5886037234138182
+        },
+        {
+          "level": "L3",
+          "reference_roi_center": [
+            131.76824034334763,
+            225.9234931890278
+          ],
+          "prediction": [
+            27.575976277980953,
+            199.09665027670565
+          ],
+          "roi_bbox_height": 64,
+          "error_roi_heights": 1.6811009599155784
+        },
+        {
+          "level": "L4",
+          "reference_roi_center": [
+            135.67497773820125,
+            287.91237756010685
+          ],
+          "prediction": [
+            60.16066584801302,
+            280.33366978373374
+          ],
+          "roi_bbox_height": 60,
+          "error_roi_heights": 1.2648943864353395
+        }
+      ]
+    },
+    {
+      "source_sha256": "1027c1296748c99ece0278dd9bd2f62d1302f32703fb2daedace434ba29fb908",
+      "mask_sha256": "cb614af21ded335aed7088d6083d7ded498dde05a0761c0b37f544fe5d7ba661",
+      "levels": [
+        {
+          "level": "L1",
+          "reference_roi_center": [
+            131.95458458889368,
+            114.39195006457167
+          ],
+          "prediction": [
+            21.53529382273555,
+            147.78822773415595
+          ],
+          "roi_bbox_height": 64,
+          "error_roi_heights": 1.8024865593810546
+        },
+        {
+          "level": "L2",
+          "reference_roi_center": [
+            131.63491717523976,
+            176.98975588491717
+          ],
+          "prediction": [
+            35.39733402924612,
+            220.34267630428076
+          ],
+          "roi_bbox_height": 62,
+          "error_roi_heights": 1.7024457615248272
+        },
+        {
+          "level": "L3",
+          "reference_roi_center": [
+            132.79389623601222,
+            239.06388606307223
+          ],
+          "prediction": [
+            35.112715403363104,
+            226.4685149844736
+          ],
+          "roi_bbox_height": 64,
+          "error_roi_heights": 1.5389043749249522
+        },
+        {
+          "level": "L4",
+          "reference_roi_center": [
+            133.56903908516813,
+            309.3647380098993
+          ],
+          "prediction": [
+            135.19578820504248,
+            187.2486858847551
+          ],
+          "roi_bbox_height": 74,
+          "error_roi_heights": 1.6503633362344536
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Bone-area ROI centers and bounding heights are not anatomical vertebral center/height ground truth.",
+    "No L5, Th12, iliac crest or disc reference.",
+    "Ten Hologic patients do not establish organizer GE DXA performance."
+  ]
+}

@@ -196,3 +196,28 @@ def test_trochanter_fallback_at_boundary_also_abstains_without_shaft_axis():
     result=detect_landmarks(np.zeros((100,100),np.uint8),'hip_right',{'greater_trochanter_top':[(20,0)]})
     cap=next(x for x in result['landmarks'] if x['name']=='greater_trochanter')
     assert cap['status']=='not_localized' and cap['points']==[]
+
+
+def test_hip_stability_compares_same_localizer_before_learned_neck_override(monkeypatch):
+    from types import SimpleNamespace
+    from dxaqc import anatomy
+    def candidates(*args):
+        return {'landmarks': [{'name': name, 'points': [[40., 40.]], 'method': 'heuristic',
+                               'status': 'candidate', 'verified': False}
+                              for name in ('greater_trochanter', 'lesser_trochanter', 'ischium', 'femoral_neck')]}
+    features = {'shaft_abs_angle_deg': 0., 'lesser_troch_protrusion_mm': 0.}
+    monkeypatch.setattr(anatomy, 'detect_landmarks', candidates)
+    monkeypatch.setattr(anatomy, 'measure_image', lambda *a: SimpleNamespace(overlay={}, features=features))
+    monkeypatch.setattr(anatomy, 'assess_projection', lambda *a: {'clinical_validation': False})
+    img = SimpleNamespace(pixels=np.zeros((80,80),np.uint8), pixel_mm=1., pixel_mm_x=1.,
+                          pixel_mm_source='PixelSpacing', source_roi={'status':'absent','rois':[],'issues':[]}, view_position='')
+    result = {'region':'hip_right','overlay':{},'features':features,'review_reasons':[],
+              'learned_anatomy':{'status':'evaluated','model_sha256':'test',
+                                'regions':[{'name':'femoral_neck_roi','center':[5.,5.]}]}}
+    assessment = anatomy.image_assessment(img,result)
+    assert assessment['anatomy']['stability']['status'] == 'repeatable_under_test'
+    assert assessment['anatomy']['stability']['scope'] == 'heuristic_geometry_only'
+    assert 'hip_geometry_unstable' not in result['review_reasons']
+    neck = next(r for r in assessment['anatomy']['landmarks'] if r['name']=='femoral_neck')
+    assert neck['points'] == [[5.,5.]]
+    assert neck['stability']['status'] == 'not_evaluated'

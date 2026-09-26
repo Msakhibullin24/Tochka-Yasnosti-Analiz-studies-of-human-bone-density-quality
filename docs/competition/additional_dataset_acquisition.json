@@ -1,0 +1,174 @@
+{
+  "date": "2026-09-26",
+  "files": [
+    {
+      "dataset": "buu-lspine",
+      "path": "BUU-LSPINE_400.zip",
+      "bytes": 916966943,
+      "url": "https://drive.usercontent.google.com/download?id=1OqM9J8S2Cy23D-4nIRJdZdzD9-mmo2Og&export=download&confirm=t",
+      "source": "https://services.informatics.buu.ac.th/spine/",
+      "license": "Institutional EULA on source page; attribution and research use; do not assume CC licence",
+      "digest_origin": "Local SHA-256 after download; publisher checksum unavailable",
+      "algorithm": "sha256",
+      "digest": "9de17291d0ad55562bc230639369775b5648f6446ff219f252c631b9eca7fed9"
+    },
+    {
+      "dataset": "buu-lspine",
+      "path": "dataset2024.zip",
+      "bytes": 4023726207,
+      "url": "https://drive.usercontent.google.com/download?id=1qFdU420eLo6rSR0lyuWB9M3rfknXFhvm&export=download&confirm=t",
+      "source": "https://services.informatics.buu.ac.th/spine/",
+      "license": "Institutional EULA on source page; attribution and research use; do not assume CC licence",
+      "digest_origin": "Local SHA-256 after download; publisher checksum unavailable"
+    },
+    {
+      "dataset": "cgmh-pelvisseg",
+      "path": "cgmh-pelvisseg-v2.zip",
+      "bytes": 1981004323,
+      "url": "https://www.kaggle.com/api/v1/datasets/download/tommyngx/cgmh-pelvisseg?datasetVersionNumber=2",
+      "source": "https://www.kaggle.com/datasets/tommyngx/cgmh-pelvisseg",
+      "license": "Kaggle metadata CC0; uploader description research/education only: unresolved restriction, no redistribution",
+      "digest_origin": "Local SHA-256 after download; publisher checksum unavailable",
+      "algorithm": "sha256",
+      "digest": "670ff0c8541a0e1e16ac02e5d2094cffb267b8803b35865b50cd3225eb4d92a3"
+    },
+    {
+      "dataset": "ukbiobank-example",
+      "path": "eg_20158_dxa.zip",
+      "bytes": 1827100,
+      "url": "https://biobank.ndph.ox.ac.uk/ukb/ukb/examples/eg_20158_dxa.zip",
+      "source": "https://biobank.ndph.ox.ac.uk/showcase/refer.cgi?id=20158",
+      "license": "Public format example; no open redistribution/training licence established",
+      "digest_origin": "Local SHA-256 after download; publisher checksum unavailable",
+      "algorithm": "sha256",
+      "digest": "3fa074cca6bf0e23f0b8f823c7e729d1797718000d39942b32adcb11798ae4c7"
+    },
+    {
+      "dataset": "aasce",
+      "path": "Archive.zip",
+      "bytes": 82578453,
+      "url": "https://www.dropbox.com/s/6pb78r29yl4s3j6/Archive.zip?dl=1",
+      "source": "https://aasce19.github.io/",
+      "license": "Public challenge test archive; explicit training and redistribution licence not established",
+      "digest_origin": "Local SHA-256 after download; publisher checksum unavailable"
+    },
+    {
+      "dataset": "spinal-ai2024",
+      "path": "Spinal-AI2024-693acc5.zip",
+      "bytes": 457753090,
+      "url": "https://codeload.github.com/Ernestchenchen/Spinal-AI2024/zip/693acc5aee5620e9b25dcc15accdaff42d1f930e",
+      "source": "https://github.com/Ernestchenchen/Spinal-AI2024",
+      "license": "No explicit dataset licence located in pinned repository; research evaluation only, do not redistribute",
+      "digest_origin": "Local SHA-256 after archive CRC check; publisher checksum unavailable",
+      "algorithm": "sha256",
+      "digest": "5e48ec8fe88fa14ac6c3a12649910862d747554fcb8f5d437262712811e4596a"
+    },
+    {
+      "dataset": "verse19",
+      "path": "dataset-verse19training.zip",
+      "bytes": 6991481921,
+      "url": "https://s3.bonescreen.de/public/VerSe-complete/dataset-verse19training.zip",
+      "source": "https://github.com/anjany/verse",
+      "license": "Dataset CC BY-SA 4.0; repository code MIT. Preserve patient-level splits and potential overlap with PPCNet DRRs.",
+      "digest_origin": "Local SHA-256 and ZIP CRC after download; source has no single-file publisher hash in linked mirror metadata",
+      "publisher_last_modified": "Thu, 17 Nov 2022 23:00:49 GMT"
+    },
+    {
+      "dataset": "verse19",
+      "path": "dataset-verse19validation.zip",
+      "bytes": 2162900394,
+      "url": "https://s3.bonescreen.de/public/VerSe-complete/dataset-verse19validation.zip",
+      "source": "https://github.com/anjany/verse",
+      "license": "Dataset CC BY-SA 4.0; repository code MIT. Preserve patient-level splits and potential overlap with PPCNet DRRs.",
+      "digest_origin": "Local SHA-256 and ZIP CRC after download; source has no single-file publisher hash in linked mirror metadata",
+      "publisher_last_modified": "Thu, 17 Nov 2022 22:59:46 GMT"
+    },
+    {
+      "dataset": "verse19",
+      "path": "dataset-verse19test.zip",
+      "bytes": 3099555838,
+      "url": "https://s3.bonescreen.de/public/VerSe-complete/dataset-verse19test.zip",
+      "source": "https://github.com/anjany/verse",
+      "license": "Dataset CC BY-SA 4.0; repository code MIT. Preserve patient-level splits and potential overlap with PPCNet DRRs.",
+      "digest_origin": "Local SHA-256 and ZIP CRC after download; source has no single-file publisher hash in linked mirror metadata",
+      "publisher_last_modified": "Thu, 17 Nov 2022 23:00:30 GMT"
+    },
+    {
+      "dataset": "aasce-kaggle",
+      "path": "aasce-v1.zip",
+      "bytes": 58274855,
+      "url": "https://www.kaggle.com/api/v1/datasets/download/wahyurahmaniar/aasce-miccai-2019-x-ray-dataset?datasetVersionNumber=1",
+      "source": "https://www.kaggle.com/datasets/wahyurahmaniar/aasce-miccai-2019-x-ray-dataset",
+      "license": "Unknown in Kaggle metadata; AASCE/SpineWeb derivative, do not infer unrestricted redistribution or training rights",
+      "digest_origin": "Local SHA-256 after ZIP CRC check; no publisher checksum",
+      "scope": "481 AP training JPG with 68-point MAT annotations; preserve patient/study groups and source overlap"
+    },
+    {
+      "dataset": "dexa-osteo",
+      "path": "dexa-osteo-v1.zip",
+      "bytes": 40498262,
+      "url": "https://www.kaggle.com/api/v1/datasets/download/mahavisnuks/dexa-osteo?datasetVersionNumber=1",
+      "source": "https://www.kaggle.com/datasets/mahavisnuks/dexa-osteo",
+      "license": "Unknown in source metadata; origin/independence requires audit; no redistribution or training licence assumed",
+      "digest_origin": "Local SHA-256 after ZIP CRC check; no publisher checksum",
+      "scope": "Candidate DXA image collection; disease classes and saved predictions are not expert quality/landmark labels"
+    },
+    {
+      "dataset": "dxa-v1",
+      "path": "dxa-v2.zip",
+      "bytes": 6734873,
+      "url": "https://www.kaggle.com/api/v1/datasets/download/obosrish/dxa-v1?datasetVersionNumber=2",
+      "source": "https://www.kaggle.com/datasets/obosrish/dxa-v1",
+      "license": "Unknown in source metadata; origin/independence requires audit; no redistribution or training licence assumed",
+      "digest_origin": "Local SHA-256 after ZIP CRC check; no publisher checksum",
+      "scope": "Candidate DXA image collection; disease classes and saved predictions are not expert quality/landmark labels"
+    }
+  ],
+  "unavailable": [
+    {
+      "source": "https://data.mendeley.com/datasets/5jdfdgp762/1",
+      "reason": "HTTP 403 from dataset page and public-api on this machine",
+      "overlap": "508 images are BUU-LSPINE derivatives; require patient/pixel deduplication"
+    },
+    {
+      "source": "https://data.mendeley.com/datasets/zg4d3f9kyf/1",
+      "reason": "HTTP 403 from dataset page on this machine",
+      "mirror_available": "Author mirror downloaded and verified: https://huggingface.co/datasets/Rakin234/lumbar-spine-segmentation-dataset; local dataset lumbar-spine-raw1200"
+    },
+    {
+      "source": "https://services.informatics.buu.ac.th/archive/dataset/buu_lspine",
+      "reason": "Full 3600 patient edition uses request form; public 400 and 2024 archives downloaded separately"
+    },
+    {
+      "source": "https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=20158",
+      "reason": "Full UK Biobank cohort requires approved access; public format example only downloaded"
+    },
+    {
+      "source": "https://physionet.org/content/vindr-spinexr/1.0.0/",
+      "reason": "Credentialed restricted access; account, required training and data use agreement needed; not downloaded"
+    },
+    {
+      "source": "https://drive.google.com/drive/folders/1HmLTG4GFgB2s4D0x7TTRx8vV_VWY3sW3",
+      "reason": "Arak DXA source referenced in medRxiv DOI 10.1101/2025.01.25.24319689; original URL redirects to Google sign-in"
+    },
+    {
+      "source": "https://github.com/Malga-Vision/Landmarks-Hip-Conditions",
+      "reason": "Public repository describes 89-patient FAIT data but provides code/partition rather than downloadable patient imaging"
+    },
+    {
+      "source": "https://github.com/anjany/verse",
+      "reason": "Complete VerSe20 ZIP mirrors exceed 38 GB before extraction; outside chosen 35 GB budget, overlapping VerSe19 chosen"
+    },
+    {
+      "source": "https://ftp.cdc.gov/pub/NHANES/XRays/Nhanes2/",
+      "reason": "Full lumbar image cohort is 46.24 GB; outside chosen 35 GB budget. Existing deterministic 1000-file subset acquisition continues"
+    },
+    {
+      "source": "https://www.kaggle.com/datasets/tommyngx/chinese-osteoporosis-dxa",
+      "reason": "20741 files across many body parts; sampled Hip/LumbarP/LumbarL are conventional radiographs, no landmark/mask labels in listed files. 3 inspection samples retained; bulk deprioritized for this DXA QC task"
+    }
+  ],
+  "scope_notes": [
+    "PPCNet complete 2D and reference point cloud subset selected, 399249417 bytes; original CT/masks excluded, metadata retained and pinned by revision."
+  ]
+}

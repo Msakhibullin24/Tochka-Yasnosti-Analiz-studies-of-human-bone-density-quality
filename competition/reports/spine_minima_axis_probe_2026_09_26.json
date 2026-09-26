@@ -1,0 +1,622 @@
+{
+  "scope": "axis from unnumbered minima; fixed 5 degree limit; not clinical validation",
+  "quality": {
+    "n": 99,
+    "positives": 10,
+    "negatives": 89,
+    "tn_fp_fn_tp": [
+      89,
+      0,
+      9,
+      1
+    ],
+    "accuracy": 0.9090909090909091,
+    "precision": 1.0,
+    "sensitivity": 0.1,
+    "specificity": 1.0,
+    "f1": 0.18181818181818182,
+    "balanced_accuracy": 0.55
+  },
+  "cases": [
+    {
+      "pixel_sha256": "56ad4aacfcff91ebd87a697ab40ed7eb257148b788d424a74ebd245fea0f07e1",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.050530455268555,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "e0f9e102f359e379857c746bef855e85e898fe0fb062025e555099d01ded4a12",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.5474114364560514,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "6fbbb0ee2636360bba8f492b60a69210c1a440072c455e44394a8e8ee1c7a603",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.7363617366516485,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "7b9332bd3916dda3cbbea33e1515ccd57894856c9347a42e48f2a0ec6c70234a",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.4748218490361114,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "dd972bae91d6de06d64bc3e0402212415b81e00a7d594a8401ff5d0ee75b7692",
+      "axis_label": 1,
+      "candidate_angle_deg": 4.582242536543018,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "0360deed5046b19b50c5f8758b6ef99f92717fa6abc2420a147a5be527f92121",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.138553513556517,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "260ed19b51c6497555dce7b6fac2d01237b98a838d12def48fcaccb55c8c14de",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.1529627891004544,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "8ba035f35da9fb5b8591d66ff8bed4fecd5f8815db4692868158c3c42248cd4c",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.509480141977247,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "dcdbb40ff5cb372a8f7208c149729280e1d84d0647317ee633d9f8839f3b27de",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.1664905727863277,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "995de81fe5e6848706a42532d01ec31e025269667dd1e00134daee3c59c1fa30",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.0505304552685835,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "d70393b397fa6c1cfdfa4e99f813cddf1cd098974c18f0d4eb7b0020897844dc",
+      "axis_label": 0,
+      "candidate_angle_deg": 4.40968625052338,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "5ed88ae70c5d250410e41fe9266f452144d732dd9ab853fdf47605548cb85923",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.0,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "c2e7c2f9d0dd96a32b69119809053fd3cea98622808247cedc2d2b42eba2a14e",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.7400520547784462,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "c3a724822b47baff914e0e7d2c87af06fad4530e9f211f0231b073cfc762ccb8",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.9572338949974593,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "9d3950472fa5196a8d76107395ca5b1bcd076487e6a0d22578b67333196ebf21",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.9679872969125737,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "785e026712f6d620615f140b539c20b61ede1e0271867b0e3e972d0ee5f41d38",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.5455124263698021,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "8e704ff027711b6a94b1154dc24802d1745e634c9d6867fe858587dee613b0d0",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.6989143349413746,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "e428be489472ea5b0ff39e32a8417bd4b9ca4b553cdbf054a8f69cd7274d8974",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.2587910419018574,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "befb36959905d91575f7082f050d6f0b447a68681f548e7404d3edb9843644e5",
+      "axis_label": 1,
+      "candidate_angle_deg": 2.6275361856763,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "bd310da5a2874ef2741678154a90d7a282deb05ca51c82efa6b374558f77398b",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.7226620716227978,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "fbf3b74894872db74011f83380d0a9f86ed055e8793ed675cdd4b8ae00c836c0",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.063570006807361,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "623f0b8fe46c1239aefe723005f3633af73ccef4c1a319a29fee59ccfb70eda5",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.0145861438623776,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "4695ad5b504c9d09111e75eb0023ef3d28756d009d6222327732277ff8ddb027",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.0836326246627255,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "8f1292d2c798972caa6405ac6fceb406d4e44445864765a58f912a8124a36641",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.5599357388438635,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "88faffc5e4482a10b2a60b292333483b6b9f4f32005c5194b579951e654eb193",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.6644411399521064,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "2a975a4fdb317ecd377e9b25142e080b280093cfa2f04a4230a234d5d1bb4f88",
+      "axis_label": 0,
+      "candidate_angle_deg": 4.409686250523401,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "9b32c7ee495a878b84dad013a99d82bb3c4241c9bbf1e532259a32469d71c256",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.208113000368597,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "9288e050697877014e72b85a790726e76daba41f6511f1d9ef45e3e5cd222d59",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.439330940071098,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "2182de8bcf3f98fce74761ea069db4e2b641730eb98f9a5a7107e41add62b91a",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.5313520061391461,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "461ce8c5784b713420d114c290c68ae72720927cfaaa016063a6842b3dcb5b2e",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.1672613794087385,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "792c50771f400b4d909a0479f55b95896d570a12b9c21cfdbf5eb123cfec9314",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.2171887500094551,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "6c4bb826080b375bddba1b84817f7163aa60f2f0fd0f23ce186e0292e5836aec",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.3355575429282147,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "770a0d85b0a4043878c7441250b3c4e812b92e5e330c662c78b090abb3b59673",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.0,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "7df5cdb7f2a8e2933dc62f880946be6e847a763ceae0ae16c572af3be3f1eaf1",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.968343771929211,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "5f54289575fa2719163a79ee99767eec044a555372e338339fdd7cd7e8924909",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.7724926303967927,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "bcfc296c95fd660fbe168c8321c5dd8fa40f124e328d83b42ee5118d841184d1",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.5035746562731286,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "e4e8b0c79708c672efaf342f1dc4775fe37e38fb5cc12ca0844bb57e15138ff5",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.1664905727863277,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "c39a14af2314a7d34b2fc1248dc56d0dba09831967971b80a8c05246120071cf",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.5951260337377542,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "dd220bc45cf525a8137b8665d59dbb1520fbce07637f5d0075c5fa9fc3372cf4",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.0,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "7d2a498d2fa2c8d4fea153a092698771850ac1e8f2a74bbbe50560f926d03dfe",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.3863070677105231,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "2d8c3341476e41295ace62baa649646447983d45a7aa7e372c188e9c9134c4d9",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.9929784048856725,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "521a197f59e33da24d4529d7366853cc70701ea17158af258eea7f2c081de463",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.4356838973417618,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "fd84428715d03f5574d524da4e66b53e26ec7b3656179b381354a4c26b498790",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.3944949882476318,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "fe06d40b71943d5d806b17e6cd9ffb4866bb6f5efe194d07c88178c68202d5a2",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.7943936706768187,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "b309dbe0fc1206a11b96c9c6e024a866da0420edc26e9ad375c6b640610571c2",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.9139337219571646,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "97ec0e50688079d7390adbc7be9ae4e9bf9e98f30347f11e47759d9f8b0bb8ee",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.580129030690799,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "412a61c72cdfd840ad341c169fe87420c42497cc499f2b251fc628de7056a5a4",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.0,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "36569073534a07d1a3927dc98fd08fd74d096a044bbbf8a468490d267d926609",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.221929135244325,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "5b9f7be4bdb5ee53ae07f4deab4e575da6a540fa27c918cd4a0c3cf686f6d0f9",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.5221617067607977,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "0059a1315dca2feca115ccfd940dab7025b7667e936328434b245044047e3b59",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.932008401287907,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "efc0c25174246011196d9233435cd64bcb52dd7fd099e6c470ded7b90cc6de5b",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.2020858522803106,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "7eb980c70b6eaaa2fa2309a1a75789e5de3967aaebfe939f64a89c6921f26a48",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.2853118151914076,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "cc407f7c67e496e1dc767610d3ed12ed6df07084a1fd8b0ae950adf6b84250c4",
+      "axis_label": 1,
+      "candidate_angle_deg": 2.0940307575664563,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "735dd4c8ad6b846c93aec4360bab13b93621ddd3bd419e64f11d173bd862ad6e",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.8695671985135656,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "f72b3b9326f10bf0d39c6516d8b4ed5b87d59cee05908870322ff6a5bb637bba",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.877797757019346,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "13a784b0466c4b17b34d16c1a173ac4ab4e10126d60d375fc90e044036e244e8",
+      "axis_label": 0,
+      "candidate_angle_deg": 4.095821615666465,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "fe4af16335b15f0d10ff1dfce36fcbc4cf0fc8b46925dde40628cbe8353593c3",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.4692565725182044,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "1297e6ee3c8a2c3456ea47930752692f23e5dfed1b3626a74b4ffac2b2f257d1",
+      "axis_label": 0,
+      "candidate_angle_deg": 3.816324667133755,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "8bb0c116bfeffb7b201250aa456eba3e1c44ef53cc6b4e381dfca244943b4a71",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.5112120435041774,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "6c47df67b471cfba22b2213bad9adeaa86a2af1a756db710387f706a1b007c61",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.6945665049637784,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "9bf53a6b6abf6a9eeb76a6f0b4f5403b2804d53550037b7c078388d57aa8d9df",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.9516797984426355,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "cbc37b28ccbfed671ecbbd614326b5dbdf155e43bed5c01865d6f84b505ab1c7",
+      "axis_label": 1,
+      "candidate_angle_deg": 1.8825805246247298,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "ebc5555cd374e7637b29f9e768843bfeb2ed2a0b2ce1c73c44236c3650e2ee4f",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.0,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "ce33655f362d1d3498bcc40e71394c8910481e82cb1dcf10f149986f96bce501",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.9789850237771559,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "dace1623fe5c10039ae5b7989b0882d70a3b61cce0fa1b2dba2ac5126920ad29",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.277821233794881,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "f1c9f2178251059ce2dbaab75766b4c39070b613d75ad36ce028fca644977431",
+      "axis_label": 1,
+      "candidate_angle_deg": 6.13071406564713,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "6851e7220f16231b43c3592b5761d6a3d1b4481208510f752af27d6c8aeeee2d",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.0255936271390245,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "c6d474b1e3fa1bd1a405c7eaa1aeaef9dc04e1da67ec0764e8c7710747c70b23",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.0,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "2e079ec6c4b4fc082859b27ed3d4b09c1840acc217906af15a35030b46f52369",
+      "axis_label": 1,
+      "candidate_angle_deg": 1.4188004434890675,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "b2ef25a5d5afe313737dbdfd7c488758fd6f1cc373715887c2a5a31f1657c911",
+      "axis_label": 0,
+      "candidate_angle_deg": 4.299862820192074,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "6975c7e897a547a9d76e7d758c33ff03b7852ada25d46406721e7566629ae158",
+      "axis_label": 0,
+      "candidate_angle_deg": 4.50021803182145,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "e2c45132fa21d821c849c723255b4cacaee7d02939cff88b295b5a531e566654",
+      "axis_label": 0,
+      "candidate_angle_deg": 3.9289464181930174,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "1f78c63e34c9bcbda41f7bbd8b8a9264a6fad83cab8bf6acb568ee41af72c456",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.503277841768445,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "a5df06a86bdbd5a62678bd9dae377afb08f66aee3a471c451c8764189b9ee5ef",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.0581778792374927,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "1dd45ead4854d4c45c477e9b4f3883987e37880d9bffd9263300a07a81a76c03",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.2963447818359706,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "1d1bea6e7f908ef2fa188a6605891cce21ec2391320420adaf0be7426de26467",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.104875106736394,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "7115fbeff04625489b5d015037ed14ef3d6be5ba3065bf5e476bb1bc92cf1137",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.43353636808574336,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "ee1b63e8b78e4347f7852452ed7a6dfc44dad01e1472c9f9135878c831193bf0",
+      "axis_label": 1,
+      "candidate_angle_deg": 3.4251307090609378,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "a521f376012eaacf5cb9e9e188c75a7b23604cd47ce12f69c2921eedff03bde6",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.363535488383254,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "1f32ec8f43dc943146973d471d77ba2d314e376e12069790cdad19d9b4c08622",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.9572338949974726,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "03308b1bfaf49a413bc05425ee2cf613127c07f61d27eefe76b071ed7d46af4f",
+      "axis_label": 0,
+      "candidate_angle_deg": 4.490850097116347,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "fbd0184157ebe3f022a4c36fb140e5ff661b07f4b8b700ad9a7f48ca713e3fc1",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.5604667164856934,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "0ba87ba4957862d14794f284ffce3e7284aaabb0986808c87349510bf48d20dd",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.7391344823951749,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "ef2e3d247a93bc1cd67f7d44f023898ec2fbdcccefe308bd765dc22c4665bad8",
+      "axis_label": 1,
+      "candidate_angle_deg": 3.8236055987457997,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "da97fcfc654fe6f7912aeba96a6a648c6ea64553b1d9b8fa6a875055a8b7cc9f",
+      "axis_label": 1,
+      "candidate_angle_deg": 0.8205064484256263,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "094c9cbeb964e14d20850e9c48ec4a00d4fcf00a24cd9a54018609645197164e",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.8369446547837316,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "59d6dbcb3cc7308c4f57ba6f811a249e8d3040df13092b75cda74fa505b1b626",
+      "axis_label": 0,
+      "candidate_angle_deg": 4.287143278273859,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "c116e7d87c8c3e98a9c5383ec6906e5975450b0d464856460ce9c53283f6439a",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.9849036496955711,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "99e1fb1d61a939c22ef464f240925d5dbd80a445e5b9d94259eab2cf771d90b0",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.4483091912293642,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "200d1950b9535ccacc4dc5d66ec427cfeaeb4aa9c4c6fc1dc72abe888f6da294",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.0,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "b845768fcb60a0e6957795f7fe3b724862f4603f58aaf67c76a388207fa3be72",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.20811277301989123,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "631e0fa48191afb36c98d7d6d709b51e69a1569b1736a4d213cb0b80c2c55ba5",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.0,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "794516213732ca94b7230139400a15db8b31684d59d85d3a0bd232e6cb1eab55",
+      "axis_label": 1,
+      "candidate_angle_deg": 3.080329730712828,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "f0fd62360cda0a7b0d3dc038ba4a214a1e92109fd5ee8798f784726784427f28",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.2473248284072167,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "f66ee3260748142e67e99fef7cc9e407464252bc85a30c8192cd0e9d97f2b2c2",
+      "axis_label": 0,
+      "candidate_angle_deg": 2.7597954499976054,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "6a0368d93d1074b48254d1630cf957d49992a810f2a510e0253616333949be33",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.0,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "320d9e16a60b7caef46e10278820e438aa261beb828da68c97950f0067625b79",
+      "axis_label": 0,
+      "candidate_angle_deg": 1.4244282889675035,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "5c2897457a7341ea9042324875ae699bddc32f49ecbf4f8514b6b72086c75c80",
+      "axis_label": 0,
+      "candidate_angle_deg": 3.585274268748037,
+      "numbered_levels_used": false
+    },
+    {
+      "pixel_sha256": "ee5c35e899b25188043d0113c47c11e93553a6f0f0f449def7a06eaf86d0c15e",
+      "axis_label": 0,
+      "candidate_angle_deg": 0.0,
+      "numbered_levels_used": false
+    }
+  ],
+  "coordinate_calibration_mm": {
+    "x": 0.6,
+    "y": 1.05
+  },
+  "point_source_sha256": "6c7481499c302bf8b508b4659fa0d2845bd4171c3e60e6aab4a2ba25b6e62ce7",
+  "method": "scipy.stats.siegelslopes on physical coordinates, frame-height interval (0.08,0.82), at least 3 points"
+}
