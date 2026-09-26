@@ -167,6 +167,23 @@ class RegionRouter:
         p = self.model.predict_proba(emb)
         return [REGIONS[i] for i in p.argmax(1)], p.max(1)
 
+    def predict_detailed(self, emb: np.ndarray) -> tuple[list[str], np.ndarray, np.ndarray]:
+        """Separate anatomy confidence from conditional hip-side confidence.
+
+        The organiser's anatomical_region merges both hip sides, but geometry
+        still needs a sufficiently reliable side to mirror the image.
+        """
+        p = self.model.predict_proba(emb)
+        if p.shape[1] != len(REGIONS) or not np.array_equal(self.model.classes_, np.arange(len(REGIONS))):
+            raise ValueError("region router must contain spine, right hip and left hip in the fixed order")
+        hip = p[:, 1] + p[:, 2]
+        spine = p[:, 0] >= hip
+        regions = ["spine" if is_spine else "hip_right" if row[1] >= row[2] else "hip_left"
+                   for is_spine, row in zip(spine, p)]
+        group_confidence = np.where(spine, p[:, 0], hip)
+        side_confidence = np.where(spine, 1.0, np.maximum(p[:, 1], p[:, 2]) / np.maximum(hip, 1e-12))
+        return regions, group_confidence, side_confidence
+
 
 def best_f1_threshold(y: np.ndarray, s: np.ndarray) -> float:
     """Threshold maximising F1; ties resolved toward the midpoint between neighbouring scores."""

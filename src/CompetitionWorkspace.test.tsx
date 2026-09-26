@@ -53,7 +53,7 @@ describe('competition workspace', () => {
     await waitFor(() => expect(screen.getByText(/Версия 1 сохранена/)).toBeInTheDocument())
     const post = fetch.mock.calls.find(([, init]) => init?.method === 'POST')
     expect(JSON.parse(String(post?.[1]?.body))).toMatchObject({ expected_revision: 0, author: 'Врач', status: 'confirmed', quality_class: 0 })
-    expect(screen.getByText(/Вероятность нарушения: 0.2/)).toBeInTheDocument()
+    expect(screen.getByText(/Балл модели: 0.2 из 1/)).toBeInTheDocument()
   })
   it('shows unavailable service rather than local demonstration predictions', async () => {
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('Сервис недоступен')))

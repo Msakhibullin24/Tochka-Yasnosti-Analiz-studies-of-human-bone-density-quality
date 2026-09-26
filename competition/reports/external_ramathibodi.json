@@ -2,10 +2,32 @@
   "dataset": "Ramathibodi BMD (Hologic Horizon A / Discovery A)",
   "patients": 20,
   "images_with_polarity_auto_corrected": 40,
-  "router_accuracy": {
-    "spine": 1.0,
-    "hip": 1.0
+  "router": {
+    "spine": {
+      "correct": 20,
+      "incorrect": 0,
+      "abstained": 0,
+      "refusal_codes": {},
+      "n": 20,
+      "coverage": 1.0,
+      "accuracy_all": 1.0,
+      "accuracy_accepted": 1.0
+    },
+    "hip": {
+      "correct": 18,
+      "incorrect": 0,
+      "abstained": 2,
+      "refusal_codes": {
+        "UNCERTAIN_LATERALITY": 2
+      },
+      "n": 20,
+      "coverage": 0.9,
+      "accuracy_all": 0.9,
+      "accuracy_accepted": 1.0
+    }
   },
+  "decoded_pixel_hashes_sha256": "245ffc29ceabb8cfe1b7fd0514ee2579f420f53161215ea5feb4577880fdde55",
+  "model_sha256": "7f78fdcdb9c4116277f5cc9858ae6297c48e0d4fda9f87ed1f5dd01724fdd993",
   "measurement_vs_expert_label": {
     "lsd": {
       "our_measurement": "spine_abs_angle_deg",
@@ -32,5 +54,6 @@
       "roc_auc": 0.3611111111111111
     }
   },
-  "note": "Indicative only (n=20, 2-7 positives per label). Images carry burned-in ROI lines and a different presentation than the organiser GE export; the organiser-domain classifier is NOT validated here."
+  "note": "Indicative only (n=20, 2-7 positives per label). Router abstentions count against coverage. Images carry burned-in ROI lines and a different presentation than the organiser GE export; the organiser-domain quality classifier is NOT validated here.",
+  "evaluation_code_sha256": "5e62ec4afe56280a15b604443b1047e29ebce6b84d91f033b23bc623cb8fc144"
 }

@@ -15,6 +15,7 @@ from dxaqc.geometry import measure_image
 from dxaqc.explain import render_overlay
 from dxaqc.anatomy import detect_landmarks, display_overlay
 from dxaqc.model import CRITERIA, VIOLATION_LABEL, group_of
+from dxaqc.decision import AXIS_LIMIT_DEG
 
 
 def review_reasons(row, label):
@@ -34,6 +35,12 @@ def review_reasons(row, label):
             reasons.append('missed_hip_position_rotation')
         elif not actual and predicted and label.get('hip_position_rotation') in ('0', '0.0'):
             reasons.append('false_hip_position_rotation')
+        actual_roi = label.get('hip_roi_coverage') in ('1', '1.0')
+        predicted_roi = VIOLATION_LABEL['hip_roi_coverage'] in predicted_types
+        if actual_roi and not predicted_roi:
+            reasons.append('missed_hip_roi_coverage')
+        elif not actual_roi and predicted_roi and label.get('hip_roi_coverage') in ('0', '0.0'):
+            reasons.append('false_hip_roi_coverage')
     return reasons
 
 
@@ -58,8 +65,20 @@ def audit(oof_path, labels_path, dataset, output, repeat=0):
         region = row['predicted_region']
         pixels = np.ascontiguousarray(image.pixels[:, ::-1]) if region == 'hip_left' else image.pixels
         measurement = measure_image(pixels, region, image.pixel_mm, image.pixel_mm_x)
+        if label['region'] == 'spine' and label.get('spine_axis') in ('1', '1.0'):
+            angle = measurement.features.get('spine_abs_angle_deg')
+            if angle is not None and np.isfinite(angle) and angle <= AXIS_LIMIT_DEG:
+                reasons.append('axis_reference_angle_conflict')
         landmarks = detect_landmarks(image.pixels, region, measurement.overlay,
                                      image.pixel_mm, image.pixel_mm_x)
+        body_points = next((point['points'] for point in landmarks['landmarks']
+                            if point['name'] == 'vertebral_body_candidates'), [])
+        body_angle = None
+        if region == 'spine' and len(body_points) >= 3:
+            body_xy = np.asarray(body_points)
+            body_angle = float(np.degrees(np.arctan(np.polyfit(
+                body_xy[:, 1] * image.pixel_mm,
+                body_xy[:, 0] * (image.pixel_mm_x or image.pixel_mm), 1)[0])))
         targets = [k for k in CRITERIA[group_of(label['region'])] if label.get(k) in ('1','1.0')]
         codes = [k for k in CRITERIA[group_of(region)] if VIOLATION_LABEL[k] in row['violation_type'].split(';')]
         item = {'source_path':row['source_path'], 'fold':int(row['fold']), 'repeat':int(row['repeat']),
@@ -69,6 +88,8 @@ def audit(oof_path, labels_path, dataset, output, repeat=0):
                 'predicted_type':row['violation_type'], 'predicted_quality':int(row['quality_pred']),
                 'quality_score':float(row['quality_score']),
                 'physical_axis_angle_deg':measurement.features.get('spine_angle_deg'),
+                'vertebral_body_candidate_axis_angle_deg':body_angle,
+                'vertebral_body_candidate_count':len(body_points),
                 'curve_rms_mm':measurement.features.get('spine_curve_rms_mm'),
                 'hip_measurements': {key: (None if not np.isfinite(value) else float(value))
                                      for key, value in measurement.features.items()
@@ -90,8 +111,10 @@ def audit(oof_path, labels_path, dataset, output, repeat=0):
         url = base64.b64encode(encoded.tobytes()).decode()
         cards.append('<article><h2>'+escape(row['source_path'])+'</h2><pre>'+escape(json.dumps(item,ensure_ascii=False,indent=2))+'</pre><img src="data:image/png;base64,'+url+'" alt="Измеренная ось и признаки; локализация не подтверждена"></article>')
     counts = {reason: sum(reason in item['review_reasons'] for item in cases)
-              for reason in ('region_mismatch', 'untyped_positive', 'missed_axis', 'missed_hip_position_rotation',
-                             'false_hip_position_rotation')}
+              for reason in ('region_mismatch', 'untyped_positive', 'missed_axis',
+                             'axis_reference_angle_conflict', 'missed_hip_position_rotation',
+                             'false_hip_position_rotation', 'missed_hip_roi_coverage',
+                             'false_hip_roi_coverage')}
     result={'scope':'diagnostic review of already inspected internal OOF; not a new independent evaluation',
             'oof_sha256':hashlib.sha256(oof_path.read_bytes()).hexdigest(),
             'labels_sha256':hashlib.sha256(labels_path.read_bytes()).hexdigest(),

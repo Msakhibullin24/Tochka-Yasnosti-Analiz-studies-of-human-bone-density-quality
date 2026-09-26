@@ -1,0 +1,134 @@
+{
+  "date": "2026-09-25",
+  "scope": "Local release candidate 1.9.4; anatomy/laterality confidence separated; organiser predictions unchanged; external router coverage diagnostic only",
+  "container_image_id": "sha256:0ba7b7ce6bacfbffb8b314d193de411c47a936a5e3aa1710e79d313fd398f1fb",
+  "weights_sha256": "7f78fdcdb9c4116277f5cc9858ae6297c48e0d4fda9f87ed1f5dd01724fdd993",
+  "organiser_oof": {
+    "protocol": "same 5 study folds, one repeat, synthetic rotate training",
+    "images": 249,
+    "old_sha256": "711d074d91a32dc17fafac5420b5b63f49f7625f82f5a999e5d237c3a716410d",
+    "new_sha256": "711d074d91a32dc17fafac5420b5b63f49f7625f82f5a999e5d237c3a716410d",
+    "exact_file_match": true,
+    "quality_f1": 0.5774647887323944,
+    "independent_clinical_validation": false
+  },
+  "full_local_batch": {
+    "summary": {
+      "version": "1.9.4",
+      "submission_available": true,
+      "submission_valid": true,
+      "files": 499,
+      "success": 499,
+      "failure": 0,
+      "success_rate": 1.0,
+      "violations": 144,
+      "cancelled": false,
+      "studies": 100,
+      "max_seconds_per_study": 1.895,
+      "mean_seconds_per_image": 0.1738,
+      "total_seconds": 139.154,
+      "process_peak_rss_bytes": 498950144,
+      "cpu_count_visible": 12
+    },
+    "strict_validation": {
+      "valid": true,
+      "profile": "competition_v2",
+      "errors": [],
+      "warnings": [
+        "Input completeness not checked: provide an independent path manifest",
+        "Failure explanations not available in this table",
+        "Additional DICOM series not checked"
+      ],
+      "images": 499,
+      "success": 499,
+      "max_seconds_per_study": 1.8954000000000002,
+      "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+    },
+    "extended_and_series_validation": {
+      "valid": true,
+      "profile": "working_report",
+      "errors": [],
+      "warnings": [],
+      "images": 499,
+      "success": 499,
+      "max_seconds_per_study": 1.8954000000000002,
+      "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+    },
+    "old_release_prediction_differences": {
+      "anatomical_region": 0,
+      "quality_class": 0,
+      "violation_type": 0,
+      "processing_status": 0,
+      "quality_prob": 0,
+      "laterality": 0
+    },
+    "input_paths_identical": true,
+    "derived_sc": 499,
+    "derived_sr": 499,
+    "archive_members": 1497,
+    "additional_series_zip_sha256": "0eec03303208e558f84ff26d8c20f7e9d6da554f881a06fbf7c25772c4c4e3ed",
+    "previous_series_zip_sha256": "0eec03303208e558f84ff26d8c20f7e9d6da554f881a06fbf7c25772c4c4e3ed",
+    "series_archive_exact_match": true
+  },
+  "external_ramathibodi": {
+    "report_sha256": "4f5405d397f0d62bb6b52f52ac7e1b2c64fe68a2a8d76a4d87f3bf90e7bfaeee",
+    "patients": 20,
+    "spine_correct": 20,
+    "hip_correct": 18,
+    "hip_abstained_uncertain_laterality": 2,
+    "hip_coverage": 0.9,
+    "previous_hip_coverage": 0.7,
+    "official_qc_labels_available": false
+  },
+  "container_unlabelled_test": {
+    "summary": {
+      "version": "1.9.4",
+      "submission_available": true,
+      "submission_valid": true,
+      "files": 3,
+      "success": 3,
+      "failure": 0,
+      "success_rate": 1.0,
+      "violations": 1,
+      "cancelled": false,
+      "studies": 2,
+      "max_seconds_per_study": 1.365,
+      "mean_seconds_per_image": 0.7223,
+      "total_seconds": 6.639,
+      "process_peak_rss_bytes": 483913728,
+      "cpu_count_visible": 12
+    },
+    "strict_validation": {
+      "valid": true,
+      "profile": "competition_v2",
+      "errors": [],
+      "warnings": [
+        "Input completeness not checked: provide an independent path manifest",
+        "Failure explanations not available in this table",
+        "Additional DICOM series not checked"
+      ],
+      "images": 3,
+      "success": 3,
+      "max_seconds_per_study": 1.3648,
+      "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+    },
+    "ground_truth_available": false
+  },
+  "limitations": [
+    "The 249-image OOF is internal and previously inspected; no patient-disjointness proof.",
+    "The external set has incompatible quality labels, so no DXA QC F1 improvement is claimed.",
+    "The full 499-image SC/SR run used local CPU; container smoke covered three unlabelled DICOM only.",
+    "No RTX 5090 timing or independent clinician landmark annotations."
+  ],
+  "code_sha256": {
+    "competition/dxaqc/model.py": "f8cd52f48f2e60d7a1979f79db20c8a2deb50f709a67fe8133483d623aba0958",
+    "competition/dxaqc/pipeline.py": "39249240e5900bcfaf349f0595694794bfebb91d35e3d318e99c79d446d07731",
+    "competition/dxaqc/report.py": "f9dc1ae439c6ffdcccd52963d79dd926a16b8edebfae8f1e1460dd6d73dd4ba8",
+    "competition/external_validation.py": "5e62ec4afe56280a15b604443b1047e29ebce6b84d91f033b23bc623cb8fc144"
+  },
+  "verification": {
+    "local_pytest": "142 passed, 5 skipped",
+    "container_pytest": "142 passed, 5 skipped",
+    "container_one_dicom_smoke": true
+  }
+}

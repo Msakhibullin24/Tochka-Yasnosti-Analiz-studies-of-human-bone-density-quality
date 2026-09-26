@@ -33,6 +33,7 @@ SKIP_NAMES = {"dicomdir", "thumbs.db", ".ds_store"}
 MAX_ARCHIVE_BYTES = 20 * 1024 ** 3
 MAX_ARCHIVE_FILES = 200_000
 LOW_REGION_CONFIDENCE = 0.6  # below this the image may be a region the service does not support
+LOW_LATERALITY_CONFIDENCE = 0.6  # for hip geometry, the side determines whether pixels are mirrored
 MODEL_PATH = Path(__file__).resolve().parents[1] / "models" / "bundle.joblib"
 
 
@@ -182,10 +183,12 @@ class Analyzer:
         from .geometry import measure_image
 
         raw_embedding = embed(img.pixels)[None]
-        regions, conf = self.bundle.router.predict(raw_embedding)
-        region, confidence = regions[0], float(conf[0])
+        regions, conf, side_conf = self.bundle.router.predict_detailed(raw_embedding)
+        region, confidence, side_confidence = regions[0], float(conf[0]), float(side_conf[0])
         if not np.isfinite(confidence) or confidence < LOW_REGION_CONFIDENCE:
             raise DicomReadError("UNCERTAIN_REGION", "anatomical region is uncertain; automatic quality assessment withheld")
+        if region != "spine" and (not np.isfinite(side_confidence) or side_confidence < LOW_LATERALITY_CONFIDENCE):
+            raise DicomReadError("UNCERTAIN_LATERALITY", "hip side is uncertain; mirrored geometry assessment withheld")
         px = np.ascontiguousarray(img.pixels[:, ::-1]) if region == "hip_left" else img.pixels
         meas = measure_image(px, region, img.pixel_mm, img.pixel_mm_x)
         gm = self.bundle.groups[group_of(region)]
@@ -194,7 +197,8 @@ class Analyzer:
         crit = {k: float(v[0]) for k, v in crit.items()}
         decision = decide(group_of(region), score, crit, meas.features,
                           gm.quality_threshold, gm.criterion_thresholds)
-        result = {"region": region, "region_confidence": confidence, **decision,
+        result = {"region": region, "region_confidence": confidence,
+                  "laterality_confidence": side_confidence if region != "spine" else None, **decision,
                   "criteria": crit, "features": meas.features, "overlay": meas.overlay}
         if self.specialist is not None:
             try:
@@ -300,6 +304,8 @@ def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyz
                 "violation_description": "; ".join(VIOLATION_RU.get(v, v) for v in res["violations"]),
                 "measurements": json.dumps(_round(res["features"]), ensure_ascii=False),
                 "region_confidence": round(res["region_confidence"], 4),
+                "laterality_confidence": (round(res["laterality_confidence"], 4)
+                                           if res["laterality_confidence"] is not None else None),
                 "pixel_mm": round(img.pixel_mm, 4),
                 "pixel_mm_x": round(img.pixel_mm_x or img.pixel_mm, 4),
                 "pixel_mm_source": img.pixel_mm_source,

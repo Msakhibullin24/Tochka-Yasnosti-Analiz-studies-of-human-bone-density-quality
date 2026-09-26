@@ -55,5 +55,6 @@ export function savePosition(value: Position): void {
 }
 
 export function modelVerdict(row: Row): string {
+  if (row.decision_reason === 'binary_only_review') return 'Сигнал модели без установленного типа: требуется проверка'
   return row.violation_type || (row.quality_class === '1' ? 'Модель выявила нарушение; тип не установлен' : 'Модель не выявила нарушений')
 }

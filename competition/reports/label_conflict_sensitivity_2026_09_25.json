@@ -1,0 +1,242 @@
+{
+  "protocol": "descriptive sensitivity to excluding complete-label taxonomy conflicts from saved OOF",
+  "oof_sha256": "711d074d91a32dc17fafac5420b5b63f49f7625f82f5a999e5d237c3a716410d",
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "excluded_images": 3,
+  "excluded_reasons": {
+    "normal_class_with_failed_criterion": 1,
+    "positive_class_without_failed_criterion": 2
+  },
+  "original_labels_edited": false,
+  "model_changed": false,
+  "all_labels": {
+    "images": 249,
+    "studies": 100,
+    "overall": {
+      "n": 249,
+      "positives": 73,
+      "negatives": 176,
+      "tn_fp_fn_tp": [
+        148,
+        28,
+        32,
+        41
+      ],
+      "accuracy": 0.7590361445783133,
+      "precision": 0.5942028985507246,
+      "sensitivity": 0.5616438356164384,
+      "specificity": 0.8409090909090909,
+      "f1": 0.5774647887323944,
+      "balanced_accuracy": 0.7012764632627646,
+      "roc_auc": 0.800980697384807,
+      "average_precision": 0.6677577310674837
+    },
+    "by_criterion": {
+      "spine_coverage": {
+        "n": 99,
+        "positives": 6,
+        "negatives": 93,
+        "tn_fp_fn_tp": [
+          88,
+          5,
+          2,
+          4
+        ],
+        "accuracy": 0.9292929292929293,
+        "precision": 0.4444444444444444,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.946236559139785,
+        "f1": 0.5333333333333333,
+        "balanced_accuracy": 0.8064516129032258
+      },
+      "spine_axis": {
+        "n": 99,
+        "positives": 10,
+        "negatives": 89,
+        "tn_fp_fn_tp": [
+          88,
+          1,
+          9,
+          1
+        ],
+        "accuracy": 0.898989898989899,
+        "precision": 0.5,
+        "sensitivity": 0.1,
+        "specificity": 0.9887640449438202,
+        "f1": 0.16666666666666666,
+        "balanced_accuracy": 0.5443820224719101
+      },
+      "spine_artifact": {
+        "n": 99,
+        "positives": 17,
+        "negatives": 82,
+        "tn_fp_fn_tp": [
+          77,
+          5,
+          3,
+          14
+        ],
+        "accuracy": 0.9191919191919192,
+        "precision": 0.7368421052631579,
+        "sensitivity": 0.8235294117647058,
+        "specificity": 0.9390243902439024,
+        "f1": 0.7777777777777778,
+        "balanced_accuracy": 0.8812769010043041
+      },
+      "hip_position_rotation": {
+        "n": 150,
+        "positives": 36,
+        "negatives": 114,
+        "tn_fp_fn_tp": [
+          98,
+          16,
+          17,
+          19
+        ],
+        "accuracy": 0.78,
+        "precision": 0.5428571428571428,
+        "sensitivity": 0.5277777777777778,
+        "specificity": 0.8596491228070176,
+        "f1": 0.5352112676056338,
+        "balanced_accuracy": 0.6937134502923976
+      },
+      "hip_roi_coverage": {
+        "n": 150,
+        "positives": 7,
+        "negatives": 143,
+        "tn_fp_fn_tp": [
+          139,
+          4,
+          4,
+          3
+        ],
+        "accuracy": 0.9466666666666667,
+        "precision": 0.42857142857142855,
+        "sensitivity": 0.42857142857142855,
+        "specificity": 0.972027972027972,
+        "f1": 0.42857142857142855,
+        "balanced_accuracy": 0.7002997002997002
+      }
+    },
+    "criterion_macro_f1": 0.48831209479096804
+  },
+  "excluding_conflicts": {
+    "images": 246,
+    "studies": 99,
+    "overall": {
+      "n": 246,
+      "positives": 71,
+      "negatives": 175,
+      "tn_fp_fn_tp": [
+        147,
+        28,
+        30,
+        41
+      ],
+      "accuracy": 0.7642276422764228,
+      "precision": 0.5942028985507246,
+      "sensitivity": 0.5774647887323944,
+      "specificity": 0.84,
+      "f1": 0.5857142857142857,
+      "balanced_accuracy": 0.7087323943661972,
+      "roc_auc": 0.8041046277665995,
+      "average_precision": 0.67067815637269
+    },
+    "by_criterion": {
+      "spine_coverage": {
+        "n": 96,
+        "positives": 6,
+        "negatives": 90,
+        "tn_fp_fn_tp": [
+          85,
+          5,
+          2,
+          4
+        ],
+        "accuracy": 0.9270833333333334,
+        "precision": 0.4444444444444444,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.9444444444444444,
+        "f1": 0.5333333333333333,
+        "balanced_accuracy": 0.8055555555555556
+      },
+      "spine_axis": {
+        "n": 96,
+        "positives": 9,
+        "negatives": 87,
+        "tn_fp_fn_tp": [
+          86,
+          1,
+          8,
+          1
+        ],
+        "accuracy": 0.90625,
+        "precision": 0.5,
+        "sensitivity": 0.1111111111111111,
+        "specificity": 0.9885057471264368,
+        "f1": 0.18181818181818182,
+        "balanced_accuracy": 0.5498084291187739
+      },
+      "spine_artifact": {
+        "n": 96,
+        "positives": 17,
+        "negatives": 79,
+        "tn_fp_fn_tp": [
+          74,
+          5,
+          3,
+          14
+        ],
+        "accuracy": 0.9166666666666666,
+        "precision": 0.7368421052631579,
+        "sensitivity": 0.8235294117647058,
+        "specificity": 0.9367088607594937,
+        "f1": 0.7777777777777778,
+        "balanced_accuracy": 0.8801191362620997
+      },
+      "hip_position_rotation": {
+        "n": 150,
+        "positives": 36,
+        "negatives": 114,
+        "tn_fp_fn_tp": [
+          98,
+          16,
+          17,
+          19
+        ],
+        "accuracy": 0.78,
+        "precision": 0.5428571428571428,
+        "sensitivity": 0.5277777777777778,
+        "specificity": 0.8596491228070176,
+        "f1": 0.5352112676056338,
+        "balanced_accuracy": 0.6937134502923976
+      },
+      "hip_roi_coverage": {
+        "n": 150,
+        "positives": 7,
+        "negatives": 143,
+        "tn_fp_fn_tp": [
+          139,
+          4,
+          4,
+          3
+        ],
+        "accuracy": 0.9466666666666667,
+        "precision": 0.42857142857142855,
+        "sensitivity": 0.42857142857142855,
+        "specificity": 0.972027972027972,
+        "f1": 0.42857142857142855,
+        "balanced_accuracy": 0.7002997002997002
+      }
+    },
+    "criterion_macro_f1": 0.491342397821271
+  },
+  "f1_difference_excluding_minus_all": 0.008249496981891369,
+  "macro_f1_difference_excluding_minus_all": 0.003030303030302939,
+  "limitations": [
+    "Exclusion is a sensitivity analysis only; the three images are not proven mislabeled.",
+    "OOF models were trained using the original labels, including the excluded cases.",
+    "The reduced cohort is not a new test set, and changes in scores are not model gains.",
+    "Patient-disjoint validation is not established by the available anonymized identifiers."
+  ]
+}

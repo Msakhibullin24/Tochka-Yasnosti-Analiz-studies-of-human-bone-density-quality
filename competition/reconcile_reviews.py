@@ -14,6 +14,10 @@ def reconcile(packet,a_path,b_path,output):
         manifest_path = packet/'manifest.json'
     source=json.loads(manifest_path.read_text())
     samples=source.get('samples', source.get('cases'))
+    extra_fields=source.get('extra_review_fields', {})
+    if not isinstance(extra_fields,dict) or any(not isinstance(choices,(list,tuple)) or not choices
+                                               for choices in extra_fields.values()):
+        raise ValueError('Invalid extra review field contract')
     if not isinstance(samples,list) or not samples:
         raise ValueError('Review packet has no images')
     ids={r['image_id'] for r in samples}
@@ -28,7 +32,8 @@ def reconcile(packet,a_path,b_path,output):
     results=[]
     for sample in samples:
         ident=sample['image_id'];left,right=a[ident],b[ident]
-        item={'image_id':ident,'status':'pending','agreed_labels':{},'disagreements':[]}
+        item={'image_id':ident,'status':'pending','agreed_labels':{},
+              'agreed_observations':{},'disagreements':[]}
         if left['reviewed'].lower()=='true' and right['reviewed'].lower()=='true':
             if not left['reviewer_id'].strip() or not right['reviewer_id'].strip() or left['reviewer_id']==right['reviewer_id']:
                 raise ValueError('Independent reviews require two distinct named reviewers')
@@ -37,6 +42,12 @@ def reconcile(packet,a_path,b_path,output):
                 values=[r[name].strip() for r in (left,right)]
                 if any(v not in ('','0','1') for v in values):raise ValueError('Labels must be 0, 1 or empty')
                 if values[0] and values[0]==values[1]:item['agreed_labels'][name]=int(values[0])
+                else:item['disagreements'].append(name)
+            for name,choices in extra_fields.items():
+                values=[r.get(name,'').strip() for r in (left,right)]
+                if any(value and value not in choices for value in values):
+                    raise ValueError(f'Invalid observation value for {name}')
+                if values[0] and values[0]==values[1]:item['agreed_observations'][name]=values[0]
                 else:item['disagreements'].append(name)
             item['status']='agreed' if not item['disagreements'] else 'requires_adjudication'
             if item['status']=='agreed':

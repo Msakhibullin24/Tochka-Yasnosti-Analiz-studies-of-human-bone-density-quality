@@ -319,7 +319,9 @@ function ImageReview({ jobId, row, catalog, onDirty, onSaved, zoom, onZoom }: { 
       </details>
     </div><div className="qc-decision">
       <h3>Результат модели</h3><p>{modelVerdict(row)}</p>
-      <p>Вероятность нарушения: {row.quality_prob}</p>
+      <p>Балл модели: {row.quality_prob} из 1. Калибровка как клинической вероятности не подтверждена.</p>
+      {row.decision_reason === 'binary_only_review' && <p className="qc-warning">Общий детектор подал сигнал, но тип нарушения не установлен. В конкурсной таблице указан класс 0. Проверьте снимок вручную.</p>}
+      {row.anatomical_checks_complete === 'false' && <p className="qc-warning">Полная проверка анатомических ориентиров не подтверждена. Проверьте ориентиры и разметку перед подтверждением решения.</p>}
       {row.decision_reason === 'highest_scoring_criterion' && <p>Тип выбран как наиболее вероятный при положительном общем результате; его собственный порог не достигнут.</p>}
       {row.decision_reason === 'implant_rule' && <p>Применено дополнительное правило обнаружения импланта.</p>}
       {parse<string[]>(row.review_reasons, []).includes('suspected_metal_requires_review') && <p>Яркий участок требует проверки на металл; ошибка ROI автоматически не установлена.</p>}

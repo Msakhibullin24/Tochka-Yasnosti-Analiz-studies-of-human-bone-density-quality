@@ -31,3 +31,14 @@ def test_matching_region_does_not_add_review_reason():
     row = {'predicted_region': 'hip_left', 'quality_pred': '0', 'violation_type': ''}
     label = {'region': 'hip_left', 'hip_position_rotation': '0'}
     assert review_reasons(row, label) == []
+
+
+def test_hip_roi_disagreements_require_explicit_reference():
+    roi_type = VIOLATION_LABEL['hip_roi_coverage']
+    missed = {'quality_pred': '0', 'violation_type': ''}
+    false_alarm = {'quality_pred': '1', 'violation_type': roi_type}
+    assert review_reasons(missed, {'region': 'hip_left', 'hip_roi_coverage': '1'}) == [
+        'missed_hip_roi_coverage']
+    assert review_reasons(false_alarm, {'region': 'hip_right', 'hip_roi_coverage': '0'}) == [
+        'false_hip_roi_coverage']
+    assert review_reasons(false_alarm, {'region': 'hip_right', 'hip_roi_coverage': ''}) == []

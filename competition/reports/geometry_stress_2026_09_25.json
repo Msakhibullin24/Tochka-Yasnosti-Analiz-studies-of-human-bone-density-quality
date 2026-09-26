@@ -1,0 +1,34 @@
+{
+  "protocol": "Organiser images; deterministic physical ±7° rotation and 1.1x−3 brightness perturbation",
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "decoded_pixel_hashes_sha256": "07bb74b888ba75ec99ecbf6336a316f8199c3f8aa7b29831290acc70d7d663bb",
+  "images": 249,
+  "studies": 100,
+  "spine": {
+    "n": 99,
+    "axis_positive_labels": 10,
+    "positive_with_global_angle_at_most_5deg": 9,
+    "positive_with_body_angle_at_most_5deg": 9,
+    "positive_with_body_angle_available": 10,
+    "rotation_trials": 198,
+    "rotation_abs_error_median_deg": 0.10911030273670752,
+    "rotation_abs_error_max_deg": 0.8574719798346351,
+    "rotation_abs_error_over_1deg": 0
+  },
+  "hip": {
+    "n": 150,
+    "shaft_angle_shift_over_1deg": 3,
+    "lesser_troch_shift_over_5mm": 15,
+    "lesser_troch_shift_p95_mm": 16.788731850723238,
+    "source_roi_absent": 150,
+    "positive_roi_labels": 7,
+    "positive_roi_labels_without_source_roi": 7
+  },
+  "limitations": [
+    "Synthetic equivariance does not validate anatomical localisation or labels.",
+    "Body candidates and the global axis share the same centreline tracker.",
+    "Brightness shift is one repeatability stress, not a clinical accuracy test.",
+    "Study groups are not proven patient-disjoint."
+  ],
+  "code_sha256": "52e76b498fb15446fc10c0310c316c3981c6b40677c5483c7ad213df3e82c6e0"
+}

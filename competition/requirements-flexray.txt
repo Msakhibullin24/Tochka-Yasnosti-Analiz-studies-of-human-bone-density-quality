@@ -1,0 +1,2 @@
+# Optional research-only ONNX runtime. Not part of the competition container.
+onnxruntime==1.22.1

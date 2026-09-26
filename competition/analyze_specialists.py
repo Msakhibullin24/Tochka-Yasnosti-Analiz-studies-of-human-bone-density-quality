@@ -36,6 +36,15 @@ def run(args):
                 report['models']['trained_qc']=prediction
         else:
             report['models']['trained_qc']={'status':'not_configured'}
+        if args.include_flexray:
+            from flexray_candidate import predict, verified
+            bundle = args.assets / 'weights/flexray'
+            report['models']['flexray'] = (
+                predict(image.pixels, args.protocol, bundle, args.output)
+                if verified(bundle) else
+                {'status': 'not_configured', 'reason': 'Run make flexray-model first',
+                 'affects_decision': False}
+            )
     if getattr(args, 'include_generic_coco', False) and entries['yolo26x']['artifacts_verified']:
         os.environ.setdefault('YOLO_CONFIG_DIR',str((args.assets/'ultralytics-config').resolve()))
         from ultralytics import YOLO
@@ -86,6 +95,7 @@ if __name__=='__main__':
     p.add_argument('--protocol',choices=['spine','hip_left','hip_right','whole-body-air-ratio'],required=True)
     p.add_argument('--qc',type=Path)
     p.add_argument('--include-generic-coco',action='store_true',help='research only; COCO classes are not DXA QC types')
+    p.add_argument('--include-flexray',action='store_true',help='research anatomy masks from a separate radiograph model; no QC decision')
     p.add_argument('--assets',type=Path,default=Path('data/specialists'))
     p.add_argument('--output',type=Path,required=True)
     run(p.parse_args())

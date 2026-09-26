@@ -91,7 +91,7 @@ def test_uncertain_region_abstains_before_quality_model(monkeypatch, tmp_path):
     from dxaqc import embedding
     import pytest
     monkeypatch.setattr(embedding, 'embed', lambda image: np.zeros(2))
-    router = SimpleNamespace(predict=lambda values: (['spine'], [.4]))
+    router = SimpleNamespace(predict_detailed=lambda values: (['spine'], [.4], [1.0]))
     analyser = Analyzer(SimpleNamespace(router=router, groups={}))
     image = read_dxa(write_dicom(tmp_path/'input.dcm', synthetic_spine()))
     with pytest.raises(DicomReadError, match='region is uncertain'):

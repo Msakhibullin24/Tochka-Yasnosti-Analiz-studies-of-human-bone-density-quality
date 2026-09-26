@@ -22,6 +22,31 @@ make dxa-to3d-model
 make dxa-to3d-verify
 ```
 
+Дополнительно доступен **исследовательский** [FleXray](https://huggingface.co/VictorButoi/flexray):
+одна ONNX-модель для масок костей, обученная на рентгенограммах, а не на DXA.
+Вес CC-BY-NC-4.0 (~203 МБ) хранится отдельно, не входит в основной образ или
+конкурсный вердикт. Загрузка только нужного checkpoint и проверка SHA-256:
+
+```sh
+make flexray-model
+make flexray-verify
+data/specialists/venv/bin/python competition/analyze_specialists.py \
+  --input /path/to/AP_DXA.dcm --protocol spine --include-flexray \
+  --output data/specialists/my-flexray-review
+```
+
+Для бедра укажите `--protocol hip_left` или `hip_right`. Выходы в
+`flexray_probabilities.npz` — вероятности масок в пространстве 256×256;
+`flexray.json` содержит классы, размеры исходника и статус `research_anatomy_masks`.
+Это не именованные точки вертелов/шейки и не результат контроля качества. Код
+загрузки и отдельной ветки: [`flexray_candidate.py`](../flexray_candidate.py).
+Пробный CPU-запуск на трёх DICOM организатора завершён: позвоночник 4,563 с,
+левое бедро 4,044 с, правое бедро 1,572 с только на этапе ONNX-инференса
+(без чтения DICOM и загрузки веса). Маски имеют размеры 256×256 и конечные вероятности. Визуальный оверлей
+сохранён локально в `data/specialists/flexray-smoke-overlay.png`; маска L3
+захватывает соседнюю область, маска бедренной кости выглядит содержательной.
+Это визуальная проверка **трёх снимков**, а не Dice или прирост F1.
+
 Загрузка выбирает только source archive DXA-to-3D и его checkpoint, проверяет размер
 и SHA-256 и не заменяет общий `assets-status.json`. Полный `make specialists` нужен,
 только если требуются остальные уже имеющиеся исследовательские кандидаты и таблицы.
@@ -382,6 +407,25 @@ data/specialists/venv/bin/python competition/reconcile_reviews.py \
 pending, несогласованные случаи требуют adjudication. Исходные оценки организатора
 никогда не перезаписываются. Выгруженный пакет сейчас содержит 249 pending-снимков;
 экспертная проверка не была выполнена автоматически.
+
+Для прицельной слепой проверки ошибок ротации бедра подготовлен отдельный пакет из 53 снимков:
+`data/specialists/review/hip-rotation-targeted-2026-09-25/blind-review-packet.zip`.
+Он включает 33 FN/FP и 20 верных контролей, два пустых CSV и инструкцию по состоянию
+малого вертела и видимости ориентиров. Приватный `selection_private.json` остаётся вне ZIP;
+его нельзя показывать независимым читателям до заполнения форм. Восстановление пакета:
+
+```sh
+PYTHONPATH=competition competition/.venv/bin/python -m prepare_hip_rotation_review \
+  --oof competition/reports/typed_v4_pipeline_oof.csv \
+  --labels competition/labels/image_labels.csv \
+  --dataset '/path/to/НД_для_обучения/Исследования' \
+  --output data/specialists/review/new-hip-rotation
+```
+
+Стандартный `reconcile_reviews.py` сопоставляет также дополнительные поля из blind manifest;
+расхождения остаются на согласование. Отобранные по ошибкам снимки служат для выяснения причин,
+а не для расчёта новой независимой F1. Для измерения улучшения нужен неизменный групповой OOF,
+затем новый независимый набор.
 
 После завершения COCO-разметки нужен CSV-реестр `image_id,reviewer_id,reviewed`,
 где `reviewed=true` подтверждает проверку каждого изображения, включая отрицательные.

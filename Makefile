@@ -1,4 +1,4 @@
-.PHONY: setup dev verify smoke clean-generated docker-up docker-down dataset specialists specialists-verify dxa-to3d-model dxa-to3d-verify dxa-candidates dxa-candidates-verify dev-specialists review-model-errors review-release-errors
+.PHONY: setup dev verify smoke clean-generated docker-up docker-down dataset specialists specialists-verify dxa-to3d-model dxa-to3d-verify dxa-candidates dxa-candidates-verify flexray-model flexray-verify dev-specialists review-model-errors review-release-errors
 
 SPECIALIST_MODEL ?= data/specialists/runs/convnextv2-bce-v1
 
@@ -27,6 +27,14 @@ dxa-candidates:
 
 dxa-candidates-verify:
 	python competition/fetch_dxa_candidates.py --verify
+
+flexray-model:
+	@test -x data/specialists/venv/bin/python || (echo "Run make specialists first" >&2; exit 2)
+	uv pip install --python data/specialists/venv/bin/python -r competition/requirements-flexray.txt
+	data/specialists/venv/bin/python competition/flexray_candidate.py fetch
+
+flexray-verify:
+	python competition/flexray_candidate.py verify
 
 dev:
 	./scripts/dev.sh
@@ -76,9 +84,10 @@ RELEASE_REVIEW_RESULTS ?=
 RELEASE_REVIEW_DATASET ?=
 RELEASE_REVIEW_LABELS ?= competition/labels/image_labels.csv
 RELEASE_REVIEW_OUTPUT ?= data/specialists/review/release-untyped-cases
+RELEASE_REVIEW_INCLUDE_LABEL_CONFLICTS ?= 0
 review-release-errors:
 	@test -n "$(RELEASE_REVIEW_RESULTS)" -a -n "$(RELEASE_REVIEW_DATASET)" || (echo "RELEASE_REVIEW_RESULTS=extended_results.csv and RELEASE_REVIEW_DATASET=/path/to/Исследования are required" >&2; exit 2)
-	PYTHONPATH=competition competition/.venv/bin/python -m build_release_review --results "$(RELEASE_REVIEW_RESULTS)" --labels "$(RELEASE_REVIEW_LABELS)" --dataset "$(RELEASE_REVIEW_DATASET)" --output "$(RELEASE_REVIEW_OUTPUT)"
+	PYTHONPATH=competition competition/.venv/bin/python -m build_release_review --results "$(RELEASE_REVIEW_RESULTS)" --labels "$(RELEASE_REVIEW_LABELS)" --dataset "$(RELEASE_REVIEW_DATASET)" --output "$(RELEASE_REVIEW_OUTPUT)" $(if $(filter 1,$(RELEASE_REVIEW_INCLUDE_LABEL_CONFLICTS)),--include-label-conflicts,)
 
 .PHONY: advance-specialists
 advance-specialists:
