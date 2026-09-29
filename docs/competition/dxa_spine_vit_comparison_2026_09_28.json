@@ -1,0 +1,127 @@
+{
+  "scope": "Research-only paired comparison of numbered vendor DXA spine measurement ROIs",
+  "source_url": "https://data.mait.ai.in.th/dataset/bone-mineral-density-and-vertebral-fracture-asseessment-public-sharing",
+  "cases": 10,
+  "levels_per_case": 4,
+  "folds": 5,
+  "fold_protocol": "Same publisher-folder-held-out 8/2 split across all three encoders; no test-fold tuning",
+  "metric": "Macro mean of per-level Dice on 40x40 grid; not clinical measurement correctness",
+  "mean_dice_40": {
+    "layout_prior": 0.5510479360801852,
+    "resnet18": 0.5215487418375988,
+    "dinov2_base": 0.574577757281477,
+    "rad_dino": 0.6107112339573423
+  },
+  "paired_rad_minus_dinov2_mean": 0.03613347667586529,
+  "rad_better_than_dinov2_cases": 6,
+  "model_provenance": {
+    "rad_dino": {
+      "url": "https://huggingface.co/microsoft/rad-dino",
+      "revision": "110cbc18d5133582e320b43d53bf5c44e410c936",
+      "weight_sha256": "dbfb9f54459c38773505de64a6ab7807bdcb392610fe1e697166342e43fb91ae"
+    },
+    "dinov2_base": {
+      "url": "https://huggingface.co/facebook/dinov2-base",
+      "revision": "f9e44c814b77203eaa57a6bdbbd535f21ede1415",
+      "weight_sha256": "d73036b56966966d07975d696bde331762f37297e2f095de8cea0040c3aa0841"
+    }
+  },
+  "evaluation_sha256": {
+    "rad_dino": "60f827e8045338021d925a4c26882f2cb9f4b6de7cdafb0b27cbcdafe15f4616",
+    "dinov2_base": "c530dc8eb170f91e9d8358c7d994d726fdd20b59fc7c0853d1725fae1ea8e7e3",
+    "resnet18": "c44eb6f749165e243aea69421f7b3f6525d46408363403ce01f86a33a22de73a"
+  },
+  "code_sha256": "456bcf8ec17b3afd9eb3bd518d64780aedcedfd6e507d254bd870f8b02806828",
+  "clinical_validation": false,
+  "model_affects_decision": false,
+  "limitations": [
+    "Only 10 Hologic BMD images; publisher folders are unverified patient identities.",
+    "Publisher masks are L1-L4 vendor bone-area ROIs, not full vertebrae, discs or Th12.",
+    "No tested DINOv2 variant was pretrained on DXA.",
+    "No GE target-domain masks or independent clinical quality labels.",
+    "Both tested transformers use model-specific preprocessing and differ in training history; the observed difference does not isolate a causal benefit of radiology pretraining.",
+    "Tiny public sample previously examined; no independent clinical quality labels."
+  ],
+  "paired_cases": [
+    {
+      "pixel_sha256": "554fec1dc77a9e4ecaa3ff0b7f2c868c3471f57493429a410834b6208a64d34c",
+      "fold": 2,
+      "rad_dino_mean_dice_40": 0.6662247496365566,
+      "dinov2_mean_dice_40": 0.6535954391992633,
+      "resnet18_mean_dice_40": 0.6144345557879215,
+      "rad_minus_dinov2": 0.012629310437293317
+    },
+    {
+      "pixel_sha256": "55d5817a8e83ebf191ab5605070ac2f39ea8f87182795f43c26ce3a54ef1eda4",
+      "fold": 0,
+      "rad_dino_mean_dice_40": 0.5838578609859959,
+      "dinov2_mean_dice_40": 0.6472369678315502,
+      "resnet18_mean_dice_40": 0.5238215170698011,
+      "rad_minus_dinov2": -0.06337910684555426
+    },
+    {
+      "pixel_sha256": "64922be169744a3047e0270c1ce3703d8031d45334b1b4bfaad87468859d7040",
+      "fold": 1,
+      "rad_dino_mean_dice_40": 0.6773817734240571,
+      "dinov2_mean_dice_40": 0.5875601486504494,
+      "resnet18_mean_dice_40": 0.48059251763522176,
+      "rad_minus_dinov2": 0.08982162477360778
+    },
+    {
+      "pixel_sha256": "7a0a3d9b4a866bc81cadda16df02d003233d81c9b1d522c7584eb55adcf1aee0",
+      "fold": 4,
+      "rad_dino_mean_dice_40": 0.5754784011445031,
+      "dinov2_mean_dice_40": 0.7288599579133817,
+      "resnet18_mean_dice_40": 0.48417761606360754,
+      "rad_minus_dinov2": -0.15338155676887855
+    },
+    {
+      "pixel_sha256": "92a74b8a085f90c573fc97c0818466a08c1819a839cdc7307eea3ad1baf38e64",
+      "fold": 1,
+      "rad_dino_mean_dice_40": 0.6223396529529419,
+      "dinov2_mean_dice_40": 0.4128659618402005,
+      "resnet18_mean_dice_40": 0.5362026993713793,
+      "rad_minus_dinov2": 0.2094736911127414
+    },
+    {
+      "pixel_sha256": "96cb7b6b9c9e7714f3ea70f905e9316900e4e170221e5d37884de2a0261e0849",
+      "fold": 2,
+      "rad_dino_mean_dice_40": 0.6242607857123986,
+      "dinov2_mean_dice_40": 0.5726422042284296,
+      "resnet18_mean_dice_40": 0.6312561746018798,
+      "rad_minus_dinov2": 0.05161858148396903
+    },
+    {
+      "pixel_sha256": "9ff73cebff58004897a918a923478d24761ddfe70eca1f160ae136bd42f68b9e",
+      "fold": 3,
+      "rad_dino_mean_dice_40": 0.7396648863291204,
+      "dinov2_mean_dice_40": 0.4371957727842972,
+      "resnet18_mean_dice_40": 0.4758506564182367,
+      "rad_minus_dinov2": 0.3024691135448232
+    },
+    {
+      "pixel_sha256": "c3357103a7b8ffecf7f5588167b3493269682c8ffdf87d7f47aaf194d4392be2",
+      "fold": 3,
+      "rad_dino_mean_dice_40": 0.6829710377784253,
+      "dinov2_mean_dice_40": 0.7327808226953973,
+      "resnet18_mean_dice_40": 0.4721602823946839,
+      "rad_minus_dinov2": -0.04980978491697208
+    },
+    {
+      "pixel_sha256": "d2519f118be0101064fee864af18e52069feac7fde45c373ba0b6e22e8382b94",
+      "fold": 0,
+      "rad_dino_mean_dice_40": 0.3116658310271062,
+      "dinov2_mean_dice_40": 0.3765093172976387,
+      "resnet18_mean_dice_40": 0.3489303372879851,
+      "rad_minus_dinov2": -0.06484348627053249
+    },
+    {
+      "pixel_sha256": "e756b167a5d667570286a37d526a7ecfffca44629b94fcf02bfb4eee80b3cc2f",
+      "fold": 4,
+      "rad_dino_mean_dice_40": 0.6232673605823172,
+      "dinov2_mean_dice_40": 0.5965309803741616,
+      "resnet18_mean_dice_40": 0.6480610617452722,
+      "rad_minus_dinov2": 0.026736380208155608
+    }
+  ]
+}

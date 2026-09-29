@@ -1,0 +1,68 @@
+{
+  "scope": "Research-only DXA criterion ablation",
+  "task": "hip_position_rotation",
+  "protocol": "Fixed 5-fold study-held-out outer CV matching baseline, training-only inner F1 threshold selection; pinned local TabPFN v2 with four estimators, geometry only, seed17",
+  "features": [
+    "shaft_abs_angle_deg",
+    "shaft_angle_deg",
+    "lesser_troch_protrusion_mm",
+    "lesser_troch_area_mm2",
+    "lesser_troch_notch_mm",
+    "medial_concavity_mm",
+    "neck_start_height_mm",
+    "shaft_width_mm",
+    "lateral_margin_mm",
+    "troch_top_margin_mm",
+    "bone_frac"
+  ],
+  "images": 150,
+  "studies": 78,
+  "positives": 36,
+  "variants": {
+    "baseline": {
+      "tn_fp_fn_tp": [
+        87,
+        27,
+        14,
+        22
+      ],
+      "f1": 0.5176470588235295,
+      "sensitivity": 0.6111111111111112,
+      "specificity": 0.7631578947368421,
+      "roc_auc": 0.7750974658869396,
+      "average_precision": 0.5305672025727489
+    },
+    "tabpfn": {
+      "tn_fp_fn_tp": [
+        92,
+        22,
+        16,
+        20
+      ],
+      "f1": 0.5128205128205128,
+      "sensitivity": 0.5555555555555556,
+      "specificity": 0.8070175438596491,
+      "roc_auc": 0.7422027290448343,
+      "average_precision": 0.4950772650750792,
+      "paired_delta_f1_vs_baseline": -0.004826546003016685,
+      "paired_delta_f1_ci95": [
+        -0.11554091591591585,
+        0.10043421052631578
+      ]
+    }
+  },
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "source_fingerprint": "1cede858f61a3d86e507572749eda53f06639e4606daf51fcd6119215abb9df5",
+  "baseline_oof_sha256": "2a0fca990604e1ab72c71a8b14fc3cd3da6c67864668dba57293d33160a907a4",
+  "checkpoint_sha256": "f65a35685aeef42e31b796d9bfa34e68d6fc780bc98e7bff7763802964cf435f",
+  "tabpfn_version": "2.0.9",
+  "code_sha256": "07785570b57a07480bde19d83d3a7f36602df510f17d4570a9a58b96e6e196e8",
+  "clinical_validation": false,
+  "model_affects_decision": false,
+  "limitations": [
+    "Previously inspected organiser development DXA; no independent test.",
+    "Combined hip positioning/rotation label has no subtype ground truth.",
+    "Known anatomical region supplied; full routing and final quality not evaluated.",
+    "The transformer acts on geometry only and cannot correct missing landmarks."
+  ]
+}

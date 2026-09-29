@@ -1,0 +1,465 @@
+{
+  "date": "2026-09-27",
+  "source_sha256": {
+    "4. ДепЗдрав.pdf": "12d7415f5f0eb1d26f3a9d1afa5a441c2a3d2722eea65c902c52e7519523f800",
+    "Методические_рекомендации_по_проведению_двухэнергетической_рентгеновской_а_9GGgT4T.pdf": "cb6131792b99f352698b8e51d9b1756d1999e2c0964b470517efb37a04fa3be3",
+    "Разъяснения по вопросам ЛЦТ_V2.docx": "3e3e642bd77ad716890abd93ae3151c6fafe9daccedfbcf182603c953d9a2cc5"
+  },
+  "checks": {
+    "frontend_passed": 52,
+    "backend_passed": 53,
+    "backend_skipped": 2,
+    "competition_passed": 259,
+    "competition_skipped": 5,
+    "lint": "passed",
+    "build": "passed"
+  },
+  "fresh_runs": {
+    "full": {
+      "summary": {
+        "version": "1.10.0",
+        "submission_available": true,
+        "submission_valid": false,
+        "files": 499,
+        "success": 499,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 163,
+        "cancelled": false,
+        "studies": 100,
+        "max_seconds_per_study": 2.313,
+        "mean_seconds_per_image": 0.1356,
+        "total_seconds": 111.323,
+        "process_peak_rss_bytes": 497106944,
+        "cpu_count_visible": 12,
+        "typification_complete": false,
+        "anatomical_checks_complete": false,
+        "untyped_violations": 19,
+        "requirements_complete": false,
+        "max_seconds_per_study_upper_bound": 45.95890005799985
+      },
+      "requirements": {
+        "version": 1,
+        "complete": false,
+        "images": 499,
+        "success": 499,
+        "failure": 0,
+        "untyped_violations": 19,
+        "typification_complete": false,
+        "anatomical_checks_complete": false,
+        "checks": {
+          "Th12": {
+            "undetermined": 166
+          },
+          "iliac_crest_left": {
+            "undetermined": 166
+          },
+          "iliac_crest_right": {
+            "undetermined": 166
+          },
+          "projection": {
+            "undetermined": 499
+          },
+          "vertebral_numbering_and_roi": {
+            "undetermined": 166
+          },
+          "source_roi": {
+            "not_applicable": 499
+          },
+          "greater_trochanter": {
+            "undetermined": 333
+          },
+          "femoral_neck": {
+            "undetermined": 333
+          },
+          "ischium": {
+            "undetermined": 333
+          },
+          "lesser_trochanter": {
+            "undetermined": 333
+          },
+          "scan_coverage": {
+            "undetermined": 333
+          },
+          "rotation": {
+            "undetermined": 333
+          }
+        },
+        "blockers": [
+          "violation_type_undetermined",
+          "anatomical_checks_incomplete"
+        ],
+        "scope": "coverage of required evidence, not external clinical certification or organiser approval"
+      },
+      "strict_validation": {
+        "valid": false,
+        "profile": "competition_v2",
+        "errors": [
+          "Row 24: competition output requires a violation type for quality_class=1",
+          "Row 27: competition output requires a violation type for quality_class=1",
+          "Row 103: competition output requires a violation type for quality_class=1",
+          "Row 127: competition output requires a violation type for quality_class=1",
+          "Row 130: competition output requires a violation type for quality_class=1",
+          "Row 265: competition output requires a violation type for quality_class=1",
+          "Row 268: competition output requires a violation type for quality_class=1",
+          "Row 271: competition output requires a violation type for quality_class=1",
+          "Row 325: competition output requires a violation type for quality_class=1",
+          "Row 327: competition output requires a violation type for quality_class=1",
+          "Row 330: competition output requires a violation type for quality_class=1",
+          "Row 416: competition output requires a violation type for quality_class=1",
+          "Row 425: competition output requires a violation type for quality_class=1",
+          "Row 428: competition output requires a violation type for quality_class=1",
+          "Row 433: competition output requires a violation type for quality_class=1",
+          "Row 438: competition output requires a violation type for quality_class=1",
+          "Row 442: competition output requires a violation type for quality_class=1",
+          "Row 469: competition output requires a violation type for quality_class=1",
+          "Row 470: competition output requires a violation type for quality_class=1"
+        ],
+        "warnings": [
+          "Input completeness not checked: provide an independent path manifest",
+          "Failure explanations not available in this table"
+        ],
+        "images": 499,
+        "success": 499,
+        "max_seconds_per_study": 2.3132000000000006,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      },
+      "input_validation": {
+        "valid": true,
+        "profile": "working_report",
+        "errors": [],
+        "warnings": [
+          "Row 24: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 27: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 103: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 127: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 130: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 265: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 268: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 271: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 325: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 327: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 330: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 416: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 425: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 428: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 433: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 438: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 442: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 469: violation detected but type undetermined; typification requirement is incomplete",
+          "Row 470: violation detected but type undetermined; typification requirement is incomplete",
+          "Additional DICOM series not checked"
+        ],
+        "images": 499,
+        "success": 499,
+        "max_seconds_per_study": 2.3132000000000006,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      }
+    },
+    "docker-debug": {
+      "summary": {
+        "version": "1.10.0",
+        "submission_available": true,
+        "submission_valid": true,
+        "files": 3,
+        "success": 3,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 1,
+        "cancelled": false,
+        "studies": 2,
+        "max_seconds_per_study": 2.128,
+        "mean_seconds_per_image": 1.038,
+        "total_seconds": 9.147,
+        "process_peak_rss_bytes": 491970560,
+        "cpu_count_visible": 12,
+        "typification_complete": true,
+        "anatomical_checks_complete": false,
+        "untyped_violations": 0,
+        "requirements_complete": false,
+        "max_seconds_per_study_upper_bound": 8.161466216999873
+      },
+      "requirements": {
+        "version": 1,
+        "complete": false,
+        "images": 3,
+        "success": 3,
+        "failure": 0,
+        "untyped_violations": 0,
+        "typification_complete": true,
+        "anatomical_checks_complete": false,
+        "checks": {
+          "Th12": {
+            "undetermined": 1
+          },
+          "iliac_crest_left": {
+            "undetermined": 1
+          },
+          "iliac_crest_right": {
+            "undetermined": 1
+          },
+          "projection": {
+            "undetermined": 3
+          },
+          "vertebral_numbering_and_roi": {
+            "undetermined": 1
+          },
+          "source_roi": {
+            "not_applicable": 3
+          },
+          "greater_trochanter": {
+            "undetermined": 2
+          },
+          "femoral_neck": {
+            "undetermined": 2
+          },
+          "ischium": {
+            "undetermined": 2
+          },
+          "lesser_trochanter": {
+            "undetermined": 2
+          },
+          "scan_coverage": {
+            "undetermined": 2
+          },
+          "rotation": {
+            "undetermined": 2
+          }
+        },
+        "blockers": [
+          "anatomical_checks_incomplete"
+        ],
+        "scope": "coverage of required evidence, not external clinical certification or organiser approval"
+      },
+      "strict_validation": {
+        "valid": true,
+        "profile": "competition_v2",
+        "errors": [],
+        "warnings": [
+          "Input completeness not checked: provide an independent path manifest",
+          "Failure explanations not available in this table"
+        ],
+        "images": 3,
+        "success": 3,
+        "max_seconds_per_study": 2.128,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      }
+    },
+    "profile-debug": {
+      "summary": {
+        "version": "1.10.0",
+        "submission_available": true,
+        "submission_valid": true,
+        "files": 3,
+        "success": 3,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 1,
+        "cancelled": false,
+        "studies": 2,
+        "max_seconds_per_study": 2.105,
+        "mean_seconds_per_image": 1.2734,
+        "total_seconds": 9.013,
+        "workflow_profile_id": "no-new-labels-runtime-v5-20260926",
+        "process_peak_rss_bytes": 488189952,
+        "cpu_count_visible": 12,
+        "typification_complete": true,
+        "anatomical_checks_complete": false,
+        "untyped_violations": 0,
+        "requirements_complete": false,
+        "max_seconds_per_study_upper_bound": 7.297701927000005
+      },
+      "requirements": {
+        "version": 1,
+        "complete": false,
+        "images": 3,
+        "success": 3,
+        "failure": 0,
+        "untyped_violations": 0,
+        "typification_complete": true,
+        "anatomical_checks_complete": false,
+        "checks": {
+          "Th12": {
+            "undetermined": 1
+          },
+          "iliac_crest_left": {
+            "undetermined": 1
+          },
+          "iliac_crest_right": {
+            "undetermined": 1
+          },
+          "projection": {
+            "undetermined": 3
+          },
+          "vertebral_numbering_and_roi": {
+            "undetermined": 1
+          },
+          "source_roi": {
+            "not_applicable": 3
+          },
+          "greater_trochanter": {
+            "undetermined": 2
+          },
+          "femoral_neck": {
+            "undetermined": 2
+          },
+          "ischium": {
+            "undetermined": 2
+          },
+          "lesser_trochanter": {
+            "undetermined": 2
+          },
+          "scan_coverage": {
+            "undetermined": 2
+          },
+          "rotation": {
+            "undetermined": 2
+          }
+        },
+        "blockers": [
+          "anatomical_checks_incomplete"
+        ],
+        "scope": "coverage of required evidence, not external clinical certification or organiser approval"
+      },
+      "strict_validation": {
+        "valid": true,
+        "profile": "competition_v2",
+        "errors": [],
+        "warnings": [
+          "Input completeness not checked: provide an independent path manifest",
+          "Failure explanations not available in this table"
+        ],
+        "images": 3,
+        "success": 3,
+        "max_seconds_per_study": 2.1048,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      }
+    }
+  },
+  "release_code_differences": [
+    "competition/dxaqc/anatomy.py",
+    "competition/dxaqc/api.py",
+    "competition/dxaqc/pipeline.py",
+    "competition/dxaqc/report.py",
+    "competition/dxaqc/requirements.py",
+    "competition/dxaqc/source_roi.py"
+  ],
+  "new_profile_existing_full_run": {
+    "created_at_utc": "2026-09-26T20:58:21.176656+00:00",
+    "profile_id": "no-new-labels-runtime-v5-20260926",
+    "profile_sha256": "1db1711ae79da804168850acda19c3795385a993281558d7fdbe5f3cd4e0dfa7",
+    "container_image": "sha256:617aea7565b7aeb0f0c2b2691979b12d67d1bf24e1a1f4bbe2b12ce876c95172",
+    "api_batch": {
+      "profile_id": "no-new-labels-runtime-v5-20260926",
+      "summary": {
+        "version": "1.10.0",
+        "submission_available": true,
+        "submission_valid": true,
+        "files": 499,
+        "success": 499,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 157,
+        "cancelled": false,
+        "studies": 100,
+        "max_seconds_per_study": 4.879,
+        "mean_seconds_per_image": 0.4422,
+        "total_seconds": 260.475,
+        "workflow_profile_id": "no-new-labels-runtime-v5-20260926",
+        "process_peak_rss_bytes": 572268544,
+        "cpu_count_visible": 12,
+        "typification_complete": true,
+        "anatomical_checks_complete": false,
+        "untyped_violations": 0,
+        "requirements_complete": false,
+        "max_seconds_per_study_upper_bound": 44.67954760600009
+      },
+      "strict_repeat_sc_sr": {
+        "valid": true,
+        "profile": "competition_v2",
+        "errors": [],
+        "warnings": [
+          "Input completeness not checked: provide an independent path manifest",
+          "Failure explanations not available in this table"
+        ],
+        "images": 499,
+        "success": 499,
+        "max_seconds_per_study": 4.879099999999999,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      },
+      "input_manifest": {
+        "valid": true,
+        "profile": "working_report",
+        "errors": [],
+        "warnings": [
+          "Additional DICOM series not checked"
+        ],
+        "images": 499,
+        "success": 499,
+        "max_seconds_per_study": 4.879099999999999,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      },
+      "api_ready": true,
+      "clinical_validation": false
+    },
+    "build_run_script_smoke": {
+      "valid": true,
+      "profile": "competition_v2",
+      "errors": [],
+      "warnings": [
+        "Input completeness not checked: provide an independent path manifest",
+        "Failure explanations not available in this table"
+      ],
+      "images": 3,
+      "success": 3,
+      "max_seconds_per_study": 2.0692,
+      "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+    },
+    "hip_stability_review_flags": {
+      "v2": 148,
+      "runtime_v5": 148,
+      "scope": "technical review flags, not clinical error counts"
+    },
+    "numbered_candidate_reporting": {
+      "spine_rows": 166,
+      "with_levels": 166,
+      "confirmed": 0
+    },
+    "checks": {
+      "competition": "259 passed, 5 skipped",
+      "frontend": "52 passed plus lint and build",
+      "backend": "53 passed, 2 skipped",
+      "git_diff_check": true
+    },
+    "clinical_validation": false,
+    "quality_model_weights_changed": false,
+    "limitations": [
+      "Anatomical criteria retain candidate/undetermined status",
+      "Source holdout is previously inspected and rare criteria have few positives",
+      "No H200 timing or full DICOM conformance claimed"
+    ],
+    "neck_candidate_reporting": {
+      "v2": {
+        "with_points": 228,
+        "unstable": 78
+      },
+      "runtime_v5": {
+        "with_points": 229,
+        "unstable": 77
+      }
+    },
+    "build_run_script_repeat_guard": "Existing results rejected before build or inference",
+    "tcp_api_script_smoke": {
+      "ready": true,
+      "success": 3,
+      "failure": 0,
+      "profile_id": "no-new-labels-runtime-v5-20260926",
+      "bind": "127.0.0.1:18073"
+    }
+  },
+  "limitations": [
+    "Fresh full inference used current source without optional profile, not existing baseline Docker image.",
+    "Profile full dataset results from saved report; fresh profile container inference on 3 debug images only.",
+    "Closed organiser test and H200 unavailable; no new clinical evaluation."
+  ]
+}

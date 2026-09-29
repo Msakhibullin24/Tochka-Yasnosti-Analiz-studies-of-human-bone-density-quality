@@ -1,0 +1,254 @@
+{
+  "scope": "Historical organizer DXA OOF case-level release gap audit",
+  "source_sha256": {
+    "competition/reports/quality_review_delivery_1_11_oof_2026_09_27.csv": "de6b354024b9f52b59240e6f588a293c7bda9f9feb476ac098b455e2b9c2624f",
+    "docs/competition/dxa_tabpfn_spine_axis_2026_09_28_oof.csv": "98bc68a758420b33bfb1362dc121412f332cca98d07426f75f6280d080e381fd",
+    "docs/competition/spine_axis_geometry_audit_2026_09_27.json": "77084fd3036480a3b3d7fb650d26b3d501cc47e36f912411db4dd244717499c8"
+  },
+  "images": 99,
+  "positive_labels": 10,
+  "same_cv_fold_count": 14,
+  "different_cv_fold_count": 85,
+  "official_axis": {
+    "tn_fp_fn_tp": [
+      87,
+      2,
+      9,
+      1
+    ],
+    "f1": 0.15384615384615385,
+    "sensitivity": 0.1,
+    "specificity": 0.9775280898876404
+  },
+  "strict_measured_axis": {
+    "tn_fp_fn_tp": [
+      88,
+      1,
+      9,
+      1
+    ],
+    "f1": 0.16666666666666666,
+    "sensitivity": 0.1,
+    "specificity": 0.9887640449438202
+  },
+  "research_tabpfn_head": {
+    "tn_fp_fn_tp": [
+      82,
+      7,
+      5,
+      5
+    ],
+    "f1": 0.45454545454545453,
+    "sensitivity": 0.5,
+    "specificity": 0.9213483146067416
+  },
+  "research_baseline_head": {
+    "tn_fp_fn_tp": [
+      67,
+      22,
+      5,
+      5
+    ],
+    "f1": 0.2702702702702703,
+    "sensitivity": 0.5,
+    "specificity": 0.7528089887640449
+  },
+  "official_false_negatives_at_or_below_5_deg": 9,
+  "official_axis_fail_below_threshold": [
+    {
+      "case_index": 139,
+      "study_sha256": "5b1dfc067ebc3811bb12772fb32729f203ceb6497e96be2f159d0be635823337",
+      "target": 0,
+      "official_pred": 1,
+      "measured_pred": 0,
+      "official_basis": "supervised_untyped_review",
+      "angle_deg": 3.17,
+      "tabpfn_pred": 0,
+      "baseline_head_pred": 1,
+      "local_segment_max_deg": 5.03,
+      "numbered_candidate_deg": 4.4244610437757945,
+      "release_fold": 4,
+      "research_fold": 2
+    }
+  ],
+  "tabpfn_positive_among_official_false_negatives": 4,
+  "baseline_positive_among_official_false_negatives": 4,
+  "missed_positive_cases": [
+    {
+      "case_index": 13,
+      "study_sha256": "4f73bf57d358250eb15f5d3d56ac442ed763dd04ac0a049516c63e147fa8385b",
+      "target": 1,
+      "official_pred": 0,
+      "measured_pred": 0,
+      "official_basis": "measured_axis_angle",
+      "angle_deg": 4.33,
+      "tabpfn_pred": 1,
+      "baseline_head_pred": 0,
+      "local_segment_max_deg": 7.74,
+      "numbered_candidate_deg": -1.0053999012111294,
+      "release_fold": 1,
+      "research_fold": 4
+    },
+    {
+      "case_index": 45,
+      "study_sha256": "248478ce7398e7df3a978ebffa15bb3b81bb4de126340d199d39f3b4a6dbc015",
+      "target": 1,
+      "official_pred": 0,
+      "measured_pred": 0,
+      "official_basis": "measured_axis_angle",
+      "angle_deg": 2.587,
+      "tabpfn_pred": 0,
+      "baseline_head_pred": 0,
+      "local_segment_max_deg": 4.54,
+      "numbered_candidate_deg": 18.53737192157476,
+      "release_fold": 4,
+      "research_fold": 3
+    },
+    {
+      "case_index": 130,
+      "study_sha256": "ad8f1ab4c8fe901c2cb77894c72ce2f2e3fbb717f43a660801a9ed8969cee77b",
+      "target": 1,
+      "official_pred": 0,
+      "measured_pred": 0,
+      "official_basis": "measured_axis_angle",
+      "angle_deg": 2.053,
+      "tabpfn_pred": 1,
+      "baseline_head_pred": 0,
+      "local_segment_max_deg": 3.23,
+      "numbered_candidate_deg": 0.2584127369228578,
+      "release_fold": 1,
+      "research_fold": 1
+    },
+    {
+      "case_index": 155,
+      "study_sha256": "89a14d6d7f206a438df3689e17b5fd8704b56db2c858fdf00ec4b17eacc9e639",
+      "target": 1,
+      "official_pred": 0,
+      "measured_pred": 0,
+      "official_basis": "measured_axis_angle",
+      "angle_deg": 2.869,
+      "tabpfn_pred": 0,
+      "baseline_head_pred": 1,
+      "local_segment_max_deg": 4.07,
+      "numbered_candidate_deg": null,
+      "release_fold": 3,
+      "research_fold": 0
+    },
+    {
+      "case_index": 173,
+      "study_sha256": "f280cc71d90dc51ab7d9df16f58cf53d30cba09fd33c7a17cc30805f6f022e69",
+      "target": 1,
+      "official_pred": 0,
+      "measured_pred": 0,
+      "official_basis": "measured_axis_angle",
+      "angle_deg": 1.576,
+      "tabpfn_pred": 0,
+      "baseline_head_pred": 1,
+      "local_segment_max_deg": 2.55,
+      "numbered_candidate_deg": -1.2400345929499326,
+      "release_fold": 4,
+      "research_fold": 1
+    },
+    {
+      "case_index": 195,
+      "study_sha256": "ca13237e67a3fed6defad1f100a50ed89afb80f6974ae2b2f29e5cd719797907",
+      "target": 1,
+      "official_pred": 0,
+      "measured_pred": 0,
+      "official_basis": "measured_axis_angle",
+      "angle_deg": 2.188,
+      "tabpfn_pred": 0,
+      "baseline_head_pred": 0,
+      "local_segment_max_deg": 3.43,
+      "numbered_candidate_deg": -9.48873982390648,
+      "release_fold": 1,
+      "research_fold": 4
+    },
+    {
+      "case_index": 209,
+      "study_sha256": "cf07dd10596f255343829cfb51f8d2f2134e772fd3310eebb774005a064a6c00",
+      "target": 1,
+      "official_pred": 0,
+      "measured_pred": 0,
+      "official_basis": "measured_axis_angle",
+      "angle_deg": 4.112,
+      "tabpfn_pred": 1,
+      "baseline_head_pred": 1,
+      "local_segment_max_deg": 4.55,
+      "numbered_candidate_deg": 7.076819602495354,
+      "release_fold": 4,
+      "research_fold": 1
+    },
+    {
+      "case_index": 214,
+      "study_sha256": "c6417239eef92a8dc4142a4cf502ce152954eed2d5ca8abbb62990eaae162b01",
+      "target": 1,
+      "official_pred": 0,
+      "measured_pred": 0,
+      "official_basis": "measured_axis_angle",
+      "angle_deg": 1.38,
+      "tabpfn_pred": 0,
+      "baseline_head_pred": 0,
+      "local_segment_max_deg": 3.84,
+      "numbered_candidate_deg": -0.657538803070563,
+      "release_fold": 0,
+      "research_fold": 3
+    },
+    {
+      "case_index": 232,
+      "study_sha256": "ec5d249ee2b1d990ed796395622d51ee89d5f9ca3c39fcf4e55f6c5a17035dcd",
+      "target": 1,
+      "official_pred": 0,
+      "measured_pred": 0,
+      "official_basis": "measured_axis_angle",
+      "angle_deg": 2.967,
+      "tabpfn_pred": 1,
+      "baseline_head_pred": 1,
+      "local_segment_max_deg": 3.59,
+      "numbered_candidate_deg": 0.8197209831311214,
+      "release_fold": 1,
+      "research_fold": 3
+    }
+  ],
+  "official_false_positive_cases": [
+    {
+      "case_index": 27,
+      "study_sha256": "e80951956d9703945cecbe47124edb9082f6d82097121bf19179575c693abf0f",
+      "target": 0,
+      "official_pred": 1,
+      "measured_pred": 1,
+      "official_basis": "measured_axis_angle",
+      "angle_deg": 5.06,
+      "tabpfn_pred": 1,
+      "baseline_head_pred": 1,
+      "local_segment_max_deg": 8.42,
+      "numbered_candidate_deg": 5.471532694397483,
+      "release_fold": 4,
+      "research_fold": 0
+    },
+    {
+      "case_index": 139,
+      "study_sha256": "5b1dfc067ebc3811bb12772fb32729f203ceb6497e96be2f159d0be635823337",
+      "target": 0,
+      "official_pred": 1,
+      "measured_pred": 0,
+      "official_basis": "supervised_untyped_review",
+      "angle_deg": 3.17,
+      "tabpfn_pred": 0,
+      "baseline_head_pred": 1,
+      "local_segment_max_deg": 5.03,
+      "numbered_candidate_deg": 4.4244610437757945,
+      "release_fold": 4,
+      "research_fold": 2
+    }
+  ],
+  "limitations": [
+    "The binary organizer criterion label is not a measured angle reference.",
+    "The research and release OOF folds differ; model metrics are not a paired-fold comparison.",
+    "The cohort was previously inspected and is not an independent test.",
+    "No independently verified vertebral landmarks or angle ground truth are available."
+  ],
+  "clinical_validation": false,
+  "release_modified": false,
+  "requirements_complete": false
+}

@@ -47,7 +47,7 @@ def test_validator_detects_contract_manifest_and_repeat_regressions(tmp_path):
     assert not validate(repeat)['valid']
 
 
-def test_multiframe_and_declared_lateral_are_reported_without_decoding(tmp_path):
+def test_multiframe_and_declared_nonfrontal_are_reported_without_decoding(tmp_path):
     import pydicom
     import pytest
     from conftest import synthetic_spine, write_dicom
@@ -59,7 +59,34 @@ def test_multiframe_and_declared_lateral_are_reported_without_decoding(tmp_path)
     with pytest.raises(DicomReadError, match='multi-frame'):
         read_dxa(path)
     ds.NumberOfFrames = 1
-    ds.ViewPosition = 'LL'
+    for view in ('LL', 'RL', 'LLD', 'RLD', 'LLO', 'RLO', 'LAT', 'LATERAL'):
+        ds.ViewPosition = view
+        ds.save_as(path)
+        with pytest.raises(DicomReadError) as error:
+            read_dxa(path)
+        assert error.value.code == 'UNSUPPORTED_PROJECTION'
+    for view in ('AP', 'PA', ''):
+        ds.ViewPosition = view
+        ds.save_as(path)
+        assert read_dxa(path).view_position == view
+
+
+def test_dicom_laterality_uses_only_consistent_paired_side(tmp_path):
+    import pydicom
+    from conftest import synthetic_spine, write_dicom
+    from dxaqc.dicom_io import read_dxa
+
+    path = write_dicom(tmp_path/'hip.dcm', synthetic_spine())
+    ds = pydicom.dcmread(path)
+    ds.Laterality = 'L'
     ds.save_as(path)
-    with pytest.raises(DicomReadError, match='lateral projection'):
-        read_dxa(path)
+    assert (read_dxa(path).declared_laterality, read_dxa(path).declared_laterality_source) == ('L', 'Laterality')
+    ds.ImageLaterality = 'L'
+    ds.save_as(path)
+    assert (read_dxa(path).declared_laterality, read_dxa(path).declared_laterality_source) == ('L', 'ImageLaterality')
+    ds.ImageLaterality = 'R'
+    ds.save_as(path)
+    assert read_dxa(path).declared_laterality == ''
+    ds.ImageLaterality = 'B'
+    ds.save_as(path)
+    assert read_dxa(path).declared_laterality == ''

@@ -9,12 +9,21 @@ import { readDraft, writeDraft, removeDraft, type Followup } from './competition
 import GeometryViewer from './competition/GeometryViewer'
 import { originalGeometry, type Geometry, type ImageDetail as Detail } from './competition/geometry'
 import { modelVerdict, groupStudies, needsReview, nextPending, readPosition, reviewLabels, reviewStatus, rowKey, savePosition, visibleRows, type QueueFilter, type Row } from './competition/worklist'
+import { buildQcStudyDescription } from './competition/studyDescription'
+import CompetitionDynamics from './competition/CompetitionDynamics'
 
 type Job = { originals_available?: boolean; id: string; status: string; done: number; total: number; created_at: number; error?: string; summary?: { submission_available?: boolean; submission_valid?: boolean; requirements_complete?: boolean; files: number; success: number; failure: number } }
 type Review = { revision: number; author: string; status: 'draft' | 'confirmed' | 'not_evaluable'; quality_class: 0 | 1 | null; violations: string[]; comment: string; geometry: Geometry[]; followups?: Followup[]; measurements?: Record<string, { length_mm: number; angle_from_vertical_deg: number }> }
 type Catalog = { criteria: Record<string, string>; regions: Record<string, string[]> }
 const API = '/api/v1'
 const statuses: Record<string, string> = { queued: 'В очереди', running: 'Обработка', finished: 'Обработано', failed: 'Ошибка', cancelled: 'Отменено' }
+function downloadDescription(filename: string, description: string) {
+  const url = URL.createObjectURL(new Blob([description], { type: 'text/plain;charset=utf-8' }))
+  const link = document.createElement('a')
+  link.href = url; link.download = filename
+  document.body.appendChild(link); link.click(); link.remove()
+  window.setTimeout(() => URL.revokeObjectURL(url), 0)
+}
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   const response = await fetch(API + path, options)
   if (!response.ok) {
@@ -127,7 +136,7 @@ export default function CompetitionWorkspace() {
   function selectRow(row: Row) { if (leaveReview()) setSelected(row) }
   function savedReview(review: Review) {
     if (!selected) return
-    const updated = { ...selected, review_status: review.status, review_revision: String(review.revision), open_actions: String((review.followups || []).filter(a => a.state === 'open').length), second_opinion_requested: (review.followups || []).some(a => a.kind === 'second_opinion' && a.state === 'open') ? '1' : '0' }
+    const updated = { ...selected, review_status: review.status, review_revision: String(review.revision), review_document: JSON.stringify(review), open_actions: String((review.followups || []).filter(a => a.state === 'open').length), second_opinion_requested: (review.followups || []).some(a => a.kind === 'second_opinion' && a.state === 'open') ? '1' : '0' }
     setRows(current => current.map(r => rowKey(r) === rowKey(updated) ? updated : r))
     setSelected(updated)
     setHasEdits(false)
@@ -156,6 +165,7 @@ export default function CompetitionWorkspace() {
         </div>
       </details>
       <ModelRegistry />
+      <CompetitionDynamics />
       {!job && <section className="qc-empty"><h2>Выберите пакет или загрузите новый</h2><p>После обработки здесь появятся очередь снимков и форма решения.</p></section>}
       {job && <>
         <section className="qc-jobbar" aria-label="Текущий пакет">
@@ -181,10 +191,12 @@ export default function CompetitionWorkspace() {
               if (!shown.length) return null
               const count = study.rows.filter(needsReview).length
               const failures = study.rows.filter(r => r.processing_status !== 'Success').length
+              const description = buildQcStudyDescription(study.rows, catalog.criteria)
               return <section key={study.key} className="qc-study" aria-label={`Группа ${index + 1}`}>
                 <h3>{study.identified ? `Исследование ${index + 1}` : 'Файл без идентификатора исследования'}</h3>
                 <p>{study.rows.length} снимков · {count ? `Ожидают проверки: ${count}` : failures ? 'Обработка неполная' : 'Проверка завершена'}{failures > 0 && ` · Ошибок: ${failures}`}</p>
                 {study.identified && <details><summary>Данные исследования</summary><small>{study.rows[0].study_uid}</small><a href={`${API}/jobs/${job.id}/study-report.html?study_uid=${encodeURIComponent(study.rows[0].study_uid)}`} download>Скачать карточку</a></details>}
+                <details><summary>Описание находок</summary><pre className="qc-study-description">{description}</pre><button type="button" onClick={() => downloadDescription(`study-${index + 1}-description.txt`, description)}>Скачать описание исследования {index + 1}</button></details>
                 {shown.map((r, i) => <button key={rowKey(r) || i} className={selected && rowKey(selected) === rowKey(r) ? 'qc-selected' : ''} onClick={() => selectRow(r)} aria-pressed={Boolean(selected && rowKey(selected) === rowKey(r))}>
                   <strong>{r.anatomical_region || 'Не обработано'}</strong><span>{r.processing_status !== 'Success' ? r.error_message : modelVerdict(r)}</span>
                   <span>{Number(r.open_actions) > 0 && `Открытых действий: ${r.open_actions} · `}{r.second_opinion_requested === '1' && 'Нужно второе мнение · '}{reviewLabels[reviewStatus(r)]}{Number(r.review_revision) > 0 && ` · Версия ${r.review_revision}`}</span><small>{r.path_to_file}</small>

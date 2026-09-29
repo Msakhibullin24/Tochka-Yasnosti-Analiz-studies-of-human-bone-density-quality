@@ -38,6 +38,8 @@ RUN uv pip check --system
 # Fail the build if repository resolution changes the reviewed system runtime.
 RUN python -c "import subprocess; names=['gcc-12-base','libgcc-s1','libstdc++6','libgomp1']; versions=[subprocess.check_output(['dpkg-query','-W','-f=\${Version}',n],text=True) for n in names]; assert versions == ['12.2.0-14+deb12u1'] * 4, versions"
 
+ENV DXAQC_WORKFLOW_PROFILE=/app/models/workflow_1_11_5/profile.json
+
 COPY competition/dxaqc ./dxaqc
 COPY docs/competition/specialist_sources.json ./specialist_sources.json
 COPY competition/weights ./weights
@@ -58,6 +60,7 @@ sys.exit(0 if hashlib.sha256(WEIGHTS.read_bytes()).hexdigest()==h else 'resnet18
 
 RUN mkdir -p /work /data/in /data/out && chown -R 10001:10001 /work /data
 USER 10001:10001
+RUN python -c "from dxaqc.pipeline import Analyzer; a=Analyzer(); assert a.workflow_profile is not None"
 EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s \
     CMD python -c "import urllib.request as u; u.urlopen('http://127.0.0.1:8000/api/v1/ready', timeout=3)"

@@ -1,0 +1,63 @@
+{
+  "scope": "two independent public GE DXA examples, AI visual references only",
+  "cases": [
+    {
+      "source_sha256": "6731e516007c6c470885c79dcc354e1c3c120e0d8cdba90834d45592699ffa5c",
+      "pixel_sha256": "2663724f0fb06ae7d0e777ade747d85308e744470dd6c9ffd9231707a9b4372a",
+      "reference": "frontal",
+      "reference_basis": "AI visual assessment of independent public example; not physician ground truth",
+      "projection.joblib": {
+        "value": "unknown",
+        "status": "undetermined",
+        "lateral_score": 0.3624995460918875,
+        "method": "public_DXA_frozen_resnet18_lr",
+        "clinical_validation": false,
+        "model_affects_decision": false,
+        "model_sha256": "385387377fd20764f30a107e49412a62f35b887949895e239c4ab1ce7b665376",
+        "pixel_sha256": "2663724f0fb06ae7d0e777ade747d85308e744470dd6c9ffd9231707a9b4372a",
+        "scope": "spine research candidate only; no clinical QC verdict"
+      },
+      "projection_adapted.joblib": {
+        "value": "frontal",
+        "status": "candidate",
+        "lateral_score": 0.010776317045663357,
+        "method": "public_DXA_frozen_resnet18_lr",
+        "clinical_validation": false,
+        "model_affects_decision": false,
+        "model_sha256": "a102c41857a2a5f0323f3164b199dea885e55fcc0aea0e6da52f0115ce272a41",
+        "pixel_sha256": "2663724f0fb06ae7d0e777ade747d85308e744470dd6c9ffd9231707a9b4372a",
+        "scope": "spine research candidate only; no clinical QC verdict"
+      }
+    },
+    {
+      "source_sha256": "d8ee49649cccac8d8e0a54255fe746bbaa21cfe4406b4f69de11db02205fae83",
+      "pixel_sha256": "59c67f96a3ee8b0bde8e32887d749efecae6c2bd671e75cda97239522f95f5af",
+      "reference": "lateral",
+      "reference_basis": "AI visual assessment of independent public example; not physician ground truth",
+      "projection.joblib": {
+        "value": "unknown",
+        "status": "undetermined",
+        "lateral_score": 0.8637155632679283,
+        "method": "public_DXA_frozen_resnet18_lr",
+        "clinical_validation": false,
+        "model_affects_decision": false,
+        "model_sha256": "385387377fd20764f30a107e49412a62f35b887949895e239c4ab1ce7b665376",
+        "pixel_sha256": "59c67f96a3ee8b0bde8e32887d749efecae6c2bd671e75cda97239522f95f5af",
+        "scope": "spine research candidate only; no clinical QC verdict"
+      },
+      "projection_adapted.joblib": {
+        "value": "unknown",
+        "status": "undetermined",
+        "lateral_score": 0.30174472204888747,
+        "method": "public_DXA_frozen_resnet18_lr",
+        "clinical_validation": false,
+        "model_affects_decision": false,
+        "model_sha256": "a102c41857a2a5f0323f3164b199dea885e55fcc0aea0e6da52f0115ce272a41",
+        "pixel_sha256": "59c67f96a3ee8b0bde8e32887d749efecae6c2bd671e75cda97239522f95f5af",
+        "scope": "spine research candidate only; no clinical QC verdict"
+      }
+    }
+  ],
+  "clinical_validation": false,
+  "release_modified": false
+}

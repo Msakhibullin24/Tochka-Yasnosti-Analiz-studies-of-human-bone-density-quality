@@ -1,0 +1,391 @@
+{
+  "version": "1.11.0",
+  "date": "2026-09-27",
+  "image_id": "sha256:2a46481eb751b1ea9fef83f0d9c90e195d7b8350742d2f3c470232865e6433b0",
+  "workflow_profile_id": "tz-delivery-1.11.0",
+  "requirements_complete": false,
+  "tests": {
+    "frontend_passed": 61,
+    "backend_passed": 53,
+    "backend_skipped": 2,
+    "competition_passed": 284,
+    "competition_skipped": 5,
+    "lint_and_build_passed": true,
+    "additional_neck_module_suite_passed": 9
+  },
+  "runs": {
+    "local_cli": {
+      "version": "1.11.0",
+      "submission_available": true,
+      "submission_valid": true,
+      "files": 499,
+      "success": 499,
+      "failure": 0,
+      "success_rate": 1.0,
+      "violations": 157,
+      "cancelled": false,
+      "studies": 100,
+      "max_seconds_per_study": 14.021,
+      "mean_seconds_per_image": 0.5211,
+      "total_seconds": 346.605,
+      "workflow_profile_id": "tz-delivery-1.11.0",
+      "process_peak_rss_bytes": 507269120,
+      "cpu_count_visible": 12,
+      "typification_complete": true,
+      "anatomical_checks_complete": false,
+      "untyped_violations": 0,
+      "requirements_complete": false,
+      "max_seconds_per_study_upper_bound": 100.60204591199985
+    },
+    "offline_container_api": {
+      "version": "1.11.0",
+      "submission_available": true,
+      "submission_valid": true,
+      "files": 499,
+      "success": 499,
+      "failure": 0,
+      "success_rate": 1.0,
+      "violations": 157,
+      "cancelled": false,
+      "studies": 100,
+      "max_seconds_per_study": 7.592,
+      "mean_seconds_per_image": 0.4853,
+      "total_seconds": 282.232,
+      "workflow_profile_id": "tz-delivery-1.11.0",
+      "process_peak_rss_bytes": 569348096,
+      "cpu_count_visible": 12,
+      "typification_complete": true,
+      "anatomical_checks_complete": false,
+      "untyped_violations": 0,
+      "requirements_complete": false,
+      "max_seconds_per_study_upper_bound": 47.667887066000006
+    }
+  },
+  "validation": [
+    {
+      "valid": true,
+      "profile": "working_report",
+      "errors": [],
+      "warnings": [],
+      "images": 499,
+      "success": 499,
+      "max_seconds_per_study": 14.021400000000003,
+      "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance",
+      "repeat_submission": {
+        "valid": true,
+        "profile": "competition_v2",
+        "errors": [],
+        "warnings": [
+          "End-to-end timing not checked: provide timing.json; table durations exclude shared overhead",
+          "Input completeness not checked: provide an independent path manifest",
+          "Failure explanations not available in this table",
+          "Additional DICOM series not checked"
+        ],
+        "images": 499,
+        "success": 499,
+        "max_seconds_per_study": 14.021400000000003,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      }
+    },
+    {
+      "valid": true,
+      "profile": "working_report",
+      "errors": [],
+      "warnings": [],
+      "images": 499,
+      "success": 499,
+      "max_seconds_per_study": 7.592,
+      "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance",
+      "repeat_submission": {
+        "valid": true,
+        "profile": "competition_v2",
+        "errors": [],
+        "warnings": [
+          "End-to-end timing not checked: provide timing.json; table durations exclude shared overhead",
+          "Input completeness not checked: provide an independent path manifest",
+          "Failure explanations not available in this table",
+          "Additional DICOM series not checked"
+        ],
+        "images": 499,
+        "success": 499,
+        "max_seconds_per_study": 7.592,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      }
+    }
+  ],
+  "series_repeat_exact_match": true,
+  "clinical_validation": false,
+  "metrics_scope": "Historical internal OOF of quality/type models; not an independent test of projection, ROI rules or this delivery",
+  "remaining_checks": {
+    "Th12": {
+      "undetermined": 166
+    },
+    "iliac_crest_left": {
+      "undetermined": 166
+    },
+    "iliac_crest_right": {
+      "undetermined": 166
+    },
+    "projection": {
+      "undetermined": 499
+    },
+    "vertebral_numbering_and_roi": {
+      "undetermined": 166
+    },
+    "source_roi": {
+      "not_applicable": 499
+    },
+    "greater_trochanter": {
+      "undetermined": 333
+    },
+    "femoral_neck": {
+      "undetermined": 333
+    },
+    "ischium": {
+      "undetermined": 333
+    },
+    "lesser_trochanter": {
+      "undetermined": 333
+    },
+    "scan_coverage": {
+      "undetermined": 333
+    },
+    "rotation": {
+      "undetermined": 333
+    }
+  },
+  "expert_reference": {
+    "path": "data/tz-delivery-1.11.0/anatomy-reference.template.json",
+    "cases": 252,
+    "confirmed_cases": 0
+  },
+  "limitations": [
+    "Historical secondary review improves F1 but reduces sensitivity; not independent clinical validation",
+    "API exercised via ASGI worker in offline Docker, not external TCP client",
+    "Projection gating implemented for spine; hip projection remains incomplete",
+    "Landmarks, vertebral numbering, anatomical ROI, scan coverage and rotation require reviewed references",
+    "DICOM checks validate readability and source links, not full conformance",
+    "Timing measured on local CPU host with concurrent runs, not organiser hardware"
+  ],
+  "complete_acceptance_smoke": {
+    "exit_code": 3,
+    "summary": {
+      "version": "1.11.0",
+      "submission_available": true,
+      "submission_valid": true,
+      "files": 3,
+      "success": 3,
+      "failure": 0,
+      "success_rate": 1.0,
+      "violations": 1,
+      "cancelled": false,
+      "studies": 2,
+      "max_seconds_per_study": 2.318,
+      "mean_seconds_per_image": 1.5375,
+      "total_seconds": 7.565,
+      "workflow_profile_id": "tz-delivery-1.11.0",
+      "process_peak_rss_bytes": 496947200,
+      "cpu_count_visible": 12,
+      "typification_complete": true,
+      "anatomical_checks_complete": false,
+      "untyped_violations": 0,
+      "requirements_complete": false,
+      "max_seconds_per_study_upper_bound": 5.2707804829999105
+    },
+    "reports_preserved": true
+  },
+  "followup": {
+    "blind_review_package": "data/tz-delivery-1.11.0/blind-anatomy-review/index.html",
+    "cases": 252,
+    "confirmed_cases": 0,
+    "new_python_tests_passed": 6,
+    "frontend_tests_passed": 57,
+    "lint_and_build_passed": true,
+    "tcp_smoke": {
+      "profile_id": "tz-delivery-1.11.0",
+      "summary": {
+        "version": "1.11.0",
+        "submission_available": true,
+        "submission_valid": true,
+        "files": 3,
+        "success": 3,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 1,
+        "cancelled": false,
+        "studies": 2,
+        "max_seconds_per_study": 1.408,
+        "mean_seconds_per_image": 0.878,
+        "total_seconds": 3.454,
+        "workflow_profile_id": "tz-delivery-1.11.0",
+        "process_peak_rss_bytes": 598605824,
+        "cpu_count_visible": 12,
+        "typification_complete": true,
+        "anatomical_checks_complete": false,
+        "untyped_violations": 0,
+        "requirements_complete": false,
+        "max_seconds_per_study_upper_bound": 2.2283568309999398
+      },
+      "strict_repeat_sc_sr": {
+        "valid": true,
+        "profile": "competition_v2",
+        "errors": [],
+        "warnings": [
+          "Input completeness not checked: provide an independent path manifest",
+          "Failure explanations not available in this table"
+        ],
+        "images": 3,
+        "success": 3,
+        "max_seconds_per_study": 1.4084,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      },
+      "input_manifest": {
+        "valid": true,
+        "profile": "working_report",
+        "errors": [],
+        "warnings": [
+          "Additional DICOM series not checked"
+        ],
+        "images": 3,
+        "success": 3,
+        "max_seconds_per_study": 1.4084,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      },
+      "api_ready": true,
+      "clinical_validation": false,
+      "transport": "http_tcp"
+    },
+    "source_provenance_evaluator": "competition/evaluate_anatomy_review.py",
+    "tcp_smoke_image_id": "sha256:584781f79a40c74d9d83f704bcde51234c76568827527c310cd74021ebb7e037"
+  },
+  "reference_stage_v2": {
+    "package": "data/tz-delivery-1.11.0/blind-anatomy-review-v2/index.html",
+    "cases": 252,
+    "confirmed_cases": 0,
+    "annotations": [
+      "landmark_points",
+      "projection",
+      "L1_L4_contours",
+      "femoral_neck_roi_contour",
+      "rotation_subtypes"
+    ],
+    "python_tests_passed": 8,
+    "editor_tests_passed": 7,
+    "runtime_modified": false,
+    "requirements_complete": false
+  },
+  "neck_geometry_stage": {
+    "image_id": "sha256:2a46481eb751b1ea9fef83f0d9c90e195d7b8350742d2f3c470232865e6433b0",
+    "runs": {
+      "local_cli": {
+        "version": "1.11.0",
+        "submission_available": true,
+        "submission_valid": true,
+        "files": 499,
+        "success": 499,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 157,
+        "cancelled": false,
+        "studies": 100,
+        "max_seconds_per_study": 14.021,
+        "mean_seconds_per_image": 0.5211,
+        "total_seconds": 346.605,
+        "workflow_profile_id": "tz-delivery-1.11.0",
+        "process_peak_rss_bytes": 507269120,
+        "cpu_count_visible": 12,
+        "typification_complete": true,
+        "anatomical_checks_complete": false,
+        "untyped_violations": 0,
+        "requirements_complete": false,
+        "max_seconds_per_study_upper_bound": 100.60204591199985
+      },
+      "offline_container_api": {
+        "version": "1.11.0",
+        "submission_available": true,
+        "submission_valid": true,
+        "files": 499,
+        "success": 499,
+        "failure": 0,
+        "success_rate": 1.0,
+        "violations": 157,
+        "cancelled": false,
+        "studies": 100,
+        "max_seconds_per_study": 7.592,
+        "mean_seconds_per_image": 0.4853,
+        "total_seconds": 282.232,
+        "workflow_profile_id": "tz-delivery-1.11.0",
+        "process_peak_rss_bytes": 569348096,
+        "cpu_count_visible": 12,
+        "typification_complete": true,
+        "anatomical_checks_complete": false,
+        "untyped_violations": 0,
+        "requirements_complete": false,
+        "max_seconds_per_study_upper_bound": 47.667887066000006
+      }
+    },
+    "validation": [
+      {
+        "valid": true,
+        "profile": "working_report",
+        "errors": [],
+        "warnings": [],
+        "images": 499,
+        "success": 499,
+        "max_seconds_per_study": 14.021400000000003,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance",
+        "repeat_submission": {
+          "valid": true,
+          "profile": "competition_v2",
+          "errors": [],
+          "warnings": [
+            "End-to-end timing not checked: provide timing.json; table durations exclude shared overhead",
+            "Input completeness not checked: provide an independent path manifest",
+            "Failure explanations not available in this table",
+            "Additional DICOM series not checked"
+          ],
+          "images": 499,
+          "success": 499,
+          "max_seconds_per_study": 14.021400000000003,
+          "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+        }
+      },
+      {
+        "valid": true,
+        "profile": "working_report",
+        "errors": [],
+        "warnings": [],
+        "images": 499,
+        "success": 499,
+        "max_seconds_per_study": 7.592,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance",
+        "repeat_submission": {
+          "valid": true,
+          "profile": "competition_v2",
+          "errors": [],
+          "warnings": [
+            "End-to-end timing not checked: provide timing.json; table durations exclude shared overhead",
+            "Input completeness not checked: provide an independent path manifest",
+            "Failure explanations not available in this table",
+            "Additional DICOM series not checked"
+          ],
+          "images": 499,
+          "success": 499,
+          "max_seconds_per_study": 7.592,
+          "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+        }
+      }
+    ],
+    "previous_predictions_unchanged": true,
+    "make_verify": {
+      "frontend_passed": 61,
+      "backend_passed": 53,
+      "competition_passed": 284,
+      "skipped": 7,
+      "lint_build_passed": true
+    },
+    "neck_module_tests_passed": 9,
+    "clinical_validation": false,
+    "requirements_complete": false
+  }
+}

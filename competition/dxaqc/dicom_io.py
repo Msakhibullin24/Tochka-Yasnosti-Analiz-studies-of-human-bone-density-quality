@@ -26,6 +26,12 @@ ORGANISER_PIXEL_X_MM = 0.6
 
 MAX_PIXELS = 6000 * 6000
 
+# DICOM View Position (0018,5101) non-frontal human defined terms. Exact
+# matching avoids interpreting laterality or free-text series names as a view.
+NON_FRONTAL_VIEW_POSITIONS = frozenset({
+    'LL', 'RL', 'LLD', 'RLD', 'LLO', 'RLO', 'LAT', 'LATERAL',
+})
+
 
 class DicomReadError(Exception):
     def __init__(self, code: str, message: str):
@@ -49,6 +55,8 @@ class DxaImage:
     pixel_mm_x: float | None = None
     sop_class_uid: str = "1.2.840.10008.5.1.4.1.1.1"
     view_position: str = ""
+    declared_laterality: str = ""
+    declared_laterality_source: str = ""
     source_roi: dict = field(default_factory=lambda: {"status": "absent", "rois": [], "issues": []})
 
 
@@ -58,6 +66,23 @@ def _text(ds, key: str) -> str:
         return "" if v is None else str(v).replace("\x00", "").strip()
     except Exception:  # malformed element
         return ""
+
+
+def _declared_laterality(ds) -> tuple[str, str]:
+    """Use only unambiguous paired-body-part DICOM side declarations.
+
+    Image Laterality is more specific than series Laterality. A nonpaired or
+    conflicting image value must not silently fall back to the series value.
+    """
+    image = _text(ds, "ImageLaterality").upper()
+    series = _text(ds, "Laterality").upper()
+    if image:
+        if image in {"L", "R"} and (not series or series == image):
+            return image, "ImageLaterality"
+        return "", ""
+    if series in {"L", "R"}:
+        return series, "Laterality"
+    return "", ""
 
 
 def _to_uint8(arr: np.ndarray, photometric: str, ds) -> np.ndarray:
@@ -160,8 +185,8 @@ def read_dxa(path: str | Path) -> DxaImage:
         raise DicomReadError("INVALID_FRAME_COUNT", "invalid NumberOfFrames") from exc
     if frames != 1:
         raise DicomReadError("UNSUPPORTED_MULTIFRAME", "multi-frame DICOM requires explicit frame selection; export individual images")
-    if _text(ds, "ViewPosition").upper() in {"LL", "RL", "LAT", "LATERAL"}:
-        raise DicomReadError("UNSUPPORTED_PROJECTION", "lateral projection declared in ViewPosition is not supported")
+    if _text(ds, "ViewPosition").upper() in NON_FRONTAL_VIEW_POSITIONS:
+        raise DicomReadError("UNSUPPORTED_PROJECTION", "non-frontal projection declared in ViewPosition is not supported")
     try:
         declared = int(ds.get("Rows", 0) or 0) * int(ds.get("Columns", 0) or 0) * max(int(ds.get("NumberOfFrames", 1) or 1), 1)
     except Exception:
@@ -207,6 +232,7 @@ def read_dxa(path: str | Path) -> DxaImage:
         notes.append("ASSUMED_DEVICE_SCALE")
     from .source_roi import extract_roi
     source_roi = extract_roi(ds, pixels.shape, _text(ds, "SOPInstanceUID"))
+    declared_laterality, declared_laterality_source = _declared_laterality(ds)
     return DxaImage(
         path=str(path),
         pixels=pixels,
@@ -222,6 +248,8 @@ def read_dxa(path: str | Path) -> DxaImage:
         pixel_mm_x=mm_x,
         sop_class_uid=_text(ds, "SOPClassUID"),
         view_position=_text(ds, "ViewPosition"),
+        declared_laterality=declared_laterality,
+        declared_laterality_source=declared_laterality_source,
         source_roi=source_roi,
     )
 

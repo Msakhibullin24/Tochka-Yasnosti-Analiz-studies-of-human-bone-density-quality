@@ -1,0 +1,27 @@
+{
+  "doi": "10.6084/m9.figshare.22363012",
+  "license": "CC-BY-4.0",
+  "archive_url": "https://ndownloader.figshare.com/files/65518038",
+  "archive_bytes": 338436460,
+  "archive_md5": "fe9da2c7c285915ebee69dfdab8fd396",
+  "archive_sha256": "b67ec2d290a022b3dcf47f78e9a37f7edcc80592c0571f439355bf00bd9f0e23",
+  "hip_images": 338,
+  "view_combinations": {
+    "1/0/0/1/0": 136,
+    "1/0/0/0/0": 175,
+    "0/1/0/0/0": 1,
+    "1/1/0/1/0": 12,
+    "0/0/1/1/0": 10,
+    "0/0/1/0/0": 3,
+    "0/1/0/1/0": 1
+  },
+  "columns_order": [
+    "frontal",
+    "lateral",
+    "oblique",
+    "mixed",
+    "multiscan"
+  ],
+  "scope": "Author-labelled ordinary hip radiographs; no DXA QC/rotation-subtype reference",
+  "patient_identity_available": false
+}

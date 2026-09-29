@@ -1,0 +1,67 @@
+{
+  "version": "1.11.2",
+  "validation_date": "2026-09-29",
+  "scope": "read-only working-report validation of image rows, independently enumerated DICOM paths and end-to-end timing; SC/SR disabled in these batch runs",
+  "runs": {
+    "organiser": {
+      "validation": {
+        "valid": true,
+        "profile": "working_report",
+        "errors": [],
+        "warnings": [
+          "Additional DICOM series not checked"
+        ],
+        "images": 502,
+        "success": 502,
+        "max_seconds_per_study": 11.443100000000001,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      },
+      "manifest_count": 502,
+      "manifest_sha256": "bb02d7e3cb3a2e9a546327454260cad3287f1a07975c809b19bf82843c80960a",
+      "results_extended_sha256": "9e3c94b4f535ca7189599441460887f9be4b3f6897d2a5f19eb85abc816f4a3f",
+      "timing_sha256": "662a1b5828eb6a301424076f065f0b1048168b4b07fba5a60b2965c26e51c12c",
+      "batch_seconds": 208.2653192859998,
+      "max_seconds_per_study_upper_bound": 16.706619285999764
+    },
+    "ramathibodi_bmd": {
+      "validation": {
+        "valid": true,
+        "profile": "working_report",
+        "errors": [],
+        "warnings": [
+          "Additional DICOM series not checked"
+        ],
+        "images": 60,
+        "success": 60,
+        "max_seconds_per_study": 8.5487,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      },
+      "manifest_count": 60,
+      "manifest_sha256": "0db575e5c0b962e9c11c00b77874ee7cea2c1618ff1aa01030a096f01a9e25bc",
+      "results_extended_sha256": "f97f2acd2839c9dca2b86e5705bc77f9db5cebc22d7224e7232278127dbce6d7",
+      "timing_sha256": "bda45a9fa406782c4cba145aa7c50ad6361a985807feab26b75eb010a3d80533",
+      "batch_seconds": 89.24630854199995,
+      "max_seconds_per_study_upper_bound": 14.915308541999952
+    },
+    "ramathibodi_vfa": {
+      "validation": {
+        "valid": true,
+        "profile": "working_report",
+        "errors": [],
+        "warnings": [
+          "Additional DICOM series not checked"
+        ],
+        "images": 30,
+        "success": 0,
+        "max_seconds_per_study": 6.1262,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      },
+      "manifest_count": 30,
+      "manifest_sha256": "af54fad84a398ef9ae0fafc33f2226b4425791d480e24cea349cb1238dec0ce0",
+      "results_extended_sha256": "669c023392169bf289fa1ddb8f1c8cfcedda24a87f31b438aaa26350a6dc5506",
+      "timing_sha256": "f773a63152d5a1d163f606d782f4ea31f3e15e6aadea3442165c9e578cbb657f",
+      "batch_seconds": 61.308387522999965,
+      "max_seconds_per_study_upper_bound": 14.176287522999967
+    }
+  }
+}

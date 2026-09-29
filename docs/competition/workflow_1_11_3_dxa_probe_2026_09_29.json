@@ -1,0 +1,169 @@
+{
+  "version": "1.11.3",
+  "scope": "Offline engineering execution, exact row comparison and independent input/timing validation; not clinical accuracy",
+  "docker_image_id": "sha256:72b0b0c717bc557bcbb4e3fe33a522bcd1f84bc5a9f1f294adddb1dc57723593",
+  "workflow_profile_id": "tz-delivery-1.11.3",
+  "profile_sha256": "f167800c3acb1ad07d124f391a67e67aa96a69d7734130c92cb5f39f893cdf22",
+  "runs": {
+    "organiser": {
+      "files": 502,
+      "success": 502,
+      "failure": 0,
+      "studies_by_uid": 102,
+      "violations": 158,
+      "untyped_violations": 0,
+      "submission_valid": true,
+      "requirements_complete": false,
+      "total_seconds": 296.078,
+      "max_seconds_per_study_upper_bound": 23.820386320000033,
+      "process_peak_rss_bytes": 507699200,
+      "results_sha256": "5da430022ceca699384218c7c8ff180f7e575500be6f05f5aecbbfdda9566e57",
+      "extended_sha256": "caf53046320e55236537800f291fa81835a78499f59e2cc4c97e822b77baf926",
+      "summary_sha256": "ea4d3af1c981afbc6b2cbd10967f6687d8da6bfdd160cbe912bc4ad1181c8aaa",
+      "manifest_sha256": "bb02d7e3cb3a2e9a546327454260cad3287f1a07975c809b19bf82843c80960a",
+      "manifest_count": 502,
+      "input_paths_exact_match": true,
+      "validation": {
+        "valid": true,
+        "profile": "working_report",
+        "errors": [],
+        "warnings": [
+          "Additional DICOM series not checked"
+        ],
+        "images": 502,
+        "success": 502,
+        "max_seconds_per_study": 15.547400000000001,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      },
+      "failures_by_code": {},
+      "distinct_study_paths": 103
+    },
+    "bmd": {
+      "files": 60,
+      "success": 60,
+      "failure": 0,
+      "studies_by_uid": 20,
+      "violations": 58,
+      "untyped_violations": 0,
+      "submission_valid": true,
+      "requirements_complete": false,
+      "total_seconds": 147.912,
+      "max_seconds_per_study_upper_bound": 22.04007644900002,
+      "process_peak_rss_bytes": 496914432,
+      "results_sha256": "1bbab2ccb1b7365c7a14d5b46585a29aa9c4318c48e43919fd26e4cb577eab94",
+      "extended_sha256": "346349f5552f2cabbd161a06a897c08e528f0fc91f307fe28081e988fa6b37e1",
+      "summary_sha256": "49d3bcc0c420152913024e70a40176332f2bd80bb904454f254505cc73e7fe49",
+      "manifest_sha256": "0db575e5c0b962e9c11c00b77874ee7cea2c1618ff1aa01030a096f01a9e25bc",
+      "manifest_count": 60,
+      "input_paths_exact_match": true,
+      "validation": {
+        "valid": true,
+        "profile": "working_report",
+        "errors": [],
+        "warnings": [
+          "Additional DICOM series not checked"
+        ],
+        "images": 60,
+        "success": 60,
+        "max_seconds_per_study": 13.026000000000002,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      },
+      "failures_by_code": {},
+      "distinct_study_paths": 30
+    },
+    "vfa": {
+      "files": 30,
+      "success": 0,
+      "failure": 30,
+      "studies_by_uid": 20,
+      "violations": 0,
+      "untyped_violations": 0,
+      "submission_valid": true,
+      "requirements_complete": false,
+      "total_seconds": 98.528,
+      "max_seconds_per_study_upper_bound": 19.83877098200001,
+      "process_peak_rss_bytes": 484904960,
+      "results_sha256": "cbd49acbf9ff3d12865879a57ee89d4780e5042b53431e0ab09e9a2ccd21567d",
+      "extended_sha256": "031873cbf66fa3c75ef6f4940d7574eb97738af5b2ea8d57924300ed3b3e41d7",
+      "summary_sha256": "c49576eabdb4606b00bd3068b7dc7c54d41357e78563763db4ffd1d7a0a973ec",
+      "manifest_sha256": "af54fad84a398ef9ae0fafc33f2226b4425791d480e24cea349cb1238dec0ce0",
+      "manifest_count": 30,
+      "input_paths_exact_match": true,
+      "validation": {
+        "valid": true,
+        "profile": "working_report",
+        "errors": [],
+        "warnings": [
+          "Additional DICOM series not checked"
+        ],
+        "images": 30,
+        "success": 0,
+        "max_seconds_per_study": 10.364799999999999,
+        "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+      },
+      "failures_by_code": {
+        "UNSUPPORTED_PROJECTION": 30
+      },
+      "distinct_study_paths": 30
+    }
+  },
+  "comparison_to_1_11_2": {
+    "organiser": {
+      "rows_compared": 502,
+      "decision_field_changes": {
+        "study_uid": 0,
+        "image_uid": 0,
+        "anatomical_region": 0,
+        "quality_class": 0,
+        "violation_type": 0,
+        "quality_prob": 0,
+        "laterality": 0,
+        "laterality_basis": 0,
+        "processing_status": 0,
+        "error_code": 0
+      },
+      "path_to_study_changes": 502,
+      "shallow_branch_only_study_paths": 0
+    },
+    "bmd": {
+      "rows_compared": 60,
+      "decision_field_changes": {
+        "study_uid": 0,
+        "image_uid": 0,
+        "anatomical_region": 0,
+        "quality_class": 0,
+        "violation_type": 0,
+        "quality_prob": 0,
+        "laterality": 0,
+        "laterality_basis": 0,
+        "processing_status": 0,
+        "error_code": 0
+      },
+      "path_to_study_changes": 60,
+      "shallow_branch_only_study_paths": 0
+    },
+    "vfa": {
+      "rows_compared": 30,
+      "decision_field_changes": {
+        "study_uid": 0,
+        "image_uid": 0,
+        "anatomical_region": 0,
+        "quality_class": 0,
+        "violation_type": 0,
+        "quality_prob": 0,
+        "laterality": 0,
+        "laterality_basis": 0,
+        "processing_status": 0,
+        "error_code": 0
+      },
+      "path_to_study_changes": 30,
+      "shallow_branch_only_study_paths": 0
+    }
+  },
+  "limitations": [
+    "No independent quality labels for public BMD/VFA; positive predictions cannot be scored as correct.",
+    "Organizer labels do not separately identify Th12, vertebral boundaries, femoral neck axis or rotation subtypes.",
+    "Additional SC/SR series were disabled in these three batch runs.",
+    "Timing was measured during concurrent local container execution."
+  ]
+}

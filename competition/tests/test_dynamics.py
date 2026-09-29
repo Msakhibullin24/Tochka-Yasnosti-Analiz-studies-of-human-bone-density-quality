@@ -28,6 +28,15 @@ def test_change_above_lsc_is_significant_only_when_scans_are_comparable():
     assert any(c.id == "spine_angle_deg" and c.status == "block" for c in tilted.checks)
 
 
+@pytest.mark.parametrize("followup_bmd", [0.840, 0.895])
+def test_review_never_interprets_bmd_change(followup_bmd):
+    reviewed = compare(_visit(0.5), _visit(1.0, quality=1), baseline_bmd=0.900,
+                       followup_bmd=followup_bmd, lsc_percent=3.0)
+    assert reviewed.verdict == "review"
+    assert "не интерпретируется" in reviewed.bmd["interpretation"]
+    assert "значимо" not in reviewed.bmd["interpretation"]
+
+
 def test_different_region_or_side_blocks_the_comparison():
     assert compare(_visit(0), {**_visit(0), "region": "hip_left"}).verdict == "not_comparable"
     left, right = {**_visit(0), "region": "hip_left"}, {**_visit(0), "region": "hip_right"}
@@ -56,3 +65,11 @@ def test_compare_endpoint(tmp_path, bundle_available, monkeypatch):
     assert body["verdict"] in {"comparable", "review"} and body["bmd_change"]["change_percent"] == pytest.approx(-5.56, abs=0.01)
     bad = client.post("/api/v1/compare", files={"baseline": ("a.dcm", b"junk"), "followup": ("b.dcm", b.read_bytes())})
     assert bad.status_code == 422
+    missing_bmd = client.post("/api/v1/compare", files={"baseline": ("a.dcm", a.read_bytes()),
+                                                    "followup": ("b.dcm", b.read_bytes())},
+                              data={"baseline_bmd": "0.9"})
+    assert missing_bmd.status_code == 422
+    invalid_lsc = client.post("/api/v1/compare", files={"baseline": ("a.dcm", a.read_bytes()),
+                                                    "followup": ("b.dcm", b.read_bytes())},
+                              data={"baseline_bmd": "0.9", "followup_bmd": "0.8", "lsc_percent": "0"})
+    assert invalid_lsc.status_code == 422

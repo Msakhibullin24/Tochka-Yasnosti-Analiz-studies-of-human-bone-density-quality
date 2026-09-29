@@ -9,6 +9,25 @@ import numpy as np
 from .embedding import embed, WEIGHTS_SHA256
 
 
+def require_supported_projection(projection):
+    """Withhold frontal QC for an unsupported or uncertain learned view.
+
+    This is an inference scope gate, not a claim of clinical validation.
+    A missing prediction (hip models currently return None) is kept distinct
+    from an evaluated but uncertain spine projection.
+    """
+    if projection is None:
+        return
+    from .dicom_io import DicomReadError
+    value = projection.get('value')
+    if value == 'lateral':
+        raise DicomReadError('UNSUPPORTED_PROJECTION',
+                             'pixel-based model detected a lateral view; frontal quality assessment withheld')
+    if value != 'frontal':
+        raise DicomReadError('UNCERTAIN_PROJECTION',
+                             'pixel-based projection is uncertain; frontal quality assessment withheld')
+
+
 class ProjectionModel:
     def __init__(self, path):
         path = Path(path)
@@ -31,4 +50,6 @@ class ProjectionModel:
         return {'value': value, 'status': 'candidate' if value != 'unknown' else 'undetermined',
                 'lateral_score': score, 'method': 'learned_pixel_only_projection',
                 'model_sha256': self.sha256, 'clinical_validation': False,
-                'model_affects_decision': False, 'reason': 'Source-label classifier; clinical view verification unavailable.'}
+                'model_affects_decision': True,
+                'decision_scope': 'frontal_qc_eligibility',
+                'reason': 'Проекция определяет допуск к анализу прямого снимка; точность модели требует отдельной проверки.'}

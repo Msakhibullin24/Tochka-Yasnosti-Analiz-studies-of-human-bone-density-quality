@@ -1,0 +1,3005 @@
+{
+  "protocol": "Fixed ExtraTrees128 leaf2 sqrt balanced seed17; original source parents 272 train/68 calibration/85 test; group-max 90% conformal threshold.",
+  "training_views": 1360,
+  "calibration_views": 340,
+  "test_views": 425,
+  "training_parents": 272,
+  "calibration_parents": 68,
+  "test_parents": 85,
+  "threshold": 0.6957589285714285,
+  "determined_test_views": 74,
+  "wrong_determined_test_views": 6,
+  "test_view_coverage": 0.9858823529411764,
+  "test_parent_all_views_coverage": 0.9529411764705882,
+  "raw_test_accuracy": 0.7270588235294118,
+  "cases": [
+    {
+      "image": "images/0001-000.png",
+      "parent_group": "aasce:dc684ebec841064e2750b1d177975b9bb8d7be7c3a84fac3fb5549833a875a0e",
+      "reference": 0,
+      "positive_probability": 0.4384486607142856,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0001-025.png",
+      "parent_group": "aasce:dc684ebec841064e2750b1d177975b9bb8d7be7c3a84fac3fb5549833a875a0e",
+      "reference": 0,
+      "positive_probability": 0.5364397321428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0001-050.png",
+      "parent_group": "aasce:dc684ebec841064e2750b1d177975b9bb8d7be7c3a84fac3fb5549833a875a0e",
+      "reference": 1,
+      "positive_probability": 0.4929129464285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0001-075.png",
+      "parent_group": "aasce:dc684ebec841064e2750b1d177975b9bb8d7be7c3a84fac3fb5549833a875a0e",
+      "reference": 1,
+      "positive_probability": 0.5401785714285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0001-100.png",
+      "parent_group": "aasce:dc684ebec841064e2750b1d177975b9bb8d7be7c3a84fac3fb5549833a875a0e",
+      "reference": 1,
+      "positive_probability": 0.5254464285714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0007-000.png",
+      "parent_group": "aasce:a7fe162b6713cfd92aa2a661416ec33675ca3ad0bc4f5d5654e68cc99c3fb76a",
+      "reference": 0,
+      "positive_probability": 0.6686383928571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0007-025.png",
+      "parent_group": "aasce:a7fe162b6713cfd92aa2a661416ec33675ca3ad0bc4f5d5654e68cc99c3fb76a",
+      "reference": 0,
+      "positive_probability": 0.6545758928571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0007-050.png",
+      "parent_group": "aasce:a7fe162b6713cfd92aa2a661416ec33675ca3ad0bc4f5d5654e68cc99c3fb76a",
+      "reference": 1,
+      "positive_probability": 0.6678013392857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0007-075.png",
+      "parent_group": "aasce:a7fe162b6713cfd92aa2a661416ec33675ca3ad0bc4f5d5654e68cc99c3fb76a",
+      "reference": 1,
+      "positive_probability": 0.6344308035714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0007-100.png",
+      "parent_group": "aasce:a7fe162b6713cfd92aa2a661416ec33675ca3ad0bc4f5d5654e68cc99c3fb76a",
+      "reference": 1,
+      "positive_probability": 0.6623325892857141,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0014-000.png",
+      "parent_group": "aasce:b935907a2bf28eaf3dedb85c0120e474b88aefbe016146ab225966b01ba8de92",
+      "reference": 0,
+      "positive_probability": 0.5545758928571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0014-025.png",
+      "parent_group": "aasce:b935907a2bf28eaf3dedb85c0120e474b88aefbe016146ab225966b01ba8de92",
+      "reference": 0,
+      "positive_probability": 0.6160714285714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0014-050.png",
+      "parent_group": "aasce:b935907a2bf28eaf3dedb85c0120e474b88aefbe016146ab225966b01ba8de92",
+      "reference": 1,
+      "positive_probability": 0.626171875,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0014-075.png",
+      "parent_group": "aasce:b935907a2bf28eaf3dedb85c0120e474b88aefbe016146ab225966b01ba8de92",
+      "reference": 1,
+      "positive_probability": 0.6664062499999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0014-100.png",
+      "parent_group": "aasce:b935907a2bf28eaf3dedb85c0120e474b88aefbe016146ab225966b01ba8de92",
+      "reference": 1,
+      "positive_probability": 0.6340959821428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0016-000.png",
+      "parent_group": "aasce:72e8410d8edee8297c500d89d76773e440b4e0dbb9d8f46a7bb9c74aa244d5be",
+      "reference": 0,
+      "positive_probability": 0.49268973214285694,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0016-025.png",
+      "parent_group": "aasce:72e8410d8edee8297c500d89d76773e440b4e0dbb9d8f46a7bb9c74aa244d5be",
+      "reference": 0,
+      "positive_probability": 0.62890625,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0016-050.png",
+      "parent_group": "aasce:72e8410d8edee8297c500d89d76773e440b4e0dbb9d8f46a7bb9c74aa244d5be",
+      "reference": 1,
+      "positive_probability": 0.5917968749999998,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0016-075.png",
+      "parent_group": "aasce:72e8410d8edee8297c500d89d76773e440b4e0dbb9d8f46a7bb9c74aa244d5be",
+      "reference": 1,
+      "positive_probability": 0.5805245535714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0016-100.png",
+      "parent_group": "aasce:72e8410d8edee8297c500d89d76773e440b4e0dbb9d8f46a7bb9c74aa244d5be",
+      "reference": 1,
+      "positive_probability": 0.627845982142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0028-000.png",
+      "parent_group": "aasce:65e7b008829aa9c1f60788ed41e44b167d48ebb552bfecce9b9893a4bd2fa920",
+      "reference": 0,
+      "positive_probability": 0.502455357142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0028-025.png",
+      "parent_group": "aasce:65e7b008829aa9c1f60788ed41e44b167d48ebb552bfecce9b9893a4bd2fa920",
+      "reference": 0,
+      "positive_probability": 0.5882254464285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0028-050.png",
+      "parent_group": "aasce:65e7b008829aa9c1f60788ed41e44b167d48ebb552bfecce9b9893a4bd2fa920",
+      "reference": 1,
+      "positive_probability": 0.6116629464285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0028-075.png",
+      "parent_group": "aasce:65e7b008829aa9c1f60788ed41e44b167d48ebb552bfecce9b9893a4bd2fa920",
+      "reference": 1,
+      "positive_probability": 0.6282924107142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0028-100.png",
+      "parent_group": "aasce:65e7b008829aa9c1f60788ed41e44b167d48ebb552bfecce9b9893a4bd2fa920",
+      "reference": 1,
+      "positive_probability": 0.6268973214285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0037-000.png",
+      "parent_group": "aasce:51701db700e30732cdfc8ed9888eda7e39bc8db4b00fb3b3b99b9e27e33cca5b",
+      "reference": 0,
+      "positive_probability": 0.4916852678571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0037-025.png",
+      "parent_group": "aasce:51701db700e30732cdfc8ed9888eda7e39bc8db4b00fb3b3b99b9e27e33cca5b",
+      "reference": 0,
+      "positive_probability": 0.5203124999999998,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0037-050.png",
+      "parent_group": "aasce:51701db700e30732cdfc8ed9888eda7e39bc8db4b00fb3b3b99b9e27e33cca5b",
+      "reference": 1,
+      "positive_probability": 0.5121651785714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0037-075.png",
+      "parent_group": "aasce:51701db700e30732cdfc8ed9888eda7e39bc8db4b00fb3b3b99b9e27e33cca5b",
+      "reference": 1,
+      "positive_probability": 0.5099330357142856,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0037-100.png",
+      "parent_group": "aasce:51701db700e30732cdfc8ed9888eda7e39bc8db4b00fb3b3b99b9e27e33cca5b",
+      "reference": 1,
+      "positive_probability": 0.5276785714285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0038-000.png",
+      "parent_group": "aasce:422bffd7ce30c9737cfa619f793a280836788f5bf412a6cd27beb4bc37007396",
+      "reference": 0,
+      "positive_probability": 0.5512834821428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0038-025.png",
+      "parent_group": "aasce:422bffd7ce30c9737cfa619f793a280836788f5bf412a6cd27beb4bc37007396",
+      "reference": 0,
+      "positive_probability": 0.6121651785714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0038-050.png",
+      "parent_group": "aasce:422bffd7ce30c9737cfa619f793a280836788f5bf412a6cd27beb4bc37007396",
+      "reference": 1,
+      "positive_probability": 0.6322544642857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0038-075.png",
+      "parent_group": "aasce:422bffd7ce30c9737cfa619f793a280836788f5bf412a6cd27beb4bc37007396",
+      "reference": 1,
+      "positive_probability": 0.6185825892857141,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0038-100.png",
+      "parent_group": "aasce:422bffd7ce30c9737cfa619f793a280836788f5bf412a6cd27beb4bc37007396",
+      "reference": 1,
+      "positive_probability": 0.6437500000000002,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0041-000.png",
+      "parent_group": "aasce:909671d232d12706f9c9ea733ba66110d0c1cdfb826b3b509bdacc2133ec1f4b",
+      "reference": 0,
+      "positive_probability": 0.5432477678571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0041-025.png",
+      "parent_group": "aasce:909671d232d12706f9c9ea733ba66110d0c1cdfb826b3b509bdacc2133ec1f4b",
+      "reference": 0,
+      "positive_probability": 0.5565290178571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0041-050.png",
+      "parent_group": "aasce:909671d232d12706f9c9ea733ba66110d0c1cdfb826b3b509bdacc2133ec1f4b",
+      "reference": 1,
+      "positive_probability": 0.5734933035714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0041-075.png",
+      "parent_group": "aasce:909671d232d12706f9c9ea733ba66110d0c1cdfb826b3b509bdacc2133ec1f4b",
+      "reference": 1,
+      "positive_probability": 0.6532366071428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0041-100.png",
+      "parent_group": "aasce:909671d232d12706f9c9ea733ba66110d0c1cdfb826b3b509bdacc2133ec1f4b",
+      "reference": 1,
+      "positive_probability": 0.6689174107142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0042-000.png",
+      "parent_group": "aasce:48f2b39d85d8ff56986cc52416db72658628a1e960a902355756646042855d8a",
+      "reference": 0,
+      "positive_probability": 0.5702566964285715,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0042-025.png",
+      "parent_group": "aasce:48f2b39d85d8ff56986cc52416db72658628a1e960a902355756646042855d8a",
+      "reference": 0,
+      "positive_probability": 0.5635602678571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0042-050.png",
+      "parent_group": "aasce:48f2b39d85d8ff56986cc52416db72658628a1e960a902355756646042855d8a",
+      "reference": 1,
+      "positive_probability": 0.6342633928571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0042-075.png",
+      "parent_group": "aasce:48f2b39d85d8ff56986cc52416db72658628a1e960a902355756646042855d8a",
+      "reference": 1,
+      "positive_probability": 0.6631696428571429,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0042-100.png",
+      "parent_group": "aasce:48f2b39d85d8ff56986cc52416db72658628a1e960a902355756646042855d8a",
+      "reference": 1,
+      "positive_probability": 0.6047991071428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0045-000.png",
+      "parent_group": "aasce:d31c116b2727c63e570fb4ae3f1d0a88b2e1c984cdb64defd7b04492a5c2a657",
+      "reference": 0,
+      "positive_probability": 0.49983258928571417,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0045-025.png",
+      "parent_group": "aasce:d31c116b2727c63e570fb4ae3f1d0a88b2e1c984cdb64defd7b04492a5c2a657",
+      "reference": 0,
+      "positive_probability": 0.5037946428571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0045-050.png",
+      "parent_group": "aasce:d31c116b2727c63e570fb4ae3f1d0a88b2e1c984cdb64defd7b04492a5c2a657",
+      "reference": 1,
+      "positive_probability": 0.5469866071428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0045-075.png",
+      "parent_group": "aasce:d31c116b2727c63e570fb4ae3f1d0a88b2e1c984cdb64defd7b04492a5c2a657",
+      "reference": 1,
+      "positive_probability": 0.5861607142857143,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0045-100.png",
+      "parent_group": "aasce:d31c116b2727c63e570fb4ae3f1d0a88b2e1c984cdb64defd7b04492a5c2a657",
+      "reference": 1,
+      "positive_probability": 0.6492745535714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0048-000.png",
+      "parent_group": "aasce:3ec5b2db54b06a3ae62f5745e58b7e2b6c07727440397f7fc2ee65a18135ebf3",
+      "reference": 0,
+      "positive_probability": 0.43710937499999986,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0048-025.png",
+      "parent_group": "aasce:3ec5b2db54b06a3ae62f5745e58b7e2b6c07727440397f7fc2ee65a18135ebf3",
+      "reference": 0,
+      "positive_probability": 0.5289620535714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0048-050.png",
+      "parent_group": "aasce:3ec5b2db54b06a3ae62f5745e58b7e2b6c07727440397f7fc2ee65a18135ebf3",
+      "reference": 1,
+      "positive_probability": 0.6886160714285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0048-075.png",
+      "parent_group": "aasce:3ec5b2db54b06a3ae62f5745e58b7e2b6c07727440397f7fc2ee65a18135ebf3",
+      "reference": 1,
+      "positive_probability": 0.6360491071428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0048-100.png",
+      "parent_group": "aasce:3ec5b2db54b06a3ae62f5745e58b7e2b6c07727440397f7fc2ee65a18135ebf3",
+      "reference": 1,
+      "positive_probability": 0.7018973214285716,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0057-000.png",
+      "parent_group": "aasce:793ef457cd85ebe6be83c859d34df06bbd3ee73da5210e0dff5d64af74f73ee1",
+      "reference": 0,
+      "positive_probability": 0.5294084821428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0057-025.png",
+      "parent_group": "aasce:793ef457cd85ebe6be83c859d34df06bbd3ee73da5210e0dff5d64af74f73ee1",
+      "reference": 0,
+      "positive_probability": 0.6077566964285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0057-050.png",
+      "parent_group": "aasce:793ef457cd85ebe6be83c859d34df06bbd3ee73da5210e0dff5d64af74f73ee1",
+      "reference": 1,
+      "positive_probability": 0.6684709821428573,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0057-075.png",
+      "parent_group": "aasce:793ef457cd85ebe6be83c859d34df06bbd3ee73da5210e0dff5d64af74f73ee1",
+      "reference": 1,
+      "positive_probability": 0.720089285714286,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0057-100.png",
+      "parent_group": "aasce:793ef457cd85ebe6be83c859d34df06bbd3ee73da5210e0dff5d64af74f73ee1",
+      "reference": 1,
+      "positive_probability": 0.7304129464285715,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0059-000.png",
+      "parent_group": "aasce:9a397fb13d36c02c4c4d0b9dad79f607c99bfc9323d363fcab9986072efb8f67",
+      "reference": 0,
+      "positive_probability": 0.4428013392857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0059-025.png",
+      "parent_group": "aasce:9a397fb13d36c02c4c4d0b9dad79f607c99bfc9323d363fcab9986072efb8f67",
+      "reference": 0,
+      "positive_probability": 0.5071986607142855,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0059-050.png",
+      "parent_group": "aasce:9a397fb13d36c02c4c4d0b9dad79f607c99bfc9323d363fcab9986072efb8f67",
+      "reference": 1,
+      "positive_probability": 0.4770089285714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0059-075.png",
+      "parent_group": "aasce:9a397fb13d36c02c4c4d0b9dad79f607c99bfc9323d363fcab9986072efb8f67",
+      "reference": 1,
+      "positive_probability": 0.5356584821428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0059-100.png",
+      "parent_group": "aasce:9a397fb13d36c02c4c4d0b9dad79f607c99bfc9323d363fcab9986072efb8f67",
+      "reference": 1,
+      "positive_probability": 0.5325334821428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0063-000.png",
+      "parent_group": "aasce:817127a89e795e63b2db5f0d29964e9def03663dd929bf979da1d44ceee47753",
+      "reference": 0,
+      "positive_probability": 0.6345982142857143,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0063-025.png",
+      "parent_group": "aasce:817127a89e795e63b2db5f0d29964e9def03663dd929bf979da1d44ceee47753",
+      "reference": 0,
+      "positive_probability": 0.6676897321428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0063-050.png",
+      "parent_group": "aasce:817127a89e795e63b2db5f0d29964e9def03663dd929bf979da1d44ceee47753",
+      "reference": 1,
+      "positive_probability": 0.6811383928571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0063-075.png",
+      "parent_group": "aasce:817127a89e795e63b2db5f0d29964e9def03663dd929bf979da1d44ceee47753",
+      "reference": 1,
+      "positive_probability": 0.7025669642857143,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0063-100.png",
+      "parent_group": "aasce:817127a89e795e63b2db5f0d29964e9def03663dd929bf979da1d44ceee47753",
+      "reference": 1,
+      "positive_probability": 0.7740513392857142,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0067-000.png",
+      "parent_group": "aasce:8c1e30e3ef9e1dc53c3dfb7db2ecdad5952eb29219044b7d0135634153f7c79d",
+      "reference": 0,
+      "positive_probability": 0.5233258928571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0067-025.png",
+      "parent_group": "aasce:8c1e30e3ef9e1dc53c3dfb7db2ecdad5952eb29219044b7d0135634153f7c79d",
+      "reference": 0,
+      "positive_probability": 0.5234374999999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0067-050.png",
+      "parent_group": "aasce:8c1e30e3ef9e1dc53c3dfb7db2ecdad5952eb29219044b7d0135634153f7c79d",
+      "reference": 1,
+      "positive_probability": 0.5110491071428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0067-075.png",
+      "parent_group": "aasce:8c1e30e3ef9e1dc53c3dfb7db2ecdad5952eb29219044b7d0135634153f7c79d",
+      "reference": 1,
+      "positive_probability": 0.5982142857142858,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0067-100.png",
+      "parent_group": "aasce:8c1e30e3ef9e1dc53c3dfb7db2ecdad5952eb29219044b7d0135634153f7c79d",
+      "reference": 1,
+      "positive_probability": 0.6157366071428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0071-000.png",
+      "parent_group": "aasce:4db645dbf582762a03d8a18e52fb0590c41426901d63ccbef607a62d9839d723",
+      "reference": 0,
+      "positive_probability": 0.333984375,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0071-025.png",
+      "parent_group": "aasce:4db645dbf582762a03d8a18e52fb0590c41426901d63ccbef607a62d9839d723",
+      "reference": 0,
+      "positive_probability": 0.3137834821428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0071-050.png",
+      "parent_group": "aasce:4db645dbf582762a03d8a18e52fb0590c41426901d63ccbef607a62d9839d723",
+      "reference": 1,
+      "positive_probability": 0.4175223214285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0071-075.png",
+      "parent_group": "aasce:4db645dbf582762a03d8a18e52fb0590c41426901d63ccbef607a62d9839d723",
+      "reference": 1,
+      "positive_probability": 0.45262276785714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0071-100.png",
+      "parent_group": "aasce:4db645dbf582762a03d8a18e52fb0590c41426901d63ccbef607a62d9839d723",
+      "reference": 1,
+      "positive_probability": 0.493470982142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0076-000.png",
+      "parent_group": "aasce:30352a292d10b0396583e71e01a84a86b9235e3f3c6fd590bf020a72d3fec660",
+      "reference": 0,
+      "positive_probability": 0.7555245535714287,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0076-025.png",
+      "parent_group": "aasce:30352a292d10b0396583e71e01a84a86b9235e3f3c6fd590bf020a72d3fec660",
+      "reference": 0,
+      "positive_probability": 0.7075334821428572,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0076-050.png",
+      "parent_group": "aasce:30352a292d10b0396583e71e01a84a86b9235e3f3c6fd590bf020a72d3fec660",
+      "reference": 1,
+      "positive_probability": 0.6915178571428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0076-075.png",
+      "parent_group": "aasce:30352a292d10b0396583e71e01a84a86b9235e3f3c6fd590bf020a72d3fec660",
+      "reference": 1,
+      "positive_probability": 0.7839843750000002,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0076-100.png",
+      "parent_group": "aasce:30352a292d10b0396583e71e01a84a86b9235e3f3c6fd590bf020a72d3fec660",
+      "reference": 1,
+      "positive_probability": 0.8066406250000002,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0079-000.png",
+      "parent_group": "aasce:f2ecd5ff825d86f7b69c36f97d79181d4381a6c4b35ba71cff9bf27a6de16e21",
+      "reference": 0,
+      "positive_probability": 0.47550223214285703,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0079-025.png",
+      "parent_group": "aasce:f2ecd5ff825d86f7b69c36f97d79181d4381a6c4b35ba71cff9bf27a6de16e21",
+      "reference": 0,
+      "positive_probability": 0.47399553571428565,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0079-050.png",
+      "parent_group": "aasce:f2ecd5ff825d86f7b69c36f97d79181d4381a6c4b35ba71cff9bf27a6de16e21",
+      "reference": 1,
+      "positive_probability": 0.5803571428571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0079-075.png",
+      "parent_group": "aasce:f2ecd5ff825d86f7b69c36f97d79181d4381a6c4b35ba71cff9bf27a6de16e21",
+      "reference": 1,
+      "positive_probability": 0.6299665178571429,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0079-100.png",
+      "parent_group": "aasce:f2ecd5ff825d86f7b69c36f97d79181d4381a6c4b35ba71cff9bf27a6de16e21",
+      "reference": 1,
+      "positive_probability": 0.7087611607142857,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0080-000.png",
+      "parent_group": "aasce:3bbf050aa01dac6e41709a2918241001be743956fde9c37183c39a9f3e700b61",
+      "reference": 0,
+      "positive_probability": 0.5016183035714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0080-025.png",
+      "parent_group": "aasce:3bbf050aa01dac6e41709a2918241001be743956fde9c37183c39a9f3e700b61",
+      "reference": 0,
+      "positive_probability": 0.5653459821428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0080-050.png",
+      "parent_group": "aasce:3bbf050aa01dac6e41709a2918241001be743956fde9c37183c39a9f3e700b61",
+      "reference": 1,
+      "positive_probability": 0.5936383928571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0080-075.png",
+      "parent_group": "aasce:3bbf050aa01dac6e41709a2918241001be743956fde9c37183c39a9f3e700b61",
+      "reference": 1,
+      "positive_probability": 0.5931919642857143,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0080-100.png",
+      "parent_group": "aasce:3bbf050aa01dac6e41709a2918241001be743956fde9c37183c39a9f3e700b61",
+      "reference": 1,
+      "positive_probability": 0.699888392857143,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0085-000.png",
+      "parent_group": "aasce:dee32a227814aacdc17e06ac5af5a369c81295518bab8dfdc1c82822be3d12d7",
+      "reference": 0,
+      "positive_probability": 0.5249441964285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0085-025.png",
+      "parent_group": "aasce:dee32a227814aacdc17e06ac5af5a369c81295518bab8dfdc1c82822be3d12d7",
+      "reference": 0,
+      "positive_probability": 0.5299107142857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0085-050.png",
+      "parent_group": "aasce:dee32a227814aacdc17e06ac5af5a369c81295518bab8dfdc1c82822be3d12d7",
+      "reference": 1,
+      "positive_probability": 0.6059151785714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0085-075.png",
+      "parent_group": "aasce:dee32a227814aacdc17e06ac5af5a369c81295518bab8dfdc1c82822be3d12d7",
+      "reference": 1,
+      "positive_probability": 0.760435267857143,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0085-100.png",
+      "parent_group": "aasce:dee32a227814aacdc17e06ac5af5a369c81295518bab8dfdc1c82822be3d12d7",
+      "reference": 1,
+      "positive_probability": 0.7366629464285714,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0086-000.png",
+      "parent_group": "aasce:8e30741bb132250ccc2514bc4132704b72b1ec33d201affade94cb7cd61ee5b8",
+      "reference": 0,
+      "positive_probability": 0.4983816964285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0086-025.png",
+      "parent_group": "aasce:8e30741bb132250ccc2514bc4132704b72b1ec33d201affade94cb7cd61ee5b8",
+      "reference": 0,
+      "positive_probability": 0.6436941964285715,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0086-050.png",
+      "parent_group": "aasce:8e30741bb132250ccc2514bc4132704b72b1ec33d201affade94cb7cd61ee5b8",
+      "reference": 1,
+      "positive_probability": 0.610546875,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0086-075.png",
+      "parent_group": "aasce:8e30741bb132250ccc2514bc4132704b72b1ec33d201affade94cb7cd61ee5b8",
+      "reference": 1,
+      "positive_probability": 0.6038504464285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0086-100.png",
+      "parent_group": "aasce:8e30741bb132250ccc2514bc4132704b72b1ec33d201affade94cb7cd61ee5b8",
+      "reference": 1,
+      "positive_probability": 0.7786830357142859,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0092-000.png",
+      "parent_group": "aasce:2d745b0ee9b4d6e284bf78d64bb40aad353d4a92174403d35e57568f70c58c3a",
+      "reference": 0,
+      "positive_probability": 0.43526785714285704,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0092-025.png",
+      "parent_group": "aasce:2d745b0ee9b4d6e284bf78d64bb40aad353d4a92174403d35e57568f70c58c3a",
+      "reference": 0,
+      "positive_probability": 0.5159040178571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0092-050.png",
+      "parent_group": "aasce:2d745b0ee9b4d6e284bf78d64bb40aad353d4a92174403d35e57568f70c58c3a",
+      "reference": 1,
+      "positive_probability": 0.5444196428571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0092-075.png",
+      "parent_group": "aasce:2d745b0ee9b4d6e284bf78d64bb40aad353d4a92174403d35e57568f70c58c3a",
+      "reference": 1,
+      "positive_probability": 0.5733258928571429,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0092-100.png",
+      "parent_group": "aasce:2d745b0ee9b4d6e284bf78d64bb40aad353d4a92174403d35e57568f70c58c3a",
+      "reference": 1,
+      "positive_probability": 0.5545200892857143,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0117-000.png",
+      "parent_group": "aasce:6994686fad56964a050bb8303a83af012506eb7bf7ec257960d5a951d5a68659",
+      "reference": 0,
+      "positive_probability": 0.20747767857142857,
+      "candidate_rule": "candidate_less_than_half_height"
+    },
+    {
+      "image": "images/0117-025.png",
+      "parent_group": "aasce:6994686fad56964a050bb8303a83af012506eb7bf7ec257960d5a951d5a68659",
+      "reference": 0,
+      "positive_probability": 0.31646205357142854,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0117-050.png",
+      "parent_group": "aasce:6994686fad56964a050bb8303a83af012506eb7bf7ec257960d5a951d5a68659",
+      "reference": 1,
+      "positive_probability": 0.5690290178571429,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0117-075.png",
+      "parent_group": "aasce:6994686fad56964a050bb8303a83af012506eb7bf7ec257960d5a951d5a68659",
+      "reference": 1,
+      "positive_probability": 0.7895089285714286,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0117-100.png",
+      "parent_group": "aasce:6994686fad56964a050bb8303a83af012506eb7bf7ec257960d5a951d5a68659",
+      "reference": 1,
+      "positive_probability": 0.7722098214285716,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0119-000.png",
+      "parent_group": "aasce:fc4cf3289c962c88ce8ed26101370bf1547fc5cf027399165c0e09c2d35c900b",
+      "reference": 0,
+      "positive_probability": 0.42098214285714275,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0119-025.png",
+      "parent_group": "aasce:fc4cf3289c962c88ce8ed26101370bf1547fc5cf027399165c0e09c2d35c900b",
+      "reference": 0,
+      "positive_probability": 0.4501674107142856,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0119-050.png",
+      "parent_group": "aasce:fc4cf3289c962c88ce8ed26101370bf1547fc5cf027399165c0e09c2d35c900b",
+      "reference": 1,
+      "positive_probability": 0.6342075892857143,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0119-075.png",
+      "parent_group": "aasce:fc4cf3289c962c88ce8ed26101370bf1547fc5cf027399165c0e09c2d35c900b",
+      "reference": 1,
+      "positive_probability": 0.6676897321428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0119-100.png",
+      "parent_group": "aasce:fc4cf3289c962c88ce8ed26101370bf1547fc5cf027399165c0e09c2d35c900b",
+      "reference": 1,
+      "positive_probability": 0.7418526785714286,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0127-000.png",
+      "parent_group": "aasce:e60261af2c794954eab3c1db2249307759a57d0af06c1655562eaf159c8addfa",
+      "reference": 0,
+      "positive_probability": 0.48147321428571416,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0127-025.png",
+      "parent_group": "aasce:e60261af2c794954eab3c1db2249307759a57d0af06c1655562eaf159c8addfa",
+      "reference": 0,
+      "positive_probability": 0.5363281249999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0127-050.png",
+      "parent_group": "aasce:e60261af2c794954eab3c1db2249307759a57d0af06c1655562eaf159c8addfa",
+      "reference": 1,
+      "positive_probability": 0.5517299107142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0127-075.png",
+      "parent_group": "aasce:e60261af2c794954eab3c1db2249307759a57d0af06c1655562eaf159c8addfa",
+      "reference": 1,
+      "positive_probability": 0.6101562499999998,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0127-100.png",
+      "parent_group": "aasce:e60261af2c794954eab3c1db2249307759a57d0af06c1655562eaf159c8addfa",
+      "reference": 1,
+      "positive_probability": 0.7029017857142857,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0132-000.png",
+      "parent_group": "aasce:f8144a5406364ed6db8778ab27e54fbd2d5e8a7b9aac317d9f31d1477444ed46",
+      "reference": 0,
+      "positive_probability": 0.4030133928571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0132-025.png",
+      "parent_group": "aasce:f8144a5406364ed6db8778ab27e54fbd2d5e8a7b9aac317d9f31d1477444ed46",
+      "reference": 0,
+      "positive_probability": 0.5420758928571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0132-050.png",
+      "parent_group": "aasce:f8144a5406364ed6db8778ab27e54fbd2d5e8a7b9aac317d9f31d1477444ed46",
+      "reference": 1,
+      "positive_probability": 0.5619419642857144,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0132-075.png",
+      "parent_group": "aasce:f8144a5406364ed6db8778ab27e54fbd2d5e8a7b9aac317d9f31d1477444ed46",
+      "reference": 1,
+      "positive_probability": 0.591015625,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0132-100.png",
+      "parent_group": "aasce:f8144a5406364ed6db8778ab27e54fbd2d5e8a7b9aac317d9f31d1477444ed46",
+      "reference": 1,
+      "positive_probability": 0.6897879464285717,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0136-000.png",
+      "parent_group": "aasce:502bbfcaf669659d8dfc51960c79635bb75c01ad61f7ba831f6c9245e849aeb9",
+      "reference": 0,
+      "positive_probability": 0.4011160714285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0136-025.png",
+      "parent_group": "aasce:502bbfcaf669659d8dfc51960c79635bb75c01ad61f7ba831f6c9245e849aeb9",
+      "reference": 0,
+      "positive_probability": 0.3986049107142856,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0136-050.png",
+      "parent_group": "aasce:502bbfcaf669659d8dfc51960c79635bb75c01ad61f7ba831f6c9245e849aeb9",
+      "reference": 1,
+      "positive_probability": 0.5321986607142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0136-075.png",
+      "parent_group": "aasce:502bbfcaf669659d8dfc51960c79635bb75c01ad61f7ba831f6c9245e849aeb9",
+      "reference": 1,
+      "positive_probability": 0.6382254464285715,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0136-100.png",
+      "parent_group": "aasce:502bbfcaf669659d8dfc51960c79635bb75c01ad61f7ba831f6c9245e849aeb9",
+      "reference": 1,
+      "positive_probability": 0.7116629464285714,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0139-000.png",
+      "parent_group": "aasce:6010c10ecd6bc8a8f6618115680b1abd72497541e616caebab96df2faec9aaca",
+      "reference": 0,
+      "positive_probability": 0.5354910714285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0139-025.png",
+      "parent_group": "aasce:6010c10ecd6bc8a8f6618115680b1abd72497541e616caebab96df2faec9aaca",
+      "reference": 0,
+      "positive_probability": 0.5382254464285715,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0139-050.png",
+      "parent_group": "aasce:6010c10ecd6bc8a8f6618115680b1abd72497541e616caebab96df2faec9aaca",
+      "reference": 1,
+      "positive_probability": 0.5157924107142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0139-075.png",
+      "parent_group": "aasce:6010c10ecd6bc8a8f6618115680b1abd72497541e616caebab96df2faec9aaca",
+      "reference": 1,
+      "positive_probability": 0.6363281250000001,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0139-100.png",
+      "parent_group": "aasce:6010c10ecd6bc8a8f6618115680b1abd72497541e616caebab96df2faec9aaca",
+      "reference": 1,
+      "positive_probability": 0.6513392857142858,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0140-000.png",
+      "parent_group": "aasce:0a8d402b2fd41270917583e1dc43ddd3e4d26a50073c84bc1cc43ac0d6b7ba50",
+      "reference": 0,
+      "positive_probability": 0.4725446428571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0140-025.png",
+      "parent_group": "aasce:0a8d402b2fd41270917583e1dc43ddd3e4d26a50073c84bc1cc43ac0d6b7ba50",
+      "reference": 0,
+      "positive_probability": 0.5391741071428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0140-050.png",
+      "parent_group": "aasce:0a8d402b2fd41270917583e1dc43ddd3e4d26a50073c84bc1cc43ac0d6b7ba50",
+      "reference": 1,
+      "positive_probability": 0.5710379464285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0140-075.png",
+      "parent_group": "aasce:0a8d402b2fd41270917583e1dc43ddd3e4d26a50073c84bc1cc43ac0d6b7ba50",
+      "reference": 1,
+      "positive_probability": 0.5887834821428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0140-100.png",
+      "parent_group": "aasce:0a8d402b2fd41270917583e1dc43ddd3e4d26a50073c84bc1cc43ac0d6b7ba50",
+      "reference": 1,
+      "positive_probability": 0.5479910714285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0143-000.png",
+      "parent_group": "aasce:845e0f725eb6e1047d0568c3b4195e2f0b44b4e83c763f2a3ae69cbfbc409bc9",
+      "reference": 0,
+      "positive_probability": 0.4484933035714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0143-025.png",
+      "parent_group": "aasce:845e0f725eb6e1047d0568c3b4195e2f0b44b4e83c763f2a3ae69cbfbc409bc9",
+      "reference": 0,
+      "positive_probability": 0.5567522321428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0143-050.png",
+      "parent_group": "aasce:845e0f725eb6e1047d0568c3b4195e2f0b44b4e83c763f2a3ae69cbfbc409bc9",
+      "reference": 1,
+      "positive_probability": 0.5565848214285715,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0143-075.png",
+      "parent_group": "aasce:845e0f725eb6e1047d0568c3b4195e2f0b44b4e83c763f2a3ae69cbfbc409bc9",
+      "reference": 1,
+      "positive_probability": 0.601060267857143,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0143-100.png",
+      "parent_group": "aasce:845e0f725eb6e1047d0568c3b4195e2f0b44b4e83c763f2a3ae69cbfbc409bc9",
+      "reference": 1,
+      "positive_probability": 0.5803013392857144,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0144-000.png",
+      "parent_group": "aasce:1898f89f32bdf3938c29edaca1bc50098673f17c0de253747e66ba771154d1a8",
+      "reference": 0,
+      "positive_probability": 0.6516741071428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0144-025.png",
+      "parent_group": "aasce:1898f89f32bdf3938c29edaca1bc50098673f17c0de253747e66ba771154d1a8",
+      "reference": 0,
+      "positive_probability": 0.7784598214285718,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0144-050.png",
+      "parent_group": "aasce:1898f89f32bdf3938c29edaca1bc50098673f17c0de253747e66ba771154d1a8",
+      "reference": 1,
+      "positive_probability": 0.7864955357142859,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0144-075.png",
+      "parent_group": "aasce:1898f89f32bdf3938c29edaca1bc50098673f17c0de253747e66ba771154d1a8",
+      "reference": 1,
+      "positive_probability": 0.8177455357142859,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0144-100.png",
+      "parent_group": "aasce:1898f89f32bdf3938c29edaca1bc50098673f17c0de253747e66ba771154d1a8",
+      "reference": 1,
+      "positive_probability": 0.8339843750000001,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0151-000.png",
+      "parent_group": "aasce:759f934adbb711518dcd8c14b546a9668388dcab3493091fdc7cc166348c4540",
+      "reference": 0,
+      "positive_probability": 0.3813616071428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0151-025.png",
+      "parent_group": "aasce:759f934adbb711518dcd8c14b546a9668388dcab3493091fdc7cc166348c4540",
+      "reference": 0,
+      "positive_probability": 0.4662946428571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0151-050.png",
+      "parent_group": "aasce:759f934adbb711518dcd8c14b546a9668388dcab3493091fdc7cc166348c4540",
+      "reference": 1,
+      "positive_probability": 0.5278459821428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0151-075.png",
+      "parent_group": "aasce:759f934adbb711518dcd8c14b546a9668388dcab3493091fdc7cc166348c4540",
+      "reference": 1,
+      "positive_probability": 0.6440848214285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0151-100.png",
+      "parent_group": "aasce:759f934adbb711518dcd8c14b546a9668388dcab3493091fdc7cc166348c4540",
+      "reference": 1,
+      "positive_probability": 0.569252232142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0154-000.png",
+      "parent_group": "aasce:40425f1a2017e7bb75e17727bea433a7707cfc3b58772f64dfab36721a50c098",
+      "reference": 0,
+      "positive_probability": 0.5118861607142856,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0154-025.png",
+      "parent_group": "aasce:40425f1a2017e7bb75e17727bea433a7707cfc3b58772f64dfab36721a50c098",
+      "reference": 0,
+      "positive_probability": 0.5795200892857143,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0154-050.png",
+      "parent_group": "aasce:40425f1a2017e7bb75e17727bea433a7707cfc3b58772f64dfab36721a50c098",
+      "reference": 1,
+      "positive_probability": 0.62109375,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0154-075.png",
+      "parent_group": "aasce:40425f1a2017e7bb75e17727bea433a7707cfc3b58772f64dfab36721a50c098",
+      "reference": 1,
+      "positive_probability": 0.6434151785714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0154-100.png",
+      "parent_group": "aasce:40425f1a2017e7bb75e17727bea433a7707cfc3b58772f64dfab36721a50c098",
+      "reference": 1,
+      "positive_probability": 0.6512276785714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0157-000.png",
+      "parent_group": "aasce:455cd0c9c251812469e991191d422f5281586b7b22a918cc471ff68d59c5c748",
+      "reference": 0,
+      "positive_probability": 0.4328683035714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0157-025.png",
+      "parent_group": "aasce:455cd0c9c251812469e991191d422f5281586b7b22a918cc471ff68d59c5c748",
+      "reference": 0,
+      "positive_probability": 0.4714843749999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0157-050.png",
+      "parent_group": "aasce:455cd0c9c251812469e991191d422f5281586b7b22a918cc471ff68d59c5c748",
+      "reference": 1,
+      "positive_probability": 0.5809709821428573,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0157-075.png",
+      "parent_group": "aasce:455cd0c9c251812469e991191d422f5281586b7b22a918cc471ff68d59c5c748",
+      "reference": 1,
+      "positive_probability": 0.6042968750000001,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0157-100.png",
+      "parent_group": "aasce:455cd0c9c251812469e991191d422f5281586b7b22a918cc471ff68d59c5c748",
+      "reference": 1,
+      "positive_probability": 0.6608816964285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0161-000.png",
+      "parent_group": "aasce:aabb07f49aa9bb507178b5a4acf650983b385d7bb5ecddc0428438bb27a09f27",
+      "reference": 0,
+      "positive_probability": 0.23694196428571426,
+      "candidate_rule": "candidate_less_than_half_height"
+    },
+    {
+      "image": "images/0161-025.png",
+      "parent_group": "aasce:aabb07f49aa9bb507178b5a4acf650983b385d7bb5ecddc0428438bb27a09f27",
+      "reference": 0,
+      "positive_probability": 0.23543526785714286,
+      "candidate_rule": "candidate_less_than_half_height"
+    },
+    {
+      "image": "images/0161-050.png",
+      "parent_group": "aasce:aabb07f49aa9bb507178b5a4acf650983b385d7bb5ecddc0428438bb27a09f27",
+      "reference": 1,
+      "positive_probability": 0.5980468750000001,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0161-075.png",
+      "parent_group": "aasce:aabb07f49aa9bb507178b5a4acf650983b385d7bb5ecddc0428438bb27a09f27",
+      "reference": 1,
+      "positive_probability": 0.8122209821428573,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0161-100.png",
+      "parent_group": "aasce:aabb07f49aa9bb507178b5a4acf650983b385d7bb5ecddc0428438bb27a09f27",
+      "reference": 1,
+      "positive_probability": 0.8438616071428574,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0164-000.png",
+      "parent_group": "aasce:ddb70eaec7289c88228e502dd01edfd09d8f2dddf5fe6eaba9ec11552bda8bae",
+      "reference": 0,
+      "positive_probability": 0.3945312499999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0164-025.png",
+      "parent_group": "aasce:ddb70eaec7289c88228e502dd01edfd09d8f2dddf5fe6eaba9ec11552bda8bae",
+      "reference": 0,
+      "positive_probability": 0.3746093749999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0164-050.png",
+      "parent_group": "aasce:ddb70eaec7289c88228e502dd01edfd09d8f2dddf5fe6eaba9ec11552bda8bae",
+      "reference": 1,
+      "positive_probability": 0.3906808035714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0164-075.png",
+      "parent_group": "aasce:ddb70eaec7289c88228e502dd01edfd09d8f2dddf5fe6eaba9ec11552bda8bae",
+      "reference": 1,
+      "positive_probability": 0.43911830357142845,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0164-100.png",
+      "parent_group": "aasce:ddb70eaec7289c88228e502dd01edfd09d8f2dddf5fe6eaba9ec11552bda8bae",
+      "reference": 1,
+      "positive_probability": 0.4987165178571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0167-000.png",
+      "parent_group": "aasce:a50415ec05fe0c4bb5aa4ac6e4d77cd5fd8e4c0bba43dd98e374ff2500087c80",
+      "reference": 0,
+      "positive_probability": 0.4643415178571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0167-025.png",
+      "parent_group": "aasce:a50415ec05fe0c4bb5aa4ac6e4d77cd5fd8e4c0bba43dd98e374ff2500087c80",
+      "reference": 0,
+      "positive_probability": 0.48231026785714276,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0167-050.png",
+      "parent_group": "aasce:a50415ec05fe0c4bb5aa4ac6e4d77cd5fd8e4c0bba43dd98e374ff2500087c80",
+      "reference": 1,
+      "positive_probability": 0.5386718749999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0167-075.png",
+      "parent_group": "aasce:a50415ec05fe0c4bb5aa4ac6e4d77cd5fd8e4c0bba43dd98e374ff2500087c80",
+      "reference": 1,
+      "positive_probability": 0.5527343749999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0167-100.png",
+      "parent_group": "aasce:a50415ec05fe0c4bb5aa4ac6e4d77cd5fd8e4c0bba43dd98e374ff2500087c80",
+      "reference": 1,
+      "positive_probability": 0.5809151785714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0174-000.png",
+      "parent_group": "aasce:f44ced5ff4080a456eff72ae28a552e35433148a4d366d81f796d67ae824678b",
+      "reference": 0,
+      "positive_probability": 0.4908482142857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0174-025.png",
+      "parent_group": "aasce:f44ced5ff4080a456eff72ae28a552e35433148a4d366d81f796d67ae824678b",
+      "reference": 0,
+      "positive_probability": 0.609877232142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0174-050.png",
+      "parent_group": "aasce:f44ced5ff4080a456eff72ae28a552e35433148a4d366d81f796d67ae824678b",
+      "reference": 1,
+      "positive_probability": 0.6354910714285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0174-075.png",
+      "parent_group": "aasce:f44ced5ff4080a456eff72ae28a552e35433148a4d366d81f796d67ae824678b",
+      "reference": 1,
+      "positive_probability": 0.7078683035714284,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0174-100.png",
+      "parent_group": "aasce:f44ced5ff4080a456eff72ae28a552e35433148a4d366d81f796d67ae824678b",
+      "reference": 1,
+      "positive_probability": 0.6378348214285715,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0181-000.png",
+      "parent_group": "aasce:0361b5313ff1801984d52bacf88c6fe00f3552210c37a19de1b3de056f23f425",
+      "reference": 0,
+      "positive_probability": 0.4295758928571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0181-025.png",
+      "parent_group": "aasce:0361b5313ff1801984d52bacf88c6fe00f3552210c37a19de1b3de056f23f425",
+      "reference": 0,
+      "positive_probability": 0.4488281249999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0181-050.png",
+      "parent_group": "aasce:0361b5313ff1801984d52bacf88c6fe00f3552210c37a19de1b3de056f23f425",
+      "reference": 1,
+      "positive_probability": 0.5011160714285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0181-075.png",
+      "parent_group": "aasce:0361b5313ff1801984d52bacf88c6fe00f3552210c37a19de1b3de056f23f425",
+      "reference": 1,
+      "positive_probability": 0.5488839285714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0181-100.png",
+      "parent_group": "aasce:0361b5313ff1801984d52bacf88c6fe00f3552210c37a19de1b3de056f23f425",
+      "reference": 1,
+      "positive_probability": 0.60234375,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0183-000.png",
+      "parent_group": "aasce:f9d6a7fe6ca80623fc28f29bdee7ec5271639c99296c9648ee9bc8a32cfb666e",
+      "reference": 0,
+      "positive_probability": 0.49503348214285703,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0183-025.png",
+      "parent_group": "aasce:f9d6a7fe6ca80623fc28f29bdee7ec5271639c99296c9648ee9bc8a32cfb666e",
+      "reference": 0,
+      "positive_probability": 0.4820870535714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0183-050.png",
+      "parent_group": "aasce:f9d6a7fe6ca80623fc28f29bdee7ec5271639c99296c9648ee9bc8a32cfb666e",
+      "reference": 1,
+      "positive_probability": 0.5151785714285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0183-075.png",
+      "parent_group": "aasce:f9d6a7fe6ca80623fc28f29bdee7ec5271639c99296c9648ee9bc8a32cfb666e",
+      "reference": 1,
+      "positive_probability": 0.5507254464285712,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0183-100.png",
+      "parent_group": "aasce:f9d6a7fe6ca80623fc28f29bdee7ec5271639c99296c9648ee9bc8a32cfb666e",
+      "reference": 1,
+      "positive_probability": 0.530970982142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0189-000.png",
+      "parent_group": "aasce:60c51a827cc38b15ac05472ce42de2e947a35dcbb9fbe6479a301214bd0a9d16",
+      "reference": 0,
+      "positive_probability": 0.5616071428571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0189-025.png",
+      "parent_group": "aasce:60c51a827cc38b15ac05472ce42de2e947a35dcbb9fbe6479a301214bd0a9d16",
+      "reference": 0,
+      "positive_probability": 0.5669642857142856,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0189-050.png",
+      "parent_group": "aasce:60c51a827cc38b15ac05472ce42de2e947a35dcbb9fbe6479a301214bd0a9d16",
+      "reference": 1,
+      "positive_probability": 0.615625,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0189-075.png",
+      "parent_group": "aasce:60c51a827cc38b15ac05472ce42de2e947a35dcbb9fbe6479a301214bd0a9d16",
+      "reference": 1,
+      "positive_probability": 0.5898995535714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0189-100.png",
+      "parent_group": "aasce:60c51a827cc38b15ac05472ce42de2e947a35dcbb9fbe6479a301214bd0a9d16",
+      "reference": 1,
+      "positive_probability": 0.6688616071428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0194-000.png",
+      "parent_group": "aasce:cf59ebb2ae9f1376166a5c2e9ee5dc94c6cd152c5987d3550998ead387cf4f16",
+      "reference": 0,
+      "positive_probability": 0.6641183035714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0194-025.png",
+      "parent_group": "aasce:cf59ebb2ae9f1376166a5c2e9ee5dc94c6cd152c5987d3550998ead387cf4f16",
+      "reference": 0,
+      "positive_probability": 0.7024553571428571,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0194-050.png",
+      "parent_group": "aasce:cf59ebb2ae9f1376166a5c2e9ee5dc94c6cd152c5987d3550998ead387cf4f16",
+      "reference": 1,
+      "positive_probability": 0.69296875,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0194-075.png",
+      "parent_group": "aasce:cf59ebb2ae9f1376166a5c2e9ee5dc94c6cd152c5987d3550998ead387cf4f16",
+      "reference": 1,
+      "positive_probability": 0.7158482142857144,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0194-100.png",
+      "parent_group": "aasce:cf59ebb2ae9f1376166a5c2e9ee5dc94c6cd152c5987d3550998ead387cf4f16",
+      "reference": 1,
+      "positive_probability": 0.7199776785714285,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0195-000.png",
+      "parent_group": "aasce:480aaa138f40b34e8e7892690b1b7836cb7e2510b2cd94392f223929a66080f6",
+      "reference": 0,
+      "positive_probability": 0.49129464285714275,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0195-025.png",
+      "parent_group": "aasce:480aaa138f40b34e8e7892690b1b7836cb7e2510b2cd94392f223929a66080f6",
+      "reference": 0,
+      "positive_probability": 0.5836495535714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0195-050.png",
+      "parent_group": "aasce:480aaa138f40b34e8e7892690b1b7836cb7e2510b2cd94392f223929a66080f6",
+      "reference": 1,
+      "positive_probability": 0.6066964285714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0195-075.png",
+      "parent_group": "aasce:480aaa138f40b34e8e7892690b1b7836cb7e2510b2cd94392f223929a66080f6",
+      "reference": 1,
+      "positive_probability": 0.6703125000000001,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0195-100.png",
+      "parent_group": "aasce:480aaa138f40b34e8e7892690b1b7836cb7e2510b2cd94392f223929a66080f6",
+      "reference": 1,
+      "positive_probability": 0.7213727678571429,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0197-000.png",
+      "parent_group": "aasce:de0bb466a6358ae53af301ff7c3775c779cd63c22d12e90221a94da141ae1811",
+      "reference": 0,
+      "positive_probability": 0.4992187499999998,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0197-025.png",
+      "parent_group": "aasce:de0bb466a6358ae53af301ff7c3775c779cd63c22d12e90221a94da141ae1811",
+      "reference": 0,
+      "positive_probability": 0.5089843749999998,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0197-050.png",
+      "parent_group": "aasce:de0bb466a6358ae53af301ff7c3775c779cd63c22d12e90221a94da141ae1811",
+      "reference": 1,
+      "positive_probability": 0.6514508928571429,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0197-075.png",
+      "parent_group": "aasce:de0bb466a6358ae53af301ff7c3775c779cd63c22d12e90221a94da141ae1811",
+      "reference": 1,
+      "positive_probability": 0.6790736607142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0197-100.png",
+      "parent_group": "aasce:de0bb466a6358ae53af301ff7c3775c779cd63c22d12e90221a94da141ae1811",
+      "reference": 1,
+      "positive_probability": 0.7926897321428573,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0201-000.png",
+      "parent_group": "aasce:195e20ba587a17e5eb127739e424ea50f91f907bd64eabfbb21c8c416c3bf65f",
+      "reference": 0,
+      "positive_probability": 0.4356584821428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0201-025.png",
+      "parent_group": "aasce:195e20ba587a17e5eb127739e424ea50f91f907bd64eabfbb21c8c416c3bf65f",
+      "reference": 0,
+      "positive_probability": 0.5340959821428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0201-050.png",
+      "parent_group": "aasce:195e20ba587a17e5eb127739e424ea50f91f907bd64eabfbb21c8c416c3bf65f",
+      "reference": 1,
+      "positive_probability": 0.6346540178571429,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0201-075.png",
+      "parent_group": "aasce:195e20ba587a17e5eb127739e424ea50f91f907bd64eabfbb21c8c416c3bf65f",
+      "reference": 1,
+      "positive_probability": 0.7268973214285714,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0201-100.png",
+      "parent_group": "aasce:195e20ba587a17e5eb127739e424ea50f91f907bd64eabfbb21c8c416c3bf65f",
+      "reference": 1,
+      "positive_probability": 0.8241629464285716,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0204-000.png",
+      "parent_group": "aasce:a600427f45fd43ff7608de3a52ddebc0d9cbed8472c72bc83a1e49c9057f1ffc",
+      "reference": 0,
+      "positive_probability": 0.3832589285714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0204-025.png",
+      "parent_group": "aasce:a600427f45fd43ff7608de3a52ddebc0d9cbed8472c72bc83a1e49c9057f1ffc",
+      "reference": 0,
+      "positive_probability": 0.43755580357142837,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0204-050.png",
+      "parent_group": "aasce:a600427f45fd43ff7608de3a52ddebc0d9cbed8472c72bc83a1e49c9057f1ffc",
+      "reference": 1,
+      "positive_probability": 0.5489955357142855,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0204-075.png",
+      "parent_group": "aasce:a600427f45fd43ff7608de3a52ddebc0d9cbed8472c72bc83a1e49c9057f1ffc",
+      "reference": 1,
+      "positive_probability": 0.6141741071428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0204-100.png",
+      "parent_group": "aasce:a600427f45fd43ff7608de3a52ddebc0d9cbed8472c72bc83a1e49c9057f1ffc",
+      "reference": 1,
+      "positive_probability": 0.7296316964285715,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0205-000.png",
+      "parent_group": "aasce:dcf9b786320e004a2c9befc0ebe1a5be9c923f793bed78c300b8f3fdc7cec30f",
+      "reference": 0,
+      "positive_probability": 0.506361607142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0205-025.png",
+      "parent_group": "aasce:dcf9b786320e004a2c9befc0ebe1a5be9c923f793bed78c300b8f3fdc7cec30f",
+      "reference": 0,
+      "positive_probability": 0.4748325892857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0205-050.png",
+      "parent_group": "aasce:dcf9b786320e004a2c9befc0ebe1a5be9c923f793bed78c300b8f3fdc7cec30f",
+      "reference": 1,
+      "positive_probability": 0.5015066964285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0205-075.png",
+      "parent_group": "aasce:dcf9b786320e004a2c9befc0ebe1a5be9c923f793bed78c300b8f3fdc7cec30f",
+      "reference": 1,
+      "positive_probability": 0.4901785714285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0205-100.png",
+      "parent_group": "aasce:dcf9b786320e004a2c9befc0ebe1a5be9c923f793bed78c300b8f3fdc7cec30f",
+      "reference": 1,
+      "positive_probability": 0.546875,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0207-000.png",
+      "parent_group": "aasce:ec99ba3e71ce415c6f815df1402623d1a3fc8dbbd94f3801786ead09633a792a",
+      "reference": 0,
+      "positive_probability": 0.3272879464285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0207-025.png",
+      "parent_group": "aasce:ec99ba3e71ce415c6f815df1402623d1a3fc8dbbd94f3801786ead09633a792a",
+      "reference": 0,
+      "positive_probability": 0.36713169642857135,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0207-050.png",
+      "parent_group": "aasce:ec99ba3e71ce415c6f815df1402623d1a3fc8dbbd94f3801786ead09633a792a",
+      "reference": 1,
+      "positive_probability": 0.449330357142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0207-075.png",
+      "parent_group": "aasce:ec99ba3e71ce415c6f815df1402623d1a3fc8dbbd94f3801786ead09633a792a",
+      "reference": 1,
+      "positive_probability": 0.49520089285714275,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0207-100.png",
+      "parent_group": "aasce:ec99ba3e71ce415c6f815df1402623d1a3fc8dbbd94f3801786ead09633a792a",
+      "reference": 1,
+      "positive_probability": 0.5098214285714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0213-000.png",
+      "parent_group": "aasce:67b90fb3da8f774abbc54adc99385c2051ca4ec3d3a9b8688833a0746f021cd4",
+      "reference": 0,
+      "positive_probability": 0.5176897321428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0213-025.png",
+      "parent_group": "aasce:67b90fb3da8f774abbc54adc99385c2051ca4ec3d3a9b8688833a0746f021cd4",
+      "reference": 0,
+      "positive_probability": 0.6763392857142859,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0213-050.png",
+      "parent_group": "aasce:67b90fb3da8f774abbc54adc99385c2051ca4ec3d3a9b8688833a0746f021cd4",
+      "reference": 1,
+      "positive_probability": 0.7519531250000001,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0213-075.png",
+      "parent_group": "aasce:67b90fb3da8f774abbc54adc99385c2051ca4ec3d3a9b8688833a0746f021cd4",
+      "reference": 1,
+      "positive_probability": 0.7826450892857143,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0213-100.png",
+      "parent_group": "aasce:67b90fb3da8f774abbc54adc99385c2051ca4ec3d3a9b8688833a0746f021cd4",
+      "reference": 1,
+      "positive_probability": 0.6825334821428573,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0221-000.png",
+      "parent_group": "aasce:52f0348d80057fff99abd3a3c14d27ac8baf730c2b4af6d5d453e9e2fb4d1b87",
+      "reference": 0,
+      "positive_probability": 0.36512276785714276,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0221-025.png",
+      "parent_group": "aasce:52f0348d80057fff99abd3a3c14d27ac8baf730c2b4af6d5d453e9e2fb4d1b87",
+      "reference": 0,
+      "positive_probability": 0.34051339285714277,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0221-050.png",
+      "parent_group": "aasce:52f0348d80057fff99abd3a3c14d27ac8baf730c2b4af6d5d453e9e2fb4d1b87",
+      "reference": 1,
+      "positive_probability": 0.40993303571428563,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0221-075.png",
+      "parent_group": "aasce:52f0348d80057fff99abd3a3c14d27ac8baf730c2b4af6d5d453e9e2fb4d1b87",
+      "reference": 1,
+      "positive_probability": 0.4924107142857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0221-100.png",
+      "parent_group": "aasce:52f0348d80057fff99abd3a3c14d27ac8baf730c2b4af6d5d453e9e2fb4d1b87",
+      "reference": 1,
+      "positive_probability": 0.5830915178571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0223-000.png",
+      "parent_group": "aasce:ad953c84671a820f8d98dc6d192294e7e7054e564ecd7b42123b8a16e0427bdd",
+      "reference": 0,
+      "positive_probability": 0.43671874999999977,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0223-025.png",
+      "parent_group": "aasce:ad953c84671a820f8d98dc6d192294e7e7054e564ecd7b42123b8a16e0427bdd",
+      "reference": 0,
+      "positive_probability": 0.54921875,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0223-050.png",
+      "parent_group": "aasce:ad953c84671a820f8d98dc6d192294e7e7054e564ecd7b42123b8a16e0427bdd",
+      "reference": 1,
+      "positive_probability": 0.5595982142857141,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0223-075.png",
+      "parent_group": "aasce:ad953c84671a820f8d98dc6d192294e7e7054e564ecd7b42123b8a16e0427bdd",
+      "reference": 1,
+      "positive_probability": 0.5371651785714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0223-100.png",
+      "parent_group": "aasce:ad953c84671a820f8d98dc6d192294e7e7054e564ecd7b42123b8a16e0427bdd",
+      "reference": 1,
+      "positive_probability": 0.6214843750000001,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0225-000.png",
+      "parent_group": "aasce:1adb9f228dfdf1ad0dde2a99ecb82a7fbc0a12307e431d17f62800dc878f2f1f",
+      "reference": 0,
+      "positive_probability": 0.5006696428571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0225-025.png",
+      "parent_group": "aasce:1adb9f228dfdf1ad0dde2a99ecb82a7fbc0a12307e431d17f62800dc878f2f1f",
+      "reference": 0,
+      "positive_probability": 0.5107142857142855,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0225-050.png",
+      "parent_group": "aasce:1adb9f228dfdf1ad0dde2a99ecb82a7fbc0a12307e431d17f62800dc878f2f1f",
+      "reference": 1,
+      "positive_probability": 0.5412388392857141,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0225-075.png",
+      "parent_group": "aasce:1adb9f228dfdf1ad0dde2a99ecb82a7fbc0a12307e431d17f62800dc878f2f1f",
+      "reference": 1,
+      "positive_probability": 0.5792410714285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0225-100.png",
+      "parent_group": "aasce:1adb9f228dfdf1ad0dde2a99ecb82a7fbc0a12307e431d17f62800dc878f2f1f",
+      "reference": 1,
+      "positive_probability": 0.5877790178571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0229-000.png",
+      "parent_group": "aasce:1b5f3bed4116ea6b6488294a134acaa193cdb738ac64fc834f6f7f7660c3bdd1",
+      "reference": 0,
+      "positive_probability": 0.6134486607142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0229-025.png",
+      "parent_group": "aasce:1b5f3bed4116ea6b6488294a134acaa193cdb738ac64fc834f6f7f7660c3bdd1",
+      "reference": 0,
+      "positive_probability": 0.6396205357142858,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0229-050.png",
+      "parent_group": "aasce:1b5f3bed4116ea6b6488294a134acaa193cdb738ac64fc834f6f7f7660c3bdd1",
+      "reference": 1,
+      "positive_probability": 0.703404017857143,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0229-075.png",
+      "parent_group": "aasce:1b5f3bed4116ea6b6488294a134acaa193cdb738ac64fc834f6f7f7660c3bdd1",
+      "reference": 1,
+      "positive_probability": 0.7594308035714286,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0229-100.png",
+      "parent_group": "aasce:1b5f3bed4116ea6b6488294a134acaa193cdb738ac64fc834f6f7f7660c3bdd1",
+      "reference": 1,
+      "positive_probability": 0.8367745535714286,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0236-000.png",
+      "parent_group": "aasce:3bb85953df6f3a582fdfc5818e0808ef885c49d3f780ab7e3f2549eb8249772c",
+      "reference": 0,
+      "positive_probability": 0.48409598214285704,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0236-025.png",
+      "parent_group": "aasce:3bb85953df6f3a582fdfc5818e0808ef885c49d3f780ab7e3f2549eb8249772c",
+      "reference": 0,
+      "positive_probability": 0.5992745535714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0236-050.png",
+      "parent_group": "aasce:3bb85953df6f3a582fdfc5818e0808ef885c49d3f780ab7e3f2549eb8249772c",
+      "reference": 1,
+      "positive_probability": 0.7243861607142857,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0236-075.png",
+      "parent_group": "aasce:3bb85953df6f3a582fdfc5818e0808ef885c49d3f780ab7e3f2549eb8249772c",
+      "reference": 1,
+      "positive_probability": 0.7241629464285714,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0236-100.png",
+      "parent_group": "aasce:3bb85953df6f3a582fdfc5818e0808ef885c49d3f780ab7e3f2549eb8249772c",
+      "reference": 1,
+      "positive_probability": 0.723325892857143,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0238-000.png",
+      "parent_group": "aasce:8deebbde54a38f5361733fa659217136851de82a7cd4c01369438e963b806fd1",
+      "reference": 0,
+      "positive_probability": 0.5866629464285715,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0238-025.png",
+      "parent_group": "aasce:8deebbde54a38f5361733fa659217136851de82a7cd4c01369438e963b806fd1",
+      "reference": 0,
+      "positive_probability": 0.6397321428571429,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0238-050.png",
+      "parent_group": "aasce:8deebbde54a38f5361733fa659217136851de82a7cd4c01369438e963b806fd1",
+      "reference": 1,
+      "positive_probability": 0.6954241071428573,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0238-075.png",
+      "parent_group": "aasce:8deebbde54a38f5361733fa659217136851de82a7cd4c01369438e963b806fd1",
+      "reference": 1,
+      "positive_probability": 0.7996651785714286,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0238-100.png",
+      "parent_group": "aasce:8deebbde54a38f5361733fa659217136851de82a7cd4c01369438e963b806fd1",
+      "reference": 1,
+      "positive_probability": 0.7859375,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0239-000.png",
+      "parent_group": "aasce:43fe5799290ae04ac95f41f4e771ff753182b92875057f238b0ea9c60dd59a84",
+      "reference": 0,
+      "positive_probability": 0.2852120535714285,
+      "candidate_rule": "candidate_less_than_half_height"
+    },
+    {
+      "image": "images/0239-025.png",
+      "parent_group": "aasce:43fe5799290ae04ac95f41f4e771ff753182b92875057f238b0ea9c60dd59a84",
+      "reference": 0,
+      "positive_probability": 0.3483816964285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0239-050.png",
+      "parent_group": "aasce:43fe5799290ae04ac95f41f4e771ff753182b92875057f238b0ea9c60dd59a84",
+      "reference": 1,
+      "positive_probability": 0.5671316964285718,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0239-075.png",
+      "parent_group": "aasce:43fe5799290ae04ac95f41f4e771ff753182b92875057f238b0ea9c60dd59a84",
+      "reference": 1,
+      "positive_probability": 0.6505580357142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0239-100.png",
+      "parent_group": "aasce:43fe5799290ae04ac95f41f4e771ff753182b92875057f238b0ea9c60dd59a84",
+      "reference": 1,
+      "positive_probability": 0.778683035714286,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0253-000.png",
+      "parent_group": "aasce:0bd9c03231c3a840041d521a984b86232bf27a27d30cab5fb4e88199eef91968",
+      "reference": 0,
+      "positive_probability": 0.2877790178571428,
+      "candidate_rule": "candidate_less_than_half_height"
+    },
+    {
+      "image": "images/0253-025.png",
+      "parent_group": "aasce:0bd9c03231c3a840041d521a984b86232bf27a27d30cab5fb4e88199eef91968",
+      "reference": 0,
+      "positive_probability": 0.35401785714285705,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0253-050.png",
+      "parent_group": "aasce:0bd9c03231c3a840041d521a984b86232bf27a27d30cab5fb4e88199eef91968",
+      "reference": 1,
+      "positive_probability": 0.42684151785714275,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0253-075.png",
+      "parent_group": "aasce:0bd9c03231c3a840041d521a984b86232bf27a27d30cab5fb4e88199eef91968",
+      "reference": 1,
+      "positive_probability": 0.4936941964285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0253-100.png",
+      "parent_group": "aasce:0bd9c03231c3a840041d521a984b86232bf27a27d30cab5fb4e88199eef91968",
+      "reference": 1,
+      "positive_probability": 0.6649553571428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0261-000.png",
+      "parent_group": "aasce:a3b44a6cbe69bab0907d5413f55c87716e8809a8f261ec842a11b3b2d88ecc98",
+      "reference": 0,
+      "positive_probability": 0.49598214285714276,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0261-025.png",
+      "parent_group": "aasce:a3b44a6cbe69bab0907d5413f55c87716e8809a8f261ec842a11b3b2d88ecc98",
+      "reference": 0,
+      "positive_probability": 0.5877790178571429,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0261-050.png",
+      "parent_group": "aasce:a3b44a6cbe69bab0907d5413f55c87716e8809a8f261ec842a11b3b2d88ecc98",
+      "reference": 1,
+      "positive_probability": 0.631361607142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0261-075.png",
+      "parent_group": "aasce:a3b44a6cbe69bab0907d5413f55c87716e8809a8f261ec842a11b3b2d88ecc98",
+      "reference": 1,
+      "positive_probability": 0.6734933035714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0261-100.png",
+      "parent_group": "aasce:a3b44a6cbe69bab0907d5413f55c87716e8809a8f261ec842a11b3b2d88ecc98",
+      "reference": 1,
+      "positive_probability": 0.6967633928571427,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0269-000.png",
+      "parent_group": "aasce:7b87aa5002fdeed8f49e129f0093015e8c3c51d8e9d84196d8703718e5ef0c0e",
+      "reference": 0,
+      "positive_probability": 0.3547433035714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0269-025.png",
+      "parent_group": "aasce:7b87aa5002fdeed8f49e129f0093015e8c3c51d8e9d84196d8703718e5ef0c0e",
+      "reference": 0,
+      "positive_probability": 0.31819196428571417,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0269-050.png",
+      "parent_group": "aasce:7b87aa5002fdeed8f49e129f0093015e8c3c51d8e9d84196d8703718e5ef0c0e",
+      "reference": 1,
+      "positive_probability": 0.41958705357142845,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0269-075.png",
+      "parent_group": "aasce:7b87aa5002fdeed8f49e129f0093015e8c3c51d8e9d84196d8703718e5ef0c0e",
+      "reference": 1,
+      "positive_probability": 0.5470982142857141,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0269-100.png",
+      "parent_group": "aasce:7b87aa5002fdeed8f49e129f0093015e8c3c51d8e9d84196d8703718e5ef0c0e",
+      "reference": 1,
+      "positive_probability": 0.6268973214285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0281-000.png",
+      "parent_group": "aasce:07fa3c0c8cddfabcf2d1469a94d45cc05c6a4d47dd62af8c9f9a32efc7fe26bd",
+      "reference": 0,
+      "positive_probability": 0.5110491071428569,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0281-025.png",
+      "parent_group": "aasce:07fa3c0c8cddfabcf2d1469a94d45cc05c6a4d47dd62af8c9f9a32efc7fe26bd",
+      "reference": 0,
+      "positive_probability": 0.6366071428571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0281-050.png",
+      "parent_group": "aasce:07fa3c0c8cddfabcf2d1469a94d45cc05c6a4d47dd62af8c9f9a32efc7fe26bd",
+      "reference": 1,
+      "positive_probability": 0.6836495535714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0281-075.png",
+      "parent_group": "aasce:07fa3c0c8cddfabcf2d1469a94d45cc05c6a4d47dd62af8c9f9a32efc7fe26bd",
+      "reference": 1,
+      "positive_probability": 0.7277901785714288,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0281-100.png",
+      "parent_group": "aasce:07fa3c0c8cddfabcf2d1469a94d45cc05c6a4d47dd62af8c9f9a32efc7fe26bd",
+      "reference": 1,
+      "positive_probability": 0.7866629464285717,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0285-000.png",
+      "parent_group": "aasce:48c1f438a8c0358f62118ae309d8be17630aeca212ea18e60a527cfffea5f820",
+      "reference": 0,
+      "positive_probability": 0.5396205357142856,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0285-025.png",
+      "parent_group": "aasce:48c1f438a8c0358f62118ae309d8be17630aeca212ea18e60a527cfffea5f820",
+      "reference": 0,
+      "positive_probability": 0.5455915178571429,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0285-050.png",
+      "parent_group": "aasce:48c1f438a8c0358f62118ae309d8be17630aeca212ea18e60a527cfffea5f820",
+      "reference": 1,
+      "positive_probability": 0.6074776785714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0285-075.png",
+      "parent_group": "aasce:48c1f438a8c0358f62118ae309d8be17630aeca212ea18e60a527cfffea5f820",
+      "reference": 1,
+      "positive_probability": 0.6015066964285716,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0285-100.png",
+      "parent_group": "aasce:48c1f438a8c0358f62118ae309d8be17630aeca212ea18e60a527cfffea5f820",
+      "reference": 1,
+      "positive_probability": 0.5872209821428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0291-000.png",
+      "parent_group": "aasce:1adac61217c5738153448264293e972ccd3e8bcda151bc5ea38700889b861096",
+      "reference": 0,
+      "positive_probability": 0.4419642857142856,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0291-025.png",
+      "parent_group": "aasce:1adac61217c5738153448264293e972ccd3e8bcda151bc5ea38700889b861096",
+      "reference": 0,
+      "positive_probability": 0.4678571428571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0291-050.png",
+      "parent_group": "aasce:1adac61217c5738153448264293e972ccd3e8bcda151bc5ea38700889b861096",
+      "reference": 1,
+      "positive_probability": 0.5011160714285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0291-075.png",
+      "parent_group": "aasce:1adac61217c5738153448264293e972ccd3e8bcda151bc5ea38700889b861096",
+      "reference": 1,
+      "positive_probability": 0.5631138392857141,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0291-100.png",
+      "parent_group": "aasce:1adac61217c5738153448264293e972ccd3e8bcda151bc5ea38700889b861096",
+      "reference": 1,
+      "positive_probability": 0.596763392857143,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0296-000.png",
+      "parent_group": "aasce:c41f80a05a74090f91cde94c7bbb11b16f9d5f048bf40742c81d229f33f42f33",
+      "reference": 0,
+      "positive_probability": 0.3113839285714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0296-025.png",
+      "parent_group": "aasce:c41f80a05a74090f91cde94c7bbb11b16f9d5f048bf40742c81d229f33f42f33",
+      "reference": 0,
+      "positive_probability": 0.35959821428571426,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0296-050.png",
+      "parent_group": "aasce:c41f80a05a74090f91cde94c7bbb11b16f9d5f048bf40742c81d229f33f42f33",
+      "reference": 1,
+      "positive_probability": 0.40279017857142846,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0296-075.png",
+      "parent_group": "aasce:c41f80a05a74090f91cde94c7bbb11b16f9d5f048bf40742c81d229f33f42f33",
+      "reference": 1,
+      "positive_probability": 0.4017857142857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0296-100.png",
+      "parent_group": "aasce:c41f80a05a74090f91cde94c7bbb11b16f9d5f048bf40742c81d229f33f42f33",
+      "reference": 1,
+      "positive_probability": 0.44101562499999986,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0297-000.png",
+      "parent_group": "aasce:d3862456c93f384eb9c27de0379b55ea1df10da85908bc9ff40cceb62a720db4",
+      "reference": 0,
+      "positive_probability": 0.43465401785714275,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0297-025.png",
+      "parent_group": "aasce:d3862456c93f384eb9c27de0379b55ea1df10da85908bc9ff40cceb62a720db4",
+      "reference": 0,
+      "positive_probability": 0.4952008928571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0297-050.png",
+      "parent_group": "aasce:d3862456c93f384eb9c27de0379b55ea1df10da85908bc9ff40cceb62a720db4",
+      "reference": 1,
+      "positive_probability": 0.5844866071428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0297-075.png",
+      "parent_group": "aasce:d3862456c93f384eb9c27de0379b55ea1df10da85908bc9ff40cceb62a720db4",
+      "reference": 1,
+      "positive_probability": 0.5235491071428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0297-100.png",
+      "parent_group": "aasce:d3862456c93f384eb9c27de0379b55ea1df10da85908bc9ff40cceb62a720db4",
+      "reference": 1,
+      "positive_probability": 0.6287388392857143,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0298-000.png",
+      "parent_group": "aasce:579d0cac054231112fbe41c9621a5300b8e61ad7d9fb1e4bc8dc1c9919ba5396",
+      "reference": 0,
+      "positive_probability": 0.3988839285714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0298-025.png",
+      "parent_group": "aasce:579d0cac054231112fbe41c9621a5300b8e61ad7d9fb1e4bc8dc1c9919ba5396",
+      "reference": 0,
+      "positive_probability": 0.3737723214285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0298-050.png",
+      "parent_group": "aasce:579d0cac054231112fbe41c9621a5300b8e61ad7d9fb1e4bc8dc1c9919ba5396",
+      "reference": 1,
+      "positive_probability": 0.45524553571428567,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0298-075.png",
+      "parent_group": "aasce:579d0cac054231112fbe41c9621a5300b8e61ad7d9fb1e4bc8dc1c9919ba5396",
+      "reference": 1,
+      "positive_probability": 0.40619419642857135,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0298-100.png",
+      "parent_group": "aasce:579d0cac054231112fbe41c9621a5300b8e61ad7d9fb1e4bc8dc1c9919ba5396",
+      "reference": 1,
+      "positive_probability": 0.5532366071428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0306-000.png",
+      "parent_group": "aasce:0e228afce9ea9970c1562fc6c00bc46697f142333c421f15ab3206b071697b8f",
+      "reference": 0,
+      "positive_probability": 0.48018973214285704,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0306-025.png",
+      "parent_group": "aasce:0e228afce9ea9970c1562fc6c00bc46697f142333c421f15ab3206b071697b8f",
+      "reference": 0,
+      "positive_probability": 0.5450892857142858,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0306-050.png",
+      "parent_group": "aasce:0e228afce9ea9970c1562fc6c00bc46697f142333c421f15ab3206b071697b8f",
+      "reference": 1,
+      "positive_probability": 0.6136160714285716,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0306-075.png",
+      "parent_group": "aasce:0e228afce9ea9970c1562fc6c00bc46697f142333c421f15ab3206b071697b8f",
+      "reference": 1,
+      "positive_probability": 0.7569754464285716,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0306-100.png",
+      "parent_group": "aasce:0e228afce9ea9970c1562fc6c00bc46697f142333c421f15ab3206b071697b8f",
+      "reference": 1,
+      "positive_probability": 0.7417968750000002,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0309-000.png",
+      "parent_group": "aasce:6485956969374e8a0fe7185f123c6641c0e217f0b5236a9943435b0e1850a091",
+      "reference": 0,
+      "positive_probability": 0.589174107142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0309-025.png",
+      "parent_group": "aasce:6485956969374e8a0fe7185f123c6641c0e217f0b5236a9943435b0e1850a091",
+      "reference": 0,
+      "positive_probability": 0.6084821428571429,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0309-050.png",
+      "parent_group": "aasce:6485956969374e8a0fe7185f123c6641c0e217f0b5236a9943435b0e1850a091",
+      "reference": 1,
+      "positive_probability": 0.7362723214285716,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0309-075.png",
+      "parent_group": "aasce:6485956969374e8a0fe7185f123c6641c0e217f0b5236a9943435b0e1850a091",
+      "reference": 1,
+      "positive_probability": 0.7569754464285714,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0309-100.png",
+      "parent_group": "aasce:6485956969374e8a0fe7185f123c6641c0e217f0b5236a9943435b0e1850a091",
+      "reference": 1,
+      "positive_probability": 0.7791852678571428,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0312-000.png",
+      "parent_group": "aasce:9f9fc67a3dcc3f64e8330c67f981ccde0c4998ebdff8dd5da3e151050bbc83ae",
+      "reference": 0,
+      "positive_probability": 0.3967633928571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0312-025.png",
+      "parent_group": "aasce:9f9fc67a3dcc3f64e8330c67f981ccde0c4998ebdff8dd5da3e151050bbc83ae",
+      "reference": 0,
+      "positive_probability": 0.46199776785714275,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0312-050.png",
+      "parent_group": "aasce:9f9fc67a3dcc3f64e8330c67f981ccde0c4998ebdff8dd5da3e151050bbc83ae",
+      "reference": 1,
+      "positive_probability": 0.495424107142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0312-075.png",
+      "parent_group": "aasce:9f9fc67a3dcc3f64e8330c67f981ccde0c4998ebdff8dd5da3e151050bbc83ae",
+      "reference": 1,
+      "positive_probability": 0.49804687499999983,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0312-100.png",
+      "parent_group": "aasce:9f9fc67a3dcc3f64e8330c67f981ccde0c4998ebdff8dd5da3e151050bbc83ae",
+      "reference": 1,
+      "positive_probability": 0.4902901785714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0317-000.png",
+      "parent_group": "aasce:58dc9cc203ea651b65ac1864506f9fe423f731641ee221e26cd71fb19b8d8a7f",
+      "reference": 0,
+      "positive_probability": 0.3536272321428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0317-025.png",
+      "parent_group": "aasce:58dc9cc203ea651b65ac1864506f9fe423f731641ee221e26cd71fb19b8d8a7f",
+      "reference": 0,
+      "positive_probability": 0.4213727678571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0317-050.png",
+      "parent_group": "aasce:58dc9cc203ea651b65ac1864506f9fe423f731641ee221e26cd71fb19b8d8a7f",
+      "reference": 1,
+      "positive_probability": 0.5435825892857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0317-075.png",
+      "parent_group": "aasce:58dc9cc203ea651b65ac1864506f9fe423f731641ee221e26cd71fb19b8d8a7f",
+      "reference": 1,
+      "positive_probability": 0.6196428571428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0317-100.png",
+      "parent_group": "aasce:58dc9cc203ea651b65ac1864506f9fe423f731641ee221e26cd71fb19b8d8a7f",
+      "reference": 1,
+      "positive_probability": 0.694810267857143,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0323-000.png",
+      "parent_group": "aasce:ff779a3434bc10d5d63fd4b538e6556c4d8ead0aa79617aec5668c1c45c7a1fc",
+      "reference": 0,
+      "positive_probability": 0.5286272321428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0323-025.png",
+      "parent_group": "aasce:ff779a3434bc10d5d63fd4b538e6556c4d8ead0aa79617aec5668c1c45c7a1fc",
+      "reference": 0,
+      "positive_probability": 0.4910714285714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0323-050.png",
+      "parent_group": "aasce:ff779a3434bc10d5d63fd4b538e6556c4d8ead0aa79617aec5668c1c45c7a1fc",
+      "reference": 1,
+      "positive_probability": 0.5162388392857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0323-075.png",
+      "parent_group": "aasce:ff779a3434bc10d5d63fd4b538e6556c4d8ead0aa79617aec5668c1c45c7a1fc",
+      "reference": 1,
+      "positive_probability": 0.5187499999999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0323-100.png",
+      "parent_group": "aasce:ff779a3434bc10d5d63fd4b538e6556c4d8ead0aa79617aec5668c1c45c7a1fc",
+      "reference": 1,
+      "positive_probability": 0.529799107142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0329-000.png",
+      "parent_group": "aasce:b973cccb099b4f80a9f0b28df6dd15349436f0a52a2e425b7602a8aa6c2f7cce",
+      "reference": 0,
+      "positive_probability": 0.2752790178571428,
+      "candidate_rule": "candidate_less_than_half_height"
+    },
+    {
+      "image": "images/0329-025.png",
+      "parent_group": "aasce:b973cccb099b4f80a9f0b28df6dd15349436f0a52a2e425b7602a8aa6c2f7cce",
+      "reference": 0,
+      "positive_probability": 0.3250558035714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0329-050.png",
+      "parent_group": "aasce:b973cccb099b4f80a9f0b28df6dd15349436f0a52a2e425b7602a8aa6c2f7cce",
+      "reference": 1,
+      "positive_probability": 0.4133370535714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0329-075.png",
+      "parent_group": "aasce:b973cccb099b4f80a9f0b28df6dd15349436f0a52a2e425b7602a8aa6c2f7cce",
+      "reference": 1,
+      "positive_probability": 0.5637276785714287,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0329-100.png",
+      "parent_group": "aasce:b973cccb099b4f80a9f0b28df6dd15349436f0a52a2e425b7602a8aa6c2f7cce",
+      "reference": 1,
+      "positive_probability": 0.6441964285714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0338-000.png",
+      "parent_group": "aasce:1a94be0357aa73ce59e26417d977e451fc7504b1940d7e2233896276bb3b62f3",
+      "reference": 0,
+      "positive_probability": 0.5529575892857144,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0338-025.png",
+      "parent_group": "aasce:1a94be0357aa73ce59e26417d977e451fc7504b1940d7e2233896276bb3b62f3",
+      "reference": 0,
+      "positive_probability": 0.5833705357142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0338-050.png",
+      "parent_group": "aasce:1a94be0357aa73ce59e26417d977e451fc7504b1940d7e2233896276bb3b62f3",
+      "reference": 1,
+      "positive_probability": 0.5568080357142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0338-075.png",
+      "parent_group": "aasce:1a94be0357aa73ce59e26417d977e451fc7504b1940d7e2233896276bb3b62f3",
+      "reference": 1,
+      "positive_probability": 0.5392857142857143,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0338-100.png",
+      "parent_group": "aasce:1a94be0357aa73ce59e26417d977e451fc7504b1940d7e2233896276bb3b62f3",
+      "reference": 1,
+      "positive_probability": 0.5951450892857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0339-000.png",
+      "parent_group": "aasce:c83e7c77389e663bd41fca4e863c635fc1b4d9f74bb326a1f665dec89939c0d0",
+      "reference": 0,
+      "positive_probability": 0.5731584821428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0339-025.png",
+      "parent_group": "aasce:c83e7c77389e663bd41fca4e863c635fc1b4d9f74bb326a1f665dec89939c0d0",
+      "reference": 0,
+      "positive_probability": 0.5270647321428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0339-050.png",
+      "parent_group": "aasce:c83e7c77389e663bd41fca4e863c635fc1b4d9f74bb326a1f665dec89939c0d0",
+      "reference": 1,
+      "positive_probability": 0.620703125,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0339-075.png",
+      "parent_group": "aasce:c83e7c77389e663bd41fca4e863c635fc1b4d9f74bb326a1f665dec89939c0d0",
+      "reference": 1,
+      "positive_probability": 0.5715959821428571,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0339-100.png",
+      "parent_group": "aasce:c83e7c77389e663bd41fca4e863c635fc1b4d9f74bb326a1f665dec89939c0d0",
+      "reference": 1,
+      "positive_probability": 0.6266183035714287,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0343-000.png",
+      "parent_group": "aasce:84e435f0d5169e228db086dc8b200942c9e6aeb5f8e11c74c2aa41c84b74c599",
+      "reference": 0,
+      "positive_probability": 0.4991629464285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0343-025.png",
+      "parent_group": "aasce:84e435f0d5169e228db086dc8b200942c9e6aeb5f8e11c74c2aa41c84b74c599",
+      "reference": 0,
+      "positive_probability": 0.4859933035714285,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0343-050.png",
+      "parent_group": "aasce:84e435f0d5169e228db086dc8b200942c9e6aeb5f8e11c74c2aa41c84b74c599",
+      "reference": 1,
+      "positive_probability": 0.5602678571428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0343-075.png",
+      "parent_group": "aasce:84e435f0d5169e228db086dc8b200942c9e6aeb5f8e11c74c2aa41c84b74c599",
+      "reference": 1,
+      "positive_probability": 0.549609375,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0343-100.png",
+      "parent_group": "aasce:84e435f0d5169e228db086dc8b200942c9e6aeb5f8e11c74c2aa41c84b74c599",
+      "reference": 1,
+      "positive_probability": 0.6169084821428572,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0351-000.png",
+      "parent_group": "aasce:d324950db3d1f896dc6d89ebf94818ac664dc4b8c729cb08bb4367ae04529046",
+      "reference": 0,
+      "positive_probability": 0.5503906249999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0351-025.png",
+      "parent_group": "aasce:d324950db3d1f896dc6d89ebf94818ac664dc4b8c729cb08bb4367ae04529046",
+      "reference": 0,
+      "positive_probability": 0.5128348214285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0351-050.png",
+      "parent_group": "aasce:d324950db3d1f896dc6d89ebf94818ac664dc4b8c729cb08bb4367ae04529046",
+      "reference": 1,
+      "positive_probability": 0.5420758928571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0351-075.png",
+      "parent_group": "aasce:d324950db3d1f896dc6d89ebf94818ac664dc4b8c729cb08bb4367ae04529046",
+      "reference": 1,
+      "positive_probability": 0.6061383928571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0351-100.png",
+      "parent_group": "aasce:d324950db3d1f896dc6d89ebf94818ac664dc4b8c729cb08bb4367ae04529046",
+      "reference": 1,
+      "positive_probability": 0.5943080357142856,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0370-000.png",
+      "parent_group": "aasce:42c1147594a1d0b2d617d74e3c2fb0735cf54391ca4c766609aafb345526d8c8",
+      "reference": 0,
+      "positive_probability": 0.48119419642857136,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0370-025.png",
+      "parent_group": "aasce:42c1147594a1d0b2d617d74e3c2fb0735cf54391ca4c766609aafb345526d8c8",
+      "reference": 0,
+      "positive_probability": 0.5098214285714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0370-050.png",
+      "parent_group": "aasce:42c1147594a1d0b2d617d74e3c2fb0735cf54391ca4c766609aafb345526d8c8",
+      "reference": 1,
+      "positive_probability": 0.7405691964285716,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0370-075.png",
+      "parent_group": "aasce:42c1147594a1d0b2d617d74e3c2fb0735cf54391ca4c766609aafb345526d8c8",
+      "reference": 1,
+      "positive_probability": 0.7587611607142861,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0370-100.png",
+      "parent_group": "aasce:42c1147594a1d0b2d617d74e3c2fb0735cf54391ca4c766609aafb345526d8c8",
+      "reference": 1,
+      "positive_probability": 0.8268973214285715,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0377-000.png",
+      "parent_group": "aasce:f52a7124d37918b54ceb2e8ba4aefc126f6599c8eb4e3743d4d6ab20c2c2528b",
+      "reference": 0,
+      "positive_probability": 0.29425223214285706,
+      "candidate_rule": "candidate_less_than_half_height"
+    },
+    {
+      "image": "images/0377-025.png",
+      "parent_group": "aasce:f52a7124d37918b54ceb2e8ba4aefc126f6599c8eb4e3743d4d6ab20c2c2528b",
+      "reference": 0,
+      "positive_probability": 0.4211495535714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0377-050.png",
+      "parent_group": "aasce:f52a7124d37918b54ceb2e8ba4aefc126f6599c8eb4e3743d4d6ab20c2c2528b",
+      "reference": 1,
+      "positive_probability": 0.48331473214285703,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0377-075.png",
+      "parent_group": "aasce:f52a7124d37918b54ceb2e8ba4aefc126f6599c8eb4e3743d4d6ab20c2c2528b",
+      "reference": 1,
+      "positive_probability": 0.505580357142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0377-100.png",
+      "parent_group": "aasce:f52a7124d37918b54ceb2e8ba4aefc126f6599c8eb4e3743d4d6ab20c2c2528b",
+      "reference": 1,
+      "positive_probability": 0.48175223214285706,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0384-000.png",
+      "parent_group": "aasce:d119d45f90c5f924d135738fa9483d58f280823e4d800afcd1a4c580fd4ac71f",
+      "reference": 0,
+      "positive_probability": 0.5589285714285713,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0384-025.png",
+      "parent_group": "aasce:d119d45f90c5f924d135738fa9483d58f280823e4d800afcd1a4c580fd4ac71f",
+      "reference": 0,
+      "positive_probability": 0.6222098214285715,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0384-050.png",
+      "parent_group": "aasce:d119d45f90c5f924d135738fa9483d58f280823e4d800afcd1a4c580fd4ac71f",
+      "reference": 1,
+      "positive_probability": 0.7202008928571431,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0384-075.png",
+      "parent_group": "aasce:d119d45f90c5f924d135738fa9483d58f280823e4d800afcd1a4c580fd4ac71f",
+      "reference": 1,
+      "positive_probability": 0.7218191964285715,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0384-100.png",
+      "parent_group": "aasce:d119d45f90c5f924d135738fa9483d58f280823e4d800afcd1a4c580fd4ac71f",
+      "reference": 1,
+      "positive_probability": 0.7712611607142857,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0387-000.png",
+      "parent_group": "aasce:39908516f26b3b18247b34d7078240fbde2b2b338b794349b49fd0e4ae848eeb",
+      "reference": 0,
+      "positive_probability": 0.4659040178571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0387-025.png",
+      "parent_group": "aasce:39908516f26b3b18247b34d7078240fbde2b2b338b794349b49fd0e4ae848eeb",
+      "reference": 0,
+      "positive_probability": 0.5268415178571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0387-050.png",
+      "parent_group": "aasce:39908516f26b3b18247b34d7078240fbde2b2b338b794349b49fd0e4ae848eeb",
+      "reference": 1,
+      "positive_probability": 0.44910714285714276,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0387-075.png",
+      "parent_group": "aasce:39908516f26b3b18247b34d7078240fbde2b2b338b794349b49fd0e4ae848eeb",
+      "reference": 1,
+      "positive_probability": 0.5443638392857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0387-100.png",
+      "parent_group": "aasce:39908516f26b3b18247b34d7078240fbde2b2b338b794349b49fd0e4ae848eeb",
+      "reference": 1,
+      "positive_probability": 0.5646205357142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0388-000.png",
+      "parent_group": "aasce:45da4eac1b6d5c6d17cab00260839ec0ae3132f6993e8ab369561151ef97e2c0",
+      "reference": 0,
+      "positive_probability": 0.3940290178571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0388-025.png",
+      "parent_group": "aasce:45da4eac1b6d5c6d17cab00260839ec0ae3132f6993e8ab369561151ef97e2c0",
+      "reference": 0,
+      "positive_probability": 0.5018415178571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0388-050.png",
+      "parent_group": "aasce:45da4eac1b6d5c6d17cab00260839ec0ae3132f6993e8ab369561151ef97e2c0",
+      "reference": 1,
+      "positive_probability": 0.5561383928571427,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0388-075.png",
+      "parent_group": "aasce:45da4eac1b6d5c6d17cab00260839ec0ae3132f6993e8ab369561151ef97e2c0",
+      "reference": 1,
+      "positive_probability": 0.5531808035714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0388-100.png",
+      "parent_group": "aasce:45da4eac1b6d5c6d17cab00260839ec0ae3132f6993e8ab369561151ef97e2c0",
+      "reference": 1,
+      "positive_probability": 0.6854352678571428,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0399-000.png",
+      "parent_group": "aasce:7470a27ba27020d81c46219e133506193929fa7710b1bd19f8d29888b803bb9b",
+      "reference": 0,
+      "positive_probability": 0.3296875,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0399-025.png",
+      "parent_group": "aasce:7470a27ba27020d81c46219e133506193929fa7710b1bd19f8d29888b803bb9b",
+      "reference": 0,
+      "positive_probability": 0.43917410714285704,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0399-050.png",
+      "parent_group": "aasce:7470a27ba27020d81c46219e133506193929fa7710b1bd19f8d29888b803bb9b",
+      "reference": 1,
+      "positive_probability": 0.538002232142857,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0399-075.png",
+      "parent_group": "aasce:7470a27ba27020d81c46219e133506193929fa7710b1bd19f8d29888b803bb9b",
+      "reference": 1,
+      "positive_probability": 0.5477120535714284,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0399-100.png",
+      "parent_group": "aasce:7470a27ba27020d81c46219e133506193929fa7710b1bd19f8d29888b803bb9b",
+      "reference": 1,
+      "positive_probability": 0.6737723214285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0400-000.png",
+      "parent_group": "aasce:98222cd7094ff24ef74b808ef08959973dd1b91a31763c260eca64af889ed9f3",
+      "reference": 0,
+      "positive_probability": 0.44637276785714275,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0400-025.png",
+      "parent_group": "aasce:98222cd7094ff24ef74b808ef08959973dd1b91a31763c260eca64af889ed9f3",
+      "reference": 0,
+      "positive_probability": 0.5503906249999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0400-050.png",
+      "parent_group": "aasce:98222cd7094ff24ef74b808ef08959973dd1b91a31763c260eca64af889ed9f3",
+      "reference": 1,
+      "positive_probability": 0.5819754464285715,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0400-075.png",
+      "parent_group": "aasce:98222cd7094ff24ef74b808ef08959973dd1b91a31763c260eca64af889ed9f3",
+      "reference": 1,
+      "positive_probability": 0.7339285714285717,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0400-100.png",
+      "parent_group": "aasce:98222cd7094ff24ef74b808ef08959973dd1b91a31763c260eca64af889ed9f3",
+      "reference": 1,
+      "positive_probability": 0.7493303571428572,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0401-000.png",
+      "parent_group": "aasce:432cb3d9249e38e003ad3510eadd20f022c69f1aedc94d58d391c9b97841933e",
+      "reference": 0,
+      "positive_probability": 0.30139508928571423,
+      "candidate_rule": "candidate_less_than_half_height"
+    },
+    {
+      "image": "images/0401-025.png",
+      "parent_group": "aasce:432cb3d9249e38e003ad3510eadd20f022c69f1aedc94d58d391c9b97841933e",
+      "reference": 0,
+      "positive_probability": 0.3386718749999999,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0401-050.png",
+      "parent_group": "aasce:432cb3d9249e38e003ad3510eadd20f022c69f1aedc94d58d391c9b97841933e",
+      "reference": 1,
+      "positive_probability": 0.35245535714285714,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0401-075.png",
+      "parent_group": "aasce:432cb3d9249e38e003ad3510eadd20f022c69f1aedc94d58d391c9b97841933e",
+      "reference": 1,
+      "positive_probability": 0.475,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0401-100.png",
+      "parent_group": "aasce:432cb3d9249e38e003ad3510eadd20f022c69f1aedc94d58d391c9b97841933e",
+      "reference": 1,
+      "positive_probability": 0.5949776785714286,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0407-000.png",
+      "parent_group": "aasce:0d32a7e3f1c989e96befbc9de29ec8172975583eae7ea3a5a987a39af97034a3",
+      "reference": 0,
+      "positive_probability": 0.8387276785714288,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0407-025.png",
+      "parent_group": "aasce:0d32a7e3f1c989e96befbc9de29ec8172975583eae7ea3a5a987a39af97034a3",
+      "reference": 0,
+      "positive_probability": 0.7987723214285717,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0407-050.png",
+      "parent_group": "aasce:0d32a7e3f1c989e96befbc9de29ec8172975583eae7ea3a5a987a39af97034a3",
+      "reference": 1,
+      "positive_probability": 0.8429129464285715,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0407-075.png",
+      "parent_group": "aasce:0d32a7e3f1c989e96befbc9de29ec8172975583eae7ea3a5a987a39af97034a3",
+      "reference": 1,
+      "positive_probability": 0.7976004464285714,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0407-100.png",
+      "parent_group": "aasce:0d32a7e3f1c989e96befbc9de29ec8172975583eae7ea3a5a987a39af97034a3",
+      "reference": 1,
+      "positive_probability": 0.8498883928571428,
+      "candidate_rule": "candidate_at_least_half_height"
+    },
+    {
+      "image": "images/0420-000.png",
+      "parent_group": "aasce:930ee3e5cc74b13e9585c9f50741243265234c56a983264c873e3a68e02e7456",
+      "reference": 0,
+      "positive_probability": 0.4451450892857142,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0420-025.png",
+      "parent_group": "aasce:930ee3e5cc74b13e9585c9f50741243265234c56a983264c873e3a68e02e7456",
+      "reference": 0,
+      "positive_probability": 0.399609375,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0420-050.png",
+      "parent_group": "aasce:930ee3e5cc74b13e9585c9f50741243265234c56a983264c873e3a68e02e7456",
+      "reference": 1,
+      "positive_probability": 0.47003348214285695,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0420-075.png",
+      "parent_group": "aasce:930ee3e5cc74b13e9585c9f50741243265234c56a983264c873e3a68e02e7456",
+      "reference": 1,
+      "positive_probability": 0.48995535714285693,
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0420-100.png",
+      "parent_group": "aasce:930ee3e5cc74b13e9585c9f50741243265234c56a983264c873e3a68e02e7456",
+      "reference": 1,
+      "positive_probability": 0.6012834821428572,
+      "candidate_rule": "undetermined"
+    }
+  ],
+  "model_sha256": "0dd2ddc00fe816421eb610f0b4099d989deb68031e29c290ff778e8de8ee80d1",
+  "dataset_sha256": "11100fff161b58df567b3ceb699bce802cf2df1d31ecd0fa43e7a7220040206c",
+  "feature_cache_sha256": "190693a5b3de1a63cca4fab38b5e4b44bdb4f45e21340ccf87739391821b9058",
+  "code_sha256": "76a20494506d330a1356007020641f2d0a8c0f2a426728220ab5138200107c75",
+  "clinical_validation": false,
+  "release_modified": false,
+  "requirements_complete": false,
+  "limitations": [
+    "Derived ordinary radiograph crops; no independently reviewed full-body DXA references.",
+    "Previously examined source holdout; exploratory model comparison, not a fresh test.",
+    "Source groups are original images, not verified patient identities.",
+    "Source conformal coverage does not transfer to DXA or establish a clinical half-body rule."
+  ]
+}

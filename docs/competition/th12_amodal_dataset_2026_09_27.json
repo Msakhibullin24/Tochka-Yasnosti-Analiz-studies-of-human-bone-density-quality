@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "parent_images": 425,
+  "derived_images": 2125,
+  "bytes": 355570746,
+  "parent_inventory_sha256": "02978bbea0bcbe13aa88902b2aa8e91b30f20d349a2fa18129775446c4b4e6bc",
+  "code_sha256": "d1cd5f8ba2986ef4f8c9914e90e2d7cdc211308806fdf03227f5e0c054b75f22",
+  "geometry_code_sha256": "a965ea473dbbf37e578cd8ccf387dbb2a0d18f8403f7dc96965fb3e0a22d12d7",
+  "clinical_validation": false,
+  "requirements_complete": false,
+  "release_modified": false,
+  "limitations": [
+    "Derived crops of ordinary radiographs, not independently labelled DXA visibility.",
+    "Publisher quadrilaterals approximate projected bodies, not complete 3D bone contours.",
+    "Area and vertical-height fractions are reported separately; no medical equivalence is asserted.",
+    "Parent identity is image-based; source patient identity is unavailable.",
+    "All variants inherit the previously examined source split; no new independent cohort."
+  ],
+  "dataset_sha256": "11100fff161b58df567b3ceb699bce802cf2df1d31ecd0fa43e7a7220040206c"
+}

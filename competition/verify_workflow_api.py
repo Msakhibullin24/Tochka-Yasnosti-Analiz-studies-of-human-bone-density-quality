@@ -5,17 +5,19 @@ import time
 import warnings
 from pathlib import Path
 
+import httpx
 from fastapi.testclient import TestClient
 from dxaqc import api
 from dxaqc.validate_results import validate
 
 
-def verify(input_path, output, repeat=None):
+def verify(input_path, output, repeat=None, base_url=None):
     output.mkdir(parents=True, exist_ok=False)
     manifest = [p.relative_to(input_path).as_posix() for p in input_path.rglob('*.dcm')]
     if not manifest:
         raise ValueError('No DICOM input manifest')
-    with TestClient(api.app) as client:
+    transport = httpx.Client(base_url=base_url, timeout=60) if base_url else TestClient(api.app)
+    with transport as client:
         ready = client.get('/api/v1/ready')
         if ready.status_code != 200 or not ready.json().get('workflow_profile_id'):
             raise RuntimeError('Pinned workflow is not ready: '+ready.text)
@@ -44,7 +46,8 @@ def verify(input_path, output, repeat=None):
         if not strict['valid'] or not complete['valid']:
             raise ValueError(json.dumps({'strict':strict,'manifest':complete}))
         report={'profile_id':profile_id,'summary':summary,'strict_repeat_sc_sr':strict,
-                'input_manifest':complete,'api_ready':True,'clinical_validation':False}
+                'input_manifest':complete,'api_ready':True,'clinical_validation':False,
+                'transport': 'http_tcp' if base_url else 'in_process_asgi'}
         (output/'api_validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
         print(json.dumps(report,ensure_ascii=False,indent=2),flush=True)
 
@@ -53,7 +56,8 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     for name in ('input','output'):parser.add_argument('--'+name,type=Path,required=True)
     parser.add_argument('--repeat',type=Path)
+    parser.add_argument('--url', help='Optional running HTTP API; input path must exist on the server too')
     args=parser.parse_args()
     warnings.filterwarnings('ignore',message='Invalid value for VR UI:.*')
     warnings.filterwarnings('ignore',message='TypedStorage is deprecated.*')
-    verify(args.input,args.output,args.repeat)
+    verify(args.input,args.output,args.repeat,args.url)

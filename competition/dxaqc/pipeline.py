@@ -8,6 +8,7 @@ Guarantees required by the task statement:
 from __future__ import annotations
 
 import json
+import copy
 import hashlib
 import os
 import shutil
@@ -214,8 +215,18 @@ class Analyzer:
         region, confidence, side_confidence = regions[0], float(conf[0]), float(side_conf[0])
         if not np.isfinite(confidence) or confidence < LOW_REGION_CONFIDENCE:
             raise DicomReadError("UNCERTAIN_REGION", "anatomical region is uncertain; automatic quality assessment withheld")
+        laterality_basis = "model" if region != "spine" else "not_applicable"
         if region != "spine" and (not np.isfinite(side_confidence) or side_confidence < LOW_LATERALITY_CONFIDENCE):
-            raise DicomReadError("UNCERTAIN_LATERALITY", "hip side is uncertain; mirrored geometry assessment withheld")
+            declared = getattr(img, "declared_laterality", "")
+            declared_region = {"L": "hip_left", "R": "hip_right"}.get(declared)
+            if not np.isfinite(side_confidence) or declared_region != region:
+                raise DicomReadError("UNCERTAIN_LATERALITY", "hip side is uncertain; mirrored geometry assessment withheld")
+            laterality_basis = f"model_agrees_with_{img.declared_laterality_source}"
+        projection = None
+        if self.projection_model is not None:
+            from .projection_model import require_supported_projection
+            projection = self.projection_model.predict(img.pixels, region)
+            require_supported_projection(projection)
         px = np.ascontiguousarray(img.pixels[:, ::-1]) if region == "hip_left" else img.pixels
         meas = measure_image(px, region, img.pixel_mm, img.pixel_mm_x)
         gm = self.bundle.groups[group_of(region)]
@@ -229,9 +240,10 @@ class Analyzer:
                 decision, meas.features, embed(px)[None] if region == 'hip_left' else raw_embedding)
         result = {"region": region, "region_confidence": confidence,
                   "laterality_confidence": side_confidence if region != "spine" else None, **decision,
+                  "laterality_basis": laterality_basis,
                   "criteria": crit, "features": meas.features, "overlay": meas.overlay}
-        if self.projection_model is not None:
-            result['learned_projection'] = self.projection_model.predict(img.pixels, region)
+        if projection is not None:
+            result['learned_projection'] = projection
         if self.learned_anatomy is not None:
             try:
                 result['learned_anatomy'] = self.learned_anatomy.predict(img.pixels, region)
@@ -260,32 +272,33 @@ def _safe(name: str, fallback: str) -> str:
     return cleaned or fallback
 
 
-def _common(parts_list: list[tuple]) -> tuple:
-    out = []
-    for level in zip(*parts_list):
-        if len(set(level)) != 1:
-            break
-        out.append(level[0])
-    return tuple(out)
-
-
 def assign_study_paths(rows: list[dict]) -> None:
-    """path_to_study = <wrapper folders>/<top folder of the study>, relative to the input root.
+    """Use the shallowest directory containing just one known StudyInstanceUID.
 
-    The study folder is found from StudyInstanceUID grouping, so wrapper folders of an archive
-    (e.g. 'Исследования/') are not mistaken for a study and deep series folders are not reported
-    instead of the study. Files lying directly in the root (flat layout) keep their own path.
+    Wrapper folders may contain many studies, while the same UID may occur in
+    separate annotation and verification trees. Determine a path for each row
+    from its own ancestors; an unknown UID may share a folder with a known
+    study, but never creates evidence for a study folder by itself.
     """
-    by_study: dict[str, list[dict]] = {}
+    folder_uids: dict[tuple[str, ...], set[str]] = {}
     for r in rows:
-        by_study.setdefault(r["study_uid"] or "\0" + str(Path(r["path_to_file"]).parent), []).append(r)
-    deepest = {k: _common([Path(r["path_to_file"]).parent.parts for r in g]) for k, g in by_study.items()}
-    wrapper = _common(list(deepest.values())) if len(deepest) > 1 else ()
-    for key, group in by_study.items():
-        d = deepest[key]
-        study_dir = d[: len(wrapper) + 1] if len(d) > len(wrapper) else ()
-        for r in group:
-            r["path_to_study"] = "/".join(study_dir) if study_dir else r["path_to_file"]
+        uid = r.get("study_uid")
+        if not uid:
+            continue
+        parts = Path(r["path_to_file"]).parent.parts
+        for depth in range(1, len(parts) + 1):
+            folder_uids.setdefault(parts[:depth], set()).add(uid)
+    for r in rows:
+        uid = r.get("study_uid")
+        parts = Path(r["path_to_file"]).parent.parts
+        for depth in range(1, len(parts) + 1):
+            candidate = parts[:depth]
+            known = folder_uids.get(candidate, set())
+            if len(known) == 1 and (not uid or uid in known):
+                r["path_to_study"] = "/".join(candidate)
+                break
+        else:
+            r["path_to_study"] = r["path_to_file"]
 
 
 def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyzer, opts: Options,
@@ -309,12 +322,17 @@ def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyz
             img = read_dxa(path)
             img.source_roi = merge_presentation_roi(img, presentations.get(img.image_uid, []))
             row["study_uid"], row["image_uid"] = img.study_uid, img.image_uid
-            cache_key = (img.pixel_sha256, img.pixel_mm, img.pixel_mm_x, img.pixel_mm_source)
+            cache_key = (img.pixel_sha256, img.pixel_mm, img.pixel_mm_x, img.pixel_mm_source,
+                         img.declared_laterality, img.declared_laterality_source)
             if cache_key in cache:
                 res, first = cache[cache_key]
                 row["duplicate_of"] = first
             else:
                 res = analyzer.analyze(img)
+                # Cache pixel-derived inference only. ROI and presentation states
+                # belong to this image even when its pixel raster is a duplicate.
+                cache[cache_key] = (res, img.image_uid)
+            res = copy.deepcopy(res)
             from .anatomy import image_assessment, display_overlay
             assessment = image_assessment(img, res)
             projection, source_roi = assessment['projection'], assessment['source_roi']
@@ -339,6 +357,7 @@ def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyz
                 "processing_status": "Success",
                 "quality_prob": round(min(max(res["score"], 0.0), 1.0), 4),
                 "laterality": LATERALITY[res["region"]],
+                "laterality_basis": res["laterality_basis"],
                 "violation_codes": ";".join(res["violations"]),
                 "violation_scores": json.dumps(_round(res["criteria"], 3), ensure_ascii=False),
                 "criterion_thresholds": json.dumps(res["criterion_thresholds"]),
@@ -372,8 +391,6 @@ def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyz
                 (assets / f"{row_id}.json").write_text(json.dumps(detail, ensure_ascii=False), encoding="utf-8")
             if opts.explanations:
                 _write_explanations(img, res, row, extra)
-            if "duplicate_of" not in row:
-                cache[cache_key] = (res, img.image_uid)
         except DicomReadError as exc:
             row["study_uid"], row["image_uid"] = read_identifiers(path)
             row.update({"processing_status": "Failure", "quality_class": None, "quality_prob": None,

@@ -1,0 +1,193 @@
+{
+  "scope": "Frozen organizer DXA one-repeat OOF; post hoc diagnostic, not independent validation",
+  "images": 249,
+  "studies": 100,
+  "positives": 73,
+  "current": {
+    "tn_fp_fn_tp": [
+      142,
+      34,
+      28,
+      45
+    ],
+    "f1": 0.5921052631578947,
+    "sensitivity": 0.6164383561643836,
+    "specificity": 0.8068181818181818,
+    "false_safe_rate_among_auto_normal": 0.16470588235294117
+  },
+  "current_ci95_study_bootstrap": {
+    "f1": [
+      0.4938232536333802,
+      0.6792452830188679
+    ],
+    "sensitivity": [
+      0.5135135135135135,
+      0.7205882352941176
+    ],
+    "specificity": [
+      0.7329545454545454,
+      0.8681615259740258
+    ],
+    "false_safe_rate_among_auto_normal": [
+      0.10795029259662493,
+      0.2254335260115607
+    ]
+  },
+  "by_region": {
+    "spine": {
+      "tn_fp_fn_tp": [
+        54,
+        13,
+        13,
+        19
+      ],
+      "f1": 0.59375,
+      "sensitivity": 0.59375,
+      "specificity": 0.8059701492537313,
+      "false_safe_rate_among_auto_normal": 0.19402985074626866,
+      "f1_ci95_study_bootstrap": [
+        0.4363241106719367,
+        0.7200327868852457
+      ]
+    },
+    "hip_left": {
+      "tn_fp_fn_tp": [
+        43,
+        13,
+        10,
+        12
+      ],
+      "f1": 0.5106382978723404,
+      "sensitivity": 0.5454545454545454,
+      "specificity": 0.7678571428571429,
+      "false_safe_rate_among_auto_normal": 0.18867924528301888,
+      "f1_ci95_study_bootstrap": [
+        0.3157894736842105,
+        0.6666666666666666
+      ]
+    },
+    "hip_right": {
+      "tn_fp_fn_tp": [
+        45,
+        8,
+        5,
+        14
+      ],
+      "f1": 0.6829268292682927,
+      "sensitivity": 0.7368421052631579,
+      "specificity": 0.8490566037735849,
+      "false_safe_rate_among_auto_normal": 0.1,
+      "f1_ci95_study_bootstrap": [
+        0.48484848484848486,
+        0.8292682926829268
+      ]
+    }
+  },
+  "false_safe_studies": 24,
+  "false_alarm_studies": 28,
+  "missed_positive_criteria_overlapping": {
+    "spine_coverage": 2,
+    "spine_axis": 7,
+    "spine_artifact": 3,
+    "hip_position_rotation": 13,
+    "hip_roi_coverage": 2
+  },
+  "false_alarm_predicted_types_overlapping": {
+    "spine_coverage": 6,
+    "spine_axis": 1,
+    "spine_artifact": 6,
+    "hip_position_rotation": 19,
+    "hip_roi_coverage": 2
+  },
+  "errors_by_decision_reason": {
+    "criterion_failure": {
+      "false_safe": 0,
+      "false_alarm": 28
+    },
+    "no_detected_violation": {
+      "false_safe": 22,
+      "false_alarm": 0
+    },
+    "supervised_normal_review": {
+      "false_safe": 6,
+      "false_alarm": 0
+    },
+    "supervised_type_review": {
+      "false_safe": 0,
+      "false_alarm": 6
+    }
+  },
+  "counterfactual_global_score_gate": {
+    "rule": "Only criterion_failure: retain if quality_score >= quality_threshold or measured spine-axis type is present",
+    "metrics": {
+      "tn_fp_fn_tp": [
+        153,
+        23,
+        32,
+        41
+      ],
+      "f1": 0.5985401459854015,
+      "sensitivity": 0.5616438356164384,
+      "specificity": 0.8693181818181818,
+      "false_safe_rate_among_auto_normal": 0.17297297297297298
+    },
+    "paired_delta_f1": 0.006434882827506816,
+    "paired_delta_f1_ci95": [
+      -0.04478059603114454,
+      0.05434194531522106
+    ],
+    "paired_delta_sensitivity": -0.0547945205479452,
+    "paired_delta_sensitivity_ci95": [
+      -0.10871263586956526,
+      -0.012345679012345623
+    ],
+    "release_candidate": false
+  },
+  "dicom_identity_fields": {
+    "PatientID": {
+      "nonempty_images": 249,
+      "distinct_values": 1,
+      "values_spanning_multiple_studies": 1,
+      "max_studies_per_value": 100,
+      "usable_to_prove_patient_disjointness": false
+    },
+    "PatientName": {
+      "nonempty_images": 249,
+      "distinct_values": 1,
+      "values_spanning_multiple_studies": 1,
+      "max_studies_per_value": 100,
+      "usable_to_prove_patient_disjointness": false
+    },
+    "PatientBirthDate": {
+      "nonempty_images": 249,
+      "distinct_values": 1,
+      "values_spanning_multiple_studies": 1,
+      "max_studies_per_value": 100,
+      "usable_to_prove_patient_disjointness": false
+    },
+    "AccessionNumber": {
+      "nonempty_images": 249,
+      "distinct_values": 1,
+      "values_spanning_multiple_studies": 1,
+      "max_studies_per_value": 100,
+      "usable_to_prove_patient_disjointness": false
+    },
+    "StudyInstanceUID": {
+      "nonempty_images": 249,
+      "distinct_values": 100,
+      "values_spanning_multiple_studies": 0,
+      "max_studies_per_value": 1,
+      "usable_to_prove_patient_disjointness": false
+    }
+  },
+  "patient_disjointness_proven": false,
+  "oof_sha256": "dd51dce9cdbce4b9cdf6e3a0cde9db7c78e04c874dda72047c9f918b8ec7741d",
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "code_sha256": "a20da2bca5a95a70326bc4eceaca188a84a43cd03c549799315f5b131b89b634",
+  "limitations": [
+    "All cases have been used during prior development and candidate selection.",
+    "Study groups do not establish patient independence; patient identifiers are uninformative in this export.",
+    "Post hoc alarm gate was inspected on the same OOF labels; it cannot justify a release change.",
+    "No independent anatomy landmarks, clinical action labels, or projection subtype labels exist here."
+  ]
+}

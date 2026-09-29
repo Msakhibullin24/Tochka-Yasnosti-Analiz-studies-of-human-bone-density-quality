@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "profile_id": "tz-delivery-1.11.3",
+  "baseline_bundle_sha256": "7f78fdcdb9c4116277f5cc9858ae6297c48e0d4fda9f87ed1f5dd01724fdd993",
+  "clinical_validation": false,
+  "status": "engineering_delivery",
+  "source_profile_sha256": "afa733a274b3dd0266a7d8fb386ef1d1e94daba79557e2cdb2da612e01b103d5",
+  "source_profile_id": "tz-delivery-1.11.2",
+  "artifacts": {
+    "DXAQC_ANATOMY_MODEL": {
+      "path": "anatomy.json",
+      "sha256": "d82e29e8cb3359bea03715fc499fcb9dee3d9390e0f39494201dfba6c27c58eb"
+    },
+    "DXAQC_QUALITY_REVIEW_MODEL": {
+      "path": "quality_review.joblib",
+      "sha256": "a0f0c9999b3b1e53aa4832cfbfa072756f0e415d70a0af2da89abea21362b068"
+    },
+    "DXAQC_PROJECTION_MODEL": {
+      "path": "projection.joblib",
+      "sha256": "4f559176cc9231a2c0dd49ce0faefb690beec4195c62932df5f2364d2eea1205"
+    }
+  },
+  "code_sha256": {
+    "dxaqc/__init__.py": "4119ad6e69566bfcb8c9fb54d2df7450e1435fdf61d0a64daf61305390dabe51",
+    "dxaqc/anatomical_roi.py": "c7c98e9b61562bb43c44c5787a18e62269215387fd510c09a5b4167c131ede59",
+    "dxaqc/anatomy.py": "6c007d4fab01053dcfe059c1d14a08134fdd520e17046dd449502bd074b6e58a",
+    "dxaqc/api.py": "4f1d8db8935cb345eabc40c5fcc999c5287b12c5a04d27006f49f82ad18c53a8",
+    "dxaqc/cli.py": "90305402a9378970b6f28ae763df980b8c58f9db19336dc51bc3c89f899ae6d2",
+    "dxaqc/decision.py": "c6dc65d5eaf1a75262fcc12c2137c5e39ae247a1166db7789db48556fc920974",
+    "dxaqc/dicom_io.py": "ceab601d328f6542701b708cfbf8635fe188b667e1028140a6ff2399b2a38746",
+    "dxaqc/dynamics.py": "c5506b71832834a07c484c354e8dbd414e3c060da517b6c10f7a7d3e9c59e915",
+    "dxaqc/embedding.py": "3ddcf6d564b67114b5c35a23d359bc2afe1215fd5681e82279fa95f8abcde139",
+    "dxaqc/explain.py": "38a1247d6ec541fbdbfba68d6bb3ca7856818129e0f1e37a85393c17e543e195",
+    "dxaqc/geometry.py": "3c8916962b28f68f83a9739915ebe5286e7aecf3a12a88098ae356b8dc8f28ff",
+    "dxaqc/joint_quality.py": "12a7c9b0f0594c751f29b78bf8bfeaf660b0a7e6d547e03f4bf9aa3ae716770f",
+    "dxaqc/learned_anatomy.py": "584010851449a0e4b99c16fbfaf2ab3c1f3a478ee276d3c0cc779c0825a02352",
+    "dxaqc/maintenance.py": "d3b10ad01c08de238c1cf7cfa28fd427e72da497069ed333a90cee39ab04cf05",
+    "dxaqc/mask_raster.py": "5eb470dca85eff85a7000cb7195db4c646d5b9095eba24ac208c90024060058d",
+    "dxaqc/model.py": "f8cd52f48f2e60d7a1979f79db20c8a2deb50f709a67fe8133483d623aba0958",
+    "dxaqc/neck_roi_geometry.py": "09f7c12bfd739af3a21f0bb7ceba1c5222a9e58561359fde69a569124e39dc38",
+    "dxaqc/pipeline.py": "ee0489ef18fc41f2baa35c52092c7a6b13d0067539fb392caa95a6234de9c2fd",
+    "dxaqc/projection_model.py": "bbfec3f43f8cc7f54266783cbea69e8f1e3e2e0a910bcfb0e79bf00a3ebbba36",
+    "dxaqc/report.py": "961f284023ac063cccf42e9bbdb0a81355ad8bf957b032e1f926c3eaec3c353e",
+    "dxaqc/requirements.py": "63cbb8977966899e35a1796e32325a84200142472a521f62abe067558864ff31",
+    "dxaqc/result_context.py": "2b8b44444072fcc8889b6fd8321332d49f703383570f66e07ee9685530f67f47",
+    "dxaqc/review.py": "b03de5b1ac84f7aee278d2a115de1f2af548d35ea24c4d8738a00943dd5f8479",
+    "dxaqc/review_report.py": "f61ee3c8f999e300e5e9853c7b3f2b29da0d90c20f00b1a64c97ad3f41b92152",
+    "dxaqc/roi.py": "1281e2509b71805913eba23d892161d165d2913e297e75ee9f7ce357b650cf6a",
+    "dxaqc/source_archive.py": "0a5a6055717b9e1896f2e502b9571bedbc5d90c4bf8f1b24e6aa8e2b321f7a79",
+    "dxaqc/source_roi.py": "34950ccf9a6d263930c72bd5233a33279deca313dd7ecc26fbcf1a556058f039",
+    "dxaqc/specialist_catalog.py": "ba66b10fb9e76c43a83b2032ee0c17af5dd5c92429e45e199830bf52ca905a41",
+    "dxaqc/specialist_qc.py": "d2435f47a2741fc7ff172a78c41db152a7d5715fa1a30e6e1ac74be702c49eae",
+    "dxaqc/store.py": "be975c7dd7b60be0e411088ac2090c3d1904c9c38425d48aeedc3d93eb56b106",
+    "dxaqc/synthetic_defects.py": "02c0e805ebcbe74bbd10af42733377885d94720fd2cfea77e36f7a9eb5b4d7b2",
+    "dxaqc/validate_anatomy.py": "215d46938562c72a293870d7277ca5abbb401341442d7f3060d1bc020ff47a8a",
+    "dxaqc/validate_results.py": "f687031a77fb6720bac4e94c46cbb8dd2f41ba0aff03b5b79c240ec51517e886",
+    "dxaqc/workflow_profile.py": "0ebe88d0128b7dd1ad4123de8a688cce7b196e64a3e6d01578a78282635b1746",
+    "dxaqc/xlsx_read.py": "18e1759760e679756e19e5183ba4c8ff8cd1952bc69cedfbd9639fd5a2caf17e",
+    "run_no_new_labels.py": "ea96a82166eeae72831c20ba19676fe267dc91f535e38e6455283dd3e960006f",
+    "pack_workflow.py": "cf1cce492d7728ad2e1426e558275365905bf07e940a0f80b3ed9b79b3f953c4"
+  },
+  "limitations": [
+    "Anatomical candidates are not verified clinical landmarks.",
+    "Secondary type review changes sensitivity and probability scores.",
+    "Historical OOF is not independent evaluation of this delivery."
+  ]
+}

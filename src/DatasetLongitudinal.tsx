@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { AlertTriangle, CalendarRange, CheckCircle2, GitCompareArrows, History, LoaderCircle, Plus, Save } from 'lucide-react'
+import { AlertTriangle, CalendarRange, CheckCircle2, Download, GitCompareArrows, History, LoaderCircle, Plus, Save } from 'lucide-react'
 import type { DatasetStudy } from './services/dataset'
 import {
   compareLongitudinal,
@@ -17,6 +17,7 @@ import {
   type ReviewStatus,
 } from './services/longitudinal-api'
 import type { Locale } from './types'
+import { buildStudyDescription } from './services/study-description'
 
 const tx = (locale: Locale, ru: string, en: string) => locale === 'ru' ? ru : en
 const isSupported = (value: DatasetStudy['protocol']): value is LongitudinalProtocol => ['spine_pa', 'hip_left', 'hip_right'].includes(value)
@@ -75,7 +76,7 @@ function ComparisonResult({ value, locale }: { value: LongitudinalComparison; lo
   </section>
 }
 
-export default function DatasetLongitudinal({ study, studies, locale }: { study: DatasetStudy; studies: DatasetStudy[]; locale: Locale }) {
+export default function DatasetLongitudinal({ study, studies, locale, defectLabels = {} }: { study: DatasetStudy; studies: DatasetStudy[]; locale: Locale; defectLabels?: Record<string, { ru: string; en: string }> }) {
   const protocol = isSupported(study.protocol) ? study.protocol : null
   const [timeline, setTimeline] = useState<LongitudinalMeasurement[]>([])
   const [profiles, setProfiles] = useState<LscProfile[]>([])
@@ -90,6 +91,7 @@ export default function DatasetLongitudinal({ study, studies, locale }: { study:
   const [profileId, setProfileId] = useState('')
   const [calibrationId, setCalibrationId] = useState('')
   const [result, setResult] = useState<LongitudinalComparison | null>(null)
+  const [resultContextKey, setResultContextKey] = useState('')
 
   const refresh = async () => {
     const [timelineValue, profileValue, calibrationValue] = await Promise.all([getTimeline(study.patientGroupId), getLscProfiles(), getCrossCalibrations()])
@@ -109,6 +111,23 @@ export default function DatasetLongitudinal({ study, studies, locale }: { study:
   const priorMeasurements = useMemo(() => current ? timeline.filter((item) => item.studyId !== current.studyId && item.protocol === current.protocol && item.acquiredOn < current.acquiredOn).reverse() : [], [current, timeline])
   const matchingProfiles = useMemo(() => current ? profiles.filter((item) => item.status === 'active' && item.protocol === current.protocol && item.deviceGroup === current.deviceGroup && item.facilityId === current.facilityId) : [], [current, profiles])
   const patientStudyCount = studies.filter((item) => item.patientGroupId === study.patientGroupId).length
+  const comparisonContextKey = JSON.stringify({ annotations: study.annotations ?? [], current, baselineId, profileId, calibrationId })
+  const visibleResult = resultContextKey === comparisonContextKey ? result : null
+  const description = buildStudyDescription(study, current, visibleResult, locale, defectLabels)
+  const downloadDescription = () => {
+    const url = URL.createObjectURL(new Blob([description], { type: 'text/plain;charset=utf-8' }))
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `${study.studyId}-description.txt`
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    window.setTimeout(() => URL.revokeObjectURL(url), 0)
+  }
+  const descriptionPanel = <section className="study-description" aria-labelledby="study-description-heading">
+    <div className="study-description-head"><div><p className="eyebrow">Study description</p><h2 id="study-description-heading">{tx(locale, 'Автоматическое описание исследования', 'Automatic study description')}</h2><p>{tx(locale, 'Обновляется после сохранения разметки, МПК и сравнения. Черновик требует проверки по исходным данным.', 'Updates after annotations, BMD, and comparison are saved. Review this draft against the source data.')}</p></div><button type="button" className="secondary-button" onClick={downloadDescription}><Download size={16} aria-hidden="true" />{tx(locale, 'Скачать описание', 'Download description')}</button></div>
+    <pre>{description}</pre>
+  </section>
 
   const saveMeasurementForm = async (event: React.FormEvent) => {
     event.preventDefault(); if (!measurementDraft || !protocol) return
@@ -116,7 +135,7 @@ export default function DatasetLongitudinal({ study, studies, locale }: { study:
     try {
       const sites = sitesFor(protocol).map((site) => ({ site, bmd: Number(measurementDraft.bmd[site]) }))
       await saveMeasurement({ schemaVersion: '2.0.0', studyId: study.studyId, patientGroupId: study.patientGroupId, protocol, deviceGroup: study.deviceGroup, expertConfirmed: true, ...measurementDraft, sites })
-      await refresh(); setNotice(tx(locale, 'Измерение сохранено и добавлено во временной ряд.', 'Measurement saved to the timeline.'))
+      await refresh(); setResult(null); setNotice(tx(locale, 'Измерение сохранено и добавлено во временной ряд.', 'Measurement saved to the timeline.'))
     } catch (reason) { setError(reason instanceof Error ? reason.message : String(reason)) } finally { setBusy('') }
   }
 
@@ -125,19 +144,19 @@ export default function DatasetLongitudinal({ study, studies, locale }: { study:
     setBusy('profile'); setNotice(''); setError('')
     try {
       const saved = await saveLscProfile({ ...profileDraft, sites: profileDraft.sites.map((item) => ({ ...item, percent: Number(item.percent) })) })
-      await refresh(); setProfileId(saved.profileId); setNotice(tx(locale, 'Профиль LSC сохранён.', 'LSC profile saved.'))
+      await refresh(); setResult(null); setProfileId(saved.profileId); setNotice(tx(locale, 'Профиль LSC сохранён.', 'LSC profile saved.'))
     } catch (reason) { setError(reason instanceof Error ? reason.message : String(reason)) } finally { setBusy('') }
   }
 
   const runComparison = async (event: React.FormEvent) => {
     event.preventDefault(); if (!baselineId || !profileId) { setError(tx(locale, 'Выберите baseline и профиль LSC.', 'Select a baseline and LSC profile.')); return }
     setBusy('compare'); setError(''); setNotice(''); setResult(null)
-    try { setResult(await compareLongitudinal({ baselineStudyId: baselineId, currentStudyId: study.studyId, lscProfileId: profileId, crossCalibrationId: calibrationId || undefined })) } catch (reason) { setError(reason instanceof Error ? reason.message : String(reason)) } finally { setBusy('') }
+    try { setResult(await compareLongitudinal({ baselineStudyId: baselineId, currentStudyId: study.studyId, lscProfileId: profileId, crossCalibrationId: calibrationId || undefined })); setResultContextKey(comparisonContextKey) } catch (reason) { setError(reason instanceof Error ? reason.message : String(reason)) } finally { setBusy('') }
   }
 
-  if (!protocol) return <section className="real-trend-card real-trend-unavailable" aria-labelledby="real-trend-heading"><History size={26} /><div><p className="eyebrow">Longitudinal registry</p><h2 id="real-trend-heading">{tx(locale, 'Динамика для этого протокола не поддерживается', 'This protocol is not supported for trends')}</h2><p>{tx(locale, 'Рабочий контур ограничен поясничным отделом и проксимальным отделом бедра.', 'The production workflow is limited to lumbar spine and proximal femur.')}</p></div></section>
+  if (!protocol) return <>{descriptionPanel}<section className="real-trend-card real-trend-unavailable" aria-labelledby="real-trend-heading"><History size={26} /><div><p className="eyebrow">Longitudinal registry</p><h2 id="real-trend-heading">{tx(locale, 'Динамика для этого протокола не поддерживается', 'This protocol is not supported for trends')}</h2><p>{tx(locale, 'Рабочий контур ограничен поясничным отделом и проксимальным отделом бедра.', 'The production workflow is limited to lumbar spine and proximal femur.')}</p></div></section></>
 
-  return <section className="real-trend-card" aria-labelledby="real-trend-heading">
+  return <>{descriptionPanel}<section className="real-trend-card" aria-labelledby="real-trend-heading">
     <div className="workbench-section-head"><div><p className="eyebrow">Structured BMD · LSC registry</p><h2 id="real-trend-heading">{tx(locale, 'Реальный анализ в динамике', 'Production longitudinal analysis')}</h2><p>{tx(locale, 'Расчёт выполняется только по подтверждённым BMD и после проверки пациента, дат, протокола, аппарата, качества, ROI и LSC.', 'The calculation uses confirmed BMD only, after patient, date, protocol, device, quality, ROI, and LSC checks.')}</p></div><span className="real-trend-safety"><AlertTriangle size={16} />{tx(locale, 'Не вычисляет BMD по изображению', 'Never derives BMD from pixels')}</span></div>
     <div className="real-trend-summary"><article><span>{tx(locale, 'Исследований пациента', 'Patient studies')}</span><strong>{patientStudyCount}</strong></article><article><span>{tx(locale, 'Измерений в registry', 'Registry measurements')}</span><strong>{timeline.length}</strong></article><article><span>{tx(locale, 'Профилей LSC', 'LSC profiles')}</span><strong>{profiles.length}</strong></article><article><span>{tx(locale, 'Текущее исследование', 'Current study')}</span><strong>{current ? tx(locale, 'Готово', 'Ready') : tx(locale, 'Нет BMD', 'No BMD')}</strong></article></div>
     {loading && <div className="real-trend-loading" role="status"><LoaderCircle className="spinner" size={22} />{tx(locale, 'Загружаем registry…', 'Loading registry…')}</div>}
@@ -163,9 +182,9 @@ export default function DatasetLongitudinal({ study, studies, locale }: { study:
 
       <div className="real-trend-comparison">
         <div className="real-trend-timeline"><div><CalendarRange size={19} /><h3>{tx(locale, 'Временной ряд пациента', 'Patient timeline')}</h3></div>{timeline.length ? <ol>{timeline.map((item) => <li key={item.studyId} className={item.studyId === study.studyId ? 'is-current' : ''}><span>{item.acquiredOn}</span><strong>{item.studyId}</strong><small>{item.sites.map((site) => `${siteLabel[site.site]} ${site.bmd.toFixed(3)}`).join(' · ')} g/cm²</small></li>)}</ol> : <p>{tx(locale, 'Добавьте первое подтверждённое измерение.', 'Add the first confirmed measurement.')}</p>}</div>
-        <form className="real-trend-compare-form" onSubmit={runComparison}><div><GitCompareArrows size={20} /><h3>{tx(locale, 'Сравнить с baseline', 'Compare with baseline')}</h3></div><label><span>Baseline</span><select required disabled={!current} value={baselineId} onChange={(event) => setBaselineId(event.target.value)}><option value="">{tx(locale, 'Выберите исследование', 'Select a study')}</option>{priorMeasurements.map((item) => <option key={item.studyId} value={item.studyId}>{item.acquiredOn} · {item.studyId}</option>)}</select></label><label><span>{tx(locale, 'Профиль LSC учреждения', 'Facility LSC profile')}</span><select required disabled={!current} value={profileId} onChange={(event) => setProfileId(event.target.value)}><option value="">{tx(locale, 'Выберите профиль', 'Select a profile')}</option>{matchingProfiles.map((item) => <option key={item.profileId} value={item.profileId}>{item.profileId} · v{item.version}</option>)}</select></label>{current && baselineId && timeline.find((item) => item.studyId === baselineId)?.deviceGroup !== current.deviceGroup && <label><span>Cross-calibration</span><select value={calibrationId} onChange={(event) => setCalibrationId(event.target.value)}><option value="">{tx(locale, 'Нет записи — сравнение будет заблокировано', 'No record — comparison will be blocked')}</option>{calibrations.map((item) => <option key={item.calibrationId} value={item.calibrationId}>{item.calibrationId}</option>)}</select></label>}<button className="primary-button" disabled={!current || busy === 'compare'}>{busy === 'compare' ? <LoaderCircle className="spinner" size={17} /> : <GitCompareArrows size={17} />}{tx(locale, 'Проверить и рассчитать', 'Validate and calculate')}</button>{current && priorMeasurements.length === 0 && <p>{tx(locale, 'Нет более раннего измерения того же протокола. Добавьте BMD для предыдущего исследования пациента.', 'No earlier measurement has the same protocol. Add BMD for a prior patient study.')}</p>}</form>
-        {result && <ComparisonResult value={result} locale={locale} />}
+        <form className="real-trend-compare-form" onSubmit={runComparison}><div><GitCompareArrows size={20} /><h3>{tx(locale, 'Сравнить с baseline', 'Compare with baseline')}</h3></div><label><span>Baseline</span><select required disabled={!current} value={baselineId} onChange={(event) => { setBaselineId(event.target.value); setResult(null) }}><option value="">{tx(locale, 'Выберите исследование', 'Select a study')}</option>{priorMeasurements.map((item) => <option key={item.studyId} value={item.studyId}>{item.acquiredOn} · {item.studyId}</option>)}</select></label><label><span>{tx(locale, 'Профиль LSC учреждения', 'Facility LSC profile')}</span><select required disabled={!current} value={profileId} onChange={(event) => { setProfileId(event.target.value); setResult(null) }}><option value="">{tx(locale, 'Выберите профиль', 'Select a profile')}</option>{matchingProfiles.map((item) => <option key={item.profileId} value={item.profileId}>{item.profileId} · v{item.version}</option>)}</select></label>{current && baselineId && timeline.find((item) => item.studyId === baselineId)?.deviceGroup !== current.deviceGroup && <label><span>Cross-calibration</span><select value={calibrationId} onChange={(event) => { setCalibrationId(event.target.value); setResult(null) }}><option value="">{tx(locale, 'Нет записи — сравнение будет заблокировано', 'No record — comparison will be blocked')}</option>{calibrations.map((item) => <option key={item.calibrationId} value={item.calibrationId}>{item.calibrationId}</option>)}</select></label>}<button className="primary-button" disabled={!current || busy === 'compare'}>{busy === 'compare' ? <LoaderCircle className="spinner" size={17} /> : <GitCompareArrows size={17} />}{tx(locale, 'Проверить и рассчитать', 'Validate and calculate')}</button>{current && priorMeasurements.length === 0 && <p>{tx(locale, 'Нет более раннего измерения того же протокола. Добавьте BMD для предыдущего исследования пациента.', 'No earlier measurement has the same protocol. Add BMD for a prior patient study.')}</p>}</form>
+        {visibleResult && <ComparisonResult value={visibleResult} locale={locale} />}
       </div>
     </div>}
-  </section>
+  </section></>
 }

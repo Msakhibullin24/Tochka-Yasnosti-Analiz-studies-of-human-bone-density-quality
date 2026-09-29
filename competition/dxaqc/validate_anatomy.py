@@ -46,6 +46,7 @@ def evaluate(rows, reference, tolerance_mm=5.):
     if len(indexed)!=len(rows):
         raise ValueError('ambiguous duplicate source UID')
     seen=set();errors={};known={};detected={};false_positives={};unscaled={};projections=[]
+    projections_by_region={'spine': [], 'hip': []}
     for case in reference['cases']:
         uid=case['image_uid']
         if uid in seen or uid not in indexed or case.get('status')!='confirmed':
@@ -60,7 +61,10 @@ def evaluate(rows, reference, tolerance_mm=5.):
         if projection not in ('frontal','lateral','other'):
             raise ValueError('reference projection must be explicitly labelled')
         estimate=json.loads(row['projection_assessment'])
+        if estimate.get('value') not in ('frontal', 'lateral', 'other', 'unknown'):
+            raise ValueError('prediction projection has an unsupported value')
         projections.append((projection,estimate['value']))
+        projections_by_region[group].append((projection,estimate['value']))
         sx,sy=float(row['pixel_mm_x']),float(row['pixel_mm'])
         scaled=all(math.isfinite(v) and v>0 for v in (sx,sy)) and row['pixel_mm_source'] not in ('device_default','',None)
         for name,label in case['landmarks'].items():
@@ -94,10 +98,22 @@ def evaluate(rows, reference, tolerance_mm=5.):
                        'distances_mm':distances,'median_mm':float(np.median(distances)) if distances else None,
                        'p95_mm':float(np.percentile(distances,95)) if distances else None,
                        'within_tolerance':sum(d<=tolerance_mm for d in distances)}
+    def projection_metrics(pairs):
+        confusion={truth:{prediction:sum(a==truth and b==prediction for a,b in pairs)
+                          for prediction in ('frontal','lateral','other','unknown')}
+                   for truth in ('frontal','lateral','other')}
+        return {'correct':sum(a==b for a,b in pairs),
+                'abstained':sum(b=='unknown' for _,b in pairs), 'count':len(pairs),
+                'accuracy_including_abstentions':sum(a==b for a,b in pairs)/len(pairs) if pairs else None,
+                'false_frontal_on_unsupported':sum(a in ('lateral','other') and b=='frontal' for a,b in pairs),
+                'unsupported_references':sum(a in ('lateral','other') for a,_ in pairs),
+                'confusion':confusion}
+    projection_report=projection_metrics(projections)
+    projection_report['by_region']={name:projection_metrics(pairs)
+                                    for name,pairs in projections_by_region.items()}
     return {'evaluated_cases':len(seen),'available_cases':len(rows),'reference_coverage':len(seen)/max(len(rows),1),
             'tolerance_mm':tolerance_mm,'landmarks':metrics,
-            'projection':{'correct':sum(a==b for a,b in projections),'abstained':sum(b=='unknown' for _,b in projections),
-                          'count':len(projections),'accuracy_including_abstentions':sum(a==b for a,b in projections)/len(projections)},
+            'projection':projection_report,
             'scope':'agreement with supplied reference; reviewer identity and clinical validity not authenticated'}
 
 

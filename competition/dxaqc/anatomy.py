@@ -282,10 +282,18 @@ def image_assessment(img, result):
                       'heuristic_candidate': result['projection_pixels']}
     from .requirements import image_checks
     source_roi = evaluate_source_roi(img.source_roi, result['anatomy_candidates'], img, result['region'])
+    # A labelled scan-coverage ROI and explicit calibration supply an exact
+    # geometric check. This rule does not depend on guessed bone landmarks and
+    # must apply to this DICOM's ROI, never to the shared pixel-cache result.
+    apply_source_roi_findings(result, source_roi)
     if result.get('learned_anatomy', {}).get('status') == 'evaluated':
         from .anatomical_roi import compare_source_rois
         source_roi['named_mask_comparison'] = compare_source_rois(
             img.source_roi, result['learned_anatomy']['regions'], img.pixels.shape)
+    if result['region'] != 'spine':
+        from .neck_roi_geometry import assess_neck_rois
+        source_roi['neck_geometry'] = assess_neck_rois(
+            img.source_roi, result.get('learned_anatomy', {}).get('regions', []), img)
     checks = image_checks(img, result, projection, source_roi)
     assessment = {'projection': projection, 'anatomy': result['anatomy_candidates'],
             'source_roi': source_roi, 'checks': checks,
@@ -297,6 +305,31 @@ def image_assessment(img, result):
     if 'learned_anatomy' in result:
         assessment['learned_anatomy'] = result['learned_anatomy']
     return assessment
+
+
+def apply_source_roi_findings(result, source_roi):
+    """Integrate measured source-ROI failures without retyping absent/neck ROIs."""
+    if result['region'] == 'spine':
+        return
+    failed = [check for check in source_roi['checks']
+              if check.get('purpose') == 'scan_coverage' and check.get('margin_status') == 'fail']
+    if not failed:
+        return
+    code = 'hip_roi_coverage'
+    if code not in result['violations']:
+        result['violations'] = [*result['violations'], code]
+    result['quality'] = 1
+    result['violation_type_status'] = 'identified'
+    result['criterion_states'] = {**result['criterion_states'], code: {
+        'status': 'fail', 'basis': 'explicit_source_roi_scan_margins',
+        'limits_mm': {'top': 30., 'bottom': 30., 'side': 20.},
+        'roi_ids': [check['roi_id'] for check in failed],
+        'clinical_validation': False}}
+    result['review_reasons'] = [reason for reason in result['review_reasons']
+                                if reason != 'violation_type_undetermined']
+    result['decision_reason'] = 'source_roi_scan_margin_failure'
+    if not result['decision_version'].endswith('+source-roi-1'):
+        result['decision_version'] += '+source-roi-1'
 
 
 def display_overlay(result, width):

@@ -1,4 +1,4 @@
-"""Patient-held-out projection candidate across radiographs and two DXA sources.
+"""Group-held-out projection candidate across radiographs and two DXA sources.
 
 Fixed logistic model, equal source mass in training, no threshold tuning. GE AP
 labels come from the organizer protocol and are explicitly weak references.
@@ -19,7 +19,7 @@ from sklearn.model_selection import StratifiedGroupKFold
 from dxaqc.dicom_io import read_dxa
 from dxaqc.embedding import WEIGHTS_SHA256
 from evaluate_organizer_dataset import binary_metrics, sha256
-from evaluate_projection_candidate import assessment, classifier, features
+from evaluate_projection_candidate import assessment, classifier, features, source_patient_group
 
 
 def source_weights(sources):
@@ -32,7 +32,7 @@ def source_weights(sources):
 
 
 def grouped_folds(records):
-    """Split each domain by patients; all domains occur in every training fold."""
+    """Split each domain by source identity groups; all domains occur in each fold."""
     folds = np.full(len(records), -1)
     sources = np.array([r['source'] for r in records])
     groups = np.array([r['group'] for r in records])
@@ -40,14 +40,14 @@ def grouped_folds(records):
     for source in sorted(set(sources)):
         indices = np.flatnonzero(sources == source)
         if len(set(groups[indices])) < 5:
-            raise ValueError('Five patient groups per source required')
+            raise ValueError('Five identity groups per source required')
         splitter = StratifiedGroupKFold(5, shuffle=True, random_state=17)
         for fold, (_, test) in enumerate(splitter.split(indices, y[indices], groups[indices])):
             folds[indices[test]] = fold
     for fold in range(5):
         train, test = folds != fold, folds == fold
         if set(groups[train]) & set(groups[test]):
-            raise ValueError('Patient leakage across sources or folds')
+            raise ValueError('Identity group leakage across sources or folds')
         if ({r['pixel_sha256'] for r,t in zip(records,train) if t}
                 & {r['pixel_sha256'] for r,t in zip(records,test) if t}):
             raise ValueError('Pixel leakage across folds')
@@ -80,7 +80,8 @@ def collect(buu, ramathibodi, organizer, labels):
         relative = path.relative_to(ramathibodi)
         image = read_dxa(path)
         add(image.pixels,image.pixel_sha256,sha256(path),'ramathibodi',
-            'ramathibodi:'+relative.parts[2],int(relative.parts[0]=='VFA'),'source_BMD_VFA_branch')
+            'ramathibodi:'+source_patient_group(relative),
+            int(relative.parts[0]=='VFA'),'source_BMD_VFA_branch')
     with labels.open(newline='') as stream:
         for row in csv.DictReader(stream):
             if row['region']!='spine' or row['quality_class'] not in ('0','1'):
@@ -139,7 +140,7 @@ def run(args):
                  'clinical_validation':False,'method':'multisource_frozen_resnet18_lr'},args.output/'projection_multisource.joblib')
     cases = [{**r,'fold':int(f),'lateral_score':float(s),
               'value':assessment(float(s))['value']} for r,f,s in zip(records,folds,scores)]
-    report = {'protocol':'Five folds by patients within each source; fixed C=.01, fixed .5 threshold; equal source weight; no test tuning',
+    report = {'protocol':'Five folds by source identity group; DXA public numeric folder index is a conservative patient proxy; fixed C=.01, fixed .5 threshold; equal source weight; no test tuning',
               'clinical_validation':False,'release_modified':False,
               'encoder_sha256':WEIGHTS_SHA256,'code_sha256':sha256(Path(__file__)),
               'model_sha256':sha256(args.output/'projection_multisource.joblib'),

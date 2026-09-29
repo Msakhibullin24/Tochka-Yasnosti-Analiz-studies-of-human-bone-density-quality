@@ -121,13 +121,12 @@ def compare(baseline: dict, followup: dict, *, baseline_bmd: float | None = None
         change = (followup_bmd - baseline_bmd) / baseline_bmd * 100.0
         bmd = {"baseline_bmd": baseline_bmd, "followup_bmd": followup_bmd, "change_percent": round(change, 2),
                "lsc_percent": round(lsc, 2) if lsc else None}
-        if lsc is None:
+        if verdict != "comparable":
+            bmd["interpretation"] = "Изменение МПК не интерпретируется: сопоставимость исследований не подтверждена"
+        elif lsc is None:
             bmd["interpretation"] = "LSC не задан: значимость изменения оценить нельзя"
-        elif verdict == "not_comparable":
-            bmd["interpretation"] = "Изменение МПК не интерпретируется: исследования несопоставимы по укладке"
         elif abs(change) < lsc:
             bmd["interpretation"] = f"Изменение {change:+.1f} % меньше LSC {lsc:.1f} % — незначимо"
         else:
-            note = " (подтвердить после проверки сопоставимости)" if verdict == "review" else ""
-            bmd["interpretation"] = f"Изменение {change:+.1f} % превышает LSC {lsc:.1f} % — значимо{note}"
+            bmd["interpretation"] = f"Изменение {change:+.1f} % превышает LSC {lsc:.1f} % — значимо"
     return DynamicsResult(verdict, VERDICT_RU[verdict], REGION_LABEL[followup["region"]], checks, bmd)

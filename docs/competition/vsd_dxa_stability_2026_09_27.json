@@ -1,0 +1,2542 @@
+{
+  "protocol": "Reflect each unchanged binary femur mask horizontally; infer frozen candidate; map points back; compare to original inference",
+  "cases": [
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03030811151201151502050615010000",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250403090444/series_004_3_CR/DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.833816385640623,
+        "lesser_trochanter": 1.7842322102200618,
+        "head_center": 3.843324771600962,
+        "neck_isthmus_center": 2.070566805874011
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.922735407941653,
+        "lesser_trochanter": 1.8692419523469008,
+        "head_center": 2.3064133952332972,
+        "neck_isthmus_center": 1.278608230142461
+      },
+      "neck_axis_drift_deg": 15.063831785255921,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06140010030611061314081200121305",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250403092052/series_003_3_CR/DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 13.665583514059625,
+        "lesser_trochanter": 1.928592247456275,
+        "head_center": 7.0207303280064295,
+        "neck_isthmus_center": 1.5738618280807173
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 8.209518592717728,
+        "lesser_trochanter": 1.3193228045535215,
+        "head_center": 4.212863456926894,
+        "neck_isthmus_center": 0.9545896261389658
+      },
+      "neck_axis_drift_deg": 54.76443957213897,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07140808121311040315101301051200",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250407113211/series_001_2_CR/DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 18.812050660295196,
+        "lesser_trochanter": 7.801839362407641,
+        "head_center": 3.9368564209419934,
+        "neck_isthmus_center": 5.0749849942316185
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 11.287377102312897,
+        "lesser_trochanter": 4.682553969621676,
+        "head_center": 2.3709157692318104,
+        "neck_isthmus_center": 3.0539514991352514
+      },
+      "neck_axis_drift_deg": 7.671298033928693,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10011302120900111505101501141402",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250407113211/series_001_2_CR/DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.23626524174596852,
+        "lesser_trochanter": 5.1168725025041795,
+        "head_center": 0.2951519692143165,
+        "neck_isthmus_center": 0.7386511496588355
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.1417591450475811,
+        "lesser_trochanter": 3.0701235015025077,
+        "head_center": 0.1770911815285899,
+        "neck_isthmus_center": 0.4431906897953013
+      },
+      "neck_axis_drift_deg": 16.744258677291423,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07000215121313030213041009101409",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.10245777060263212829333021434108890537/series_003_2_CR/A2504412435 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.5771583745540567,
+        "lesser_trochanter": 34.13415848512455,
+        "head_center": 2.046009273246096,
+        "neck_isthmus_center": 4.925470459175482
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.9464391343934127,
+        "lesser_trochanter": 20.480514961504518,
+        "head_center": 1.2276405376834543,
+        "neck_isthmus_center": 2.955282281441399
+      },
+      "neck_axis_drift_deg": 41.16299570395208,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03081500040505121009070211080902",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.10245777060263212829333021434108890537/series_003_2_CR/A2504412435 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.5338518974755286,
+        "lesser_trochanter": 47.46328168788226,
+        "head_center": 1.786535357041694,
+        "neck_isthmus_center": 7.099069756169602
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.3038498551428142,
+        "lesser_trochanter": 28.516148173046506,
+        "head_center": 1.0819474575114723,
+        "neck_isthmus_center": 4.288970616768794
+      },
+      "neck_axis_drift_deg": 44.534691168998535,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10140807011010031112140700150015",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.102965897799404973225419898683246248872/series_001_2_CR/A250726353 DXA/CR DXA/CR000000.dcm",
+      "status": "unavailable",
+      "reason": "Nonempty femur silhouette required"
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06050309100102041203101101110913",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.102965897799404973225419898683246248872/series_001_2_CR/A250726353 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.7627718242909702,
+        "lesser_trochanter": 22.683979709541713,
+        "head_center": 1.2319024448245297,
+        "neck_isthmus_center": 3.321435382518246
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.5768864003379716,
+        "lesser_trochanter": 13.622136484635595,
+        "head_center": 0.7431982412145998,
+        "neck_isthmus_center": 2.002502769185066
+      },
+      "neck_axis_drift_deg": 26.72430564383662,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15031208100010080909150509041308",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.103868781101960771917584077315578649178/series_001_3_CR/A2507485409 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 15.458363906269794,
+        "lesser_trochanter": 11.686886989933036,
+        "head_center": 1.2230026614347231,
+        "neck_isthmus_center": 4.859923108620413
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 10.295615058100127,
+        "lesser_trochanter": 10.496175441035932,
+        "head_center": 0.9686997771856107,
+        "neck_isthmus_center": 3.0289597933116106
+      },
+      "neck_axis_drift_deg": 13.690021806044577,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12051209130410130502141403101414",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.103868781101960771917584077315578649178/series_001_3_CR/A2507485409 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 5.650133321860405,
+        "lesser_trochanter": 7.725645432790422,
+        "head_center": 3.842015318474702,
+        "neck_isthmus_center": 2.105006310099372
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 3.401420764553769,
+        "lesser_trochanter": 4.635551378554381,
+        "head_center": 2.305662639942964,
+        "neck_isthmus_center": 1.2730541735157828
+      },
+      "neck_axis_drift_deg": 29.87757860134005,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11131406091213131205130612021414",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.105033841136787477881326326053319223817/series_001_2_CR/A250790559 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 23.350417368848014,
+        "lesser_trochanter": 2.381785715752122,
+        "head_center": 4.058308944525556,
+        "neck_isthmus_center": 2.1639747566702976
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 14.024073743997024,
+        "lesser_trochanter": 2.3926514512131787,
+        "head_center": 2.4425580378144116,
+        "neck_isthmus_center": 1.299117298445789
+      },
+      "neck_axis_drift_deg": 24.95989960444955,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07121414121104070401050315140813",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.11175860580562939441493697221497597640/series_003_2_CR/A2507431060 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.8124329143700726,
+        "lesser_trochanter": 3.613031213787732,
+        "head_center": 6.654808401895588,
+        "neck_isthmus_center": 3.1335397619807193
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.0879779530451403,
+        "lesser_trochanter": 2.1707409467614,
+        "head_center": 4.040196299403101,
+        "neck_isthmus_center": 2.095761369438186
+      },
+      "neck_axis_drift_deg": 8.36986632046156,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12051512011202090502051206130907",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.11175860580562939441493697221497597640/series_003_2_CR/A2507431060 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 8.786069260149088,
+        "lesser_trochanter": 6.411644848817678,
+        "head_center": 2.4032802511539537,
+        "neck_isthmus_center": 1.6220351797115193
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 5.66072896224989,
+        "lesser_trochanter": 5.902007973147267,
+        "head_center": 1.442050838674728,
+        "neck_isthmus_center": 1.084034162522922
+      },
+      "neck_axis_drift_deg": 15.524640723098486,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03150400010605060115070904121304",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.114887542067602662452692698814728642117/series_001_2_CR/A2504131887 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 44.82853087067073,
+        "lesser_trochanter": 4.706446122137691,
+        "head_center": 13.24650760847768,
+        "neck_isthmus_center": 2.407117439872585
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 26.89891367679954,
+        "lesser_trochanter": 2.8519974791531717,
+        "head_center": 7.948066455944457,
+        "neck_isthmus_center": 1.444568933777241
+      },
+      "neck_axis_drift_deg": 67.77917061244759,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15050814070214050107040604101305",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.114887542067602662452692698814728642117/series_001_2_CR/A2504131887 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 19.253228159284212,
+        "lesser_trochanter": 18.912594344173506,
+        "head_center": 5.08449335138589,
+        "neck_isthmus_center": 4.500466969013024
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 11.717532504109512,
+        "lesser_trochanter": 11.911440749609435,
+        "head_center": 3.086222253803404,
+        "neck_isthmus_center": 2.7278391196191603
+      },
+      "neck_axis_drift_deg": 42.31828573056077,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13011301091003020814061203020304",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.116822802042655971810859435524105064465/series_003_2_CR/A2507273296 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.1379917737708505,
+        "lesser_trochanter": 22.90787723114245,
+        "head_center": 1.4180351259466661,
+        "neck_isthmus_center": 3.292555200253796
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.7073837160675831,
+        "lesser_trochanter": 13.747278811483543,
+        "head_center": 0.8508752597639115,
+        "neck_isthmus_center": 1.9773910087791802
+      },
+      "neck_axis_drift_deg": 73.72310957267302,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01010713081306120510130101121412",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.116822802042655971810859435524105064465/series_003_2_CR/A2507273296 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.5119080237828371,
+        "lesser_trochanter": 11.08655708875905,
+        "head_center": 0.6394959332977237,
+        "neck_isthmus_center": 1.6004108242608481
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.30714481426970225,
+        "lesser_trochanter": 6.651934253255431,
+        "head_center": 0.3836975599786342,
+        "neck_isthmus_center": 0.9602464945565088
+      },
+      "neck_axis_drift_deg": 24.41833659314699,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02101009080308000015051512140806",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.122446767306607067205618235949445789306/series_001_2_CR/A2504255080 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 21.593321022712647,
+        "lesser_trochanter": 16.1820884232206,
+        "head_center": 5.275273020973016,
+        "neck_isthmus_center": 4.065905988586402
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 13.103564295487832,
+        "lesser_trochanter": 10.366504808816106,
+        "head_center": 3.1679460946657323,
+        "neck_isthmus_center": 2.443163493219504
+      },
+      "neck_axis_drift_deg": 30.302400125303876,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02091106060004131215091000000909",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.122446767306607067205618235949445789306/series_001_2_CR/A2504255080 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.8401770892374806,
+        "lesser_trochanter": 35.26529198132749,
+        "head_center": 1.3571679471850806,
+        "neck_isthmus_center": 5.307267556448568
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.5589140043518989,
+        "lesser_trochanter": 21.161449534316997,
+        "head_center": 0.8143111470147391,
+        "neck_isthmus_center": 3.1859825642452373
+      },
+      "neck_axis_drift_deg": 42.86713470563124,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08050506060410091114110412130504",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.124890633326693921702195356152595253940/series_002_2_CR/A2504263153 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.5190227568779696,
+        "lesser_trochanter": 1.4032347939258025,
+        "head_center": 1.4400221264931319,
+        "neck_isthmus_center": 0.881993705657311
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.5433008000074548,
+        "lesser_trochanter": 1.2381732800820437,
+        "head_center": 0.8644989834921708,
+        "neck_isthmus_center": 0.5300559848619517
+      },
+      "neck_axis_drift_deg": 12.307625108064773,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10081312010805021201100507060411",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.124890633326693921702195356152595253940/series_002_2_CR/A2504263153 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.163524571861368,
+        "lesser_trochanter": 23.010679058694013,
+        "head_center": 1.2933606087490392,
+        "neck_isthmus_center": 3.3413542872111672
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.7122045794101047,
+        "lesser_trochanter": 13.807706747326696,
+        "head_center": 0.7760253725211059,
+        "neck_isthmus_center": 2.005743320804985
+      },
+      "neck_axis_drift_deg": 87.75983551219002,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08121504041301080101130415050611",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.126293418391331346694592071563510265596/series_002_3_CR/A2507250865 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 7.942660516736203,
+        "lesser_trochanter": 11.73906974739651,
+        "head_center": 3.0464059172204134,
+        "neck_isthmus_center": 2.173706814657936
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 4.8230766375683,
+        "lesser_trochanter": 7.057906023847384,
+        "head_center": 1.8373530706273926,
+        "neck_isthmus_center": 1.478084208823723
+      },
+      "neck_axis_drift_deg": 6.9808280242802025,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11151304101402090112060913070605",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.126293418391331346694592071563510265596/series_002_3_CR/A2507250865 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 13.534279642718877,
+        "lesser_trochanter": 26.1645020636285,
+        "head_center": 0.2687750297598622,
+        "neck_isthmus_center": 1.9698122476692153
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 8.129716482836034,
+        "lesser_trochanter": 15.712145227083347,
+        "head_center": 0.22342212893952668,
+        "neck_isthmus_center": 1.1987197789963744
+      },
+      "neck_axis_drift_deg": 36.53579935738781,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01070801081413060013111012010201",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.127126130998341190348103034690069487890/series_002_2_CR/A250428736 DXA/CR DXA/CR000003.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.6366469034625654,
+        "lesser_trochanter": 16.68024990273809,
+        "head_center": 1.1385484610575054,
+        "neck_isthmus_center": 2.348623697952838
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.4426538294848917,
+        "lesser_trochanter": 10.0116118568234,
+        "head_center": 0.6831347638732235,
+        "neck_isthmus_center": 1.411494474859502
+      },
+      "neck_axis_drift_deg": 34.81806230818397,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09150805131402040209060509150410",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.128990540359421489042453547244535073735/series_002_2_CR/A2507388698 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 23.63206216701892,
+        "lesser_trochanter": 5.755721110193358,
+        "head_center": 9.458575676367746,
+        "neck_isthmus_center": 0.8501037332995565
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 14.179239386223054,
+        "lesser_trochanter": 3.453869017613174,
+        "head_center": 5.682619082178866,
+        "neck_isthmus_center": 0.6900398423014609
+      },
+      "neck_axis_drift_deg": 45.05609662988917,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00131503020212110600101502020700",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.129239680100193368599713239115902740628/series_003_3_CR/A250757345 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 21.045743012439043,
+        "lesser_trochanter": 3.5233524380557313,
+        "head_center": 3.6008120368645433,
+        "neck_isthmus_center": 2.9356508044607104
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 12.705262019149455,
+        "lesser_trochanter": 3.699020982622389,
+        "head_center": 2.171169693103744,
+        "neck_isthmus_center": 1.7973449036104845
+      },
+      "neck_axis_drift_deg": 32.135645681221106,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13151303131009131214000609090104",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.132083163398091874662674590622589534350/series_003_2_CR/A2507386583 DXA Exam/CR DXA Images/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.5490029581962477,
+        "lesser_trochanter": 9.337910169095023,
+        "head_center": 2.810877537382192,
+        "neck_isthmus_center": 2.893649185686648
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.3735159679702924,
+        "lesser_trochanter": 5.6406615766559005,
+        "head_center": 1.6903124857778673,
+        "neck_isthmus_center": 1.868891585474872
+      },
+      "neck_axis_drift_deg": 1.7663042582914101,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06120903051105150112061201080014",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.132083163398091874662674590622589534350/series_003_2_CR/A2507386583 DXA Exam/CR DXA Images/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.23626524174596852,
+        "lesser_trochanter": 5.1168725025041795,
+        "head_center": 0.2951519692143165,
+        "neck_isthmus_center": 0.7386511496588355
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.1417591450475811,
+        "lesser_trochanter": 3.0701235015025077,
+        "head_center": 0.1770911815285899,
+        "neck_isthmus_center": 0.4431906897953013
+      },
+      "neck_axis_drift_deg": 12.763936615757638,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05020106091400040809110708040301",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.132272637351979990811754009849547633391/series_003_3_CR/A2504141080 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 15.594451995619911,
+        "lesser_trochanter": 16.025091367863713,
+        "head_center": 6.591733837486899,
+        "neck_isthmus_center": 2.3196272046125737
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 9.378613689747475,
+        "lesser_trochanter": 9.697101974466667,
+        "head_center": 3.9583905573556333,
+        "neck_isthmus_center": 1.3927208944107363
+      },
+      "neck_axis_drift_deg": 62.19136353362604,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15140601101305061400021505010802",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.132272637351979990811754009849547633391/series_003_3_CR/A2504141080 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.0777642003436783,
+        "lesser_trochanter": 16.80488328874496,
+        "head_center": 1.1300378455538405,
+        "neck_isthmus_center": 2.4256878147261998
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.9253470577715208,
+        "lesser_trochanter": 10.145271455669397,
+        "head_center": 0.6953052393043676,
+        "neck_isthmus_center": 1.506510609245541
+      },
+      "neck_axis_drift_deg": 23.662075263494337,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04080409110008071309041404000111",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13325817932854000792938662637654885530/series_002_2_CR/A2507365486 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 14.516183769589375,
+        "lesser_trochanter": 14.261067784001053,
+        "head_center": 0.8777303948279991,
+        "neck_isthmus_center": 4.573495564627579
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 9.697616721264795,
+        "lesser_trochanter": 11.385034861862225,
+        "head_center": 0.8283288385479429,
+        "neck_isthmus_center": 2.9083232316434957
+      },
+      "neck_axis_drift_deg": 16.99591261867467,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11020707081006150000011408140609",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13325817932854000792938662637654885530/series_002_2_CR/A2507365486 DXA/CR DXA/CR000005.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 5.5967105480681605,
+        "lesser_trochanter": 81.58904008712793,
+        "head_center": 5.424964926174626,
+        "neck_isthmus_center": 11.610858936019639
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 3.378947437723432,
+        "lesser_trochanter": 48.95593365054012,
+        "head_center": 3.255056769531947,
+        "neck_isthmus_center": 6.96844897654604
+      },
+      "neck_axis_drift_deg": 81.20420782697299,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04040803080402061202041005000304",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.134456506307367483341018281460841912845/series_002_2_CR/A2507120612 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 20.524273513486904,
+        "lesser_trochanter": 24.47184691567244,
+        "head_center": 14.972614671493474,
+        "neck_isthmus_center": 8.228978790132993
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 13.31303107329263,
+        "lesser_trochanter": 16.471441321480476,
+        "head_center": 8.999447542677732,
+        "neck_isthmus_center": 5.114387322170556
+      },
+      "neck_axis_drift_deg": 11.874126837142406,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14121200111500000012151207021305",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.134456506307367483341018281460841912845/series_002_2_CR/A2507120612 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 38.91426193199709,
+        "lesser_trochanter": 12.415385253404901,
+        "head_center": 6.01266448493645,
+        "neck_isthmus_center": 7.05296690288708
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 23.348973905432413,
+        "lesser_trochanter": 7.452398741136695,
+        "head_center": 3.607664948693143,
+        "neck_isthmus_center": 4.232357525545829
+      },
+      "neck_axis_drift_deg": 87.8287935360784,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04060811050000140014040410080212",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.135241889065705954191821710363605596815/series_003_3_CR/A250715060 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 4.341640255229764,
+        "lesser_trochanter": 11.92342776194106,
+        "head_center": 1.6937689995176266,
+        "neck_isthmus_center": 1.563595547473656
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 2.6184278175094944,
+        "lesser_trochanter": 7.485940240867859,
+        "head_center": 1.0801454486353255,
+        "neck_isthmus_center": 1.083964936130694
+      },
+      "neck_axis_drift_deg": 1.2342265906279701,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14140312010015010504081306061203",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.137344827330550141320158285144101816664/series_003_3_CR/A2507146630 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.3545248321350866,
+        "lesser_trochanter": 10.910167227033051,
+        "head_center": 0.7321857487116336,
+        "neck_isthmus_center": 1.5530618984420064
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.2982565697811497,
+        "lesser_trochanter": 6.554335223129324,
+        "head_center": 0.4397166773773018,
+        "neck_isthmus_center": 0.9381836859666487
+      },
+      "neck_axis_drift_deg": 54.80970260284976,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03131510081105080011060404010511",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.137344827330550141320158285144101816664/series_003_3_CR/A2507146630 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 25.18641722604467,
+        "lesser_trochanter": 1.8608703803298547,
+        "head_center": 5.523635655073367,
+        "neck_isthmus_center": 1.8617302910447067
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 15.120483975673954,
+        "lesser_trochanter": 1.5969519354412478,
+        "head_center": 3.3189584530927005,
+        "neck_isthmus_center": 1.1196340648905077
+      },
+      "neck_axis_drift_deg": 46.09145834456525,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02030711120805150008090200030710",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13983650679559142983913935144968795415/series_003_2_CR/A2504335111 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 56.9590396925649,
+        "lesser_trochanter": 4.167345039681042,
+        "head_center": 12.285606533720483,
+        "neck_isthmus_center": 5.2860787113944605
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 34.21900116669468,
+        "lesser_trochanter": 4.3287582841298144,
+        "head_center": 7.377946659920499,
+        "neck_isthmus_center": 3.193513678780157
+      },
+      "neck_axis_drift_deg": 52.84116940394508,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05100908130706051511060907050202",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13983650679559142983913935144968795415/series_003_2_CR/A2504335111 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 18.021496368872494,
+        "lesser_trochanter": 44.189746341685186,
+        "head_center": 4.571744167960559,
+        "neck_isthmus_center": 5.971791727008137
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 10.836833479437075,
+        "lesser_trochanter": 26.69139765273984,
+        "head_center": 2.8549412793471034,
+        "neck_isthmus_center": 3.6521464067041993
+      },
+      "neck_axis_drift_deg": 2.131537493496544,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01100715050305071000110707040014",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.144941557565802351596730914409170713112/series_001_2_CR/A250728979 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 15.950263848295405,
+        "lesser_trochanter": 8.291926636739106,
+        "head_center": 2.1956968622961934,
+        "neck_isthmus_center": 0.8145657855300646
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 9.571213096851732,
+        "lesser_trochanter": 5.350732928012743,
+        "head_center": 1.3832313141836523,
+        "neck_isthmus_center": 0.7681042264790345
+      },
+      "neck_axis_drift_deg": 6.378428954378035,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14070202101304120203120502100808",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.144941557565802351596730914409170713112/series_001_2_CR/A250728979 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 17.546295204752536,
+        "lesser_trochanter": 16.320414302694868,
+        "head_center": 7.501677914754675,
+        "neck_isthmus_center": 2.0478137760992086
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 10.564048253792542,
+        "lesser_trochanter": 9.934918904018387,
+        "head_center": 4.502333447330407,
+        "neck_isthmus_center": 1.2341677987010269
+      },
+      "neck_axis_drift_deg": 40.882500358467865,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06130104100900080002100912090901",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.145848300160680194368420189079847088556/series_002_2_CR/A2504248615 DXA Exam/CR DXA Images/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 9.876203611526062,
+        "lesser_trochanter": 17.924685366560247,
+        "head_center": 1.2399111946236863,
+        "neck_isthmus_center": 1.1730516122391421
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 6.16458972935192,
+        "lesser_trochanter": 11.120886741485782,
+        "head_center": 0.9934931370871782,
+        "neck_isthmus_center": 1.0467286362814674
+      },
+      "neck_axis_drift_deg": 10.121521131214799,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09091111090903031309150614110215",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.145848300160680194368420189079847088556/series_002_2_CR/A2504248615 DXA Exam/CR DXA Images/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 36.893035113934225,
+        "lesser_trochanter": 5.224541128684844,
+        "head_center": 10.369123388290008,
+        "neck_isthmus_center": 1.9439027339940178
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 22.178567148183454,
+        "lesser_trochanter": 4.652345090178473,
+        "head_center": 6.238099088751405,
+        "neck_isthmus_center": 1.1667650148607318
+      },
+      "neck_axis_drift_deg": 34.10183709031702,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06120514140811101106020900110711",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.151186844055172005615813066162721550889/series_002_2_CR/A250436130 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 52.31088304372892,
+        "lesser_trochanter": 6.149818822149045,
+        "head_center": 13.123834592005215,
+        "neck_isthmus_center": 4.453372867651999
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 31.413405171740447,
+        "lesser_trochanter": 4.337287651233646,
+        "head_center": 7.878627308200656,
+        "neck_isthmus_center": 2.683903891611896
+      },
+      "neck_axis_drift_deg": 45.49407293363878,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07071507091013150605060411110414",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.151186844055172005615813066162721550889/series_002_2_CR/A250436130 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 2.6169170906913446,
+        "lesser_trochanter": 6.482002877467883,
+        "head_center": 3.262492701764837,
+        "neck_isthmus_center": 1.8173607381822545
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.81234829554322,
+        "lesser_trochanter": 4.987369269307632,
+        "head_center": 2.001050855522542,
+        "neck_isthmus_center": 1.1153865883945449
+      },
+      "neck_axis_drift_deg": 10.278581255242536,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09091502110711081102050610090100",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156021661584944120526934974594604520993/series_003_2_CR/A2507142228 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.5276585169911527,
+        "lesser_trochanter": 11.06674646824257,
+        "head_center": 0.6501927043943283,
+        "neck_isthmus_center": 1.595018738874785
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.3165951101946916,
+        "lesser_trochanter": 6.640047880945542,
+        "head_center": 0.390115622636597,
+        "neck_isthmus_center": 0.957011243324871
+      },
+      "neck_axis_drift_deg": 53.68530175285071,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12020806150405080200131300151004",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156021661584944120526934974594604520993/series_003_2_CR/A2507142228 DXA/CR DXA/CR000003.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.935022052455471,
+        "lesser_trochanter": 16.781467770720912,
+        "head_center": 0.918943453833289,
+        "neck_isthmus_center": 2.467911451512393
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.6659363177896169,
+        "lesser_trochanter": 10.070575921390711,
+        "head_center": 0.5672770559042486,
+        "neck_isthmus_center": 1.4808670121062055
+      },
+      "neck_axis_drift_deg": 17.60772661113255,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04001402031200081204010009090110",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156375884487675936513403083218009333856/series_003_2_CR/A250727121 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.5276585169911527,
+        "lesser_trochanter": 11.06674646824257,
+        "head_center": 0.6501927043943283,
+        "neck_isthmus_center": 1.595018738874785
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.3165951101946916,
+        "lesser_trochanter": 6.640047880945542,
+        "head_center": 0.390115622636597,
+        "neck_isthmus_center": 0.957011243324871
+      },
+      "neck_axis_drift_deg": 33.781052133247954,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00010208150107110206110212130810",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156375884487675936513403083218009333856/series_003_2_CR/A250727121 DXA/CR DXA/CR000004.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 6.59823064737829,
+        "lesser_trochanter": 4.143600133314003,
+        "head_center": 2.71055381940486,
+        "neck_isthmus_center": 2.5674203692568387
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 4.30330606613736,
+        "lesser_trochanter": 4.177445542669667,
+        "head_center": 1.6310083409018257,
+        "neck_isthmus_center": 1.5544165201657185
+      },
+      "neck_axis_drift_deg": 0.6586676254967907,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12101514000107101207120412120213",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156389075510671877606923458507011517218/series_001_2_CR/A2507389755 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 13.57891696994409,
+        "lesser_trochanter": 17.879500230715227,
+        "head_center": 4.959174706152374,
+        "neck_isthmus_center": 3.124866273912494
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 8.232258950154439,
+        "lesser_trochanter": 10.728054221145769,
+        "head_center": 2.994183916692643,
+        "neck_isthmus_center": 2.175450242740621
+      },
+      "neck_axis_drift_deg": 6.933743080913152,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05051100060005040907000403081502",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156389075510671877606923458507011517218/series_001_2_CR/A2507389755 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 30.711000670415157,
+        "lesser_trochanter": 12.891998521066858,
+        "head_center": 10.675020076945476,
+        "neck_isthmus_center": 2.566404147854668
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 18.459385136839433,
+        "lesser_trochanter": 8.046131537400086,
+        "head_center": 6.411672547795324,
+        "neck_isthmus_center": 1.562580051845184
+      },
+      "neck_axis_drift_deg": 55.597960889945355,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14100604010411121207140303140506",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.157462338378550185821790046400986801350/series_001_2_CR/A2507498707 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 4.755765550353967,
+        "lesser_trochanter": 2.6887865150260084,
+        "head_center": 0.5057643394128095,
+        "neck_isthmus_center": 1.5376211551330459
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 3.0013463522870096,
+        "lesser_trochanter": 2.279376826587757,
+        "head_center": 0.33143937814239505,
+        "neck_isthmus_center": 0.9357913423528776
+      },
+      "neck_axis_drift_deg": 16.202524143120833,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01041213150709070704090905040703",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.157462338378550185821790046400986801350/series_001_2_CR/A2507498707 DXA/CR DXA/CR000003.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.6200671867928766,
+        "lesser_trochanter": 34.25175815288097,
+        "head_center": 1.8827182337655832,
+        "neck_isthmus_center": 5.029781215704631
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.0402762603229878,
+        "lesser_trochanter": 20.55478682668043,
+        "head_center": 1.1304870577819857,
+        "neck_isthmus_center": 3.0201131879420915
+      },
+      "neck_axis_drift_deg": 48.5325085709813,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03110108081008000413081502071511",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.158646777318759504110695916200521633609/series_003_6_CR/A2507266260 DXA/CR DXA/CR000003.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 20.886017311973323,
+        "lesser_trochanter": 4.932900917678061,
+        "head_center": 5.570464816199338,
+        "neck_isthmus_center": 2.199259755780641
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 12.552054541290001,
+        "lesser_trochanter": 3.3844829828626266,
+        "head_center": 3.350852677737568,
+        "neck_isthmus_center": 1.3215271808575837
+      },
+      "neck_axis_drift_deg": 29.52085284541415,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05080909100510090906081209130901",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.164566280810634620154538016595892212884/series_001_2_CR/A2504291878 DXA Exam/CR DXA Images/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.959159774659799,
+        "lesser_trochanter": 15.39343062523303,
+        "head_center": 19.60267909302649,
+        "neck_isthmus_center": 8.170355992941856
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.4959299056030062,
+        "lesser_trochanter": 9.350178363805089,
+        "head_center": 11.765464891981019,
+        "neck_isthmus_center": 4.9226391871247
+      },
+      "neck_axis_drift_deg": 31.637110657251583,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00071210060602011311010906021407",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.164566280810634620154538016595892212884/series_001_2_CR/A2504291878 DXA Exam/CR DXA Images/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 3.5409135536053586,
+        "lesser_trochanter": 67.97455460822232,
+        "head_center": 1.979806098223962,
+        "neck_isthmus_center": 9.98772668846319
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 2.2276950062927523,
+        "lesser_trochanter": 40.78966519466755,
+        "head_center": 1.1928389024080206,
+        "neck_isthmus_center": 5.995596039503912
+      },
+      "neck_axis_drift_deg": 57.63968226241519,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14100208080000030010140812001111",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.165091430504580219034019815337441064349/series_001_2_CR/A2504415443 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 6.434128971380603,
+        "lesser_trochanter": 12.999152386398626,
+        "head_center": 0.2345411777119348,
+        "neck_isthmus_center": 0.9986661432069985
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 3.8799797897806956,
+        "lesser_trochanter": 7.829876281220038,
+        "head_center": 0.23183617287599964,
+        "neck_isthmus_center": 0.6371657532231846
+      },
+      "neck_axis_drift_deg": 18.546804306133446,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12140710150813060013011403140807",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.165091430504580219034019815337441064349/series_001_2_CR/A2504415443 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 4.680585157074325,
+        "lesser_trochanter": 4.120217879468437,
+        "head_center": 0.7779758994422241,
+        "neck_isthmus_center": 1.1007276434831919
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 3.1090866649753996,
+        "lesser_trochanter": 3.3504416889145867,
+        "head_center": 0.5008757853248084,
+        "neck_isthmus_center": 0.6670826069261417
+      },
+      "neck_axis_drift_deg": 14.236226447751521,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03030806061309020808141008071213",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.165355673991587715046346525964554729786/series_003_3_CR/A2506448267 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 2.933293133671773,
+        "lesser_trochanter": 27.61504647307581,
+        "head_center": 2.8515019703803506,
+        "neck_isthmus_center": 3.589118616942333
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.7603740974687467,
+        "lesser_trochanter": 16.57082233116286,
+        "head_center": 1.7150574723255625,
+        "neck_isthmus_center": 2.1553295994471084
+      },
+      "neck_axis_drift_deg": 46.780934416118676,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05050004021105041108010100020012",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.167344201679287285499405412654740659745/series_003_2_CR/A2504249537 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.6138836698364042,
+        "lesser_trochanter": 16.932862113934,
+        "head_center": 0.9877775847198119,
+        "neck_isthmus_center": 2.4341084509425595
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.38839961446835286,
+        "lesser_trochanter": 10.166927270599835,
+        "head_center": 0.6011741522188647,
+        "neck_isthmus_center": 1.4670692686456044
+      },
+      "neck_axis_drift_deg": 30.624379650092436,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03020203090713120707041512070302",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.167344201679287285499405412654740659745/series_003_2_CR/A2504249537 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 2.7736709279196807,
+        "lesser_trochanter": 24.467243575627098,
+        "head_center": 4.676647637665203,
+        "neck_isthmus_center": 2.5088349438877344
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.677706770821427,
+        "lesser_trochanter": 14.682997452525658,
+        "head_center": 2.80666012574581,
+        "neck_isthmus_center": 1.5099662478264322
+      },
+      "neck_axis_drift_deg": 28.153468146326563,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15000110101510080415120006131402",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.16773626720107440979805052259711419763/series_004_2_CR/A2507537392 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 14.678523073133862,
+        "lesser_trochanter": 15.049179247403815,
+        "head_center": 5.567574197133653,
+        "neck_isthmus_center": 2.693944260532412
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 8.832584174420303,
+        "lesser_trochanter": 9.126815028393773,
+        "head_center": 3.344632176641232,
+        "neck_isthmus_center": 1.6234298856185645
+      },
+      "neck_axis_drift_deg": 44.333057411558876,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13040605040810031203041510031012",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.16773626720107440979805052259711419763/series_004_2_CR/A2507537392 DXA/CR DXA/CR000004.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.5934692195032667,
+        "lesser_trochanter": 49.305486065725255,
+        "head_center": 0.29461027964884345,
+        "neck_isthmus_center": 7.887288202340591
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.232982956604506,
+        "lesser_trochanter": 29.618046983371162,
+        "head_center": 0.19119185554305854,
+        "neck_isthmus_center": 4.744326992150769
+      },
+      "neck_axis_drift_deg": 31.444213621893358,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10050700041001040614050614130103",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.168317503020329569414190677927680518621/series_004_2_CR/A2507557128 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 23.508207221507103,
+        "lesser_trochanter": 3.903442291847312,
+        "head_center": 4.106045574682107,
+        "neck_isthmus_center": 1.9877648137659385
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 14.178154332693056,
+        "lesser_trochanter": 3.699289747646389,
+        "head_center": 2.47115708045429,
+        "neck_isthmus_center": 1.198070052929233
+      },
+      "neck_axis_drift_deg": 21.4304756264583,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03110002011112060400010906040109",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.168317503020329569414190677927680518621/series_004_2_CR/A2507557128 DXA/CR DXA/CR000004.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.7248901541387809,
+        "lesser_trochanter": 23.081762721972144,
+        "head_center": 1.0392108845438643,
+        "neck_isthmus_center": 3.4151042063620483
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.5396890433916549,
+        "lesser_trochanter": 13.86176995475822,
+        "head_center": 0.628636018520999,
+        "neck_isthmus_center": 2.059352483002877
+      },
+      "neck_axis_drift_deg": 37.38258674389889,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05030907080814020708000711150507",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.172445998420765569384934552191547932566/series_004_2_CR/A2507368766 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 5.776009369647098,
+        "lesser_trochanter": 6.861337990096761,
+        "head_center": 2.4426817371209673,
+        "neck_isthmus_center": 3.5180745000829736
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 3.557192489790945,
+        "lesser_trochanter": 4.54720076950946,
+        "head_center": 1.4864390131477998,
+        "neck_isthmus_center": 2.1256206345101942
+      },
+      "neck_axis_drift_deg": 8.656302193715915,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15151313120000020410110702050700",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.172445998420765569384934552191547932566/series_004_2_CR/A2507368766 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.09872018427078953,
+        "lesser_trochanter": 41.03864850716733,
+        "head_center": 1.2729688327541255,
+        "neck_isthmus_center": 6.208867336368776
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.08897413674951683,
+        "lesser_trochanter": 24.62318953267357,
+        "head_center": 0.7639285631594516,
+        "neck_isthmus_center": 3.725325925488143
+      },
+      "neck_axis_drift_deg": 36.02773056683657,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10100404000008120405081411021306",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 2.22815352515748,
+        "lesser_trochanter": 9.160137990518686,
+        "head_center": 7.5334064871088335,
+        "neck_isthmus_center": 2.54715706981693
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.6101032350541595,
+        "lesser_trochanter": 5.646789167642093,
+        "head_center": 4.52115407806449,
+        "neck_isthmus_center": 1.5394056112550667
+      },
+      "neck_axis_drift_deg": 68.72592935447383,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04111300031205120703050100121209",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000003.dcm",
+      "status": "unavailable",
+      "reason": "Nonempty femur silhouette required"
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06070803110509120507010310141201",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.175881661753775295785039265792986971602/series_003_2_CR/A2507266462 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.3590870783630031,
+        "lesser_trochanter": 26.97942834531262,
+        "head_center": 2.8339516752428633,
+        "neck_isthmus_center": 3.3354412173960344
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.9082443217124291,
+        "lesser_trochanter": 16.19450031832789,
+        "head_center": 1.7008266643866954,
+        "neck_isthmus_center": 2.0085464365928223
+      },
+      "neck_axis_drift_deg": 44.29214838311738,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10000603030913050503020611051415",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.175881661753775295785039265792986971602/series_003_2_CR/A2507266462 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 31.853946929392077,
+        "lesser_trochanter": 2.648300520471044,
+        "head_center": 2.01222706277396,
+        "neck_isthmus_center": 4.353320167696789
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 19.11511323220617,
+        "lesser_trochanter": 1.6030166824617496,
+        "head_center": 1.2079280006713946,
+        "neck_isthmus_center": 2.6261787061041377
+      },
+      "neck_axis_drift_deg": 23.612234038473705,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13151105000600070510031109011109",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.175903805423871105435148927871625232853/series_001_2_CR/A2507159447 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.1950096814713729,
+        "lesser_trochanter": 8.932548650830121,
+        "head_center": 1.081138410296438,
+        "neck_isthmus_center": 2.1424663813169453
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.2476988546294758,
+        "lesser_trochanter": 5.753687607698355,
+        "head_center": 0.6492540936680314,
+        "neck_isthmus_center": 1.289773835270094
+      },
+      "neck_axis_drift_deg": 6.076777923193514,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15100208060002090813060606131404",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.175903805423871105435148927871625232853/series_001_2_CR/A2507159447 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 22.9824199679297,
+        "lesser_trochanter": 5.684631091927552,
+        "head_center": 0.6860763128353782,
+        "neck_isthmus_center": 3.9264232098532554
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 13.916013885374097,
+        "lesser_trochanter": 4.892490967125236,
+        "head_center": 0.500834787172031,
+        "neck_isthmus_center": 2.377929053268398
+      },
+      "neck_axis_drift_deg": 16.389894213286112,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11051514070611150905020505061111",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.17706555930735581384953296958427669848/series_004_3_CR/A2504146513 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 23.988260920142945,
+        "lesser_trochanter": 1.3625667409535287,
+        "head_center": 6.479458081981658,
+        "neck_isthmus_center": 1.3757112822410182
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 14.393731960445859,
+        "lesser_trochanter": 0.8939273087276263,
+        "head_center": 3.8876882290040813,
+        "neck_isthmus_center": 0.8305188513392311
+      },
+      "neck_axis_drift_deg": 64.19829487436697,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04150214121314031409051312111410",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.177745077805190810016231350557005569203/series_002_2_CR/A2504273759 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 14.487779972495469,
+        "lesser_trochanter": 12.867504797858835,
+        "head_center": 4.512076778828368,
+        "neck_isthmus_center": 2.919184641583499
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 8.808268932514608,
+        "lesser_trochanter": 8.090681588827739,
+        "head_center": 2.712272358097538,
+        "neck_isthmus_center": 1.7516057543664885
+      },
+      "neck_axis_drift_deg": 36.85740636042231,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06130700140211110505051411010711",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.177745077805190810016231350557005569203/series_002_2_CR/A2504273759 DXA/CR DXA/CR000004.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 3.148942302848416,
+        "lesser_trochanter": 27.666214247377876,
+        "head_center": 2.9716054087802473,
+        "neck_isthmus_center": 3.5912077275676304
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.913666908711149,
+        "lesser_trochanter": 16.61416596119658,
+        "head_center": 1.793903825249454,
+        "neck_isthmus_center": 2.17010007052138
+      },
+      "neck_axis_drift_deg": 40.250858792077324,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14150808010700150501131415040808",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.181196659018348153828200695057897449628/series_004_2_CR/A2507370620 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 32.271220125990034,
+        "lesser_trochanter": 9.597201703391312,
+        "head_center": 11.021268698006345,
+        "neck_isthmus_center": 1.9925923180766192
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 19.366790387476147,
+        "lesser_trochanter": 5.92239631899392,
+        "head_center": 6.6339062168425,
+        "neck_isthmus_center": 1.2539209144485735
+      },
+      "neck_axis_drift_deg": 34.27374300440246,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07040306041313130904140702020908",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.181196659018348153828200695057897449628/series_004_2_CR/A2507370620 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.5935110439185433,
+        "lesser_trochanter": 16.85704849740006,
+        "head_center": 1.1040313112161624,
+        "neck_isthmus_center": 2.3906071634508024
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.4511310684765999,
+        "lesser_trochanter": 10.130891523100923,
+        "head_center": 0.6685184378156512,
+        "neck_isthmus_center": 1.4479293180833408
+      },
+      "neck_axis_drift_deg": 39.18590855514016,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11141409010404080202090702050104",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.184198356665635336833172191504278054074/series_004_2_CR/A250788286 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 5.751433400079846,
+        "lesser_trochanter": 5.626056811581832,
+        "head_center": 0.5731179915679995,
+        "neck_isthmus_center": 1.3225519085988675
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 4.063259644094219,
+        "lesser_trochanter": 5.259305334653294,
+        "head_center": 0.5209354294181688,
+        "neck_isthmus_center": 0.8420345491249616
+      },
+      "neck_axis_drift_deg": 8.671589759816795,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02150805140008141106110606070801",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.184198356665635336833172191504278054074/series_004_2_CR/A250788286 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.947399171577317,
+        "lesser_trochanter": 3.2683361882266557,
+        "head_center": 5.949756669814068,
+        "neck_isthmus_center": 2.722869184616605
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.5941050282961455,
+        "lesser_trochanter": 1.9846178682718856,
+        "head_center": 3.5829639390808503,
+        "neck_isthmus_center": 1.6674016441603126
+      },
+      "neck_axis_drift_deg": 19.730050093091577,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01110601131107041511021510061211",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.186201010600484120326273381077449377115/series_004_2_CR/A250777475 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 23.61700137156706,
+        "lesser_trochanter": 3.631556232889856,
+        "head_center": 4.742733681475698,
+        "neck_isthmus_center": 2.3353322653513833
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 14.248471404053385,
+        "lesser_trochanter": 3.6288403155815474,
+        "head_center": 2.8464607791294547,
+        "neck_isthmus_center": 1.4019370961091713
+      },
+      "neck_axis_drift_deg": 26.435601634323874,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00091315091215060415120908060402",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.186201010600484120326273381077449377115/series_004_2_CR/A250777475 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.5870477575905408,
+        "lesser_trochanter": 11.05436571169452,
+        "head_center": 0.6551003231204737,
+        "neck_isthmus_center": 1.6005332887558448
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.4220471945323104,
+        "lesser_trochanter": 6.641043303405916,
+        "head_center": 0.393208932294294,
+        "neck_isthmus_center": 0.9661822135148088
+      },
+      "neck_axis_drift_deg": 22.198183916928233,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11050911061500091304001000100608",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.42048621108864576,
+        "lesser_trochanter": 16.844735288480994,
+        "head_center": 1.0104689871337127,
+        "neck_isthmus_center": 2.3923104383790035
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.2523091457942453,
+        "lesser_trochanter": 10.10745145780259,
+        "head_center": 0.6076464343323352,
+        "neck_isthmus_center": 1.4358928728341807
+      },
+      "neck_axis_drift_deg": 58.02866918346762,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03000010070307110614031003090302",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000004.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.2362652417459259,
+        "lesser_trochanter": 5.1168725025041795,
+        "head_center": 0.29515196921433073,
+        "neck_isthmus_center": 0.7386511496588497
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.14175914504755552,
+        "lesser_trochanter": 3.0701235015025077,
+        "head_center": 0.17709118152859843,
+        "neck_isthmus_center": 0.4431906897953098
+      },
+      "neck_axis_drift_deg": 19.826310992886807,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10101410111513000809081215030802",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.190807933410234695931591553323782771995/series_002_3_CR/A250762254 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.7144907148612734,
+        "lesser_trochanter": 16.69652269140032,
+        "head_center": 0.8697801805948231,
+        "neck_isthmus_center": 2.808740043784867
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.5641288029200486,
+        "lesser_trochanter": 10.389157952364416,
+        "head_center": 0.8802780350507087,
+        "neck_isthmus_center": 2.0611172722123414
+      },
+      "neck_axis_drift_deg": 2.7980610668384562,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02120211101306000510080011031411",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.215177279960644564778148238928738915103/series_002_2_CR/A2504147013 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.6575998113368217,
+        "lesser_trochanter": 1.6300348365290407,
+        "head_center": 1.441982394467364,
+        "neck_isthmus_center": 0.8847781129307816
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.6894488190539063,
+        "lesser_trochanter": 1.5090785660788988,
+        "head_center": 0.8660566591922857,
+        "neck_isthmus_center": 0.5325905237651928
+      },
+      "neck_axis_drift_deg": 10.215157760343137,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00070615051510041500030210150312",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.215177279960644564778148238928738915103/series_002_2_CR/A2504147013 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.5946683420471234,
+        "lesser_trochanter": 16.91656848122674,
+        "head_center": 0.992393244177378,
+        "neck_isthmus_center": 2.427500882060399
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.36842206881268635,
+        "lesser_trochanter": 10.154540306196427,
+        "head_center": 0.6010910304405417,
+        "neck_isthmus_center": 1.4606942640841163
+      },
+      "neck_axis_drift_deg": 35.7181665796146,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02091115080411030312040600000701",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.217397325224876728316360420804118329081/series_002_2_CR/A250474631 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 28.24872322518391,
+        "lesser_trochanter": 3.1570546726715345,
+        "head_center": 9.099309991376119,
+        "neck_isthmus_center": 1.0078316007379438
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 16.949820552359114,
+        "lesser_trochanter": 1.9479023056691522,
+        "head_center": 5.460016457300288,
+        "neck_isthmus_center": 0.6076906201158245
+      },
+      "neck_axis_drift_deg": 77.72761852084538,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10000400041408060608031009090710",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.217397325224876728316360420804118329081/series_002_2_CR/A250474631 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 17.871499533287533,
+        "lesser_trochanter": 15.824315762478449,
+        "head_center": 0.8778547942659998,
+        "neck_isthmus_center": 0.14008287019760246
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 10.722899719972519,
+        "lesser_trochanter": 9.494589457487068,
+        "head_center": 0.5267128765595999,
+        "neck_isthmus_center": 0.08404972211856147
+      },
+      "neck_axis_drift_deg": 27.915055351695,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09140613011500120102030800080807",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.234651502352368356456298825489565282446/series_002_2_CR/A2504307193 DXA/CR DXA/CR000003.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.6078699006934274,
+        "lesser_trochanter": 16.689871404198506,
+        "head_center": 1.1198197493591646,
+        "neck_isthmus_center": 2.356491460725601
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.5484347036658399,
+        "lesser_trochanter": 10.048701134943167,
+        "head_center": 0.6846616687088991,
+        "neck_isthmus_center": 1.443830157879314
+      },
+      "neck_axis_drift_deg": 26.044993923013614,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06051510010614000404080600020603",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.247714038039430659432048101646401574824/series_002_2_CR/A2504238024 DXA Exam/CR DXA Images/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 2.0651370012382038,
+        "lesser_trochanter": 34.33706226128027,
+        "head_center": 2.324483940310054,
+        "neck_isthmus_center": 4.890299798323404
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.6414667387725306,
+        "lesser_trochanter": 20.654154008221813,
+        "head_center": 1.3972353954226964,
+        "neck_isthmus_center": 2.9736493249710994
+      },
+      "neck_axis_drift_deg": 21.494491969573197,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13110800060502010303101404091303",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.247714038039430659432048101646401574824/series_002_2_CR/A2504238024 DXA Exam/CR DXA Images/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 15.618714032079078,
+        "lesser_trochanter": 19.908854164101292,
+        "head_center": 11.874755488898446,
+        "neck_isthmus_center": 5.165599908379583
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 9.390355072315707,
+        "lesser_trochanter": 11.951058678068028,
+        "head_center": 7.126111406558988,
+        "neck_isthmus_center": 3.109382949613997
+      },
+      "neck_axis_drift_deg": 25.651148009836852,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12031014110715041000030602140501",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.269648774413746842548908998641183395622/series_001_2_CR/A2504393664 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 15.429415796783424,
+        "lesser_trochanter": 1.314171953833567,
+        "head_center": 4.274165925579822,
+        "neck_isthmus_center": 1.0440534250113633
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 9.259733755663241,
+        "lesser_trochanter": 1.0406031431649059,
+        "head_center": 2.5645649926767318,
+        "neck_isthmus_center": 0.7345618334598353
+      },
+      "neck_axis_drift_deg": 25.734985156740173,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12130902030702050210110604020115",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.269648774413746842548908998641183395622/series_001_2_CR/A2504393664 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 12.30506278332881,
+        "lesser_trochanter": 3.540349857344198,
+        "head_center": 2.7343274446428696,
+        "neck_isthmus_center": 1.0265626309397482
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 7.543116292181058,
+        "lesser_trochanter": 3.601580519027462,
+        "head_center": 1.646781628924814,
+        "neck_isthmus_center": 0.6453504135098016
+      },
+      "neck_axis_drift_deg": 23.861469612980528,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15091411140404110408151008030010",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.272690031744216183651627058502316132741/series_002_2_CR/A2504373414 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.2362652417459401,
+        "lesser_trochanter": 5.1168725025041795,
+        "head_center": 0.2951519692143165,
+        "neck_isthmus_center": 0.7386511496588355
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.14175914504756407,
+        "lesser_trochanter": 3.0701235015025077,
+        "head_center": 0.1770911815285899,
+        "neck_isthmus_center": 0.4431906897953013
+      },
+      "neck_axis_drift_deg": 21.119235196055488,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01080011050715071510151108031409",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.276415754443998872860614500027519740375/series_002_2_CR/A2504387089 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 19.266116152086752,
+        "lesser_trochanter": 6.369420471262955,
+        "head_center": 8.497063583093572,
+        "neck_isthmus_center": 0.6521963035570544
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 11.574048843822053,
+        "lesser_trochanter": 4.59217198019349,
+        "head_center": 5.099533468600308,
+        "neck_isthmus_center": 0.39204781723451587
+      },
+      "neck_axis_drift_deg": 39.790067132011934,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12100615051100140712150704150801",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.276415754443998872860614500027519740375/series_002_2_CR/A2504387089 DXA/CR DXA/CR000003.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 23.985476185981312,
+        "lesser_trochanter": 6.105820013716507,
+        "head_center": 5.664556674521089,
+        "neck_isthmus_center": 1.7290247200011326
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 14.604056538033756,
+        "lesser_trochanter": 6.407681019793417,
+        "head_center": 3.456736889083811,
+        "neck_isthmus_center": 1.1610956157821244
+      },
+      "neck_axis_drift_deg": 26.105952328724783,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11140100091110050501140207060912",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.277752758923974029595977676354128739670/series_002_2_CR/A2504223752 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 4.690412179802276,
+        "lesser_trochanter": 4.278970938817278,
+        "head_center": 1.6704580095860069,
+        "neck_isthmus_center": 0.812108118923585
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 2.8710088039763466,
+        "lesser_trochanter": 2.7434473010904883,
+        "head_center": 1.0057834015392204,
+        "neck_isthmus_center": 0.49669655607311314
+      },
+      "neck_axis_drift_deg": 22.640660876424025,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05010011080903070300131415001403",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.277752758923974029595977676354128739670/series_002_2_CR/A2504223752 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.6401859884889114,
+        "lesser_trochanter": 16.867455196948256,
+        "head_center": 1.1440935231470901,
+        "neck_isthmus_center": 2.3720961662945697
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.5637984847583778,
+        "lesser_trochanter": 10.148431667401123,
+        "head_center": 0.6933085803135821,
+        "neck_isthmus_center": 1.4462291394239377
+      },
+      "neck_axis_drift_deg": 40.877081865481365,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11091010090201121300090614051311",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.286999464611662854355201599068538813496/series_003_2_CR/A2504223477 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 2.425617402191486,
+        "lesser_trochanter": 8.406118911479721,
+        "head_center": 1.0751236962820099,
+        "neck_isthmus_center": 1.4036317704336656
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.503935702604169,
+        "lesser_trochanter": 5.056094178039526,
+        "head_center": 0.6474423860635373,
+        "neck_isthmus_center": 0.8457642316355937
+      },
+      "neck_axis_drift_deg": 3.6286929236660623,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15080906090913051107110915140103",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.286999464611662854355201599068538813496/series_003_2_CR/A2504223477 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 9.155916393889987,
+        "lesser_trochanter": 18.37562560640139,
+        "head_center": 1.727143940101777,
+        "neck_isthmus_center": 2.168334220023554
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 5.493822618233266,
+        "lesser_trochanter": 11.030662668774404,
+        "head_center": 1.07010972523233,
+        "neck_isthmus_center": 1.308431763754511
+      },
+      "neck_axis_drift_deg": 2.274052531603373,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09040806151211060704090912150608",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.29638026465755240167985424461715024381/series_004_3_CR/A2504115579 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 3.466886258515734,
+        "lesser_trochanter": 25.489302881197755,
+        "head_center": 2.678499644780587,
+        "neck_isthmus_center": 3.3804787415589392
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 2.1113118391727244,
+        "lesser_trochanter": 15.30192391855316,
+        "head_center": 1.6128478228634113,
+        "neck_isthmus_center": 2.040904161690751
+      },
+      "neck_axis_drift_deg": 38.203252935582604,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12090901030412121214030908040015",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.29638026465755240167985424461715024381/series_004_3_CR/A2504115579 DXA/CR DXA/CR000003.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 15.219668202172516,
+        "lesser_trochanter": 13.672207274919339,
+        "head_center": 4.330330638573421,
+        "neck_isthmus_center": 3.047995552186546
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 9.203611978467594,
+        "lesser_trochanter": 8.466325771781943,
+        "head_center": 2.6053139131113294,
+        "neck_isthmus_center": 1.8290420527959492
+      },
+      "neck_axis_drift_deg": 38.860421030500895,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12090115120005000603040515131409",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.307021710202910067378603383388989711646/series_004_2_CR/A2504110565 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 17.551282998796946,
+        "lesser_trochanter": 1.6401076080307104,
+        "head_center": 2.6309662092843302,
+        "neck_isthmus_center": 1.8656378739105957
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 10.548810912079578,
+        "lesser_trochanter": 1.6745922798084474,
+        "head_center": 1.5871532654970744,
+        "neck_isthmus_center": 1.1307750901771703
+      },
+      "neck_axis_drift_deg": 37.218353258676686,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09020610121102091006070609000414",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.307021710202910067378603383388989711646/series_004_2_CR/A2504110565 DXA/CR DXA/CR000004.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.9685447437535666,
+        "lesser_trochanter": 5.403982578264219,
+        "head_center": 7.871138860500449,
+        "neck_isthmus_center": 3.371774160409032
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.5703492651666158,
+        "lesser_trochanter": 3.2424089515818912,
+        "head_center": 4.723491925657419,
+        "neck_isthmus_center": 2.053458399620826
+      },
+      "neck_axis_drift_deg": 15.669500689285062,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07070904150315000704031208001011",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.309085571913348252136520206003694446566/series_002_2_CR/A2504116267 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 8.788003346842725,
+        "lesser_trochanter": 8.63183867053972,
+        "head_center": 0.661159134153643,
+        "neck_isthmus_center": 0.5082620881225998
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 5.840363933438051,
+        "lesser_trochanter": 8.309040737288585,
+        "head_center": 0.5845577658148714,
+        "neck_isthmus_center": 0.4974746477265533
+      },
+      "neck_axis_drift_deg": 1.3948989127042977,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09030700121011131209150303151015",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.309085571913348252136520206003694446566/series_002_2_CR/A2504116267 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.6753386998924416,
+        "lesser_trochanter": 27.20834192567175,
+        "head_center": 2.7067894405806814,
+        "neck_isthmus_center": 3.4257062494233055
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.070146846483025,
+        "lesser_trochanter": 16.32827241597137,
+        "head_center": 1.6264305587815713,
+        "neck_isthmus_center": 2.0589503691265163
+      },
+      "neck_axis_drift_deg": 31.700580674196424,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02000306061002040514101500000812",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.314147167453134440746270747484612743945/series_002_2_CR/A2504224780 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.2683168656424206,
+        "lesser_trochanter": 35.414823849915294,
+        "head_center": 1.2656563909935157,
+        "neck_isthmus_center": 5.406162845970377
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.0969522913519212,
+        "lesser_trochanter": 21.279018970821014,
+        "head_center": 0.7624120528558123,
+        "neck_isthmus_center": 3.265110691553298
+      },
+      "neck_axis_drift_deg": 24.835603996556646,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01130904120915050401031210031001",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.314147167453134440746270747484612743945/series_002_2_CR/A2504224780 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.6954216023053875,
+        "lesser_trochanter": 16.90140804100643,
+        "head_center": 1.110019240454892,
+        "neck_isthmus_center": 2.396128191909694
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.5859597567844873,
+        "lesser_trochanter": 10.170738198059015,
+        "head_center": 0.6752655590153316,
+        "neck_isthmus_center": 1.4625882507098564
+      },
+      "neck_axis_drift_deg": 36.55271839156412,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05111003151314100612100700031506",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 15.074892019964448,
+        "lesser_trochanter": 13.052841392239928,
+        "head_center": 4.5697060630131645,
+        "neck_isthmus_center": 2.9436139889559576
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 9.161118072038136,
+        "lesser_trochanter": 8.294422414935804,
+        "head_center": 2.7550893813117776,
+        "neck_isthmus_center": 1.767193192432394
+      },
+      "neck_axis_drift_deg": 33.99818491485199,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11010912010413080807030107050600",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 4.190967956968469,
+        "lesser_trochanter": 16.30981336826793,
+        "head_center": 13.424229051061753,
+        "neck_isthmus_center": 4.761678871456571
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 2.994798917591091,
+        "lesser_trochanter": 9.91103894113073,
+        "head_center": 8.055509315996364,
+        "neck_isthmus_center": 2.876662682928411
+      },
+      "neck_axis_drift_deg": 43.7735859912071,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14120712151005010200040708001308",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.340839477910528898406207279980417945/series_001_2_CR/A2504224555 DXA Exam/CR DXA Images/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 25.792428266870065,
+        "lesser_trochanter": 47.875466977388484,
+        "head_center": 4.6175430192068445,
+        "neck_isthmus_center": 6.565820993724945
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 15.545704056051271,
+        "lesser_trochanter": 29.00857366921337,
+        "head_center": 3.0121435112578445,
+        "neck_isthmus_center": 4.060547408180578
+      },
+      "neck_axis_drift_deg": 3.52137840136628,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05030701101012140702110704000714",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.340839477910528898406207279980417945/series_001_2_CR/A2504224555 DXA Exam/CR DXA Images/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.5163652367461972,
+        "lesser_trochanter": 16.81842344844123,
+        "head_center": 1.1209877383018825,
+        "neck_isthmus_center": 2.3631158126038856
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.42403873286294846,
+        "lesser_trochanter": 10.108919251051233,
+        "head_center": 0.6792787806852408,
+        "neck_isthmus_center": 1.4325592226461579
+      },
+      "neck_axis_drift_deg": 40.46366332474166,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12090208061115110101131315120813",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.37515662379281069436632838996073181551/series_001_2_CR/A2504329840 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 3.350449578666798,
+        "lesser_trochanter": 27.590313236026997,
+        "head_center": 2.7292668430742406,
+        "neck_isthmus_center": 3.7344621475329363
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 2.0110459612033593,
+        "lesser_trochanter": 16.554188909201045,
+        "head_center": 1.6417512572252233,
+        "neck_isthmus_center": 2.24094956787218
+      },
+      "neck_axis_drift_deg": 46.497120651834344,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08110803070615141513021414111001",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.37515662379281069436632838996073181551/series_001_2_CR/A2504329840 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 4.352917007015312,
+        "lesser_trochanter": 3.8214324082958337,
+        "head_center": 1.4242581159664258,
+        "neck_isthmus_center": 0.8724341284767643
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 2.651286442720159,
+        "lesser_trochanter": 2.4111195386258535,
+        "head_center": 0.8564140683292281,
+        "neck_isthmus_center": 0.5238835222495967
+      },
+      "neck_axis_drift_deg": 34.01167407037253,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07150610130411050211021514011106",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.39068163399801173920284179500049527111/series_002_2_CR/A2504195842 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.3761663607560217,
+        "lesser_trochanter": 26.9947402635678,
+        "head_center": 2.771186567847138,
+        "neck_isthmus_center": 3.40097559329742
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 1.0088470093585293,
+        "lesser_trochanter": 16.209708239888588,
+        "head_center": 1.6636249210347882,
+        "neck_isthmus_center": 2.05416165696711
+      },
+      "neck_axis_drift_deg": 44.53811787630159,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06080100090802110008000311010501",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.48906424954135283790354958243772558962/series_001_2_CR/A2504185596 DXA Exam/CR DXA Images/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.2362652417459259,
+        "lesser_trochanter": 5.1168725025041795,
+        "head_center": 0.29515196921433073,
+        "neck_isthmus_center": 0.7386511496588497
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.14175914504755552,
+        "lesser_trochanter": 3.0701235015025077,
+        "head_center": 0.17709118152859843,
+        "neck_isthmus_center": 0.4431906897953098
+      },
+      "neck_axis_drift_deg": 12.763936615758043,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03010404051000131408111209140108",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.48906424954135283790354958243772558962/series_001_2_CR/A2504185596 DXA Exam/CR DXA Images/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 5.592234038089311,
+        "lesser_trochanter": 36.304706143444385,
+        "head_center": 5.115445143235694,
+        "neck_isthmus_center": 4.521699511431566
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 3.357101796307286,
+        "lesser_trochanter": 21.784372980298343,
+        "head_center": 3.0706424139271093,
+        "neck_isthmus_center": 2.7168916150869715
+      },
+      "neck_axis_drift_deg": 46.40773474882226,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07081506021006111207090213090701",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.52982400970721161435951723390541696819/series_001_2_CR/A2504331065 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 6.014243534018503,
+        "lesser_trochanter": 11.49706323705132,
+        "head_center": 0.3345225598890798,
+        "neck_isthmus_center": 0.9938287214306651
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 3.6582878314423932,
+        "lesser_trochanter": 6.990742438977621,
+        "head_center": 0.3507836176806131,
+        "neck_isthmus_center": 0.6768588196753477
+      },
+      "neck_axis_drift_deg": 9.758893663624196,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06001210040802120801060507001509",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.52982400970721161435951723390541696819/series_001_2_CR/A2504331065 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 4.243669226065046,
+        "lesser_trochanter": 25.98473899228373,
+        "head_center": 4.76420808375399,
+        "neck_isthmus_center": 2.8160605724553998
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 2.5473121364807967,
+        "lesser_trochanter": 15.591246427249265,
+        "head_center": 2.858529174744024,
+        "neck_isthmus_center": 1.689858956039231
+      },
+      "neck_axis_drift_deg": 50.83230802725965,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10000615050107010300151404090301",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.65954778282254353457041255543338557112/series_004_3_CR/A2504246289 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.38943299190493075,
+        "lesser_trochanter": 10.927034321709385,
+        "head_center": 0.7317618487593421,
+        "neck_isthmus_center": 1.5521311833582891
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.3202362106712281,
+        "lesser_trochanter": 6.564819501165747,
+        "head_center": 0.4394523425242213,
+        "neck_isthmus_center": 0.9378352853427225
+      },
+      "neck_axis_drift_deg": 51.196905177848166,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02091011000006010704070004091411",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.66397484472966116002950503539482860450/series_001_2_CR/A2504194637 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.333828376242523,
+        "lesser_trochanter": 4.324679799831083,
+        "head_center": 2.5332859669950167,
+        "neck_isthmus_center": 1.761264666274934
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.9465019711891359,
+        "lesser_trochanter": 2.7912943306077818,
+        "head_center": 1.5199819374066508,
+        "neck_isthmus_center": 1.0567758993717227
+      },
+      "neck_axis_drift_deg": 11.220623743809286,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08021214010408050013070405100802",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.66397484472966116002950503539482860450/series_001_2_CR/A2504194637 DXA/CR DXA/CR000003.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 5.140040600643082,
+        "lesser_trochanter": 4.262980058201829,
+        "head_center": 0.307662199636362,
+        "neck_isthmus_center": 1.3315133987294363
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 3.4541783431484165,
+        "lesser_trochanter": 3.7785498624212237,
+        "head_center": 0.29792821477326736,
+        "neck_isthmus_center": 0.8082887785569383
+      },
+      "neck_axis_drift_deg": 10.65568546234216,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00031305050707070014000611130907",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.73070100851377917031356937075051545239/series_002_2_CR/A2504239110 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.5276585169911527,
+        "lesser_trochanter": 11.06674646824257,
+        "head_center": 0.6501927043943283,
+        "neck_isthmus_center": 1.595018738874785
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.3165951101946916,
+        "lesser_trochanter": 6.640047880945542,
+        "head_center": 0.390115622636597,
+        "neck_isthmus_center": 0.957011243324871
+      },
+      "neck_axis_drift_deg": 57.80420166921766,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09110310111109140609041514031010",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.73070100851377917031356937075051545239/series_002_2_CR/A2504239110 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 18.471049443555334,
+        "lesser_trochanter": 3.1492296604937113,
+        "head_center": 13.41245966095571,
+        "neck_isthmus_center": 2.8915579720527727
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 11.109902413105159,
+        "lesser_trochanter": 3.2999560093574862,
+        "head_center": 8.048167720992659,
+        "neck_isthmus_center": 1.735039419244536
+      },
+      "neck_axis_drift_deg": 38.56363611302952,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14130302090906050506100315000611",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.76710355977373089612172037086913478687/series_002_3_CR/A2504104830 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.5990133651825298,
+        "lesser_trochanter": 11.036487397629895,
+        "head_center": 0.6776720209623232,
+        "neck_isthmus_center": 1.5911914102544882
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.4188101082693524,
+        "lesser_trochanter": 6.629043190694165,
+        "head_center": 0.40675506060294536,
+        "neck_isthmus_center": 0.9598885757646725
+      },
+      "neck_axis_drift_deg": 35.755035344438184,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02050808061207030811150709091509",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.76710355977373089612172037086913478687/series_002_3_CR/A2504104830 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 9.041351131622857,
+        "lesser_trochanter": 23.693804171656442,
+        "head_center": 22.912240289728924,
+        "neck_isthmus_center": 8.27542334868526
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 6.059037393077972,
+        "lesser_trochanter": 14.262156282783758,
+        "head_center": 13.749383354924396,
+        "neck_isthmus_center": 4.988583975293274
+      },
+      "neck_axis_drift_deg": 39.405196717670925,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05120913001500151408091003040415",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.78999454687125053757525542837745968726/series_004_3_CR/A2504222617 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 4.068411678139353,
+        "lesser_trochanter": 1.123117395804518,
+        "head_center": 0.41541503986505585,
+        "neck_isthmus_center": 1.6128239365989765
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 2.8304313544644146,
+        "lesser_trochanter": 0.7930225044161795,
+        "head_center": 0.2859847911874255,
+        "neck_isthmus_center": 1.606930716224259
+      },
+      "neck_axis_drift_deg": 0.6619208105241026,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07150713040501120002001009141410",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.78999454687125053757525542837745968726/series_004_3_CR/A2504222617 DXA/CR DXA/CR000001.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 9.217173475485932,
+        "lesser_trochanter": 8.534700743150205,
+        "head_center": 2.2573673418928655,
+        "neck_isthmus_center": 2.253882058185775
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 5.596616374109796,
+        "lesser_trochanter": 5.33203422354322,
+        "head_center": 1.3642451403386837,
+        "neck_isthmus_center": 1.3576565116479344
+      },
+      "neck_axis_drift_deg": 46.11155716963297,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15121403061107000609060400100413",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.82912555346523716720160717883917565880/series_002_2_CR/A2504149480 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 4.257697147365396,
+        "lesser_trochanter": 26.082714103018596,
+        "head_center": 4.656669727655772,
+        "neck_isthmus_center": 2.8661512898366737
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 2.5595355421785735,
+        "lesser_trochanter": 15.651302919318434,
+        "head_center": 2.7940038637064326,
+        "neck_isthmus_center": 1.7209487135730817
+      },
+      "neck_axis_drift_deg": 48.27583792917204,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06111209081313111015020309051508",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.87869906212286587478854831452123526595/series_002_2_CR/A250419699 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 1.3550364232214787,
+        "lesser_trochanter": 33.52353548673846,
+        "head_center": 1.8495166016591655,
+        "neck_isthmus_center": 4.820584011270822
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.8134438284735348,
+        "lesser_trochanter": 20.114692213908043,
+        "head_center": 1.109952995102887,
+        "neck_isthmus_center": 2.897055555613177
+      },
+      "neck_axis_drift_deg": 25.658495908088582,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15101115041306031303150405131115",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.87869906212286587478854831452123526595/series_002_2_CR/A250419699 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 11.142688158990318,
+        "lesser_trochanter": 23.791312671080686,
+        "head_center": 11.91660801410967,
+        "neck_isthmus_center": 6.8592040166498816
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 6.77201911250775,
+        "lesser_trochanter": 14.657675085867933,
+        "head_center": 7.163508842721533,
+        "neck_isthmus_center": 4.126943585671276
+      },
+      "neck_axis_drift_deg": 19.19475382422434,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08061201060114131102110802141411",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.91981043841368764114007975581101713077/series_003_2_CR/A250496619 DXA/CR DXA/CR000000.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 0.6460992926254976,
+        "lesser_trochanter": 11.081108501031558,
+        "head_center": 0.6472753261335988,
+        "neck_isthmus_center": 1.6099863023186574
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 0.5089109582784527,
+        "lesser_trochanter": 6.665829515019557,
+        "head_center": 0.38886093488353624,
+        "neck_isthmus_center": 0.9783001149570261
+      },
+      "neck_axis_drift_deg": 11.965602388224791,
+      "reliable_scale": true
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04000607141411061507120106050309",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.91981043841368764114007975581101713077/series_003_2_CR/A250496619 DXA/CR DXA/CR000002.dcm",
+      "status": "measured",
+      "landmark_drift_pixels": {
+        "greater_trochanter": 3.935009897261705,
+        "lesser_trochanter": 10.409308375259393,
+        "head_center": 6.493364398454678,
+        "neck_isthmus_center": 3.97605579337729
+      },
+      "landmark_drift_mm": {
+        "greater_trochanter": 2.748945691513513,
+        "lesser_trochanter": 7.1603739524212715,
+        "head_center": 3.9236297879044995,
+        "neck_isthmus_center": 2.4339512174885445
+      },
+      "neck_axis_drift_deg": 13.2224446233937,
+      "reliable_scale": true
+    }
+  ],
+  "measured_cases": 132,
+  "reliably_scaled_cases": 132,
+  "neck_axis_mean_drift_deg": 30.842420764362515,
+  "neck_axis_p95_drift_deg": 65.80968895650321,
+  "landmark_mean_drift_mm": {
+    "greater_trochanter": 5.823982679867622,
+    "lesser_trochanter": 9.475354179359378,
+    "head_center": 2.3141982987020895,
+    "neck_isthmus_center": 1.8183860621557022
+  },
+  "results_sha256": "7456c2065b093fdf32002e29c424d96e93651276f474ac60f837409147880187",
+  "model_sha256": "5476cb786a54d66af98a089f9075976470644942901415f3d94555da2561d395",
+  "accuracy": null,
+  "clinical_validation": false,
+  "release_modified": false,
+  "requirements_complete": false,
+  "scope": "Reflection consistency only; no independent anatomical reference; no invented acceptance threshold"
+}

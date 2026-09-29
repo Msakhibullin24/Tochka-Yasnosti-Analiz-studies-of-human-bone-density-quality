@@ -1,0 +1,4706 @@
+{
+  "protocol": "Fixed Ridge alpha100; source parent train/calibration/test; 90% grouped-max residual interval, calibration parents selected seed17 before fitting.",
+  "training_views": 1360,
+  "calibration_views": 340,
+  "test_views": 425,
+  "training_parents": 272,
+  "calibration_parents": 68,
+  "test_parents": 85,
+  "mae": 0.24722709291373376,
+  "constant_prior_mae": 0.3004242140741917,
+  "calibration_radius": 0.7291318482541024,
+  "test_interval_coverage": 0.96,
+  "test_parent_all_views_coverage": 0.8588235294117647,
+  "determined_test_views": 0,
+  "cases": [
+    {
+      "image": "images/0001-000.png",
+      "parent_group": "aasce:dc684ebec841064e2750b1d177975b9bb8d7be7c3a84fac3fb5549833a875a0e",
+      "reference": 0.0,
+      "prediction": 0.21758759021759033,
+      "interval": [
+        0.0,
+        0.9467194384716927
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0001-025.png",
+      "parent_group": "aasce:dc684ebec841064e2750b1d177975b9bb8d7be7c3a84fac3fb5549833a875a0e",
+      "reference": 0.2719298245614035,
+      "prediction": 0.42385172843933105,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0001-050.png",
+      "parent_group": "aasce:dc684ebec841064e2750b1d177975b9bb8d7be7c3a84fac3fb5549833a875a0e",
+      "reference": 0.5175438596491229,
+      "prediction": 0.45205453038215637,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0001-075.png",
+      "parent_group": "aasce:dc684ebec841064e2750b1d177975b9bb8d7be7c3a84fac3fb5549833a875a0e",
+      "reference": 0.7631578947368421,
+      "prediction": 0.6493476629257202,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0001-100.png",
+      "parent_group": "aasce:dc684ebec841064e2750b1d177975b9bb8d7be7c3a84fac3fb5549833a875a0e",
+      "reference": 1.0,
+      "prediction": 0.5962070226669312,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0007-000.png",
+      "parent_group": "aasce:a7fe162b6713cfd92aa2a661416ec33675ca3ad0bc4f5d5654e68cc99c3fb76a",
+      "reference": 0.0,
+      "prediction": 0.6035522818565369,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0007-025.png",
+      "parent_group": "aasce:a7fe162b6713cfd92aa2a661416ec33675ca3ad0bc4f5d5654e68cc99c3fb76a",
+      "reference": 0.2593984962406015,
+      "prediction": 0.7767565846443176,
+      "interval": [
+        0.04762473639021525,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0007-050.png",
+      "parent_group": "aasce:a7fe162b6713cfd92aa2a661416ec33675ca3ad0bc4f5d5654e68cc99c3fb76a",
+      "reference": 0.5075187969924813,
+      "prediction": 0.9075330495834351,
+      "interval": [
+        0.17840120132933268,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0007-075.png",
+      "parent_group": "aasce:a7fe162b6713cfd92aa2a661416ec33675ca3ad0bc4f5d5654e68cc99c3fb76a",
+      "reference": 0.7556390977443609,
+      "prediction": 0.9268528819084167,
+      "interval": [
+        0.19772103365431437,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0007-100.png",
+      "parent_group": "aasce:a7fe162b6713cfd92aa2a661416ec33675ca3ad0bc4f5d5654e68cc99c3fb76a",
+      "reference": 1.0,
+      "prediction": 0.8780250549316406,
+      "interval": [
+        0.14889320667753825,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0014-000.png",
+      "parent_group": "aasce:b935907a2bf28eaf3dedb85c0120e474b88aefbe016146ab225966b01ba8de92",
+      "reference": 0.0,
+      "prediction": 0.5730769634246826,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0014-025.png",
+      "parent_group": "aasce:b935907a2bf28eaf3dedb85c0120e474b88aefbe016146ab225966b01ba8de92",
+      "reference": 0.2619047619047619,
+      "prediction": 0.6185789108276367,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0014-050.png",
+      "parent_group": "aasce:b935907a2bf28eaf3dedb85c0120e474b88aefbe016146ab225966b01ba8de92",
+      "reference": 0.5095238095238095,
+      "prediction": 0.7748280763626099,
+      "interval": [
+        0.045696228108507486,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0014-075.png",
+      "parent_group": "aasce:b935907a2bf28eaf3dedb85c0120e474b88aefbe016146ab225966b01ba8de92",
+      "reference": 0.7571428571428571,
+      "prediction": 0.9257546067237854,
+      "interval": [
+        0.19662275846968302,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0014-100.png",
+      "parent_group": "aasce:b935907a2bf28eaf3dedb85c0120e474b88aefbe016146ab225966b01ba8de92",
+      "reference": 1.0,
+      "prediction": 0.9498223662376404,
+      "interval": [
+        0.220690517983538,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0016-000.png",
+      "parent_group": "aasce:72e8410d8edee8297c500d89d76773e440b4e0dbb9d8f46a7bb9c74aa244d5be",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0016-025.png",
+      "parent_group": "aasce:72e8410d8edee8297c500d89d76773e440b4e0dbb9d8f46a7bb9c74aa244d5be",
+      "reference": 0.2647058823529412,
+      "prediction": 0.23325324058532715,
+      "interval": [
+        0.0,
+        0.9623850888394295
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0016-050.png",
+      "parent_group": "aasce:72e8410d8edee8297c500d89d76773e440b4e0dbb9d8f46a7bb9c74aa244d5be",
+      "reference": 0.5117647058823529,
+      "prediction": 0.35328614711761475,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0016-075.png",
+      "parent_group": "aasce:72e8410d8edee8297c500d89d76773e440b4e0dbb9d8f46a7bb9c74aa244d5be",
+      "reference": 0.7588235294117647,
+      "prediction": 0.5057529211044312,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0016-100.png",
+      "parent_group": "aasce:72e8410d8edee8297c500d89d76773e440b4e0dbb9d8f46a7bb9c74aa244d5be",
+      "reference": 1.0,
+      "prediction": 0.5119444131851196,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0028-000.png",
+      "parent_group": "aasce:65e7b008829aa9c1f60788ed41e44b167d48ebb552bfecce9b9893a4bd2fa920",
+      "reference": 0.0,
+      "prediction": 0.5193267464637756,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0028-025.png",
+      "parent_group": "aasce:65e7b008829aa9c1f60788ed41e44b167d48ebb552bfecce9b9893a4bd2fa920",
+      "reference": 0.2623762376237624,
+      "prediction": 0.6222797632217407,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0028-050.png",
+      "parent_group": "aasce:65e7b008829aa9c1f60788ed41e44b167d48ebb552bfecce9b9893a4bd2fa920",
+      "reference": 0.5099009900990099,
+      "prediction": 0.8259392976760864,
+      "interval": [
+        0.09680744942198405,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0028-075.png",
+      "parent_group": "aasce:65e7b008829aa9c1f60788ed41e44b167d48ebb552bfecce9b9893a4bd2fa920",
+      "reference": 0.7574257425742574,
+      "prediction": 0.9068211317062378,
+      "interval": [
+        0.17768928345213542,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0028-100.png",
+      "parent_group": "aasce:65e7b008829aa9c1f60788ed41e44b167d48ebb552bfecce9b9893a4bd2fa920",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0037-000.png",
+      "parent_group": "aasce:51701db700e30732cdfc8ed9888eda7e39bc8db4b00fb3b3b99b9e27e33cca5b",
+      "reference": 0.0,
+      "prediction": 0.21550720930099487,
+      "interval": [
+        0.0,
+        0.9446390575550973
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0037-025.png",
+      "parent_group": "aasce:51701db700e30732cdfc8ed9888eda7e39bc8db4b00fb3b3b99b9e27e33cca5b",
+      "reference": 0.2755102040816326,
+      "prediction": 0.34522294998168945,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0037-050.png",
+      "parent_group": "aasce:51701db700e30732cdfc8ed9888eda7e39bc8db4b00fb3b3b99b9e27e33cca5b",
+      "reference": 0.5204081632653061,
+      "prediction": 0.47309422492980957,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0037-075.png",
+      "parent_group": "aasce:51701db700e30732cdfc8ed9888eda7e39bc8db4b00fb3b3b99b9e27e33cca5b",
+      "reference": 0.7653061224489796,
+      "prediction": 0.6108433604240417,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0037-100.png",
+      "parent_group": "aasce:51701db700e30732cdfc8ed9888eda7e39bc8db4b00fb3b3b99b9e27e33cca5b",
+      "reference": 1.0,
+      "prediction": 0.6450278162956238,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0038-000.png",
+      "parent_group": "aasce:422bffd7ce30c9737cfa619f793a280836788f5bf412a6cd27beb4bc37007396",
+      "reference": 0.0,
+      "prediction": 0.9570356607437134,
+      "interval": [
+        0.227903812489611,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0038-025.png",
+      "parent_group": "aasce:422bffd7ce30c9737cfa619f793a280836788f5bf412a6cd27beb4bc37007396",
+      "reference": 0.2672413793103448,
+      "prediction": 0.6360532641410828,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0038-050.png",
+      "parent_group": "aasce:422bffd7ce30c9737cfa619f793a280836788f5bf412a6cd27beb4bc37007396",
+      "reference": 0.5086206896551724,
+      "prediction": 0.9553897380828857,
+      "interval": [
+        0.22625788982878337,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0038-075.png",
+      "parent_group": "aasce:422bffd7ce30c9737cfa619f793a280836788f5bf412a6cd27beb4bc37007396",
+      "reference": 0.7672413793103449,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0038-100.png",
+      "parent_group": "aasce:422bffd7ce30c9737cfa619f793a280836788f5bf412a6cd27beb4bc37007396",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0041-000.png",
+      "parent_group": "aasce:909671d232d12706f9c9ea733ba66110d0c1cdfb826b3b509bdacc2133ec1f4b",
+      "reference": 0.0,
+      "prediction": 0.03902372717857361,
+      "interval": [
+        0.0,
+        0.768155575432676
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0041-025.png",
+      "parent_group": "aasce:909671d232d12706f9c9ea733ba66110d0c1cdfb826b3b509bdacc2133ec1f4b",
+      "reference": 0.2593984962406015,
+      "prediction": 0.16089290380477905,
+      "interval": [
+        0.0,
+        0.8900247520588814
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0041-050.png",
+      "parent_group": "aasce:909671d232d12706f9c9ea733ba66110d0c1cdfb826b3b509bdacc2133ec1f4b",
+      "reference": 0.5075187969924813,
+      "prediction": 0.5219359397888184,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0041-075.png",
+      "parent_group": "aasce:909671d232d12706f9c9ea733ba66110d0c1cdfb826b3b509bdacc2133ec1f4b",
+      "reference": 0.7556390977443609,
+      "prediction": 0.6265502572059631,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0041-100.png",
+      "parent_group": "aasce:909671d232d12706f9c9ea733ba66110d0c1cdfb826b3b509bdacc2133ec1f4b",
+      "reference": 1.0,
+      "prediction": 0.6415807008743286,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0042-000.png",
+      "parent_group": "aasce:48f2b39d85d8ff56986cc52416db72658628a1e960a902355756646042855d8a",
+      "reference": 0.0,
+      "prediction": 0.751632809638977,
+      "interval": [
+        0.022500961384874674,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0042-025.png",
+      "parent_group": "aasce:48f2b39d85d8ff56986cc52416db72658628a1e960a902355756646042855d8a",
+      "reference": 0.2532051282051282,
+      "prediction": 0.7440164685249329,
+      "interval": [
+        0.014884620270830484,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0042-050.png",
+      "parent_group": "aasce:48f2b39d85d8ff56986cc52416db72658628a1e960a902355756646042855d8a",
+      "reference": 0.5032051282051282,
+      "prediction": 0.8790230751037598,
+      "interval": [
+        0.1498912268496574,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0042-075.png",
+      "parent_group": "aasce:48f2b39d85d8ff56986cc52416db72658628a1e960a902355756646042855d8a",
+      "reference": 0.7532051282051282,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0042-100.png",
+      "parent_group": "aasce:48f2b39d85d8ff56986cc52416db72658628a1e960a902355756646042855d8a",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0045-000.png",
+      "parent_group": "aasce:d31c116b2727c63e570fb4ae3f1d0a88b2e1c984cdb64defd7b04492a5c2a657",
+      "reference": 0.0,
+      "prediction": 0.14186960458755493,
+      "interval": [
+        0.0,
+        0.8710014528416573
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0045-025.png",
+      "parent_group": "aasce:d31c116b2727c63e570fb4ae3f1d0a88b2e1c984cdb64defd7b04492a5c2a657",
+      "reference": 0.255,
+      "prediction": 0.3776293396949768,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0045-050.png",
+      "parent_group": "aasce:d31c116b2727c63e570fb4ae3f1d0a88b2e1c984cdb64defd7b04492a5c2a657",
+      "reference": 0.505,
+      "prediction": 0.45463401079177856,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0045-075.png",
+      "parent_group": "aasce:d31c116b2727c63e570fb4ae3f1d0a88b2e1c984cdb64defd7b04492a5c2a657",
+      "reference": 0.755,
+      "prediction": 0.46076637506484985,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0045-100.png",
+      "parent_group": "aasce:d31c116b2727c63e570fb4ae3f1d0a88b2e1c984cdb64defd7b04492a5c2a657",
+      "reference": 1.0,
+      "prediction": 0.8154857158660889,
+      "interval": [
+        0.08635386761198649,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0048-000.png",
+      "parent_group": "aasce:3ec5b2db54b06a3ae62f5745e58b7e2b6c07727440397f7fc2ee65a18135ebf3",
+      "reference": 0.0,
+      "prediction": 0.4724627733230591,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0048-025.png",
+      "parent_group": "aasce:3ec5b2db54b06a3ae62f5745e58b7e2b6c07727440397f7fc2ee65a18135ebf3",
+      "reference": 0.25757575757575757,
+      "prediction": 0.5848920345306396,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0048-050.png",
+      "parent_group": "aasce:3ec5b2db54b06a3ae62f5745e58b7e2b6c07727440397f7fc2ee65a18135ebf3",
+      "reference": 0.51010101010101,
+      "prediction": 0.6355932950973511,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0048-075.png",
+      "parent_group": "aasce:3ec5b2db54b06a3ae62f5745e58b7e2b6c07727440397f7fc2ee65a18135ebf3",
+      "reference": 0.7626262626262627,
+      "prediction": 0.8377038240432739,
+      "interval": [
+        0.10857197578917155,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0048-100.png",
+      "parent_group": "aasce:3ec5b2db54b06a3ae62f5745e58b7e2b6c07727440397f7fc2ee65a18135ebf3",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0057-000.png",
+      "parent_group": "aasce:793ef457cd85ebe6be83c859d34df06bbd3ee73da5210e0dff5d64af74f73ee1",
+      "reference": 0.0,
+      "prediction": 0.14904725551605225,
+      "interval": [
+        0.0,
+        0.8781791037701546
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0057-025.png",
+      "parent_group": "aasce:793ef457cd85ebe6be83c859d34df06bbd3ee73da5210e0dff5d64af74f73ee1",
+      "reference": 0.2572463768115942,
+      "prediction": 0.12294185161590576,
+      "interval": [
+        0.0,
+        0.8520736998700081
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0057-050.png",
+      "parent_group": "aasce:793ef457cd85ebe6be83c859d34df06bbd3ee73da5210e0dff5d64af74f73ee1",
+      "reference": 0.5036231884057971,
+      "prediction": 0.24804836511611938,
+      "interval": [
+        0.0,
+        0.9771802133702218
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0057-075.png",
+      "parent_group": "aasce:793ef457cd85ebe6be83c859d34df06bbd3ee73da5210e0dff5d64af74f73ee1",
+      "reference": 0.7572463768115942,
+      "prediction": 0.6113974452018738,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0057-100.png",
+      "parent_group": "aasce:793ef457cd85ebe6be83c859d34df06bbd3ee73da5210e0dff5d64af74f73ee1",
+      "reference": 1.0,
+      "prediction": 0.751606285572052,
+      "interval": [
+        0.022474437317949625,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0059-000.png",
+      "parent_group": "aasce:9a397fb13d36c02c4c4d0b9dad79f607c99bfc9323d363fcab9986072efb8f67",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0059-025.png",
+      "parent_group": "aasce:9a397fb13d36c02c4c4d0b9dad79f607c99bfc9323d363fcab9986072efb8f67",
+      "reference": 0.25728155339805825,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0059-050.png",
+      "parent_group": "aasce:9a397fb13d36c02c4c4d0b9dad79f607c99bfc9323d363fcab9986072efb8f67",
+      "reference": 0.5097087378640777,
+      "prediction": 0.02516716718673706,
+      "interval": [
+        0.0,
+        0.7542990154408394
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0059-075.png",
+      "parent_group": "aasce:9a397fb13d36c02c4c4d0b9dad79f607c99bfc9323d363fcab9986072efb8f67",
+      "reference": 0.7621359223300971,
+      "prediction": 0.23938581347465515,
+      "interval": [
+        0.0,
+        0.9685176617287575
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0059-100.png",
+      "parent_group": "aasce:9a397fb13d36c02c4c4d0b9dad79f607c99bfc9323d363fcab9986072efb8f67",
+      "reference": 1.0,
+      "prediction": 0.18884804844856262,
+      "interval": [
+        0.0,
+        0.917979896702665
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0063-000.png",
+      "parent_group": "aasce:817127a89e795e63b2db5f0d29964e9def03663dd929bf979da1d44ceee47753",
+      "reference": 0.0,
+      "prediction": 0.5333043336868286,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0063-025.png",
+      "parent_group": "aasce:817127a89e795e63b2db5f0d29964e9def03663dd929bf979da1d44ceee47753",
+      "reference": 0.2584745762711864,
+      "prediction": 0.6697983741760254,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0063-050.png",
+      "parent_group": "aasce:817127a89e795e63b2db5f0d29964e9def03663dd929bf979da1d44ceee47753",
+      "reference": 0.5042372881355932,
+      "prediction": 0.8269872665405273,
+      "interval": [
+        0.09785541828642497,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0063-075.png",
+      "parent_group": "aasce:817127a89e795e63b2db5f0d29964e9def03663dd929bf979da1d44ceee47753",
+      "reference": 0.7584745762711864,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0063-100.png",
+      "parent_group": "aasce:817127a89e795e63b2db5f0d29964e9def03663dd929bf979da1d44ceee47753",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0067-000.png",
+      "parent_group": "aasce:8c1e30e3ef9e1dc53c3dfb7db2ecdad5952eb29219044b7d0135634153f7c79d",
+      "reference": 0.0,
+      "prediction": 0.19850438833236694,
+      "interval": [
+        0.0,
+        0.9276362365864693
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0067-025.png",
+      "parent_group": "aasce:8c1e30e3ef9e1dc53c3dfb7db2ecdad5952eb29219044b7d0135634153f7c79d",
+      "reference": 0.2606837606837607,
+      "prediction": 0.13088136911392212,
+      "interval": [
+        0.0,
+        0.8600132173680245
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0067-050.png",
+      "parent_group": "aasce:8c1e30e3ef9e1dc53c3dfb7db2ecdad5952eb29219044b7d0135634153f7c79d",
+      "reference": 0.5085470085470085,
+      "prediction": 0.3018961548805237,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0067-075.png",
+      "parent_group": "aasce:8c1e30e3ef9e1dc53c3dfb7db2ecdad5952eb29219044b7d0135634153f7c79d",
+      "reference": 0.7564102564102564,
+      "prediction": 0.3683154582977295,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0067-100.png",
+      "parent_group": "aasce:8c1e30e3ef9e1dc53c3dfb7db2ecdad5952eb29219044b7d0135634153f7c79d",
+      "reference": 1.0,
+      "prediction": 0.5511112213134766,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0071-000.png",
+      "parent_group": "aasce:4db645dbf582762a03d8a18e52fb0590c41426901d63ccbef607a62d9839d723",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0071-025.png",
+      "parent_group": "aasce:4db645dbf582762a03d8a18e52fb0590c41426901d63ccbef607a62d9839d723",
+      "reference": 0.2619047619047619,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0071-050.png",
+      "parent_group": "aasce:4db645dbf582762a03d8a18e52fb0590c41426901d63ccbef607a62d9839d723",
+      "reference": 0.5095238095238095,
+      "prediction": 0.1619318127632141,
+      "interval": [
+        0.0,
+        0.8910636610173165
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0071-075.png",
+      "parent_group": "aasce:4db645dbf582762a03d8a18e52fb0590c41426901d63ccbef607a62d9839d723",
+      "reference": 0.7571428571428571,
+      "prediction": 0.4031675159931183,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0071-100.png",
+      "parent_group": "aasce:4db645dbf582762a03d8a18e52fb0590c41426901d63ccbef607a62d9839d723",
+      "reference": 1.0,
+      "prediction": 0.2918013334274292,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0076-000.png",
+      "parent_group": "aasce:30352a292d10b0396583e71e01a84a86b9235e3f3c6fd590bf020a72d3fec660",
+      "reference": 0.0,
+      "prediction": 0.9235826134681702,
+      "interval": [
+        0.1944507652140678,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0076-025.png",
+      "parent_group": "aasce:30352a292d10b0396583e71e01a84a86b9235e3f3c6fd590bf020a72d3fec660",
+      "reference": 0.2605633802816901,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0076-050.png",
+      "parent_group": "aasce:30352a292d10b0396583e71e01a84a86b9235e3f3c6fd590bf020a72d3fec660",
+      "reference": 0.5140845070422535,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0076-075.png",
+      "parent_group": "aasce:30352a292d10b0396583e71e01a84a86b9235e3f3c6fd590bf020a72d3fec660",
+      "reference": 0.7676056338028169,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0076-100.png",
+      "parent_group": "aasce:30352a292d10b0396583e71e01a84a86b9235e3f3c6fd590bf020a72d3fec660",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0079-000.png",
+      "parent_group": "aasce:f2ecd5ff825d86f7b69c36f97d79181d4381a6c4b35ba71cff9bf27a6de16e21",
+      "reference": 0.0,
+      "prediction": 0.12821322679519653,
+      "interval": [
+        0.0,
+        0.8573450750492989
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0079-025.png",
+      "parent_group": "aasce:f2ecd5ff825d86f7b69c36f97d79181d4381a6c4b35ba71cff9bf27a6de16e21",
+      "reference": 0.2619047619047619,
+      "prediction": 0.24031072854995728,
+      "interval": [
+        0.0,
+        0.9694425768040597
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0079-050.png",
+      "parent_group": "aasce:f2ecd5ff825d86f7b69c36f97d79181d4381a6c4b35ba71cff9bf27a6de16e21",
+      "reference": 0.5095238095238095,
+      "prediction": 0.3175218105316162,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0079-075.png",
+      "parent_group": "aasce:f2ecd5ff825d86f7b69c36f97d79181d4381a6c4b35ba71cff9bf27a6de16e21",
+      "reference": 0.7571428571428571,
+      "prediction": 0.587342381477356,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0079-100.png",
+      "parent_group": "aasce:f2ecd5ff825d86f7b69c36f97d79181d4381a6c4b35ba71cff9bf27a6de16e21",
+      "reference": 1.0,
+      "prediction": 0.7784628868103027,
+      "interval": [
+        0.04933103855620036,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0080-000.png",
+      "parent_group": "aasce:3bbf050aa01dac6e41709a2918241001be743956fde9c37183c39a9f3e700b61",
+      "reference": 0.0,
+      "prediction": 0.4954606890678406,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0080-025.png",
+      "parent_group": "aasce:3bbf050aa01dac6e41709a2918241001be743956fde9c37183c39a9f3e700b61",
+      "reference": 0.2610619469026549,
+      "prediction": 0.4579313397407532,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0080-050.png",
+      "parent_group": "aasce:3bbf050aa01dac6e41709a2918241001be743956fde9c37183c39a9f3e700b61",
+      "reference": 0.5088495575221239,
+      "prediction": 0.7595480680465698,
+      "interval": [
+        0.030416219792467447,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0080-075.png",
+      "parent_group": "aasce:3bbf050aa01dac6e41709a2918241001be743956fde9c37183c39a9f3e700b61",
+      "reference": 0.7566371681415929,
+      "prediction": 0.9209902286529541,
+      "interval": [
+        0.19185838039885172,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0080-100.png",
+      "parent_group": "aasce:3bbf050aa01dac6e41709a2918241001be743956fde9c37183c39a9f3e700b61",
+      "reference": 1.0,
+      "prediction": 0.883169412612915,
+      "interval": [
+        0.15403756435881266,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0085-000.png",
+      "parent_group": "aasce:dee32a227814aacdc17e06ac5af5a369c81295518bab8dfdc1c82822be3d12d7",
+      "reference": 0.0,
+      "prediction": 0.3798156976699829,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0085-025.png",
+      "parent_group": "aasce:dee32a227814aacdc17e06ac5af5a369c81295518bab8dfdc1c82822be3d12d7",
+      "reference": 0.2533783783783784,
+      "prediction": 0.42046406865119934,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0085-050.png",
+      "parent_group": "aasce:dee32a227814aacdc17e06ac5af5a369c81295518bab8dfdc1c82822be3d12d7",
+      "reference": 0.5033783783783784,
+      "prediction": 0.5682333111763,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0085-075.png",
+      "parent_group": "aasce:dee32a227814aacdc17e06ac5af5a369c81295518bab8dfdc1c82822be3d12d7",
+      "reference": 0.7533783783783784,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0085-100.png",
+      "parent_group": "aasce:dee32a227814aacdc17e06ac5af5a369c81295518bab8dfdc1c82822be3d12d7",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0086-000.png",
+      "parent_group": "aasce:8e30741bb132250ccc2514bc4132704b72b1ec33d201affade94cb7cd61ee5b8",
+      "reference": 0.0,
+      "prediction": 0.7054980993270874,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0086-025.png",
+      "parent_group": "aasce:8e30741bb132250ccc2514bc4132704b72b1ec33d201affade94cb7cd61ee5b8",
+      "reference": 0.2543103448275862,
+      "prediction": 0.9077290296554565,
+      "interval": [
+        0.17859718140135417,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0086-050.png",
+      "parent_group": "aasce:8e30741bb132250ccc2514bc4132704b72b1ec33d201affade94cb7cd61ee5b8",
+      "reference": 0.5043103448275862,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0086-075.png",
+      "parent_group": "aasce:8e30741bb132250ccc2514bc4132704b72b1ec33d201affade94cb7cd61ee5b8",
+      "reference": 0.7543103448275862,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0086-100.png",
+      "parent_group": "aasce:8e30741bb132250ccc2514bc4132704b72b1ec33d201affade94cb7cd61ee5b8",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0092-000.png",
+      "parent_group": "aasce:2d745b0ee9b4d6e284bf78d64bb40aad353d4a92174403d35e57568f70c58c3a",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0092-025.png",
+      "parent_group": "aasce:2d745b0ee9b4d6e284bf78d64bb40aad353d4a92174403d35e57568f70c58c3a",
+      "reference": 0.25625,
+      "prediction": 0.10621955990791321,
+      "interval": [
+        0.0,
+        0.8353514081620156
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0092-050.png",
+      "parent_group": "aasce:2d745b0ee9b4d6e284bf78d64bb40aad353d4a92174403d35e57568f70c58c3a",
+      "reference": 0.50625,
+      "prediction": 0.3096984922885895,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0092-075.png",
+      "parent_group": "aasce:2d745b0ee9b4d6e284bf78d64bb40aad353d4a92174403d35e57568f70c58c3a",
+      "reference": 0.75625,
+      "prediction": 0.3368721604347229,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0092-100.png",
+      "parent_group": "aasce:2d745b0ee9b4d6e284bf78d64bb40aad353d4a92174403d35e57568f70c58c3a",
+      "reference": 1.0,
+      "prediction": 0.4379335939884186,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0117-000.png",
+      "parent_group": "aasce:6994686fad56964a050bb8303a83af012506eb7bf7ec257960d5a951d5a68659",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0117-025.png",
+      "parent_group": "aasce:6994686fad56964a050bb8303a83af012506eb7bf7ec257960d5a951d5a68659",
+      "reference": 0.2525,
+      "prediction": 0.27569282054901123,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0117-050.png",
+      "parent_group": "aasce:6994686fad56964a050bb8303a83af012506eb7bf7ec257960d5a951d5a68659",
+      "reference": 0.5025,
+      "prediction": 0.4597843885421753,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0117-075.png",
+      "parent_group": "aasce:6994686fad56964a050bb8303a83af012506eb7bf7ec257960d5a951d5a68659",
+      "reference": 0.7525,
+      "prediction": 0.6810713410377502,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0117-100.png",
+      "parent_group": "aasce:6994686fad56964a050bb8303a83af012506eb7bf7ec257960d5a951d5a68659",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0119-000.png",
+      "parent_group": "aasce:fc4cf3289c962c88ce8ed26101370bf1547fc5cf027399165c0e09c2d35c900b",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0119-025.png",
+      "parent_group": "aasce:fc4cf3289c962c88ce8ed26101370bf1547fc5cf027399165c0e09c2d35c900b",
+      "reference": 0.26288659793814434,
+      "prediction": 0.1681172251701355,
+      "interval": [
+        0.0,
+        0.8972490734242379
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0119-050.png",
+      "parent_group": "aasce:fc4cf3289c962c88ce8ed26101370bf1547fc5cf027399165c0e09c2d35c900b",
+      "reference": 0.5103092783505154,
+      "prediction": 0.42208510637283325,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0119-075.png",
+      "parent_group": "aasce:fc4cf3289c962c88ce8ed26101370bf1547fc5cf027399165c0e09c2d35c900b",
+      "reference": 0.7577319587628866,
+      "prediction": 0.672318696975708,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0119-100.png",
+      "parent_group": "aasce:fc4cf3289c962c88ce8ed26101370bf1547fc5cf027399165c0e09c2d35c900b",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0127-000.png",
+      "parent_group": "aasce:e60261af2c794954eab3c1db2249307759a57d0af06c1655562eaf159c8addfa",
+      "reference": 0.0,
+      "prediction": 0.09471374750137329,
+      "interval": [
+        0.0,
+        0.8238455957554757
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0127-025.png",
+      "parent_group": "aasce:e60261af2c794954eab3c1db2249307759a57d0af06c1655562eaf159c8addfa",
+      "reference": 0.25609756097560976,
+      "prediction": 0.36687424778938293,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0127-050.png",
+      "parent_group": "aasce:e60261af2c794954eab3c1db2249307759a57d0af06c1655562eaf159c8addfa",
+      "reference": 0.508130081300813,
+      "prediction": 0.550847053527832,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0127-075.png",
+      "parent_group": "aasce:e60261af2c794954eab3c1db2249307759a57d0af06c1655562eaf159c8addfa",
+      "reference": 0.7601626016260162,
+      "prediction": 0.5540120005607605,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0127-100.png",
+      "parent_group": "aasce:e60261af2c794954eab3c1db2249307759a57d0af06c1655562eaf159c8addfa",
+      "reference": 1.0,
+      "prediction": 0.7520372867584229,
+      "interval": [
+        0.022905438504320474,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0132-000.png",
+      "parent_group": "aasce:f8144a5406364ed6db8778ab27e54fbd2d5e8a7b9aac317d9f31d1477444ed46",
+      "reference": 0.0,
+      "prediction": 0.25416091084480286,
+      "interval": [
+        0.0,
+        0.9832927590989052
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0132-025.png",
+      "parent_group": "aasce:f8144a5406364ed6db8778ab27e54fbd2d5e8a7b9aac317d9f31d1477444ed46",
+      "reference": 0.2560240963855422,
+      "prediction": 0.5361952781677246,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0132-050.png",
+      "parent_group": "aasce:f8144a5406364ed6db8778ab27e54fbd2d5e8a7b9aac317d9f31d1477444ed46",
+      "reference": 0.5030120481927711,
+      "prediction": 0.8644371032714844,
+      "interval": [
+        0.135305255017382,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0132-075.png",
+      "parent_group": "aasce:f8144a5406364ed6db8778ab27e54fbd2d5e8a7b9aac317d9f31d1477444ed46",
+      "reference": 0.7560240963855421,
+      "prediction": 0.8176131844520569,
+      "interval": [
+        0.08848133619795451,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0132-100.png",
+      "parent_group": "aasce:f8144a5406364ed6db8778ab27e54fbd2d5e8a7b9aac317d9f31d1477444ed46",
+      "reference": 1.0,
+      "prediction": 0.7141327857971191,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0136-000.png",
+      "parent_group": "aasce:502bbfcaf669659d8dfc51960c79635bb75c01ad61f7ba831f6c9245e849aeb9",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0136-025.png",
+      "parent_group": "aasce:502bbfcaf669659d8dfc51960c79635bb75c01ad61f7ba831f6c9245e849aeb9",
+      "reference": 0.2581699346405229,
+      "prediction": 0.19603371620178223,
+      "interval": [
+        0.0,
+        0.9251655644558846
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0136-050.png",
+      "parent_group": "aasce:502bbfcaf669659d8dfc51960c79635bb75c01ad61f7ba831f6c9245e849aeb9",
+      "reference": 0.5065359477124183,
+      "prediction": 0.31395429372787476,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0136-075.png",
+      "parent_group": "aasce:502bbfcaf669659d8dfc51960c79635bb75c01ad61f7ba831f6c9245e849aeb9",
+      "reference": 0.7549019607843137,
+      "prediction": 0.9350147843360901,
+      "interval": [
+        0.2058829360819877,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0136-100.png",
+      "parent_group": "aasce:502bbfcaf669659d8dfc51960c79635bb75c01ad61f7ba831f6c9245e849aeb9",
+      "reference": 1.0,
+      "prediction": 0.9540454149246216,
+      "interval": [
+        0.2249135666705192,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0139-000.png",
+      "parent_group": "aasce:6010c10ecd6bc8a8f6618115680b1abd72497541e616caebab96df2faec9aaca",
+      "reference": 0.0,
+      "prediction": 0.19156810641288757,
+      "interval": [
+        0.0,
+        0.92069995466699
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0139-025.png",
+      "parent_group": "aasce:6010c10ecd6bc8a8f6618115680b1abd72497541e616caebab96df2faec9aaca",
+      "reference": 0.26344086021505375,
+      "prediction": 0.31629621982574463,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0139-050.png",
+      "parent_group": "aasce:6010c10ecd6bc8a8f6618115680b1abd72497541e616caebab96df2faec9aaca",
+      "reference": 0.510752688172043,
+      "prediction": 0.4046747386455536,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0139-075.png",
+      "parent_group": "aasce:6010c10ecd6bc8a8f6618115680b1abd72497541e616caebab96df2faec9aaca",
+      "reference": 0.7580645161290323,
+      "prediction": 0.5744815468788147,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0139-100.png",
+      "parent_group": "aasce:6010c10ecd6bc8a8f6618115680b1abd72497541e616caebab96df2faec9aaca",
+      "reference": 1.0,
+      "prediction": 0.5352507829666138,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0140-000.png",
+      "parent_group": "aasce:0a8d402b2fd41270917583e1dc43ddd3e4d26a50073c84bc1cc43ac0d6b7ba50",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0140-025.png",
+      "parent_group": "aasce:0a8d402b2fd41270917583e1dc43ddd3e4d26a50073c84bc1cc43ac0d6b7ba50",
+      "reference": 0.25390625,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0140-050.png",
+      "parent_group": "aasce:0a8d402b2fd41270917583e1dc43ddd3e4d26a50073c84bc1cc43ac0d6b7ba50",
+      "reference": 0.50390625,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0140-075.png",
+      "parent_group": "aasce:0a8d402b2fd41270917583e1dc43ddd3e4d26a50073c84bc1cc43ac0d6b7ba50",
+      "reference": 0.75390625,
+      "prediction": 0.1815248727798462,
+      "interval": [
+        0.0,
+        0.9106567210339486
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0140-100.png",
+      "parent_group": "aasce:0a8d402b2fd41270917583e1dc43ddd3e4d26a50073c84bc1cc43ac0d6b7ba50",
+      "reference": 1.0,
+      "prediction": 0.4309161305427551,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0143-000.png",
+      "parent_group": "aasce:845e0f725eb6e1047d0568c3b4195e2f0b44b4e83c763f2a3ae69cbfbc409bc9",
+      "reference": 0.0,
+      "prediction": 0.4750218093395233,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0143-025.png",
+      "parent_group": "aasce:845e0f725eb6e1047d0568c3b4195e2f0b44b4e83c763f2a3ae69cbfbc409bc9",
+      "reference": 0.2537878787878788,
+      "prediction": 0.769004225730896,
+      "interval": [
+        0.03987237747679362,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0143-050.png",
+      "parent_group": "aasce:845e0f725eb6e1047d0568c3b4195e2f0b44b4e83c763f2a3ae69cbfbc409bc9",
+      "reference": 0.5037878787878788,
+      "prediction": 0.9526109099388123,
+      "interval": [
+        0.22347906168470988,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0143-075.png",
+      "parent_group": "aasce:845e0f725eb6e1047d0568c3b4195e2f0b44b4e83c763f2a3ae69cbfbc409bc9",
+      "reference": 0.7537878787878788,
+      "prediction": 0.9989068508148193,
+      "interval": [
+        0.26977500256071696,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0143-100.png",
+      "parent_group": "aasce:845e0f725eb6e1047d0568c3b4195e2f0b44b4e83c763f2a3ae69cbfbc409bc9",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0144-000.png",
+      "parent_group": "aasce:1898f89f32bdf3938c29edaca1bc50098673f17c0de253747e66ba771154d1a8",
+      "reference": 0.0,
+      "prediction": 0.3279169797897339,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0144-025.png",
+      "parent_group": "aasce:1898f89f32bdf3938c29edaca1bc50098673f17c0de253747e66ba771154d1a8",
+      "reference": 0.25462962962962965,
+      "prediction": 0.530824601650238,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0144-050.png",
+      "parent_group": "aasce:1898f89f32bdf3938c29edaca1bc50098673f17c0de253747e66ba771154d1a8",
+      "reference": 0.5046296296296297,
+      "prediction": 0.8240668773651123,
+      "interval": [
+        0.09493502911100993,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0144-075.png",
+      "parent_group": "aasce:1898f89f32bdf3938c29edaca1bc50098673f17c0de253747e66ba771154d1a8",
+      "reference": 0.7546296296296297,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0144-100.png",
+      "parent_group": "aasce:1898f89f32bdf3938c29edaca1bc50098673f17c0de253747e66ba771154d1a8",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0151-000.png",
+      "parent_group": "aasce:759f934adbb711518dcd8c14b546a9668388dcab3493091fdc7cc166348c4540",
+      "reference": 0.0,
+      "prediction": 0.3249412477016449,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0151-025.png",
+      "parent_group": "aasce:759f934adbb711518dcd8c14b546a9668388dcab3493091fdc7cc166348c4540",
+      "reference": 0.2606837606837607,
+      "prediction": 0.30518168210983276,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0151-050.png",
+      "parent_group": "aasce:759f934adbb711518dcd8c14b546a9668388dcab3493091fdc7cc166348c4540",
+      "reference": 0.5085470085470085,
+      "prediction": 0.6682273149490356,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0151-075.png",
+      "parent_group": "aasce:759f934adbb711518dcd8c14b546a9668388dcab3493091fdc7cc166348c4540",
+      "reference": 0.7564102564102564,
+      "prediction": 0.688852071762085,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0151-100.png",
+      "parent_group": "aasce:759f934adbb711518dcd8c14b546a9668388dcab3493091fdc7cc166348c4540",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0154-000.png",
+      "parent_group": "aasce:40425f1a2017e7bb75e17727bea433a7707cfc3b58772f64dfab36721a50c098",
+      "reference": 0.0,
+      "prediction": 0.016325950622558594,
+      "interval": [
+        0.0,
+        0.745457798876661
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0154-025.png",
+      "parent_group": "aasce:40425f1a2017e7bb75e17727bea433a7707cfc3b58772f64dfab36721a50c098",
+      "reference": 0.2611111111111111,
+      "prediction": 0.2172812521457672,
+      "interval": [
+        0.0,
+        0.9464131003998696
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0154-050.png",
+      "parent_group": "aasce:40425f1a2017e7bb75e17727bea433a7707cfc3b58772f64dfab36721a50c098",
+      "reference": 0.5055555555555555,
+      "prediction": 0.48817551136016846,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0154-075.png",
+      "parent_group": "aasce:40425f1a2017e7bb75e17727bea433a7707cfc3b58772f64dfab36721a50c098",
+      "reference": 0.7611111111111111,
+      "prediction": 0.4948750436306,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0154-100.png",
+      "parent_group": "aasce:40425f1a2017e7bb75e17727bea433a7707cfc3b58772f64dfab36721a50c098",
+      "reference": 1.0,
+      "prediction": 0.6657907962799072,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0157-000.png",
+      "parent_group": "aasce:455cd0c9c251812469e991191d422f5281586b7b22a918cc471ff68d59c5c748",
+      "reference": 0.0,
+      "prediction": 0.14669552445411682,
+      "interval": [
+        0.0,
+        0.8758273727082192
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0157-025.png",
+      "parent_group": "aasce:455cd0c9c251812469e991191d422f5281586b7b22a918cc471ff68d59c5c748",
+      "reference": 0.2544642857142857,
+      "prediction": 0.4309152066707611,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0157-050.png",
+      "parent_group": "aasce:455cd0c9c251812469e991191d422f5281586b7b22a918cc471ff68d59c5c748",
+      "reference": 0.5044642857142857,
+      "prediction": 0.4886600971221924,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0157-075.png",
+      "parent_group": "aasce:455cd0c9c251812469e991191d422f5281586b7b22a918cc471ff68d59c5c748",
+      "reference": 0.7544642857142857,
+      "prediction": 0.6150373220443726,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0157-100.png",
+      "parent_group": "aasce:455cd0c9c251812469e991191d422f5281586b7b22a918cc471ff68d59c5c748",
+      "reference": 1.0,
+      "prediction": 0.8913363218307495,
+      "interval": [
+        0.16220447357664713,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0161-000.png",
+      "parent_group": "aasce:aabb07f49aa9bb507178b5a4acf650983b385d7bb5ecddc0428438bb27a09f27",
+      "reference": 0.0,
+      "prediction": 0.1603739857673645,
+      "interval": [
+        0.0,
+        0.8895058340214669
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0161-025.png",
+      "parent_group": "aasce:aabb07f49aa9bb507178b5a4acf650983b385d7bb5ecddc0428438bb27a09f27",
+      "reference": 0.2593984962406015,
+      "prediction": 0.4002237021923065,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0161-050.png",
+      "parent_group": "aasce:aabb07f49aa9bb507178b5a4acf650983b385d7bb5ecddc0428438bb27a09f27",
+      "reference": 0.5075187969924813,
+      "prediction": 0.48890072107315063,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0161-075.png",
+      "parent_group": "aasce:aabb07f49aa9bb507178b5a4acf650983b385d7bb5ecddc0428438bb27a09f27",
+      "reference": 0.7556390977443609,
+      "prediction": 0.7578962445259094,
+      "interval": [
+        0.028764396271807047,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0161-100.png",
+      "parent_group": "aasce:aabb07f49aa9bb507178b5a4acf650983b385d7bb5ecddc0428438bb27a09f27",
+      "reference": 1.0,
+      "prediction": 0.8934229016304016,
+      "interval": [
+        0.16429105337629923,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0164-000.png",
+      "parent_group": "aasce:ddb70eaec7289c88228e502dd01edfd09d8f2dddf5fe6eaba9ec11552bda8bae",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0164-025.png",
+      "parent_group": "aasce:ddb70eaec7289c88228e502dd01edfd09d8f2dddf5fe6eaba9ec11552bda8bae",
+      "reference": 0.2544642857142857,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0164-050.png",
+      "parent_group": "aasce:ddb70eaec7289c88228e502dd01edfd09d8f2dddf5fe6eaba9ec11552bda8bae",
+      "reference": 0.5044642857142857,
+      "prediction": 0.06987074017524719,
+      "interval": [
+        0.0,
+        0.7990025884293496
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0164-075.png",
+      "parent_group": "aasce:ddb70eaec7289c88228e502dd01edfd09d8f2dddf5fe6eaba9ec11552bda8bae",
+      "reference": 0.7544642857142857,
+      "prediction": 0.6085164546966553,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0164-100.png",
+      "parent_group": "aasce:ddb70eaec7289c88228e502dd01edfd09d8f2dddf5fe6eaba9ec11552bda8bae",
+      "reference": 1.0,
+      "prediction": 0.5587751269340515,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0167-000.png",
+      "parent_group": "aasce:a50415ec05fe0c4bb5aa4ac6e4d77cd5fd8e4c0bba43dd98e374ff2500087c80",
+      "reference": 0.0,
+      "prediction": 0.3018611669540405,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0167-025.png",
+      "parent_group": "aasce:a50415ec05fe0c4bb5aa4ac6e4d77cd5fd8e4c0bba43dd98e374ff2500087c80",
+      "reference": 0.2574626865671642,
+      "prediction": 0.5472935438156128,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0167-050.png",
+      "parent_group": "aasce:a50415ec05fe0c4bb5aa4ac6e4d77cd5fd8e4c0bba43dd98e374ff2500087c80",
+      "reference": 0.503731343283582,
+      "prediction": 0.6193501353263855,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0167-075.png",
+      "parent_group": "aasce:a50415ec05fe0c4bb5aa4ac6e4d77cd5fd8e4c0bba43dd98e374ff2500087c80",
+      "reference": 0.7574626865671642,
+      "prediction": 0.6583183407783508,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0167-100.png",
+      "parent_group": "aasce:a50415ec05fe0c4bb5aa4ac6e4d77cd5fd8e4c0bba43dd98e374ff2500087c80",
+      "reference": 1.0,
+      "prediction": 0.6978152394294739,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0174-000.png",
+      "parent_group": "aasce:f44ced5ff4080a456eff72ae28a552e35433148a4d366d81f796d67ae824678b",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0174-025.png",
+      "parent_group": "aasce:f44ced5ff4080a456eff72ae28a552e35433148a4d366d81f796d67ae824678b",
+      "reference": 0.26,
+      "prediction": 0.2551478147506714,
+      "interval": [
+        0.0,
+        0.9842796630047738
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0174-050.png",
+      "parent_group": "aasce:f44ced5ff4080a456eff72ae28a552e35433148a4d366d81f796d67ae824678b",
+      "reference": 0.508,
+      "prediction": 0.25867074728012085,
+      "interval": [
+        0.0,
+        0.9878025955342232
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0174-075.png",
+      "parent_group": "aasce:f44ced5ff4080a456eff72ae28a552e35433148a4d366d81f796d67ae824678b",
+      "reference": 0.756,
+      "prediction": 0.8155032396316528,
+      "interval": [
+        0.08637139137755045,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0174-100.png",
+      "parent_group": "aasce:f44ced5ff4080a456eff72ae28a552e35433148a4d366d81f796d67ae824678b",
+      "reference": 1.0,
+      "prediction": 0.9601553678512573,
+      "interval": [
+        0.23102351959715495,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0181-000.png",
+      "parent_group": "aasce:0361b5313ff1801984d52bacf88c6fe00f3552210c37a19de1b3de056f23f425",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0181-025.png",
+      "parent_group": "aasce:0361b5313ff1801984d52bacf88c6fe00f3552210c37a19de1b3de056f23f425",
+      "reference": 0.25630252100840334,
+      "prediction": 0.12385693192481995,
+      "interval": [
+        0.0,
+        0.8529887801789223
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0181-050.png",
+      "parent_group": "aasce:0361b5313ff1801984d52bacf88c6fe00f3552210c37a19de1b3de056f23f425",
+      "reference": 0.5084033613445378,
+      "prediction": 0.2771014869213104,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0181-075.png",
+      "parent_group": "aasce:0361b5313ff1801984d52bacf88c6fe00f3552210c37a19de1b3de056f23f425",
+      "reference": 0.7605042016806722,
+      "prediction": 0.46100732684135437,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0181-100.png",
+      "parent_group": "aasce:0361b5313ff1801984d52bacf88c6fe00f3552210c37a19de1b3de056f23f425",
+      "reference": 1.0,
+      "prediction": 0.8257204294204712,
+      "interval": [
+        0.09658858116636881,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0183-000.png",
+      "parent_group": "aasce:f9d6a7fe6ca80623fc28f29bdee7ec5271639c99296c9648ee9bc8a32cfb666e",
+      "reference": 0.0,
+      "prediction": 0.6018614172935486,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0183-025.png",
+      "parent_group": "aasce:f9d6a7fe6ca80623fc28f29bdee7ec5271639c99296c9648ee9bc8a32cfb666e",
+      "reference": 0.25572519083969464,
+      "prediction": 0.9961150288581848,
+      "interval": [
+        0.26698318060408244,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0183-050.png",
+      "parent_group": "aasce:f9d6a7fe6ca80623fc28f29bdee7ec5271639c99296c9648ee9bc8a32cfb666e",
+      "reference": 0.5076335877862596,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0183-075.png",
+      "parent_group": "aasce:f9d6a7fe6ca80623fc28f29bdee7ec5271639c99296c9648ee9bc8a32cfb666e",
+      "reference": 0.7595419847328244,
+      "prediction": 0.9089415073394775,
+      "interval": [
+        0.17980965908537516,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0183-100.png",
+      "parent_group": "aasce:f9d6a7fe6ca80623fc28f29bdee7ec5271639c99296c9648ee9bc8a32cfb666e",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0189-000.png",
+      "parent_group": "aasce:60c51a827cc38b15ac05472ce42de2e947a35dcbb9fbe6479a301214bd0a9d16",
+      "reference": 0.0,
+      "prediction": 0.4859250485897064,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0189-025.png",
+      "parent_group": "aasce:60c51a827cc38b15ac05472ce42de2e947a35dcbb9fbe6479a301214bd0a9d16",
+      "reference": 0.2654320987654321,
+      "prediction": 0.710761547088623,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0189-050.png",
+      "parent_group": "aasce:60c51a827cc38b15ac05472ce42de2e947a35dcbb9fbe6479a301214bd0a9d16",
+      "reference": 0.5123456790123457,
+      "prediction": 0.9261327385902405,
+      "interval": [
+        0.1970008903361381,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0189-075.png",
+      "parent_group": "aasce:60c51a827cc38b15ac05472ce42de2e947a35dcbb9fbe6479a301214bd0a9d16",
+      "reference": 0.7592592592592593,
+      "prediction": 0.9651129841804504,
+      "interval": [
+        0.23598113592634806,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0189-100.png",
+      "parent_group": "aasce:60c51a827cc38b15ac05472ce42de2e947a35dcbb9fbe6479a301214bd0a9d16",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0194-000.png",
+      "parent_group": "aasce:cf59ebb2ae9f1376166a5c2e9ee5dc94c6cd152c5987d3550998ead387cf4f16",
+      "reference": 0.0,
+      "prediction": 0.8740881681442261,
+      "interval": [
+        0.1449563198901237,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0194-025.png",
+      "parent_group": "aasce:cf59ebb2ae9f1376166a5c2e9ee5dc94c6cd152c5987d3550998ead387cf4f16",
+      "reference": 0.2568493150684932,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0194-050.png",
+      "parent_group": "aasce:cf59ebb2ae9f1376166a5c2e9ee5dc94c6cd152c5987d3550998ead387cf4f16",
+      "reference": 0.5034246575342466,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0194-075.png",
+      "parent_group": "aasce:cf59ebb2ae9f1376166a5c2e9ee5dc94c6cd152c5987d3550998ead387cf4f16",
+      "reference": 0.7568493150684932,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0194-100.png",
+      "parent_group": "aasce:cf59ebb2ae9f1376166a5c2e9ee5dc94c6cd152c5987d3550998ead387cf4f16",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0195-000.png",
+      "parent_group": "aasce:480aaa138f40b34e8e7892690b1b7836cb7e2510b2cd94392f223929a66080f6",
+      "reference": 0.0,
+      "prediction": 0.4080365002155304,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0195-025.png",
+      "parent_group": "aasce:480aaa138f40b34e8e7892690b1b7836cb7e2510b2cd94392f223929a66080f6",
+      "reference": 0.2552083333333333,
+      "prediction": 0.46929600834846497,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0195-050.png",
+      "parent_group": "aasce:480aaa138f40b34e8e7892690b1b7836cb7e2510b2cd94392f223929a66080f6",
+      "reference": 0.5052083333333334,
+      "prediction": 0.5635069608688354,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0195-075.png",
+      "parent_group": "aasce:480aaa138f40b34e8e7892690b1b7836cb7e2510b2cd94392f223929a66080f6",
+      "reference": 0.7552083333333334,
+      "prediction": 0.8523011207580566,
+      "interval": [
+        0.12316927250395426,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0195-100.png",
+      "parent_group": "aasce:480aaa138f40b34e8e7892690b1b7836cb7e2510b2cd94392f223929a66080f6",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0197-000.png",
+      "parent_group": "aasce:de0bb466a6358ae53af301ff7c3775c779cd63c22d12e90221a94da141ae1811",
+      "reference": 0.0,
+      "prediction": 0.11752328276634216,
+      "interval": [
+        0.0,
+        0.8466551310204445
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0197-025.png",
+      "parent_group": "aasce:de0bb466a6358ae53af301ff7c3775c779cd63c22d12e90221a94da141ae1811",
+      "reference": 0.2574626865671642,
+      "prediction": 0.09929192066192627,
+      "interval": [
+        0.0,
+        0.8284237689160286
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0197-050.png",
+      "parent_group": "aasce:de0bb466a6358ae53af301ff7c3775c779cd63c22d12e90221a94da141ae1811",
+      "reference": 0.503731343283582,
+      "prediction": 0.36851853132247925,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0197-075.png",
+      "parent_group": "aasce:de0bb466a6358ae53af301ff7c3775c779cd63c22d12e90221a94da141ae1811",
+      "reference": 0.7574626865671642,
+      "prediction": 0.6864255666732788,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0197-100.png",
+      "parent_group": "aasce:de0bb466a6358ae53af301ff7c3775c779cd63c22d12e90221a94da141ae1811",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0201-000.png",
+      "parent_group": "aasce:195e20ba587a17e5eb127739e424ea50f91f907bd64eabfbb21c8c416c3bf65f",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0201-025.png",
+      "parent_group": "aasce:195e20ba587a17e5eb127739e424ea50f91f907bd64eabfbb21c8c416c3bf65f",
+      "reference": 0.2528409090909091,
+      "prediction": 0.07538223266601562,
+      "interval": [
+        0.0,
+        0.804514080920118
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0201-050.png",
+      "parent_group": "aasce:195e20ba587a17e5eb127739e424ea50f91f907bd64eabfbb21c8c416c3bf65f",
+      "reference": 0.5028409090909091,
+      "prediction": 0.6812937259674072,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0201-075.png",
+      "parent_group": "aasce:195e20ba587a17e5eb127739e424ea50f91f907bd64eabfbb21c8c416c3bf65f",
+      "reference": 0.7528409090909091,
+      "prediction": 0.8161053657531738,
+      "interval": [
+        0.08697351749907145,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0201-100.png",
+      "parent_group": "aasce:195e20ba587a17e5eb127739e424ea50f91f907bd64eabfbb21c8c416c3bf65f",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0204-000.png",
+      "parent_group": "aasce:a600427f45fd43ff7608de3a52ddebc0d9cbed8472c72bc83a1e49c9057f1ffc",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0204-025.png",
+      "parent_group": "aasce:a600427f45fd43ff7608de3a52ddebc0d9cbed8472c72bc83a1e49c9057f1ffc",
+      "reference": 0.2532894736842105,
+      "prediction": 0.001762092113494873,
+      "interval": [
+        0.0,
+        0.7308939403675973
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0204-050.png",
+      "parent_group": "aasce:a600427f45fd43ff7608de3a52ddebc0d9cbed8472c72bc83a1e49c9057f1ffc",
+      "reference": 0.5032894736842105,
+      "prediction": 0.3098818063735962,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0204-075.png",
+      "parent_group": "aasce:a600427f45fd43ff7608de3a52ddebc0d9cbed8472c72bc83a1e49c9057f1ffc",
+      "reference": 0.7532894736842105,
+      "prediction": 0.17574626207351685,
+      "interval": [
+        0.0,
+        0.9048781103276192
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0204-100.png",
+      "parent_group": "aasce:a600427f45fd43ff7608de3a52ddebc0d9cbed8472c72bc83a1e49c9057f1ffc",
+      "reference": 1.0,
+      "prediction": 0.7536196112632751,
+      "interval": [
+        0.02448776300917277,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0205-000.png",
+      "parent_group": "aasce:dcf9b786320e004a2c9befc0ebe1a5be9c923f793bed78c300b8f3fdc7cec30f",
+      "reference": 0.0,
+      "prediction": 0.08643642067909241,
+      "interval": [
+        0.0,
+        0.8155682689331948
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0205-025.png",
+      "parent_group": "aasce:dcf9b786320e004a2c9befc0ebe1a5be9c923f793bed78c300b8f3fdc7cec30f",
+      "reference": 0.2692307692307692,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0205-050.png",
+      "parent_group": "aasce:dcf9b786320e004a2c9befc0ebe1a5be9c923f793bed78c300b8f3fdc7cec30f",
+      "reference": 0.5153846153846153,
+      "prediction": 0.3654671609401703,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0205-075.png",
+      "parent_group": "aasce:dcf9b786320e004a2c9befc0ebe1a5be9c923f793bed78c300b8f3fdc7cec30f",
+      "reference": 0.7615384615384615,
+      "prediction": 0.5710021257400513,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0205-100.png",
+      "parent_group": "aasce:dcf9b786320e004a2c9befc0ebe1a5be9c923f793bed78c300b8f3fdc7cec30f",
+      "reference": 1.0,
+      "prediction": 0.6582684516906738,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0207-000.png",
+      "parent_group": "aasce:ec99ba3e71ce415c6f815df1402623d1a3fc8dbbd94f3801786ead09633a792a",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0207-025.png",
+      "parent_group": "aasce:ec99ba3e71ce415c6f815df1402623d1a3fc8dbbd94f3801786ead09633a792a",
+      "reference": 0.25526315789473686,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0207-050.png",
+      "parent_group": "aasce:ec99ba3e71ce415c6f815df1402623d1a3fc8dbbd94f3801786ead09633a792a",
+      "reference": 0.5026315789473684,
+      "prediction": 0.13034337759017944,
+      "interval": [
+        0.0,
+        0.8594752258442818
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0207-075.png",
+      "parent_group": "aasce:ec99ba3e71ce415c6f815df1402623d1a3fc8dbbd94f3801786ead09633a792a",
+      "reference": 0.7552631578947369,
+      "prediction": 0.41284653544425964,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0207-100.png",
+      "parent_group": "aasce:ec99ba3e71ce415c6f815df1402623d1a3fc8dbbd94f3801786ead09633a792a",
+      "reference": 1.0,
+      "prediction": 0.3980879485607147,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0213-000.png",
+      "parent_group": "aasce:67b90fb3da8f774abbc54adc99385c2051ca4ec3d3a9b8688833a0746f021cd4",
+      "reference": 0.0,
+      "prediction": 0.5150905251502991,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0213-025.png",
+      "parent_group": "aasce:67b90fb3da8f774abbc54adc99385c2051ca4ec3d3a9b8688833a0746f021cd4",
+      "reference": 0.26,
+      "prediction": 0.6472945213317871,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0213-050.png",
+      "parent_group": "aasce:67b90fb3da8f774abbc54adc99385c2051ca4ec3d3a9b8688833a0746f021cd4",
+      "reference": 0.508,
+      "prediction": 0.8326904773712158,
+      "interval": [
+        0.10355862911711344,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0213-075.png",
+      "parent_group": "aasce:67b90fb3da8f774abbc54adc99385c2051ca4ec3d3a9b8688833a0746f021cd4",
+      "reference": 0.756,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0213-100.png",
+      "parent_group": "aasce:67b90fb3da8f774abbc54adc99385c2051ca4ec3d3a9b8688833a0746f021cd4",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0221-000.png",
+      "parent_group": "aasce:52f0348d80057fff99abd3a3c14d27ac8baf730c2b4af6d5d453e9e2fb4d1b87",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0221-025.png",
+      "parent_group": "aasce:52f0348d80057fff99abd3a3c14d27ac8baf730c2b4af6d5d453e9e2fb4d1b87",
+      "reference": 0.2568493150684932,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0221-050.png",
+      "parent_group": "aasce:52f0348d80057fff99abd3a3c14d27ac8baf730c2b4af6d5d453e9e2fb4d1b87",
+      "reference": 0.5034246575342466,
+      "prediction": 0.24175280332565308,
+      "interval": [
+        0.0,
+        0.9708846515797555
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0221-075.png",
+      "parent_group": "aasce:52f0348d80057fff99abd3a3c14d27ac8baf730c2b4af6d5d453e9e2fb4d1b87",
+      "reference": 0.7568493150684932,
+      "prediction": 0.25378817319869995,
+      "interval": [
+        0.0,
+        0.9829200214528023
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0221-100.png",
+      "parent_group": "aasce:52f0348d80057fff99abd3a3c14d27ac8baf730c2b4af6d5d453e9e2fb4d1b87",
+      "reference": 1.0,
+      "prediction": 0.7040226459503174,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0223-000.png",
+      "parent_group": "aasce:ad953c84671a820f8d98dc6d192294e7e7054e564ecd7b42123b8a16e0427bdd",
+      "reference": 0.0,
+      "prediction": 0.21744012832641602,
+      "interval": [
+        0.0,
+        0.9465719765805184
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0223-025.png",
+      "parent_group": "aasce:ad953c84671a820f8d98dc6d192294e7e7054e564ecd7b42123b8a16e0427bdd",
+      "reference": 0.2581699346405229,
+      "prediction": 0.17321565747261047,
+      "interval": [
+        0.0,
+        0.9023475057267129
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0223-050.png",
+      "parent_group": "aasce:ad953c84671a820f8d98dc6d192294e7e7054e564ecd7b42123b8a16e0427bdd",
+      "reference": 0.5065359477124183,
+      "prediction": 0.38315439224243164,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0223-075.png",
+      "parent_group": "aasce:ad953c84671a820f8d98dc6d192294e7e7054e564ecd7b42123b8a16e0427bdd",
+      "reference": 0.7549019607843137,
+      "prediction": 0.5834245085716248,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0223-100.png",
+      "parent_group": "aasce:ad953c84671a820f8d98dc6d192294e7e7054e564ecd7b42123b8a16e0427bdd",
+      "reference": 1.0,
+      "prediction": 0.7123170495033264,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0225-000.png",
+      "parent_group": "aasce:1adb9f228dfdf1ad0dde2a99ecb82a7fbc0a12307e431d17f62800dc878f2f1f",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0225-025.png",
+      "parent_group": "aasce:1adb9f228dfdf1ad0dde2a99ecb82a7fbc0a12307e431d17f62800dc878f2f1f",
+      "reference": 0.2621951219512195,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0225-050.png",
+      "parent_group": "aasce:1adb9f228dfdf1ad0dde2a99ecb82a7fbc0a12307e431d17f62800dc878f2f1f",
+      "reference": 0.5060975609756098,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0225-075.png",
+      "parent_group": "aasce:1adb9f228dfdf1ad0dde2a99ecb82a7fbc0a12307e431d17f62800dc878f2f1f",
+      "reference": 0.7621951219512195,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0225-100.png",
+      "parent_group": "aasce:1adb9f228dfdf1ad0dde2a99ecb82a7fbc0a12307e431d17f62800dc878f2f1f",
+      "reference": 1.0,
+      "prediction": 0.5405788421630859,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0229-000.png",
+      "parent_group": "aasce:1b5f3bed4116ea6b6488294a134acaa193cdb738ac64fc834f6f7f7660c3bdd1",
+      "reference": 0.0,
+      "prediction": 0.5930582284927368,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0229-025.png",
+      "parent_group": "aasce:1b5f3bed4116ea6b6488294a134acaa193cdb738ac64fc834f6f7f7660c3bdd1",
+      "reference": 0.2526595744680851,
+      "prediction": 0.9783056974411011,
+      "interval": [
+        0.2491738491869987,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0229-050.png",
+      "parent_group": "aasce:1b5f3bed4116ea6b6488294a134acaa193cdb738ac64fc834f6f7f7660c3bdd1",
+      "reference": 0.5026595744680851,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0229-075.png",
+      "parent_group": "aasce:1b5f3bed4116ea6b6488294a134acaa193cdb738ac64fc834f6f7f7660c3bdd1",
+      "reference": 0.7526595744680851,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0229-100.png",
+      "parent_group": "aasce:1b5f3bed4116ea6b6488294a134acaa193cdb738ac64fc834f6f7f7660c3bdd1",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0236-000.png",
+      "parent_group": "aasce:3bb85953df6f3a582fdfc5818e0808ef885c49d3f780ab7e3f2549eb8249772c",
+      "reference": 0.0,
+      "prediction": 0.23937976360321045,
+      "interval": [
+        0.0,
+        0.9685116118573128
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0236-025.png",
+      "parent_group": "aasce:3bb85953df6f3a582fdfc5818e0808ef885c49d3f780ab7e3f2549eb8249772c",
+      "reference": 0.2577639751552795,
+      "prediction": 0.5875778198242188,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0236-050.png",
+      "parent_group": "aasce:3bb85953df6f3a582fdfc5818e0808ef885c49d3f780ab7e3f2549eb8249772c",
+      "reference": 0.5062111801242236,
+      "prediction": 0.9841486215591431,
+      "interval": [
+        0.2550167733050407,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0236-075.png",
+      "parent_group": "aasce:3bb85953df6f3a582fdfc5818e0808ef885c49d3f780ab7e3f2549eb8249772c",
+      "reference": 0.7546583850931677,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0236-100.png",
+      "parent_group": "aasce:3bb85953df6f3a582fdfc5818e0808ef885c49d3f780ab7e3f2549eb8249772c",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0238-000.png",
+      "parent_group": "aasce:8deebbde54a38f5361733fa659217136851de82a7cd4c01369438e963b806fd1",
+      "reference": 0.0,
+      "prediction": 0.5688514709472656,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0238-025.png",
+      "parent_group": "aasce:8deebbde54a38f5361733fa659217136851de82a7cd4c01369438e963b806fd1",
+      "reference": 0.2566137566137566,
+      "prediction": 0.7953276038169861,
+      "interval": [
+        0.0661957555628837,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0238-050.png",
+      "parent_group": "aasce:8deebbde54a38f5361733fa659217136851de82a7cd4c01369438e963b806fd1",
+      "reference": 0.5052910052910053,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0238-075.png",
+      "parent_group": "aasce:8deebbde54a38f5361733fa659217136851de82a7cd4c01369438e963b806fd1",
+      "reference": 0.753968253968254,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0238-100.png",
+      "parent_group": "aasce:8deebbde54a38f5361733fa659217136851de82a7cd4c01369438e963b806fd1",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0239-000.png",
+      "parent_group": "aasce:43fe5799290ae04ac95f41f4e771ff753182b92875057f238b0ea9c60dd59a84",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0239-025.png",
+      "parent_group": "aasce:43fe5799290ae04ac95f41f4e771ff753182b92875057f238b0ea9c60dd59a84",
+      "reference": 0.25630252100840334,
+      "prediction": 0.18368691205978394,
+      "interval": [
+        0.0,
+        0.9128187603138863
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0239-050.png",
+      "parent_group": "aasce:43fe5799290ae04ac95f41f4e771ff753182b92875057f238b0ea9c60dd59a84",
+      "reference": 0.5084033613445378,
+      "prediction": 0.5436595678329468,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0239-075.png",
+      "parent_group": "aasce:43fe5799290ae04ac95f41f4e771ff753182b92875057f238b0ea9c60dd59a84",
+      "reference": 0.7605042016806722,
+      "prediction": 0.8100298047065735,
+      "interval": [
+        0.08089795645247111,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0239-100.png",
+      "parent_group": "aasce:43fe5799290ae04ac95f41f4e771ff753182b92875057f238b0ea9c60dd59a84",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0253-000.png",
+      "parent_group": "aasce:0bd9c03231c3a840041d521a984b86232bf27a27d30cab5fb4e88199eef91968",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0253-025.png",
+      "parent_group": "aasce:0bd9c03231c3a840041d521a984b86232bf27a27d30cab5fb4e88199eef91968",
+      "reference": 0.25392670157068065,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0253-050.png",
+      "parent_group": "aasce:0bd9c03231c3a840041d521a984b86232bf27a27d30cab5fb4e88199eef91968",
+      "reference": 0.5052356020942408,
+      "prediction": 0.0869874358177185,
+      "interval": [
+        0.0,
+        0.8161192840718209
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0253-075.png",
+      "parent_group": "aasce:0bd9c03231c3a840041d521a984b86232bf27a27d30cab5fb4e88199eef91968",
+      "reference": 0.756544502617801,
+      "prediction": 0.1944311559200287,
+      "interval": [
+        0.0,
+        0.9235630041741311
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0253-100.png",
+      "parent_group": "aasce:0bd9c03231c3a840041d521a984b86232bf27a27d30cab5fb4e88199eef91968",
+      "reference": 1.0,
+      "prediction": 0.5216408371925354,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0261-000.png",
+      "parent_group": "aasce:a3b44a6cbe69bab0907d5413f55c87716e8809a8f261ec842a11b3b2d88ecc98",
+      "reference": 0.0,
+      "prediction": 0.2755449712276459,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0261-025.png",
+      "parent_group": "aasce:a3b44a6cbe69bab0907d5413f55c87716e8809a8f261ec842a11b3b2d88ecc98",
+      "reference": 0.2565217391304348,
+      "prediction": 0.5382859706878662,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0261-050.png",
+      "parent_group": "aasce:a3b44a6cbe69bab0907d5413f55c87716e8809a8f261ec842a11b3b2d88ecc98",
+      "reference": 0.508695652173913,
+      "prediction": 0.733989953994751,
+      "interval": [
+        0.0048581057406485995,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0261-075.png",
+      "parent_group": "aasce:a3b44a6cbe69bab0907d5413f55c87716e8809a8f261ec842a11b3b2d88ecc98",
+      "reference": 0.7608695652173914,
+      "prediction": 0.636340856552124,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0261-100.png",
+      "parent_group": "aasce:a3b44a6cbe69bab0907d5413f55c87716e8809a8f261ec842a11b3b2d88ecc98",
+      "reference": 1.0,
+      "prediction": 0.8902847766876221,
+      "interval": [
+        0.1611529284335197,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0269-000.png",
+      "parent_group": "aasce:7b87aa5002fdeed8f49e129f0093015e8c3c51d8e9d84196d8703718e5ef0c0e",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0269-025.png",
+      "parent_group": "aasce:7b87aa5002fdeed8f49e129f0093015e8c3c51d8e9d84196d8703718e5ef0c0e",
+      "reference": 0.25393700787401574,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0269-050.png",
+      "parent_group": "aasce:7b87aa5002fdeed8f49e129f0093015e8c3c51d8e9d84196d8703718e5ef0c0e",
+      "reference": 0.5019685039370079,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0269-075.png",
+      "parent_group": "aasce:7b87aa5002fdeed8f49e129f0093015e8c3c51d8e9d84196d8703718e5ef0c0e",
+      "reference": 0.7539370078740157,
+      "prediction": 0.20027491450309753,
+      "interval": [
+        0.0,
+        0.9294067627571999
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0269-100.png",
+      "parent_group": "aasce:7b87aa5002fdeed8f49e129f0093015e8c3c51d8e9d84196d8703718e5ef0c0e",
+      "reference": 1.0,
+      "prediction": 0.6433445811271667,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0281-000.png",
+      "parent_group": "aasce:07fa3c0c8cddfabcf2d1469a94d45cc05c6a4d47dd62af8c9f9a32efc7fe26bd",
+      "reference": 0.0,
+      "prediction": 0.2983447313308716,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0281-025.png",
+      "parent_group": "aasce:07fa3c0c8cddfabcf2d1469a94d45cc05c6a4d47dd62af8c9f9a32efc7fe26bd",
+      "reference": 0.25510204081632654,
+      "prediction": 0.8955339789390564,
+      "interval": [
+        0.16640213068495402,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0281-050.png",
+      "parent_group": "aasce:07fa3c0c8cddfabcf2d1469a94d45cc05c6a4d47dd62af8c9f9a32efc7fe26bd",
+      "reference": 0.5068027210884354,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0281-075.png",
+      "parent_group": "aasce:07fa3c0c8cddfabcf2d1469a94d45cc05c6a4d47dd62af8c9f9a32efc7fe26bd",
+      "reference": 0.7585034013605442,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0281-100.png",
+      "parent_group": "aasce:07fa3c0c8cddfabcf2d1469a94d45cc05c6a4d47dd62af8c9f9a32efc7fe26bd",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0285-000.png",
+      "parent_group": "aasce:48c1f438a8c0358f62118ae309d8be17630aeca212ea18e60a527cfffea5f820",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0285-025.png",
+      "parent_group": "aasce:48c1f438a8c0358f62118ae309d8be17630aeca212ea18e60a527cfffea5f820",
+      "reference": 0.2581699346405229,
+      "prediction": 0.2054654061794281,
+      "interval": [
+        0.0,
+        0.9345972544335305
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0285-050.png",
+      "parent_group": "aasce:48c1f438a8c0358f62118ae309d8be17630aeca212ea18e60a527cfffea5f820",
+      "reference": 0.5065359477124183,
+      "prediction": 0.00754818320274353,
+      "interval": [
+        0.0,
+        0.7366800314568459
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0285-075.png",
+      "parent_group": "aasce:48c1f438a8c0358f62118ae309d8be17630aeca212ea18e60a527cfffea5f820",
+      "reference": 0.7549019607843137,
+      "prediction": 0.578976035118103,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0285-100.png",
+      "parent_group": "aasce:48c1f438a8c0358f62118ae309d8be17630aeca212ea18e60a527cfffea5f820",
+      "reference": 1.0,
+      "prediction": 0.44958487153053284,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0291-000.png",
+      "parent_group": "aasce:1adac61217c5738153448264293e972ccd3e8bcda151bc5ea38700889b861096",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0291-025.png",
+      "parent_group": "aasce:1adac61217c5738153448264293e972ccd3e8bcda151bc5ea38700889b861096",
+      "reference": 0.2528409090909091,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0291-050.png",
+      "parent_group": "aasce:1adac61217c5738153448264293e972ccd3e8bcda151bc5ea38700889b861096",
+      "reference": 0.5028409090909091,
+      "prediction": 0.1570313572883606,
+      "interval": [
+        0.0,
+        0.886163205542463
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0291-075.png",
+      "parent_group": "aasce:1adac61217c5738153448264293e972ccd3e8bcda151bc5ea38700889b861096",
+      "reference": 0.7528409090909091,
+      "prediction": 0.46070778369903564,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0291-100.png",
+      "parent_group": "aasce:1adac61217c5738153448264293e972ccd3e8bcda151bc5ea38700889b861096",
+      "reference": 1.0,
+      "prediction": 0.5328966379165649,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0296-000.png",
+      "parent_group": "aasce:c41f80a05a74090f91cde94c7bbb11b16f9d5f048bf40742c81d229f33f42f33",
+      "reference": 0.0,
+      "prediction": 0.0977780818939209,
+      "interval": [
+        0.0,
+        0.8269099301480233
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0296-025.png",
+      "parent_group": "aasce:c41f80a05a74090f91cde94c7bbb11b16f9d5f048bf40742c81d229f33f42f33",
+      "reference": 0.25838926174496646,
+      "prediction": 0.16743195056915283,
+      "interval": [
+        0.0,
+        0.8965637988232552
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0296-050.png",
+      "parent_group": "aasce:c41f80a05a74090f91cde94c7bbb11b16f9d5f048bf40742c81d229f33f42f33",
+      "reference": 0.5067114093959731,
+      "prediction": 0.20362567901611328,
+      "interval": [
+        0.0,
+        0.9327575272702157
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0296-075.png",
+      "parent_group": "aasce:c41f80a05a74090f91cde94c7bbb11b16f9d5f048bf40742c81d229f33f42f33",
+      "reference": 0.7550335570469798,
+      "prediction": 0.39107853174209595,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0296-100.png",
+      "parent_group": "aasce:c41f80a05a74090f91cde94c7bbb11b16f9d5f048bf40742c81d229f33f42f33",
+      "reference": 1.0,
+      "prediction": 0.3063831925392151,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0297-000.png",
+      "parent_group": "aasce:d3862456c93f384eb9c27de0379b55ea1df10da85908bc9ff40cceb62a720db4",
+      "reference": 0.0,
+      "prediction": 0.20716243982315063,
+      "interval": [
+        0.0,
+        0.936294288077253
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0297-025.png",
+      "parent_group": "aasce:d3862456c93f384eb9c27de0379b55ea1df10da85908bc9ff40cceb62a720db4",
+      "reference": 0.2581967213114754,
+      "prediction": 0.4504730701446533,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0297-050.png",
+      "parent_group": "aasce:d3862456c93f384eb9c27de0379b55ea1df10da85908bc9ff40cceb62a720db4",
+      "reference": 0.5040983606557377,
+      "prediction": 0.5699419975280762,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0297-075.png",
+      "parent_group": "aasce:d3862456c93f384eb9c27de0379b55ea1df10da85908bc9ff40cceb62a720db4",
+      "reference": 0.7581967213114754,
+      "prediction": 0.7762378454208374,
+      "interval": [
+        0.047105997166735025,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0297-100.png",
+      "parent_group": "aasce:d3862456c93f384eb9c27de0379b55ea1df10da85908bc9ff40cceb62a720db4",
+      "reference": 1.0,
+      "prediction": 0.9898204803466797,
+      "interval": [
+        0.2606886320925773,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0298-000.png",
+      "parent_group": "aasce:579d0cac054231112fbe41c9621a5300b8e61ad7d9fb1e4bc8dc1c9919ba5396",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0298-025.png",
+      "parent_group": "aasce:579d0cac054231112fbe41c9621a5300b8e61ad7d9fb1e4bc8dc1c9919ba5396",
+      "reference": 0.25277777777777777,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0298-050.png",
+      "parent_group": "aasce:579d0cac054231112fbe41c9621a5300b8e61ad7d9fb1e4bc8dc1c9919ba5396",
+      "reference": 0.5027777777777778,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0298-075.png",
+      "parent_group": "aasce:579d0cac054231112fbe41c9621a5300b8e61ad7d9fb1e4bc8dc1c9919ba5396",
+      "reference": 0.7527777777777778,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0298-100.png",
+      "parent_group": "aasce:579d0cac054231112fbe41c9621a5300b8e61ad7d9fb1e4bc8dc1c9919ba5396",
+      "reference": 1.0,
+      "prediction": 0.14506444334983826,
+      "interval": [
+        0.0,
+        0.8741962916039406
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0306-000.png",
+      "parent_group": "aasce:0e228afce9ea9970c1562fc6c00bc46697f142333c421f15ab3206b071697b8f",
+      "reference": 0.0,
+      "prediction": 0.199244886636734,
+      "interval": [
+        0.0,
+        0.9283767348908364
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0306-025.png",
+      "parent_group": "aasce:0e228afce9ea9970c1562fc6c00bc46697f142333c421f15ab3206b071697b8f",
+      "reference": 0.25886524822695034,
+      "prediction": 0.39667168259620667,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0306-050.png",
+      "parent_group": "aasce:0e228afce9ea9970c1562fc6c00bc46697f142333c421f15ab3206b071697b8f",
+      "reference": 0.5070921985815603,
+      "prediction": 0.8275985717773438,
+      "interval": [
+        0.09846672352324137,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0306-075.png",
+      "parent_group": "aasce:0e228afce9ea9970c1562fc6c00bc46697f142333c421f15ab3206b071697b8f",
+      "reference": 0.7553191489361702,
+      "prediction": 0.6844850182533264,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0306-100.png",
+      "parent_group": "aasce:0e228afce9ea9970c1562fc6c00bc46697f142333c421f15ab3206b071697b8f",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0309-000.png",
+      "parent_group": "aasce:6485956969374e8a0fe7185f123c6641c0e217f0b5236a9943435b0e1850a091",
+      "reference": 0.0,
+      "prediction": 0.5673058032989502,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0309-025.png",
+      "parent_group": "aasce:6485956969374e8a0fe7185f123c6641c0e217f0b5236a9943435b0e1850a091",
+      "reference": 0.2537878787878788,
+      "prediction": 0.6816820502281189,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0309-050.png",
+      "parent_group": "aasce:6485956969374e8a0fe7185f123c6641c0e217f0b5236a9943435b0e1850a091",
+      "reference": 0.5037878787878788,
+      "prediction": 0.7606269121170044,
+      "interval": [
+        0.03149506386290202,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0309-075.png",
+      "parent_group": "aasce:6485956969374e8a0fe7185f123c6641c0e217f0b5236a9943435b0e1850a091",
+      "reference": 0.7537878787878788,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0309-100.png",
+      "parent_group": "aasce:6485956969374e8a0fe7185f123c6641c0e217f0b5236a9943435b0e1850a091",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0312-000.png",
+      "parent_group": "aasce:9f9fc67a3dcc3f64e8330c67f981ccde0c4998ebdff8dd5da3e151050bbc83ae",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0312-025.png",
+      "parent_group": "aasce:9f9fc67a3dcc3f64e8330c67f981ccde0c4998ebdff8dd5da3e151050bbc83ae",
+      "reference": 0.25524475524475526,
+      "prediction": 0.09057015180587769,
+      "interval": [
+        0.0,
+        0.8197020000599801
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0312-050.png",
+      "parent_group": "aasce:9f9fc67a3dcc3f64e8330c67f981ccde0c4998ebdff8dd5da3e151050bbc83ae",
+      "reference": 0.506993006993007,
+      "prediction": 0.12641146779060364,
+      "interval": [
+        0.0,
+        0.855543316044706
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0312-075.png",
+      "parent_group": "aasce:9f9fc67a3dcc3f64e8330c67f981ccde0c4998ebdff8dd5da3e151050bbc83ae",
+      "reference": 0.7587412587412588,
+      "prediction": 0.3701927661895752,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0312-100.png",
+      "parent_group": "aasce:9f9fc67a3dcc3f64e8330c67f981ccde0c4998ebdff8dd5da3e151050bbc83ae",
+      "reference": 1.0,
+      "prediction": 0.5027963519096375,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0317-000.png",
+      "parent_group": "aasce:58dc9cc203ea651b65ac1864506f9fe423f731641ee221e26cd71fb19b8d8a7f",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0317-025.png",
+      "parent_group": "aasce:58dc9cc203ea651b65ac1864506f9fe423f731641ee221e26cd71fb19b8d8a7f",
+      "reference": 0.25704225352112675,
+      "prediction": 0.04307553172111511,
+      "interval": [
+        0.0,
+        0.7722073799752175
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0317-050.png",
+      "parent_group": "aasce:58dc9cc203ea651b65ac1864506f9fe423f731641ee221e26cd71fb19b8d8a7f",
+      "reference": 0.5035211267605634,
+      "prediction": 0.5229313969612122,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0317-075.png",
+      "parent_group": "aasce:58dc9cc203ea651b65ac1864506f9fe423f731641ee221e26cd71fb19b8d8a7f",
+      "reference": 0.7570422535211268,
+      "prediction": 0.40905195474624634,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0317-100.png",
+      "parent_group": "aasce:58dc9cc203ea651b65ac1864506f9fe423f731641ee221e26cd71fb19b8d8a7f",
+      "reference": 1.0,
+      "prediction": 0.7407832145690918,
+      "interval": [
+        0.01165136631498942,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0323-000.png",
+      "parent_group": "aasce:ff779a3434bc10d5d63fd4b538e6556c4d8ead0aa79617aec5668c1c45c7a1fc",
+      "reference": 0.0,
+      "prediction": 0.1840110421180725,
+      "interval": [
+        0.0,
+        0.9131428903721749
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0323-025.png",
+      "parent_group": "aasce:ff779a3434bc10d5d63fd4b538e6556c4d8ead0aa79617aec5668c1c45c7a1fc",
+      "reference": 0.2584745762711864,
+      "prediction": 0.4368317127227783,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0323-050.png",
+      "parent_group": "aasce:ff779a3434bc10d5d63fd4b538e6556c4d8ead0aa79617aec5668c1c45c7a1fc",
+      "reference": 0.5042372881355932,
+      "prediction": 0.22597098350524902,
+      "interval": [
+        0.0,
+        0.9551028317593514
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0323-075.png",
+      "parent_group": "aasce:ff779a3434bc10d5d63fd4b538e6556c4d8ead0aa79617aec5668c1c45c7a1fc",
+      "reference": 0.7584745762711864,
+      "prediction": 0.460161417722702,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0323-100.png",
+      "parent_group": "aasce:ff779a3434bc10d5d63fd4b538e6556c4d8ead0aa79617aec5668c1c45c7a1fc",
+      "reference": 1.0,
+      "prediction": 0.5561696290969849,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0329-000.png",
+      "parent_group": "aasce:b973cccb099b4f80a9f0b28df6dd15349436f0a52a2e425b7602a8aa6c2f7cce",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0329-025.png",
+      "parent_group": "aasce:b973cccb099b4f80a9f0b28df6dd15349436f0a52a2e425b7602a8aa6c2f7cce",
+      "reference": 0.25796178343949044,
+      "prediction": 0.03629636764526367,
+      "interval": [
+        0.0,
+        0.765428215899366
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0329-050.png",
+      "parent_group": "aasce:b973cccb099b4f80a9f0b28df6dd15349436f0a52a2e425b7602a8aa6c2f7cce",
+      "reference": 0.5063694267515924,
+      "prediction": 0.23753255605697632,
+      "interval": [
+        0.0,
+        0.9666644043110787
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0329-075.png",
+      "parent_group": "aasce:b973cccb099b4f80a9f0b28df6dd15349436f0a52a2e425b7602a8aa6c2f7cce",
+      "reference": 0.7547770700636943,
+      "prediction": 0.44022026658058167,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0329-100.png",
+      "parent_group": "aasce:b973cccb099b4f80a9f0b28df6dd15349436f0a52a2e425b7602a8aa6c2f7cce",
+      "reference": 1.0,
+      "prediction": 0.5386368036270142,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0338-000.png",
+      "parent_group": "aasce:1a94be0357aa73ce59e26417d977e451fc7504b1940d7e2233896276bb3b62f3",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0338-025.png",
+      "parent_group": "aasce:1a94be0357aa73ce59e26417d977e451fc7504b1940d7e2233896276bb3b62f3",
+      "reference": 0.2692307692307692,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0338-050.png",
+      "parent_group": "aasce:1a94be0357aa73ce59e26417d977e451fc7504b1940d7e2233896276bb3b62f3",
+      "reference": 0.5153846153846153,
+      "prediction": 0.2563590109348297,
+      "interval": [
+        0.0,
+        0.9854908591889321
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0338-075.png",
+      "parent_group": "aasce:1a94be0357aa73ce59e26417d977e451fc7504b1940d7e2233896276bb3b62f3",
+      "reference": 0.7615384615384615,
+      "prediction": 0.3388964831829071,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0338-100.png",
+      "parent_group": "aasce:1a94be0357aa73ce59e26417d977e451fc7504b1940d7e2233896276bb3b62f3",
+      "reference": 1.0,
+      "prediction": 0.11835739016532898,
+      "interval": [
+        0.0,
+        0.8474892384194314
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0339-000.png",
+      "parent_group": "aasce:c83e7c77389e663bd41fca4e863c635fc1b4d9f74bb326a1f665dec89939c0d0",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0339-025.png",
+      "parent_group": "aasce:c83e7c77389e663bd41fca4e863c635fc1b4d9f74bb326a1f665dec89939c0d0",
+      "reference": 0.25833333333333336,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0339-050.png",
+      "parent_group": "aasce:c83e7c77389e663bd41fca4e863c635fc1b4d9f74bb326a1f665dec89939c0d0",
+      "reference": 0.5083333333333333,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0339-075.png",
+      "parent_group": "aasce:c83e7c77389e663bd41fca4e863c635fc1b4d9f74bb326a1f665dec89939c0d0",
+      "reference": 0.7583333333333333,
+      "prediction": 0.020654529333114624,
+      "interval": [
+        0.0,
+        0.749786377587217
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0339-100.png",
+      "parent_group": "aasce:c83e7c77389e663bd41fca4e863c635fc1b4d9f74bb326a1f665dec89939c0d0",
+      "reference": 1.0,
+      "prediction": 0.1794469952583313,
+      "interval": [
+        0.0,
+        0.9085788435124337
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0343-000.png",
+      "parent_group": "aasce:84e435f0d5169e228db086dc8b200942c9e6aeb5f8e11c74c2aa41c84b74c599",
+      "reference": 0.0,
+      "prediction": 0.11807781457901001,
+      "interval": [
+        0.0,
+        0.8472096628331124
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0343-025.png",
+      "parent_group": "aasce:84e435f0d5169e228db086dc8b200942c9e6aeb5f8e11c74c2aa41c84b74c599",
+      "reference": 0.2564935064935065,
+      "prediction": 0.22224029898643494,
+      "interval": [
+        0.0,
+        0.9513721472405373
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0343-050.png",
+      "parent_group": "aasce:84e435f0d5169e228db086dc8b200942c9e6aeb5f8e11c74c2aa41c84b74c599",
+      "reference": 0.5032467532467533,
+      "prediction": 0.2807273864746094,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0343-075.png",
+      "parent_group": "aasce:84e435f0d5169e228db086dc8b200942c9e6aeb5f8e11c74c2aa41c84b74c599",
+      "reference": 0.7564935064935064,
+      "prediction": 0.5694651007652283,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0343-100.png",
+      "parent_group": "aasce:84e435f0d5169e228db086dc8b200942c9e6aeb5f8e11c74c2aa41c84b74c599",
+      "reference": 1.0,
+      "prediction": 0.5720384120941162,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0351-000.png",
+      "parent_group": "aasce:d324950db3d1f896dc6d89ebf94818ac664dc4b8c729cb08bb4367ae04529046",
+      "reference": 0.0,
+      "prediction": 0.662417471408844,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0351-025.png",
+      "parent_group": "aasce:d324950db3d1f896dc6d89ebf94818ac664dc4b8c729cb08bb4367ae04529046",
+      "reference": 0.2536945812807882,
+      "prediction": 0.7884700298309326,
+      "interval": [
+        0.05933818157683024,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0351-050.png",
+      "parent_group": "aasce:d324950db3d1f896dc6d89ebf94818ac664dc4b8c729cb08bb4367ae04529046",
+      "reference": 0.5049261083743842,
+      "prediction": 0.9597389698028564,
+      "interval": [
+        0.23060712154875407,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0351-075.png",
+      "parent_group": "aasce:d324950db3d1f896dc6d89ebf94818ac664dc4b8c729cb08bb4367ae04529046",
+      "reference": 0.7561576354679803,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0351-100.png",
+      "parent_group": "aasce:d324950db3d1f896dc6d89ebf94818ac664dc4b8c729cb08bb4367ae04529046",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0370-000.png",
+      "parent_group": "aasce:42c1147594a1d0b2d617d74e3c2fb0735cf54391ca4c766609aafb345526d8c8",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0370-025.png",
+      "parent_group": "aasce:42c1147594a1d0b2d617d74e3c2fb0735cf54391ca4c766609aafb345526d8c8",
+      "reference": 0.2533039647577093,
+      "prediction": 0.24732473492622375,
+      "interval": [
+        0.0,
+        0.9764565831803261
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0370-050.png",
+      "parent_group": "aasce:42c1147594a1d0b2d617d74e3c2fb0735cf54391ca4c766609aafb345526d8c8",
+      "reference": 0.5044052863436124,
+      "prediction": 0.3344259262084961,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0370-075.png",
+      "parent_group": "aasce:42c1147594a1d0b2d617d74e3c2fb0735cf54391ca4c766609aafb345526d8c8",
+      "reference": 0.7555066079295154,
+      "prediction": 0.4750952124595642,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0370-100.png",
+      "parent_group": "aasce:42c1147594a1d0b2d617d74e3c2fb0735cf54391ca4c766609aafb345526d8c8",
+      "reference": 1.0,
+      "prediction": 0.8655685782432556,
+      "interval": [
+        0.13643672998915324,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0377-000.png",
+      "parent_group": "aasce:f52a7124d37918b54ceb2e8ba4aefc126f6599c8eb4e3743d4d6ab20c2c2528b",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0377-025.png",
+      "parent_group": "aasce:f52a7124d37918b54ceb2e8ba4aefc126f6599c8eb4e3743d4d6ab20c2c2528b",
+      "reference": 0.2528409090909091,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0377-050.png",
+      "parent_group": "aasce:f52a7124d37918b54ceb2e8ba4aefc126f6599c8eb4e3743d4d6ab20c2c2528b",
+      "reference": 0.5028409090909091,
+      "prediction": 0.11027532815933228,
+      "interval": [
+        0.0,
+        0.8394071764134347
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0377-075.png",
+      "parent_group": "aasce:f52a7124d37918b54ceb2e8ba4aefc126f6599c8eb4e3743d4d6ab20c2c2528b",
+      "reference": 0.7528409090909091,
+      "prediction": 0.1023796796798706,
+      "interval": [
+        0.0,
+        0.831511527933973
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0377-100.png",
+      "parent_group": "aasce:f52a7124d37918b54ceb2e8ba4aefc126f6599c8eb4e3743d4d6ab20c2c2528b",
+      "reference": 1.0,
+      "prediction": 0.1285145878791809,
+      "interval": [
+        0.0,
+        0.8576464361332833
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0384-000.png",
+      "parent_group": "aasce:d119d45f90c5f924d135738fa9483d58f280823e4d800afcd1a4c580fd4ac71f",
+      "reference": 0.0,
+      "prediction": 0.5475103259086609,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0384-025.png",
+      "parent_group": "aasce:d119d45f90c5f924d135738fa9483d58f280823e4d800afcd1a4c580fd4ac71f",
+      "reference": 0.25886524822695034,
+      "prediction": 0.7345973253250122,
+      "interval": [
+        0.00546547707090983,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0384-050.png",
+      "parent_group": "aasce:d119d45f90c5f924d135738fa9483d58f280823e4d800afcd1a4c580fd4ac71f",
+      "reference": 0.5070921985815603,
+      "prediction": 0.7551178932189941,
+      "interval": [
+        0.025986044964891764,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0384-075.png",
+      "parent_group": "aasce:d119d45f90c5f924d135738fa9483d58f280823e4d800afcd1a4c580fd4ac71f",
+      "reference": 0.7553191489361702,
+      "prediction": 0.9982918500900269,
+      "interval": [
+        0.2691600018359245,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0384-100.png",
+      "parent_group": "aasce:d119d45f90c5f924d135738fa9483d58f280823e4d800afcd1a4c580fd4ac71f",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0387-000.png",
+      "parent_group": "aasce:39908516f26b3b18247b34d7078240fbde2b2b338b794349b49fd0e4ae848eeb",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0387-025.png",
+      "parent_group": "aasce:39908516f26b3b18247b34d7078240fbde2b2b338b794349b49fd0e4ae848eeb",
+      "reference": 0.25704225352112675,
+      "prediction": 0.13693171739578247,
+      "interval": [
+        0.0,
+        0.8660635656498848
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0387-050.png",
+      "parent_group": "aasce:39908516f26b3b18247b34d7078240fbde2b2b338b794349b49fd0e4ae848eeb",
+      "reference": 0.5035211267605634,
+      "prediction": 0.21442371606826782,
+      "interval": [
+        0.0,
+        0.9435555643223702
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0387-075.png",
+      "parent_group": "aasce:39908516f26b3b18247b34d7078240fbde2b2b338b794349b49fd0e4ae848eeb",
+      "reference": 0.7570422535211268,
+      "prediction": 0.5585683584213257,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0387-100.png",
+      "parent_group": "aasce:39908516f26b3b18247b34d7078240fbde2b2b338b794349b49fd0e4ae848eeb",
+      "reference": 1.0,
+      "prediction": 0.7180816531181335,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0388-000.png",
+      "parent_group": "aasce:45da4eac1b6d5c6d17cab00260839ec0ae3132f6993e8ab369561151ef97e2c0",
+      "reference": 0.0,
+      "prediction": 0.2553444504737854,
+      "interval": [
+        0.0,
+        0.9844762987278878
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0388-025.png",
+      "parent_group": "aasce:45da4eac1b6d5c6d17cab00260839ec0ae3132f6993e8ab369561151ef97e2c0",
+      "reference": 0.25524475524475526,
+      "prediction": 0.11204251646995544,
+      "interval": [
+        0.0,
+        0.8411743647240578
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0388-050.png",
+      "parent_group": "aasce:45da4eac1b6d5c6d17cab00260839ec0ae3132f6993e8ab369561151ef97e2c0",
+      "reference": 0.506993006993007,
+      "prediction": 0.3935025930404663,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0388-075.png",
+      "parent_group": "aasce:45da4eac1b6d5c6d17cab00260839ec0ae3132f6993e8ab369561151ef97e2c0",
+      "reference": 0.7587412587412588,
+      "prediction": 0.761699378490448,
+      "interval": [
+        0.03256753023634562,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0388-100.png",
+      "parent_group": "aasce:45da4eac1b6d5c6d17cab00260839ec0ae3132f6993e8ab369561151ef97e2c0",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0399-000.png",
+      "parent_group": "aasce:7470a27ba27020d81c46219e133506193929fa7710b1bd19f8d29888b803bb9b",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0399-025.png",
+      "parent_group": "aasce:7470a27ba27020d81c46219e133506193929fa7710b1bd19f8d29888b803bb9b",
+      "reference": 0.2537688442211055,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0399-050.png",
+      "parent_group": "aasce:7470a27ba27020d81c46219e133506193929fa7710b1bd19f8d29888b803bb9b",
+      "reference": 0.5050251256281407,
+      "prediction": 0.32907718420028687,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0399-075.png",
+      "parent_group": "aasce:7470a27ba27020d81c46219e133506193929fa7710b1bd19f8d29888b803bb9b",
+      "reference": 0.7562814070351759,
+      "prediction": 0.33716243505477905,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0399-100.png",
+      "parent_group": "aasce:7470a27ba27020d81c46219e133506193929fa7710b1bd19f8d29888b803bb9b",
+      "reference": 1.0,
+      "prediction": 0.6901582479476929,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0400-000.png",
+      "parent_group": "aasce:98222cd7094ff24ef74b808ef08959973dd1b91a31763c260eca64af889ed9f3",
+      "reference": 0.0,
+      "prediction": 0.16732561588287354,
+      "interval": [
+        0.0,
+        0.8964574641369759
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0400-025.png",
+      "parent_group": "aasce:98222cd7094ff24ef74b808ef08959973dd1b91a31763c260eca64af889ed9f3",
+      "reference": 0.2526595744680851,
+      "prediction": 0.1618129312992096,
+      "interval": [
+        0.0,
+        0.890944779553312
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0400-050.png",
+      "parent_group": "aasce:98222cd7094ff24ef74b808ef08959973dd1b91a31763c260eca64af889ed9f3",
+      "reference": 0.5026595744680851,
+      "prediction": 0.5770813226699829,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0400-075.png",
+      "parent_group": "aasce:98222cd7094ff24ef74b808ef08959973dd1b91a31763c260eca64af889ed9f3",
+      "reference": 0.7526595744680851,
+      "prediction": 0.6858750581741333,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0400-100.png",
+      "parent_group": "aasce:98222cd7094ff24ef74b808ef08959973dd1b91a31763c260eca64af889ed9f3",
+      "reference": 1.0,
+      "prediction": 0.843292236328125,
+      "interval": [
+        0.11416038807402262,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0401-000.png",
+      "parent_group": "aasce:432cb3d9249e38e003ad3510eadd20f022c69f1aedc94d58d391c9b97841933e",
+      "reference": 0.0,
+      "prediction": 0.0,
+      "interval": [
+        0.0,
+        0.7291318482541024
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0401-025.png",
+      "parent_group": "aasce:432cb3d9249e38e003ad3510eadd20f022c69f1aedc94d58d391c9b97841933e",
+      "reference": 0.25392670157068065,
+      "prediction": 0.04409825801849365,
+      "interval": [
+        0.0,
+        0.773230106272596
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0401-050.png",
+      "parent_group": "aasce:432cb3d9249e38e003ad3510eadd20f022c69f1aedc94d58d391c9b97841933e",
+      "reference": 0.5052356020942408,
+      "prediction": 0.3176078200340271,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0401-075.png",
+      "parent_group": "aasce:432cb3d9249e38e003ad3510eadd20f022c69f1aedc94d58d391c9b97841933e",
+      "reference": 0.756544502617801,
+      "prediction": 0.5727034211158752,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0401-100.png",
+      "parent_group": "aasce:432cb3d9249e38e003ad3510eadd20f022c69f1aedc94d58d391c9b97841933e",
+      "reference": 1.0,
+      "prediction": 0.808605432510376,
+      "interval": [
+        0.0794735842562736,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0407-000.png",
+      "parent_group": "aasce:0d32a7e3f1c989e96befbc9de29ec8172975583eae7ea3a5a987a39af97034a3",
+      "reference": 0.0,
+      "prediction": 0.9885427355766296,
+      "interval": [
+        0.25941088732252726,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0407-025.png",
+      "parent_group": "aasce:0d32a7e3f1c989e96befbc9de29ec8172975583eae7ea3a5a987a39af97034a3",
+      "reference": 0.2564935064935065,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0407-050.png",
+      "parent_group": "aasce:0d32a7e3f1c989e96befbc9de29ec8172975583eae7ea3a5a987a39af97034a3",
+      "reference": 0.5032467532467533,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0407-075.png",
+      "parent_group": "aasce:0d32a7e3f1c989e96befbc9de29ec8172975583eae7ea3a5a987a39af97034a3",
+      "reference": 0.7564935064935064,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0407-100.png",
+      "parent_group": "aasce:0d32a7e3f1c989e96befbc9de29ec8172975583eae7ea3a5a987a39af97034a3",
+      "reference": 1.0,
+      "prediction": 1.0,
+      "interval": [
+        0.2708681517458976,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0420-000.png",
+      "parent_group": "aasce:930ee3e5cc74b13e9585c9f50741243265234c56a983264c873e3a68e02e7456",
+      "reference": 0.0,
+      "prediction": 0.19138064980506897,
+      "interval": [
+        0.0,
+        0.9205124980591713
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0420-025.png",
+      "parent_group": "aasce:930ee3e5cc74b13e9585c9f50741243265234c56a983264c873e3a68e02e7456",
+      "reference": 0.26515151515151514,
+      "prediction": 0.2769090533256531,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0420-050.png",
+      "parent_group": "aasce:930ee3e5cc74b13e9585c9f50741243265234c56a983264c873e3a68e02e7456",
+      "reference": 0.5075757575757576,
+      "prediction": 0.49092698097229004,
+      "interval": [
+        0.0,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0420-075.png",
+      "parent_group": "aasce:930ee3e5cc74b13e9585c9f50741243265234c56a983264c873e3a68e02e7456",
+      "reference": 0.7651515151515151,
+      "prediction": 0.7465109825134277,
+      "interval": [
+        0.017379134259325357,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    },
+    {
+      "image": "images/0420-100.png",
+      "parent_group": "aasce:930ee3e5cc74b13e9585c9f50741243265234c56a983264c873e3a68e02e7456",
+      "reference": 1.0,
+      "prediction": 0.8180984258651733,
+      "interval": [
+        0.08896657761107096,
+        1.0
+      ],
+      "candidate_rule": "undetermined"
+    }
+  ],
+  "model_sha256": "0056850d3ab9b22a030bc07b5fa213bc8c73cccec1d21166edf4fd0fc9e40fb6",
+  "dataset_sha256": "11100fff161b58df567b3ceb699bce802cf2df1d31ecd0fa43e7a7220040206c",
+  "code_sha256": "c2e2d6e0ec7215b0cefa9d6aa955a8f4da23b4a51644271ec345ae6279d80ec9",
+  "clinical_validation": false,
+  "requirements_complete": false,
+  "release_modified": false,
+  "limitations": [
+    "Derived ordinary-XR crops, not real DXA visibility labels.",
+    "Quadrilateral height is a projected proxy; no equivalence to medical full-body area is asserted.",
+    "Image parents are not confirmed patient identities; exchangeability with DXA is not established.",
+    "Source holdout was previously inspected; exploratory followup, not a new independent cohort.",
+    "Calibration targets do not appear in input features, but reference-defined field generation can introduce shortcuts.",
+    "Intervals are source-calibrated only; their coverage on DXA or other domains is unknown."
+  ]
+}

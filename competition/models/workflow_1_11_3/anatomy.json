@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "models": {
+    "spine": {
+      "path": "spine.pt",
+      "sha256": "bd589c93f3eeb23ebd77b5702c3da4e81ca95987bf2ef9cd8af1fafb5cba4393"
+    },
+    "hip": {
+      "path": "hip.pt",
+      "sha256": "878006cec108b7cf182300ffd1df1cb5bdaf1d4814340cf70b5f6e297c0fe10b"
+    }
+  }
+}

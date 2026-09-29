@@ -1,0 +1,14 @@
+{
+  "package_version": 4,
+  "cases": 252,
+  "spine_cases": 99,
+  "hip_cases": 153,
+  "confirmed_expert_cases": 0,
+  "template_sha256": "11f1cd83b29ec690270e7e2b9047b1945d834da4f688af9a00def8ed58b5a009",
+  "manifest_sha256": "bc40e038ad0c461d24b7fce4ab754ded6886448e0421e6cdac030eddf5afa803",
+  "results_sha256": "7456c2065b093fdf32002e29c424d96e93651276f474ac60f837409147880187",
+  "predictions_included": false,
+  "clinical_validation": false,
+  "requirements_complete": false,
+  "release_modified": false
+}

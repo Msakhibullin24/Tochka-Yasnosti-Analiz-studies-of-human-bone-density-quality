@@ -1,0 +1,354 @@
+{
+  "scope": "DXA-only research; released QC unchanged",
+  "source_url": "https://data.mait.ai.in.th/dataset/bone-mineral-density-and-vertebral-fracture-asseessment-public-sharing",
+  "model_url": "https://huggingface.co/facebook/dinov2-base",
+  "model_revision": "f9e44c814b77203eaa57a6bdbbd535f21ede1415",
+  "model_weight_sha256": "d73036b56966966d07975d696bde331762f37297e2f095de8cea0040c3aa0841",
+  "code_sha256": "456bcf8ec17b3afd9eb3bd518d64780aedcedfd6e507d254bd870f8b02806828",
+  "transformers_version": "4.44.2",
+  "protocol": "Same 5 fixed publisher-folder folds as ResNet18 study, 8 train/2 test; frozen DINOv2 base variant, 518 pixel square input, 40x40 feature map, model-specific normalization, same 25-epoch head protocol; no test tuning",
+  "images": 10,
+  "groups": 10,
+  "mean_prediction_dice_40": 0.574577757281477,
+  "mean_layout_prior_dice_40": 0.5510479360801852,
+  "clinical_validation": false,
+  "model_affects_decision": false,
+  "limitations": [
+    "Only 10 Hologic BMD images; publisher folders are unverified patient identities.",
+    "Publisher masks are L1-L4 vendor bone-area ROIs, not full vertebrae, discs or Th12.",
+    "No tested DINOv2 variant was pretrained on DXA.",
+    "No GE target-domain masks or independent clinical quality labels."
+  ],
+  "cases": [
+    {
+      "group_sha256": "81a16fe30e67d812332cdeda986281b41f59243082b792c13f0e004af77bc0e0",
+      "image_sha256": "1340978a67da4d0b4ff4c56fb06241dde598d5e38e1dc3c6aa8ff420763c29b7",
+      "mask_sha256": "12b359c71204e5f0e73979dbaa53f204a722380af8138dc8cbffa96e27060de8",
+      "pixel_sha256": "55d5817a8e83ebf191ab5605070ac2f39ea8f87182795f43c26ce3a54ef1eda4",
+      "fold": 0,
+      "levels": {
+        "L1": {
+          "prediction_dice_40": 0.5833333333333334,
+          "layout_prior_dice_40": 0.6060606060606061,
+          "prediction_pixels_40": 96,
+          "reference_pixels_40": 72
+        },
+        "L2": {
+          "prediction_dice_40": 0.8292682926829268,
+          "layout_prior_dice_40": 0.3937007874015748,
+          "prediction_pixels_40": 58,
+          "reference_pixels_40": 65
+        },
+        "L3": {
+          "prediction_dice_40": 0.8456375838926175,
+          "layout_prior_dice_40": 0.4520547945205479,
+          "prediction_pixels_40": 72,
+          "reference_pixels_40": 77
+        },
+        "L4": {
+          "prediction_dice_40": 0.33070866141732286,
+          "layout_prior_dice_40": 0.460093896713615,
+          "prediction_pixels_40": 294,
+          "reference_pixels_40": 87
+        }
+      }
+    },
+    {
+      "group_sha256": "eeaf03cb927a150c62b8a5c27d056faff7b31e5268b11df533febb150b96e292",
+      "image_sha256": "cb8bb4d524250ef9149339132fa82ca66a4e7032be478fbc222648f0e7543c35",
+      "mask_sha256": "8006816a09ff8546ac36ec04abbefff959febc116a36c7c8d53b687a5075ee6e",
+      "pixel_sha256": "d2519f118be0101064fee864af18e52069feac7fde45c373ba0b6e22e8382b94",
+      "fold": 0,
+      "levels": {
+        "L1": {
+          "prediction_dice_40": 0.182648401826484,
+          "layout_prior_dice_40": 0.27184466019417475,
+          "prediction_pixels_40": 139,
+          "reference_pixels_40": 80
+        },
+        "L2": {
+          "prediction_dice_40": 0.39080459770114945,
+          "layout_prior_dice_40": 0.24324324324324326,
+          "prediction_pixels_40": 88,
+          "reference_pixels_40": 86
+        },
+        "L3": {
+          "prediction_dice_40": 0.5056179775280899,
+          "layout_prior_dice_40": 0.2727272727272727,
+          "prediction_pixels_40": 93,
+          "reference_pixels_40": 85
+        },
+        "L4": {
+          "prediction_dice_40": 0.42696629213483145,
+          "layout_prior_dice_40": 0.5865384615384616,
+          "prediction_pixels_40": 274,
+          "reference_pixels_40": 82
+        }
+      }
+    },
+    {
+      "group_sha256": "a5062280775101377f2ed2a5ac021f9c5ba0be42d583135ef8e94df6316d979e",
+      "image_sha256": "fa2ad29352786376e4346a58de730a998eb98c77463cd43f7f62549052fb423d",
+      "mask_sha256": "eb462d38125eba8f9a160acaf4c25c387574b5038f7a6c5210d35b49763a8f53",
+      "pixel_sha256": "92a74b8a085f90c573fc97c0818466a08c1819a839cdc7307eea3ad1baf38e64",
+      "fold": 1,
+      "levels": {
+        "L1": {
+          "prediction_dice_40": 0.5882352941176471,
+          "layout_prior_dice_40": 0.3657142857142857,
+          "prediction_pixels_40": 168,
+          "reference_pixels_40": 70
+        },
+        "L2": {
+          "prediction_dice_40": 0.2482758620689655,
+          "layout_prior_dice_40": 0.145985401459854,
+          "prediction_pixels_40": 66,
+          "reference_pixels_40": 79
+        },
+        "L3": {
+          "prediction_dice_40": 0.47619047619047616,
+          "layout_prior_dice_40": 0.48148148148148145,
+          "prediction_pixels_40": 80,
+          "reference_pixels_40": 88
+        },
+        "L4": {
+          "prediction_dice_40": 0.33876221498371334,
+          "layout_prior_dice_40": 0.5221674876847291,
+          "prediction_pixels_40": 217,
+          "reference_pixels_40": 90
+        }
+      }
+    },
+    {
+      "group_sha256": "2edec7f3207b2802cf5fad3ad50d85947e69a62ab7d4230c0f7be3ebdbfd3b2c",
+      "image_sha256": "f5c1a88aee653f2832ef243e54e9c08ce6f4f4f7306d2ab84b0bc28ff60aae51",
+      "mask_sha256": "178f031caa45bda31e8c37614ec17f4ecf69580353fbc7bc6112cb7fe35cb48f",
+      "pixel_sha256": "64922be169744a3047e0270c1ce3703d8031d45334b1b4bfaad87468859d7040",
+      "fold": 1,
+      "levels": {
+        "L1": {
+          "prediction_dice_40": 0.5344827586206896,
+          "layout_prior_dice_40": 0.6706586826347305,
+          "prediction_pixels_40": 170,
+          "reference_pixels_40": 62
+        },
+        "L2": {
+          "prediction_dice_40": 0.8,
+          "layout_prior_dice_40": 0.549618320610687,
+          "prediction_pixels_40": 102,
+          "reference_pixels_40": 73
+        },
+        "L3": {
+          "prediction_dice_40": 0.656934306569343,
+          "layout_prior_dice_40": 0.5694444444444444,
+          "prediction_pixels_40": 67,
+          "reference_pixels_40": 70
+        },
+        "L4": {
+          "prediction_dice_40": 0.3588235294117647,
+          "layout_prior_dice_40": 0.5520833333333334,
+          "prediction_pixels_40": 261,
+          "reference_pixels_40": 79
+        }
+      }
+    },
+    {
+      "group_sha256": "8566ee8cc961a20f2f00208063764cfc75082eff5b90f989b36e4da08f935e2a",
+      "image_sha256": "a569e10c5f824dbed04451a0c8d89dbcfdd73e911c74832ab2429553bbeb0343",
+      "mask_sha256": "6f1d0dc313006bcf24fd5f1fbc6c5137edccecc8c9d2d1009b22d1b6baeeadfd",
+      "pixel_sha256": "96cb7b6b9c9e7714f3ea70f905e9316900e4e170221e5d37884de2a0261e0849",
+      "fold": 2,
+      "levels": {
+        "L1": {
+          "prediction_dice_40": 0.5593869731800766,
+          "layout_prior_dice_40": 0.5284974093264249,
+          "prediction_pixels_40": 180,
+          "reference_pixels_40": 81
+        },
+        "L2": {
+          "prediction_dice_40": 0.7175572519083969,
+          "layout_prior_dice_40": 0.6710526315789473,
+          "prediction_pixels_40": 55,
+          "reference_pixels_40": 76
+        },
+        "L3": {
+          "prediction_dice_40": 0.6024096385542169,
+          "layout_prior_dice_40": 0.7142857142857143,
+          "prediction_pixels_40": 83,
+          "reference_pixels_40": 83
+        },
+        "L4": {
+          "prediction_dice_40": 0.411214953271028,
+          "layout_prior_dice_40": 0.7358490566037735,
+          "prediction_pixels_40": 339,
+          "reference_pixels_40": 89
+        }
+      }
+    },
+    {
+      "group_sha256": "707b04df356a78990ef91862af70512a4a9abe612d9181b75fd33a1d2e7ed447",
+      "image_sha256": "106cd04579a8cebc336b93f43b8933cd9f4283748c1bfc593fa38a2738017f88",
+      "mask_sha256": "ee9a7b1532b012ed47819e20483d6a6ab1a7045d09caa6a9c2661bc48e6a7836",
+      "pixel_sha256": "554fec1dc77a9e4ecaa3ff0b7f2c868c3471f57493429a410834b6208a64d34c",
+      "fold": 2,
+      "levels": {
+        "L1": {
+          "prediction_dice_40": 0.5232974910394266,
+          "layout_prior_dice_40": 0.33507853403141363,
+          "prediction_pixels_40": 200,
+          "reference_pixels_40": 79
+        },
+        "L2": {
+          "prediction_dice_40": 0.8793103448275862,
+          "layout_prior_dice_40": 0.6766917293233082,
+          "prediction_pixels_40": 59,
+          "reference_pixels_40": 57
+        },
+        "L3": {
+          "prediction_dice_40": 0.8976377952755905,
+          "layout_prior_dice_40": 0.859375,
+          "prediction_pixels_40": 70,
+          "reference_pixels_40": 57
+        },
+        "L4": {
+          "prediction_dice_40": 0.31413612565445026,
+          "layout_prior_dice_40": 0.5368421052631579,
+          "prediction_pixels_40": 315,
+          "reference_pixels_40": 67
+        }
+      }
+    },
+    {
+      "group_sha256": "1b235e024cafdbe0276857da99dd5f05344376e06c77d724c065c6aa1e816ae0",
+      "image_sha256": "19e8df1fc8a68fdf0cf6d5ea3a91f1c77c2efb62b037d41bbffbad8563d74bb4",
+      "mask_sha256": "32bb3113d8d70bde397006d12137bf437218508b320b60008e78ccbdcaaa3e6a",
+      "pixel_sha256": "c3357103a7b8ffecf7f5588167b3493269682c8ffdf87d7f47aaf194d4392be2",
+      "fold": 3,
+      "levels": {
+        "L1": {
+          "prediction_dice_40": 0.5355648535564853,
+          "layout_prior_dice_40": 0.5775401069518716,
+          "prediction_pixels_40": 173,
+          "reference_pixels_40": 66
+        },
+        "L2": {
+          "prediction_dice_40": 0.9753086419753086,
+          "layout_prior_dice_40": 0.7943262411347518,
+          "prediction_pixels_40": 83,
+          "reference_pixels_40": 79
+        },
+        "L3": {
+          "prediction_dice_40": 0.8977272727272727,
+          "layout_prior_dice_40": 0.7682119205298014,
+          "prediction_pixels_40": 84,
+          "reference_pixels_40": 92
+        },
+        "L4": {
+          "prediction_dice_40": 0.5225225225225225,
+          "layout_prior_dice_40": 0.728110599078341,
+          "prediction_pixels_40": 244,
+          "reference_pixels_40": 89
+        }
+      }
+    },
+    {
+      "group_sha256": "c1d17b87a5a3905071d821268e78cd9f8b4741d3162de825054ef9d0543b5116",
+      "image_sha256": "1027c1296748c99ece0278dd9bd2f62d1302f32703fb2daedace434ba29fb908",
+      "mask_sha256": "cb614af21ded335aed7088d6083d7ded498dde05a0761c0b37f544fe5d7ba661",
+      "pixel_sha256": "9ff73cebff58004897a918a923478d24761ddfe70eca1f160ae136bd42f68b9e",
+      "fold": 3,
+      "levels": {
+        "L1": {
+          "prediction_dice_40": 0.21890547263681592,
+          "layout_prior_dice_40": 0.5208333333333334,
+          "prediction_pixels_40": 130,
+          "reference_pixels_40": 71
+        },
+        "L2": {
+          "prediction_dice_40": 0.34074074074074073,
+          "layout_prior_dice_40": 0.6412213740458015,
+          "prediction_pixels_40": 66,
+          "reference_pixels_40": 69
+        },
+        "L3": {
+          "prediction_dice_40": 0.562874251497006,
+          "layout_prior_dice_40": 0.5223880597014925,
+          "prediction_pixels_40": 92,
+          "reference_pixels_40": 75
+        },
+        "L4": {
+          "prediction_dice_40": 0.6262626262626263,
+          "layout_prior_dice_40": 0.6334841628959276,
+          "prediction_pixels_40": 204,
+          "reference_pixels_40": 93
+        }
+      }
+    },
+    {
+      "group_sha256": "52c74ca87333280ea94cc514f6ceefec1f32fd5a44a108905dc9e46f88b7e0a2",
+      "image_sha256": "6da2ea731fa67781c8848994c8a1d298ce35ec1e27a49c77357be27339e5761d",
+      "mask_sha256": "7b16f6b69caacab2e4dbbceb78cfdf24836ee60577b2c821cf22d99697470eb8",
+      "pixel_sha256": "7a0a3d9b4a866bc81cadda16df02d003233d81c9b1d522c7584eb55adcf1aee0",
+      "fold": 4,
+      "levels": {
+        "L1": {
+          "prediction_dice_40": 0.6041666666666666,
+          "layout_prior_dice_40": 0.5454545454545454,
+          "prediction_pixels_40": 130,
+          "reference_pixels_40": 62
+        },
+        "L2": {
+          "prediction_dice_40": 0.8955223880597015,
+          "layout_prior_dice_40": 0.5401459854014599,
+          "prediction_pixels_40": 64,
+          "reference_pixels_40": 70
+        },
+        "L3": {
+          "prediction_dice_40": 0.9367088607594937,
+          "layout_prior_dice_40": 0.6923076923076923,
+          "prediction_pixels_40": 81,
+          "reference_pixels_40": 77
+        },
+        "L4": {
+          "prediction_dice_40": 0.47904191616766467,
+          "layout_prior_dice_40": 0.5181347150259067,
+          "prediction_pixels_40": 253,
+          "reference_pixels_40": 81
+        }
+      }
+    },
+    {
+      "group_sha256": "c0a4fadcfe6a910260d6fc8fba0304f269271b4d970a126058cde23e7ed6b8ea",
+      "image_sha256": "95deb11d954eb9b42d06e2fa2c4f900e35a9d9716bf3bd725dc805be51f689f5",
+      "mask_sha256": "77852523c91cf1e38ea88d3d362b512b7e235b9e1548a38dfd991e32a2045c78",
+      "pixel_sha256": "e756b167a5d667570286a37d526a7ecfffca44629b94fcf02bfb4eee80b3cc2f",
+      "fold": 4,
+      "levels": {
+        "L1": {
+          "prediction_dice_40": 0.37962962962962965,
+          "layout_prior_dice_40": 0.43243243243243246,
+          "prediction_pixels_40": 156,
+          "reference_pixels_40": 60
+        },
+        "L2": {
+          "prediction_dice_40": 0.7706422018348624,
+          "layout_prior_dice_40": 0.6507936507936508,
+          "prediction_pixels_40": 50,
+          "reference_pixels_40": 59
+        },
+        "L3": {
+          "prediction_dice_40": 0.85,
+          "layout_prior_dice_40": 0.7391304347826086,
+          "prediction_pixels_40": 61,
+          "reference_pixels_40": 59
+        },
+        "L4": {
+          "prediction_dice_40": 0.3858520900321543,
+          "layout_prior_dice_40": 0.5363128491620112,
+          "prediction_pixels_40": 244,
+          "reference_pixels_40": 67
+        }
+      }
+    }
+  ]
+}

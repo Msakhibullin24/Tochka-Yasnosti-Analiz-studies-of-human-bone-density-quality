@@ -1,0 +1,1551 @@
+{
+  "cases": [
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03030811151201151502050615010000",
+      "pixel_sha256": "e06bf629d177ac09814511601bbe006df1c0ba7ab707bca3595833f1e06c005b",
+      "source_sha256": "9990470deeee07cc976ce7068f2238eb3484e361d571f168cbdb82db20f429b7",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250403090444/series_004_3_CR/DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.03363541230791968,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06000812101106141213041404150112",
+      "pixel_sha256": "0d6ff4341a659837666e86c36b119139b48ad562dbd84f29fbc206596e9e1335",
+      "source_sha256": "10a5c7c2a72abc6407baffd8903611d48a3eaffd89438f14fcc5a6d143bd5d5e",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250403090444/series_004_3_CR/DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.046965447908103586,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06140010030611061314081200121305",
+      "pixel_sha256": "5b513174405a0c2e6735c227fb7f0a0c0ffcd6ba192ac55945a247e6ccae41bd",
+      "source_sha256": "950ae6ba02d057cce4267082a88e49967475b3fe93c6cf73cd4f63061ca80ac4",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250403092052/series_003_3_CR/DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.021574567771289174,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09040712010609120601031410140610",
+      "pixel_sha256": "aa3affa7bb71db6ffba4b4e69c868caf2b09a575117eae040b1216189a5b2f10",
+      "source_sha256": "c680535f3cbcf237b301fcd5b4254a0db1aaffddf4fb326fa6c3201373a4d26b",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250403092052/series_003_3_CR/DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.218728608961525,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07140808121311040315101301051200",
+      "pixel_sha256": "b6c1ab455a19689b7a43ad5e804955c52678b63ddb6954e926db3888e1734cab",
+      "source_sha256": "3d76333f277a33ebe605689de8b7746792cd089ab2d6345e08b2ad314247e0ef",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250407113211/series_001_2_CR/DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.14409168644902237,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10011302120900111505101501141402",
+      "pixel_sha256": "5c1d3d5a9623952aca8b72be3470424422ab8c87fcbb8bb568c7c1de76389369",
+      "source_sha256": "a64528fd2b35e9589e8b6b0fc3d21cc1bcbf77851c0793057d81fdec7d0a1766",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250407113211/series_001_2_CR/DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.013218604081726863,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07000215121313030213041009101409",
+      "pixel_sha256": "7c0cfa28ec60b55537260b80a143a33e7be0633a3ef2811093f84905bf76262e",
+      "source_sha256": "cb79f65c55e1d423b728d323f4f16c8a1ebeb0680abfcaeb5edc8256cb8d7f43",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.10245777060263212829333021434108890537/series_003_2_CR/A2504412435 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.004726316950366377,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03081500040505121009070211080902",
+      "pixel_sha256": "5091162c7e7ec97d9bc513c87ff7a0096067fd4953badf2f3be20457016a6ee3",
+      "source_sha256": "97b9d6d7a850c48167edd6c5ccf06440b8109224eda9f3c6781cf37b58312c87",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.10245777060263212829333021434108890537/series_003_2_CR/A2504412435 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.00706261039562805,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01140903011212140408111315130511",
+      "pixel_sha256": "c4e43050762958b88c6d7e540e18f3b12c39ef8990dd5ae8ae977190453f4dd3",
+      "source_sha256": "b1b28c6a60f610d05c7aa91f43cc45cddcaf2ff2a3571a1b763cf3722d3d346a",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.102755089973625799055786462646268820450/series_002_2_CR/A2504257770 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.017205919130569517,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10100907120107030904131503081506",
+      "pixel_sha256": "d6e5b820007b1f46277a0d03c3e5461ef0dfe4e230ed0e4f9ec1465a9dd9ae43",
+      "source_sha256": "084b24a5a5673f2d5b330f2b7bae2bb6f64e17cc1d56a4ef859483e2058ab550",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.102755089973625799055786462646268820450/series_002_2_CR/A2504257770 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.10199861479049611,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10140807011010031112140700150015",
+      "pixel_sha256": "0c3618737587a557e9a6fbc09b22d11e197bb756b868d3b2077e4cb94bbaa3dd",
+      "source_sha256": "69555e5c74c61747c02f16ff4f396a0945eb875a31b5b5e8d77b43abcdb8de38",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.102965897799404973225419898683246248872/series_001_2_CR/A250726353 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.26446921128492246,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06050309100102041203101101110913",
+      "pixel_sha256": "96c6bdd27a52bc46d4693aa823afbf9046923c453482dabf691a9f9ceb2db26a",
+      "source_sha256": "c05a4a8ff7ac4fec3219378c7cb6106b0f92c33232e5d813bcc3c0930fd4e981",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.102965897799404973225419898683246248872/series_001_2_CR/A250726353 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.012863696205042885,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15031208100010080909150509041308",
+      "pixel_sha256": "f00a8fe8247d21b0f3b03d0c31d099e69704286c4f4e5c8cab3957e9dd772567",
+      "source_sha256": "e0a9dd8b355580ddfc72cecf9b27b182f4e3a3cabc51153ffb04cfe29f3de2b9",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.103868781101960771917584077315578649178/series_001_3_CR/A2507485409 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.01977913244959903,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12051209130410130502141403101414",
+      "pixel_sha256": "41809c68251569d43c70fb314a3cb41c5977cfbebdee410ff9e35c65d1799aac",
+      "source_sha256": "e27f9b82a088953fcca9886f1dc3fbfc11305a1e8ceb5dba447149b967b628cc",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.103868781101960771917584077315578649178/series_001_3_CR/A2507485409 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.053224519089184505,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11131406091213131205130612021414",
+      "pixel_sha256": "af7b4c1b1f0f770921610e1d1979b9bd8515b1883228e806c5d9ec3b10ea6b81",
+      "source_sha256": "ea64910ceee7270594cc2f6a8fbae5d89e8f9c877797dbfb56fab3897f9f8661",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.105033841136787477881326326053319223817/series_001_2_CR/A250790559 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.2834254992409774,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14130208070502001411050502150202",
+      "pixel_sha256": "c309381177238d4a613890f2ebad0a5d7110be7002efdb62cd16d94c5d29d814",
+      "source_sha256": "e1317acd34a9f048a120adee46e4570056c27b1b34830a3da7cffead30c87d6e",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.105033841136787477881326326053319223817/series_001_2_CR/A250790559 DXA/CR DXA/CR000003.dcm",
+      "nonfrontal_score": 0.15009867418895667,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07121414121104070401050315140813",
+      "pixel_sha256": "0895f75c33b598f27029f19e419e997c184f854b25b05c91beabe7eb1172ff88",
+      "source_sha256": "482a9b1f4fdc4452e2c702ea10c70bbcc0df21f8ca5314705e64a00cecbfd378",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.11175860580562939441493697221497597640/series_003_2_CR/A2507431060 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.04904192786867207,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12051512011202090502051206130907",
+      "pixel_sha256": "95615f7218d4e0b53c9236a07c633e04ec4a171f959e3f8422e5fa281e40382b",
+      "source_sha256": "b0f38a6757b6d6b48d28fb21426c21e99ffe187b9643c8a8f5c47fc1adfa2f90",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.11175860580562939441493697221497597640/series_003_2_CR/A2507431060 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.20991195532138804,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03150400010605060115070904121304",
+      "pixel_sha256": "83ba45002e731b7a7b0258d6b0a0c7c1c5c0fbaf3e6d2f69a8c403b04f4a4f97",
+      "source_sha256": "7dd4f0196bbf17ddfd95646bf85fb665f6a924279d9b99e5aacf4da9697cc1d6",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.114887542067602662452692698814728642117/series_001_2_CR/A2504131887 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.05927946012455702,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15050814070214050107040604101305",
+      "pixel_sha256": "4aa57af50731d06bc569e9469b01e17625aa6604d896d0aa4eaff1cd9dc93947",
+      "source_sha256": "850197c082e1a06d7a647017b2a8be0382070b6e1d2aa632c641f5e8be0c881b",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.114887542067602662452692698814728642117/series_001_2_CR/A2504131887 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.13111502622438714,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13011301091003020814061203020304",
+      "pixel_sha256": "71b4d5705ddf8bc8ca4a124593cc3861e1178d11a3ed061f68384520db32927e",
+      "source_sha256": "c9dadbac69c7593a3f63b7934f2ea1d49d6f02d073c54235825fdfb1df7610b8",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.116822802042655971810859435524105064465/series_003_2_CR/A2507273296 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.007063613467433957,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01010713081306120510130101121412",
+      "pixel_sha256": "12a7f70aac39128baeeaa69beeef9d87a6cd2dec42d3319aafdb1af025e1f68d",
+      "source_sha256": "62ad00635c858c4658f62f28ef9f2a21525334cce2087568371ef446f7e0bc04",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.116822802042655971810859435524105064465/series_003_2_CR/A2507273296 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.006446176340137462,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02101009080308000015051512140806",
+      "pixel_sha256": "aae530f46ce3c4c3ed9f1b13df46722899ac87c24f0ff024092ff049920c5bbd",
+      "source_sha256": "ea3eea596f2167761e6750ba1044628bd62d5b007297b1bdbbf9dd596b2d35e9",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.122446767306607067205618235949445789306/series_001_2_CR/A2504255080 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.004843209218815493,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02091106060004131215091000000909",
+      "pixel_sha256": "21496949f12c67a378c9d778ab35581409cc5e1a6862cd19d5b3d9e319698503",
+      "source_sha256": "ac878caf995369b86178df83069021316ebc02e43304a8f7125316055018df82",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.122446767306607067205618235949445789306/series_001_2_CR/A2504255080 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.36337301520788656,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08050506060410091114110412130504",
+      "pixel_sha256": "291cbada2b9f121d3a4b03bab3b8e29c085fafab1635103dbff33d07a1c59bc4",
+      "source_sha256": "2bc6c3cef7e6779658a195bad1333575493d394b6ab7352284f2270bc774bd6d",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.124890633326693921702195356152595253940/series_002_2_CR/A2504263153 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.050165834175766144,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10081312010805021201100507060411",
+      "pixel_sha256": "31586ff5cad919709a5b20d61b573daf17835779d8aa47de0ed13ca76a185ea8",
+      "source_sha256": "6b3dc7a456666ebc52237a97d446c445040ea80d991f2111a830da7c5dcd7882",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.124890633326693921702195356152595253940/series_002_2_CR/A2504263153 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.037813487400987514,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08121504041301080101130415050611",
+      "pixel_sha256": "98b5dcf845659b1c7e99c986945f9db94af62e6f7c686fca78f88a461e05e2dc",
+      "source_sha256": "bb3dc9c17503eeca7cc43ec507dbbcfcf3d25cfb42bec6ea97064eaa5c83733c",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.126293418391331346694592071563510265596/series_002_3_CR/A2507250865 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.01525929138278114,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11151304101402090112060913070605",
+      "pixel_sha256": "255fd38346de6a3dea367040c00d91f3991a49cc7d8cbe86aa09ccf1fc907c7a",
+      "source_sha256": "7dd75afa93c0844b45a39dae0ab064ae6bbfd608e37d27e9e08d7e9237663267",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.126293418391331346694592071563510265596/series_002_3_CR/A2507250865 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.02712740550538362,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10040807011312021210130513011200",
+      "pixel_sha256": "9ea37fcb0776b295f9c3db1604f844c000e304e195d859f10f62eb080650bb78",
+      "source_sha256": "8907a9d61189295304187356db06664af00321927040151fe6ec43be713e03ae",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.127126130998341190348103034690069487890/series_002_2_CR/A250428736 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.12914873930050808,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01070801081413060013111012010201",
+      "pixel_sha256": "b5a234a8306122f3d251791ab06eeb76fd4b9a361912c7f7ec14278cb36e3053",
+      "source_sha256": "872abd8937709156b6a67eb1a0e5dfac1bc56280b03f0fcbbe0cda33d7de0da6",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.127126130998341190348103034690069487890/series_002_2_CR/A250428736 DXA/CR DXA/CR000003.dcm",
+      "nonfrontal_score": 0.01393979645914522,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02011409120209130807021302101100",
+      "pixel_sha256": "a3425bf94e6b13d48c6d4e628af8f7cc3f613f8d27614ca831dab6ff491ed5e0",
+      "source_sha256": "0530066b50ce9337f6fa5ebc8e7c9100c9c1436f05033ec8767d5d182d1bc874",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.12798473087614376830819854616447908612/series_002_2_CR/A2507538847 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.0017788118354932403,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07050602130910101513020700010509",
+      "pixel_sha256": "44d197ce451c8181a3e4f309ba04c886e12e30d61a19d3fd4dd75c78c69f49ee",
+      "source_sha256": "3631723408eb8e0355e8f37102357d9c27729c61f758e47d394554d60c7a3df0",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.12798473087614376830819854616447908612/series_002_2_CR/A2507538847 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.05282645075690282,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09150805131402040209060509150410",
+      "pixel_sha256": "656d15c26816ae52a9726dc98fe0a6991624fed9e024ef0fa57f775eaa784b25",
+      "source_sha256": "41d95e902ae260facf6b767a3c89d7be70f71161ea8ba13a0786938b90043944",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.128990540359421489042453547244535073735/series_002_2_CR/A2507388698 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.00866099239146631,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02111507100612121000021204080801",
+      "pixel_sha256": "3abb3ea350ee1e4b55670a725c2c5f9d6d02cdbcef8035bbaf6b0a4a44b9cda6",
+      "source_sha256": "661b4ad2d53a82d041d364577cb4a5e8477e5396b0274801e951130874559f78",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.128990540359421489042453547244535073735/series_002_2_CR/A2507388698 DXA/CR DXA/CR000003.dcm",
+      "nonfrontal_score": 0.012430633731694219,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00131503020212110600101502020700",
+      "pixel_sha256": "ceb3427feabbaa125b93453660886b61c56e7c9d7fb1ffc493f31431ba08f7d0",
+      "source_sha256": "36d14ee52ca5be3db9abc93c65e53353732c84c7eaf4c871a8c8fae9a4959a7e",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.129239680100193368599713239115902740628/series_003_3_CR/A250757345 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.018809221917058288,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12051101030200021506031210090702",
+      "pixel_sha256": "e3b9cfab9b3b307a41b5eaca4b7667266d84fd0330ef850825c5dc620c2cf6ec",
+      "source_sha256": "e3b353591fcd8f9132cbb87c8a68dc980cc6be950f60394f8ec3cc2d42324459",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13069823278093578548407087310307113784/series_003_2_CR/A2507242667 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.08684784920161318,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06081211090913150712130913130401",
+      "pixel_sha256": "839aaa9b48593760802b4075796f6407b76832536db697ede1837ded41fbf618",
+      "source_sha256": "fb12d86c0bdc29a3864b86b58a9aa7fb2b4ec2d3a97396b00a492fd09ba105d0",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13069823278093578548407087310307113784/series_003_2_CR/A2507242667 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.03329232465463912,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13151303131009131214000609090104",
+      "pixel_sha256": "65b356f3681b94ae1082500c417cbcb27b5e7fc9f175c5fbc032ae587aec2214",
+      "source_sha256": "23f48b8810df8c23237f1d96985a7f190e1b3bad0dc189329ab933ffdb455738",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.132083163398091874662674590622589534350/series_003_2_CR/A2507386583 DXA Exam/CR DXA Images/CR000000.dcm",
+      "nonfrontal_score": 0.015269359522628678,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06120903051105150112061201080014",
+      "pixel_sha256": "a042f515128fe83a7c4c3753ccdbdf334606211a4a25328a0d804ed6529704ba",
+      "source_sha256": "da40f4a9aed9d9754d361972c940047824d13cc066d3d4f45dcd471fa4aa118e",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.132083163398091874662674590622589534350/series_003_2_CR/A2507386583 DXA Exam/CR DXA Images/CR000002.dcm",
+      "nonfrontal_score": 0.2787780712177669,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05020106091400040809110708040301",
+      "pixel_sha256": "034c34173a32e508b7dab5311352c0b929268599024cd73bd3fe9e7c9766034f",
+      "source_sha256": "2a810b551fa3737f396d937567211e5eb6175b957b7e5896f6c008b67fdfdfd5",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.132272637351979990811754009849547633391/series_003_3_CR/A2504141080 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.062028866776361866,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15140601101305061400021505010802",
+      "pixel_sha256": "6c52897a359acc0a95be9175002c12ff7cd13fd91348b76f3826596d0a2e2d94",
+      "source_sha256": "35fe2703e6d3715a699e6aac914d83083e7d7afaabba41040154c3deae1aa4f4",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.132272637351979990811754009849547633391/series_003_3_CR/A2504141080 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.016043099696903693,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04080409110008071309041404000111",
+      "pixel_sha256": "fc9ce50777374500aa0fae4772928d4346f9ca5fd9c8925f0480f3f0e23954b3",
+      "source_sha256": "5627f71047fa2581a51800e2b7fb8d600fbc6e1e6b93bca71a651c12cf3e2f14",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13325817932854000792938662637654885530/series_002_2_CR/A2507365486 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.03586134396902411,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11020707081006150000011408140609",
+      "pixel_sha256": "dd0f284af61631e71958d14eff1c643e1e3ea123b94b75337d79c549e1de926c",
+      "source_sha256": "7625fb154bb14a086d13fd5a80c8a626288b99e37cb8e0de8fe7dcdc856a2fce",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13325817932854000792938662637654885530/series_002_2_CR/A2507365486 DXA/CR DXA/CR000005.dcm",
+      "nonfrontal_score": 0.035905642312183614,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04040803080402061202041005000304",
+      "pixel_sha256": "58eba48b8fb58c3eba400ab86d89add23ad179b8dcbe418706d96b7e44d0e7fd",
+      "source_sha256": "f42b9c84ba35aa43efad8da7ae1e3f45ea093d5fc414a38f35db29ebd9e32b56",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.134456506307367483341018281460841912845/series_002_2_CR/A2507120612 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.2513584185882511,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14121200111500000012151207021305",
+      "pixel_sha256": "8b1262e9384909ae9eccbf8c48b3b63185dde693d82604a8339ecf1bc682637b",
+      "source_sha256": "7d9c3e6aed564f4e31ae805d1a3bab93918d97fccdac1c0d6cd5bba68d471a09",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.134456506307367483341018281460841912845/series_002_2_CR/A2507120612 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.08460811696509017,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04060811050000140014040410080212",
+      "pixel_sha256": "376c96e980c024ebf052049c5f6c03ba83a258ec2dd0e7bbeca6ad46d987fa1d",
+      "source_sha256": "f25c16d28ee6ddc55fe0f0ccd14c0ad8a13dd10f4bead851c3d925bcd9847aaa",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.135241889065705954191821710363605596815/series_003_3_CR/A250715060 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.014803065693934338,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14140312010015010504081306061203",
+      "pixel_sha256": "32f9c2b2ebd26d9f6b41da8c7dd05a6d6c4a83a8285b88f84d9784159768fd93",
+      "source_sha256": "c2b1b1f063f966cf40feca50c8ce056db73ed2cc5e78e4cda7b422c565f651d9",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.137344827330550141320158285144101816664/series_003_3_CR/A2507146630 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.2554322009504769,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03131510081105080011060404010511",
+      "pixel_sha256": "61d0cb621b84a9d6348278faa915b12d84df8fb6b62c682fb1511e9bac7690f1",
+      "source_sha256": "3846ab98472c485af5b744aa492339fa20816eff4b894b8408c954842061b0f7",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.137344827330550141320158285144101816664/series_003_3_CR/A2507146630 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.05443726204305983,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02030711120805150008090200030710",
+      "pixel_sha256": "c40f890eade01f788267724b6908247bf2432f6487b12d9f6d9bae4bca13bbd0",
+      "source_sha256": "102f5d1c0cd879f7370229e0c55680f0ddfd40070b5a10f5629d4ec269fdad83",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13983650679559142983913935144968795415/series_003_2_CR/A2504335111 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.25431568382506037,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05100908130706051511060907050202",
+      "pixel_sha256": "fae9eaf413536346c7bf8cb838a0ad38d959cbfb4fa07a7a4011990cf201cef3",
+      "source_sha256": "29ea62916c65c45f5e997e71e54c89838ef3d38e5628693bb5a6fca63214aa18",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13983650679559142983913935144968795415/series_003_2_CR/A2504335111 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.3519184508574231,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01100715050305071000110707040014",
+      "pixel_sha256": "5def7f6daddc844b08985fe79843a7c6914704c1acd3ad8dfb4413b35875080b",
+      "source_sha256": "136739ae474bcc3a8420809c57559bc492f04cb6c092066fe4cb7a3859d53dd2",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.144941557565802351596730914409170713112/series_001_2_CR/A250728979 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.006539396290698805,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14070202101304120203120502100808",
+      "pixel_sha256": "6a65f030ec7d8ae0189ca53fab353b73dfd44880e0d77789085b5d7890e85e16",
+      "source_sha256": "022859dc418e08450c9ba2886aed40d2a794fdeb290b2f5e626585df895ff444",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.144941557565802351596730914409170713112/series_001_2_CR/A250728979 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.010728953712220688,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06130104100900080002100912090901",
+      "pixel_sha256": "f0de5bc48a3cca7d0642b0aec26f05f12499c77efce863084f68ce6328066e69",
+      "source_sha256": "56d6d442af2dce169a98134f9f41511c7c92a195569e1683e851692cb6251c67",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.145848300160680194368420189079847088556/series_002_2_CR/A2504248615 DXA Exam/CR DXA Images/CR000000.dcm",
+      "nonfrontal_score": 0.12578884016498934,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09091111090903031309150614110215",
+      "pixel_sha256": "9f2a6d863e80771067147f84c66be96f7f11f11405ff81cf09f3be8e12429dbe",
+      "source_sha256": "f84f3ed9bd68dc2881a768bb62d130d62e6af94fd157af089cdca862294ac859",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.145848300160680194368420189079847088556/series_002_2_CR/A2504248615 DXA Exam/CR DXA Images/CR000001.dcm",
+      "nonfrontal_score": 0.28506538710528917,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06120514140811101106020900110711",
+      "pixel_sha256": "19cac2c8362e0f48d0b038988baee2e134d8204cbd0c2b95cf25c4914bbea765",
+      "source_sha256": "3596c961a9dd84e78cde522ce578e04991e92149f0d687878f62831334daeca8",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.151186844055172005615813066162721550889/series_002_2_CR/A250436130 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.45449294672021184,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07071507091013150605060411110414",
+      "pixel_sha256": "6bce5cfc0c57baf8065ce0f0f5a45a57cea2612fd7997fc8471a7356c0744236",
+      "source_sha256": "5da40f9b7c472717b87a777f39eb7cf5207b398da03a71dff9af304e938a15e8",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.151186844055172005615813066162721550889/series_002_2_CR/A250436130 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.5230188672612565,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09091502110711081102050610090100",
+      "pixel_sha256": "1e28ab616ff9193c48296590a4d10ffc8b4b7216523b80b40041fa9c8742b9ac",
+      "source_sha256": "57f09aada871b1ae33a583e7fa4af62d5867ffab9bb83748081b2c9b305d1be5",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156021661584944120526934974594604520993/series_003_2_CR/A2507142228 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.37440926258554225,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12020806150405080200131300151004",
+      "pixel_sha256": "a80aa67988f2869f11a787ce3e57bffe769e7c882d9390d86051ce9dd630bd86",
+      "source_sha256": "80825caeea8424ec50183afa2e16217aaf3a9b60a204c430747b798f4f37e694",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156021661584944120526934974594604520993/series_003_2_CR/A2507142228 DXA/CR DXA/CR000003.dcm",
+      "nonfrontal_score": 0.15768996965270354,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04001402031200081204010009090110",
+      "pixel_sha256": "1e846503471db4e33e504186a29d9f094a60b633e0358a627547c090511b6da4",
+      "source_sha256": "481a5e6c9cbc047a5f51233a18ad190b73149a4c405cf743a4d158e62c3ff9a3",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156375884487675936513403083218009333856/series_003_2_CR/A250727121 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.10922681352759031,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00010208150107110206110212130810",
+      "pixel_sha256": "0c005f9e6893bcb2e3d72ddece3dd523d71724316d036172126a378134cc8378",
+      "source_sha256": "b1dddb3c1ca8dc13ff796d2f171bf62f551cda6306227f91e9e35c6659a38b5c",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156375884487675936513403083218009333856/series_003_2_CR/A250727121 DXA/CR DXA/CR000004.dcm",
+      "nonfrontal_score": 0.014082112677324109,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12101514000107101207120412120213",
+      "pixel_sha256": "dec01ea2752a5c422a8e9ff19160839d20abb02dd60afa09eda12c0513af05ac",
+      "source_sha256": "785b18215e2077139d6110f691b2647a2d5dcd466f468407d780c3c48d57ff5b",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156389075510671877606923458507011517218/series_001_2_CR/A2507389755 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.017320014486350215,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05051100060005040907000403081502",
+      "pixel_sha256": "79c146a43aa9ab76a2bf16b5336a51891f9ab0304278daecc6787fd0b476ba9a",
+      "source_sha256": "e721ee5e22e29d6bf0517a3e5527f5effa95a2020aaa0c9aaa835fe1c9982881",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156389075510671877606923458507011517218/series_001_2_CR/A2507389755 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.39845534532579013,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14100604010411121207140303140506",
+      "pixel_sha256": "ea9cc9457ea573a952f58f66c5cce7811a543fa9d2258bff2d1bedefeb5777ef",
+      "source_sha256": "8529dde6cd20c0de38cecbb384188dcf0fdf032ee3adcc9dd4f37bb475d2ef89",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.157462338378550185821790046400986801350/series_001_2_CR/A2507498707 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.012591601318064,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01041213150709070704090905040703",
+      "pixel_sha256": "3dcfff1d33b58b2e182e7b9f419812a2f35006574041ef7456f12eb067d44799",
+      "source_sha256": "375c54f9fed44faa162f490116d856f55b43d2d7517cde3ff6a2a45e25ed642e",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.157462338378550185821790046400986801350/series_001_2_CR/A2507498707 DXA/CR DXA/CR000003.dcm",
+      "nonfrontal_score": 0.04170221220629195,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11050703151212091005010115120315",
+      "pixel_sha256": "ea4b66d231a6937e94ff0291dd0c0c91330bbd86fc3d31e34a245feceddec090",
+      "source_sha256": "854272d59b0d08406d1dfb18e831fdc65b642fadd4d429f681992692e237f15a",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.158646777318759504110695916200521633609/series_003_6_CR/A2507266260 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.009357526567664882,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03110108081008000413081502071511",
+      "pixel_sha256": "289c93f178f1663c3f340eff85ad5d50e3397a618d557d2846339f00ba5671e2",
+      "source_sha256": "870f4785a37944b80e6ca3b7b11df62e5dafce815b63df82640646f2884884c0",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.158646777318759504110695916200521633609/series_003_6_CR/A2507266260 DXA/CR DXA/CR000003.dcm",
+      "nonfrontal_score": 0.1824033720059868,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05080909100510090906081209130901",
+      "pixel_sha256": "e5dd753afa73c2cde7e15542f46ebf8b4746c1b0173b1235d5abf0d84269b81d",
+      "source_sha256": "5490e8631eea3f97ed379794a8ae60e5ed5f71d3c52d81d34a76d87e19777f81",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.164566280810634620154538016595892212884/series_001_2_CR/A2504291878 DXA Exam/CR DXA Images/CR000000.dcm",
+      "nonfrontal_score": 0.4966779552253126,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00071210060602011311010906021407",
+      "pixel_sha256": "aeda612070a8b2aee4d30d50261c3820e30c2cea0e345fb597955269529f4b93",
+      "source_sha256": "a0fb2a2cda291198ebe84d1d5531773b6adc5128a1922f86ddc5247c8c4fe0d9",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.164566280810634620154538016595892212884/series_001_2_CR/A2504291878 DXA Exam/CR DXA Images/CR000002.dcm",
+      "nonfrontal_score": 0.352389245891907,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14100208080000030010140812001111",
+      "pixel_sha256": "f70711552b99ca998c2e6fc63a96545fd1947e48f9b849d080d929b79f838cc6",
+      "source_sha256": "e5e8c57128cd9f27432e04a918bff5e6e98c1c0a7f4f3a91615adb0a2fafbb3f",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.165091430504580219034019815337441064349/series_001_2_CR/A2504415443 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.055383672139757166,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12140710150813060013011403140807",
+      "pixel_sha256": "6917f77be30f3d313563765998ce69662b354e29d53faec138f15bb76957743e",
+      "source_sha256": "2dfcceb87a8c25b814c158234c53857e46138c711d9ef4b83c129ffa57257072",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.165091430504580219034019815337441064349/series_001_2_CR/A2504415443 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.0010151676507474336,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03030806061309020808141008071213",
+      "pixel_sha256": "b9810f0be1fd7246e4b6fdb8a473b524f5b4bbbb16a5ebe59387d4051fcd7382",
+      "source_sha256": "aee3bda317a3419d6bfd55c6f66af9c6bca430b74fb66283cb2d1a624f1f0f9e",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.165355673991587715046346525964554729786/series_003_3_CR/A2506448267 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.09059228232418909,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05050004021105041108010100020012",
+      "pixel_sha256": "3ef695475bb833280592384ade8e61fba00a87bb4a5a9eece4b702d32a25628e",
+      "source_sha256": "8192e84d7b45f22f41b2366fc98d9d0335c1e62a7bd05ea7529241c75111b170",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.167344201679287285499405412654740659745/series_003_2_CR/A2504249537 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.07864437204468995,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03020203090713120707041512070302",
+      "pixel_sha256": "d21f9fd29b6b00fcc0d0522fbd854690edadb57f93cc3300c0075432659d9501",
+      "source_sha256": "857f24b2d99b5a503097984caa0760f2b7d32ad1934ffb12f80b1e0441d7e669",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.167344201679287285499405412654740659745/series_003_2_CR/A2504249537 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.3648657192186455,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15000110101510080415120006131402",
+      "pixel_sha256": "7b3b5e69517e2d5191bf6d152ef211efbb5b60380bca70038827577ab7cd69f7",
+      "source_sha256": "187f273e791eed6a9f352f3d886543b942db8473f4f577273a56a92ab75921ca",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.16773626720107440979805052259711419763/series_004_2_CR/A2507537392 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.07208245998479124,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13040605040810031203041510031012",
+      "pixel_sha256": "9a31b5b7ac79ef53f7c2009085bcdc883c4be6a643a4590f8d65c5b48f37f96b",
+      "source_sha256": "7cfee2a5251a10887535e13bf4c7541705d312e6fae07dee6602c19b8984acc1",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.16773626720107440979805052259711419763/series_004_2_CR/A2507537392 DXA/CR DXA/CR000004.dcm",
+      "nonfrontal_score": 0.442730489689999,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10050700041001040614050614130103",
+      "pixel_sha256": "36c9ed19f32356ce578ac1b90eb365147878dec70998236730ed2b323980b798",
+      "source_sha256": "8ab129470381807f3b89e1ab5dbbbfb0a263f8895d0da35fd4d4080997752e6a",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.168317503020329569414190677927680518621/series_004_2_CR/A2507557128 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.011519592351449818,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03110002011112060400010906040109",
+      "pixel_sha256": "c3b624af79e34b6fa8b0c88bc03908125165642a6b56f1847fa9a8c4beb7dc63",
+      "source_sha256": "62784977bdf3bfd4b8d59026ae6a8e4a411b4085c4ffb729882a724ac13b53a6",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.168317503020329569414190677927680518621/series_004_2_CR/A2507557128 DXA/CR DXA/CR000004.dcm",
+      "nonfrontal_score": 0.009019888483303666,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05030907080814020708000711150507",
+      "pixel_sha256": "5fd785f6b83c8fe5635fa5b0f562229d1085c61793e55bfc3d600defa7d26fcd",
+      "source_sha256": "a413249787e4228ec5ebf2587a65ab7105f5e2192764441007fb23d114b7e043",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.172445998420765569384934552191547932566/series_004_2_CR/A2507368766 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.013906420236107454,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15151313120000020410110702050700",
+      "pixel_sha256": "ad4384a8bf3b8fc068a3aa92f4853120f805393d143559bb54d9e8409dd9014c",
+      "source_sha256": "d83302b267bcb2f948314e2cc9fc28c30a38dbd7cd505ae509c22400a8a63561",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.172445998420765569384934552191547932566/series_004_2_CR/A2507368766 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.005294493464655596,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04070212140009090002060410031413",
+      "pixel_sha256": "5e2a5ef70c051cc4cf0c23fad9d83cd9823d17ad6d0c0df075485a3f01dab57e",
+      "source_sha256": "4c2aca3d14d56223757c84f909baabe74d88577ebb4024543455390ca7cc6d7b",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.173731186748227489808861376513577450951/series_002_2_CR/A2507188958 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.01349874924884703,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10100404000008120405081411021306",
+      "pixel_sha256": "15b37a2d3a45f10a5776517fd60c75123a8ee3e51ea1ad7ec3634d753d16be66",
+      "source_sha256": "95d9e360be9d3fe2383e28da0890b103d58509e247e9da55838405c08ccc7c83",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.01469051644494903,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04111300031205120703050100121209",
+      "pixel_sha256": "53aa491eb98571d1dbc4c209b3dfc932be84549e44bfa7569b71f707b35e0bc3",
+      "source_sha256": "531f24aa4870784cd1641134cd687d879fe3e1b0fa5e0c7675167c446be72d83",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000003.dcm",
+      "nonfrontal_score": 0.0032441484414931455,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06070803110509120507010310141201",
+      "pixel_sha256": "0eb7515471636e17237f51be52db80fb0b248b1a5adf66e726293cbf36e135f1",
+      "source_sha256": "908dd45016eec9c76bae8f38dd30560d0a9b732e78665a65dd0c90883c5bd041",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.175881661753775295785039265792986971602/series_003_2_CR/A2507266462 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.009988346855273486,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10000603030913050503020611051415",
+      "pixel_sha256": "c37c0b2d47382b4caca57a0b965d3f873135c06f5804762f62ee3c0e4d64c639",
+      "source_sha256": "235f1958cddd1bd6b3d81acc4742e991202939d63a8bae8a913d6bd0622985c9",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.175881661753775295785039265792986971602/series_003_2_CR/A2507266462 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.009474290785800327,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13151105000600070510031109011109",
+      "pixel_sha256": "e6930cda94ddb5ac52ff3e1fc7beff4abc6592e9f8ddc2cdcb6e39beec3517f6",
+      "source_sha256": "99eb1eb23baca6016a74b52109cbd468128a31bd8f2a9b8a2b3ada107139062f",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.175903805423871105435148927871625232853/series_001_2_CR/A2507159447 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.23560719165972374,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15100208060002090813060606131404",
+      "pixel_sha256": "f6e614d65812410a876c54964507782b1798d99491dbae8d8e9a485127cb3106",
+      "source_sha256": "9090f461a36e09917d637e47eb81f9d0371dcf1161b7c82130f56e2b44a73d74",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.175903805423871105435148927871625232853/series_001_2_CR/A2507159447 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.10486487067211811,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11051514070611150905020505061111",
+      "pixel_sha256": "fd43b58458062a22c7b0d9f9d70865adb6d6cfcd4f123590690bcf4faa6cff2d",
+      "source_sha256": "4a8e50f00be25e1d4597830bcad6b79fc73ec3878145c72e2cbcd216c1360415",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.17706555930735581384953296958427669848/series_004_3_CR/A2504146513 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.4773824349675304,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08081313070715151208110603030015",
+      "pixel_sha256": "d2c3f78c992fb2ea815627490323348b895865bcb378513269826aa4d2dfe2ce",
+      "source_sha256": "5a0913b7b7f8f4138ccfc4109a626e6864a77844bfeddd3ff880285fe1dcf4b3",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.17706555930735581384953296958427669848/series_004_3_CR/A2504146513 DXA/CR DXA/CR000003.dcm",
+      "nonfrontal_score": 0.23661367755265456,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04150214121314031409051312111410",
+      "pixel_sha256": "f755914d14068f31922220cb8ae21bd2a4307ce6db0439265f09c802e6a41304",
+      "source_sha256": "18bdc284ce65f74417a3033f0f2b97704931f81549f25e0d4e041b286d182196",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.177745077805190810016231350557005569203/series_002_2_CR/A2504273759 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.0018072792537790925,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06130700140211110505051411010711",
+      "pixel_sha256": "74d32bfa336e57599d37b060bf9ff23733e915ed90f31b3d773d1c6c99331dfa",
+      "source_sha256": "b474f70ee68afe31b631617f591b8e392d3e617ae4786b4cbb28519daa39bced",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.177745077805190810016231350557005569203/series_002_2_CR/A2504273759 DXA/CR DXA/CR000004.dcm",
+      "nonfrontal_score": 0.004344915593326114,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14150808010700150501131415040808",
+      "pixel_sha256": "ee47c38638a20b11c3d7ec5d3f843dca17d662ebe1e2513c69b04e138b1b2456",
+      "source_sha256": "d1eb4750b22d8efdb494566a8b4c8b6ac8c32a2b58accb3f162626694faec1ce",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.181196659018348153828200695057897449628/series_004_2_CR/A2507370620 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.5476219852011331,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07040306041313130904140702020908",
+      "pixel_sha256": "fc48288bc0fcbb6008d98b5356fbf4872e3cb04dc07fb825d09cc0263cbd41f3",
+      "source_sha256": "fcd3489b021630f122a2d1a73f6d1c15d084682dc2ed663bc130e0c3da1e85b4",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.181196659018348153828200695057897449628/series_004_2_CR/A2507370620 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.1000731457497936,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11141409010404080202090702050104",
+      "pixel_sha256": "5bf2b70582fed2e7dd4c6e71bca168044dd38d886537295b28610e3be5705f30",
+      "source_sha256": "f90462364d32ad908c68d6734aefc4d6a6b5858a27ebbc52bda0c94d644acac7",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.184198356665635336833172191504278054074/series_004_2_CR/A250788286 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.38572765022480865,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02150805140008141106110606070801",
+      "pixel_sha256": "37716122b57ab5b3fa7e2cd2ba757fc99058c3e4d32736204ca0e40be004c126",
+      "source_sha256": "cc18f7cdbf34708226084184bf49c0c333982971841ff58ca0859b8455b172d3",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.184198356665635336833172191504278054074/series_004_2_CR/A250788286 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.05872412061703034,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01110601131107041511021510061211",
+      "pixel_sha256": "c96467a7dbe880a73ee7fc9bbe77ad170804e17101462d87b084501b692d5bb2",
+      "source_sha256": "20aa0d31a8109dcd474de4aed6822c90236aaf0f708b02031ab3ac6fb69088d5",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.186201010600484120326273381077449377115/series_004_2_CR/A250777475 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.09771462854574145,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00091315091215060415120908060402",
+      "pixel_sha256": "cf2e35063c903cf5eb0e8892ea6805f9f3adc483fb890220d6f366c92a9b659d",
+      "source_sha256": "f496d82d1bf2679ffb6dcf94d9dc555beac01b9fa3523e20bd8ca340e5a850c1",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.186201010600484120326273381077449377115/series_004_2_CR/A250777475 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.027478875576109108,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11050911061500091304001000100608",
+      "pixel_sha256": "3954b77d389259dea245d954feac4165426b8bddefeb75d497e281db49133125",
+      "source_sha256": "16050a06c033fa6d6abf968ff4d2e46046e7d6ced1efe1e5cd4b8b1252d9e5c5",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.05870786316640218,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03000010070307110614031003090302",
+      "pixel_sha256": "3fc202ef55c427802516e07a906e17ab23e42a9fd4c93d42321371cef9c0fc9e",
+      "source_sha256": "71f7eba63da22d45ad5e4e22935ea142094e5fe4bc20c4b9bc5654228e4d396e",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000004.dcm",
+      "nonfrontal_score": 0.09047568765123272,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10101410111513000809081215030802",
+      "pixel_sha256": "9f0713aaf0611024dc612c5d9b18e5694b4d6827bd3369526e49d4bd57a09fe4",
+      "source_sha256": "3c23df12b23dd7b073790f50b841dc47c9ea3faeb8aac62abf6814d1d367b25e",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.190807933410234695931591553323782771995/series_002_3_CR/A250762254 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.5016202826117956,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02120211101306000510080011031411",
+      "pixel_sha256": "5401f34d8518957c0a1bc1a20a5836281824d588a645b050599532d91a089be7",
+      "source_sha256": "4f1be44678d41e44906a3fea246552fa292eb78e45051a060d9b29a479e399c5",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.215177279960644564778148238928738915103/series_002_2_CR/A2504147013 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.022332217669863968,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00070615051510041500030210150312",
+      "pixel_sha256": "7cb53f5f8e78d013ad168c8572ba8416508bd5bfed1e7ec95331da6d6b82a19a",
+      "source_sha256": "5a7d564747b627817590cca36d84af9becddc50d218994aa3274ce821d032772",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.215177279960644564778148238928738915103/series_002_2_CR/A2504147013 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.02319851897444008,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02091115080411030312040600000701",
+      "pixel_sha256": "703117a380ef83ce313543b8e7ca155ad6c720d6582d2bbc964e63609dc10c50",
+      "source_sha256": "ffcd64e5d26c1cd84ef59d256da0e3c3b37b81374fae4f8311a5f2699781144a",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.217397325224876728316360420804118329081/series_002_2_CR/A250474631 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.020137569111403086,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10000400041408060608031009090710",
+      "pixel_sha256": "3c93dc606d6be8c07f28ca6097e3eac0f7aa67f48034d3f4ddfbd03f2abf0f56",
+      "source_sha256": "805b03ed43ea3ad99ee26f918e8a93c1832ae1cd4d9087d6eff417afb25c48c4",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.217397325224876728316360420804118329081/series_002_2_CR/A250474631 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.0022861298585114456,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02051208030605070510050510081213",
+      "pixel_sha256": "26e8eb278ec4c11e5f8eb8aa723248b21bccd58a7796dae9e304ffd2c83005b9",
+      "source_sha256": "4ef08698c9733969faf533cb64a714034446f31a275d370fbc3fbfa9affcb53b",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.234651502352368356456298825489565282446/series_002_2_CR/A2504307193 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.08353480531812957,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09140613011500120102030800080807",
+      "pixel_sha256": "f2e7d60cb879e472068d75a86e8ecaa400b8777dea91a49eb7219fdf9fa46e35",
+      "source_sha256": "ad4b85aa8d852ebb0fcde5a8c00debaad8d074ba639b16870ecda488a9d2b4b1",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.234651502352368356456298825489565282446/series_002_2_CR/A2504307193 DXA/CR DXA/CR000003.dcm",
+      "nonfrontal_score": 0.04804548838572503,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06051510010614000404080600020603",
+      "pixel_sha256": "691c366346a2ecff3c23de72b3fec4aaa8069d96f812bf55a698c1da4d39d01f",
+      "source_sha256": "09b0d7e9efddd2e7c5f66af1f4e18925b69c4d9befd9d554fe5e9f10cff376ef",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.247714038039430659432048101646401574824/series_002_2_CR/A2504238024 DXA Exam/CR DXA Images/CR000000.dcm",
+      "nonfrontal_score": 0.07860874071901913,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13110800060502010303101404091303",
+      "pixel_sha256": "38ed86f664890a3d9db4ccac7aa2eb8c16d8b2dc2c43cef64f48dbc3607403ca",
+      "source_sha256": "7f30b926fb1ef1cf92fc5c9b6728a8ed1718c858dfe66fb1dc49f327493cd147",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.247714038039430659432048101646401574824/series_002_2_CR/A2504238024 DXA Exam/CR DXA Images/CR000001.dcm",
+      "nonfrontal_score": 0.3138574708584406,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12031014110715041000030602140501",
+      "pixel_sha256": "bcfe0d6aacaeae42072e43f97cd35487c1ac900a9c1b6ebe361f07382cbd5e00",
+      "source_sha256": "058687322bfb3defe52bd14d3c8601137edeed1ed5ddda37dea02f49b866858e",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.269648774413746842548908998641183395622/series_001_2_CR/A2504393664 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.023468025675448492,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12130902030702050210110604020115",
+      "pixel_sha256": "227f7bc44de94a1fde62f3ccc47dbf51b9d3bfce67f6d7b22e4e6cbd85a90084",
+      "source_sha256": "f168cdf0a53db6ebc542b1b2745f366cf548ae24325043fe598cdd81b442454c",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.269648774413746842548908998641183395622/series_001_2_CR/A2504393664 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.0369566700464316,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01011201030601080312040805131303",
+      "pixel_sha256": "16d73907874377bcf7574489a0d3068fdb02b4d69bc7bc692c73364448e8bd6b",
+      "source_sha256": "09f6be70029b2b9849a493dd2e8db961bdfc7edffbe0eccfd83caee73b053ea6",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.272690031744216183651627058502316132741/series_002_2_CR/A2504373414 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.001766034678303309,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15091411140404110408151008030010",
+      "pixel_sha256": "56bc556600cfc68c4caf5a87928cf28304995563ef52ecfa357cdbabfc302c7b",
+      "source_sha256": "24f9ac7dcf197b2796e7a7e6d7e6f6fcd99ac69e9eb3011ade687740dd16c321",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.272690031744216183651627058502316132741/series_002_2_CR/A2504373414 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.03125306004192659,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01080011050715071510151108031409",
+      "pixel_sha256": "7cde67ef6e73adfdc49a91cda15443a74db3cb974cb898e9659ff5892302b455",
+      "source_sha256": "14319c47994ca5ab047a01da5ad706259cdee77db83e385b771d89d7371b447a",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.276415754443998872860614500027519740375/series_002_2_CR/A2504387089 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.036954063503606444,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12100615051100140712150704150801",
+      "pixel_sha256": "4c8cc265a6c23b40ce1929bd95d2666b8e12b87e4e92a5174f1ff92b4520cc2a",
+      "source_sha256": "7c219681ffb81828eb8b5805a42d75986bdb0cda82fa2099f6177de2e317aee6",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.276415754443998872860614500027519740375/series_002_2_CR/A2504387089 DXA/CR DXA/CR000003.dcm",
+      "nonfrontal_score": 0.0034021846895785023,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11140100091110050501140207060912",
+      "pixel_sha256": "387a49f74e04671c2b08ca9cfbf4914d228ab21a200d74127e4bbc71effecb91",
+      "source_sha256": "83c71ec20c3d49178a59009c6b2c21a0b43a52e27e736d32456449d0d052a9d6",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.277752758923974029595977676354128739670/series_002_2_CR/A2504223752 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.025952205914213804,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05010011080903070300131415001403",
+      "pixel_sha256": "13529ef27ed2a4ceb7f7f14170736eeb608df30025d896394179d0487f7515b2",
+      "source_sha256": "5ffb590b824aa67cb6434aa6717d049c9439f5b16265228274b6efa492472500",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.277752758923974029595977676354128739670/series_002_2_CR/A2504223752 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.07426872393860158,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11091010090201121300090614051311",
+      "pixel_sha256": "0d61bac8d8448b26952ef819b5d510ae2f22a17ebfc7420001fefb4e94da0857",
+      "source_sha256": "20bc66dfd941a9aa89bf2c18944a53ac4266cfc13d7a0cb5a57fbe523f0b6dbb",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.286999464611662854355201599068538813496/series_003_2_CR/A2504223477 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.05896081598323932,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15080906090913051107110915140103",
+      "pixel_sha256": "55a103a3c112d17effeb9fd15002ef113b40c9edde0e288b333b2727b3c22a1e",
+      "source_sha256": "1b3dac0ba1176992783da7d7a571cbf4751b0bccbb7663b26681f413e40c47f3",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.286999464611662854355201599068538813496/series_003_2_CR/A2504223477 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.010877114067250112,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09040806151211060704090912150608",
+      "pixel_sha256": "a8016c4ad0058939fe43b2a30f656577302a9207bf53bbe19296037d82de84b7",
+      "source_sha256": "1d7f65e9f8b69ef91fd2c74d65cccf980435b374c0c55a1a28b89f6ee21d5b11",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.29638026465755240167985424461715024381/series_004_3_CR/A2504115579 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.062301868689779716,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12090901030412121214030908040015",
+      "pixel_sha256": "aee72a6111f6ae13fcb4d778e4ece762450395499de466f0c129de4b3c375b05",
+      "source_sha256": "d959f810c6cd12295fb43de5facddcb8d978a05275f9c1ef071b153ab9fc5bb0",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.29638026465755240167985424461715024381/series_004_3_CR/A2504115579 DXA/CR DXA/CR000003.dcm",
+      "nonfrontal_score": 0.047626331047811325,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12090115120005000603040515131409",
+      "pixel_sha256": "dc8053e45fece4b0c28613605084efe500ccc390a97758e8b639a0e49cf34c1e",
+      "source_sha256": "9f49485158759473b9d1540a6dd737764170aff0533f9d650c885c4c24e0ce46",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.307021710202910067378603383388989711646/series_004_2_CR/A2504110565 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.0518989943547529,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09020610121102091006070609000414",
+      "pixel_sha256": "5f8e3e983386ced5529bcabe7f5b7980b210be9673afa8196d95773c6bae4a82",
+      "source_sha256": "ffdd94f98ef49efa5ac147683f0464f52c8671a174bcfdb68fb29d266ddeff0b",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.307021710202910067378603383388989711646/series_004_2_CR/A2504110565 DXA/CR DXA/CR000004.dcm",
+      "nonfrontal_score": 0.01558266293918013,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07070904150315000704031208001011",
+      "pixel_sha256": "3de0f020b4640f0cb7b508355ad88be41c25fda128dae36822426bb3f7b4629f",
+      "source_sha256": "0cebcbef430bc14ebc904ef3dbda33d612ddd637a6ecc57b20f0cbbdb33ed75e",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.309085571913348252136520206003694446566/series_002_2_CR/A2504116267 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.431519252380229,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09030700121011131209150303151015",
+      "pixel_sha256": "950ddb98349b0867f3066df78bf7a4db3c155eb85e17f4bb48464fd8991864f0",
+      "source_sha256": "ae7468126d08416b0e95f3836b318e0a76108f9c1bc76077fbccc2cf8a5bae71",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.309085571913348252136520206003694446566/series_002_2_CR/A2504116267 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.41377721850573834,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02000306061002040514101500000812",
+      "pixel_sha256": "2432010923459fa7769e54ea3b8c7151e957a0d6510830296493a02be2a265cc",
+      "source_sha256": "f6b060cd43ffb265751873074b1987beb370046e029c3dcc94f3141f3b659d20",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.314147167453134440746270747484612743945/series_002_2_CR/A2504224780 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.059614347079862476,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01130904120915050401031210031001",
+      "pixel_sha256": "b0d35ea43dde3dcbb4b51fb3721d5bc701b8f1a4125605062936ea7d748cbf2c",
+      "source_sha256": "7e6dc55dc2de5a0c2c4a722752d1afde8589425a65ac3e1948cd5b8802d44010",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.314147167453134440746270747484612743945/series_002_2_CR/A2504224780 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.4811977544272415,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05111003151314100612100700031506",
+      "pixel_sha256": "194b64eb85335904aa8af45db7c6eb77e78712815518dd2203a536f253570ec2",
+      "source_sha256": "2fe9d9ceafe199197e7bf87b0742e64bcfb7472bd30e8372df46c5d27bdbab90",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.010630003293517291,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11010912010413080807030107050600",
+      "pixel_sha256": "5e47a6d5bb491316bc6592ab11ed1aa002e8cea667cec2ab453087d804d0250d",
+      "source_sha256": "db36ee957bf18ef5cdd68e8cc478da10d42e2ce47f5fdf9e9c9fc018d473fa7a",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.005365386336555563,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14120712151005010200040708001308",
+      "pixel_sha256": "96eeda56bd75a0d329cf7115aad84215f26e9ff1e758d62582d1470b8266c12b",
+      "source_sha256": "17116588d03e3fb77040ed13ffe3b9ddee5ede0591a4512f6d7fe7773729d056",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.340839477910528898406207279980417945/series_001_2_CR/A2504224555 DXA Exam/CR DXA Images/CR000000.dcm",
+      "nonfrontal_score": 0.21989174299992614,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05030701101012140702110704000714",
+      "pixel_sha256": "5d1327180892e901f91111c6ee4552ad16e8cffa0b146373fec1bbb99669d12e",
+      "source_sha256": "4276b879831bd2b9ecd400e0a19a75700f788ae1ad6ba649bd3849a1d71c497b",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.340839477910528898406207279980417945/series_001_2_CR/A2504224555 DXA Exam/CR DXA Images/CR000001.dcm",
+      "nonfrontal_score": 0.17214856567761594,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12090208061115110101131315120813",
+      "pixel_sha256": "760713319245da4a670967657facc76f3c7e92779ec0e8d335071ed6e2dcc579",
+      "source_sha256": "358770e3e2858bda2b5a5371c49d3db0e0d1fcc1cd08a009cd1f4d9b7633c3b3",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.37515662379281069436632838996073181551/series_001_2_CR/A2504329840 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.11951146257928062,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08110803070615141513021414111001",
+      "pixel_sha256": "e51b2e3f4ed0c30524728212085d005fd1ddfbf891e00d2663ca48da76e84ae9",
+      "source_sha256": "6b10e3797adcb047fc76986be15fe68c0978374b9e6d0f5d4fc5c7eab8dce37b",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.37515662379281069436632838996073181551/series_001_2_CR/A2504329840 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.08781919730014284,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00030605020706130003080307080701",
+      "pixel_sha256": "5458565df0c2433d451f33aac6063977b1e349e8b10d6db718d79010b6f7a2c7",
+      "source_sha256": "56cdaf65b1dc80faed0b4ead960a3a392c332f4ff7dcf748898b36ecd219849b",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.39068163399801173920284179500049527111/series_002_2_CR/A2504195842 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.10377455701102739,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07150610130411050211021514011106",
+      "pixel_sha256": "fe62345dee437d6ef20928fe4504885bc9fabcd952b68cc3efb04d3ef49d4a1a",
+      "source_sha256": "ea74ae2435f281f3b7f374082eaed6960879b0e825b8997865d60527d3fa5b21",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.39068163399801173920284179500049527111/series_002_2_CR/A2504195842 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.2738694911255057,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06080100090802110008000311010501",
+      "pixel_sha256": "82c49c0049c05c1da86e27bf2eac016e041cfbb02abc41e6dd023281abf6ea92",
+      "source_sha256": "843a879c1da0716412f35a2fb6d2c2d32f09b51209ff6e60e75da35eda9a2a91",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.48906424954135283790354958243772558962/series_001_2_CR/A2504185596 DXA Exam/CR DXA Images/CR000000.dcm",
+      "nonfrontal_score": 0.22018023012771498,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03010404051000131408111209140108",
+      "pixel_sha256": "815d9cef8cf99bb0cbceca9e5800a476690e8604c05be68811474fa2852d2b1e",
+      "source_sha256": "04211a696347d3fe61326be04675a8363cc6af9cc87461d17215b3bc4063cb6e",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.48906424954135283790354958243772558962/series_001_2_CR/A2504185596 DXA Exam/CR DXA Images/CR000001.dcm",
+      "nonfrontal_score": 0.1702061617797419,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07081506021006111207090213090701",
+      "pixel_sha256": "70696b000bb447ec86d452361ecb8256b77f26dc0fd50111ba9651107af9336d",
+      "source_sha256": "2d58371a888d491426b419d104dc7aebf4ab37b21934c8c50866313ad5497fe6",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.52982400970721161435951723390541696819/series_001_2_CR/A2504331065 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.061375155751399554,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06001210040802120801060507001509",
+      "pixel_sha256": "d0aee0bf7227712f8c6b49489c4c729dcdf7d04c58584f630cf89ceb274b8bd1",
+      "source_sha256": "5373d5ad758e6984229e96c3e110791d7896f77bc9a57a50f6e0ceb5513b64b9",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.52982400970721161435951723390541696819/series_001_2_CR/A2504331065 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.34134735958107426,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11130315030911081202140406010814",
+      "pixel_sha256": "e26ed4eb9a4b1ef5f33311317d1c5b0f35ae2f52b7b3dee9e1a30c4f5305831b",
+      "source_sha256": "8fa5841c91504021f7c016be5ca62de5307b63cb139b2f6470526f811810ff2f",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.65954778282254353457041255543338557112/series_004_3_CR/A2504246289 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.1120383117919033,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10000615050107010300151404090301",
+      "pixel_sha256": "8130c6d8dd8e89bba04b2096b4db552f54fb8f7738261a35260faa8f283b3c56",
+      "source_sha256": "03735c6b177c78d03f7a0e45ff3ef027397e16bd70f546b4806e7eda142fa541",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.65954778282254353457041255543338557112/series_004_3_CR/A2504246289 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.3621021249836604,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02091011000006010704070004091411",
+      "pixel_sha256": "bca67b3be6ca87c160e972e772f4b07ddb90cfaae1d139369e42a94954fa9c62",
+      "source_sha256": "aa3a7cdac037345297e2daf289e52453435456edb128844cab85644c6771d0b6",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.66397484472966116002950503539482860450/series_001_2_CR/A2504194637 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.08403068496817903,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08021214010408050013070405100802",
+      "pixel_sha256": "f161ee938372695ec2dc37cd951e1923bda7ff034add63745c6034c26a8f2288",
+      "source_sha256": "6e59a9c526185e7c8223b8b85244ea1255cff1618074094f27149ec6f06dc0e6",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.66397484472966116002950503539482860450/series_001_2_CR/A2504194637 DXA/CR DXA/CR000003.dcm",
+      "nonfrontal_score": 0.024287860715156182,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00031305050707070014000611130907",
+      "pixel_sha256": "80105c9fefbf3cda70ab6368853eb3d467e8ba2983e77e2c60d2af7f6d555977",
+      "source_sha256": "cea737e9798fd5ba98cbfcae272f70dbaa17bb62cb3f4074027852a19080c371",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.73070100851377917031356937075051545239/series_002_2_CR/A2504239110 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.04121978840485252,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09110310111109140609041514031010",
+      "pixel_sha256": "bc2db4bc762e98e5d147420d7e8f97a6655eae4a93f0b92305fd705d0be44224",
+      "source_sha256": "68b5337ea54c504b3f3e4764c05a1c39a64e34d0318d5c2534f00e73a1cae724",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.73070100851377917031356937075051545239/series_002_2_CR/A2504239110 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.006241611734378781,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14130302090906050506100315000611",
+      "pixel_sha256": "d351e719e2056620857815ead653c1487523d22ea38fa20864c51d35e57950d9",
+      "source_sha256": "0a48c73691d50d20d0677149b1ac24108716cb9010c5b5e713c4c5f422e8e1c4",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.76710355977373089612172037086913478687/series_002_3_CR/A2504104830 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.006364043199499683,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02050808061207030811150709091509",
+      "pixel_sha256": "2857c346d1e1b004aacd7592afc4f65c0e93390e4efec4d5a3ccac2b4e18809e",
+      "source_sha256": "af956dbbbb14822572df3dc9c8b434c23727885c11ad98ef80c1ece9acc8e8c3",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.76710355977373089612172037086913478687/series_002_3_CR/A2504104830 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.31156395865631675,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05120913001500151408091003040415",
+      "pixel_sha256": "f2e88d86c5d723b1d9d9bd2ac084af6e5c82dbfed0c9148e42878c2fed38e9fc",
+      "source_sha256": "8253497422a1d18d6e7e255c79507d1b2a3f0da5a3940c20d70bd51fe73d29d0",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.78999454687125053757525542837745968726/series_004_3_CR/A2504222617 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.012728925929149697,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07150713040501120002001009141410",
+      "pixel_sha256": "8d436c9a68db1647675ae4da1629a9bef48509b795b8f56cb0f6716a7cbeca65",
+      "source_sha256": "67cafc0f70d615e3d9ab02d47964120ecadb4e85a6838bc62fc49795dfc787b7",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.78999454687125053757525542837745968726/series_004_3_CR/A2504222617 DXA/CR DXA/CR000001.dcm",
+      "nonfrontal_score": 0.16390360382510485,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15121403061107000609060400100413",
+      "pixel_sha256": "006861df05573e3407c9a293528d80d0698e9ae36f70938f394fe6dc8e89d56e",
+      "source_sha256": "746f6b1951a8e3b75dccacc2050f5228af76c87307b0bf506cda2e45d56737c1",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.82912555346523716720160717883917565880/series_002_2_CR/A2504149480 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.05299181427690161,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07130510130614040904060413131200",
+      "pixel_sha256": "318dedb109000c6a527b83e672d1aefb608ae07bcedad35875561ec1b34bcb7b",
+      "source_sha256": "cf60f8405371a936d7623742db1fd539ed6ea2ffaad2366d44f1cf173a2a8af0",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.82912555346523716720160717883917565880/series_002_2_CR/A2504149480 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.13612835869781711,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06111209081313111015020309051508",
+      "pixel_sha256": "b7fee40cf81794af5714ab4d5eb2f1695e687635c36862e953157709b1a5935c",
+      "source_sha256": "91263c5635e29ce090909e49ff8ac386cb1934d962b1bbc73d697c999bbbdcae",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.87869906212286587478854831452123526595/series_002_2_CR/A250419699 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.11503568582768699,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15101115041306031303150405131115",
+      "pixel_sha256": "4fbb649464545b380ce498be7cab9cd06538d05b7aad584f2e3b04fa42e08252",
+      "source_sha256": "034f2ab38da64a41987677224fa81fd4b254a8557a3b5a797c5ebbd3baa672f6",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.87869906212286587478854831452123526595/series_002_2_CR/A250419699 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.13683661271524059,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08061201060114131102110802141411",
+      "pixel_sha256": "95647a5e94d47570468e6ae20c9a9199259b347bfbb5d8577b8e01e2a2209c82",
+      "source_sha256": "1519da647170d34a69c98a7dbed92c1ac9c93ab7a5b208f7ac5ce3ba1a88fcd9",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.91981043841368764114007975581101713077/series_003_2_CR/A250496619 DXA/CR DXA/CR000000.dcm",
+      "nonfrontal_score": 0.06961327207224005,
+      "value": "frontal",
+      "reference": null,
+      "clinical_validation": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04000607141411061507120106050309",
+      "pixel_sha256": "dfc85b26ba14e0742650ad5fe99ab277788f429385605f5c516a3c6a05db8eff",
+      "source_sha256": "58da0286d0b466a873ec36ca8f7c5c1cbbf4f2caf098d35ad53bbbe19046d817",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.91981043841368764114007975581101713077/series_003_2_CR/A250496619 DXA/CR DXA/CR000002.dcm",
+      "nonfrontal_score": 0.15799530776821932,
+      "value": "unknown",
+      "reference": null,
+      "clinical_validation": false
+    }
+  ],
+  "images": 153,
+  "prediction_counts": {
+    "frontal": 97,
+    "unknown": 56
+  },
+  "accuracy": null,
+  "clinical_validation": false,
+  "release_modified": false,
+  "requirements_complete": false,
+  "source_manifest_sha256": "806869adefc26fad213abf9a79d02b4536f8ce484d2d70c38e4780d1b925e642",
+  "model_sha256": "5fda6849971994b1b67ba63c33762b65b3e010a8d2ee143ec0c0aee0b5c81387",
+  "code_sha256": "a4ca374b0de459192c7e7d70a5522d5f8bc20fc208f5f77665717b601aa24306",
+  "limitations": [
+    "Original source identities only: unconfirmed projection fields are not expert labels.",
+    "Score distribution is a domain-transfer check, not measured DXA projection accuracy.",
+    "Ordinary-radiograph training does not establish lateral DXA sensitivity."
+  ]
+}

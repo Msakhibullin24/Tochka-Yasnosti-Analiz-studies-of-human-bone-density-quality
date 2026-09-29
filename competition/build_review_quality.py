@@ -9,7 +9,7 @@ import joblib
 import numpy as np
 import pandas as pd
 
-from dxaqc.joint_quality import JointQualityModel
+from dxaqc.joint_quality import JointQualityModel, constrain_review_codes
 from dxaqc.model import group_of, official_violation_type
 from evaluate_organizer_dataset import evaluate, sha256
 from source_integrity import inspect_sources
@@ -35,13 +35,15 @@ def run(args):
             raise ValueError('Secondary fold or identity mismatch')
         if row['quality_pred'] == '1' and not row['violation_type']:
             prediction = json.loads(source['typifier_evidence'])
-            row['quality_pred'] = str(int(bool(prediction['codes'])))
-            row['quality_score'] = str(1.-prediction['normal_score'])
-            row['violation_type'] = official_violation_type(prediction['codes'])
-            row['decision_version'] = 'review-1'
-            row['decision_reason'] = 'supervised_type_review' if prediction['codes'] else 'supervised_normal_review'
             states = json.loads(row['criterion_states'])
-            for code in prediction['codes']:
+            angle = states.get('spine_axis', {}).get('angle_deg')
+            codes, _ = constrain_review_codes(prediction['codes'], group_of(row['predicted_region']), angle)
+            row['quality_pred'] = str(int(bool(codes)))
+            row['quality_score'] = str(1.-prediction['normal_score'])
+            row['violation_type'] = official_violation_type(codes)
+            row['decision_version'] = 'review-1'
+            row['decision_reason'] = 'supervised_type_review' if codes else 'supervised_normal_review'
+            for code in codes:
                 states[code].update(status='fail', basis='supervised_untyped_review', clinical_validation=False)
             row['criterion_states'] = json.dumps(states, sort_keys=True)
             row['criterion_scores'] = ''

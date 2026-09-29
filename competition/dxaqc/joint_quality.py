@@ -13,6 +13,15 @@ from .decision import AXIS_LIMIT_DEG
 from .model import CRITERIA
 
 
+def constrain_review_codes(codes, group, angle):
+    """Keep secondary type review within the supplied measured-axis rule."""
+    if group != 'spine' or 'spine_axis' not in codes:
+        return list(codes), False
+    measured = isinstance(angle, (int, float)) and math.isfinite(angle) and abs(angle) > AXIS_LIMIT_DEG
+    return (list(codes) if measured else [code for code in codes if code != 'spine_axis'],
+            not measured)
+
+
 def select_quality_threshold(truth, scores, forced):
     """Tune the actual joint decision, including mandatory measured failures."""
     truth, scores, forced = np.asarray(truth), np.asarray(scores, float), np.asarray(forced, bool)
@@ -128,15 +137,16 @@ class JointQualityModel:
         values = self.model.predict_proba(self.matrix([features], embedding))[0]
         probabilities = dict(zip(self.model.classes_, map(float, values)))
         combination = str(self.model.classes_[int(values.argmax())])
-        codes = [] if combination == 'normal' else combination.split(';')
+        predicted_codes = [] if combination == 'normal' else combination.split(';')
+        angle = features.get('spine_abs_angle_deg')
+        codes, axis_excluded = constrain_review_codes(predicted_codes, self.group, angle)
         states = {k: dict(v) for k, v in decision['criterion_states'].items()}
         for key in states:
             if key in codes:
                 states[key].update(status='fail', basis='supervised_untyped_review', clinical_validation=False)
         review = [r for r in decision['review_reasons'] if r != 'violation_type_undetermined']
         review.append('secondary_supervised_review')
-        angle = features.get('spine_abs_angle_deg')
-        if 'spine_axis' in codes and (angle is None or not math.isfinite(angle) or abs(angle) <= AXIS_LIMIT_DEG):
+        if axis_excluded:
             review.append('axis_model_measurement_disagreement')
         return {**decision, 'score': 1.-probabilities['normal'], 'quality': int(bool(codes)),
                 'violations': codes, 'criterion_states': states,

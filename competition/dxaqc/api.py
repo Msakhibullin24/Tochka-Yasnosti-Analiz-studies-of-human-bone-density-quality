@@ -12,6 +12,7 @@ GET  /health
 from __future__ import annotations
 
 import json
+import math
 import os
 import asyncio
 from contextlib import asynccontextmanager
@@ -295,6 +296,7 @@ def job_worklist(job_id: str):
         review = latest.get(row.get("row_id"))
         row["review_status"] = (review["status"] if review else "unreviewed") if row["processing_status"] == "Success" else "unavailable"
         row["review_revision"] = str(review["revision"] if review else 0)
+        row["review_document"] = json.dumps(review, ensure_ascii=False) if review else ""
         actions = review.get("followups", []) if review else []
         row["open_actions"] = str(sum(a["state"] == "open" for a in actions))
         row["second_opinion_requested"] = "1" if any(a["state"] == "open" and a["kind"] == "second_opinion" for a in actions) else "0"
@@ -568,6 +570,14 @@ async def compare_visits(baseline: UploadFile = File(...), followup: UploadFile 
     """Dynamics: are two visits comparable by positioning, and is the (operator-supplied) BMD change significant?"""
     from .dicom_io import DicomReadError, read_dxa
     from .dynamics import compare
+    if (baseline_bmd is None) != (followup_bmd is None):
+        raise HTTPException(422, "both baseline_bmd and followup_bmd are required together")
+    for name, value in (("baseline_bmd", baseline_bmd), ("followup_bmd", followup_bmd),
+                        ("lsc_percent", lsc_percent), ("precision_cv_percent", precision_cv_percent)):
+        if value is not None and (not math.isfinite(value) or value <= 0):
+            raise HTTPException(422, f"{name} must be a finite positive number")
+    if lsc_percent is not None and precision_cv_percent is not None:
+        raise HTTPException(422, "specify lsc_percent or precision_cv_percent, not both")
     results = []
     for upload in (baseline, followup):
         payload = await upload.read(512 * 1024 * 1024 + 1)

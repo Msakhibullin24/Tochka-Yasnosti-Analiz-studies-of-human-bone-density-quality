@@ -1,0 +1,3725 @@
+{
+  "results_sha256": "7456c2065b093fdf32002e29c424d96e93651276f474ac60f837409147880187",
+  "model_sha256": "5476cb786a54d66af98a089f9075976470644942901415f3d94555da2561d395",
+  "cases": [
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03030811151201151502050615010000",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250403090444/series_004_3_CR/DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          87.83407140026182,
+          111.42531540909421
+        ],
+        "lesser_trochanter": [
+          91.46987914212872,
+          127.6692609438937
+        ],
+        "femoral_neck_axis": [
+          [
+            96.91529124243995,
+            112.5685817617304
+          ],
+          [
+            94.81522596750389,
+            116.40702567930452
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.5,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06140010030611061314081200121305",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250403092052/series_003_3_CR/DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          115.2349857213441,
+          134.708372271592
+        ],
+        "lesser_trochanter": [
+          122.105213922529,
+          146.09816325974515
+        ],
+        "femoral_neck_axis": [
+          [
+            125.08116540343471,
+            134.73175230321687
+          ],
+          [
+            122.6713630390262,
+            137.68324248812442
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7142857142857143,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07140808121311040315101301051200",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250407113211/series_001_2_CR/DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          125.70190901670205,
+          73.90037329808614
+        ],
+        "lesser_trochanter": [
+          113.72403981332101,
+          91.78075157527059
+        ],
+        "femoral_neck_axis": [
+          [
+            109.1065919861991,
+            73.19499149811773
+          ],
+          [
+            110.98507822433231,
+            77.95059607589722
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.3777777777777778,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10011302120900111505101501141402",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/1.2.840.113619.2.110.512719.20250407113211/series_001_2_CR/DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          276.118132620873,
+          2.5525563501088535
+        ],
+        "lesser_trochanter": [
+          273.4415637487479,
+          9.402698399017874
+        ],
+        "femoral_neck_axis": [
+          [
+            275.85242401539284,
+            2.8993041072794217
+          ],
+          [
+            276.3693255748294,
+            4.906316580730352
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.3157894736842105,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07000215121313030213041009101409",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.10245777060263212829333021434108890537/series_003_2_CR/A2504412435 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          133.1602868465213,
+          116.73466904226224
+        ],
+        "lesser_trochanter": [
+          115.35622049608854,
+          134.83745026386003
+        ],
+        "femoral_neck_axis": [
+          [
+            131.42335664660914,
+            117.63695398123915
+          ],
+          [
+            134.9383954962297,
+            122.94656068537101
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.82,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03081500040505121009070211080902",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.10245777060263212829333021434108890537/series_003_2_CR/A2504412435 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          128.31123087742793,
+          154.31262180179394
+        ],
+        "lesser_trochanter": [
+          102.37654101501546,
+          175.4902966845405
+        ],
+        "femoral_neck_axis": [
+          [
+            123.3654137696192,
+            154.90966598523238
+          ],
+          [
+            128.59202249658668,
+            161.2436827046779
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.9482758620689655,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10140807011010031112140700150015",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.102965897799404973225419898683246248872/series_001_2_CR/A250726353 DXA/CR DXA/CR000000.dcm",
+      "status": "unavailable",
+      "reason": "Nonempty femur silhouette required"
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06050309100102041203101101110913",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.102965897799404973225419898683246248872/series_001_2_CR/A250726353 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          264.87301060811956,
+          6.639861725117984
+        ],
+        "lesser_trochanter": [
+          253.96185309912983,
+          25.288265718844794
+        ],
+        "femoral_neck_axis": [
+          [
+            265.59241932080147,
+            7.916523603237255
+          ],
+          [
+            267.4004781743255,
+            13.28719383951042
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.5192307692307693,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15031208100010080909150509041308",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.103868781101960771917584077315578649178/series_001_3_CR/A2507485409 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          206.62281445092998,
+          137.26378297703485
+        ],
+        "lesser_trochanter": [
+          201.89608548857876,
+          171.11553590974586
+        ],
+        "femoral_neck_axis": [
+          [
+            202.14157915753415,
+            134.35444779737617
+          ],
+          [
+            199.83489558685898,
+            143.06498868112988
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.5125,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12051209130410130502141403101414",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.103868781101960771917584077315578649178/series_001_3_CR/A2507485409 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          255.51185595406946,
+          10.308344868637157
+        ],
+        "lesser_trochanter": [
+          247.87473344254593,
+          15.934368728922502
+        ],
+        "femoral_neck_axis": [
+          [
+            255.78245405812314,
+            10.333613904620648
+          ],
+          [
+            256.63967812964205,
+            11.990494514267233
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.3333333333333333,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11131406091213131205130612021414",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.105033841136787477881326326053319223817/series_001_2_CR/A250790559 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          150.62825331531766,
+          7.158099937729839
+        ],
+        "lesser_trochanter": [
+          129.9470226946092,
+          24.222130112745404
+        ],
+        "femoral_neck_axis": [
+          [
+            120.90027436453082,
+            7.182787353747758
+          ],
+          [
+            130.62101343754387,
+            12.243112223142882
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.1956521739130435,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07121414121104070401050315140813",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.11175860580562939441493697221497597640/series_003_2_CR/A2507431060 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          272.5954670914962,
+          41.862041041889164
+        ],
+        "lesser_trochanter": [
+          267.9966260195774,
+          94.68343667399223
+        ],
+        "femoral_neck_axis": [
+          [
+            266.81011022409143,
+            39.11475530659632
+          ],
+          [
+            267.2133968079925,
+            52.94032903899796
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.20930232558139536,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12051512011202090502051206130907",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.11175860580562939441493697221497597640/series_003_2_CR/A2507431060 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          198.67935671579744,
+          138.9038918438808
+        ],
+        "lesser_trochanter": [
+          194.36226011447982,
+          170.9845393481241
+        ],
+        "femoral_neck_axis": [
+          [
+            195.9604014357731,
+            136.84720988669642
+          ],
+          [
+            194.74064964332746,
+            145.3802837190328
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.43037974683544306,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03150400010605060115070904121304",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.114887542067602662452692698814728642117/series_001_2_CR/A2504131887 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          158.7613367628026,
+          130.21289184020475
+        ],
+        "lesser_trochanter": [
+          134.93385636899504,
+          154.34574120300726
+        ],
+        "femoral_neck_axis": [
+          [
+            130.14036498866614,
+            129.94802590906582
+          ],
+          [
+            137.3597036160685,
+            136.6065092616146
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.2063492063492063,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15050814070214050107040604101305",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.114887542067602662452692698814728642117/series_001_2_CR/A2504131887 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          216.94516521407758,
+          123.12439622407491
+        ],
+        "lesser_trochanter": [
+          203.5420769097215,
+          148.3917836858632
+        ],
+        "femoral_neck_axis": [
+          [
+            203.5994702181703,
+            122.33202729882711
+          ],
+          [
+            205.7907391903671,
+            129.0260838797393
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.873015873015873,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13011301091003020814061203020304",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.116822802042655971810859435524105064465/series_003_2_CR/A2507273296 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          188.89116837068266,
+          55.173571621216034
+        ],
+        "lesser_trochanter": [
+          177.1012201541529,
+          61.268372483810595
+        ],
+        "femoral_neck_axis": [
+          [
+            187.66941867894414,
+            55.594693338074435
+          ],
+          [
+            190.09025457545556,
+            57.34553595385127
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.588235294117647,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01010713081306120510130101121412",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.116822802042655971810859435524105064465/series_003_2_CR/A2507273296 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          118.75595401189142,
+          115.7616619896341
+        ],
+        "lesser_trochanter": [
+          112.95672145562047,
+          125.85660816697371
+        ],
+        "femoral_neck_axis": [
+          [
+            118.18025203335112,
+            116.27265868441178
+          ],
+          [
+            119.30020541213042,
+            119.23036127686578
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.4642857142857143,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02101009080308000015051512140806",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.122446767306607067205618235949445789306/series_001_2_CR/A2504255080 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          118.73495707683409,
+          95.4888417767653
+        ],
+        "lesser_trochanter": [
+          92.66636297783835,
+          127.93776271570792
+        ],
+        "femoral_neck_axis": [
+          [
+            103.51617058213465,
+            96.68028052714214
+          ],
+          [
+            112.04635003311114,
+            106.08244912967662
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.632183908045977,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02091106060004131215091000000909",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.122446767306607067205618235949445789306/series_001_2_CR/A2504255080 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          188.99148095856384,
+          124.28062513991205
+        ],
+        "lesser_trochanter": [
+          170.74984754607507,
+          140.8730279008455
+        ],
+        "femoral_neck_axis": [
+          [
+            187.9879788659977,
+            125.00829125237968
+          ],
+          [
+            191.21899272525457,
+            129.91554949226446
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.8913043478260869,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08050506060410091114110412130504",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.124890633326693921702195356152595253940/series_002_2_CR/A2504263153 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          108.50067159487571,
+          185.5910439457547
+        ],
+        "lesser_trochanter": [
+          107.77215814384084,
+          190.79576151585238
+        ],
+        "femoral_neck_axis": [
+          [
+            107.08477501692427,
+            185.03479965965346
+          ],
+          [
+            105.99478592641515,
+            186.35183971291036
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.0833333333333333,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10081312010805021201100507060411",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.124890633326693921702195356152595253940/series_002_2_CR/A2504263153 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          196.246029862937,
+          110.83579995059856
+        ],
+        "lesser_trochanter": [
+          183.89886679179781,
+          115.55084867387906
+        ],
+        "femoral_neck_axis": [
+          [
+            195.00095725865071,
+            110.98514215422503
+          ],
+          [
+            197.23486885895866,
+            112.39483074327693
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 2.076923076923077,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08121504041301080101130415050611",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.126293418391331346694592071563510265596/series_002_3_CR/A2507250865 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          110.60358511257874,
+          131.93516412446004
+        ],
+        "lesser_trochanter": [
+          98.5805941701594,
+          153.28799960453446
+        ],
+        "femoral_neck_axis": [
+          [
+            103.69689646991105,
+            132.93947779705996
+          ],
+          [
+            108.13001089066492,
+            139.00460717920876
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.5964912280701754,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11151304101402090112060913070605",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.126293418391331346694592071563510265596/series_002_3_CR/A2507250865 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          133.47163991380552,
+          195.95886235726363
+        ],
+        "lesser_trochanter": [
+          117.46617730831024,
+          201.07876761295006
+        ],
+        "femoral_neck_axis": [
+          [
+            132.92233968016737,
+            196.14865015677844
+          ],
+          [
+            135.43833808313715,
+            197.62820574050383
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 2.9285714285714284,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01070801081413060013111012010201",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.127126130998341190348103034690069487890/series_002_2_CR/A250428736 DXA/CR DXA/CR000003.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          108.10856415359427,
+          132.8854111838553
+        ],
+        "lesser_trochanter": [
+          99.69536966441188,
+          143.72973668049994
+        ],
+        "femoral_neck_axis": [
+          [
+            107.3477035839563,
+            133.58411397419047
+          ],
+          [
+            109.12705636084351,
+            136.71278163742286
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6666666666666666,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09150805131402040209060509150410",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.128990540359421489042453547244535073735/series_002_2_CR/A2507388698 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          151.3507129113404,
+          137.0648853643099
+        ],
+        "lesser_trochanter": [
+          134.33812650245852,
+          161.8211034381155
+        ],
+        "femoral_neck_axis": [
+          [
+            132.9858657498631,
+            137.50424297187504
+          ],
+          [
+            139.36329934493318,
+            144.48029048703478
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6307692307692307,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00131503020212110600101502020700",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.129239680100193368599713239115902740628/series_003_3_CR/A250757345 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          97.09039898708568,
+          258.4616018050211
+        ],
+        "lesser_trochanter": [
+          89.3515818125792,
+          281.05978093498885
+        ],
+        "femoral_neck_axis": [
+          [
+            87.95791200739575,
+            257.0491941961149
+          ],
+          [
+            87.42700498445637,
+            262.9324947518809
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.0,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13151303131009131214000609090104",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.132083163398091874662674590622589534350/series_003_2_CR/A2507386583 DXA Exam/CR DXA Images/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          177.1459106154026,
+          171.2694889760363
+        ],
+        "lesser_trochanter": [
+          138.56591274866938,
+          211.85079949084061
+        ],
+        "femoral_neck_axis": [
+          [
+            127.32315284577744,
+            173.29280028363004
+          ],
+          [
+            144.11984504827768,
+            184.70525243467972
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.8660714285714286,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06120903051105150112061201080014",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.132083163398091874662674590622589534350/series_003_2_CR/A2507386583 DXA Exam/CR DXA Images/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          276.118132620873,
+          116.35862677645902
+        ],
+        "lesser_trochanter": [
+          273.4415637487479,
+          125.3719715776551
+        ],
+        "femoral_neck_axis": [
+          [
+            275.85242401539284,
+            116.81487382536766
+          ],
+          [
+            276.3693255748294,
+            119.4556797114873
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.24,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05020106091400040809110708040301",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.132272637351979990811754009849547633391/series_003_3_CR/A2504141080 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          185.22184546131967,
+          144.27924220485662
+        ],
+        "lesser_trochanter": [
+          173.0751897452866,
+          159.14554800100234
+        ],
+        "femoral_neck_axis": [
+          [
+            173.1648531318271,
+            144.1459254548515
+          ],
+          [
+            176.16218532750543,
+            148.168412993794
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.0789473684210527,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15140601101305061400021505010802",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.132272637351979990811754009849547633391/series_003_3_CR/A2504141080 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          268.1138076094169,
+          5.558514673334315
+        ],
+        "lesser_trochanter": [
+          260.27051981098776,
+          21.53413124590644
+        ],
+        "femoral_neck_axis": [
+          [
+            269.33777653518956,
+            6.801050478040053
+          ],
+          [
+            270.5112618185186,
+            11.377436902689517
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.4444444444444444,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04080409110008071309041404000111",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13325817932854000792938662637654885530/series_002_2_CR/A2507365486 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          220.2173647019965,
+          110.64283179313327
+        ],
+        "lesser_trochanter": [
+          212.64948767429064,
+          146.76532600601558
+        ],
+        "femoral_neck_axis": [
+          [
+            213.2311646256618,
+            108.4569097857231
+          ],
+          [
+            212.8276833726514,
+            117.95677937811266
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.4659090909090909,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11020707081006150000011408140609",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13325817932854000792938662637654885530/series_002_2_CR/A2507365486 DXA/CR DXA/CR000005.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          148.2933766363047,
+          70.14266494019182
+        ],
+        "lesser_trochanter": [
+          105.84741882841007,
+          84.17430313479063
+        ],
+        "femoral_neck_axis": [
+          [
+            143.38454213249793,
+            70.93813690787174
+          ],
+          [
+            152.06781891021797,
+            75.02723273567197
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 2.4871794871794872,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04040803080402061202041005000304",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.134456506307367483341018281460841912845/series_002_2_CR/A2507120612 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          195.8537402700632,
+          34.731739252794405
+        ],
+        "lesser_trochanter": [
+          180.22995797880958,
+          110.15368976206612
+        ],
+        "femoral_neck_axis": [
+          [
+            179.4976749972908,
+            30.228342737110903
+          ],
+          [
+            178.85577886667465,
+            49.83180689077519
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.5714285714285714,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14121200111500000012151207021305",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.134456506307367483341018281460841912845/series_002_2_CR/A2507120612 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          137.75624335588404,
+          57.023548705191835
+        ],
+        "lesser_trochanter": [
+          115.68327194837147,
+          71.1739199356483
+        ],
+        "femoral_neck_axis": [
+          [
+            112.91721953916941,
+            56.795851963752774
+          ],
+          [
+            118.63847412934786,
+            60.59094648527794
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 2.5,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04060811050000140014040410080212",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.135241889065705954191821710363605596815/series_003_3_CR/A250715060 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          167.08631314272475,
+          149.16676261765622
+        ],
+        "lesser_trochanter": [
+          170.66264244495315,
+          175.59989300160476
+        ],
+        "femoral_neck_axis": [
+          [
+            184.9536622636696,
+            150.44641953992465
+          ],
+          [
+            179.9261089318283,
+            158.26692767043647
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.44155844155844154,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14140312010015010504081306061203",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.137344827330550141320158285144101816664/series_003_3_CR/A2507146630 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          195.6240426171333,
+          140.46228917504135
+        ],
+        "lesser_trochanter": [
+          190.07844504338848,
+          144.73735073590836
+        ],
+        "femoral_neck_axis": [
+          [
+            195.04341664132266,
+            140.82715091101338
+          ],
+          [
+            196.2454093865595,
+            142.03379203219433
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.0833333333333333,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03131510081105080011060404010511",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.137344827330550141320158285144101816664/series_003_3_CR/A2507146630 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          126.62766189135958,
+          113.05384922763292
+        ],
+        "lesser_trochanter": [
+          114.14753614589056,
+          130.34075066578617
+        ],
+        "femoral_neck_axis": [
+          [
+            109.5163710254908,
+            113.13483861410367
+          ],
+          [
+            114.64761588129018,
+            118.01556366571486
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.0434782608695652,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02030711120805150008090200030710",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13983650679559142983913935144968795415/series_003_2_CR/A2504335111 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          139.0138644390994,
+          86.97003355389151
+        ],
+        "lesser_trochanter": [
+          119.33201101696238,
+          118.38478653454717
+        ],
+        "femoral_neck_axis": [
+          [
+            117.16550530144724,
+            85.57126092601548
+          ],
+          [
+            118.22073300493315,
+            93.91958414983404
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.4230769230769231,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05100908130706051511060907050202",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.13983650679559142983913935144968795415/series_003_2_CR/A2504335111 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          193.03197155803633,
+          92.09270179063257
+        ],
+        "lesser_trochanter": [
+          148.92178082112486,
+          140.5159101405518
+        ],
+        "femoral_neck_axis": [
+          [
+            143.6664700050249,
+            93.33396903969509
+          ],
+          [
+            165.6839019426107,
+            106.70850459276224
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.0775193798449612,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01100715050305071000110707040014",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.144941557565802351596730914409170713112/series_001_2_CR/A250728979 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          201.53291830767878,
+          139.03821048483056
+        ],
+        "lesser_trochanter": [
+          183.40818222748365,
+          185.7783278812061
+        ],
+        "femoral_neck_axis": [
+          [
+            179.14985602252554,
+            140.3067331279292
+          ],
+          [
+            185.3571372390289,
+            153.19949941942642
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.49206349206349204,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14070202101304120203120502100808",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.144941557565802351596730914409170713112/series_001_2_CR/A250728979 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          97.022717314069,
+          143.76955621505022
+        ],
+        "lesser_trochanter": [
+          75.90956340921832,
+          168.7106286707773
+        ],
+        "femoral_neck_axis": [
+          [
+            84.56337613247987,
+            144.54458497721336
+          ],
+          [
+            91.03485977245839,
+            151.84254203268048
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6119402985074627,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06130104100900080002100912090901",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.145848300160680194368420189079847088556/series_002_2_CR/A2504248615 DXA Exam/CR DXA Images/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          73.1326154707546,
+          191.13302691255547
+        ],
+        "lesser_trochanter": [
+          77.10797524769193,
+          211.0763934832009
+        ],
+        "femoral_neck_axis": [
+          [
+            83.09801848657824,
+            190.5940349214754
+          ],
+          [
+            82.59479051149037,
+            196.23979636905455
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.5294117647058824,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09091111090903031309150614110215",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.145848300160680194368420189079847088556/series_002_2_CR/A2504248615 DXA Exam/CR DXA Images/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          203.23180792136685,
+          198.7771302827006
+        ],
+        "lesser_trochanter": [
+          188.1580776289918,
+          239.32640964133117
+        ],
+        "femoral_neck_axis": [
+          [
+            185.47722002924112,
+            197.51538153623005
+          ],
+          [
+            188.1081339099757,
+            208.276724744162
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6078431372549019,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06120514140811101106020900110711",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.151186844055172005615813066162721550889/series_002_2_CR/A250436130 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          160.31623009942362,
+          127.45619606155542
+        ],
+        "lesser_trochanter": [
+          133.79822730095538,
+          171.6240331482105
+        ],
+        "femoral_neck_axis": [
+          [
+            129.54730923804493,
+            127.12293218927914
+          ],
+          [
+            136.0103715421143,
+            138.95999362912434
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.8508771929824561,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07071507091013150605060411110414",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.151186844055172005615813066162721550889/series_002_2_CR/A250436130 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          269.2966030637261,
+          6.000625684291394
+        ],
+        "lesser_trochanter": [
+          261.56044401716883,
+          22.363120777063905
+        ],
+        "femoral_neck_axis": [
+          [
+            269.0311103144418,
+            6.919386739350959
+          ],
+          [
+            270.3604852326597,
+            11.565638440941822
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.4444444444444444,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09091502110711081102050610090100",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156021661584944120526934974594604520993/series_003_2_CR/A2507142228 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          125.76382925849558,
+          191.61214085270032
+        ],
+        "lesser_trochanter": [
+          119.96662676587871,
+          195.93854635727445
+        ],
+        "femoral_neck_axis": [
+          [
+            125.17490364780284,
+            191.83113943617647
+          ],
+          [
+            126.29750936943739,
+            193.09872626151392
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.0833333333333333,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12020806150405080200131300151004",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156021661584944120526934974594604520993/series_003_2_CR/A2507142228 DXA/CR DXA/CR000003.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          67.2913517048994,
+          125.82707084828787
+        ],
+        "lesser_trochanter": [
+          58.04081077835233,
+          147.0643040430446
+        ],
+        "femoral_neck_axis": [
+          [
+            64.44870827200893,
+            126.96857679171282
+          ],
+          [
+            66.79730543192781,
+            133.11560888681177
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.3448275862068966,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04001402031200081204010009090110",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156375884487675936513403083218009333856/series_003_2_CR/A250727121 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          125.76382925849558,
+          272.6869014211672
+        ],
+        "lesser_trochanter": [
+          119.96662676587871,
+          279.89757726212406
+        ],
+        "femoral_neck_axis": [
+          [
+            125.17490364780284,
+            273.05189906029415
+          ],
+          [
+            126.29750936943739,
+            275.16454376918983
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.65,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00010208150107110206110212130810",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156375884487675936513403083218009333856/series_003_2_CR/A250727121 DXA/CR DXA/CR000004.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          258.69718326165224,
+          169.20462194242393
+        ],
+        "lesser_trochanter": [
+          257.55147837287035,
+          188.12113115668396
+        ],
+        "femoral_neck_axis": [
+          [
+            258.8801053097171,
+            169.05016241411502
+          ],
+          [
+            260.8783573485029,
+            174.33548583351242
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6938775510204082,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12101514000107101207120412120213",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156389075510671877606923458507011517218/series_001_2_CR/A2507389755 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          124.3338681328334,
+          147.45734820009653
+        ],
+        "lesser_trochanter": [
+          113.34747745521099,
+          187.4574235943607
+        ],
+        "femoral_neck_axis": [
+          [
+            130.83221983411164,
+            148.98038406103544
+          ],
+          [
+            133.33200517246698,
+            160.30526376651716
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.5092592592592593,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05051100060005040907000403081502",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.156389075510671877606923458507011517218/series_001_2_CR/A2507389755 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          128.90497483908018,
+          82.72278056174844
+        ],
+        "lesser_trochanter": [
+          103.90395322156847,
+          106.99324324587275
+        ],
+        "femoral_neck_axis": [
+          [
+            106.04458589686365,
+            83.19663704617128
+          ],
+          [
+            114.93542072823,
+            90.18216106371553
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.9538461538461539,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14100604010411121207140303140506",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.157462338378550185821790046400986801350/series_001_2_CR/A2507498707 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          112.57208690042243,
+          132.25834563673578
+        ],
+        "lesser_trochanter": [
+          107.25773962437228,
+          138.2940713215121
+        ],
+        "femoral_neck_axis": [
+          [
+            109.53094707332727,
+            132.52370290167121
+          ],
+          [
+            111.53589862522314,
+            134.2503910478166
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.8125,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01041213150709070704090905040703",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.157462338378550185821790046400986801350/series_001_2_CR/A2507498707 DXA/CR DXA/CR000003.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          107.12343712830193,
+          64.28030553134006
+        ],
+        "lesser_trochanter": [
+          88.2774965918394,
+          78.83732670314181
+        ],
+        "femoral_neck_axis": [
+          [
+            101.28951138632809,
+            65.15566222649419
+          ],
+          [
+            106.13001250656896,
+            69.34773731049184
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.025,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03110108081008000413081502071511",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.158646777318759504110695916200521633609/series_003_6_CR/A2507266260 DXA/CR DXA/CR000003.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          203.55286131581687,
+          122.07619625853962
+        ],
+        "lesser_trochanter": [
+          192.2433235928899,
+          152.76376500997986
+        ],
+        "femoral_neck_axis": [
+          [
+            191.8015095372904,
+            121.52885439634795
+          ],
+          [
+            194.17264520629374,
+            129.7321042908871
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6153846153846154,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05080909100510090906081209130901",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.164566280810634620154538016595892212884/series_001_2_CR/A2504291878 DXA Exam/CR DXA Images/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          266.79457248749645,
+          263.11463256130764
+        ],
+        "lesser_trochanter": [
+          259.4589028146362,
+          305.7217357026485
+        ],
+        "femoral_neck_axis": [
+          [
+            254.9449187558993,
+            259.92424490368785
+          ],
+          [
+            253.2149078957005,
+            270.8950694650793
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6078431372549019,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00071210060602011311010906021407",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.164566280810634620154538016595892212884/series_001_2_CR/A2504291878 DXA Exam/CR DXA Images/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          112.573504561048,
+          301.5278989928105
+        ],
+        "lesser_trochanter": [
+          75.63334081572131,
+          319.909483771679
+        ],
+        "femoral_neck_axis": [
+          [
+            100.66179210837743,
+            302.7948927096337
+          ],
+          [
+            111.243345605306,
+            307.9597561759516
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.8,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14100208080000030010140812001111",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.165091430504580219034019815337441064349/series_001_2_CR/A2504415443 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          178.13833574439698,
+          20.920688941714438
+        ],
+        "lesser_trochanter": [
+          179.27353270171858,
+          27.52302593745511
+        ],
+        "femoral_neck_axis": [
+          [
+            184.3071174220399,
+            20.829405812772027
+          ],
+          [
+            184.3937611918494,
+            22.689210807983862
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.1764705882352942,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12140710150813060013011403140807",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.165091430504580219034019815337441064349/series_001_2_CR/A2504415443 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          133.55844756866398,
+          162.41007912317852
+        ],
+        "lesser_trochanter": [
+          128.21149205303186,
+          176.74772710332985
+        ],
+        "femoral_neck_axis": [
+          [
+            130.56930506578428,
+            162.98094248785807
+          ],
+          [
+            132.55000186901964,
+            167.10484730663256
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.34210526315789475,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03030806061309020808141008071213",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.165355673991587715046346525964554729786/series_003_3_CR/A2506448267 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          197.8242898803071,
+          136.29473271258584
+        ],
+        "lesser_trochanter": [
+          183.95276844664357,
+          150.01707452738734
+        ],
+        "femoral_neck_axis": [
+          [
+            200.19294061549786,
+            136.7613819289738
+          ],
+          [
+            201.84508148891382,
+            140.8720987156077
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.8947368421052632,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05050004021105041108010100020012",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.167344201679287285499405412654740659745/series_003_2_CR/A2504249537 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          86.24176594396178,
+          110.41714464770779
+        ],
+        "lesser_trochanter": [
+          78.0656333961111,
+          122.2390467440038
+        ],
+        "femoral_neck_axis": [
+          [
+            87.52826750734668,
+            110.99045534937284
+          ],
+          [
+            88.61515762252729,
+            114.4864228526845
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6060606060606061,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03020203090713120707041512070302",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.167344201679287285499405412654740659745/series_003_2_CR/A2504249537 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          201.16355725416568,
+          109.61333257227972
+        ],
+        "lesser_trochanter": [
+          186.380218680943,
+          138.347127132544
+        ],
+        "femoral_neck_axis": [
+          [
+            196.32953329185867,
+            111.05613347896725
+          ],
+          [
+            200.27086667407121,
+            119.33066209076453
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.4358974358974359,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15000110101510080415120006131402",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.16773626720107440979805052259711419763/series_004_2_CR/A2507537392 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          269.0603131458276,
+          8.496897261359399
+        ],
+        "lesser_trochanter": [
+          257.94296310058456,
+          28.889201274046048
+        ],
+        "femoral_neck_axis": [
+          [
+            258.2224623766031,
+            8.40302138874716
+          ],
+          [
+            260.57867161202364,
+            13.797255429836135
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7884615384615384,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13040605040810031203041510031012",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.16773626720107440979805052259711419763/series_004_2_CR/A2507537392 DXA/CR DXA/CR000004.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          190.90749005107048,
+          135.05273639005486
+        ],
+        "lesser_trochanter": [
+          168.82104644182013,
+          164.11796532200796
+        ],
+        "femoral_neck_axis": [
+          [
+            192.9918054700267,
+            136.07923418885335
+          ],
+          [
+            196.03489114901942,
+            144.5106630746212
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7948717948717948,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10050700041001040614050614130103",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.168317503020329569414190677927680518621/series_004_2_CR/A2507557128 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          221.4308753311515,
+          125.94799241240244
+        ],
+        "lesser_trochanter": [
+          213.0648725558405,
+          159.39151918705664
+        ],
+        "femoral_neck_axis": [
+          [
+            210.84967814443417,
+            124.44228011201037
+          ],
+          [
+            211.7280406662477,
+            133.38689206358444
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.4880952380952381,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03110002011112060400010906040109",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.168317503020329569414190677927680518621/series_004_2_CR/A2507557128 DXA/CR DXA/CR000004.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          89.81969564634305,
+          142.55984072584945
+        ],
+        "lesser_trochanter": [
+          78.59905093159757,
+          155.07609922032546
+        ],
+        "femoral_neck_axis": [
+          [
+            90.74044294671182,
+            143.30508857492381
+          ],
+          [
+            92.49334113572561,
+            146.9552032020825
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7714285714285715,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05030907080814020708000711150507",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.172445998420765569384934552191547932566/series_004_2_CR/A2507368766 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          267.03867495115736,
+          6.445570303417877
+        ],
+        "lesser_trochanter": [
+          257.64856614318774,
+          21.109961577195776
+        ],
+        "femoral_neck_axis": [
+          [
+            255.27424821725438,
+            5.9043837317224614
+          ],
+          [
+            257.4381315776486,
+            9.758101730624348
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.3333333333333333,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15151313120000020410110702050700",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.172445998420765569384934552191547932566/series_004_2_CR/A2507368766 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          184.93237408482273,
+          112.34707072163678
+        ],
+        "lesser_trochanter": [
+          164.3569872652007,
+          134.64940294147368
+        ],
+        "femoral_neck_axis": [
+          [
+            184.62771321735002,
+            113.40293657562329
+          ],
+          [
+            188.23367426691252,
+            119.98079092688562
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7741935483870968,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10100404000008120405081411021306",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          85.25592401537898,
+          127.85236241382857
+        ],
+        "lesser_trochanter": [
+          95.21225753067773,
+          135.44986375438955
+        ],
+        "femoral_neck_axis": [
+          [
+            93.35462201471083,
+            128.05543436647315
+          ],
+          [
+            90.0963223274104,
+            130.03675515890615
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.4210526315789473,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04111300031205120703050100121209",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.173753313169335820519632380691065649420/series_003_2_CR/A2504265499 DXA/CR DXA/CR000003.dcm",
+      "status": "unavailable",
+      "reason": "Nonempty femur silhouette required"
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06070803110509120507010310141201",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.175881661753775295785039265792986971602/series_003_2_CR/A2507266462 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          109.50744243036209,
+          111.34102601388268
+        ],
+        "lesser_trochanter": [
+          95.56952633804963,
+          125.96348469316021
+        ],
+        "femoral_neck_axis": [
+          [
+            104.74606012066288,
+            112.18315143725061
+          ],
+          [
+            108.78298991000489,
+            116.35848631549057
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.85,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10000603030913050503020611051415",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.175881661753775295785039265792986971602/series_003_2_CR/A2507266462 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          106.1279152770185,
+          165.8846312081585
+        ],
+        "lesser_trochanter": [
+          92.73343214046008,
+          197.59669498823428
+        ],
+        "femoral_neck_axis": [
+          [
+            90.90972014311028,
+            164.939004322499
+          ],
+          [
+            93.2492879595492,
+            173.3779777604356
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6875,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13151105000600070510031109011109",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.175903805423871105435148927871625232853/series_001_2_CR/A2507159447 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          58.83180969326133,
+          102.32880709227761
+        ],
+        "lesser_trochanter": [
+          56.26639921170917,
+          121.69625516741165
+        ],
+        "femoral_neck_axis": [
+          [
+            66.00977991419819,
+            102.24908388009422
+          ],
+          [
+            68.0816628588431,
+            107.71036554874678
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.82,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15100208060002090813060606131404",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.175903805423871105435148927871625232853/series_001_2_CR/A2507159447 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          193.93206166497157,
+          134.40268574834872
+        ],
+        "lesser_trochanter": [
+          187.9111545749063,
+          158.25225172623576
+        ],
+        "femoral_neck_axis": [
+          [
+            186.40102110970838,
+            132.46113377527533
+          ],
+          [
+            185.13482456811894,
+            138.6427999176833
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7192982456140351,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11051514070611150905020505061111",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.17706555930735581384953296958427669848/series_004_3_CR/A2504146513 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          193.5097844181484,
+          129.2656430776825
+        ],
+        "lesser_trochanter": [
+          179.2184948408074,
+          141.54060191116133
+        ],
+        "femoral_neck_axis": [
+          [
+            176.20413171954834,
+            129.11037459058952
+          ],
+          [
+            181.437077483421,
+            132.62265880035773
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.28125,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04150214121314031409051312111410",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.177745077805190810016231350557005569203/series_002_2_CR/A2504273759 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          157.23069979004055,
+          132.6878831983811
+        ],
+        "lesser_trochanter": [
+          147.73188447762135,
+          155.28657813110044
+        ],
+        "femoral_neck_axis": [
+          [
+            147.76936096509843,
+            132.20128377542662
+          ],
+          [
+            149.03469066950782,
+            138.14798530085386
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7192982456140351,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06130700140211110505051411010711",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.177745077805190810016231350557005569203/series_002_2_CR/A2504273759 DXA/CR DXA/CR000004.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          113.70572762042248,
+          123.24479810154736
+        ],
+        "lesser_trochanter": [
+          99.9889985068719,
+          139.789461541405
+        ],
+        "femoral_neck_axis": [
+          [
+            116.09797332438873,
+            123.96680455258527
+          ],
+          [
+            117.80090937157533,
+            128.8767340213805
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7391304347826086,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14150808010700150501131415040808",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.181196659018348153828200695057897449628/series_004_2_CR/A2507370620 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          228.09344724243687,
+          127.63277451736458
+        ],
+        "lesser_trochanter": [
+          205.20884674688236,
+          171.47717205172248
+        ],
+        "femoral_neck_axis": [
+          [
+            204.57243752658079,
+            128.3074113553814
+          ],
+          [
+            211.31508239382407,
+            140.21904446117267
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07040306041313130904140702020908",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.181196659018348153828200695057897449628/series_004_2_CR/A2507370620 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          79.14004974049543,
+          149.2963485466362
+        ],
+        "lesser_trochanter": [
+          71.09435307412514,
+          158.52791475921651
+        ],
+        "femoral_neck_axis": [
+          [
+            80.41640410862512,
+            149.92307690476787
+          ],
+          [
+            81.57110969682654,
+            152.60155225767014
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7692307692307693,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11141409010404080202090702050104",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.184198356665635336833172191504278054074/series_004_2_CR/A250788286 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          8.295261632320187,
+          64.06206800741208
+        ],
+        "lesser_trochanter": [
+          1.9942053226990297,
+          84.58212961103231
+        ],
+        "femoral_neck_axis": [
+          [
+            4.586480420476708,
+            64.61325340632054
+          ],
+          [
+            6.588582972043151,
+            70.65377100417406
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.23636363636363636,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02150805140008141106110606070801",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.184198356665635336833172191504278054074/series_004_2_CR/A250788286 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          273.39623367904,
+          64.36747718871685
+        ],
+        "lesser_trochanter": [
+          267.60282164438183,
+          83.16100243821658
+        ],
+        "femoral_neck_axis": [
+          [
+            266.4060719454332,
+            63.58714438285489
+          ],
+          [
+            267.04899611119254,
+            68.55325836390307
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.574468085106383,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01110601131107041511021510061211",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.186201010600484120326273381077449377115/series_004_2_CR/A250777475 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          186.49534454149077,
+          145.0094411156964
+        ],
+        "lesser_trochanter": [
+          177.7871161070305,
+          176.12990533926776
+        ],
+        "femoral_neck_axis": [
+          [
+            176.37745838081878,
+            143.56835471796643
+          ],
+          [
+            177.09225109259526,
+            151.76434970266232
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.5324675324675324,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00091315091215060415120908060402",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.186201010600484120326273381077449377115/series_004_2_CR/A250777475 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          111.80851671774735,
+          194.3126387613313
+        ],
+        "lesser_trochanter": [
+          105.96054936564967,
+          205.57697982541777
+        ],
+        "femoral_neck_axis": [
+          [
+            111.21364459767082,
+            194.74765996236917
+          ],
+          [
+            112.31533660654014,
+            198.0830198254711
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.41935483870967744,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11050911061500091304001000100608",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          191.30688761104756,
+          126.1574307086402
+        ],
+        "lesser_trochanter": [
+          183.0489649617884,
+          131.89057652421107
+        ],
+        "femoral_neck_axis": [
+          [
+            192.51580746668898,
+            126.41875088253352
+          ],
+          [
+            193.61465371075795,
+            128.11982436691548
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.25,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03000010070307110614031003090302",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.190331309633057244929837507901317950031/series_001_2_CR/A250791815 DXA/CR DXA/CR000004.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          115.11813262087297,
+          126.14952113693377
+        ],
+        "lesser_trochanter": [
+          112.44156374874791,
+          131.91806180969925
+        ],
+        "femoral_neck_axis": [
+          [
+            114.85242401539283,
+            126.44151924823531
+          ],
+          [
+            115.36932557482943,
+            128.1316350153519
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.375,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10101410111513000809081215030802",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.190807933410234695931591553323782771995/series_002_3_CR/A250762254 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          193.2455765772651,
+          116.96730949504104
+        ],
+        "lesser_trochanter": [
+          163.1457854929884,
+          149.99553252286248
+        ],
+        "femoral_neck_axis": [
+          [
+            150.7369695051065,
+            116.90739112283734
+          ],
+          [
+            165.47595035801902,
+            126.48006163651395
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.9651162790697675,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02120211101306000510080011031411",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.215177279960644564778148238928738915103/series_002_2_CR/A2504147013 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          115.5064187219412,
+          3.2491275148370136
+        ],
+        "lesser_trochanter": [
+          114.76188696309467,
+          9.761452201761738
+        ],
+        "femoral_neck_axis": [
+          [
+            114.08642663211369,
+            2.5464343132521825
+          ],
+          [
+            112.99686971290598,
+            4.1957085436009685
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.8666666666666667,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00070615051510041500030210150312",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.215177279960644564778148238928738915103/series_002_2_CR/A2504147013 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          149.24176594396178,
+          62.747880307146
+        ],
+        "lesser_trochanter": [
+          141.0656333961111,
+          72.77858511612443
+        ],
+        "femoral_neck_axis": [
+          [
+            150.52826750734667,
+            63.23432575098301
+          ],
+          [
+            151.61515762252728,
+            66.20060120833837
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7142857142857143,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02091115080411030312040600000701",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.217397325224876728316360420804118329081/series_002_2_CR/A250474631 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          156.97067068802903,
+          137.249920958829
+        ],
+        "lesser_trochanter": [
+          143.7407593360651,
+          149.64228765032007
+        ],
+        "femoral_neck_axis": [
+          [
+            141.07763999883005,
+            137.0833140129606
+          ],
+          [
+            144.50474968846567,
+            140.43694558080628
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.5,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10000400041408060608031009090710",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.217397325224876728316360420804118329081/series_002_2_CR/A250474631 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          179.56425023335623,
+          1.7427982437420106
+        ],
+        "lesser_trochanter": [
+          180.5878421187608,
+          5.857747732216437
+        ],
+        "femoral_neck_axis": [
+          [
+            188.938927397133,
+            1.7767614877098126
+          ],
+          [
+            188.4299585649012,
+            2.9469490398465785
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 2.4545454545454546,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09140613011500120102030800080807",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.234651502352368356456298825489565282446/series_002_2_CR/A2504307193 DXA/CR DXA/CR000003.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          177.2189914950755,
+          156.04417933302184
+        ],
+        "lesser_trochanter": [
+          169.2456831529707,
+          170.28335206466852
+        ],
+        "femoral_neck_axis": [
+          [
+            178.3857286967257,
+            157.03572064306658
+          ],
+          [
+            179.53860137539868,
+            161.14377075014852
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.5,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06051510010614000404080600020603",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.247714038039430659432048101646401574824/series_002_2_CR/A2504238024 DXA Exam/CR DXA Images/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          139.6280809064184,
+          256.0992839473151
+        ],
+        "lesser_trochanter": [
+          122.30760772882316,
+          292.72416039910024
+        ],
+        "femoral_neck_axis": [
+          [
+            138.33992452519956,
+            258.50495263307965
+          ],
+          [
+            141.89009709341406,
+            269.0847804882092
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.4019607843137255,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.13110800060502010303101404091303",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.247714038039430659432048101646401574824/series_002_2_CR/A2504238024 DXA Exam/CR DXA Images/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          260.5838634487716,
+          89.58929449362597
+        ],
+        "lesser_trochanter": [
+          244.1627574220899,
+          116.74641784690145
+        ],
+        "femoral_neck_axis": [
+          [
+            241.4590783887237,
+            89.09702848492215
+          ],
+          [
+            244.92072600175254,
+            96.16554461895129
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.1176470588235294,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12031014110715041000030602140501",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.269648774413746842548908998641183395622/series_001_2_CR/A2504393664 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          126.15977852110619,
+          134.6573312050822
+        ],
+        "lesser_trochanter": [
+          116.08788616014485,
+          157.28038454861195
+        ],
+        "femoral_neck_axis": [
+          [
+            114.15658333250882,
+            134.46490890723325
+          ],
+          [
+            118.1760792803675,
+            141.00706404841998
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.4576271186440678,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12130902030702050210110604020115",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.269648774413746842548908998641183395622/series_001_2_CR/A2504393664 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          155.92912371822862,
+          126.55140168577088
+        ],
+        "lesser_trochanter": [
+          152.00071963550428,
+          144.96708791949442
+        ],
+        "femoral_neck_axis": [
+          [
+            151.33866110779735,
+            125.3724369045726
+          ],
+          [
+            151.38459452060548,
+            130.26128048757832
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.4444444444444444,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15091411140404110408151008030010",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.272690031744216183651627058502316132741/series_002_2_CR/A2504373414 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          178.11813262087296,
+          146.0151760658754
+        ],
+        "lesser_trochanter": [
+          175.4415637487479,
+          151.42318294659304
+        ],
+        "femoral_neck_axis": [
+          [
+            177.85242401539284,
+            146.2889242952206
+          ],
+          [
+            178.36932557482942,
+            147.8734078268924
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.4,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01080011050715071510151108031409",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.276415754443998872860614500027519740375/series_002_2_CR/A2504387089 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          158.47494875635635,
+          67.7370574847822
+        ],
+        "lesser_trochanter": [
+          171.9540920224192,
+          88.76951779023744
+        ],
+        "femoral_neck_axis": [
+          [
+            170.5553881311534,
+            67.26931706772451
+          ],
+          [
+            162.23149235349044,
+            72.41574514972238
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.1,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12100615051100140712150704150801",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.276415754443998872860614500027519740375/series_002_2_CR/A2504387089 DXA/CR DXA/CR000003.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          158.53066643436193,
+          153.51280577825014
+        ],
+        "lesser_trochanter": [
+          150.71809293941055,
+          185.61866943058743
+        ],
+        "femoral_neck_axis": [
+          [
+            149.21979784165387,
+            151.89821389499605
+          ],
+          [
+            149.40537560948738,
+            160.26486069989505
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.5189873417721519,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11140100091110050501140207060912",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.277752758923974029595977676354128739670/series_002_2_CR/A2504223752 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          275.8158196208871,
+          149.31634358454562
+        ],
+        "lesser_trochanter": [
+          272.7418496322305,
+          161.87406505447868
+        ],
+        "femoral_neck_axis": [
+          [
+            272.7566609408539,
+            149.13525397774129
+          ],
+          [
+            273.2402356334916,
+            152.4493050983457
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.40625,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05010011080903070300131415001403",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.277752758923974029595977676354128739670/series_002_2_CR/A2504223752 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          156.0126119962856,
+          167.05236602047108
+        ],
+        "lesser_trochanter": [
+          148.1356578822667,
+          175.8894373834557
+        ],
+        "femoral_neck_axis": [
+          [
+            157.34471728083324,
+            167.76725533525013
+          ],
+          [
+            158.52978294195708,
+            170.29749881827695
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.8,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11091010090201121300090614051311",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.286999464611662854355201599068538813496/series_003_2_CR/A2504223477 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          84.27180621544525,
+          150.05821651204786
+        ],
+        "lesser_trochanter": [
+          78.84970125193875,
+          161.60008566162625
+        ],
+        "femoral_neck_axis": [
+          [
+            82.83133262074901,
+            150.92279128560378
+          ],
+          [
+            84.13327678746913,
+            154.15235337790696
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.40625,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15080906090913051107110915140103",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.286999464611662854355201599068538813496/series_003_2_CR/A2504223477 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          184.16506474170103,
+          122.17743557967454
+        ],
+        "lesser_trochanter": [
+          179.81147218260165,
+          145.91632007463065
+        ],
+        "femoral_neck_axis": [
+          [
+            190.40763932553244,
+            122.94148457399274
+          ],
+          [
+            189.94089653793708,
+            129.87754279279784
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.4153846153846154,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09040806151211060704090912150608",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.29638026465755240167985424461715024381/series_004_3_CR/A2504115579 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          133.9002933340687,
+          139.40509195189904
+        ],
+        "lesser_trochanter": [
+          116.19198087062472,
+          155.84337652590298
+        ],
+        "femoral_neck_axis": [
+          [
+            125.20257272913184,
+            139.99976258187803
+          ],
+          [
+            129.96455367267566,
+            144.83073226128204
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7555555555555555,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12090901030412121214030908040015",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.29638026465755240167985424461715024381/series_004_3_CR/A2504115579 DXA/CR DXA/CR000003.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          157.24819814891006,
+          142.0014616587294
+        ],
+        "lesser_trochanter": [
+          147.43922687973816,
+          162.73016984378305
+        ],
+        "femoral_neck_axis": [
+          [
+            147.62264501218817,
+            141.44027901985984
+          ],
+          [
+            148.9817381032655,
+            146.94094693629265
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7884615384615384,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12090115120005000603040515131409",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.307021710202910067378603383388989711646/series_004_2_CR/A2504110565 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          130.12907068421637,
+          111.4080096063178
+        ],
+        "lesser_trochanter": [
+          120.19987000599943,
+          123.93379519276813
+        ],
+        "femoral_neck_axis": [
+          [
+            117.95643389650976,
+            111.20245167204948
+          ],
+          [
+            121.78162959951558,
+            114.80161423448106
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.0303030303030303,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09020610121102091006070609000414",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.307021710202910067378603383388989711646/series_004_2_CR/A2504110565 DXA/CR DXA/CR000004.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          162.82030867902552,
+          118.96261713738511
+        ],
+        "lesser_trochanter": [
+          148.47652289074367,
+          151.74185662337868
+        ],
+        "femoral_neck_axis": [
+          [
+            143.35931049774965,
+            119.3856489281583
+          ],
+          [
+            147.775004856856,
+            128.164728584766
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6395348837209303,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07070904150315000704031208001011",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.309085571913348252136520206003694446566/series_002_2_CR/A2504116267 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          195.1195514111138,
+          128.87775556519173
+        ],
+        "lesser_trochanter": [
+          215.42730032782848,
+          176.09596970264818
+        ],
+        "femoral_neck_axis": [
+          [
+            213.20822448993692,
+            127.7495672979675
+          ],
+          [
+            203.77963851705346,
+            139.82297667486196
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.4824561403508772,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09030700121011131209150303151015",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.309085571913348252136520206003694446566/series_002_2_CR/A2504116267 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          81.75623788443303,
+          101.84151322732991
+        ],
+        "lesser_trochanter": [
+          67.45429063294999,
+          122.75691295238605
+        ],
+        "femoral_neck_axis": [
+          [
+            76.88187104430122,
+            102.83215543954555
+          ],
+          [
+            80.8582051046154,
+            108.86989383625348
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.5964912280701754,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02000306061002040514101500000812",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.314147167453134440746270747484612743945/series_002_2_CR/A2504224780 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          97.42591227439361,
+          123.4902344955915
+        ],
+        "lesser_trochanter": [
+          79.76987607539185,
+          152.7996527096267
+        ],
+        "femoral_neck_axis": [
+          [
+            96.88241007868007,
+            125.47424832155983
+          ],
+          [
+            100.17837421149072,
+            133.93042200868962
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.5,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.01130904120915050401031210031001",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.314147167453134440746270747484612743945/series_002_2_CR/A2504224780 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          114.06242807186737,
+          211.49022176123594
+        ],
+        "lesser_trochanter": [
+          106.12043516788505,
+          221.4166949230908
+        ],
+        "femoral_neck_axis": [
+          [
+            115.38461950398833,
+            212.22258679624164
+          ],
+          [
+            116.54834265512453,
+            215.08524270513718
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7142857142857143,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05111003151314100612100700031506",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          269.1797586064684,
+          10.667135992108975
+        ],
+        "lesser_trochanter": [
+          259.6835283357659,
+          35.70235188816306
+        ],
+        "femoral_neck_axis": [
+          [
+            259.90022719457414,
+            10.220065975898859
+          ],
+          [
+            261.1266857807199,
+            16.75550792362321
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6507936507936508,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.11010912010413080807030107050600",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.339027809107632348165171236474821772940/series_001_2_CR/A2504349642 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          141.1688590506315,
+          86.53900844036798
+        ],
+        "lesser_trochanter": [
+          165.23620503770263,
+          105.2469910389834
+        ],
+        "femoral_neck_axis": [
+          [
+            164.21360111877806,
+            87.36417941652897
+          ],
+          [
+            154.67347788731183,
+            92.0169248739987
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.1956521739130435,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14120712151005010200040708001308",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.340839477910528898406207279980417945/series_001_2_CR/A2504224555 DXA Exam/CR DXA Images/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          147.67911474209225,
+          167.71524699707987
+        ],
+        "lesser_trochanter": [
+          98.36445830233643,
+          218.990816867205
+        ],
+        "femoral_neck_axis": [
+          [
+            124.8732963184462,
+            169.33284781858987
+          ],
+          [
+            137.47676549528558,
+            183.80303057331068
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.9124087591240876,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05030701101012140702110704000714",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.340839477910528898406207279980417945/series_001_2_CR/A2504224555 DXA Exam/CR DXA Images/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          268.10309872520486,
+          246.155803155776
+        ],
+        "lesser_trochanter": [
+          260.08623953674413,
+          255.0258566343872
+        ],
+        "femoral_neck_axis": [
+          [
+            269.4120877415531,
+            246.76846767071507
+          ],
+          [
+            270.56365668772025,
+            249.3403480890044
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.8,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.12090208061115110101131315120813",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.37515662379281069436632838996073181551/series_001_2_CR/A2504329840 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          205.27490003718015,
+          117.48955058352668
+        ],
+        "lesser_trochanter": [
+          191.181107433481,
+          131.6905207147391
+        ],
+        "femoral_neck_axis": [
+          [
+            206.78783729594838,
+            117.94317825763379
+          ],
+          [
+            208.68193953315193,
+            122.184795169213
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.8717948717948718,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08110803070615141513021414111001",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.37515662379281069436632838996073181551/series_001_2_CR/A2504329840 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          275.7968509266222,
+          3.20875045335891
+        ],
+        "lesser_trochanter": [
+          273.0419556784449,
+          10.712916426065403
+        ],
+        "femoral_neck_axis": [
+          [
+            273.0113817272766,
+            3.0509814155155706
+          ],
+          [
+            273.3185782196759,
+            5.017654764451538
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6842105263157895,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07150610130411050211021514011106",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.39068163399801173920284179500049527111/series_002_2_CR/A2504195842 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          109.48402317870794,
+          176.19074984544122
+        ],
+        "lesser_trochanter": [
+          95.78917930097599,
+          190.79011310029568
+        ],
+        "femoral_neck_axis": [
+          [
+            104.65465616720428,
+            177.1945048000292
+          ],
+          [
+            108.77151058881674,
+            181.30006464790588
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.85,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06080100090802110008000311010501",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.48906424954135283790354958243772558962/series_001_2_CR/A2504185596 DXA Exam/CR DXA Images/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          80.11813262087297,
+          168.358626776459
+        ],
+        "lesser_trochanter": [
+          77.44156374874791,
+          177.3719715776551
+        ],
+        "femoral_neck_axis": [
+          [
+            79.85242401539283,
+            168.81487382536767
+          ],
+          [
+            80.36932557482943,
+            171.4556797114873
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.24,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.03010404051000131408111209140108",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.48906424954135283790354958243772558962/series_001_2_CR/A2504185596 DXA Exam/CR DXA Images/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          253.64890553755822,
+          232.19981843723224
+        ],
+        "lesser_trochanter": [
+          230.50107776121885,
+          253.770567821075
+        ],
+        "femoral_neck_axis": [
+          [
+            242.14349465358578,
+            233.12651716700145
+          ],
+          [
+            248.93566475267045,
+            239.39704237217862
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.8135593220338984,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07081506021006111207090213090701",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.52982400970721161435951723390541696819/series_001_2_CR/A2504331065 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          72.68702393869563,
+          127.73972317155645
+        ],
+        "lesser_trochanter": [
+          75.53349171575182,
+          138.7342660992122
+        ],
+        "femoral_neck_axis": [
+          [
+            80.60096619737666,
+            127.6636884000057
+          ],
+          [
+            79.81437910619603,
+            130.72051425709148
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7142857142857143,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06001210040802120801060507001509",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.52982400970721161435951723390541696819/series_001_2_CR/A2504331065 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          194.18798478606737,
+          128.9004111365605
+        ],
+        "lesser_trochanter": [
+          179.1399011155075,
+          144.60213640975374
+        ],
+        "femoral_neck_axis": [
+          [
+            189.66012984820793,
+            129.61641513733798
+          ],
+          [
+            193.40740926616536,
+            134.19302444692258
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7906976744186046,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.10000615050107010300151404090301",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.65954778282254353457041255543338557112/series_004_3_CR/A2504246289 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          83.60255693331102,
+          220.5836359285374
+        ],
+        "lesser_trochanter": [
+          78.07229052056593,
+          225.2142858367719
+        ],
+        "femoral_neck_axis": [
+          [
+            83.04362616727786,
+            220.97778101381834
+          ],
+          [
+            84.23996996264789,
+            222.28578842927206
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.0,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02091011000006010704070004091411",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.66397484472966116002950503539482860450/series_001_2_CR/A2504194637 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          90.6739546998674,
+          168.51658166313857
+        ],
+        "lesser_trochanter": [
+          88.08498711318165,
+          175.7360662238969
+        ],
+        "femoral_neck_axis": [
+          [
+            88.37402207305,
+            167.83890951266102
+          ],
+          [
+            86.5047179365879,
+            169.70243572179854
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.588235294117647,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08021214010408050013070405100802",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.66397484472966116002950503539482860450/series_001_2_CR/A2504194637 DXA/CR DXA/CR000003.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          275.8925912910928,
+          166.5877695441773
+        ],
+        "lesser_trochanter": [
+          274.1477752594763,
+          182.79268054812658
+        ],
+        "femoral_neck_axis": [
+          [
+            274.2676333486357,
+            165.43655735204112
+          ],
+          [
+            273.74968686485073,
+            169.6403683413625
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.3333333333333333,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.00031305050707070014000611130907",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.73070100851377917031356937075051545239/series_002_2_CR/A2504239110 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          104.76382925849558,
+          54.477795781641966
+        ],
+        "lesser_trochanter": [
+          98.96662676587871,
+          58.443667494168245
+        ],
+        "femoral_neck_axis": [
+          [
+            104.17490364780284,
+            54.67854448316177
+          ],
+          [
+            105.29750936943739,
+            55.84049907305442
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.1818181818181819,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.09110310111109140609041514031010",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.73070100851377917031356937075051545239/series_002_2_CR/A2504239110 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          106.2898723493123,
+          145.7778887481062
+        ],
+        "lesser_trochanter": [
+          112.725854986761,
+          180.02599145291921
+        ],
+        "femoral_neck_axis": [
+          [
+            124.09302139083374,
+            148.0411067471008
+          ],
+          [
+            120.07605363113096,
+            156.66687190801815
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.47126436781609193,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.14130302090906050506100315000611",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.76710355977373089612172037086913478687/series_002_3_CR/A2504104830 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          272.688340326625,
+          148.42928592959439
+        ],
+        "lesser_trochanter": [
+          267.0116985927403,
+          155.2411221877883
+        ],
+        "femoral_neck_axis": [
+          [
+            272.1000904750472,
+            148.89995137784788
+          ],
+          [
+            273.26567812892307,
+            150.85677547783376
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.6842105263157895,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.02050808061207030811150709091509",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.76710355977373089612172037086913478687/series_002_3_CR/A2504104830 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          211.85279347893834,
+          163.29961171382834
+        ],
+        "lesser_trochanter": [
+          197.17708352193435,
+          203.8596733833725
+        ],
+        "femoral_neck_axis": [
+          [
+            188.96531899554097,
+            162.23442446572523
+          ],
+          [
+            190.23826997390321,
+            172.6989103800032
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.8823529411764706,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.05120913001500151408091003040415",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.78999454687125053757525542837745968726/series_004_3_CR/A2504222617 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          177.61276065748874,
+          139.64167062355878
+        ],
+        "lesser_trochanter": [
+          186.53943804012093,
+          178.72928454111332
+        ],
+        "femoral_neck_axis": [
+          [
+            192.298321093583,
+            141.5036333429162
+          ],
+          [
+            186.83500418193915,
+            151.062049019726
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.3434343434343434,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.07150713040501120002001009141410",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.78999454687125053757525542837745968726/series_004_3_CR/A2504222617 DXA/CR DXA/CR000001.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          202.55576494963472,
+          110.66552999089029
+        ],
+        "lesser_trochanter": [
+          196.54337595893085,
+          121.16351394237643
+        ],
+        "femoral_neck_axis": [
+          [
+            196.40495298321764,
+            110.27081471966528
+          ],
+          [
+            197.19711741218384,
+            113.04682630492688
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.0384615384615385,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15121403061107000609060400100413",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.82912555346523716720160717883917565880/series_002_2_CR/A2504149480 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          208.18936439249788,
+          125.30090357515809
+        ],
+        "lesser_trochanter": [
+          193.03464736643792,
+          141.81950341927111
+        ],
+        "femoral_neck_axis": [
+          [
+            203.73844629198942,
+            125.96078847193284
+          ],
+          [
+            207.44377861514624,
+            130.79324381023716
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7555555555555555,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.06111209081313111015020309051508",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.87869906212286587478854831452123526595/series_002_2_CR/A250419699 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          149.7048031563492,
+          91.06872163265722
+        ],
+        "lesser_trochanter": [
+          141.13368206535105,
+          117.78346465841543
+        ],
+        "femoral_neck_axis": [
+          [
+            157.09005001160835,
+            92.10168167930132
+          ],
+          [
+            156.67128845671334,
+            99.7289592489035
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.7638888888888888,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.15101115041306031303150405131115",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.87869906212286587478854831452123526595/series_002_2_CR/A250419699 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          224.44768966534969,
+          6.652796231476882
+        ],
+        "lesser_trochanter": [
+          243.6779196193121,
+          24.570733658902295
+        ],
+        "femoral_neck_axis": [
+          [
+            246.27382080398877,
+            7.02362273907879
+          ],
+          [
+            235.66336148658402,
+            11.273677156671011
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 1.7674418604651163,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.08061201060114131102110802141411",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.91981043841368764114007975581101713077/series_003_2_CR/A250496619 DXA/CR DXA/CR000000.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          153.72359920876997,
+          175.60527854305838
+        ],
+        "lesser_trochanter": [
+          147.98114738149354,
+          196.44966235576672
+        ],
+        "femoral_neck_axis": [
+          [
+            153.14681483555802,
+            176.84888618110298
+          ],
+          [
+            154.2875295040057,
+            182.89808756694563
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.22413793103448276,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    },
+    {
+      "image_uid": "1.2.643.5.1.13.13.12.2.77.8252.04000607141411061507120106050309",
+      "path_to_file": "\u0418\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u044f/2.25.91981043841368764114007975581101713077/series_003_2_CR/A250496619 DXA/CR DXA/CR000002.dcm",
+      "status": "candidate",
+      "points": {
+        "greater_trochanter": [
+          266.9343282179539,
+          8.905991257674946
+        ],
+        "lesser_trochanter": [
+          257.0511848506014,
+          29.32691012130899
+        ],
+        "femoral_neck_axis": [
+          [
+            254.43650737448425,
+            8.3143763141002
+          ],
+          [
+            257.1678909974589,
+            13.643783166853385
+          ]
+        ]
+      },
+      "femur_bbox_aspect": 0.9411764705882353,
+      "mask_source": "existing_unverified_DXA_femur_segmentation",
+      "verified": false
+    }
+  ],
+  "hip_mask_cases": 134,
+  "candidate_cases": 132,
+  "accuracy": null,
+  "clinical_validation": false,
+  "requirements_complete": false,
+  "release_modified": false,
+  "limitations": [
+    "Input-domain coverage only; no independent DXA anatomical reference labels.",
+    "Generated points must not be imported into the blind reference editor as expert annotations.",
+    "40x40-derived femur masks differ from detailed 3D silhouettes; candidate extrapolation is unvalidated."
+  ]
+}

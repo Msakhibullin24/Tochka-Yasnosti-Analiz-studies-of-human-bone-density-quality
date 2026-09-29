@@ -1,0 +1,127 @@
+{
+  "scope": "Research-only paired comparison of vendor DXA femoral-neck measurement ROI",
+  "source_url": "https://data.mait.ai.in.th/dataset/bone-mineral-density-and-vertebral-fracture-asseessment-public-sharing",
+  "cases": 10,
+  "folds": 5,
+  "fold_protocol": "Same publisher-folder-held-out 8/2 split for all three encoders; no test-fold tuning",
+  "metric": "Mean binary Dice on 40x40 grid; not anatomical neck axis or clinical quality",
+  "mean_dice_40": {
+    "layout_prior": 0.6225242348531155,
+    "resnet18": 0.6126082599721905,
+    "rad_dino": 0.7578874581090896,
+    "dinov2_base": 0.8302483858910392
+  },
+  "paired_dinov2_minus_rad_mean": 0.07236092778194973,
+  "dinov2_better_than_rad_cases": 8,
+  "model_provenance": {
+    "rad_dino": {
+      "url": "https://huggingface.co/microsoft/rad-dino",
+      "revision": "110cbc18d5133582e320b43d53bf5c44e410c936",
+      "weight_sha256": "dbfb9f54459c38773505de64a6ab7807bdcb392610fe1e697166342e43fb91ae"
+    },
+    "dinov2_base": {
+      "url": "https://huggingface.co/facebook/dinov2-base",
+      "revision": "f9e44c814b77203eaa57a6bdbbd535f21ede1415",
+      "weight_sha256": "d73036b56966966d07975d696bde331762f37297e2f095de8cea0040c3aa0841"
+    }
+  },
+  "evaluation_sha256": {
+    "rad_dino": "771fbf86b9fb2fe3205967864bc32589784c25d5281f3690c8352aa1a7bb3bb7",
+    "dinov2_base": "99358f9ac93b0453deaeafcde05c9d01d91d98a037c97435e2797a5d97fe8bbe",
+    "resnet18": "3231176dd6bce11f13c581134e0613ac2114d7fa01e25037015365057cea9c4a"
+  },
+  "code_sha256": "695a594948cc4815f7c97a2ed9a30bacf7407f87433d2052adb0d4481497bced",
+  "feature_code_sha256": "456bcf8ec17b3afd9eb3bd518d64780aedcedfd6e507d254bd870f8b02806828",
+  "clinical_validation": false,
+  "model_affects_decision": false,
+  "limitations": [
+    "Only 10 Hologic BMD hip images; publisher folder identity is not verified patient identity.",
+    "Reference is vendor femoral-neck bone-area measurement ROI, not anatomical neck contour or axis.",
+    "No trochanter, rotation subtype, soft tissue margin, GE domain or quality labels.",
+    "No model trained here is included in the release.",
+    "The two encoders use different published normalization and training history; observed differences are not causal estimates.",
+    "Tiny previously examined sample without independent clinical QC labels."
+  ],
+  "paired_cases": [
+    {
+      "pixel_sha256": "313cc088646c4c5c915b30c715f998688441300466865ab7e5717c1a52ad1a50",
+      "fold": 3,
+      "rad_dino_dice_40": 0.7692307692307693,
+      "dinov2_dice_40": 0.775,
+      "resnet18_dice_40": 0.0,
+      "dinov2_minus_rad": 0.005769230769230749
+    },
+    {
+      "pixel_sha256": "443ebeaf243b7557ece628e3dd66ff7d97bc3597509c49c8b6bda837b2283c64",
+      "fold": 0,
+      "rad_dino_dice_40": 0.46153846153846156,
+      "dinov2_dice_40": 0.8354430379746836,
+      "resnet18_dice_40": 0.7352941176470589,
+      "dinov2_minus_rad": 0.373904576436222
+    },
+    {
+      "pixel_sha256": "611a4207b8217bf74b19da2adf8f6e7a85dbfed1a4fc4f8b620c287e49861ab0",
+      "fold": 1,
+      "rad_dino_dice_40": 0.8192771084337349,
+      "dinov2_dice_40": 0.835820895522388,
+      "resnet18_dice_40": 0.7466666666666667,
+      "dinov2_minus_rad": 0.016543787088653117
+    },
+    {
+      "pixel_sha256": "6145f7686fecf7dcbc9f5e06182fe68e7775417e72db3b009fb3632015e9ab5d",
+      "fold": 2,
+      "rad_dino_dice_40": 0.7526881720430108,
+      "dinov2_dice_40": 0.8395061728395061,
+      "resnet18_dice_40": 0.7472527472527473,
+      "dinov2_minus_rad": 0.08681800079649538
+    },
+    {
+      "pixel_sha256": "81ecec2f7aec32b61eb0f403c4addf603ed7e88e8742f42db04baaaf0925b2f8",
+      "fold": 0,
+      "rad_dino_dice_40": 0.7727272727272727,
+      "dinov2_dice_40": 0.8656716417910447,
+      "resnet18_dice_40": 0.6829268292682927,
+      "dinov2_minus_rad": 0.09294436906377201
+    },
+    {
+      "pixel_sha256": "8f95f4fedf25c342dac8cf97341e07ead06eba927400a463af115b17dbc4999d",
+      "fold": 2,
+      "rad_dino_dice_40": 0.7654320987654321,
+      "dinov2_dice_40": 0.8607594936708861,
+      "resnet18_dice_40": 0.7526881720430108,
+      "dinov2_minus_rad": 0.09532739490545405
+    },
+    {
+      "pixel_sha256": "9724c596562613350bc0cde7c14693681e22f8a32401ab1cb7838a3b97766f26",
+      "fold": 1,
+      "rad_dino_dice_40": 0.8307692307692308,
+      "dinov2_dice_40": 0.8888888888888888,
+      "resnet18_dice_40": 0.8115942028985508,
+      "dinov2_minus_rad": 0.058119658119658024
+    },
+    {
+      "pixel_sha256": "bc76bb570d939f7df368e4d371edbf4fb6c2095a21ac4d419b02c3b951b9d252",
+      "fold": 3,
+      "rad_dino_dice_40": 0.7472527472527473,
+      "dinov2_dice_40": 0.8536585365853658,
+      "resnet18_dice_40": 0.5769230769230769,
+      "dinov2_minus_rad": 0.10640578933261857
+    },
+    {
+      "pixel_sha256": "e617ceb16624d26f3351bbc9e33fcccee6025e86148fcc8d2b083a3186b3f0e7",
+      "fold": 4,
+      "rad_dino_dice_40": 0.8070175438596491,
+      "dinov2_dice_40": 0.7428571428571429,
+      "resnet18_dice_40": 0.8163265306122449,
+      "dinov2_minus_rad": -0.0641604010025062
+    },
+    {
+      "pixel_sha256": "f19db0d00937eab17d12ba331a0e1afd7525394745a2af529f01f0c9ecd88855",
+      "fold": 4,
+      "rad_dino_dice_40": 0.8529411764705882,
+      "dinov2_dice_40": 0.8048780487804879,
+      "resnet18_dice_40": 0.2564102564102564,
+      "dinov2_minus_rad": -0.04806312769010035
+    }
+  ]
+}

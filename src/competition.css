@@ -22,6 +22,15 @@
 .qc-new-batch { margin-block-end: 2px; }
 .qc-new-batch > summary { min-height: 36px; display: inline-flex; align-items: center; padding: 6px 2px; color: var(--primary); font-size: 12px; font-weight: 700; cursor: pointer; }
 .qc-new-batch[open] > .qc-upload { margin-block-end: 10px; }
+.qc-dynamics { margin-block: 10px; padding: 0 14px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.qc-dynamics > summary { min-height: 42px; padding-block: 10px; font-weight: 700; cursor: pointer; }
+.qc-dynamics form { display: grid; gap: 8px; max-width: 820px; }
+.qc-dynamics form > button { width: max-content; }
+.qc-dynamics-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.qc-dynamics-result { margin-block: 14px; padding: 14px; border-radius: 9px; background: var(--surface-2); }
+.qc-dynamics-result h3 { margin-block-start: 0; }
+.qc-dynamics-result pre, .qc-study-description { margin: 0 0 12px; white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; font-size: 12px; line-height: 1.5; }
+.qc-study-description { padding: 8px; background: var(--surface); }
 .qc-batches { margin-block: 10px; border-block-end: 1px solid var(--line); }
 .qc-batches > summary { min-height: 40px; display: flex; align-items: center; gap: 8px; padding: 8px 2px; font-size: 13px; font-weight: 700; cursor: pointer; }
 .qc-batches > summary span { min-width: 22px; padding: 1px 6px; border-radius: 10px; background: var(--surface-2); text-align: center; font-size: 11px; }
@@ -98,6 +107,7 @@
 @media (max-width: 1280px) { .qc-review-grid { grid-template-columns: 1fr; } }
 @media (max-width: 860px) {
   .qc-workspace { padding: 10px; }
+  .qc-dynamics-values { grid-template-columns: 1fr; }
   .qc-upload { align-items: stretch; flex-direction: column; }
   .qc-upload > div { margin-inline-end: 0; }
   .qc-file-input input { width: 100% !important; }

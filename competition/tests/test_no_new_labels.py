@@ -7,7 +7,7 @@ import torch
 from anatomy_training_data import aasce_target, dxa_spine_target, split_records
 from dxaqc.anatomical_roi import compare_roi, propose_roi, compare_source_rois
 from dxaqc.decision import decide
-from dxaqc.joint_quality import JointQualityModel, select_quality_threshold
+from dxaqc.joint_quality import JointQualityModel, constrain_review_codes, select_quality_threshold
 from dxaqc.learned_anatomy import decode_masks, mask_regions, numbered_axis, roi_proposals, AnatomyPortfolio
 from dxaqc.synthetic_defects import rotate_pair, crop_pair, artifact_pair, rotate_expand
 from render_femur_curriculum import rotation_matrix, project
@@ -105,6 +105,25 @@ def test_joint_review_is_supervised_and_preserves_identified_baseline():
     assert positive['quality'] == 1 and positive['violations'] == ['spine_artifact']
     identified = {**baseline, 'violations': ['spine_artifact']}
     assert model.review_untyped(identified, {}, [[0.]]) is identified
+
+
+def test_secondary_review_cannot_override_measured_spine_axis():
+    for angle in (None, float('nan'), 0., 3.17, 5., -5.):
+        codes, excluded = constrain_review_codes(['spine_axis', 'spine_artifact'], 'spine', angle)
+        assert codes == ['spine_artifact'] and excluded
+    for angle in (5.01, -5.01):
+        codes, excluded = constrain_review_codes(['spine_axis'], 'spine', angle)
+        assert codes == ['spine_axis'] and not excluded
+    assert constrain_review_codes(['spine_axis'], 'hip', None) == (['spine_axis'], False)
+
+    model = JointQualityModel('spine', 'advisory')
+    model.fit([{}]*8, np.array([[0.]]*4+[[1.]]*4), ['normal']*4+['spine_axis']*4)
+    baseline = decide('spine', .8, {'spine_axis': 0., 'spine_coverage': 0., 'spine_artifact': 0.},
+                      {'spine_abs_angle_deg': 3.17}, .5, {})
+    reviewed = model.review_untyped(baseline, {'spine_abs_angle_deg': 3.17}, [[1.]])
+    assert reviewed['quality'] == 0 and reviewed['violations'] == []
+    assert reviewed['criterion_states']['spine_axis']['status'] == 'pass'
+    assert 'axis_model_measurement_disagreement' in reviewed['review_reasons']
 
 
 def test_profile_rejects_model_escape_and_threshold_arrays_are_checked(tmp_path):

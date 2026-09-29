@@ -1,0 +1,50 @@
+{
+  "protocol": "Organizer DXA only; source pixel identity audit; fixed 5-fold study-held-out outer CV, 3-fold inner threshold selection, seed17. No test-fold threshold tuning.",
+  "images": 99,
+  "studies": 99,
+  "positives": 6,
+  "criterion": "spine_coverage",
+  "criterion_semantics": "Combined top Th12 and lower iliac-crest coverage; subtype not labelled",
+  "variants": {
+    "current_ensemble": {
+      "tn_fp_fn_tp": [
+        84,
+        9,
+        2,
+        4
+      ],
+      "f1": 0.42105263157894735,
+      "sensitivity": 0.6666666666666666,
+      "specificity": 0.9032258064516129,
+      "roc_auc": 0.8924731182795699,
+      "average_precision": 0.6047385620915032
+    },
+    "joint_dxa_lr": {
+      "tn_fp_fn_tp": [
+        75,
+        18,
+        3,
+        3
+      ],
+      "f1": 0.2222222222222222,
+      "sensitivity": 0.5,
+      "specificity": 0.8064516129032258,
+      "roc_auc": 0.6666666666666666,
+      "average_precision": 0.29191962065476496
+    }
+  },
+  "clinical_validation": false,
+  "release_modified": false,
+  "requirements_complete": false,
+  "limitations": [
+    "Only six organizer DXA positive cases; estimates have large uncertainty.",
+    "Previously inspected organizer data; exploratory ablation, not a fresh independent test.",
+    "Known spine region supplied, so routing and final quality decision are not evaluated.",
+    "Study-disjoint split does not establish patient-disjointness.",
+    "Combined coverage label does not identify which anatomical boundary failed."
+  ],
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "source_fingerprint": "1cede858f61a3d86e507572749eda53f06639e4606daf51fcd6119215abb9df5",
+  "encoder_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+  "code_sha256": "e0e598f442a45efbcc196db835cbf07518a3b58aac6b45fbb37936ec68699a44"
+}

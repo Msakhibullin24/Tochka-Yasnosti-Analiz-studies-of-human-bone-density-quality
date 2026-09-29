@@ -1,0 +1,13 @@
+{
+  "profile_id": "tz-delivery-1.11.5",
+  "profile_sha256": "0cbe3d9fac7bc6d1c90a46d99baecf0048ea7b98eea8e96c868a8bab0f2f6acb",
+  "reference_sha256": "7155b84311a6a45f1999904820f397999323782b4de3ab7819f3b84f68a0e934",
+  "rows_replayed": 502,
+  "reference_mismatched_rows": 0,
+  "reference_mismatched_fields": {},
+  "single_vs_batch_rows": 6,
+  "single_vs_batch_mismatched_rows": 0,
+  "single_vs_batch_mismatched_fields": {},
+  "all_matched": true,
+  "scope": "Technical replay of saved results; not a measurement of clinical accuracy."
+}

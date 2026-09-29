@@ -1,0 +1,182 @@
+{
+  "scope": "DXA-only research; released QC unchanged",
+  "source_url": "https://data.mait.ai.in.th/dataset/bone-mineral-density-and-vertebral-fracture-asseessment-public-sharing",
+  "code_sha256": "bd1d85a0e5f7444b49ae87c2c5843e074c7d88613aeeed7a215c420a232996e6",
+  "encoder_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+  "protocol": "Five fixed folds over 10 publisher Annotation case folders; 8 train, 2 held out per fold; fixed 25 epochs; no test tuning",
+  "images": 10,
+  "groups": 10,
+  "mean_prediction_dice_40": 0.6126082599721905,
+  "mean_layout_prior_dice_40": 0.6225242348531155,
+  "clinical_validation": false,
+  "model_affects_decision": false,
+  "limitations": [
+    "Reference is vendor bone-area measurement ROI, not an independent anatomical neck contour.",
+    "Publisher case folders are split identities; patient identity across folders is not independently verified.",
+    "Only 10 Hologic images with ROI masks; no GE anatomy masks.",
+    "40x40 Dice cannot verify neck axis, trochanters, rotation, soft tissue or QC correctness.",
+    "No model trained here is included in the release."
+  ],
+  "cases": [
+    {
+      "group_sha256": "81a16fe30e67d812332cdeda986281b41f59243082b792c13f0e004af77bc0e0",
+      "image_sha256": "8f6ae0027873ada086740f956cbceb3d134489161ec0f83e1507094b83ec4495",
+      "mask_sha256": "de11384f02b911ee0b671b1ee17eb7dff2cbf821befdeb5e1a9d43edd2a6c54a",
+      "pixel_sha256": "81ecec2f7aec32b61eb0f403c4addf603ed7e88e8742f42db04baaaf0925b2f8",
+      "label_basis": "publisher_femoral_neck_bone_area_ROI",
+      "native_shape": [
+        325,
+        253
+      ],
+      "fold": 0,
+      "prediction_dice_40": 0.6829268292682927,
+      "layout_prior_dice_40": 0.6764705882352942,
+      "prediction_pixels_40": 48,
+      "reference_pixels_40": 34
+    },
+    {
+      "group_sha256": "eeaf03cb927a150c62b8a5c27d056faff7b31e5268b11df533febb150b96e292",
+      "image_sha256": "e7fb86d557435014e5859267c1e39982c017931c2325cafe5ef0aa47bb770e3c",
+      "mask_sha256": "72b49fe20464c4bd376d3c0bfd2a3aec4d5b8a98e9556cd0b115874e8c43a075",
+      "pixel_sha256": "443ebeaf243b7557ece628e3dd66ff7d97bc3597509c49c8b6bda837b2283c64",
+      "label_basis": "publisher_femoral_neck_bone_area_ROI",
+      "native_shape": [
+        325,
+        253
+      ],
+      "fold": 0,
+      "prediction_dice_40": 0.7352941176470589,
+      "layout_prior_dice_40": 0.7605633802816901,
+      "prediction_pixels_40": 31,
+      "reference_pixels_40": 37
+    },
+    {
+      "group_sha256": "a5062280775101377f2ed2a5ac021f9c5ba0be42d583135ef8e94df6316d979e",
+      "image_sha256": "76c20be90eb48f0f88b68940c7c85d81144a81a72a3d28fc55ca55adb3e87ffb",
+      "mask_sha256": "53bf105c971ee1c0d1089764f64bf64ea560d5c42297ce764096282f8c46e90c",
+      "pixel_sha256": "9724c596562613350bc0cde7c14693681e22f8a32401ab1cb7838a3b97766f26",
+      "label_basis": "publisher_femoral_neck_bone_area_ROI",
+      "native_shape": [
+        325,
+        253
+      ],
+      "fold": 1,
+      "prediction_dice_40": 0.8115942028985508,
+      "layout_prior_dice_40": 0.5294117647058824,
+      "prediction_pixels_40": 37,
+      "reference_pixels_40": 32
+    },
+    {
+      "group_sha256": "2edec7f3207b2802cf5fad3ad50d85947e69a62ab7d4230c0f7be3ebdbfd3b2c",
+      "image_sha256": "b96d1065a762518e6371b576f4168857a4f2f3275beaeabdc802c640232e1ab3",
+      "mask_sha256": "75b0b137cfc57cf4d168b2e652d820250165bd3f2650465b4bb7c002541b07aa",
+      "pixel_sha256": "611a4207b8217bf74b19da2adf8f6e7a85dbfed1a4fc4f8b620c287e49861ab0",
+      "label_basis": "publisher_femoral_neck_bone_area_ROI",
+      "native_shape": [
+        325,
+        253
+      ],
+      "fold": 1,
+      "prediction_dice_40": 0.7466666666666667,
+      "layout_prior_dice_40": 0.5633802816901409,
+      "prediction_pixels_40": 40,
+      "reference_pixels_40": 35
+    },
+    {
+      "group_sha256": "8566ee8cc961a20f2f00208063764cfc75082eff5b90f989b36e4da08f935e2a",
+      "image_sha256": "8bf9f3d7e503f505179467d59d8e64bece2ed42aeb68c59d8ff08ca720700c97",
+      "mask_sha256": "bbeb7448dd7c7086a30a3159f082f15bab59b65e283d67a8355de187c07de412",
+      "pixel_sha256": "6145f7686fecf7dcbc9f5e06182fe68e7775417e72db3b009fb3632015e9ab5d",
+      "label_basis": "publisher_femoral_neck_bone_area_ROI",
+      "native_shape": [
+        325,
+        253
+      ],
+      "fold": 2,
+      "prediction_dice_40": 0.7472527472527473,
+      "layout_prior_dice_40": 0.7671232876712328,
+      "prediction_pixels_40": 56,
+      "reference_pixels_40": 35
+    },
+    {
+      "group_sha256": "707b04df356a78990ef91862af70512a4a9abe612d9181b75fd33a1d2e7ed447",
+      "image_sha256": "47a670b6e075ee8a9144930a9fa6c73db4e15b55d3ceaadc2a4633eadaec2e2b",
+      "mask_sha256": "82737162fe3bda403b9cf2507a6c7bab8a0cb7ab04f3ce0b5f3657852a626792",
+      "pixel_sha256": "8f95f4fedf25c342dac8cf97341e07ead06eba927400a463af115b17dbc4999d",
+      "label_basis": "publisher_femoral_neck_bone_area_ROI",
+      "native_shape": [
+        325,
+        253
+      ],
+      "fold": 2,
+      "prediction_dice_40": 0.7526881720430108,
+      "layout_prior_dice_40": 0.6027397260273972,
+      "prediction_pixels_40": 58,
+      "reference_pixels_40": 35
+    },
+    {
+      "group_sha256": "1b235e024cafdbe0276857da99dd5f05344376e06c77d724c065c6aa1e816ae0",
+      "image_sha256": "47ff18ac968e30c95356056d4dc659a85fb2efc866979193bfb8d9153c94b098",
+      "mask_sha256": "c61c1b2875287edd05930479e8646775689304242cb776e6eb20eb4cfa33b6f3",
+      "pixel_sha256": "313cc088646c4c5c915b30c715f998688441300466865ab7e5717c1a52ad1a50",
+      "label_basis": "publisher_femoral_neck_bone_area_ROI",
+      "native_shape": [
+        325,
+        253
+      ],
+      "fold": 3,
+      "prediction_dice_40": 0.0,
+      "layout_prior_dice_40": 0.7605633802816901,
+      "prediction_pixels_40": 0,
+      "reference_pixels_40": 36
+    },
+    {
+      "group_sha256": "c1d17b87a5a3905071d821268e78cd9f8b4741d3162de825054ef9d0543b5116",
+      "image_sha256": "59c22080ed17fc639a8cc89782497e0b9c2b308af842dde7c272ffb02975cb88",
+      "mask_sha256": "24fafa0b41e2566d61c3fb108cf178a9d6e873979443ce0b0ba25ef0a043f25d",
+      "pixel_sha256": "bc76bb570d939f7df368e4d371edbf4fb6c2095a21ac4d419b02c3b951b9d252",
+      "label_basis": "publisher_femoral_neck_bone_area_ROI",
+      "native_shape": [
+        325,
+        253
+      ],
+      "fold": 3,
+      "prediction_dice_40": 0.5769230769230769,
+      "layout_prior_dice_40": 0.5428571428571428,
+      "prediction_pixels_40": 17,
+      "reference_pixels_40": 35
+    },
+    {
+      "group_sha256": "52c74ca87333280ea94cc514f6ceefec1f32fd5a44a108905dc9e46f88b7e0a2",
+      "image_sha256": "9d3ac7a99973c96b6579413cc2f4b6ec4d9c41b360d547c98afad5122115e4d4",
+      "mask_sha256": "5559543ecef7a0e6a55bf3590133066e07ca46604e41f705ca6adf22a5408a77",
+      "pixel_sha256": "f19db0d00937eab17d12ba331a0e1afd7525394745a2af529f01f0c9ecd88855",
+      "label_basis": "publisher_femoral_neck_bone_area_ROI",
+      "native_shape": [
+        325,
+        253
+      ],
+      "fold": 4,
+      "prediction_dice_40": 0.2564102564102564,
+      "layout_prior_dice_40": 0.4507042253521127,
+      "prediction_pixels_40": 5,
+      "reference_pixels_40": 34
+    },
+    {
+      "group_sha256": "c0a4fadcfe6a910260d6fc8fba0304f269271b4d970a126058cde23e7ed6b8ea",
+      "image_sha256": "010559a81f8c2e05b5070aac0ac9885fd95127b30be3a01eeb449f9c9a665f8d",
+      "mask_sha256": "a696932261840191d85b6193aa24d18d90a3c0811cacdccc81a85db705b4d75a",
+      "pixel_sha256": "e617ceb16624d26f3351bbc9e33fcccee6025e86148fcc8d2b083a3186b3f0e7",
+      "label_basis": "publisher_femoral_neck_bone_area_ROI",
+      "native_shape": [
+        325,
+        253
+      ],
+      "fold": 4,
+      "prediction_dice_40": 0.8163265306122449,
+      "layout_prior_dice_40": 0.5714285714285714,
+      "prediction_pixels_40": 23,
+      "reference_pixels_40": 26
+    }
+  ]
+}

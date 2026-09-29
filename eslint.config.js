@@ -12,6 +12,11 @@ export default [
     languageOptions: { ...js.configs.recommended.languageOptions, globals: globals.node },
   },
   {
+    files: ['competition/anatomy_review/*.js'],
+    ...js.configs.recommended,
+    languageOptions: { globals: globals.browser },
+  },
+  {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2022,

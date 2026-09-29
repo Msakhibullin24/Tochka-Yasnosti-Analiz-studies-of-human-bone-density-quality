@@ -1,0 +1,66 @@
+{
+  "scope": "Research-only DXA hip positioning/rotation; released QC unchanged",
+  "protocol": "Fixed 5-fold study-held-out outer CV, 4-fold study-held-out inner F1 threshold; CatBoost CPU 400 trees/depth4/learning-rate .03/l2 5/class balanced; seed17; no test-fold tuning",
+  "images": 150,
+  "studies": 78,
+  "positives": 36,
+  "features": [
+    "shaft_abs_angle_deg",
+    "shaft_angle_deg",
+    "lesser_troch_protrusion_mm",
+    "lesser_troch_area_mm2",
+    "lesser_troch_notch_mm",
+    "medial_concavity_mm",
+    "neck_start_height_mm",
+    "shaft_width_mm",
+    "lateral_margin_mm",
+    "troch_top_margin_mm",
+    "bone_frac"
+  ],
+  "catboost_version": "1.2.10",
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "source_fingerprint": "1cede858f61a3d86e507572749eda53f06639e4606daf51fcd6119215abb9df5",
+  "baseline_oof_sha256": "2e87a4e1aefb1f26f7dceb81ccacd207d0a14434001a3431de9b1dd96f7edea0",
+  "code_sha256": "eade981ca010e80b22af0286293d990bc8454b5c6e6e17aa122f5ce40e27d4f7",
+  "variants": {
+    "current": {
+      "f1": 0.5176470588235295,
+      "tn_fp_fn_tp": [
+        87,
+        27,
+        14,
+        22
+      ],
+      "sensitivity": 0.6111111111111112,
+      "specificity": 0.7631578947368421,
+      "roc_auc": 0.7750974658869396,
+      "average_precision": 0.5305672025727489
+    },
+    "catboost": {
+      "f1": 0.5301204819277109,
+      "tn_fp_fn_tp": [
+        89,
+        25,
+        14,
+        22
+      ],
+      "sensitivity": 0.6111111111111112,
+      "specificity": 0.7807017543859649,
+      "roc_auc": 0.7577972709551657,
+      "average_precision": 0.6062363085550104,
+      "paired_delta_f1_vs_current": 0.012473423104181425,
+      "paired_delta_f1_ci95": [
+        -0.10343003083433208,
+        0.13608229905437352
+      ]
+    }
+  },
+  "clinical_validation": false,
+  "model_affects_decision": false,
+  "limitations": [
+    "Combined label has no rotation subtypes or anatomical landmark truth.",
+    "The organiser cohort was already examined during model development.",
+    "Study grouping does not prove patient independence.",
+    "Known anatomical region is supplied; routing and final binary QC are not measured."
+  ]
+}

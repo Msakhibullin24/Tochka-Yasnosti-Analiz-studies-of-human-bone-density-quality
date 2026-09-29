@@ -6,7 +6,7 @@ import zipfile
 import pytest
 
 from conftest import synthetic_spine, write_dicom
-from dxaqc.pipeline import Options, run_batch, safe_extract
+from dxaqc.pipeline import Options, assign_study_paths, run_batch, safe_extract
 
 warnings.filterwarnings("ignore")
 
@@ -71,6 +71,29 @@ def test_wrapper_folder_is_not_reported_as_the_study(study_dir, tmp_path, bundle
     study_dir.rename(wrapped)
     run_batch(wrapped.parent, tmp_path / "out", Options(explanations=False))
     assert {r["path_to_study"] for r in _rows(tmp_path / "out" / "results.csv")} >= {"Исследования/study_A", "Исследования/study_B"}
+
+
+def test_study_paths_use_uid_unique_folder_across_wrappers_and_duplicate_exports():
+    paths = [
+        ('НД_для_обучения/Исследования/a/series/images/1.dcm', 'a'),
+        ('НД_для_обучения/Исследования/b/series/images/2.dcm', 'b'),
+        ('Для теста/3.dcm', 'c'),
+        ('Для теста/4.dcm', 'd'),
+        ('Annotation/00001/images/hip.dcm', 'e'),
+        ('Annotation/00002/images/hip.dcm', 'f'),
+        ('Verification/00001/images/hip.dcm', 'e'),
+        ('Verification/00002/images/hip.dcm', 'f'),
+        ('Verification/00002/images/broken.dcm', ''),
+    ]
+    rows = [{'path_to_file': path, 'study_uid': uid} for path, uid in paths]
+    assign_study_paths(rows)
+    assert [r['path_to_study'] for r in rows] == [
+        'НД_для_обучения/Исследования/a',
+        'НД_для_обучения/Исследования/b',
+        'Для теста/3.dcm', 'Для теста/4.dcm',
+        'Annotation/00001', 'Annotation/00002', 'Verification/00001',
+        'Verification/00002', 'Verification/00002',
+    ]
 
 
 def test_duplicates_have_source_linked_explanations_and_cli_keeps_only_the_zip(study_dir, tmp_path, bundle_available):

@@ -8,7 +8,7 @@
 #
 # The container never needs the network at run time: batch mode runs with --network none.
 set -eu
-IMAGE="${DXAQC_IMAGE:-osseo-dxaqc:1.10.0}"
+IMAGE="${DXAQC_IMAGE:-osseo-dxaqc:1.11.5}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 cmd="${1:-help}"
 
@@ -23,7 +23,7 @@ case "$cmd" in
     docker image inspect "$IMAGE" >/dev/null 2>&1 || docker build -f "$HERE/Dockerfile" -t "$IMAGE" "$HERE/.."
     docker run --rm --network none --user "$(id -u):$(id -g)" \
       -v "$in":/data/input:ro -v "$out":/data/out \
-      "$IMAGE" python -m dxaqc.cli --input /data/input --output /data/out
+      "$IMAGE" python -m dxaqc.cli --input /data/input --output /data/out --acceptance submission
     ;;
   serve)
     port="${2:-8000}"
@@ -36,14 +36,16 @@ case "$cmd" in
     ;;
   test)
     docker image inspect "$IMAGE" >/dev/null 2>&1 || docker build -f "$HERE/Dockerfile" -t "$IMAGE" "$HERE/.."
-    docker run --rm --network none --tmpfs /tmp -v "$HERE/tests":/app/tests:ro "$IMAGE" \
+    docker run --rm --network none --tmpfs /tmp -e DXAQC_WORKFLOW_PROFILE= -v "$HERE/tests":/app/tests:ro "$IMAGE" \
       python -m pytest -q -p no:cacheprovider tests
     fixture_dir="$(mktemp -d)"
     trap 'rm -rf "$fixture_dir"' EXIT HUP INT TERM
     docker run --rm --network none --user "$(id -u):$(id -g)" \
       -v "$HERE/tests":/app/tests:ro -v "$fixture_dir":/fixtures -e PYTHONPATH=/app/tests \
       "$IMAGE" python -c 'from pathlib import Path; import zipfile; from conftest import synthetic_spine, write_dicom; p=write_dicom(Path("/fixtures/a.dcm"), synthetic_spine()); z=zipfile.ZipFile("/fixtures/input.zip", "w"); z.write(p,"a.dcm"); z.close()'
-    "$HERE/run.sh" batch "$fixture_dir/input.zip" "$fixture_dir/out"
+    docker run --rm --network none --user "$(id -u):$(id -g)" -e DXAQC_WORKFLOW_PROFILE= \
+      -v "$fixture_dir/input.zip":/data/input:ro -v "$fixture_dir":/fixtures "$IMAGE" \
+      python -m dxaqc.cli --input /data/input --output /fixtures/out
     docker run --rm --network none -v "$fixture_dir/out":/results:ro "$IMAGE" \
       python -c 'import json; from pathlib import Path; s=json.loads(Path("/results/summary.json").read_text()); assert s["files"] == s["success"] == 1, s'
     ;;

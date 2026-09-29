@@ -1,0 +1,127 @@
+{
+  "scope": "Internal study-held-out OOF comparison, not clinical validation",
+  "images": 249,
+  "study_groups": 100,
+  "baseline": {
+    "tn_fp_fn_tp": [
+      142,
+      34,
+      28,
+      45
+    ],
+    "f1": 0.5921052631578947,
+    "sensitivity": 0.6164383561643836,
+    "specificity": 0.8068181818181818,
+    "false_safe_rate_among_auto_normal": 0.16470588235294117
+  },
+  "candidate": {
+    "tn_fp_fn_tp": [
+      142,
+      34,
+      28,
+      45
+    ],
+    "f1": 0.5921052631578947,
+    "sensitivity": 0.6164383561643836,
+    "specificity": 0.8068181818181818,
+    "false_safe_rate_among_auto_normal": 0.16470588235294117
+  },
+  "by_region": {
+    "spine": {
+      "baseline": {
+        "tn_fp_fn_tp": [
+          54,
+          13,
+          13,
+          19
+        ],
+        "f1": 0.59375,
+        "sensitivity": 0.59375,
+        "specificity": 0.8059701492537313,
+        "false_safe_rate_among_auto_normal": 0.19402985074626866
+      },
+      "candidate": {
+        "tn_fp_fn_tp": [
+          54,
+          13,
+          13,
+          19
+        ],
+        "f1": 0.59375,
+        "sensitivity": 0.59375,
+        "specificity": 0.8059701492537313,
+        "false_safe_rate_among_auto_normal": 0.19402985074626866
+      }
+    },
+    "hip_left": {
+      "baseline": {
+        "tn_fp_fn_tp": [
+          43,
+          13,
+          10,
+          12
+        ],
+        "f1": 0.5106382978723404,
+        "sensitivity": 0.5454545454545454,
+        "specificity": 0.7678571428571429,
+        "false_safe_rate_among_auto_normal": 0.18867924528301888
+      },
+      "candidate": {
+        "tn_fp_fn_tp": [
+          43,
+          13,
+          10,
+          12
+        ],
+        "f1": 0.5106382978723404,
+        "sensitivity": 0.5454545454545454,
+        "specificity": 0.7678571428571429,
+        "false_safe_rate_among_auto_normal": 0.18867924528301888
+      }
+    },
+    "hip_right": {
+      "baseline": {
+        "tn_fp_fn_tp": [
+          45,
+          8,
+          5,
+          14
+        ],
+        "f1": 0.6829268292682927,
+        "sensitivity": 0.7368421052631579,
+        "specificity": 0.8490566037735849,
+        "false_safe_rate_among_auto_normal": 0.1
+      },
+      "candidate": {
+        "tn_fp_fn_tp": [
+          45,
+          8,
+          5,
+          14
+        ],
+        "f1": 0.6829268292682927,
+        "sensitivity": 0.7368421052631579,
+        "specificity": 0.8490566037735849,
+        "false_safe_rate_among_auto_normal": 0.1
+      }
+    }
+  },
+  "paired_delta_f1": 0.0,
+  "paired_delta_f1_ci95": [
+    0.0,
+    0.0
+  ],
+  "passes_internal_metric_screen": false,
+  "failure_reasons": [
+    "overall_f1_not_higher",
+    "paired_f1_ci_includes_nonimprovement"
+  ],
+  "baseline_oof_sha256": "dd51dce9cdbce4b9cdf6e3a0cde9db7c78e04c874dda72047c9f918b8ec7741d",
+  "candidate_oof_sha256": "dd51dce9cdbce4b9cdf6e3a0cde9db7c78e04c874dda72047c9f918b8ec7741d",
+  "clinical_validation": false,
+  "limitations": [
+    "Candidate and baseline are compared only on already inspected organizer DXA.",
+    "Study disjointness does not prove patient disjointness in this anonymized export.",
+    "Passing this screen does not establish anatomical or external accuracy."
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "scope": "DXA-only organizer spine-axis label; research only",
+  "protocol": "Fixed 5-fold study-held-out outer CV, 3-fold inner threshold selection; seed17; no test-fold tuning",
+  "images": 99,
+  "studies": 99,
+  "positives": 10,
+  "variants": {
+    "current_rf_lr_cnn": {
+      "tn_fp_fn_tp": [
+        67,
+        22,
+        5,
+        5
+      ],
+      "f1": 0.2702702702702703,
+      "sensitivity": 0.5,
+      "specificity": 0.7528089887640449,
+      "roc_auc": 0.803370786516854,
+      "average_precision": 0.3093448490507314
+    },
+    "geometry_rf_lr": {
+      "tn_fp_fn_tp": [
+        70,
+        19,
+        5,
+        5
+      ],
+      "f1": 0.29411764705882354,
+      "sensitivity": 0.5,
+      "specificity": 0.7865168539325843,
+      "roc_auc": 0.8202247191011236,
+      "average_precision": 0.3928587717965598,
+      "paired_delta_f1_vs_current": 0.023847376788553254,
+      "paired_delta_f1_ci95": [
+        -0.12375562218890558,
+        0.17295490069259156
+      ]
+    },
+    "compact_lr": {
+      "tn_fp_fn_tp": [
+        73,
+        16,
+        5,
+        5
+      ],
+      "f1": 0.3225806451612903,
+      "sensitivity": 0.5,
+      "specificity": 0.8202247191011236,
+      "roc_auc": 0.803370786516854,
+      "average_precision": 0.4090864945268887,
+      "paired_delta_f1_vs_current": 0.05231037489102003,
+      "paired_delta_f1_ci95": [
+        -0.10418487762237764,
+        0.20259740259740255
+      ]
+    }
+  },
+  "clinical_validation": false,
+  "model_affects_decision": false,
+  "limitations": [
+    "Only ten positive DXA labels; confidence intervals are wide.",
+    "The organiser axis label has no independent per-vertebra angle reference.",
+    "Development cohort inspected previously; exploratory, not independent validation.",
+    "Known spine region is supplied; routing and final quality are not evaluated."
+  ],
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "source_fingerprint": "1cede858f61a3d86e507572749eda53f06639e4606daf51fcd6119215abb9df5",
+  "encoder_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+  "code_sha256": "73cde27bb2cf3bca8806fa303d58f989c9d82bbe7ecf0dab566378e89b9a8d0e"
+}

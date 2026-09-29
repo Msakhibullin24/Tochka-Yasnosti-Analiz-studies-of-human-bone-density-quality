@@ -1,0 +1,63 @@
+{
+  "scope": "Research-only DXA criterion ablation",
+  "task": "spine_axis",
+  "protocol": "Fixed 5-fold study-held-out outer CV matching baseline, training-only inner F1 threshold selection; pinned local TabPFN v2 with four estimators, geometry only, seed17",
+  "features": [
+    "spine_abs_angle_deg",
+    "spine_seg_max_abs_angle_deg",
+    "spine_curve_rms_mm",
+    "spine_curve_max_mm",
+    "spine_abs_centre_offset_mm",
+    "spine_seg_angle_range_deg"
+  ],
+  "images": 99,
+  "studies": 99,
+  "positives": 10,
+  "variants": {
+    "baseline": {
+      "tn_fp_fn_tp": [
+        67,
+        22,
+        5,
+        5
+      ],
+      "f1": 0.2702702702702703,
+      "sensitivity": 0.5,
+      "specificity": 0.7528089887640449,
+      "roc_auc": 0.803370786516854,
+      "average_precision": 0.3093448490507314
+    },
+    "tabpfn": {
+      "tn_fp_fn_tp": [
+        82,
+        7,
+        5,
+        5
+      ],
+      "f1": 0.45454545454545453,
+      "sensitivity": 0.5,
+      "specificity": 0.9213483146067416,
+      "roc_auc": 0.7955056179775281,
+      "average_precision": 0.45225843600843596,
+      "paired_delta_f1_vs_baseline": 0.18427518427518425,
+      "paired_delta_f1_ci95": [
+        -0.08096372406501916,
+        0.4380952380952381
+      ]
+    }
+  },
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "source_fingerprint": "1cede858f61a3d86e507572749eda53f06639e4606daf51fcd6119215abb9df5",
+  "baseline_oof_sha256": "d056e4f24b3712808410a5ca25e628c96ce062f04e37307d68cc6509756a02c3",
+  "checkpoint_sha256": "f65a35685aeef42e31b796d9bfa34e68d6fc780bc98e7bff7763802964cf435f",
+  "tabpfn_version": "2.0.9",
+  "code_sha256": "07785570b57a07480bde19d83d3a7f36602df510f17d4570a9a58b96e6e196e8",
+  "clinical_validation": false,
+  "model_affects_decision": false,
+  "limitations": [
+    "Previously inspected organiser development DXA; no independent test.",
+    "Only ten positive spine-axis labels; no independently reviewed vertebral angle.",
+    "Known anatomical region supplied; full routing and final quality not evaluated.",
+    "The transformer acts on geometry only and cannot correct missing landmarks."
+  ]
+}

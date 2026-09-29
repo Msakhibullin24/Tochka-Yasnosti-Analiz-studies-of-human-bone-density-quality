@@ -105,7 +105,46 @@ def load_record(row):
     else:
         pixels = read_dxa(image).pixels
         target = dxa_spine_target(read_seg_nrrd(annotation, pixels.shape), pixels.shape)
+    if 'crop_xyxy' in row:
+        x0,y0,x1,y1=row['crop_xyxy']
+        if not (0<=x0<x1<=pixels.shape[1] and 0<=y0<y1<=pixels.shape[0]):
+            raise ValueError('Derived crop escapes original raster')
+        pixels,target=pixels[y0:y1,x0:x1].copy(),target[y0:y1,x0:x1].copy()
     return pixels, target
+
+
+def lumbar_crop_bounds(target):
+    """Derived view from labelled Th12--L5; not a predicted clinical crop.
+
+    Keep the inferior half of annotated Th12 and all labelled lumbar bodies.
+    The crop is defined on the training reference only, never on inference input.
+    """
+    target=np.asarray(target)
+    if target.ndim!=2 or not all((target==level).any() for level in range(12,18)):
+        raise ValueError('Named Th12--L5 annotations required for lumbar view')
+    y12,x12=np.where(target==12)
+    yl,xl=np.where((target>=13)&(target<=17))
+    y0=int((y12.min()+y12.max()+1)//2)
+    lumbar_height=int(yl.max()-y12.min()+1)
+    padding=max(2,round(lumbar_height*.1))
+    x0=max(0,int(min(x12.min(),xl.min()))-padding)
+    x1=min(target.shape[1],int(max(x12.max(),xl.max()))+padding+1)
+    y1=min(target.shape[0],int(yl.max())+padding+1)
+    if x1-x0<8 or y1-y0<8:
+        raise ValueError('Degenerate derived lumbar view')
+    return [x0,y0,x1,y1]
+
+
+def derive_lumbar_views(rows,test):
+    """Parent split is inherited; derived views never count as new patients."""
+    derived=[];flags=[]
+    for row,held in zip(rows,test):
+        derived.append({**row,'view':'original'});flags.append(bool(held))
+        if row['source']=='aasce':
+            _,target=load_record(row)
+            derived.append({**row,'view':'lumbar_half_th12','crop_xyxy':lumbar_crop_bounds(target)})
+            flags.append(bool(held))
+    return derived,np.asarray(flags,dtype=bool)
 
 
 def split_records(rows, seed=17):

@@ -1,10 +1,20 @@
 import io
 import fcntl
 import zipfile
+from collections import namedtuple
 
 import pytest
 
 import download_public_archive as module
+
+
+@pytest.fixture(autouse=True)
+def sufficient_disk_space(monkeypatch):
+    # Download behavior is tested with in-memory fragments; the production
+    # free-space guard depends on the CI host and is outside these scenarios.
+    Usage = namedtuple('Usage', 'total used free')
+    monkeypatch.setattr(module.shutil, 'disk_usage',
+                        lambda path: Usage(40 * 1024**3, 0, 40 * 1024**3))
 
 
 def archive_bytes():

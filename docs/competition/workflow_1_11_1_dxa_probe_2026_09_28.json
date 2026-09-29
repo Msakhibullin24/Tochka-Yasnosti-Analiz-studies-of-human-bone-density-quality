@@ -1,0 +1,81 @@
+{
+  "scope": "engineering DXA execution, not independent clinical validation",
+  "docker_image_id": "sha256:86427f200996ed8d018e9c6cda804250df459cc94ca6e28842f5c53f23302194",
+  "workflow_profile_id": "tz-delivery-1.11.1",
+  "organiser_all_dicom": {
+    "files": 502,
+    "success": 502,
+    "failure": 0,
+    "studies": 102,
+    "untyped_violations": 0,
+    "requirements_complete": false,
+    "max_seconds_per_study_upper_bound": 5.406484774998738
+  },
+  "organiser_results_sha256": "93820d36901f9a3f67eaa9a7b4dc03f69156be7c8b29fd1b65b5db658cea5f82",
+  "external_probes": [
+    {
+      "source": "Ramathibodi BMD AP spine/hip",
+      "source_url": "https://data.mait.ai.in.th/dataset/bone-mineral-density-and-vertebral-fracture-asseessment-public-sharing",
+      "files": 60,
+      "unique_source_pixels": 40,
+      "success": 57,
+      "failures_by_code": {
+        "UNCERTAIN_LATERALITY": 3
+      },
+      "quality_class_on_success": {
+        "1": 55,
+        "0": 2
+      },
+      "results_sha256": "1e1bfaf75007b87d3ff25358034fba15e37e8bdbeff6b82af2b329f5f97ec3fe",
+      "summary_sha256": "a2d305ca38ec590068bfe1afa5df8edad6bb03b9af9c615b4d62bf4a6057d27e",
+      "quality_reference_available": false
+    },
+    {
+      "source": "Ramathibodi VFA lateral spine",
+      "source_url": "https://data.mait.ai.in.th/dataset/bone-mineral-density-and-vertebral-fracture-asseessment-public-sharing",
+      "files": 30,
+      "unique_source_pixels": 20,
+      "success": 0,
+      "failures_by_code": {
+        "UNSUPPORTED_PROJECTION": 30
+      },
+      "quality_class_on_success": {},
+      "results_sha256": "03c797f4faff9a313a7d95aeba9b6ad9302a0983d274640ecc8a14eafaa1d8df",
+      "summary_sha256": "436db266cdf694e8e2eb3154fa38d844ec3c71597c7cdd2b3f6e3a77357e24da",
+      "quality_reference_available": false
+    }
+  ],
+  "limitations": [
+    "Organiser dump includes 502 DICOM, of which 499 belong to the labelled training export and 3 to an unlabelled test folder.",
+    "External BMD lacks quality labels; its positive predictions cannot be scored as true or false.",
+    "Hologic VFA duplicate exports reduce 30 files to 20 unique pixel images.",
+    "No paired GE hip lateral, Th12, hip neck axis or rotation subtype expert labels."
+  ],
+  "organiser_working_report_validation": {
+    "valid": true,
+    "profile": "working_report",
+    "errors": [],
+    "warnings": [
+      "Additional DICOM series not checked"
+    ],
+    "images": 502,
+    "success": 502,
+    "max_seconds_per_study": 2.4694000000000003,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "organiser_manifest_sha256": "bb02d7e3cb3a2e9a546327454260cad3287f1a07975c809b19bf82843c80960a",
+  "organiser_strict_submission_valid": true,
+  "scsr_smoke": {
+    "summary": {
+      "files": 1,
+      "success": 1,
+      "failure": 0,
+      "submission_valid": true,
+      "requirements_complete": false
+    },
+    "archive_sha256": "500005e5aa6d688af8a46cf07fdc3bb8477cda3dcff5dae0a944b15f66ef6c14",
+    "secondary_capture_count": 1,
+    "structured_report_count": 1,
+    "source": "one organiser training DICOM"
+  }
+}

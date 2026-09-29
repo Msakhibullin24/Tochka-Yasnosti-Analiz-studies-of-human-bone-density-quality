@@ -17,7 +17,7 @@ export default function AnatomyPanel({ detail, source, geometry, onChange }: { d
   return <section aria-label="Анатомическая проверка">
     <h3>Анатомическая проверка</h3>
     <p><strong>Полная анатомическая проверка не подтверждена.</strong> Класс качества модели не означает, что все ориентиры и разметка проверены.</p>
-    <p>Проекция: {a.projection.status === 'candidate' && a.projection.value === 'frontal' ? 'предположительно фронтальная' : 'не определена по изображению'}. {a.projection.reason}</p>
+    <p>Проекция: {a.projection.status === 'candidate' && a.projection.value === 'frontal' ? 'предположительно фронтальная' : a.projection.status === 'candidate' && a.projection.value === 'lateral' ? 'предположительно боковая' : 'не определена по изображению'}. {a.projection.reason}</p>
     {a.projection.declared_view_position && <p>Проекция в DICOM: {a.projection.declared_view_position}.</p>}
     {a.anatomy.stability?.status === 'needs_review' && <p>Часть ориентиров или измерений бедра меняется при технической проверке яркости. Эти точки не предлагаются для добавления; проверьте снимок вручную.</p>}
     {a.anatomy.stability?.status === 'unavailable' && <p>Стабильность ориентиров в миллиметрах не проверена: масштаб снимка не подтверждён.</p>}
@@ -37,5 +37,18 @@ export default function AnatomyPanel({ detail, source, geometry, onChange }: { d
     {a.source_roi.checks.map(check => <article key={check.roi_id}><h4>Исходная ROI</h4><p>Назначение: {roiPurpose[check.purpose || 'unknown'] || check.purpose}.</p><p>{marginStatus[check.margin_status]}</p>
       {check.margins_mm && <p>Отступы: сверху {check.margins_mm.top} мм, снизу {check.margins_mm.bottom} мм, сбоку {check.margins_mm.side} мм.</p>}
       <ul>{Object.entries(check.candidate_landmarks_inside).map(([name,inside]) => <li key={name}>{names[name] || name}: {inside === null ? 'не локализован' : inside ? 'кандидат внутри ROI' : 'кандидат вне ROI'}</li>)}</ul><p>{check.reason}</p></article>)}
+    {a.source_roi.neck_geometry?.checks.map(check => <article key={`neck-${check.roi_id}`}>
+      <h4>Геометрия ROI шейки</h4>
+      <p>Измерения используют кандидаты костных масок. Анатомическая корректность ROI не подтверждена.</p>
+      {check.deviation_from_perpendicular_deg != null && Number.isFinite(check.deviation_from_perpendicular_deg)
+        ? <p>Отклонение от перпендикулярности к отдельно найденной оси шейки: {check.deviation_from_perpendicular_deg.toFixed(1)}°. Числовой допуск в ТЗ не задан.</p>
+        : <p>Перпендикулярность не оценена: отдельная ось шейки или ориентация ROI недоступна.</p>}
+      {check.soft_tissue_sides && <p>{check.soft_tissue_sides.both_sides_have_candidate_pixels
+        ? 'С обеих сторон есть пиксели вне кандидата бедренной кости.'
+        : 'Пиксели вне кандидата бедренной кости с обеих сторон не обнаружены.'} Это не подтверждает наличие мягкой ткани: могут присутствовать другие кости.</p>}
+      {check.structure_exclusions && <ul>{Object.entries(check.structure_exclusions).map(([name, value]) => <li key={name}>
+        {names[name] || name}: {value.status === 'measured' ? `пересечение с кандидатом маски — ${value.candidate_intersection_pixels} пикселей` : 'контур структуры недоступен'}.
+      </li>)}</ul>}
+    </article>)}
   </section>
 }

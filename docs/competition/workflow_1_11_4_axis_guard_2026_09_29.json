@@ -1,0 +1,128 @@
+{
+  "version": "1.11.4",
+  "docker_image_id": "sha256:b657d40e3cbe582811b0d88b2d8395a019084f3a0233ae50bf461c49d283dbf2",
+  "profile_sha256": "d2c2f74ac460b1173afa92d936b1b3c69bcc1a094fae66f3dd58b2818670d1fd",
+  "scope": "Offline technical comparison, not clinical accuracy",
+  "cohorts": {
+    "organiser": {
+      "files": 502,
+      "success": 502,
+      "failure": 0,
+      "violations": 146,
+      "table_format_valid": true,
+      "quality_changes": 12,
+      "type_changes": 13,
+      "changed_cases": [
+        {
+          "path_sha256": "d0458e5c123ae3ba6dc866530bc651ecd270f5fc726537d9dca3c6e5cad7854c",
+          "angle_deg": 4.33,
+          "quality_changed": true,
+          "other_type_retained": false
+        },
+        {
+          "path_sha256": "5662d5811e98a3ee3c3295ee7bd2129cc3f0a5c5d3ca96f714f2d2ea15a9b605",
+          "angle_deg": 4.33,
+          "quality_changed": true,
+          "other_type_retained": false
+        },
+        {
+          "path_sha256": "4e66f7d15f2acedf8ea2ddd5487cad10353c3f802e799c59841dee61cf2fe1ee",
+          "angle_deg": 2.05,
+          "quality_changed": true,
+          "other_type_retained": false
+        },
+        {
+          "path_sha256": "fcc0c3befe7974480e6a1c076029296bbbf6a44a9c5f98564fffa5746e3b452b",
+          "angle_deg": 2.05,
+          "quality_changed": true,
+          "other_type_retained": false
+        },
+        {
+          "path_sha256": "83dce9f69fda173cde1d27a9087c5838d181525a0040303693a97c777fac7569",
+          "angle_deg": 2.05,
+          "quality_changed": true,
+          "other_type_retained": false
+        },
+        {
+          "path_sha256": "14e4761f4d5df610ab8f662c84f6ae301f3d554e503d04572cbde594faa20d1d",
+          "angle_deg": 2.87,
+          "quality_changed": true,
+          "other_type_retained": false
+        },
+        {
+          "path_sha256": "3683c45bdce7ff973927d73fc2a8c3c980ab0b5eb90ee91ac6b7271f5659675c",
+          "angle_deg": 2.87,
+          "quality_changed": true,
+          "other_type_retained": false
+        },
+        {
+          "path_sha256": "02fd700b682d517511611278b6f5f705f89994fb367a9ae4e3653cd04b029bc6",
+          "angle_deg": 2.87,
+          "quality_changed": true,
+          "other_type_retained": false
+        },
+        {
+          "path_sha256": "a5ea2ede0f8dc7c14ee7d528bec17d21ee06321775d35c6c118c6b0f4051a5ec",
+          "angle_deg": 2.19,
+          "quality_changed": true,
+          "other_type_retained": false
+        },
+        {
+          "path_sha256": "9066a1ecf443615c3b9cd57d674e033186e582c6f4eb667c35486430579e415c",
+          "angle_deg": 4.11,
+          "quality_changed": true,
+          "other_type_retained": false
+        },
+        {
+          "path_sha256": "72b98c50e6a49cc9841dc0dc203311d686dc2a44451e8bc28e9f9bb3da1b96ee",
+          "angle_deg": 1.38,
+          "quality_changed": false,
+          "other_type_retained": true
+        },
+        {
+          "path_sha256": "74c93dedfac920c5791cd13ed9421b8b7492f3773f604cb4dceb312e757a5a42",
+          "angle_deg": 2.97,
+          "quality_changed": true,
+          "other_type_retained": false
+        },
+        {
+          "path_sha256": "721eb6ab6b740d8710a698f678390150e665519edfb55da58c5e56dea6c0a166",
+          "angle_deg": 2.97,
+          "quality_changed": true,
+          "other_type_retained": false
+        }
+      ],
+      "old_results_sha256": "caf53046320e55236537800f291fa81835a78499f59e2cc4c97e822b77baf926",
+      "new_results_sha256": "7155b84311a6a45f1999904820f397999323782b4de3ab7819f3b84f68a0e934",
+      "new_summary_sha256": "cd7fa7c85f0a881b853818da1383b255cc586ded61e7e59ea727c65622ae73e8"
+    },
+    "bmd": {
+      "files": 60,
+      "success": 60,
+      "failure": 0,
+      "violations": 58,
+      "table_format_valid": true,
+      "quality_changes": 0,
+      "type_changes": 0,
+      "changed_cases": [],
+      "old_results_sha256": "346349f5552f2cabbd161a06a897c08e528f0fc91f307fe28081e988fa6b37e1",
+      "new_results_sha256": "63d597476b1f89888ec6fce7bdf30eac6ef0d4cd49c326cbe200abf90dcb28d0",
+      "new_summary_sha256": "804a73636b58e04e118debe530254cfb85640ec0c3946523afa9cd29281122af"
+    },
+    "vfa": {
+      "files": 30,
+      "success": 0,
+      "failure": 30,
+      "violations": 0,
+      "table_format_valid": true,
+      "quality_changes": 0,
+      "type_changes": 0,
+      "changed_cases": [],
+      "old_results_sha256": "031873cbf66fa3c75ef6f4940d7574eb97738af5b2ea8d57924300ed3b3e41d7",
+      "new_results_sha256": "5140a233ea36fea0846912ff59cc44c727e4f2302c59d00dc775079a38d95573",
+      "new_summary_sha256": "2832f6f657f5f500f91822de2d0fcb0d6ad1c67481befadf92811ff9fdefd6d9"
+    }
+  },
+  "clinical_validation": false,
+  "requirements_complete": false
+}

@@ -98,6 +98,7 @@ const defectCatalog: Array<{ code: string; ru: string; en: string; protocols?: D
 ]
 
 const defectsForProtocol = (protocol: DatasetProtocol) => defectCatalog.filter((item) => !item.protocols || item.protocols.includes(protocol))
+const defectLabels = Object.fromEntries(defectCatalog.map(({ code, ru, en }) => [code, { ru, en }]))
 
 const emptyLandmarks: AnnotationLandmark[] = ['L1', 'L2', 'L3', 'L4'].map((name) => ({ name, x: .5, y: .5, visible: false }))
 
@@ -366,7 +367,7 @@ export default function DatasetWorkbench({ locale }: { locale: Locale }) {
         </div>
       </section>
       {selected && selected.studyId === selectedId && <AnnotationEditor key={selected.studyId} study={selected} imageUrl={resolveDatasetUrl(selected.assets[0]?.url)} locale={locale} onSaved={(annotation) => { setSelected((current) => current ? { ...current, annotations: [annotation, ...(current.annotations ?? []).filter((item) => !(item.expert.readerId === annotation.expert.readerId && item.expert.readIndex === annotation.expert.readIndex))], annotationCount: Math.max(1, current.annotationCount) } : current); setStudies((current) => current.map((item) => item.studyId === annotation.studyId ? { ...item, annotationCount: Math.max(1, item.annotationCount) } : item)) }} />}
-      {selected && selected.studyId === selectedId && <DatasetLongitudinal key={`${selected.patientGroupId}-${selected.studyId}`} study={selected} studies={studies} locale={locale} />}
+      {selected && selected.studyId === selectedId && <DatasetLongitudinal key={`${selected.patientGroupId}-${selected.studyId}`} study={selected} studies={studies} locale={locale} defectLabels={defectLabels} />}
     </div>
   )
 }

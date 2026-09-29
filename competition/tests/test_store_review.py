@@ -58,7 +58,9 @@ def test_review_roundtrip_restart_conflict_and_machine_immutability(tmp_path, mo
             sr_path = next(name for name in archive.namelist() if name.endswith('_sr.dcm'))
             sr = pydicom.dcmread(io.BytesIO(archive.read(sr_path)))
             assert sr.CurrentRequestedProcedureEvidenceSequence[0].ReferencedSeriesSequence[0].SeriesInstanceUID == pydicom.dcmread(image).SeriesInstanceUID
-        assert client.get(base + '/worklist').json()[0]['review_status'] == 'confirmed'
+        reviewed_row = client.get(base + '/worklist').json()[0]
+        assert reviewed_row['review_status'] == 'confirmed'
+        assert json.loads(reviewed_row['review_document'])['comment'] == 'Проверено'
         assert result.json()['measurements']['axis']['angle_from_vertical_deg'] == 0
         assert client.post(image_base + '/reviews', json=document).status_code == 409
         assert client.get(base + '/results.csv').content == original

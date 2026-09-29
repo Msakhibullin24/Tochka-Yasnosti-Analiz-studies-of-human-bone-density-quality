@@ -44,6 +44,15 @@ def features(pixels):
     return np.stack([embed(image) for image in variants(pixels)])
 
 
+def source_patient_group(relative: Path) -> str:
+    """Conservatively join numbered BMD/VFA folders despite zero padding."""
+    if (len(relative.parts) != 5 or relative.parts[0] not in ('BMD', 'VFA')
+            or relative.parts[1] not in ('Annotation', 'Verification')
+            or not relative.parts[2].isascii() or not relative.parts[2].isdecimal()):
+        raise ValueError('Unexpected public dataset layout')
+    return str(int(relative.parts[2]))
+
+
 def assessment(score: float) -> dict:
     if not np.isfinite(score) or not 0 <= score <= 1:
         raise ValueError('Invalid projection score')
@@ -74,10 +83,8 @@ def run(root: Path, dataset: Path, labels_path: Path, output: Path):
         return group
     for path in paths:
         relative = path.relative_to(root)
-        if len(relative.parts) != 5 or relative.parts[1] not in ('Annotation', 'Verification'):
-            raise ValueError('Unexpected public dataset layout')
+        group = source_patient_group(relative)
         image = read_dxa(path)
-        group = relative.parts[2]
         lateral = int(relative.parts[0] == 'VFA')
         representative(group)
         if image.pixel_sha256 in pixel_groups:
@@ -153,7 +160,7 @@ def run(root: Path, dataset: Path, labels_path: Path, output: Path):
                                        'basis': 'fixed research thresholds; score is not calibrated confidence'},
               'clinical_validation': False, 'model_affects_decision': False,
               'limitations': ['Protocol branch labels are not independent physician view annotations.',
-                              'Same public patient folder IDs are conservatively grouped across branches.',
+                              'Matching numeric folder indices are conservatively grouped across branches; they are a proxy, not verified patient identities.',
                               'VFA and BMD differ in field of view, image texture and burned-in graphics.',
                               'No organizer-vendor lateral or oblique test images are available.',
                               'Binary classifier cannot recognize every unsupported projection.',

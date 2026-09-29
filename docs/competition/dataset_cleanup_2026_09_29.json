@@ -1,0 +1,126 @@
+{
+  "date": "2026-09-29",
+  "reason": "User requested removal of previously downloaded datasets to free disk space",
+  "targets": [
+    {
+      "path": "data/external/aasce",
+      "bytes": 167444129
+    },
+    {
+      "path": "data/external/aasce-kaggle",
+      "bytes": 118194971
+    },
+    {
+      "path": "data/external/buu-lspine",
+      "bytes": 9936299970
+    },
+    {
+      "path": "data/external/cgmh-pelvisseg",
+      "bytes": 3964428748
+    },
+    {
+      "path": "data/external/chinese-osteoporosis-samples",
+      "bytes": 5825400
+    },
+    {
+      "path": "data/external/deepfluoro",
+      "bytes": 4054551378
+    },
+    {
+      "path": "data/external/dexa-osteo",
+      "bytes": 80967624
+    },
+    {
+      "path": "data/external/dxa-v1",
+      "bytes": 14308732
+    },
+    {
+      "path": "data/external/femur-fluoroscopy",
+      "bytes": 404640595
+    },
+    {
+      "path": "data/external/fracatlas",
+      "bytes": 372409899
+    },
+    {
+      "path": "data/external/hipray",
+      "bytes": 6837959
+    },
+    {
+      "path": "data/external/lumase",
+      "bytes": 2939692238
+    },
+    {
+      "path": "data/external/lumbar-spine-raw1200",
+      "bytes": 95036063
+    },
+    {
+      "path": "data/external/medpelvis3d",
+      "bytes": 15271305162
+    },
+    {
+      "path": "data/external/mtddh",
+      "bytes": 5828204326
+    },
+    {
+      "path": "data/external/nhanes2-lumbar",
+      "bytes": 473879258
+    },
+    {
+      "path": "data/external/pelvic-lateral-eos",
+      "bytes": 576367758
+    },
+    {
+      "path": "data/external/pelvic-tilt",
+      "bytes": 576342648
+    },
+    {
+      "path": "data/external/pelvic-tilt-annotations",
+      "bytes": 148225
+    },
+    {
+      "path": "data/external/pelvis-anatomical-landmarks",
+      "bytes": 2575932
+    },
+    {
+      "path": "data/external/ppcnet-2d",
+      "bytes": 399249417
+    },
+    {
+      "path": "data/external/ramathibodi",
+      "bytes": 131227111
+    },
+    {
+      "path": "data/external/spinal-ai2024",
+      "bytes": 1024412257
+    },
+    {
+      "path": "data/external/ukbiobank-example",
+      "bytes": 6123902
+    },
+    {
+      "path": "data/external/verse19",
+      "bytes": 8396624877
+    },
+    {
+      "path": "data/external/vsd-human-femur",
+      "bytes": 94961547
+    },
+    {
+      "path": "data/specialists/datasets/nhanes",
+      "bytes": 146262331
+    }
+  ],
+  "total_apparent_bytes": 55088322457,
+  "free_bytes_before": 19478966272,
+  "free_bytes_after": 72341712896,
+  "freed_bytes": 52862746624,
+  "verification": "All 27 listed directories absent; original task files and downloaded model checkpoints present",
+  "preserved": [
+    "organiser source archives under /home/robot/Downloads",
+    "data/specialists/open-source-* model checkpoints",
+    "data/specialists/runs and project outputs",
+    "dataset source records in docs/competition",
+    "data/external/source-metadata and verse metadata"
+  ]
+}

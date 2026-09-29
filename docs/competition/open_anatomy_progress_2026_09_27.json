@@ -1,0 +1,282 @@
+{
+  "date": "2026-09-27",
+  "requirements_complete": false,
+  "release_modified": false,
+  "source": {
+    "repository": "https://github.com/RWTHmediTEC/VSDFullBodyBoneModels",
+    "commit": "2674d76e247060301833b077f964832ad8dc84af",
+    "data_license": "CC-BY-NC-SA-4.0",
+    "files": [
+      {
+        "path": "README.md",
+        "bytes": 4555,
+        "git_blob_sha1": "0a73a34b2f861dbd16791843d1f20a9c04c7b2df",
+        "sha256": "82c3aca3682f16b72339a6612370e627740208b8acfde9d4cfd31c6768766672"
+      },
+      {
+        "path": "ManualLandmarks/Femur/Rater1.mat",
+        "bytes": 63089,
+        "git_blob_sha1": "3f78e8bfe9959ca642a7fe2e16e30055fa65b5a1",
+        "sha256": "f2440fb30fbf5af765a91f67d1a85b566b0e30e9859e38dfd74f07c04912cd54"
+      },
+      {
+        "path": "ManualLandmarks/Femur/Rater2.mat",
+        "bytes": 57395,
+        "git_blob_sha1": "a50cd4f419937e6aa2b928306610a9600bfc12d2",
+        "sha256": "e0976559009c4430eac878c960fedeb4811cd5a5252a3250fcfbc3059e0f6b67"
+      },
+      {
+        "path": "ManualLandmarks/Femur/Rater3.mat",
+        "bytes": 67863,
+        "git_blob_sha1": "9c3c4e359b2cabc68ca7315740e672e7be667984",
+        "sha256": "0b1d98b289933b4f75d92edbea67c05bf8b7eef6ee3eaadc5e19362e514f86e1"
+      },
+      {
+        "path": "ManualLandmarks/Femur/Rater4.mat",
+        "bytes": 66179,
+        "git_blob_sha1": "6fae306606293e08964c5b98d7f712a01e2bf3be",
+        "sha256": "cc24356e86942302aee9ae01da06e333d1abb6c3f862765b1328c9719225c314"
+      },
+      {
+        "path": "ManualLandmarks/Femur/Rater5.mat",
+        "bytes": 69335,
+        "git_blob_sha1": "47d2252cb67afd23f0ec77ab3f8b50ad45f3a119",
+        "sha256": "fc158257a79ffa68090af513103c2c301d6efa39a06b13e3d20a63bc17b37cd7"
+      },
+      {
+        "path": "Bones/z001.mat",
+        "bytes": 5457961,
+        "git_blob_sha1": "49b9cfb0439bf6513a27773c8162bc56c6637b2e",
+        "sha256": "b6aa94ab8d9346532dda4f43c595f33c299def573a98ff76db620c6a20af8458"
+      },
+      {
+        "path": "Bones/z009.mat",
+        "bytes": 4983983,
+        "git_blob_sha1": "1e2562c491d3af79dc801eeb1a1e530bc42198a6",
+        "sha256": "b846ae22842eeae38ada28d1623a1e194c82d25369a0f4d59010c7e36f57bdac"
+      },
+      {
+        "path": "Bones/z013.mat",
+        "bytes": 4062820,
+        "git_blob_sha1": "73709cad564eed4fe11fc925efd8a280717d98a5",
+        "sha256": "ed2db8c72d3112a6e82531a502c7d187f2e6ca1c3e8a6ad2dd7b2fd733ee4b4a"
+      },
+      {
+        "path": "Bones/z019.mat",
+        "bytes": 4965718,
+        "git_blob_sha1": "3809c93f59559957c11ab54d67e1ecc590001da8",
+        "sha256": "09335cb3c06662594b3eef6576e8ed30d54ba5349a03ed5a06d1963d96429989"
+      },
+      {
+        "path": "Bones/z023.mat",
+        "bytes": 4559868,
+        "git_blob_sha1": "15c9a3102396fe50426bfe9ab37ddaf4f3d7b65d",
+        "sha256": "aeb23b145ec0a01ce3ff6f1946d4a31f7d41629dcfeedbd60c5426ccbbb8ab77"
+      },
+      {
+        "path": "Bones/z027.mat",
+        "bytes": 4147162,
+        "git_blob_sha1": "f580c90cb1df9220dc04665ed19c0fe476f30984",
+        "sha256": "95962f3329920f5c59a3f6ecce1299b509aabda2eb8c54347c38e3cae8bb98f4"
+      },
+      {
+        "path": "Bones/z035.mat",
+        "bytes": 4220426,
+        "git_blob_sha1": "6f9c91c398c804cbb18b78e65b4c6ab40ccaac2e",
+        "sha256": "928a7f3769dc5479d86b911d645a01b35963badaaa0987302dcf1075caa81f2f"
+      },
+      {
+        "path": "Bones/z036.mat",
+        "bytes": 5746801,
+        "git_blob_sha1": "7e1963b6387d4427128db25b5eab6ae9aea77a3d",
+        "sha256": "a470b905d5557d4387998da01efa9cfa69044630444b1ce79517e7df98267c60"
+      },
+      {
+        "path": "Bones/z042.mat",
+        "bytes": 4324950,
+        "git_blob_sha1": "e444248b50d1703798df2eb3ee1df1fa49190bf8",
+        "sha256": "4c6fd3b0ca119e27e7b66d88edcdccaf98a6168a0ab5f5220742fd97b3fb7e0d"
+      },
+      {
+        "path": "Bones/z046.mat",
+        "bytes": 5659310,
+        "git_blob_sha1": "7b1f54dc984f662b2cb665208b977a1ace76a002",
+        "sha256": "88e88b7b004a2ddb8c79d7bf96e604317de5a43b4533f7a12f4a8682ab40da94"
+      },
+      {
+        "path": "Bones/z049.mat",
+        "bytes": 4805934,
+        "git_blob_sha1": "e1b6e753b63b423cb8fb20d78cd848240b48f7ad",
+        "sha256": "b41da341e82f20d605aabc5405bbbf8bef4b03f81a745fa2c9eb42065f0867ef"
+      },
+      {
+        "path": "Bones/z050.mat",
+        "bytes": 6610448,
+        "git_blob_sha1": "4da80a7f5276626b5d011deffe0862b98092f205",
+        "sha256": "4e929df52072c18db4c3e3024aea6248cfa6479460d068e2eba024d32fa19b5e"
+      },
+      {
+        "path": "Bones/z055.mat",
+        "bytes": 4878665,
+        "git_blob_sha1": "5c1b8e8e9b575a9969af55f0fdff5ec168f38524",
+        "sha256": "17f350db7e7e8412e2de6c2befa003adca942c3290a7d758657784adee9840b1"
+      },
+      {
+        "path": "Bones/z056.mat",
+        "bytes": 5301283,
+        "git_blob_sha1": "d8ca1bd70e91fbc996453f79215695a6a7bf5bac",
+        "sha256": "6cec12b311a6a23e4e16182b8405f332b86eee69ee2840b924f2e52e7f26ccee"
+      },
+      {
+        "path": "Bones/z057.mat",
+        "bytes": 5369094,
+        "git_blob_sha1": "34b37fa9cc5b648f4ece543b3925408b8c1fa6f7",
+        "sha256": "18b5971f840ab38ca62643dcd1538a638faf04d03d4ccbdb6e8d16668936d9d8"
+      },
+      {
+        "path": "Bones/z061.mat",
+        "bytes": 4769126,
+        "git_blob_sha1": "9203102edc22257ce9f6eec7d6f963e478843ee3",
+        "sha256": "75fad1b464b7f3d333790a9ca62bf29240bfc35518c8b1c36b3bb3d440650818"
+      },
+      {
+        "path": "Bones/z062.mat",
+        "bytes": 4703391,
+        "git_blob_sha1": "be1e4d1a69f2da6c22e70652eed8da161bf469b5",
+        "sha256": "16f10e3182b75cca6807f67d778e74de10d9f3638c7092fbc30432abcb63214c"
+      },
+      {
+        "path": "Bones/z064.mat",
+        "bytes": 5354828,
+        "git_blob_sha1": "928d737e855a3728459f342c021303757f290b63",
+        "sha256": "9f730f754527b0fd955f3757c55ff09292286f5b60e4a56b311f788df6017421"
+      },
+      {
+        "path": "Bones/z066.mat",
+        "bytes": 4705506,
+        "git_blob_sha1": "ea93d09fa0200cf406332563f74c27906d90f4cb",
+        "sha256": "ffec60273668e2cbfd30276405a33f71607627e2ca562db4ebfa3e5639f4e39c"
+      }
+    ],
+    "total_bytes": 94955690,
+    "scope": "19 cadaveric human subjects; 3D surface models and five raters; not clinical DXA QC"
+  },
+  "review_package": {
+    "path": "data/tz-delivery-1.11.0/blind-anatomy-review-v3",
+    "cases": 252,
+    "confirmed_real_references": 0
+  },
+  "experiments": {
+    "initial": "docs/competition/vsd_hip_landmark_feasibility_2026_09_27.json",
+    "initial_stability": "docs/competition/vsd_dxa_stability_2026_09_27.json",
+    "canonical": "docs/competition/vsd_hip_landmark_canonical_2026_09_27.json",
+    "canonical_transfer": "docs/competition/vsd_dxa_canonical_transfer_2026_09_27.json",
+    "canonical_stability": "docs/competition/vsd_dxa_canonical_stability_2026_09_27.json",
+    "spine_axis_geometry": "docs/competition/spine_axis_geometry_audit_2026_09_27.json",
+    "spine_lumbar_crop_paired": "docs/competition/spine_lumbar_crop_paired_2026_09_27.json",
+    "fracatlas_hip_projection": "docs/competition/fracatlas_hip_projection_2026_09_27.json",
+    "fracatlas_hip_dxa_transfer": "docs/competition/fracatlas_hip_dxa_transfer_2026_09_27.json",
+    "fracatlas_hip_eos_external": "docs/competition/fracatlas_hip_eos_external_2026_09_27.json",
+    "hip_projection_multisource": "docs/competition/hip_projection_multisource_2026_09_27.json",
+    "hip_projection_multisource_dxa": "docs/competition/hip_projection_multisource_dxa_2026_09_27.json",
+    "spine_numbering_audit": "docs/competition/spine_numbering_audit_2026_09_27.json",
+    "spine_lumbar_only_paired": "docs/competition/spine_lumbar_only_paired_2026_09_27.json",
+    "spine_lumbar_only_numbering": "docs/competition/spine_lumbar_only_numbering_2026_09_27.json"
+  },
+  "tests": {
+    "python_anatomy_neck_and_projection": 23,
+    "browser_editor_and_panel": 13,
+    "lint": "passed",
+    "diff_check": "passed",
+    "python_research_and_anatomy_latest": 45
+  },
+  "limitations": [
+    "No independently reviewed real DXA axis/whole-structure reference yet.",
+    "Synthetic 3D-to-2D projections do not close clinical DXA rules.",
+    "Canonical experiment is follow-up on previously inspected holdout, not a fresh independent accuracy test."
+  ],
+  "code_sha256": {
+    "competition/review_geometry.py": "08a32e5310603f48bde54b8dcaeb86238fee07448185ceba636ae4af8d69e5b0",
+    "competition/prepare_anatomy_review.py": "30325e05318d096da0d7a8c27ab19663181664c7dd70f20d41418a36ee447334",
+    "competition/evaluate_anatomy_review.py": "b6a851e127a1e7f55cb798d82d1a63310436cbf5fb9c0a6ffd7078e1b9e81f9f",
+    "competition/experiments/prepare_vsd_hip_projection.py": "4d830e6bb5e90dfacb92f0f52d63fc618ad50cf06454da17f4f64bf893137d27",
+    "competition/experiments/train_vsd_hip_landmarks.py": "ae70ecc7c5b2bc0fa669e02fc7089f6e6a317dbdd33962253e9585bcaccbf7d6",
+    "competition/experiments/audit_vsd_dxa_transfer.py": "88af6020f0709b0f6c8f3d3f847834610585579d9b92b5ef8595837328096e00",
+    "competition/experiments/audit_vsd_hip_stability.py": "bc0437f1aca58d0ab0a2550ca3ebf4ece8dc19ec2e569afb96a95a33f7486fd4",
+    "competition/experiments/pinned_archive.py": "a04dc67da77d809795ada636a28bb91141bbc108e96998baa4e3ccb1d4a679a5",
+    "competition/experiments/fetch_fracatlas_hips.py": "e766cd969b96e8315cf55c4e365cd2de187d1b6da9e7a8fc8bd16da8b8eee4df",
+    "competition/experiments/fetch_pelvic_lateral.py": "95fd568380cabfa448e7111a7a0d096788efbfd7eedfad3d8de607ebfc879ef6",
+    "competition/experiments/train_fracatlas_hip_projection.py": "81edd74e666f614be3062d19e6b1c0a812a5fbebc1c7d49dde7f20fbdaa4828c",
+    "competition/experiments/train_multisource_hip_projection.py": "41d7e293555c8824d702b827a157354b29050fe35529ba43f123fba96c28649c",
+    "competition/experiments/evaluate_pelvic_lateral_candidate.py": "60efed3e474cc1404ae6a17884c4bb866f5b8ea35f8385e4517cfea4b3817559",
+    "competition/experiments/audit_hip_projection_transfer.py": "a4ca374b0de459192c7e7d70a5522d5f8bc20fc208f5f77665717b601aa24306",
+    "competition/experiments/evaluate_lumbar_crop_candidate.py": "86541299c045f95a96c767684d1efc79a297867eed9b94ffb81296dafe83539a",
+    "competition/train_anatomy_masks.py": "f32343cce41be24a06f1a94328ddfc7b3fc63307033449ec02f15e539da5f561",
+    "competition/experiments/audit_spine_numbering.py": "8ce499a1b521a6337e6381ddbea5a688a75903813cc86c5490ef9b6c384c1cdb"
+  },
+  "spine_candidate_decision": {
+    "promoted": false,
+    "reason": "Improved partial-Th12 crop masks and organizer axis sensitivity, but increased false positives and slightly regressed two-patient Hologic mask mean; exploratory followup, not fresh independent validation."
+  },
+  "hip_projection_candidate_decision": {
+    "promoted": false,
+    "reason": "Source holdout detects 1/3 nonfrontal images; one confidently misclassified frontal. DXA distribution has no confirmed view references.",
+    "actual_dxa_transfer_images": 153,
+    "dxa_accuracy": null,
+    "external_eos": {
+      "images": 115,
+      "patients": 93,
+      "sensitivity": 0.0,
+      "confident_frontal": 110,
+      "unknown": 5
+    }
+  },
+  "hip_projection_multisource_decision": {
+    "promoted": false,
+    "reason": "EOS lateral holdout detected 24/24; FracAtlas nonfrontal holdout still misses 2/3, both confidently frontal. Previously inspected cohorts, exploratory followup.",
+    "dxa_prediction_counts": {
+      "frontal": 97,
+      "unknown": 56
+    },
+    "dxa_accuracy": null
+  },
+  "spine_lumbar_only_decision": {
+    "promoted": false,
+    "reason": "244/510 named localized bodies on derived crops, but only 7/8 Hologic bodies and axis coverage drops to 45/99 GE; 5/10 expert-positive axes unavailable."
+  },
+  "th12_visibility_followup": {
+    "dataset_report": "th12_amodal_dataset_2026_09_27.json",
+    "training_report": "th12_visibility_training_2026_09_27.json",
+    "dxa_report": "th12_visibility_dxa_2026_09_27.json",
+    "source_test_decisive_views": 0,
+    "dxa_decisive_views": 0,
+    "dxa_images": 99,
+    "clinical_validation": false,
+    "requirement_closed": false,
+    "release_modified": false,
+    "new_focused_tests_passed": 10
+  },
+  "blind_review_v4": {
+    "manifest": "anatomy_review_v4_2026_09_28.json",
+    "source_images": 252,
+    "spine_images": 99,
+    "hip_images": 153,
+    "expert_confirmed": 0,
+    "supports_amodal_th12_quadrilateral": true,
+    "supports_unassessable": true,
+    "release_modified": false,
+    "requirements_complete": false
+  },
+  "th12_direct_classifier": {
+    "source_report": "th12_half_classifier_2026_09_28.json",
+    "dxa_report": "th12_half_dxa_2026_09_28.json",
+    "source_determined": 74,
+    "source_wrong_determined": 6,
+    "source_test_views": 425,
+    "dxa_determined": 0,
+    "dxa_images": 99,
+    "clinical_validation": false,
+    "requirements_complete": false,
+    "release_modified": false
+  }
+}

@@ -30,7 +30,9 @@ def assessment_notes(row):
     notes = ['Полная анатомическая проверка не подтверждена. Результат модели не является заключением о пригодности исследования.']
     projection = parsed(row, 'projection_assessment', {})
     if projection:
-        notes.append('Проекция: ' + ('гипотеза фронтальной, не валидирована.' if projection.get('value') == 'frontal' else 'не определена по изображению.'))
+        view = {'frontal': 'гипотеза фронтальной, не валидирована.',
+                'lateral': 'гипотеза боковой, не валидирована.'}
+        notes.append('Проекция: ' + view.get(projection.get('value'), 'не определена по изображению.'))
     anatomy = parsed(row, 'anatomy_assessment', {})
     missing = [x['name'] for x in anatomy.get('landmarks', []) if not x.get('points')]
     if missing:

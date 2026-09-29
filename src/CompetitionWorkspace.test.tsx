@@ -23,6 +23,8 @@ describe('competition workspace', () => {
     vi.stubGlobal('fetch', mockAPI())
     render(<CompetitionWorkspace />)
     expect(await screen.findByRole('heading', { name: 'Поясничный отдел позвоночника' })).toBeInTheDocument()
+    expect(screen.getByText('Анализ в динамике двух DXA').closest('details')).not.toHaveAttribute('open')
+    expect(screen.getByText('Описание находок').closest('details')).not.toHaveAttribute('open')
     expect(screen.getByText('Загрузить новый пакет').closest('details')).not.toHaveAttribute('open')
     expect(screen.getByText('Подробности модели, ROI и анатомия').closest('details')).not.toHaveAttribute('open')
   })

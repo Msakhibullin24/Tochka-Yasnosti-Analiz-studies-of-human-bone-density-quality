@@ -14,6 +14,7 @@ fi
 export DXAQC_DATA_DIR="${DXAQC_DATA_DIR:-$project_dir/data/runtime}"
 export DXA_ALLOWED_ORIGINS="${DXA_ALLOWED_ORIGINS:-http://localhost:$web_port,http://127.0.0.1:$web_port}"
 export ANALYSIS_API_TARGET="http://127.0.0.1:$api_port"
+export DXAQC_WORKFLOW_PROFILE="${DXAQC_WORKFLOW_PROFILE-$project_dir/competition/models/workflow/profile.json}"
 
 "$python_bin" -m uvicorn dxaqc.api:app --app-dir "$project_dir/competition" --host 127.0.0.1 --port "$api_port" &
 api_pid=$!

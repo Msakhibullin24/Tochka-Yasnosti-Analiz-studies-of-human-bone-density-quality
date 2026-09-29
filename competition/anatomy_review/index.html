@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Независимая разметка DXA</title>
+<style>
+body{margin:0;color:#182736;background:#eef2f5;font:1rem/1.5 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:1.5rem}h1{font-size:1.7rem}section{background:white;padding:1rem;margin:1rem 0;border-radius:12px}label{display:block;margin:.5rem 0}input,select,button{font:inherit;min-height:40px;padding:.3rem .6rem;box-sizing:border-box;max-width:100%}input:not([type=checkbox]),select{width:100%}button{cursor:pointer;margin:.3rem .3rem .3rem 0}button:disabled{cursor:default}.grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(220px,1fr);gap:1rem}svg{display:block;width:100%;max-height:70vh;background:#111;outline:1px solid oklch(0 0 0 / .1)}.coordinates{display:flex;gap:.5rem}.coordinates label{flex:1}#message{min-height:1.5rem}#message[data-error=true]{color:#a51b14}small{display:block}fieldset{border:1px solid #aeb9c3;margin:.75rem 0}details{margin:1rem 0}@media(max-width:650px){.grid{grid-template-columns:1fr}}@media(forced-colors:active){svg{outline:1px solid CanvasText}}
+</style></head><body><main>
+<h1>Независимая разметка DXA</h1>
+<p>Отметьте проекцию и видимость каждого ориентира. Для видимого ориентира укажите точку на исходном снимке. Координаты сохраняются в пикселях исходного изображения.</p>
+<section aria-labelledby="reviewer-title"><h2 id="reviewer-title">Специалист и источник разметки</h2>
+<label>Специалист <input id="reviewer" autocomplete="name"></label>
+<label>Основание разметки <input id="source" placeholder="Например: независимый просмотр специалистом, дата"></label>
+<label><input type="checkbox" id="independent"> Разметка выполнена независимо от предсказаний модели</label>
+<p>Правки хранятся в этой странице до её закрытия. Регулярно скачивайте черновик; продолжить работу можно через «Загрузить черновик».</p>
+<button id="draft" type="button">Скачать черновик</button><button id="export" type="button">Скачать подтверждённый эталон</button>
+<label>Загрузить черновик <input id="import" type="file" accept="application/json,.json"></label>
+</section>
+<section aria-labelledby="case-title"><h2 id="case-title">Изображение</h2>
+<p id="progress" role="status"></p><label>Выбрать изображение <select id="case"></select></label>
+<button id="prev" type="button">Предыдущее</button><button id="next" type="button">Следующее</button>
+<p id="state"></p>
+<div class="grid"><div>
+<svg id="viewer" role="img" aria-label="Исходный снимок и точки вашей разметки"><image id="image"></image><g id="markers"></g></svg>
+</div><div>
+<label>Проекция <select id="projection"><option value="">Не выбрана</option><option value="frontal">Прямая</option><option value="lateral">Боковая</option><option value="other">Другая</option></select></label>
+<label>Режим разметки <select id="mode"><option value="points">Точки ориентиров</option><option value="regions">Контуры областей</option><option value="axes">Ось шейки бедра</option><option value="amodal">Полное тело Th12</option></select></label>
+<label>Ориентир <select id="landmark"></select></label>
+<fieldset><legend>Видимость</legend><label><input type="radio" name="visible" value="unknown"> Не оценена</label><label><input type="radio" name="visible" value="yes"> Видим</label><label><input type="radio" name="visible" value="no"> Не видим</label></fieldset>
+<p>Выберите «Видим» и отметьте точку на снимке либо введите координаты.</p>
+<div class="coordinates"><label>X <input id="x" type="number" min="0" step="any"></label><label>Y <input id="y" type="number" min="0" step="any"></label></div>
+<button id="point" type="button">Сохранить точку</button><button id="clear" type="button">Удалить точку</button>
+<p id="landmark-state"></p>
+<fieldset id="region-editor" hidden><legend>Контуры областей</legend>
+<label>Область <select id="region"></select></label>
+<label>Видимость области <select id="region-visible"><option value="unknown">Не оценена</option><option value="yes">Видима</option><option value="no">Не видима</option></select></label>
+<p>Отметьте вершины по порядку обхода контура. Для L1–L4 укажите область тела соответствующего позвонка; для шейки — анатомически корректную измерительную ROI. Измерительная ROI шейки должна быть выпуклой; контуры костей могут быть вогнутыми, но не должны пересекать себя. Для Th12 отмечайте только видимую часть: её контур не определяет размер полного тела позвонка.</p>
+<div class="coordinates"><label>X вершины <input id="rx" type="number" min="0" step="any"></label><label>Y вершины <input id="ry" type="number" min="0" step="any"></label></div>
+<button id="vertex" type="button">Добавить вершину</button><button id="undo-vertex" type="button">Удалить последнюю вершину</button>
+<p id="region-state"></p></fieldset>
+<fieldset id="axis-editor" hidden><legend>Независимая ось шейки бедра</legend>
+<p>Отметьте два разных конца продольной оси шейки по анатомии. Не выводите эту ось из формы измерительной ROI.</p>
+<label>Видимость оси <select id="axis-visible"><option value="unknown">Не оценена</option><option value="yes">Видима</option><option value="no">Не удаётся определить</option></select></label>
+<label>Конец оси <select id="axis-end"><option value="0">Первый</option><option value="1">Второй</option></select></label>
+<div class="coordinates"><label>X конца <input id="ax" type="number" min="0" step="any"></label><label>Y конца <input id="ay" type="number" min="0" step="any"></label></div>
+<button id="axis-point" type="button">Сохранить конец оси</button><p id="axis-state"></p></fieldset>
+<fieldset id="amodal-editor" hidden><legend>Полное тело Th12</legend>
+<p>Оцените полную проекцию тела позвонка, включая часть за краем снимка. Если её границы нельзя обоснованно восстановить, выберите «Не удаётся оценить». Контур видимой части отмечается отдельно выше.</p>
+<label>Оценка полной границы <select id="amodal-status"><option value="">Не оценена</option><option value="assessable">Можно восстановить</option><option value="unassessable">Не удаётся оценить</option></select></label>
+<p>Четыре угла по порядку обхода, без самопересечения. Координаты за пределами снимка допустимы. Щелчок по снимку добавляет только видимую вершину; невидимые вводятся числами.</p>
+<div class="coordinates"><label>X угла <input id="amodal-x" type="number" step="any"></label><label>Y угла <input id="amodal-y" type="number" step="any"></label></div>
+<button id="amodal-point" type="button">Добавить угол</button><button id="amodal-undo" type="button">Удалить последний угол</button><p id="amodal-state"></p></fieldset>
+<label id="rotation-label" hidden>Ротация бедра <select id="rotation"><option value="">Не оценена</option><option value="none">Нарушения нет</option><option value="insufficient">Недостаточная</option><option value="excessive">Избыточная</option><option value="not_assessable">Не удаётся определить</option></select></label><button id="confirm" type="button">Подтвердить разметку изображения</button>
+</div></div>
+<p id="message" role="status" aria-live="polite"></p>
+<details><summary>Что оценивает этот эталон</summary><p>Точки, проекцию, именованные контуры Th12/L1–L4, костей бедра, ROI и независимую ось шейки, а также экспертную метку ротации. Подтверждение разметки не подтверждает точность модели.</p><p>Исходные пиксели могут содержать надписи аппарата. Пакет предназначен для локальной работы с разрешёнными данными.</p></details>
+</section>
+</main><script id="review-data" type="application/json">__REVIEW_DATA__</script><script src="review.js"></script></body></html>

@@ -15,7 +15,7 @@ CONTRACT_COLUMNS = ["path_to_study", "study_uid", "image_uid", "anatomical_regio
 # Extra columns go after the contract so a strict positional/named parser is not disturbed.
 # quality_prob: name and range [0;1] approved by the organiser (needed for ROC-AUC).
 EXTRA_COLUMNS = ["quality_prob", "laterality", "violation_codes", "violation_scores", "violation_description", "measurements",
-                 "region_confidence", "laterality_confidence", "pixel_mm", "pixel_mm_source", "duplicate_of", "error_code", "error_message", "path_to_file",
+                 "region_confidence", "laterality_confidence", "laterality_basis", "pixel_mm", "pixel_mm_source", "duplicate_of", "error_code", "error_message", "path_to_file",
                  "explanation_png", "criterion_thresholds", "decision_reason", "decision_version", "pixel_mm_x", "row_id", "projection_assessment", "anatomy_assessment", "source_roi_assessment", "anatomical_checks_complete", "image_width", "image_height", "criterion_states", "violation_type_status", "review_reasons"]
 EXTRA_COLUMNS.append('specialist_qc')
 EXTRA_COLUMNS.append('specialist_outputs')

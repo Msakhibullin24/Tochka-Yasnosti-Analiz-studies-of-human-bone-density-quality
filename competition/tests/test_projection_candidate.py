@@ -4,7 +4,8 @@ import json
 from types import SimpleNamespace
 
 import evaluate_projection_candidate as candidate
-from evaluate_projection_candidate import assessment, variants
+from evaluate_projection_candidate import assessment, variants, source_patient_group
+from pathlib import Path
 
 
 def test_projection_candidate_abstains_instead_of_forcing_lateral_on_uncertain_score():
@@ -25,6 +26,13 @@ def test_projection_representation_removes_native_aspect_ratio_and_polarity_shor
     assert np.array_equal(inverted, 255-original)
 
 
+def test_source_patient_group_joins_different_padding_and_rejects_bad_layout():
+    assert source_patient_group(Path('BMD/Annotation/00001/images/spine_image.dcm')) == '1'
+    assert source_patient_group(Path('VFA/Verification/0001/images/lateral.dcm')) == '1'
+    with pytest.raises(ValueError):
+        source_patient_group(Path('VFA/Verification/unknown/images/lateral.dcm'))
+
+
 def test_training_collapses_copies_and_keeps_patient_pairs_in_one_fold(tmp_path, monkeypatch):
     root = tmp_path/'external'
     decoded = {}
@@ -32,7 +40,8 @@ def test_training_collapses_copies_and_keeps_patient_pairs_in_one_fold(tmp_path,
         for branch, name, lateral in (('BMD', 'spine_image.dcm', 0),
                                       ('VFA', 'image.dcm', 1)):
             for part in ('Annotation', 'Verification'):
-                path = root/branch/part/f'{index:04d}'/'images'/name
+                folder = f'{index:05d}' if branch == 'BMD' else f'{index:04d}'
+                path = root/branch/part/folder/'images'/name
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes(f'{index}:{branch}'.encode())
                 decoded[path] = SimpleNamespace(pixel_sha256=f'{index}:{branch}',

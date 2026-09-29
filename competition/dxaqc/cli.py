@@ -20,6 +20,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.set_defaults(strict_columns=True)
     ap.add_argument("--extended-columns", dest="strict_columns", action="store_false", help="extended results.csv for diagnostics")
     ap.add_argument("--strict-columns", action="store_true", help="only the 8 contract columns of the task statement + quality_prob")
+    ap.add_argument('--acceptance', choices=('report', 'submission', 'complete'), default='report',
+                    help='report: processing only; submission: require valid table and no failures; '
+                         'complete: also require all mandatory checks; rejection exits 3 and preserves reports')
     args = ap.parse_args(argv)
     try:
         summary = run_batch(args.input, args.output, Options(explanations=not args.no_explanations,
@@ -37,6 +40,12 @@ def main(argv: list[str] | None = None) -> int:
             print(f"cannot write to the output folder: {io_exc}", file=sys.stderr)
         return 2
     print("\n" + json.dumps(summary, ensure_ascii=False, indent=2))
+    if args.acceptance != 'report' and (not summary['submission_valid'] or summary['failure']):
+        print('ACCEPTANCE_FAILED: invalid submission or processing failures; see reports', file=sys.stderr)
+        return 3
+    if args.acceptance == 'complete' and not summary['requirements_complete']:
+        print('ACCEPTANCE_FAILED: mandatory checks incomplete; see requirements.json', file=sys.stderr)
+        return 3
     return 0
 
 
