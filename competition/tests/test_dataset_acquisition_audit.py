@@ -3,7 +3,7 @@ import json
 
 import pytest
 
-from competition.audit_downloaded_datasets import archive_inventory
+from audit_downloaded_datasets import archive_inventory
 
 
 def test_rejects_archive_path_escape(tmp_path):
@@ -36,7 +36,7 @@ def test_rejects_corrupt_archive_payload(tmp_path):
 
 
 def test_audit_does_not_publish_partial_owned_by_archive_downloader(tmp_path, monkeypatch):
-    from competition import audit_downloaded_datasets as module
+    import audit_downloaded_datasets as module
 
     project = tmp_path / 'project'
     docs = project / 'docs/competition'

@@ -20,7 +20,10 @@ backend/.venv/
 backend/models/*.pth
 backend/exports/
 data/
+# Supplied private task materials include original medical DICOM data.
+Вся информация по задаче МинЗдрав РФ/
 .venv-5090/
+.venv-gpu/
 competition/.cache/
 competition/out/
 competition/**/__pycache__/

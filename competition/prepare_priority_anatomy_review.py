@@ -26,10 +26,15 @@ def digest(path: Path) -> str:
 
 
 def _source_key(case: dict) -> str:
-    parts = PurePosixPath(case['path_to_file']).parts
-    if len(parts) < 2 or parts[0] != 'Исследования':
-        raise ValueError('Expected organiser review path below Исследования')
-    return '/'.join(parts[1:])
+    path = PurePosixPath(case['path_to_file'])
+    if path.is_absolute() or '..' in path.parts:
+        raise ValueError('Unsafe organiser review path')
+    parts = path.parts
+    if parts and parts[0] == 'Исследования':
+        parts = parts[1:]
+    if len(parts) < 2:
+        raise ValueError('Expected organiser review path below a study directory')
+    return '/'.join(parts)
 
 
 def select_cases(reference: dict, oof_rows: list[dict], *, audit_studies: int = 25,

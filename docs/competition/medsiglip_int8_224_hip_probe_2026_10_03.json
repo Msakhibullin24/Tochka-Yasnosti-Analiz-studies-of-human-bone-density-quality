@@ -1,0 +1,62 @@
+{
+  "scope": "Research-only organizer DXA combined hip positioning/rotation label",
+  "protocol": "Frozen model image embedding, fixed balanced C=.01 logistic probe; same study-held-out outer and inner folds as the existing baseline",
+  "images": 150,
+  "studies": 78,
+  "positives": 36,
+  "source_fingerprint": "1cede858f61a3d86e507572749eda53f06639e4606daf51fcd6119215abb9df5",
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "model_url": "https://huggingface.co/google/medsiglip-448",
+  "model_revision": "9cea28a1a1195f665105faa6e8544c112fd960a4",
+  "model_weight_sha256": "e1a9e113a4ec1734e894a9e76ea72ede0fbb4e0c6fb73c2df68148484ff07130",
+  "image_processor_sha256": "32adf33cc0bb18943c735d834c3892fc139a8fa969f4b6d1fc190200bf2392a3",
+  "code_sha256": "b2db6e65931f40e6d7d103be4d4332d7b78665be775a2e845d90c8e319648a11",
+  "variants": {
+    "current": {
+      "f1": 0.5176470588235295,
+      "tn_fp_fn_tp": [
+        87,
+        27,
+        14,
+        22
+      ],
+      "sensitivity": 0.6111111111111112,
+      "specificity": 0.7631578947368421,
+      "roc_auc": 0.7750974658869396,
+      "average_precision": 0.5305672025727489
+    },
+    "foundation_lr": {
+      "f1": 0.4065040650406504,
+      "tn_fp_fn_tp": [
+        52,
+        62,
+        11,
+        25
+      ],
+      "sensitivity": 0.6944444444444444,
+      "specificity": 0.45614035087719296,
+      "roc_auc": 0.6281676413255362,
+      "average_precision": 0.40545359262364883,
+      "paired_delta_f1_vs_current": -0.11114299378287906,
+      "paired_delta_f1_ci95": [
+        -0.2276590508374963,
+        0.0067720318910593795
+      ]
+    }
+  },
+  "clinical_validation": false,
+  "model_affects_decision": false,
+  "limitations": [
+    "Combined hip label does not identify anatomical rotation subtype.",
+    "Organiser images were inspected before; no independent external test.",
+    "Known region is supplied and patient identity across studies is unverified.",
+    "No expert landmark or mask labels for clinical/anatomical accuracy.",
+    "INT8 encoder is a separate exploratory candidate; no equivalence to FP32 is claimed."
+  ],
+  "encoder_arithmetic": "CPU dynamic INT8 vision Linear; remaining operators FP32",
+  "quantization_backend": "x86",
+  "elapsed_seconds": 671.5255748479999,
+  "input_image_size": 224,
+  "interpolated_position_embeddings": true,
+  "quantization_code_sha256": "e8830151d7dc4c8c8aabb1c45a327f535b051b3451776f3992d281d9fb050f39"
+}

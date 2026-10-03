@@ -43,6 +43,20 @@ def test_audit_selection_ignores_outcomes_and_keeps_studies_disjoint(tmp_path):
     assert len(audit) == 1 and len(development) == 3
 
 
+def test_selection_accepts_direct_study_root_and_rejects_path_escape(tmp_path):
+    _, _, reference, rows = _fixture(tmp_path)
+    original = select_cases(reference, rows, audit_studies=1, seed=7)
+    identities = [[case['image_uid'] for case in queue] for queue in original[:2]]
+    for case in reference['cases']:
+        case['path_to_file'] = case['path_to_file'].removeprefix('Исследования/')
+    updated = select_cases(reference, rows, audit_studies=1, seed=7)
+    assert [[case['image_uid'] for case in queue] for queue in updated[:2]] == identities
+    assert updated[2] == original[2]
+    reference['cases'][0]['path_to_file'] = '../study-0/image.dcm'
+    with pytest.raises(ValueError, match='Unsafe'):
+        select_cases(reference, rows, audit_studies=1, seed=7)
+
+
 def test_published_packages_are_blind_and_bound_to_source_manifest(tmp_path):
     package, oof, _, _ = _fixture(tmp_path)
     output = tmp_path/'queues'

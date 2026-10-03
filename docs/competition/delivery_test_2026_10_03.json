@@ -1,0 +1,149 @@
+{
+  "scope": "Independently verify a delivered DICOM folder against its batch outputs.\n\nThe source manifest is collected from the input folder, never from results.\nThis verifies engineering contracts; it cannot supply clinical ground truth.\n",
+  "summary": {
+    "version": "1.11.6",
+    "submission_available": true,
+    "submission_valid": true,
+    "files": 3,
+    "success": 3,
+    "failure": 0,
+    "success_rate": 1.0,
+    "violations": 1,
+    "cancelled": false,
+    "studies": 2,
+    "max_seconds_per_study": 6.018,
+    "mean_seconds_per_image": 3.1247,
+    "total_seconds": 21.352,
+    "workflow_profile_id": "tz-delivery-1.11.6",
+    "process_peak_rss_bytes": 486301696,
+    "cpu_count_visible": 12,
+    "typification_complete": true,
+    "anatomical_checks_complete": false,
+    "untyped_violations": 0,
+    "requirements_complete": false,
+    "max_seconds_per_study_upper_bound": 17.996593124999883
+  },
+  "independent_source_files": 3,
+  "input_manifest_sha256": "9cfea2630dd5c70e4e79b2ab0b9d835e67298a3349c78f76bd1e0ec19301e99d",
+  "input_manifest_scope": "all .dcm files in independently extracted organizer folder",
+  "strict_validation": {
+    "valid": true,
+    "profile": "competition_v2",
+    "errors": [],
+    "warnings": [
+      "End-to-end timing not checked: provide timing.json; table durations exclude shared overhead",
+      "Input completeness not checked: provide an independent path manifest",
+      "Failure explanations not available in this table",
+      "Additional DICOM series not checked"
+    ],
+    "images": 3,
+    "success": 3,
+    "max_seconds_per_study": 6.0182,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "full_validation": {
+    "valid": true,
+    "profile": "working_report",
+    "errors": [],
+    "warnings": [],
+    "images": 3,
+    "success": 3,
+    "max_seconds_per_study": 6.0182,
+    "scope": "table contract, optional input manifest, repeat and DICOM source links; not clinical validation or full DICOM conformance"
+  },
+  "comparison": {
+    "images": 3,
+    "exact_medical_matches": 3,
+    "fields": [
+      "study_uid",
+      "image_uid",
+      "anatomical_region",
+      "quality_class",
+      "violation_type",
+      "processing_status",
+      "quality_prob",
+      "measurements",
+      "criterion_states",
+      "projection_assessment",
+      "anatomical_checks_complete"
+    ]
+  },
+  "requirements": {
+    "version": 1,
+    "complete": false,
+    "images": 3,
+    "success": 3,
+    "failure": 0,
+    "untyped_violations": 0,
+    "typification_complete": true,
+    "anatomical_checks_complete": false,
+    "checks": {
+      "Th12": {
+        "undetermined": 1
+      },
+      "iliac_crest_left": {
+        "undetermined": 1
+      },
+      "iliac_crest_right": {
+        "undetermined": 1
+      },
+      "projection": {
+        "undetermined": 3
+      },
+      "vertebral_numbering_and_roi": {
+        "undetermined": 1
+      },
+      "source_roi": {
+        "not_applicable": 3
+      },
+      "greater_trochanter": {
+        "undetermined": 2
+      },
+      "femoral_neck": {
+        "undetermined": 2
+      },
+      "ischium": {
+        "undetermined": 2
+      },
+      "lesser_trochanter": {
+        "undetermined": 2
+      },
+      "scan_coverage": {
+        "undetermined": 2
+      },
+      "rotation": {
+        "undetermined": 2
+      }
+    },
+    "blockers": [
+      "anatomical_checks_incomplete"
+    ],
+    "scope": "coverage of required evidence, not external clinical certification or organiser approval"
+  },
+  "timing": {
+    "version": 1,
+    "batch_seconds": 21.352593124999885,
+    "shared_overhead_seconds": 11.978393124999885,
+    "study_image_seconds": {
+      "1.2.643.5.1.13.13.12.2.77.8252.07090503010902110208051203150011": 6.0182,
+      "1.2.643.5.1.13.13.12.2.77.8252.11150201120815140403070915121004": 3.356
+    },
+    "study_upper_bound_seconds": {
+      "1.2.643.5.1.13.13.12.2.77.8252.07090503010902110208051203150011": 17.996593124999883,
+      "1.2.643.5.1.13.13.12.2.77.8252.11150201120815140403070915121004": 15.334393124999885
+    },
+    "max_study_upper_bound_seconds": 17.996593124999883,
+    "within_180_seconds": true,
+    "scope": "local end-to-end batch through tables and series archive; all shared overhead charged to each study; not H200 measurement"
+  },
+  "artifact_sha256": {
+    "summary.json": "a2782f894f697682619e961361f595f03451ee71a645399973fd892ff8f429f6",
+    "requirements.json": "8c2013132a3617af53ee985d9dcc479728e33feb25245b9d49eef688f2af51f5",
+    "timing.json": "405e0886745474b70a3e436195ed66ae3056091c77ebe3d5ff785749cc3dc3d2",
+    "submission.csv": "b2baa75725fe871de2635dabd4b02fde7b1e984456431b150070b332feb470cb",
+    "results_extended.csv": "6e7f00a2070c66253f5338c1a1e3d319b4f6ca07f3ce2866febf88d81e705b77",
+    "additional_series.zip": "7d528613e739c2c8d8ec0130438eb463a66aba1fb1999b1804e00939cd3952b1"
+  },
+  "audit_code_sha256": "39935471a2d5c9fe877ec4777908c3004b9367b4da9398b3919b49c69ac3718a",
+  "clinical_validation": false
+}

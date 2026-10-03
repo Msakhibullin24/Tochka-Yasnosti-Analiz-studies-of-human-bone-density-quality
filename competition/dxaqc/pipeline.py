@@ -228,16 +228,17 @@ class Analyzer:
             projection = self.projection_model.predict(img.pixels, region)
             require_supported_projection(projection)
         px = np.ascontiguousarray(img.pixels[:, ::-1]) if region == "hip_left" else img.pixels
+        canonical_embedding = embed(px)[None] if region == "hip_left" else raw_embedding
         meas = measure_image(px, region, img.pixel_mm, img.pixel_mm_x)
         gm = self.bundle.groups[group_of(region)]
-        score, crit = gm.predict([meas.features], embed(px)[None] if region == "hip_left" else raw_embedding)
+        score, crit = gm.predict([meas.features], canonical_embedding)
         score = float(score[0])
         crit = {k: float(v[0]) for k, v in crit.items()}
         decision = decide(group_of(region), score, crit, meas.features,
                           gm.quality_threshold, gm.criterion_thresholds)
         if self.quality_review is not None:
             decision = self.quality_review[group_of(region)].review_untyped(
-                decision, meas.features, embed(px)[None] if region == 'hip_left' else raw_embedding)
+                decision, meas.features, canonical_embedding)
         result = {"region": region, "region_confidence": confidence,
                   "laterality_confidence": side_confidence if region != "spine" else None, **decision,
                   "laterality_basis": laterality_basis,

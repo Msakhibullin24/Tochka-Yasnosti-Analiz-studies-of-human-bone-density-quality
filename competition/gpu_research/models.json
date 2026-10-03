@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "models": {
+    "medsiglip": {"repo": "google/medsiglip-448", "kind": "siglip", "size": 448, "stage": 1, "role": "medical image QC; full-resolution control"},
+    "dinov3-b": {"repo": "facebook/dinov3-vitb16-pretrain-lvd1689m", "kind": "dinov3_vit", "size": 512, "stage": 1, "role": "global and patch features; anatomy candidate"},
+    "dinov3-l": {"repo": "facebook/dinov3-vitl16-pretrain-lvd1689m", "kind": "dinov3_vit", "size": 512, "stage": 2, "role": "controlled encoder scaling after B"},
+    "dinov3-h": {"repo": "facebook/dinov3-vith16plus-pretrain-lvd1689m", "kind": "dinov3_vit", "size": 512, "stage": 3, "role": "larger teacher if B/L improves"},
+    "dinov3-7b": {"repo": "facebook/dinov3-vit7b16-pretrain-lvd1689m", "kind": "dinov3_vit", "size": 512, "stage": 4, "role": "optional frozen teacher; benchmark VRAM before full extraction"}
+  },
+  "auxiliary": {
+    "sam3": {"repo": "facebook/sam3", "role": "expert-corrected mask proposals; separate upstream environment"},
+    "medsam": {"url": "https://github.com/bowang-lab/MedSAM", "role": "local expert annotation with boxes; separate upstream environment"},
+    "nnunet": {"url": "https://github.com/MIC-DKFZ/nnUNet", "role": "2D supervised anatomy baseline after independent dense labels"}
+  },
+  "policy": "Research only. No automatic release promotion. Download one chosen model at a time; terms and account access apply."
+}

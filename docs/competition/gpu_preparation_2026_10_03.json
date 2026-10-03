@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-03",
+  "release_medical_weights_changed": false,
+  "automatic_promotions": 0,
+  "clinical_validation": false,
+  "tz_complete": false,
+  "gpu_training_executed": false,
+  "local_cuda_available": false,
+  "verification": {
+    "main_backend": {
+      "passed": 377,
+      "skipped": 5
+    },
+    "research_targeted": {
+      "passed": 23
+    },
+    "bash_syntax": "passed",
+    "compileall": "passed",
+    "git_diff_check": "passed",
+    "full_medical_checkpoint_smoke": {
+      "repo": "google/medsiglip-448",
+      "weights_sha256": "7e419784fa0b044131402606b5445f5ba2a68cd1e33efba3207e8663cd64b375",
+      "precision": "fp32",
+      "size": 448,
+      "images": 1,
+      "elapsed_seconds": 7.236789401999886,
+      "quality_metrics_measured": false
+    },
+    "private_bundle": {
+      "path": "data/gpu-transfer/dxa-gpu-transfer-with-tz.zip",
+      "bytes": 33771048,
+      "sha256": "79b929a144d420236bba1ac7a2ffe4a209d9b428e2c6eb955ced23b34db9d191",
+      "verified": true,
+      "expert_anatomy_labels_present": false,
+      "files": 762,
+      "extraction_roundtrip_verified": true
+    }
+  },
+  "code_sha256": {
+    "competition/gpu_research/common.py": "b61e389d9d2ad5d78a1b02826a73b577dc722ddde763487061521c71ca3bce02",
+    "competition/gpu_research/run.py": "5a9fafd16f909b51f9708727f7913350b9ac07a7dad011e9b7c11aa06bd348b7",
+    "competition/gpu_research/finetune.py": "7921e59ff3a0890adf470a9250d5072239d180dc89e82639bf632445bc3fb7da",
+    "competition/gpu_research/transfer.py": "f51b38f83a579641110c364e8fa66b6203e698c81078c80c2e1be04454a18321",
+    "competition/gpu_research/suite.py": "71f2d35037b6be8f91a8b8c640995873bec97e27bab7750540692e55a7ef1558",
+    "competition/gpu_research/anatomy.py": "13b2e5665faebfeb9c91992d41ea51b3ccb4cb410c98369c3fba6e0fe051227d",
+    "competition/gpu_research/models.json": "b94f57a96fe9bfe55211b3dd7961ec48326d24d9bf7024e017409dd16d62b837",
+    "competition/gpu_research/bootstrap.sh": "67d8723e950e057eb4b647ec3d9b6ad59ee9ad88001ed763a9da5e962a591df0",
+    "competition/gpu_research/requirements.txt": "0ae48786f76cc1707c0c5e6f6a15c93f8cf0e78d32656c889d9770b2cd3dc67a",
+    "competition/experiments/nested_criterion_upgrade.py": "aa5811ff40ebac1f8ce543eebc4cdfa6e11c4ad5d1ce31b6bd46d31506b142c0",
+    "competition/tests/test_gpu_research.py": "747b12d1601e061bb57229de4965f62d3e52ffdcc4c920a561e5ef9f31b78955",
+    "docs/GPU_FULL_PROJECT_UPGRADE_PLAN_2026_10_03_RU.md": "0f7ecff7c77e6c0f1406a4afdd661daca28fcd73cfd2eec51242f4104a11b524"
+  },
+  "remaining": [
+    "CUDA installation and smoke on target host",
+    "Full-cohort frozen and fine-tuning GPU evaluation",
+    "Expert anatomy annotation",
+    "Landmark/visibility/numbering/angle/ROI production integration",
+    "New patient-disjoint clinical test",
+    "H200 delivery validation"
+  ]
+}

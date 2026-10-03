@@ -20,7 +20,8 @@ def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def release_facts(metrics_path, oof_path, batch, repeat, image_id, quality_review_evaluation=None):
+def release_facts(metrics_path, oof_path, batch, repeat, image_id, quality_review_evaluation=None,
+                  workflow_profile_path=None):
     metrics = json.loads(metrics_path.read_text())
     allowed_versions = {VERSION, 'review-1'}
     versions = metrics.get('decision_versions', [])
@@ -39,7 +40,8 @@ def release_facts(metrics_path, oof_path, batch, repeat, image_id, quality_revie
         raise ValueError('Repeated batch uses a different workflow profile')
     profile = None
     if workflow:
-        profile_path = Path(__file__).parent/'models/workflow/profile.json'
+        profile_path = workflow_profile_path or Path(__file__).parent / (
+            'models/workflow_' + __version__.replace('.', '_') + '/profile.json')
         profile = json.loads(profile_path.read_text())
         if profile['profile_id'] != workflow or quality_review_evaluation is None or 'review-1' not in versions:
             raise ValueError('Workflow profile requires its matching quality review evaluation; baseline metrics are insufficient')
@@ -86,18 +88,18 @@ def presentation(facts):
     criterion_rows = ''.join(f'<tr><th scope="row">{escape(key)}</th><td>{number(value["f1"])}</td><td>{value["tn_fp_fn_tp"][3]} / {value["tn_fp_fn_tp"][2]} / {value["tn_fp_fn_tp"][1]}</td></tr>'
                              for key, value in m['by_criterion'].items())
     sections = [
-        ('Osseo AI — контроль качества DXA', f'<p>Релиз {escape(facts["version"])} · решение v{escape(facts["decision_version"])} · 27 сентября 2026</p><p>Локальная пакетная обработка позвоночника и бедра. Полное выполнение анатомических требований пока не подтверждено.</p>'),
+        ('Osseo AI — контроль качества DXA', f'<p>Релиз {escape(facts["version"])} · решение v{escape(facts["decision_version"])}</p><p>Локальная пакетная обработка позвоночника и бедра. Полное выполнение анатомических требований пока не подтверждено.</p>'),
         ('Задача и архитектура', items(['DICOM/ZIP → декодирование и масштаб Y=1,05/X=0,6 мм → роутер области → геометрия и ResNet18 → RF/LR по критериям → CSV/XLSX и SC/SR.',
                                       'Три официальных типа позвоночника, два типа бедра; несколько нарушений разделяются «;».',
-                                      'Вторичный пересмотр может определить тип либо отменить тревогу; чувствительность исторического OOF снижается с 0,699 до 0,630.',
+                                      'Вторичный пересмотр может определить тип либо отменить тревогу; чувствительность оценивается по итоговому решению.',
                                       'Failure — технический отказ с пустыми классом и вероятностью, отдельно от медицинского результата.'])),
         ('Данные и оценка', items([f'{m["labelled_images"]} размеченных уникальных изображений, {m["studies"]} исследований; 499 файлов учебного экспорта включают копии.',
                                   'Пять внешних фолдов по исследованиям, один повтор; пороги выбраны во внутренних обучающих фолдах.',
                                   'Синтетические повороты используются только в обучении вместе с родительским исследованием.',
                                   'Это внутренний OOF на ранее изученных данных. Независимость пациентов между исследованиями не доказана; три тестовых DICOM не имеют ответов.'])),
-        ('Текущие метрики', '<table><caption>Внутренний OOF; 95% ДИ — bootstrap по исследованиям</caption><tr><th>Метрика</th><th>Значение</th><th>95% ДИ</th></tr>' + metric_rows + '</table>' + f'<p>Macro-F1 типов: {number(m["criterion_macro_f1"])}. Положительных ответов без типа: {m["predicted_positive_without_type"]}.</p>'),
+        ('Метрики внутренней ретроспективной оценки', '<table><caption>Ранее изученный внутренний OOF; 95% ДИ — bootstrap по исследованиям. Не независимая оценка новой поставки.</caption><tr><th>Метрика</th><th>Значение</th><th>95% ДИ</th></tr>' + metric_rows + '</table>' + f'<p>Macro-F1 типов: {number(m["criterion_macro_f1"])}. Положительных ответов без типа: {m["predicted_positive_without_type"]}.</p>'),
         ('Ошибки по критериям', '<table><caption>TP / FN / FP по текущему OOF</caption><tr><th>Критерий</th><th>F1</th><th>TP / FN / FP</th></tr>' + criterion_rows + '</table><p>Особое внимание — оси позвоночника, ротации бедра и малому числу положительных ROI. Порог оси остаётся 5° по ТЗ.</p>'),
-        ('Офлайн-поставка и время', items([f'Офлайн-прогоны локального CLI и контейнерного API с одним профилем: {batch["success"]}/{batch["files"]} Success в первом пакете.',
+        ('Офлайн-поставка и время', items([f'Повторные офлайн-прогоны контейнерного CLI с одним профилем: {batch["success"]}/{batch["files"]} Success в первом пакете.',
                                                 f'Весь первый пакет с таблицами и SC/SR: {facts["timing"]["batch_seconds"]:.3f} с. Консервативная верхняя граница на исследование: {facts["timing"]["max_study_upper_bound_seconds"]:.3f} с.',
                                                 f'Пик RSS процесса: {batch["process_peak_rss_bytes"] / 1024**2:.1f} МиБ. GPU не используется.',
                                                 'Сопоставлены независимый список входов, повтор предсказаний, ссылки SC/SR и полное время. Это локальный CPU-хост, не официальный H200-стенд.',
@@ -124,9 +126,11 @@ def main():
     parser.add_argument('--image-id', required=True)
     parser.add_argument('--quality-review-evaluation', type=Path,
                         help='evaluation report matching the shipped secondary model')
+    parser.add_argument('--workflow-profile', type=Path,
+                        help='exact shipped profile; defaults to the current versioned profile')
     args = parser.parse_args()
     facts = release_facts(args.metrics, args.oof, args.batch, args.repeat, args.image_id,
-                          args.quality_review_evaluation)
+                          args.quality_review_evaluation, args.workflow_profile)
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / 'CURRENT_RELEASE.json').write_text(json.dumps(facts, ensure_ascii=False, indent=2) + '\n')
     (args.output / 'FINAL_PRESENTATION_RU.html').write_text(presentation(facts))

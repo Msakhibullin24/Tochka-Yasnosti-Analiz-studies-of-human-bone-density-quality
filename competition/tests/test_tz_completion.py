@@ -10,17 +10,52 @@ from dxaqc.dicom_io import DicomReadError, read_dxa
 from dxaqc.pipeline import Analyzer
 
 
+def test_left_hip_reuses_canonical_embedding_for_quality_and_review(monkeypatch):
+    from dxaqc import embedding, geometry
+    pixels = np.arange(48, dtype=np.uint8).reshape(6, 8)
+    encoded, quality_inputs, review_inputs = [], [], []
+
+    def encode(image):
+        encoded.append(image.copy())
+        return np.array([float(image[0, 0]), float(image[0, -1])])
+
+    def predict(features, values):
+        quality_inputs.append(values)
+        return np.array([.2]), {'hip_position_rotation': np.array([.1])}
+
+    def review(decision, features, values):
+        review_inputs.append(values)
+        return decision
+
+    monkeypatch.setattr(embedding, 'embed', encode)
+    monkeypatch.setattr(geometry, 'measure_image', lambda *args: SimpleNamespace(features={}, overlay=pixels))
+    analyzer = Analyzer.__new__(Analyzer)
+    analyzer.bundle = SimpleNamespace(
+        router=SimpleNamespace(predict_detailed=lambda emb: (['hip_left'], [1.], [1.])),
+        groups={'hip': SimpleNamespace(predict=predict, quality_threshold=.5, criterion_thresholds={})})
+    analyzer.quality_review = {'hip': SimpleNamespace(review_untyped=review)}
+    for name in ('projection_model', 'learned_anatomy', 'specialist', 'specialist_portfolio', 'workflow_profile'):
+        setattr(analyzer, name, None)
+    result = analyzer.analyze(SimpleNamespace(pixels=pixels, pixel_mm=1.05, pixel_mm_x=.6))
+    assert result['quality'] == 0 and result['region'] == 'hip_left'
+    assert len(encoded) == 2  # one raw routing vector and one mirrored QC vector
+    np.testing.assert_array_equal(encoded[0], pixels)
+    np.testing.assert_array_equal(encoded[1], pixels[:, ::-1])
+    assert quality_inputs[0] is review_inputs[0]
+    np.testing.assert_array_equal(quality_inputs[0], [[7., 0.]])
+
+
 def test_shipped_workflow_profile_matches_current_inference_code(monkeypatch):
     """A passing test suite must not coexist with an unbuildable Docker image."""
     from pathlib import Path
     from dxaqc.pipeline import MODEL_PATH
     from dxaqc.workflow_profile import configure_profile
-    profile = Path(__file__).resolve().parents[1] / 'models/workflow_1_11_5/profile.json'
+    profile = Path(__file__).resolve().parents[1] / 'models/workflow_1_11_6/profile.json'
     for name in ('DXAQC_WORKFLOW_PROFILE', 'DXAQC_ANATOMY_MODEL',
                  'DXAQC_QUALITY_REVIEW_MODEL', 'DXAQC_PROJECTION_MODEL'):
         monkeypatch.delenv(name, raising=False)
     configured = configure_profile(profile, MODEL_PATH)
-    assert configured['profile_id'] == 'tz-delivery-1.11.5'
+    assert configured['profile_id'] == 'tz-delivery-1.11.6'
 
 
 @pytest.mark.parametrize('view,code', [('lateral', 'UNSUPPORTED_PROJECTION'),

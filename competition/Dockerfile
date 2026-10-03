@@ -38,7 +38,7 @@ RUN uv pip check --system
 # Fail the build if repository resolution changes the reviewed system runtime.
 RUN python -c "import subprocess; names=['gcc-12-base','libgcc-s1','libstdc++6','libgomp1']; versions=[subprocess.check_output(['dpkg-query','-W','-f=\${Version}',n],text=True) for n in names]; assert versions == ['12.2.0-14+deb12u1'] * 4, versions"
 
-ENV DXAQC_WORKFLOW_PROFILE=/app/models/workflow_1_11_5/profile.json
+ENV DXAQC_WORKFLOW_PROFILE=/app/models/workflow_1_11_6/profile.json
 
 COPY competition/dxaqc ./dxaqc
 COPY docs/competition/specialist_sources.json ./specialist_sources.json
@@ -49,8 +49,14 @@ COPY competition/models ./models
 # from the application root; copying only train.py made a freshly built image
 # fail before test collection completed.
 COPY competition/*.py ./
+COPY competition/run.sh ./run.sh
 COPY competition/experiments ./experiments
+COPY competition/anatomy_review ./anatomy_review
 COPY competition/labels ./labels
+# Dataset audit/download CLIs resolve their shared stdlib helper and catalogs
+# against the project root (the parent of /app in this image).
+COPY backend/scripts/download_training_data.py /backend/scripts/download_training_data.py
+COPY docs/competition/download_sources.json docs/competition/additional_dataset_acquisition.json /docs/competition/
 COPY --from=ui /ui/dist ./dxaqc/static/app
 
 # Integrity of shipped weights + import smoke test at build time (no network is used at run time).

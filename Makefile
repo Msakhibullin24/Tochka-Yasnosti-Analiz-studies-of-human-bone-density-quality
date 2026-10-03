@@ -93,3 +93,13 @@ review-release-errors:
 advance-specialists:
 	@test -n "$(INPUT)" -a -n "$(OUTPUT)" || (echo "INPUT=dataset_directory OUTPUT=new_experiment_directory are required" >&2; exit 2)
 	bash scripts/advance_specialists.sh "$(INPUT)" "$(OUTPUT)"
+
+.PHONY: metrics-upgrade screen-candidate
+METRIC_BASELINE ?= competition/reports/quality_review_axis_guard_posthoc_2026_09_29.csv
+metrics-upgrade:
+	@test -n "$(INPUT)" -a -n "$(OUTPUT)" || (echo "INPUT=organizer_DICOM_root OUTPUT=new_experiment_directory are required" >&2; exit 2)
+	PYTHONPATH=competition:competition/experiments competition/.venv/bin/python competition/experiments/nested_criterion_upgrade.py --dataset "$(INPUT)" --baseline "$(METRIC_BASELINE)" --output "$(OUTPUT)"
+
+screen-candidate:
+	@test -n "$(CANDIDATE)" -a -n "$(OUTPUT)" || (echo "CANDIDATE=OOF.csv OUTPUT=new_report.json are required" >&2; exit 2)
+	PYTHONPATH=competition:competition/experiments competition/.venv/bin/python competition/experiments/verify_metric_candidate.py --baseline "$(METRIC_BASELINE)" --candidate "$(CANDIDATE)" --output "$(OUTPUT)"
