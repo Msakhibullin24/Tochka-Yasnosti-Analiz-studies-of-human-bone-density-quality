@@ -1,6 +1,9 @@
 """Research boundary checks: frame preservation, no leaked features, safe transfer."""
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 import zipfile
 
 import numpy as np
@@ -10,6 +13,17 @@ import torch
 
 from gpu_research.common import digest, letterbox, load_feature_bundle, representations
 from gpu_research.transfer import build, verify
+
+
+def test_research_entrypoints_import_in_clean_process(tmp_path):
+    root = Path(__file__).resolve().parents[1]
+    env = {**os.environ, 'PYTHONPATH': str(root)}
+    # A fresh interpreter cannot inherit sys.path changes from another test.
+    for script in ('gpu_research/finetune.py', 'experiments/nested_criterion_upgrade.py',
+                   'experiments/verify_metric_candidate.py'):
+        completed = subprocess.run([sys.executable, str(root / script), '--help'],
+                                   cwd=tmp_path, env=env, capture_output=True, text=True, timeout=30)
+        assert completed.returncode == 0, completed.stderr
 
 
 def test_full_frame_letterbox_preserves_borders_and_aspect():

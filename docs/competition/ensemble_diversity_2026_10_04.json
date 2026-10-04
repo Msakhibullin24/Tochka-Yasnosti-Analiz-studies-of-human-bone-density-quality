@@ -1,0 +1,2060 @@
+{
+  "protocol": "Describe complementary errors in aligned OOF; no ensemble fitting or promotion.\n\nStored criterion threshold votes are audited separately from physical decisions.\nThe audit cannot establish training provenance or patient independence from CSV.\n",
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "code_sha256": "e2fc65b9200b5ecc8d4886ab267188e0601466bdfb25e29f47517d03f8c7c561",
+  "experts": {
+    "geometry_rf": {
+      "path": "data/metric-upgrade-20261003/nested/geometry_rf_oof.csv",
+      "sha256": "78e0e85d960de36f059fc7c316896340ec72a9a995c8dbc38e8ff0e326fc8954"
+    },
+    "geometry_lr": {
+      "path": "data/metric-upgrade-20261003/nested/geometry_lr_oof.csv",
+      "sha256": "64edfc0fcfcdca9f6b078b7352838dacf57eec2b4e34d50c9fa6685042b74f74"
+    },
+    "embedding_lr_001": {
+      "path": "data/metric-upgrade-20261003/nested/embedding_lr_001_oof.csv",
+      "sha256": "78bac901bc797f6466c63a8afdd1752f9c5bdb5c36aba2b300f0b6d3a00d7025"
+    }
+  },
+  "images": 249,
+  "studies": 100,
+  "overall_quality": {
+    "reference_n": 249,
+    "reference_positives": 73,
+    "experts": {
+      "geometry_rf": {
+        "evaluated": 249,
+        "unavailable": 0,
+        "unavailable_positives": 0,
+        "metrics_on_evaluated": {
+          "n": 249,
+          "positives": 73,
+          "negatives": 176,
+          "tn_fp_fn_tp": [
+            145,
+            31,
+            31,
+            42
+          ],
+          "accuracy": 0.751004016064257,
+          "precision": 0.5753424657534246,
+          "sensitivity": 0.5753424657534246,
+          "specificity": 0.8238636363636364,
+          "f1": 0.5753424657534246,
+          "balanced_accuracy": 0.6996030510585305
+        }
+      },
+      "geometry_lr": {
+        "evaluated": 249,
+        "unavailable": 0,
+        "unavailable_positives": 0,
+        "metrics_on_evaluated": {
+          "n": 249,
+          "positives": 73,
+          "negatives": 176,
+          "tn_fp_fn_tp": [
+            123,
+            53,
+            33,
+            40
+          ],
+          "accuracy": 0.6546184738955824,
+          "precision": 0.43010752688172044,
+          "sensitivity": 0.547945205479452,
+          "specificity": 0.6988636363636364,
+          "f1": 0.4819277108433735,
+          "balanced_accuracy": 0.6234044209215441
+        }
+      },
+      "embedding_lr_001": {
+        "evaluated": 249,
+        "unavailable": 0,
+        "unavailable_positives": 0,
+        "metrics_on_evaluated": {
+          "n": 249,
+          "positives": 73,
+          "negatives": 176,
+          "tn_fp_fn_tp": [
+            113,
+            63,
+            27,
+            46
+          ],
+          "accuracy": 0.6385542168674698,
+          "precision": 0.42201834862385323,
+          "sensitivity": 0.6301369863013698,
+          "specificity": 0.6420454545454546,
+          "f1": 0.5054945054945055,
+          "balanced_accuracy": 0.6360912204234122
+        }
+      }
+    },
+    "pairs": {
+      "geometry_rf__geometry_lr": {
+        "left": "geometry_rf",
+        "right": "geometry_lr",
+        "common_n": 249,
+        "common_positives": 73,
+        "common_negatives": 176,
+        "disagreements": 60,
+        "both_wrong": 44,
+        "both_false_negative": 23,
+        "both_false_positive": 21,
+        "left_fn_detected_by_right": 8,
+        "right_fn_detected_by_left": 10,
+        "left_fp_rejected_by_right": 10,
+        "right_fp_rejected_by_left": 32,
+        "error_correlation": 0.4411493423890125
+      },
+      "geometry_rf__embedding_lr_001": {
+        "left": "geometry_rf",
+        "right": "embedding_lr_001",
+        "common_n": 249,
+        "common_positives": 73,
+        "common_negatives": 176,
+        "disagreements": 80,
+        "both_wrong": 36,
+        "both_false_negative": 20,
+        "both_false_positive": 16,
+        "left_fn_detected_by_right": 11,
+        "right_fn_detected_by_left": 7,
+        "left_fp_rejected_by_right": 15,
+        "right_fp_rejected_by_left": 47,
+        "error_correlation": 0.2627204561398786
+      },
+      "geometry_lr__embedding_lr_001": {
+        "left": "geometry_lr",
+        "right": "embedding_lr_001",
+        "common_n": 249,
+        "common_positives": 73,
+        "common_negatives": 176,
+        "disagreements": 80,
+        "both_wrong": 48,
+        "both_false_negative": 20,
+        "both_false_positive": 28,
+        "left_fn_detected_by_right": 13,
+        "right_fn_detected_by_left": 7,
+        "left_fp_rejected_by_right": 25,
+        "right_fp_rejected_by_left": 35,
+        "error_correlation": 0.2973894226826185
+      }
+    },
+    "all_experts_common": {
+      "n": 249,
+      "excluded_unavailable": 0,
+      "positives": 73,
+      "unanimous_false_negative": 16,
+      "unanimous_false_positive": 14,
+      "disagreement_images": 110
+    },
+    "fixed_voting_controls_on_common": {
+      "any_positive": {
+        "n": 249,
+        "positives": 73,
+        "negatives": 176,
+        "tn_fp_fn_tp": [
+          80,
+          96,
+          16,
+          57
+        ],
+        "accuracy": 0.5502008032128514,
+        "precision": 0.37254901960784315,
+        "sensitivity": 0.7808219178082192,
+        "specificity": 0.45454545454545453,
+        "f1": 0.504424778761062,
+        "balanced_accuracy": 0.6176836861768369
+      },
+      "all_positive": {
+        "n": 249,
+        "positives": 73,
+        "negatives": 176,
+        "tn_fp_fn_tp": [
+          162,
+          14,
+          44,
+          29
+        ],
+        "accuracy": 0.7670682730923695,
+        "precision": 0.6744186046511628,
+        "sensitivity": 0.3972602739726027,
+        "specificity": 0.9204545454545454,
+        "f1": 0.5,
+        "balanced_accuracy": 0.6588574097135741
+      },
+      "majority": {
+        "n": 249,
+        "positives": 73,
+        "negatives": 176,
+        "tn_fp_fn_tp": [
+          139,
+          37,
+          31,
+          42
+        ],
+        "accuracy": 0.7269076305220884,
+        "precision": 0.5316455696202531,
+        "sensitivity": 0.5753424657534246,
+        "specificity": 0.7897727272727273,
+        "f1": 0.5526315789473685,
+        "balanced_accuracy": 0.6825575965130759
+      }
+    }
+  },
+  "by_criterion": {
+    "spine_coverage": {
+      "classifier_threshold_votes": {
+        "reference_n": 99,
+        "reference_positives": 6,
+        "experts": {
+          "geometry_rf": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 6,
+              "negatives": 93,
+              "tn_fp_fn_tp": [
+                89,
+                4,
+                2,
+                4
+              ],
+              "accuracy": 0.9393939393939394,
+              "precision": 0.5,
+              "sensitivity": 0.6666666666666666,
+              "specificity": 0.956989247311828,
+              "f1": 0.5714285714285714,
+              "balanced_accuracy": 0.8118279569892473
+            }
+          },
+          "geometry_lr": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 6,
+              "negatives": 93,
+              "tn_fp_fn_tp": [
+                91,
+                2,
+                4,
+                2
+              ],
+              "accuracy": 0.9393939393939394,
+              "precision": 0.5,
+              "sensitivity": 0.3333333333333333,
+              "specificity": 0.978494623655914,
+              "f1": 0.4,
+              "balanced_accuracy": 0.6559139784946236
+            }
+          },
+          "embedding_lr_001": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 6,
+              "negatives": 93,
+              "tn_fp_fn_tp": [
+                84,
+                9,
+                3,
+                3
+              ],
+              "accuracy": 0.8787878787878788,
+              "precision": 0.25,
+              "sensitivity": 0.5,
+              "specificity": 0.9032258064516129,
+              "f1": 0.3333333333333333,
+              "balanced_accuracy": 0.7016129032258065
+            }
+          }
+        },
+        "pairs": {
+          "geometry_rf__geometry_lr": {
+            "left": "geometry_rf",
+            "right": "geometry_lr",
+            "common_n": 99,
+            "common_positives": 6,
+            "common_negatives": 93,
+            "disagreements": 6,
+            "both_wrong": 3,
+            "both_false_negative": 2,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 2,
+            "left_fp_rejected_by_right": 3,
+            "right_fp_rejected_by_left": 1,
+            "error_correlation": 0.4677419354838701
+          },
+          "geometry_rf__embedding_lr_001": {
+            "left": "geometry_rf",
+            "right": "embedding_lr_001",
+            "common_n": 99,
+            "common_positives": 6,
+            "common_negatives": 93,
+            "disagreements": 12,
+            "both_wrong": 3,
+            "both_false_negative": 2,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 1,
+            "left_fp_rejected_by_right": 3,
+            "right_fp_rejected_by_left": 8,
+            "error_correlation": 0.29479164414786097
+          },
+          "geometry_lr__embedding_lr_001": {
+            "left": "geometry_lr",
+            "right": "embedding_lr_001",
+            "common_n": 99,
+            "common_positives": 6,
+            "common_negatives": 93,
+            "disagreements": 10,
+            "both_wrong": 4,
+            "both_false_negative": 3,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 1,
+            "right_fn_detected_by_left": 0,
+            "left_fp_rejected_by_right": 1,
+            "right_fp_rejected_by_left": 8,
+            "error_correlation": 0.4244999675729191
+          }
+        },
+        "all_experts_common": {
+          "n": 99,
+          "excluded_unavailable": 0,
+          "positives": 6,
+          "unanimous_false_negative": 2,
+          "unanimous_false_positive": 1,
+          "disagreement_images": 14
+        },
+        "fixed_voting_controls_on_common": {
+          "any_positive": {
+            "n": 99,
+            "positives": 6,
+            "negatives": 93,
+            "tn_fp_fn_tp": [
+              80,
+              13,
+              2,
+              4
+            ],
+            "accuracy": 0.8484848484848485,
+            "precision": 0.23529411764705882,
+            "sensitivity": 0.6666666666666666,
+            "specificity": 0.8602150537634409,
+            "f1": 0.34782608695652173,
+            "balanced_accuracy": 0.7634408602150538
+          },
+          "all_positive": {
+            "n": 99,
+            "positives": 6,
+            "negatives": 93,
+            "tn_fp_fn_tp": [
+              92,
+              1,
+              4,
+              2
+            ],
+            "accuracy": 0.9494949494949495,
+            "precision": 0.6666666666666666,
+            "sensitivity": 0.3333333333333333,
+            "specificity": 0.989247311827957,
+            "f1": 0.4444444444444444,
+            "balanced_accuracy": 0.6612903225806451
+          },
+          "majority": {
+            "n": 99,
+            "positives": 6,
+            "negatives": 93,
+            "tn_fp_fn_tp": [
+              92,
+              1,
+              3,
+              3
+            ],
+            "accuracy": 0.9595959595959596,
+            "precision": 0.75,
+            "sensitivity": 0.5,
+            "specificity": 0.989247311827957,
+            "f1": 0.6,
+            "balanced_accuracy": 0.7446236559139785
+          }
+        }
+      },
+      "final_criterion_decisions": {
+        "reference_n": 99,
+        "reference_positives": 6,
+        "experts": {
+          "geometry_rf": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 6,
+              "negatives": 93,
+              "tn_fp_fn_tp": [
+                89,
+                4,
+                2,
+                4
+              ],
+              "accuracy": 0.9393939393939394,
+              "precision": 0.5,
+              "sensitivity": 0.6666666666666666,
+              "specificity": 0.956989247311828,
+              "f1": 0.5714285714285714,
+              "balanced_accuracy": 0.8118279569892473
+            }
+          },
+          "geometry_lr": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 6,
+              "negatives": 93,
+              "tn_fp_fn_tp": [
+                91,
+                2,
+                4,
+                2
+              ],
+              "accuracy": 0.9393939393939394,
+              "precision": 0.5,
+              "sensitivity": 0.3333333333333333,
+              "specificity": 0.978494623655914,
+              "f1": 0.4,
+              "balanced_accuracy": 0.6559139784946236
+            }
+          },
+          "embedding_lr_001": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 6,
+              "negatives": 93,
+              "tn_fp_fn_tp": [
+                84,
+                9,
+                3,
+                3
+              ],
+              "accuracy": 0.8787878787878788,
+              "precision": 0.25,
+              "sensitivity": 0.5,
+              "specificity": 0.9032258064516129,
+              "f1": 0.3333333333333333,
+              "balanced_accuracy": 0.7016129032258065
+            }
+          }
+        },
+        "pairs": {
+          "geometry_rf__geometry_lr": {
+            "left": "geometry_rf",
+            "right": "geometry_lr",
+            "common_n": 99,
+            "common_positives": 6,
+            "common_negatives": 93,
+            "disagreements": 6,
+            "both_wrong": 3,
+            "both_false_negative": 2,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 2,
+            "left_fp_rejected_by_right": 3,
+            "right_fp_rejected_by_left": 1,
+            "error_correlation": 0.4677419354838701
+          },
+          "geometry_rf__embedding_lr_001": {
+            "left": "geometry_rf",
+            "right": "embedding_lr_001",
+            "common_n": 99,
+            "common_positives": 6,
+            "common_negatives": 93,
+            "disagreements": 12,
+            "both_wrong": 3,
+            "both_false_negative": 2,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 1,
+            "left_fp_rejected_by_right": 3,
+            "right_fp_rejected_by_left": 8,
+            "error_correlation": 0.29479164414786097
+          },
+          "geometry_lr__embedding_lr_001": {
+            "left": "geometry_lr",
+            "right": "embedding_lr_001",
+            "common_n": 99,
+            "common_positives": 6,
+            "common_negatives": 93,
+            "disagreements": 10,
+            "both_wrong": 4,
+            "both_false_negative": 3,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 1,
+            "right_fn_detected_by_left": 0,
+            "left_fp_rejected_by_right": 1,
+            "right_fp_rejected_by_left": 8,
+            "error_correlation": 0.4244999675729191
+          }
+        },
+        "all_experts_common": {
+          "n": 99,
+          "excluded_unavailable": 0,
+          "positives": 6,
+          "unanimous_false_negative": 2,
+          "unanimous_false_positive": 1,
+          "disagreement_images": 14
+        },
+        "fixed_voting_controls_on_common": {
+          "any_positive": {
+            "n": 99,
+            "positives": 6,
+            "negatives": 93,
+            "tn_fp_fn_tp": [
+              80,
+              13,
+              2,
+              4
+            ],
+            "accuracy": 0.8484848484848485,
+            "precision": 0.23529411764705882,
+            "sensitivity": 0.6666666666666666,
+            "specificity": 0.8602150537634409,
+            "f1": 0.34782608695652173,
+            "balanced_accuracy": 0.7634408602150538
+          },
+          "all_positive": {
+            "n": 99,
+            "positives": 6,
+            "negatives": 93,
+            "tn_fp_fn_tp": [
+              92,
+              1,
+              4,
+              2
+            ],
+            "accuracy": 0.9494949494949495,
+            "precision": 0.6666666666666666,
+            "sensitivity": 0.3333333333333333,
+            "specificity": 0.989247311827957,
+            "f1": 0.4444444444444444,
+            "balanced_accuracy": 0.6612903225806451
+          },
+          "majority": {
+            "n": 99,
+            "positives": 6,
+            "negatives": 93,
+            "tn_fp_fn_tp": [
+              92,
+              1,
+              3,
+              3
+            ],
+            "accuracy": 0.9595959595959596,
+            "precision": 0.75,
+            "sensitivity": 0.5,
+            "specificity": 0.989247311827957,
+            "f1": 0.6,
+            "balanced_accuracy": 0.7446236559139785
+          }
+        }
+      }
+    },
+    "spine_axis": {
+      "classifier_threshold_votes": {
+        "reference_n": 99,
+        "reference_positives": 10,
+        "experts": {
+          "geometry_rf": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 10,
+              "negatives": 89,
+              "tn_fp_fn_tp": [
+                76,
+                13,
+                6,
+                4
+              ],
+              "accuracy": 0.8080808080808081,
+              "precision": 0.23529411764705882,
+              "sensitivity": 0.4,
+              "specificity": 0.8539325842696629,
+              "f1": 0.2962962962962963,
+              "balanced_accuracy": 0.6269662921348315
+            }
+          },
+          "geometry_lr": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 10,
+              "negatives": 89,
+              "tn_fp_fn_tp": [
+                83,
+                6,
+                7,
+                3
+              ],
+              "accuracy": 0.8686868686868687,
+              "precision": 0.3333333333333333,
+              "sensitivity": 0.3,
+              "specificity": 0.9325842696629213,
+              "f1": 0.3157894736842105,
+              "balanced_accuracy": 0.6162921348314606
+            }
+          },
+          "embedding_lr_001": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 10,
+              "negatives": 89,
+              "tn_fp_fn_tp": [
+                16,
+                73,
+                1,
+                9
+              ],
+              "accuracy": 0.25252525252525254,
+              "precision": 0.10975609756097561,
+              "sensitivity": 0.9,
+              "specificity": 0.1797752808988764,
+              "f1": 0.1956521739130435,
+              "balanced_accuracy": 0.5398876404494382
+            }
+          }
+        },
+        "pairs": {
+          "geometry_rf__geometry_lr": {
+            "left": "geometry_rf",
+            "right": "geometry_lr",
+            "common_n": 99,
+            "common_positives": 10,
+            "common_negatives": 89,
+            "disagreements": 14,
+            "both_wrong": 9,
+            "both_false_negative": 4,
+            "both_false_positive": 5,
+            "left_fn_detected_by_right": 2,
+            "right_fn_detected_by_left": 3,
+            "left_fp_rejected_by_right": 8,
+            "right_fp_rejected_by_left": 1,
+            "error_correlation": 0.49401845328036825
+          },
+          "geometry_rf__embedding_lr_001": {
+            "left": "geometry_rf",
+            "right": "embedding_lr_001",
+            "common_n": 99,
+            "common_positives": 10,
+            "common_negatives": 89,
+            "disagreements": 69,
+            "both_wrong": 12,
+            "both_false_negative": 0,
+            "both_false_positive": 12,
+            "left_fn_detected_by_right": 6,
+            "right_fn_detected_by_left": 1,
+            "left_fp_rejected_by_right": 1,
+            "right_fp_rejected_by_left": 61,
+            "error_correlation": -0.13000164130706962
+          },
+          "geometry_lr__embedding_lr_001": {
+            "left": "geometry_lr",
+            "right": "embedding_lr_001",
+            "common_n": 99,
+            "common_positives": 10,
+            "common_negatives": 89,
+            "disagreements": 73,
+            "both_wrong": 7,
+            "both_false_negative": 1,
+            "both_false_positive": 6,
+            "left_fn_detected_by_right": 6,
+            "right_fn_detected_by_left": 0,
+            "left_fp_rejected_by_right": 0,
+            "right_fp_rejected_by_left": 67,
+            "error_correlation": -0.18704474619395292
+          }
+        },
+        "all_experts_common": {
+          "n": 99,
+          "excluded_unavailable": 0,
+          "positives": 10,
+          "unanimous_false_negative": 0,
+          "unanimous_false_positive": 5,
+          "disagreement_images": 78
+        },
+        "fixed_voting_controls_on_common": {
+          "any_positive": {
+            "n": 99,
+            "positives": 10,
+            "negatives": 89,
+            "tn_fp_fn_tp": [
+              15,
+              74,
+              0,
+              10
+            ],
+            "accuracy": 0.25252525252525254,
+            "precision": 0.11904761904761904,
+            "sensitivity": 1.0,
+            "specificity": 0.16853932584269662,
+            "f1": 0.2127659574468085,
+            "balanced_accuracy": 0.5842696629213483
+          },
+          "all_positive": {
+            "n": 99,
+            "positives": 10,
+            "negatives": 89,
+            "tn_fp_fn_tp": [
+              84,
+              5,
+              9,
+              1
+            ],
+            "accuracy": 0.8585858585858586,
+            "precision": 0.16666666666666666,
+            "sensitivity": 0.1,
+            "specificity": 0.9438202247191011,
+            "f1": 0.125,
+            "balanced_accuracy": 0.5219101123595505
+          },
+          "majority": {
+            "n": 99,
+            "positives": 10,
+            "negatives": 89,
+            "tn_fp_fn_tp": [
+              76,
+              13,
+              5,
+              5
+            ],
+            "accuracy": 0.8181818181818182,
+            "precision": 0.2777777777777778,
+            "sensitivity": 0.5,
+            "specificity": 0.8539325842696629,
+            "f1": 0.35714285714285715,
+            "balanced_accuracy": 0.6769662921348314
+          }
+        }
+      },
+      "final_criterion_decisions": {
+        "reference_n": 99,
+        "reference_positives": 10,
+        "experts": {
+          "geometry_rf": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 10,
+              "negatives": 89,
+              "tn_fp_fn_tp": [
+                88,
+                1,
+                9,
+                1
+              ],
+              "accuracy": 0.898989898989899,
+              "precision": 0.5,
+              "sensitivity": 0.1,
+              "specificity": 0.9887640449438202,
+              "f1": 0.16666666666666666,
+              "balanced_accuracy": 0.5443820224719101
+            }
+          },
+          "geometry_lr": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 10,
+              "negatives": 89,
+              "tn_fp_fn_tp": [
+                88,
+                1,
+                9,
+                1
+              ],
+              "accuracy": 0.898989898989899,
+              "precision": 0.5,
+              "sensitivity": 0.1,
+              "specificity": 0.9887640449438202,
+              "f1": 0.16666666666666666,
+              "balanced_accuracy": 0.5443820224719101
+            }
+          },
+          "embedding_lr_001": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 10,
+              "negatives": 89,
+              "tn_fp_fn_tp": [
+                88,
+                1,
+                9,
+                1
+              ],
+              "accuracy": 0.898989898989899,
+              "precision": 0.5,
+              "sensitivity": 0.1,
+              "specificity": 0.9887640449438202,
+              "f1": 0.16666666666666666,
+              "balanced_accuracy": 0.5443820224719101
+            }
+          }
+        },
+        "pairs": {
+          "geometry_rf__geometry_lr": {
+            "left": "geometry_rf",
+            "right": "geometry_lr",
+            "common_n": 99,
+            "common_positives": 10,
+            "common_negatives": 89,
+            "disagreements": 0,
+            "both_wrong": 10,
+            "both_false_negative": 9,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 0,
+            "left_fp_rejected_by_right": 0,
+            "right_fp_rejected_by_left": 0,
+            "error_correlation": 1.0
+          },
+          "geometry_rf__embedding_lr_001": {
+            "left": "geometry_rf",
+            "right": "embedding_lr_001",
+            "common_n": 99,
+            "common_positives": 10,
+            "common_negatives": 89,
+            "disagreements": 0,
+            "both_wrong": 10,
+            "both_false_negative": 9,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 0,
+            "left_fp_rejected_by_right": 0,
+            "right_fp_rejected_by_left": 0,
+            "error_correlation": 1.0
+          },
+          "geometry_lr__embedding_lr_001": {
+            "left": "geometry_lr",
+            "right": "embedding_lr_001",
+            "common_n": 99,
+            "common_positives": 10,
+            "common_negatives": 89,
+            "disagreements": 0,
+            "both_wrong": 10,
+            "both_false_negative": 9,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 0,
+            "left_fp_rejected_by_right": 0,
+            "right_fp_rejected_by_left": 0,
+            "error_correlation": 1.0
+          }
+        },
+        "all_experts_common": {
+          "n": 99,
+          "excluded_unavailable": 0,
+          "positives": 10,
+          "unanimous_false_negative": 9,
+          "unanimous_false_positive": 1,
+          "disagreement_images": 0
+        },
+        "fixed_voting_controls_on_common": {
+          "any_positive": {
+            "n": 99,
+            "positives": 10,
+            "negatives": 89,
+            "tn_fp_fn_tp": [
+              88,
+              1,
+              9,
+              1
+            ],
+            "accuracy": 0.898989898989899,
+            "precision": 0.5,
+            "sensitivity": 0.1,
+            "specificity": 0.9887640449438202,
+            "f1": 0.16666666666666666,
+            "balanced_accuracy": 0.5443820224719101
+          },
+          "all_positive": {
+            "n": 99,
+            "positives": 10,
+            "negatives": 89,
+            "tn_fp_fn_tp": [
+              88,
+              1,
+              9,
+              1
+            ],
+            "accuracy": 0.898989898989899,
+            "precision": 0.5,
+            "sensitivity": 0.1,
+            "specificity": 0.9887640449438202,
+            "f1": 0.16666666666666666,
+            "balanced_accuracy": 0.5443820224719101
+          },
+          "majority": {
+            "n": 99,
+            "positives": 10,
+            "negatives": 89,
+            "tn_fp_fn_tp": [
+              88,
+              1,
+              9,
+              1
+            ],
+            "accuracy": 0.898989898989899,
+            "precision": 0.5,
+            "sensitivity": 0.1,
+            "specificity": 0.9887640449438202,
+            "f1": 0.16666666666666666,
+            "balanced_accuracy": 0.5443820224719101
+          }
+        }
+      }
+    },
+    "spine_artifact": {
+      "classifier_threshold_votes": {
+        "reference_n": 99,
+        "reference_positives": 17,
+        "experts": {
+          "geometry_rf": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 17,
+              "negatives": 82,
+              "tn_fp_fn_tp": [
+                78,
+                4,
+                4,
+                13
+              ],
+              "accuracy": 0.9191919191919192,
+              "precision": 0.7647058823529411,
+              "sensitivity": 0.7647058823529411,
+              "specificity": 0.9512195121951219,
+              "f1": 0.7647058823529411,
+              "balanced_accuracy": 0.8579626972740315
+            }
+          },
+          "geometry_lr": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 17,
+              "negatives": 82,
+              "tn_fp_fn_tp": [
+                73,
+                9,
+                8,
+                9
+              ],
+              "accuracy": 0.8282828282828283,
+              "precision": 0.5,
+              "sensitivity": 0.5294117647058824,
+              "specificity": 0.8902439024390244,
+              "f1": 0.5142857142857142,
+              "balanced_accuracy": 0.7098278335724534
+            }
+          },
+          "embedding_lr_001": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 17,
+              "negatives": 82,
+              "tn_fp_fn_tp": [
+                62,
+                20,
+                6,
+                11
+              ],
+              "accuracy": 0.7373737373737373,
+              "precision": 0.3548387096774194,
+              "sensitivity": 0.6470588235294118,
+              "specificity": 0.7560975609756098,
+              "f1": 0.4583333333333333,
+              "balanced_accuracy": 0.7015781922525108
+            }
+          }
+        },
+        "pairs": {
+          "geometry_rf__geometry_lr": {
+            "left": "geometry_rf",
+            "right": "geometry_lr",
+            "common_n": 99,
+            "common_positives": 17,
+            "common_negatives": 82,
+            "disagreements": 13,
+            "both_wrong": 6,
+            "both_false_negative": 4,
+            "both_false_positive": 2,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 4,
+            "left_fp_rejected_by_right": 2,
+            "right_fp_rejected_by_left": 7,
+            "error_correlation": 0.4546407939607465
+          },
+          "geometry_rf__embedding_lr_001": {
+            "left": "geometry_rf",
+            "right": "embedding_lr_001",
+            "common_n": 99,
+            "common_positives": 17,
+            "common_negatives": 82,
+            "disagreements": 22,
+            "both_wrong": 6,
+            "both_false_negative": 4,
+            "both_false_positive": 2,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 2,
+            "left_fp_rejected_by_right": 2,
+            "right_fp_rejected_by_left": 18,
+            "error_correlation": 0.3283775898243654
+          },
+          "geometry_lr__embedding_lr_001": {
+            "left": "geometry_lr",
+            "right": "embedding_lr_001",
+            "common_n": 99,
+            "common_positives": 17,
+            "common_negatives": 82,
+            "disagreements": 29,
+            "both_wrong": 7,
+            "both_false_negative": 4,
+            "both_false_positive": 3,
+            "left_fn_detected_by_right": 4,
+            "right_fn_detected_by_left": 2,
+            "left_fp_rejected_by_right": 6,
+            "right_fp_rejected_by_left": 17,
+            "error_correlation": 0.15431005659870148
+          }
+        },
+        "all_experts_common": {
+          "n": 99,
+          "excluded_unavailable": 0,
+          "positives": 17,
+          "unanimous_false_negative": 4,
+          "unanimous_false_positive": 1,
+          "disagreement_images": 32
+        },
+        "fixed_voting_controls_on_common": {
+          "any_positive": {
+            "n": 99,
+            "positives": 17,
+            "negatives": 82,
+            "tn_fp_fn_tp": [
+              55,
+              27,
+              4,
+              13
+            ],
+            "accuracy": 0.6868686868686869,
+            "precision": 0.325,
+            "sensitivity": 0.7647058823529411,
+            "specificity": 0.6707317073170732,
+            "f1": 0.45614035087719296,
+            "balanced_accuracy": 0.7177187948350072
+          },
+          "all_positive": {
+            "n": 99,
+            "positives": 17,
+            "negatives": 82,
+            "tn_fp_fn_tp": [
+              81,
+              1,
+              10,
+              7
+            ],
+            "accuracy": 0.8888888888888888,
+            "precision": 0.875,
+            "sensitivity": 0.4117647058823529,
+            "specificity": 0.9878048780487805,
+            "f1": 0.56,
+            "balanced_accuracy": 0.6997847919655666
+          },
+          "majority": {
+            "n": 99,
+            "positives": 17,
+            "negatives": 82,
+            "tn_fp_fn_tp": [
+              77,
+              5,
+              4,
+              13
+            ],
+            "accuracy": 0.9090909090909091,
+            "precision": 0.7222222222222222,
+            "sensitivity": 0.7647058823529411,
+            "specificity": 0.9390243902439024,
+            "f1": 0.7428571428571429,
+            "balanced_accuracy": 0.8518651362984218
+          }
+        }
+      },
+      "final_criterion_decisions": {
+        "reference_n": 99,
+        "reference_positives": 17,
+        "experts": {
+          "geometry_rf": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 17,
+              "negatives": 82,
+              "tn_fp_fn_tp": [
+                78,
+                4,
+                4,
+                13
+              ],
+              "accuracy": 0.9191919191919192,
+              "precision": 0.7647058823529411,
+              "sensitivity": 0.7647058823529411,
+              "specificity": 0.9512195121951219,
+              "f1": 0.7647058823529411,
+              "balanced_accuracy": 0.8579626972740315
+            }
+          },
+          "geometry_lr": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 17,
+              "negatives": 82,
+              "tn_fp_fn_tp": [
+                73,
+                9,
+                8,
+                9
+              ],
+              "accuracy": 0.8282828282828283,
+              "precision": 0.5,
+              "sensitivity": 0.5294117647058824,
+              "specificity": 0.8902439024390244,
+              "f1": 0.5142857142857142,
+              "balanced_accuracy": 0.7098278335724534
+            }
+          },
+          "embedding_lr_001": {
+            "evaluated": 99,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 99,
+              "positives": 17,
+              "negatives": 82,
+              "tn_fp_fn_tp": [
+                62,
+                20,
+                6,
+                11
+              ],
+              "accuracy": 0.7373737373737373,
+              "precision": 0.3548387096774194,
+              "sensitivity": 0.6470588235294118,
+              "specificity": 0.7560975609756098,
+              "f1": 0.4583333333333333,
+              "balanced_accuracy": 0.7015781922525108
+            }
+          }
+        },
+        "pairs": {
+          "geometry_rf__geometry_lr": {
+            "left": "geometry_rf",
+            "right": "geometry_lr",
+            "common_n": 99,
+            "common_positives": 17,
+            "common_negatives": 82,
+            "disagreements": 13,
+            "both_wrong": 6,
+            "both_false_negative": 4,
+            "both_false_positive": 2,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 4,
+            "left_fp_rejected_by_right": 2,
+            "right_fp_rejected_by_left": 7,
+            "error_correlation": 0.4546407939607465
+          },
+          "geometry_rf__embedding_lr_001": {
+            "left": "geometry_rf",
+            "right": "embedding_lr_001",
+            "common_n": 99,
+            "common_positives": 17,
+            "common_negatives": 82,
+            "disagreements": 22,
+            "both_wrong": 6,
+            "both_false_negative": 4,
+            "both_false_positive": 2,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 2,
+            "left_fp_rejected_by_right": 2,
+            "right_fp_rejected_by_left": 18,
+            "error_correlation": 0.3283775898243654
+          },
+          "geometry_lr__embedding_lr_001": {
+            "left": "geometry_lr",
+            "right": "embedding_lr_001",
+            "common_n": 99,
+            "common_positives": 17,
+            "common_negatives": 82,
+            "disagreements": 29,
+            "both_wrong": 7,
+            "both_false_negative": 4,
+            "both_false_positive": 3,
+            "left_fn_detected_by_right": 4,
+            "right_fn_detected_by_left": 2,
+            "left_fp_rejected_by_right": 6,
+            "right_fp_rejected_by_left": 17,
+            "error_correlation": 0.15431005659870148
+          }
+        },
+        "all_experts_common": {
+          "n": 99,
+          "excluded_unavailable": 0,
+          "positives": 17,
+          "unanimous_false_negative": 4,
+          "unanimous_false_positive": 1,
+          "disagreement_images": 32
+        },
+        "fixed_voting_controls_on_common": {
+          "any_positive": {
+            "n": 99,
+            "positives": 17,
+            "negatives": 82,
+            "tn_fp_fn_tp": [
+              55,
+              27,
+              4,
+              13
+            ],
+            "accuracy": 0.6868686868686869,
+            "precision": 0.325,
+            "sensitivity": 0.7647058823529411,
+            "specificity": 0.6707317073170732,
+            "f1": 0.45614035087719296,
+            "balanced_accuracy": 0.7177187948350072
+          },
+          "all_positive": {
+            "n": 99,
+            "positives": 17,
+            "negatives": 82,
+            "tn_fp_fn_tp": [
+              81,
+              1,
+              10,
+              7
+            ],
+            "accuracy": 0.8888888888888888,
+            "precision": 0.875,
+            "sensitivity": 0.4117647058823529,
+            "specificity": 0.9878048780487805,
+            "f1": 0.56,
+            "balanced_accuracy": 0.6997847919655666
+          },
+          "majority": {
+            "n": 99,
+            "positives": 17,
+            "negatives": 82,
+            "tn_fp_fn_tp": [
+              77,
+              5,
+              4,
+              13
+            ],
+            "accuracy": 0.9090909090909091,
+            "precision": 0.7222222222222222,
+            "sensitivity": 0.7647058823529411,
+            "specificity": 0.9390243902439024,
+            "f1": 0.7428571428571429,
+            "balanced_accuracy": 0.8518651362984218
+          }
+        }
+      }
+    },
+    "hip_position_rotation": {
+      "classifier_threshold_votes": {
+        "reference_n": 150,
+        "reference_positives": 36,
+        "experts": {
+          "geometry_rf": {
+            "evaluated": 150,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 150,
+              "positives": 36,
+              "negatives": 114,
+              "tn_fp_fn_tp": [
+                94,
+                20,
+                16,
+                20
+              ],
+              "accuracy": 0.76,
+              "precision": 0.5,
+              "sensitivity": 0.5555555555555556,
+              "specificity": 0.8245614035087719,
+              "f1": 0.5263157894736842,
+              "balanced_accuracy": 0.6900584795321638
+            }
+          },
+          "geometry_lr": {
+            "evaluated": 150,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 150,
+              "positives": 36,
+              "negatives": 114,
+              "tn_fp_fn_tp": [
+                71,
+                43,
+                12,
+                24
+              ],
+              "accuracy": 0.6333333333333333,
+              "precision": 0.3582089552238806,
+              "sensitivity": 0.6666666666666666,
+              "specificity": 0.6228070175438597,
+              "f1": 0.46601941747572817,
+              "balanced_accuracy": 0.6447368421052632
+            }
+          },
+          "embedding_lr_001": {
+            "evaluated": 150,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 150,
+              "positives": 36,
+              "negatives": 114,
+              "tn_fp_fn_tp": [
+                71,
+                43,
+                11,
+                25
+              ],
+              "accuracy": 0.64,
+              "precision": 0.36764705882352944,
+              "sensitivity": 0.6944444444444444,
+              "specificity": 0.6228070175438597,
+              "f1": 0.4807692307692308,
+              "balanced_accuracy": 0.6586257309941521
+            }
+          }
+        },
+        "pairs": {
+          "geometry_rf__geometry_lr": {
+            "left": "geometry_rf",
+            "right": "geometry_lr",
+            "common_n": 150,
+            "common_positives": 36,
+            "common_negatives": 114,
+            "disagreements": 39,
+            "both_wrong": 26,
+            "both_false_negative": 9,
+            "both_false_positive": 17,
+            "left_fn_detected_by_right": 7,
+            "right_fn_detected_by_left": 3,
+            "left_fp_rejected_by_right": 3,
+            "right_fp_rejected_by_left": 26,
+            "error_correlation": 0.4146239696145934
+          },
+          "geometry_rf__embedding_lr_001": {
+            "left": "geometry_rf",
+            "right": "embedding_lr_001",
+            "common_n": 150,
+            "common_positives": 36,
+            "common_negatives": 114,
+            "disagreements": 54,
+            "both_wrong": 18,
+            "both_false_negative": 7,
+            "both_false_positive": 11,
+            "left_fn_detected_by_right": 9,
+            "right_fn_detected_by_left": 4,
+            "left_fp_rejected_by_right": 9,
+            "right_fp_rejected_by_left": 32,
+            "error_correlation": 0.1639025170267963
+          },
+          "geometry_lr__embedding_lr_001": {
+            "left": "geometry_lr",
+            "right": "embedding_lr_001",
+            "common_n": 150,
+            "common_positives": 36,
+            "common_negatives": 114,
+            "disagreements": 47,
+            "both_wrong": 31,
+            "both_false_negative": 7,
+            "both_false_positive": 24,
+            "left_fn_detected_by_right": 5,
+            "right_fn_detected_by_left": 4,
+            "left_fp_rejected_by_right": 19,
+            "right_fp_rejected_by_left": 19,
+            "error_correlation": 0.32280008313750086
+          }
+        },
+        "all_experts_common": {
+          "n": 150,
+          "excluded_unavailable": 0,
+          "positives": 36,
+          "unanimous_false_negative": 4,
+          "unanimous_false_positive": 11,
+          "disagreement_images": 70
+        },
+        "fixed_voting_controls_on_common": {
+          "any_positive": {
+            "n": 150,
+            "positives": 36,
+            "negatives": 114,
+            "tn_fp_fn_tp": [
+              49,
+              65,
+              4,
+              32
+            ],
+            "accuracy": 0.54,
+            "precision": 0.32989690721649484,
+            "sensitivity": 0.8888888888888888,
+            "specificity": 0.4298245614035088,
+            "f1": 0.48120300751879697,
+            "balanced_accuracy": 0.6593567251461988
+          },
+          "all_positive": {
+            "n": 150,
+            "positives": 36,
+            "negatives": 114,
+            "tn_fp_fn_tp": [
+              103,
+              11,
+              20,
+              16
+            ],
+            "accuracy": 0.7933333333333333,
+            "precision": 0.5925925925925926,
+            "sensitivity": 0.4444444444444444,
+            "specificity": 0.9035087719298246,
+            "f1": 0.5079365079365079,
+            "balanced_accuracy": 0.6739766081871346
+          },
+          "majority": {
+            "n": 150,
+            "positives": 36,
+            "negatives": 114,
+            "tn_fp_fn_tp": [
+              84,
+              30,
+              15,
+              21
+            ],
+            "accuracy": 0.7,
+            "precision": 0.4117647058823529,
+            "sensitivity": 0.5833333333333334,
+            "specificity": 0.7368421052631579,
+            "f1": 0.4827586206896552,
+            "balanced_accuracy": 0.6600877192982456
+          }
+        }
+      },
+      "final_criterion_decisions": {
+        "reference_n": 150,
+        "reference_positives": 36,
+        "experts": {
+          "geometry_rf": {
+            "evaluated": 150,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 150,
+              "positives": 36,
+              "negatives": 114,
+              "tn_fp_fn_tp": [
+                94,
+                20,
+                16,
+                20
+              ],
+              "accuracy": 0.76,
+              "precision": 0.5,
+              "sensitivity": 0.5555555555555556,
+              "specificity": 0.8245614035087719,
+              "f1": 0.5263157894736842,
+              "balanced_accuracy": 0.6900584795321638
+            }
+          },
+          "geometry_lr": {
+            "evaluated": 150,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 150,
+              "positives": 36,
+              "negatives": 114,
+              "tn_fp_fn_tp": [
+                71,
+                43,
+                12,
+                24
+              ],
+              "accuracy": 0.6333333333333333,
+              "precision": 0.3582089552238806,
+              "sensitivity": 0.6666666666666666,
+              "specificity": 0.6228070175438597,
+              "f1": 0.46601941747572817,
+              "balanced_accuracy": 0.6447368421052632
+            }
+          },
+          "embedding_lr_001": {
+            "evaluated": 150,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 150,
+              "positives": 36,
+              "negatives": 114,
+              "tn_fp_fn_tp": [
+                71,
+                43,
+                11,
+                25
+              ],
+              "accuracy": 0.64,
+              "precision": 0.36764705882352944,
+              "sensitivity": 0.6944444444444444,
+              "specificity": 0.6228070175438597,
+              "f1": 0.4807692307692308,
+              "balanced_accuracy": 0.6586257309941521
+            }
+          }
+        },
+        "pairs": {
+          "geometry_rf__geometry_lr": {
+            "left": "geometry_rf",
+            "right": "geometry_lr",
+            "common_n": 150,
+            "common_positives": 36,
+            "common_negatives": 114,
+            "disagreements": 39,
+            "both_wrong": 26,
+            "both_false_negative": 9,
+            "both_false_positive": 17,
+            "left_fn_detected_by_right": 7,
+            "right_fn_detected_by_left": 3,
+            "left_fp_rejected_by_right": 3,
+            "right_fp_rejected_by_left": 26,
+            "error_correlation": 0.4146239696145934
+          },
+          "geometry_rf__embedding_lr_001": {
+            "left": "geometry_rf",
+            "right": "embedding_lr_001",
+            "common_n": 150,
+            "common_positives": 36,
+            "common_negatives": 114,
+            "disagreements": 54,
+            "both_wrong": 18,
+            "both_false_negative": 7,
+            "both_false_positive": 11,
+            "left_fn_detected_by_right": 9,
+            "right_fn_detected_by_left": 4,
+            "left_fp_rejected_by_right": 9,
+            "right_fp_rejected_by_left": 32,
+            "error_correlation": 0.1639025170267963
+          },
+          "geometry_lr__embedding_lr_001": {
+            "left": "geometry_lr",
+            "right": "embedding_lr_001",
+            "common_n": 150,
+            "common_positives": 36,
+            "common_negatives": 114,
+            "disagreements": 47,
+            "both_wrong": 31,
+            "both_false_negative": 7,
+            "both_false_positive": 24,
+            "left_fn_detected_by_right": 5,
+            "right_fn_detected_by_left": 4,
+            "left_fp_rejected_by_right": 19,
+            "right_fp_rejected_by_left": 19,
+            "error_correlation": 0.32280008313750086
+          }
+        },
+        "all_experts_common": {
+          "n": 150,
+          "excluded_unavailable": 0,
+          "positives": 36,
+          "unanimous_false_negative": 4,
+          "unanimous_false_positive": 11,
+          "disagreement_images": 70
+        },
+        "fixed_voting_controls_on_common": {
+          "any_positive": {
+            "n": 150,
+            "positives": 36,
+            "negatives": 114,
+            "tn_fp_fn_tp": [
+              49,
+              65,
+              4,
+              32
+            ],
+            "accuracy": 0.54,
+            "precision": 0.32989690721649484,
+            "sensitivity": 0.8888888888888888,
+            "specificity": 0.4298245614035088,
+            "f1": 0.48120300751879697,
+            "balanced_accuracy": 0.6593567251461988
+          },
+          "all_positive": {
+            "n": 150,
+            "positives": 36,
+            "negatives": 114,
+            "tn_fp_fn_tp": [
+              103,
+              11,
+              20,
+              16
+            ],
+            "accuracy": 0.7933333333333333,
+            "precision": 0.5925925925925926,
+            "sensitivity": 0.4444444444444444,
+            "specificity": 0.9035087719298246,
+            "f1": 0.5079365079365079,
+            "balanced_accuracy": 0.6739766081871346
+          },
+          "majority": {
+            "n": 150,
+            "positives": 36,
+            "negatives": 114,
+            "tn_fp_fn_tp": [
+              84,
+              30,
+              15,
+              21
+            ],
+            "accuracy": 0.7,
+            "precision": 0.4117647058823529,
+            "sensitivity": 0.5833333333333334,
+            "specificity": 0.7368421052631579,
+            "f1": 0.4827586206896552,
+            "balanced_accuracy": 0.6600877192982456
+          }
+        }
+      }
+    },
+    "hip_roi_coverage": {
+      "classifier_threshold_votes": {
+        "reference_n": 150,
+        "reference_positives": 7,
+        "experts": {
+          "geometry_rf": {
+            "evaluated": 150,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 150,
+              "positives": 7,
+              "negatives": 143,
+              "tn_fp_fn_tp": [
+                136,
+                7,
+                2,
+                5
+              ],
+              "accuracy": 0.94,
+              "precision": 0.4166666666666667,
+              "sensitivity": 0.7142857142857143,
+              "specificity": 0.951048951048951,
+              "f1": 0.5263157894736842,
+              "balanced_accuracy": 0.8326673326673326
+            }
+          },
+          "geometry_lr": {
+            "evaluated": 150,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 150,
+              "positives": 7,
+              "negatives": 143,
+              "tn_fp_fn_tp": [
+                142,
+                1,
+                3,
+                4
+              ],
+              "accuracy": 0.9733333333333334,
+              "precision": 0.8,
+              "sensitivity": 0.5714285714285714,
+              "specificity": 0.993006993006993,
+              "f1": 0.6666666666666666,
+              "balanced_accuracy": 0.7822177822177823
+            }
+          },
+          "embedding_lr_001": {
+            "evaluated": 150,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 150,
+              "positives": 7,
+              "negatives": 143,
+              "tn_fp_fn_tp": [
+                137,
+                6,
+                3,
+                4
+              ],
+              "accuracy": 0.94,
+              "precision": 0.4,
+              "sensitivity": 0.5714285714285714,
+              "specificity": 0.958041958041958,
+              "f1": 0.47058823529411764,
+              "balanced_accuracy": 0.7647352647352648
+            }
+          }
+        },
+        "pairs": {
+          "geometry_rf__geometry_lr": {
+            "left": "geometry_rf",
+            "right": "geometry_lr",
+            "common_n": 150,
+            "common_positives": 7,
+            "common_negatives": 143,
+            "disagreements": 7,
+            "both_wrong": 3,
+            "both_false_negative": 2,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 1,
+            "left_fp_rejected_by_right": 6,
+            "right_fp_rejected_by_left": 0,
+            "error_correlation": 0.48090922339098763
+          },
+          "geometry_rf__embedding_lr_001": {
+            "left": "geometry_rf",
+            "right": "embedding_lr_001",
+            "common_n": 150,
+            "common_positives": 7,
+            "common_negatives": 143,
+            "disagreements": 12,
+            "both_wrong": 3,
+            "both_false_negative": 1,
+            "both_false_positive": 2,
+            "left_fn_detected_by_right": 1,
+            "right_fn_detected_by_left": 2,
+            "left_fp_rejected_by_right": 5,
+            "right_fp_rejected_by_left": 4,
+            "error_correlation": 0.290780141843972
+          },
+          "geometry_lr__embedding_lr_001": {
+            "left": "geometry_lr",
+            "right": "embedding_lr_001",
+            "common_n": 150,
+            "common_positives": 7,
+            "common_negatives": 143,
+            "disagreements": 7,
+            "both_wrong": 3,
+            "both_false_negative": 2,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 1,
+            "right_fn_detected_by_left": 1,
+            "left_fp_rejected_by_right": 0,
+            "right_fp_rejected_by_left": 5,
+            "error_correlation": 0.4809092233909879
+          }
+        },
+        "all_experts_common": {
+          "n": 150,
+          "excluded_unavailable": 0,
+          "positives": 7,
+          "unanimous_false_negative": 1,
+          "unanimous_false_positive": 1,
+          "disagreement_images": 13
+        },
+        "fixed_voting_controls_on_common": {
+          "any_positive": {
+            "n": 150,
+            "positives": 7,
+            "negatives": 143,
+            "tn_fp_fn_tp": [
+              132,
+              11,
+              1,
+              6
+            ],
+            "accuracy": 0.92,
+            "precision": 0.35294117647058826,
+            "sensitivity": 0.8571428571428571,
+            "specificity": 0.9230769230769231,
+            "f1": 0.5,
+            "balanced_accuracy": 0.8901098901098901
+          },
+          "all_positive": {
+            "n": 150,
+            "positives": 7,
+            "negatives": 143,
+            "tn_fp_fn_tp": [
+              142,
+              1,
+              4,
+              3
+            ],
+            "accuracy": 0.9666666666666667,
+            "precision": 0.75,
+            "sensitivity": 0.42857142857142855,
+            "specificity": 0.993006993006993,
+            "f1": 0.5454545454545454,
+            "balanced_accuracy": 0.7107892107892108
+          },
+          "majority": {
+            "n": 150,
+            "positives": 7,
+            "negatives": 143,
+            "tn_fp_fn_tp": [
+              141,
+              2,
+              3,
+              4
+            ],
+            "accuracy": 0.9666666666666667,
+            "precision": 0.6666666666666666,
+            "sensitivity": 0.5714285714285714,
+            "specificity": 0.986013986013986,
+            "f1": 0.6153846153846154,
+            "balanced_accuracy": 0.7787212787212787
+          }
+        }
+      },
+      "final_criterion_decisions": {
+        "reference_n": 150,
+        "reference_positives": 7,
+        "experts": {
+          "geometry_rf": {
+            "evaluated": 150,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 150,
+              "positives": 7,
+              "negatives": 143,
+              "tn_fp_fn_tp": [
+                136,
+                7,
+                2,
+                5
+              ],
+              "accuracy": 0.94,
+              "precision": 0.4166666666666667,
+              "sensitivity": 0.7142857142857143,
+              "specificity": 0.951048951048951,
+              "f1": 0.5263157894736842,
+              "balanced_accuracy": 0.8326673326673326
+            }
+          },
+          "geometry_lr": {
+            "evaluated": 150,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 150,
+              "positives": 7,
+              "negatives": 143,
+              "tn_fp_fn_tp": [
+                142,
+                1,
+                3,
+                4
+              ],
+              "accuracy": 0.9733333333333334,
+              "precision": 0.8,
+              "sensitivity": 0.5714285714285714,
+              "specificity": 0.993006993006993,
+              "f1": 0.6666666666666666,
+              "balanced_accuracy": 0.7822177822177823
+            }
+          },
+          "embedding_lr_001": {
+            "evaluated": 150,
+            "unavailable": 0,
+            "unavailable_positives": 0,
+            "metrics_on_evaluated": {
+              "n": 150,
+              "positives": 7,
+              "negatives": 143,
+              "tn_fp_fn_tp": [
+                137,
+                6,
+                3,
+                4
+              ],
+              "accuracy": 0.94,
+              "precision": 0.4,
+              "sensitivity": 0.5714285714285714,
+              "specificity": 0.958041958041958,
+              "f1": 0.47058823529411764,
+              "balanced_accuracy": 0.7647352647352648
+            }
+          }
+        },
+        "pairs": {
+          "geometry_rf__geometry_lr": {
+            "left": "geometry_rf",
+            "right": "geometry_lr",
+            "common_n": 150,
+            "common_positives": 7,
+            "common_negatives": 143,
+            "disagreements": 7,
+            "both_wrong": 3,
+            "both_false_negative": 2,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 0,
+            "right_fn_detected_by_left": 1,
+            "left_fp_rejected_by_right": 6,
+            "right_fp_rejected_by_left": 0,
+            "error_correlation": 0.48090922339098763
+          },
+          "geometry_rf__embedding_lr_001": {
+            "left": "geometry_rf",
+            "right": "embedding_lr_001",
+            "common_n": 150,
+            "common_positives": 7,
+            "common_negatives": 143,
+            "disagreements": 12,
+            "both_wrong": 3,
+            "both_false_negative": 1,
+            "both_false_positive": 2,
+            "left_fn_detected_by_right": 1,
+            "right_fn_detected_by_left": 2,
+            "left_fp_rejected_by_right": 5,
+            "right_fp_rejected_by_left": 4,
+            "error_correlation": 0.290780141843972
+          },
+          "geometry_lr__embedding_lr_001": {
+            "left": "geometry_lr",
+            "right": "embedding_lr_001",
+            "common_n": 150,
+            "common_positives": 7,
+            "common_negatives": 143,
+            "disagreements": 7,
+            "both_wrong": 3,
+            "both_false_negative": 2,
+            "both_false_positive": 1,
+            "left_fn_detected_by_right": 1,
+            "right_fn_detected_by_left": 1,
+            "left_fp_rejected_by_right": 0,
+            "right_fp_rejected_by_left": 5,
+            "error_correlation": 0.4809092233909879
+          }
+        },
+        "all_experts_common": {
+          "n": 150,
+          "excluded_unavailable": 0,
+          "positives": 7,
+          "unanimous_false_negative": 1,
+          "unanimous_false_positive": 1,
+          "disagreement_images": 13
+        },
+        "fixed_voting_controls_on_common": {
+          "any_positive": {
+            "n": 150,
+            "positives": 7,
+            "negatives": 143,
+            "tn_fp_fn_tp": [
+              132,
+              11,
+              1,
+              6
+            ],
+            "accuracy": 0.92,
+            "precision": 0.35294117647058826,
+            "sensitivity": 0.8571428571428571,
+            "specificity": 0.9230769230769231,
+            "f1": 0.5,
+            "balanced_accuracy": 0.8901098901098901
+          },
+          "all_positive": {
+            "n": 150,
+            "positives": 7,
+            "negatives": 143,
+            "tn_fp_fn_tp": [
+              142,
+              1,
+              4,
+              3
+            ],
+            "accuracy": 0.9666666666666667,
+            "precision": 0.75,
+            "sensitivity": 0.42857142857142855,
+            "specificity": 0.993006993006993,
+            "f1": 0.5454545454545454,
+            "balanced_accuracy": 0.7107892107892108
+          },
+          "majority": {
+            "n": 150,
+            "positives": 7,
+            "negatives": 143,
+            "tn_fp_fn_tp": [
+              141,
+              2,
+              3,
+              4
+            ],
+            "accuracy": 0.9666666666666667,
+            "precision": 0.6666666666666666,
+            "sensitivity": 0.5714285714285714,
+            "specificity": 0.986013986013986,
+            "f1": 0.6153846153846154,
+            "balanced_accuracy": 0.7787212787212787
+          }
+        }
+      }
+    }
+  },
+  "clinical_validation": false,
+  "model_affects_decision": false,
+  "weights_fitted": false,
+  "limitations": [
+    "Previously inspected internal OOF; no new independent test or measured ensemble gain.",
+    "Matching folds and identities do not prove model training or selection provenance.",
+    "Patient independence is not established by study identities.",
+    "Shared routing and physical measurements can force shared final errors.",
+    "Threshold votes are diagnostic classifier signals, not validated physical findings.",
+    "Counts corrected by another expert are potential complementarity, not achievable ensemble gains.",
+    "Fixed voting controls are post-hoc descriptive benchmarks, not new clinical model evaluations.",
+    "Subset metrics explicitly exclude unavailable votes; coverage and unavailable positives are reported.",
+    "Error correlations are descriptive; no confidence intervals or independence guarantees."
+  ]
+}

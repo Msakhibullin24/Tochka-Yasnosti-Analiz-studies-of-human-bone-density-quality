@@ -1,0 +1,279 @@
+{
+  "as_of": "2026-10-04",
+  "scope": "Source checks, offline fixed-image replay and controlled engineering probes; not clinical validation",
+  "release_image_id": "sha256:f052f998769029a0946cd9ed43afde99a1ea584c59dcadddfa4c4f7836bcaa2b",
+  "clinical_validation": false,
+  "verification": {
+    "frontend_tests_passed": 74,
+    "frontend_lint": true,
+    "frontend_build": true,
+    "research_backend_passed": 53,
+    "research_backend_skipped": 2,
+    "competition_before_import_fix": {
+      "passed": 395,
+      "skipped": 5
+    },
+    "competition_after_import_fix": {
+      "passed": 396,
+      "skipped": 5
+    },
+    "debug_set_previously_skipped": {
+      "passed": 1,
+      "scope": "Source runtime routing of organizer three-image set"
+    },
+    "unique_tests_passed_after_fix_including_debug_opt_in": 524,
+    "unresolved_skips": {
+      "count": 6,
+      "reasons": {
+        "backend_torch_missing": 1,
+        "backend_sklearn_missing": 1,
+        "matplotlib_module_missing": 1,
+        "transformers_version_below_gpu_research_requirement": 3
+      }
+    },
+    "isolated_research_failure_fixed": true,
+    "research_fix_checks": {
+      "passed": 39,
+      "skipped": 3
+    }
+  },
+  "inference_profile_integrity": {
+    "pinned_files": 37,
+    "mismatches": [],
+    "medical_weights_changed": false,
+    "image_rebuilt": false
+  },
+  "organizer_replay": {
+    "source_files": 499,
+    "success": 499,
+    "failure": 0,
+    "strict_valid": true,
+    "full_engineering_validation_valid": true,
+    "comparison_with_previous_final_image_run": {
+      "images": 499,
+      "exact_medical_matches": 499,
+      "fields": [
+        "study_uid",
+        "image_uid",
+        "anatomical_region",
+        "quality_class",
+        "violation_type",
+        "processing_status",
+        "quality_prob",
+        "measurements",
+        "criterion_states",
+        "projection_assessment",
+        "anatomical_checks_complete"
+      ]
+    },
+    "requirements_complete": false,
+    "requirements_blockers": [
+      "anatomical_checks_incomplete"
+    ],
+    "batch_seconds": 161.902,
+    "max_study_upper_bound_seconds": 42.08621046199873,
+    "process_peak_rss_bytes": 508121088,
+    "timing_scope": "Shared local CPU machine, not isolated load or H200 benchmark"
+  },
+  "three_image_same_image_repeat": {
+    "source_files": 3,
+    "comparison": {
+      "images": 3,
+      "exact_medical_matches": 3,
+      "fields": [
+        "study_uid",
+        "image_uid",
+        "anatomical_region",
+        "quality_class",
+        "violation_type",
+        "processing_status",
+        "quality_prob",
+        "measurements",
+        "criterion_states",
+        "projection_assessment",
+        "anatomical_checks_complete"
+      ]
+    },
+    "strict_valid": true,
+    "full_engineering_validation_valid": true,
+    "additional_series_byte_equal": true,
+    "accuracy_measured": false
+  },
+  "geometry_stress": {
+    "protocol": "Organiser images; deterministic physical ±7° rotation and 1.1x−3 brightness perturbation",
+    "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+    "decoded_pixel_hashes_sha256": "07bb74b888ba75ec99ecbf6336a316f8199c3f8aa7b29831290acc70d7d663bb",
+    "images": 249,
+    "studies": 100,
+    "spine": {
+      "n": 99,
+      "axis_positive_labels": 10,
+      "positive_with_global_angle_at_most_5deg": 9,
+      "positive_with_body_angle_at_most_5deg": 9,
+      "positive_with_body_angle_available": 10,
+      "rotation_trials": 198,
+      "rotation_abs_error_median_deg": 0.10911030273670752,
+      "rotation_abs_error_max_deg": 0.8574719798346351,
+      "rotation_abs_error_over_1deg": 0
+    },
+    "hip": {
+      "n": 150,
+      "shaft_angle_shift_over_1deg": 3,
+      "lesser_troch_shift_over_5mm": 15,
+      "lesser_troch_shift_p95_mm": 16.788731850723238,
+      "source_roi_absent": 150,
+      "positive_roi_labels": 7,
+      "positive_roi_labels_without_source_roi": 7
+    },
+    "limitations": [
+      "Synthetic equivariance does not validate anatomical localisation or labels.",
+      "Body candidates and the global axis share the same centreline tracker.",
+      "Brightness shift is one repeatability stress, not a clinical accuracy test.",
+      "Study groups are not proven patient-disjoint."
+    ],
+    "code_sha256": "52e76b498fb15446fc10c0310c316c3981c6b40677c5483c7ad213df3e82c6e0"
+  },
+  "controlled_contract_probes": {
+    "scope": "controlled contract probes, not clinical accuracy tests",
+    "dynamics_incomplete_and_different_devices": {
+      "verdict": "comparable",
+      "verdict_ru": "Исследования сопоставимы",
+      "anatomical_region": "Поясничный отдел позвоночника",
+      "checks": [
+        {
+          "id": "region",
+          "label": "Одна анатомическая область",
+          "status": "pass",
+          "detail": "Поясничный отдел позвоночника / Поясничный отдел позвоночника",
+          "baseline": null,
+          "followup": null,
+          "delta": null,
+          "unit": ""
+        },
+        {
+          "id": "quality_baseline",
+          "label": "Качество исследования (исходное)",
+          "status": "pass",
+          "detail": "нарушений не выявлено",
+          "baseline": null,
+          "followup": null,
+          "delta": null,
+          "unit": ""
+        },
+        {
+          "id": "quality_followup",
+          "label": "Качество исследования (повторное)",
+          "status": "pass",
+          "detail": "нарушений не выявлено",
+          "baseline": null,
+          "followup": null,
+          "delta": null,
+          "unit": ""
+        },
+        {
+          "id": "spine_angle_deg",
+          "label": "Наклон оси позвоночника",
+          "status": "pass",
+          "detail": "Δ = 0.0 ° (допуск 2, предел 4)",
+          "baseline": 1.0,
+          "followup": 1.0,
+          "delta": 0.0,
+          "unit": "°"
+        },
+        {
+          "id": "spine_centre_offset_mm",
+          "label": "Центрирование позвоночника",
+          "status": "pass",
+          "detail": "Δ = 0.0 мм (допуск 10, предел 20)",
+          "baseline": 1.0,
+          "followup": 1.0,
+          "delta": 0.0,
+          "unit": "мм"
+        },
+        {
+          "id": "image_height_mm",
+          "label": "Протяжённость зоны сканирования",
+          "status": "pass",
+          "detail": "Δ = 0.0 мм (допуск 15, предел 30)",
+          "baseline": 200.0,
+          "followup": 200.0,
+          "delta": 0.0,
+          "unit": "мм"
+        },
+        {
+          "id": "spine_curve_max_mm",
+          "label": "Кривизна оси (сколиоз / укладка)",
+          "status": "pass",
+          "detail": "Δ = 0.0 мм (допуск 4, предел 8)",
+          "baseline": 1.0,
+          "followup": 1.0,
+          "delta": 0.0,
+          "unit": "мм"
+        }
+      ],
+      "bmd_change": {
+        "baseline_bmd": 0.9,
+        "followup_bmd": 0.84,
+        "change_percent": -6.67,
+        "lsc_percent": 3,
+        "interpretation": "Изменение -6.7 % превышает LSC 3.0 % — значимо"
+      },
+      "tolerances_clinically_validated": false
+    },
+    "injected_analysis_runtime_error": {
+      "single_status": 500,
+      "single_body": {
+        "processing_status": "Failure",
+        "error_code": "INTERNAL_ERROR",
+        "error_message": "RuntimeError: controlled audit failure"
+      },
+      "compare_status": 500,
+      "compare_content_type": "text/plain; charset=utf-8",
+      "compare_body": "Internal Server Error"
+    },
+    "delivery_manifest_extension_probe": {
+      "input_suffixes": [
+        ".dcm",
+        ".dicom"
+      ],
+      "manifest_count": 1,
+      "manifest_paths": [
+        "one.dcm"
+      ]
+    },
+    "untyped_positive_in_study_report": {
+      "input_quality_class": 1,
+      "input_violation_type_status": "undetermined",
+      "renders_no_violation": true,
+      "html_fragment": "<article><h2>controlled.dcm</h2><p>Не проверено специалистом</p><p>Результат модели: Нарушений не выявлено</p></article>"
+    }
+  },
+  "environment": {
+    "torch": "2.1.2+cpu",
+    "cuda_available_in_competition_environment": false,
+    "cpu_count": 12
+  },
+  "corrected_research_imports": [
+    "competition/experiments/nested_criterion_upgrade.py",
+    "competition/experiments/verify_metric_candidate.py"
+  ],
+  "evidence_sha256": {
+    "data/project-audit-20261004/verify.log": "a1551a6bca61bf9c09ed48efd17bbabd5a53ced35a2f2c4cffd53765bedb43fb",
+    "data/project-audit-20261004/competition_after_fix.log": "5ac11e743335b8cf1b3f5124a19a8b81c8b3b908775427ff935170ba8972cd91",
+    "data/project-audit-20261004/research_fix_checks.log": "9e1d0bd02daca3ddd116d6f9db85787788ac01f563b57a558efa10b5e1fe9e29",
+    "data/project-audit-20261004/debug_set_check.log": "fb8a25e6bf23a10e8c398060484da90546cfc45783de6e95cefec540a355cd63",
+    "data/project-audit-20261004/organizer_delivery_audit.json": "b097035a0c266b3db925c370b37b1d24f35575e56eb35cf3688b25124e0e0d52",
+    "data/project-audit-20261004/test_repeat_delivery_audit.json": "3f0c3e3f1af6a02bb149c105556afb05d0282607f8550758f0c3b01e20c0782d",
+    "data/project-audit-20261004/contract_probes.json": "5c4b7ae155170dc56ea60995a199928ddcf5d3e4cf31881b774a058c49b67330",
+    "data/project-audit-20261004/geometry_stress.json": "b56fcf96331e621f03da21722f13b5731a7b2d6a353a56e312a16cca0b487814",
+    "competition/tests/test_gpu_research.py": "719269a9661f261080b73b8884e926efb2feb4ce5b7462aa63dcf0de3036f56e"
+  },
+  "limitations": [
+    "Controlled probes are not observed patient outcomes.",
+    "Batch medical outputs match historical fitted weights, not independent truth.",
+    "Successful file processing does not prove anatomical correctness.",
+    "GPU training and target H200 benchmarking were not performed.",
+    "SC/SR checks are not full independent DICOM conformance validation.",
+    "Production reporting and dynamics issues remain open."
+  ]
+}

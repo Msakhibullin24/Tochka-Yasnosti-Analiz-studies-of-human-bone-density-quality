@@ -27,7 +27,7 @@ from dxaqc.model import CRITERIA, SEED, _lr, _matrix, _rf, best_f1_threshold, gr
 from evaluate_organizer_dataset import binary_metrics, evaluate, sha256  # noqa: E402
 from source_integrity import inspect_sources  # noqa: E402
 from train import build_table  # noqa: E402
-from verify_metric_candidate import compare  # noqa: E402
+from experiments.verify_metric_candidate import compare  # noqa: E402
 
 VARIANTS = ('baseline_ensemble', 'geometry_rf', 'geometry_lr',
             'embedding_lr_001', 'embedding_lr_01', 'combined_lr_001')

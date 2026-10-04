@@ -13,7 +13,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from audit_quality_metric_priorities import confusion, sha256
+from experiments.audit_quality_metric_priorities import confusion, sha256
 from dxaqc.model import SEED, VIOLATION_LABEL
 from evaluate_organizer_dataset import evaluate
 
