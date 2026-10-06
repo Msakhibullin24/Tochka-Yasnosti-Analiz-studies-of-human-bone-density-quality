@@ -20,8 +20,8 @@ from sklearn.model_selection import StratifiedGroupKFold
 from torch import nn
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from gpu_research.common import (CATALOG, HERE, checkpoint_identity, digest, dump, fingerprint,
-                                 image_input, load_encoder, representations)
+from gpu_research.common import (CATALOG, HERE, checkpoint_identity, declared_patch_size, digest, dump,
+                                 fingerprint, image_input, load_encoder, representations)
 from dxaqc.dicom_io import read_any
 from dxaqc.decision import decide
 from dxaqc.model import CRITERIA, best_f1_threshold, group_of, official_violation_type
@@ -93,8 +93,9 @@ def run(args):
         raise ValueError('CPU mode is for frozen-head smoke tests only')
     entry = CATALOG[args.model]
     size = args.size or entry['size']
-    if size % (14 if entry['kind'] == 'siglip' else 16) or not 32 <= size <= 2048:
-        raise ValueError('Input size must be compatible with patch grid and 32..2048')
+    patch = declared_patch_size(args.model_dir, entry['kind'])
+    if size % patch or not 32 <= size <= 2048:
+        raise ValueError(f'Input size must be divisible by patch size {patch} and within 32..2048')
     labels = pd.read_csv(args.labels)
     labels = labels[labels.quality_class.notna()].reset_index(drop=True)
     baseline = pd.read_csv(args.baseline).sort_values('index').reset_index(drop=True)

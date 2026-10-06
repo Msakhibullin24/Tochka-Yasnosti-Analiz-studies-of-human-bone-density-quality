@@ -68,6 +68,20 @@ def checkpoint_identity(directory, kind):
             'weights_sha256': hashlib.sha256(json.dumps(files, sort_keys=True).encode()).hexdigest()}
 
 
+def declared_patch_size(model_dir, kind):
+    """Read patch_size from the checkpoint config; fall back to the family default.
+
+    DINOv2 and SigLIP use 14, DINOv3 uses 16, so this must not be hard-coded.
+    Tolerates a missing config so synthetic test encoders still run.
+    """
+    config = Path(model_dir) / 'config.json'
+    if config.exists():
+        declared = json.loads(config.read_text()).get('patch_size')
+        if declared:
+            return int(declared)
+    return 14 if kind in ('siglip', 'dinov2') else 16
+
+
 def load_encoder(directory, kind, device, precision):
     from transformers import AutoImageProcessor, AutoModel
     dtype = {'fp32': torch.float32, 'bf16': torch.bfloat16, 'fp16': torch.float16}[precision]
@@ -87,9 +101,8 @@ def load_encoder(directory, kind, device, precision):
 
 def image_input(processor, pixels, size, kind):
     rgb, transform = letterbox(pixels, size)
-    kwargs = {'do_resize': False}
-    if kind == 'dinov3_vit':
-        kwargs['do_center_crop'] = False
+    # Never let a processor crop or resample: the full DXA frame must survive.
+    kwargs = {'do_resize': False, 'do_center_crop': False}
     values = processor(images=rgb, return_tensors='pt', **kwargs)['pixel_values']
     if values.shape != (1, 3, size, size):
         raise ValueError('Processor cropped or resized the complete DXA frame')

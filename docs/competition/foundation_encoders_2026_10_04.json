@@ -1,0 +1,1910 @@
+{
+  "scope": "Research-only. Frozen and tail-fine-tuned foundation encoders on the organizer DXA cohort, internal study-held-out OOF. Not clinical validation.",
+  "date": "2026-10-04",
+  "question": "Does any HuggingFace transformers encoder (frozen or tail-fine-tuned) beat the shipped ResNet18 + geometry ensemble on the internal metric screen?",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4070",
+    "capability": [
+      8,
+      9
+    ],
+    "free_vram_bytes": 11760238592,
+    "total_vram_bytes": 12470845440,
+    "torch": "2.7.1+cu128",
+    "cuda_runtime": "12.8",
+    "bf16_supported": true,
+    "optimizer_smoke_passed": true,
+    "packages": {
+      "torchvision": "0.22.1+cu128",
+      "transformers": "5.17.0",
+      "numpy": "1.24.3",
+      "scikit-learn": "1.6.1"
+    },
+    "clinical_validation": false
+  },
+  "environment_packages": {
+    "torchvision": "0.22.1+cu128",
+    "transformers": "5.17.0",
+    "numpy": "1.24.3",
+    "scikit-learn": "1.6.1"
+  },
+  "dataset": {
+    "archive": "datasets/organizer/НД_для_обучения.zip",
+    "dicom_files": 499,
+    "studies": 100,
+    "labelled_images": 249,
+    "positives": 73,
+    "negatives": 176,
+    "extracted_to": "data/gpu-input/Исследования",
+    "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+    "source_fingerprint": "1cede858f61a3d86e507572749eda53f06639e4606daf51fcd6119215abb9df5",
+    "baseline_oof": "competition/reports/quality_review_axis_guard_posthoc_2026_09_29.csv"
+  },
+  "baseline_reference": {
+    "baseline": {
+      "tn_fp_fn_tp": [
+        142,
+        34,
+        28,
+        45
+      ],
+      "f1": 0.5921052631578947,
+      "sensitivity": 0.6164383561643836,
+      "specificity": 0.8068181818181818,
+      "false_safe_rate_among_auto_normal": 0.16470588235294117
+    },
+    "criterion_macro_f1": {
+      "baseline": 0.4817913754622615,
+      "candidate": 0.5066032558990304
+    },
+    "roc_auc": 0.7903175591531756
+  },
+  "frozen_runs": {
+    "resnet18_reference": {
+      "artifacts": "docs/competition",
+      "evaluation": "docs/competition/metric_upgrade_2026_10_03.json",
+      "encoder": {
+        "repo": "shipped competition/weights/resnet18-f37072fd.pth",
+        "revision": null
+      },
+      "per_variant_f1": {
+        "baseline_ensemble": 0.5774647887323944,
+        "geometry_rf": 0.5753424657534246,
+        "geometry_lr": 0.4819277108433735,
+        "embedding_lr_001": 0.5054945054945055,
+        "embedding_lr_01": 0.5168539325842697,
+        "combined_lr_001": 0.5,
+        "adaptive": 0.5797101449275363
+      },
+      "adaptive": {
+        "overall_f1": 0.5797101449275363,
+        "tn_fp_fn_tp": [
+          151,
+          25,
+          33,
+          40
+        ],
+        "f1_screen": 0.5797101449275363,
+        "sensitivity": 0.547945205479452,
+        "specificity": 0.8579545454545454,
+        "precision": 0.6153846153846154,
+        "roc_auc": 0.7623754669987547,
+        "average_precision": 0.6161261528457771,
+        "brier_score": 0.18512537337328888,
+        "criterion_macro_f1": 0.5066032558990304,
+        "paired_delta_f1": -0.012395118230358437,
+        "paired_delta_f1_ci95": [
+          -0.0931620765424176,
+          0.06537727843709089
+        ],
+        "false_safe_rate_among_auto_normal": 0.1793478260869565,
+        "passes_internal_metric_screen": false,
+        "failure_reasons": [
+          "overall_f1_not_higher",
+          "sensitivity_lower",
+          "additional_false_safe",
+          "spine_sensitivity_lower",
+          "hip_left_f1_lower",
+          "hip_left_sensitivity_lower",
+          "hip_left_roc_auc_lower",
+          "hip_left_average_precision_lower",
+          "hip_right_f1_lower",
+          "hip_right_sensitivity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "roc_auc_lower",
+          "average_precision_lower",
+          "balanced_accuracy_lower",
+          "brier_score_higher",
+          "spine_artifact_sensitivity_lower",
+          "hip_position_rotation_f1_lower",
+          "hip_position_rotation_sensitivity_lower",
+          "hip_roi_coverage_specificity_lower"
+        ]
+      }
+    },
+    "medsiglip448": {
+      "artifacts": "data/gpu-runs/medsiglip-frozen-2026-10-04/medsiglip-nested",
+      "evaluation": "data/gpu-runs/medsiglip-frozen-2026-10-04/medsiglip-nested/evaluation.json",
+      "encoder": {
+        "repo": "google/medsiglip-448",
+        "revision": "9cea28a1a1195f665105faa6e8544c112fd960a4",
+        "weights_sha256": "7e419784fa0b044131402606b5445f5ba2a68cd1e33efba3207e8663cd64b375",
+        "precision": "bf16",
+        "input_size": 448,
+        "pooling": "global-mean",
+        "features_sha256": "06dce474ebd28cacf2bfd0d6a78f4f293b4064ea29e406dc0c807b05a2c64d51",
+        "encoder_finetuned": false
+      },
+      "per_variant_f1": {
+        "baseline_ensemble": 0.4968152866242038,
+        "geometry_rf": 0.5753424657534246,
+        "geometry_lr": 0.4819277108433735,
+        "embedding_lr_001": 0.5212121212121212,
+        "embedding_lr_01": 0.49696969696969695,
+        "combined_lr_001": 0.5641025641025641,
+        "adaptive": 0.5714285714285714
+      },
+      "adaptive": {
+        "overall_f1": 0.5714285714285714,
+        "tn_fp_fn_tp": [
+          144,
+          32,
+          31,
+          42
+        ],
+        "f1_screen": 0.5714285714285714,
+        "sensitivity": 0.5753424657534246,
+        "specificity": 0.8181818181818182,
+        "precision": 0.5675675675675675,
+        "roc_auc": 0.7833904109589042,
+        "average_precision": 0.6309405425756609,
+        "brier_score": 0.18441275547277147,
+        "criterion_macro_f1": 0.5018935574229693,
+        "paired_delta_f1": -0.020676691729323293,
+        "paired_delta_f1_ci95": [
+          -0.1066811214081715,
+          0.06070387614505255
+        ],
+        "false_safe_rate_among_auto_normal": 0.17714285714285713,
+        "passes_internal_metric_screen": false,
+        "failure_reasons": [
+          "overall_f1_not_higher",
+          "sensitivity_lower",
+          "additional_false_safe",
+          "spine_sensitivity_lower",
+          "hip_right_f1_lower",
+          "hip_right_sensitivity_lower",
+          "hip_right_specificity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "roc_auc_lower",
+          "average_precision_lower",
+          "precision_lower",
+          "balanced_accuracy_lower",
+          "brier_score_higher",
+          "spine_artifact_sensitivity_lower",
+          "hip_position_rotation_f1_lower",
+          "hip_position_rotation_sensitivity_lower",
+          "hip_roi_coverage_specificity_lower"
+        ]
+      }
+    },
+    "dinov3_l": {
+      "artifacts": "data/gpu-runs/dinov3l-frozen-2026-10-04/dinov3-l-nested",
+      "evaluation": "data/gpu-runs/dinov3l-frozen-2026-10-04/dinov3-l-nested/evaluation.json",
+      "encoder": {
+        "repo": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+        "revision": "mirror snapshot 2026-10-04 (facebook access denied: gated manual, awaiting review)",
+        "weights_sha256": "c414df7facdfb7ad71ee45c72eb943fb6e50b51e9cfde73d752423c96ce0fb00",
+        "precision": "bf16",
+        "input_size": 512,
+        "pooling": "global-mean",
+        "features_sha256": "e5bf6f81fb76dad8159cf8bd98af620230b6107262926c3ebe088f36f334cc6e",
+        "encoder_finetuned": false
+      },
+      "per_variant_f1": {
+        "baseline_ensemble": 0.5771812080536913,
+        "geometry_rf": 0.5753424657534246,
+        "geometry_lr": 0.4819277108433735,
+        "embedding_lr_001": 0.4946236559139785,
+        "embedding_lr_01": 0.4948453608247423,
+        "combined_lr_001": 0.4946236559139785,
+        "adaptive": 0.6111111111111112
+      },
+      "adaptive": {
+        "overall_f1": 0.6111111111111112,
+        "tn_fp_fn_tp": [
+          149,
+          27,
+          29,
+          44
+        ],
+        "f1_screen": 0.6111111111111112,
+        "sensitivity": 0.6027397260273972,
+        "specificity": 0.8465909090909091,
+        "precision": 0.6197183098591549,
+        "roc_auc": 0.799579701120797,
+        "average_precision": 0.6493190825466724,
+        "brier_score": 0.1730625018982586,
+        "criterion_macro_f1": 0.4889456658084108,
+        "paired_delta_f1": 0.01900584795321647,
+        "paired_delta_f1_ci95": [
+          -0.05990981186713175,
+          0.09508940962539211
+        ],
+        "false_safe_rate_among_auto_normal": 0.16292134831460675,
+        "passes_internal_metric_screen": false,
+        "failure_reasons": [
+          "sensitivity_lower",
+          "additional_false_safe",
+          "spine_sensitivity_lower",
+          "hip_left_roc_auc_lower",
+          "hip_left_average_precision_lower",
+          "hip_right_f1_lower",
+          "hip_right_specificity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "brier_score_higher",
+          "spine_coverage_sensitivity_lower",
+          "spine_artifact_sensitivity_lower",
+          "hip_position_rotation_specificity_lower",
+          "hip_roi_coverage_f1_lower",
+          "hip_roi_coverage_specificity_lower"
+        ]
+      }
+    }
+  },
+  "finetune_runs": {
+    "medsiglip448_tail2": {
+      "artifacts": "data/gpu-runs/medsiglip-ft-tail2-2026-10-04",
+      "evaluation": "data/gpu-runs/medsiglip-ft-tail2-2026-10-04/evaluation.json",
+      "config": {
+        "model": "medsiglip",
+        "precision": "bf16",
+        "size": null,
+        "pooling": "global-mean",
+        "last_blocks": 2,
+        "batch_size": 2,
+        "epochs": 30,
+        "patience": 5,
+        "seed": 17,
+        "head_lr": 0.001,
+        "encoder_lr": 1e-05
+      },
+      "elapsed_minutes": 8.5,
+      "peak_vram_gib": 2.08,
+      "best_epoch_per_fold": [
+        9,
+        5,
+        3,
+        9,
+        10
+      ],
+      "epochs_run_per_fold": [
+        14,
+        10,
+        8,
+        14,
+        15
+      ],
+      "training_studies_per_fold": [
+        63,
+        57,
+        61,
+        59,
+        60
+      ],
+      "unvalidated_thresholds": {
+        "fold_1": [
+          "spine_axis",
+          "hip_roi_coverage"
+        ],
+        "fold_2": [
+          "hip_roi_coverage"
+        ]
+      },
+      "candidate": {
+        "tn_fp_fn_tp": [
+          97,
+          79,
+          22,
+          51
+        ],
+        "f1": 0.5024630541871922,
+        "sensitivity": 0.6986301369863014,
+        "specificity": 0.5511363636363636,
+        "false_safe_rate_among_auto_normal": 0.18487394957983194
+      },
+      "baseline": {
+        "tn_fp_fn_tp": [
+          142,
+          34,
+          28,
+          45
+        ],
+        "f1": 0.5921052631578947,
+        "sensitivity": 0.6164383561643836,
+        "specificity": 0.8068181818181818,
+        "false_safe_rate_among_auto_normal": 0.16470588235294117
+      },
+      "roc_auc": {
+        "baseline": 0.7903175591531756,
+        "candidate": 0.5354919053549191
+      },
+      "criterion_macro_f1": {
+        "baseline": 0.4817913754622615,
+        "candidate": 0.31506493506493505
+      },
+      "paired_delta_f1": -0.08964220897070252,
+      "paired_delta_f1_ci95": [
+        -0.18599562815780513,
+        0.006797647594209973
+      ],
+      "passes_internal_metric_screen": false,
+      "failure_reasons": [
+        "overall_f1_not_higher",
+        "specificity_lower",
+        "spine_f1_lower",
+        "spine_specificity_lower",
+        "spine_roc_auc_lower",
+        "spine_average_precision_lower",
+        "hip_left_specificity_lower",
+        "hip_left_roc_auc_lower",
+        "hip_left_average_precision_lower",
+        "hip_right_f1_lower",
+        "hip_right_specificity_lower",
+        "hip_right_roc_auc_lower",
+        "hip_right_average_precision_lower",
+        "paired_f1_ci_includes_nonimprovement",
+        "roc_auc_lower",
+        "average_precision_lower",
+        "precision_lower",
+        "balanced_accuracy_lower",
+        "brier_score_higher",
+        "criterion_macro_f1_lower",
+        "spine_coverage_f1_lower",
+        "spine_coverage_specificity_lower",
+        "spine_artifact_f1_lower",
+        "spine_artifact_sensitivity_lower",
+        "spine_artifact_specificity_lower",
+        "hip_position_rotation_f1_lower",
+        "hip_position_rotation_specificity_lower",
+        "hip_roi_coverage_f1_lower",
+        "hip_roi_coverage_sensitivity_lower"
+      ]
+    },
+    "dinov3_l_tail2": {
+      "artifacts": "data/gpu-runs/dinov3l-ft-tail2-2026-10-04",
+      "evaluation": "data/gpu-runs/dinov3l-ft-tail2-2026-10-04/evaluation.json",
+      "config": {
+        "model": "dinov3-l",
+        "precision": "bf16",
+        "size": null,
+        "pooling": "global-mean",
+        "last_blocks": 2,
+        "batch_size": 2,
+        "epochs": 30,
+        "patience": 5,
+        "seed": 17,
+        "head_lr": 0.001,
+        "encoder_lr": 1e-05
+      },
+      "elapsed_minutes": 5.2,
+      "peak_vram_gib": 1.54,
+      "best_epoch_per_fold": [
+        8,
+        5,
+        3,
+        5,
+        4
+      ],
+      "epochs_run_per_fold": [
+        13,
+        10,
+        8,
+        10,
+        9
+      ],
+      "training_studies_per_fold": [
+        63,
+        57,
+        61,
+        59,
+        60
+      ],
+      "unvalidated_thresholds": {
+        "fold_1": [
+          "spine_axis",
+          "hip_roi_coverage"
+        ],
+        "fold_2": [
+          "hip_roi_coverage"
+        ]
+      },
+      "candidate": {
+        "tn_fp_fn_tp": [
+          75,
+          101,
+          19,
+          54
+        ],
+        "f1": 0.47368421052631576,
+        "sensitivity": 0.7397260273972602,
+        "specificity": 0.42613636363636365,
+        "false_safe_rate_among_auto_normal": 0.20212765957446807
+      },
+      "baseline": {
+        "tn_fp_fn_tp": [
+          142,
+          34,
+          28,
+          45
+        ],
+        "f1": 0.5921052631578947,
+        "sensitivity": 0.6164383561643836,
+        "specificity": 0.8068181818181818,
+        "false_safe_rate_among_auto_normal": 0.16470588235294117
+      },
+      "roc_auc": {
+        "baseline": 0.7903175591531756,
+        "candidate": 0.590247509339975
+      },
+      "criterion_macro_f1": {
+        "baseline": 0.4817913754622615,
+        "candidate": 0.3190345761364413
+      },
+      "paired_delta_f1": -0.11842105263157893,
+      "paired_delta_f1_ci95": [
+        -0.2086106463321522,
+        -0.02720763335202664
+      ],
+      "passes_internal_metric_screen": false,
+      "failure_reasons": [
+        "overall_f1_not_higher",
+        "specificity_lower",
+        "spine_f1_lower",
+        "spine_specificity_lower",
+        "spine_roc_auc_lower",
+        "spine_average_precision_lower",
+        "hip_left_f1_lower",
+        "hip_left_specificity_lower",
+        "hip_left_roc_auc_lower",
+        "hip_left_average_precision_lower",
+        "hip_right_f1_lower",
+        "hip_right_specificity_lower",
+        "hip_right_roc_auc_lower",
+        "hip_right_average_precision_lower",
+        "paired_f1_ci_includes_nonimprovement",
+        "roc_auc_lower",
+        "average_precision_lower",
+        "precision_lower",
+        "balanced_accuracy_lower",
+        "brier_score_higher",
+        "criterion_macro_f1_lower",
+        "spine_coverage_f1_lower",
+        "spine_coverage_specificity_lower",
+        "spine_artifact_f1_lower",
+        "spine_artifact_sensitivity_lower",
+        "spine_artifact_specificity_lower",
+        "hip_position_rotation_f1_lower",
+        "hip_position_rotation_specificity_lower",
+        "hip_roi_coverage_f1_lower",
+        "hip_roi_coverage_sensitivity_lower"
+      ]
+    }
+  },
+  "criterion_headroom": {
+    "spine_coverage": {
+      "n": 99,
+      "positives": 6,
+      "baseline_f1": 0.5,
+      "best_variant_f1": 0.6666666666666666,
+      "official_type": "Некорректная укладка"
+    },
+    "spine_axis": {
+      "n": 99,
+      "positives": 10,
+      "baseline_f1": 0.16666666666666666,
+      "best_variant_f1": 0.16666666666666666,
+      "official_type": "Не выравнена ось позвоночника"
+    },
+    "spine_artifact": {
+      "n": 99,
+      "positives": 17,
+      "baseline_f1": 0.7567567567567568,
+      "best_variant_f1": 0.7647058823529411,
+      "official_type": "Присутствуют посторонние предметы"
+    },
+    "hip_position_rotation": {
+      "n": 150,
+      "positives": 36,
+      "baseline_f1": 0.5569620253164557,
+      "best_variant_f1": 0.5679012345679012,
+      "official_type": "Некорректная укладка"
+    },
+    "hip_roi_coverage": {
+      "n": 150,
+      "positives": 7,
+      "baseline_f1": 0.42857142857142855,
+      "best_variant_f1": 0.6666666666666666,
+      "official_type": "Некорректная область интереса"
+    }
+  },
+  "structural_findings": {
+    "spine_axis_is_classifier_invariant": {
+      "observed": "All 7 variants produce identical spine_axis tn/fp/fn/tp = [88, 1, 9, 1], F1 0.1667 in every frozen run.",
+      "cause": "run.py and nested_criterion_upgrade.py overwrite features[i][\"spine_abs_angle_deg\"] with the angle parsed from the baseline OOF criterion_states. The decision layer then applies the official >5 deg rule to that frozen measurement, so no classifier can influence the outcome.",
+      "consequence": "9 of 10 spine_axis positives are missed by construction. Overall F1 headroom on this cohort is capped until the angle measurement itself is improved.",
+      "measured_via": "spine_abs_angle_deg is not learnable from the current feature set; geometry_rf, geometry_lr and all four embedding variants agree exactly."
+    },
+    "fine_tuning_overfits": {
+      "observed": "DINOv3-L tail-2: candidate [75, 101, 19, 54] vs baseline [142, 34, 28, 45]; ROC AUC 0.790 -> 0.590; paired dF1 -0.1184 CI95 [-0.2086, -0.0272] (excludes zero on the negative side). MedSigLIP tail-2: [97, 79, 22, 51], ROC AUC 0.536, paired dF1 -0.0896.",
+      "cause": "Each outer fold trains on ~63 of 100 studies (~200 images). Unfreezing two full transformer blocks for up to 30 epochs with no image-level augmentation memorises the training fold.",
+      "note": "Inner-validation early stopping did not prevent it; the damage is in generalisation, not in epoch selection."
+    },
+    "noise_floor": {
+      "paired_delta_f1_ci95_width": "approximately +/-0.08 on 249 images with 73 positives split across 5 criteria",
+      "implication": "Differences below ~0.03 F1 are not distinguishable from noise on this cohort. Encoder ranking requires either more labelled data or paired tests with more folds."
+    },
+    "spine_axis_measurement_is_shrinkage_biased": {
+      "observed": "The measured angle separates the classes (ROC AUC 0.834) but the distributions almost fully overlap. Aligned n=89: 0.00-5.06 deg, median 1.40. Misaligned n=10: 1.38-5.34 deg, median 2.73. Only 1 of 10 positives exceeds the official 5 deg rule.",
+      "alternative_measurements_screened": {
+        "spine_abs_angle_deg": {
+          "auc": 0.8337,
+          "positives_over_5deg": 1,
+          "negatives_over_5deg": 1
+        },
+        "spine_seg_max_abs_angle_deg": {
+          "auc": 0.7191,
+          "positives_over_5deg": 2,
+          "negatives_over_5deg": 17
+        },
+        "spine_abs_centre_offset_mm": {
+          "auc": 0.7247,
+          "positives_over_5mm": 7,
+          "negatives_over_5mm": 34
+        },
+        "spine_curve_rms_mm": {
+          "auc": 0.527
+        },
+        "spine_curve_max_mm": {
+          "auc": 0.4989
+        },
+        "spine_seg_angle_range_deg": {
+          "auc": 0.4697
+        }
+      },
+      "diagnosis": "Our angle estimator shrinks large angles toward zero, so the official >5 deg cut lands at roughly the 90th percentile of the negatives. This is a measurement defect, not a classifier defect.",
+      "consequence": "spine_axis cannot be improved by threshold choice or by any encoder. Fixing it requires a new angle estimator validated on real misaligned scans; with only 10 positives in this cohort such a change cannot be validated here.",
+      "fix_requires": "Either an independent set of genuinely misaligned DXA scans with expert angles, or a decision to redefine the threshold for this cohort - the latter is a clinical definition change and was not made."
+    }
+  },
+  "dinov3_provenance": {
+    "repo": "PIA-SPACE-LAB/dinov3-vitl-pretrain-lvd1689m",
+    "upstream_repo": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+    "revision": "mirror snapshot 2026-10-04 (facebook access denied: gated manual, awaiting review)",
+    "provenance": "Unofficial ungated mirror, ACCEPTED only after bitwise cross-verification",
+    "verification": {
+      "method": "tensor-by-tensor bitwise comparison against an independent redistribution",
+      "reference": "timm/vit_large_patch16_dinov3.lvd1689m model.safetensors",
+      "tensors_identical": 366,
+      "tensors_mismatched": 0,
+      "shape_mismatched": 0,
+      "key_mapping": {
+        "timm blocks.N.mlp.fc1.*": "layer.N.mlp.up_proj.*",
+        "timm blocks.N.mlp.fc2.*": "layer.N.mlp.down_proj.*",
+        "timm blocks.N.attn.qkv.weight": "layer.N.attention.{q,k,v}_proj.weight (row split)",
+        "timm blocks.N.gamma_{1,2}": "layer.N.layer_scale{1,2}.lambda1",
+        "timm cls_token": "embeddings.cls_token",
+        "timm reg_token": "embeddings.register_tokens",
+        "timm patch_embed.proj.*": "embeddings.patch_embeddings.*"
+      },
+      "conclusion": "Byte-identical to the official Meta checkpoint; plain MLP, hidden = 4 x 1024 = 4096."
+    },
+    "rejected_mirrors": [
+      {
+        "repo": "rA9del/dinov3b16",
+        "reason": "MISMATCHED timm/vit_base_patch16_dinov3.lvd1689m on every checked tensor; wrong FFN (SwiGLU hidden=2048 instead of MLP hidden=3072); deleted without use."
+      },
+      {
+        "repo": "Fanqi-Lin-IR/dinov3_vitb16",
+        "reason": "Content verified official (162/162 bitwise vs timm) but shipped as Meta .pth with fused qkv; not loadable by AutoModel without conversion. Not used in this run."
+      }
+    ],
+    "architecture": {
+      "model_type": "dinov3_vit",
+      "hidden_size": 1024,
+      "num_hidden_layers": 24,
+      "num_attention_heads": 16,
+      "patch_size": 16,
+      "image_size": 224,
+      "num_register_tokens": 4,
+      "intermediate_size": 4096
+    },
+    "weights": {
+      "model.safetensors": "dcb2e45127cccbf1601e5f42fef165eea275c8e5213197e8dcf3f48822718179"
+    },
+    "config_sha256": "135ecd23e34a70b6fbed8b083fdecb319b7e3a54e3d849258bbe4ddcf1783bb5",
+    "processor_sha256": "960c41d1f3a7778b936365769a2d90550b318a6c0a53a0296957adacfe5e0dd7",
+    "weights_sha256": "c414df7facdfb7ad71ee45c72eb943fb6e50b51e9cfde73d752423c96ce0fb00"
+  },
+  "conclusions": {
+    "best_frozen": "dinov3_l adaptive, F1 0.6111, paired dF1 +0.0190 - the only encoder with a positive paired delta.",
+    "best_frozen_ci95": [
+      -0.0595,
+      0.095
+    ],
+    "anything_promoted": 0,
+    "fine_tuning": "Rejected. Both tail-2 fine-tunes were statistically significant degradations.",
+    "interpretation": "Frozen geometry features already dominate on 249 images. MedSigLIP and DINOv3-L frozen embeddings add little; tail fine-tuning removes what signal remains.",
+    "highest_value_next_steps": [
+      "Improve the spine_abs_angle_deg measurement; it is the single largest and currently unreachable loss (9/10 positives).",
+      "Multi-encoder fusion with PCA before the linear head, evaluated under the same nested protocol.",
+      "Augmented, low-LR fine-tuning (LayerNorm + head only, image augmentation) instead of unfreezing blocks.",
+      "Obtain more labelled DXA positioning data; the 249-image cohort cannot resolve differences of this size."
+    ]
+  },
+  "reproducibility": {
+    "bootstrap": "bash competition/gpu_research/bootstrap.sh",
+    "frozen": ".venv-gpu/bin/python competition/gpu_research/suite.py --stage frozen --models <m> --dataset \"data/gpu-input/Исследования\" --precision bf16 --output <new-dir>",
+    "finetune": ".venv-gpu/bin/python competition/gpu_research/finetune.py --model <m> --model-dir data/gpu-models/<m> --dataset \"data/gpu-input/Исследования\" --baseline competition/reports/quality_review_axis_guard_posthoc_2026_09_29.csv --output <new-dir> --last-blocks 2 --batch-size 2 --epochs 30 --patience 5 --precision bf16 --seed 17",
+    "research_tests": "PYTHONPATH=competition .venv-gpu/bin/python -m pytest -q competition/tests/test_gpu_research.py -> 17 passed",
+    "stacking": "PYTHONPATH=competition:competition/experiments .venv-gpu/bin/python competition/experiments/calibrated_stacking.py --dataset \"data/gpu-input/Исследования\" --baseline competition/reports/quality_review_axis_guard_posthoc_2026_09_29.csv --candidate data/gpu-runs/dinov3l-frozen-2026-10-04/dinov3-l-nested/adaptive_oof.csv --output <new-dir>",
+    "fusion": "PYTHONPATH=competition:competition/experiments .venv-gpu/bin/python competition/experiments/encoder_fusion_screen.py --dataset \"data/gpu-input/Исследования\" --baseline competition/reports/quality_review_axis_guard_posthoc_2026_09_29.csv --bundle dinov3-l=<features.npy> --bundle medsiglip=<features.npy> --output <new-dir>",
+    "augmented_finetune": "PYTHONPATH=competition .venv-gpu/bin/python competition/gpu_research/finetune_aug.py --model dinov3-l --model-dir data/gpu-models/dinov3-l --dataset \"data/gpu-input/Исследования\" --baseline competition/reports/quality_review_axis_guard_posthoc_2026_09_29.csv --output <new-dir> --scope head_ln --last-blocks 1 --batch-size 8 --epochs 40 --patience 8 --head-lr .001 --encoder-lr 1e-5 --seed 17",
+    "iqa": "PYTHONPATH=competition .venv-gpu/bin/python competition/experiments/iqa_features.py --dataset \"data/gpu-input/Исследования\" --output <new-dir> --device cuda --metrics brisque niqe piqe musiq maniqa topiq_nr clipiqa",
+    "patch_local": "PYTHONPATH=competition .venv-gpu/bin/python competition/gpu_research/run.py extract --model dinov3-l --model-dir data/gpu-models/dinov3-l --dataset \"data/gpu-input/Исследования\" --precision bf16 --dense --output <new-dir>  then  PYTHONPATH=competition .venv-gpu/bin/python competition/experiments/patch_local_features.py --dense <new-dir> --output <new-dir-2>",
+    "rank_ensemble": "PYTHONPATH=competition:competition/experiments .venv-gpu/bin/python competition/experiments/rank_ensemble_screen.py --dataset \"data/gpu-input/Исследования\" --baseline competition/reports/quality_review_axis_guard_posthoc_2026_09_29.csv --bundle mld3l=data/gpu-runs/ml-d3l-2026-10-04/features.npy --bundle mlraddino=data/gpu-runs/ml-raddino-2026-10-04/features.npy --output <new-dir>",
+    "multilayer": "PYTHONPATH=competition .venv-gpu/bin/python competition/experiments/multilayer_features.py --model dinov3-l --model-dir data/gpu-models/dinov3-l --dataset \"data/gpu-input/Исследования\" --layers -1 8 16 20 --sizes 448 512 640 --output <new-dir>",
+    "synthetic_tilt": "PYTHONPATH=competition .venv-gpu/bin/python competition/experiments/synthetic_tilt.py --dataset \"data/gpu-input/Исследования\" --output <new-dir> --epochs 60 --angles-per-frame 160 --width 48",
+    "label_visibility": "PYTHONPATH=competition .venv-gpu/bin/python competition/experiments/label_visibility.py --dataset \"data/gpu-input/Исследования\" --output data/gpu-runs/visibility-2026-10-04",
+    "lumos": [
+      "bash competition/experiments/prepare_lumos.py via: PYTHONPATH=competition .venv-gpu/bin/python competition/experiments/prepare_lumos.py --root data/external/lumos --output data/external/lumos-prep",
+      "PYTHONPATH=competition .venv-gpu/bin/python competition/experiments/lumos_ssl_pretrain.py --prep data/external/lumos-prep --clinical data/external/lumos/lumos_clinical_data.xlsx --output <new-dir> --epochs 120",
+      "PYTHONPATH=competition .venv-gpu/bin/python competition/experiments/clinical_thresholds.py --dataset \"data/gpu-input/Исследования\" --output <new-dir>"
+    ],
+    "nhanes": "curl -L https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DXXSPN_J.xpt -o data/external/nhanes/DXXSPN_J_2017.xpt; then pd.read_sas(..., format=\"xport\") and tally DXXL1BCC..DXXL4BCC",
+    "seeds": "PYTHONPATH=competition:competition/experiments .venv-gpu/bin/python competition/experiments/rank_ensemble_screen.py --dataset \"data/gpu-input/Исследования\" --baseline competition/reports/quality_review_axis_guard_posthoc_2026_09_29.csv --bundle mld3l=data/gpu-runs/ml-d3l-2026-10-04/features.npy --bundle mlraddino=data/gpu-runs/ml-raddino-2026-10-04/features.npy --output <new-dir> --seed <int>; note --seed varies the inner splits and estimator randomness, while the outer folds are inherited from the baseline by protocol"
+  },
+  "code_sha256": {
+    "run.py": "5a9fafd16f909b51f9708727f7913350b9ac07a7dad011e9b7c11aa06bd348b7",
+    "common.py": "b61e389d9d2ad5d78a1b02826a73b577dc722ddde763487061521c71ca3bce02",
+    "suite.py": "71f2d35037b6be8f91a8b8c640995873bec97e27bab7750540692e55a7ef1558",
+    "finetune.py": "7921e59ff3a0890adf470a9250d5072239d180dc89e82639bf632445bc3fb7da",
+    "models.json": "b94f57a96fe9bfe55211b3dd7961ec48326d24d9bf7024e017409dd16d62b837",
+    "submission/competition/gpu_research/common.py": "888f91563c879a598585cd699e849302d8c3091c7d1021f0c1edce9f7e7603ae",
+    "submission/competition/gpu_research/run.py": "e51536a715f3623d0db7346480330806b8379af8296b7e4c8809cfd85e52993a",
+    "submission/competition/gpu_research/finetune.py": "42c91cf94ef71c2e9bc9cde85c9ed40cd2521bb388491bb494105999de29e70f",
+    "submission/competition/gpu_research/models.json": "21da6e409a40ef526c3b5f45c5e9a878bd1185654cfa638b3420ff93a91acdba",
+    "submission/competition/experiments/patch_local_features.py": "d800eb4e632cf407bc0c3d893b3b5a2cc622fdcca788220854ae9b4905551f45",
+    "submission/competition/experiments/iqa_features.py": "9181a0d1d05ddade0b7042be82898cee16a69196c9442531feb7472f088ee675",
+    "submission/competition/dxaqc/decision.py": "7826db379484d0ccba49f40db1dafb96867bc0b57322b79fd984fd6ad7dc1c50"
+  },
+  "clinical_validation": false,
+  "model_affects_decision": false,
+  "limitations": [
+    "Previously inspected organizer images; patient independence across studies is unverified.",
+    "Baseline routing and measured runtime axes are reused; not raw-input end-to-end cross-validation.",
+    "DINOv3-L weights come from an unofficial mirror accepted only after 366/366 bitwise agreement with an independent redistribution; the official Meta SHA-256 could not be checked while facebook/dinov3 is gated.",
+    "No independent expert anatomical landmarks or masks.",
+    "Multiple exploratory comparisons against one cohort; no automatic release promotion."
+  ],
+  "augmented_finetune_sweep": {
+    "aug_head": {
+      "scope": "head",
+      "augmentation": {
+        "rotation_deg": 8.0,
+        "translate_frac": 0.05,
+        "scale_jitter": 0.05,
+        "contrast": 0.2,
+        "brightness": 0.1,
+        "noise": 0.02
+      },
+      "config": {
+        "last_blocks": 1,
+        "batch_size": 8,
+        "epochs": 40,
+        "patience": 8,
+        "head_lr": 0.001,
+        "encoder_lr": 1e-05,
+        "seed": 17
+      },
+      "elapsed_minutes": 13.2,
+      "peak_vram_gib": 6.41,
+      "best_epoch_per_fold": [
+        1,
+        30,
+        8,
+        1,
+        1
+      ],
+      "epochs_run_per_fold": [
+        9,
+        38,
+        16,
+        9,
+        9
+      ],
+      "overall_f1": 0.4380165289256198,
+      "tn_fp_fn_tp": [
+        60,
+        116,
+        20,
+        53
+      ],
+      "roc_auc": 0.5235834371108343,
+      "criterion_macro_f1": 0.22488618605336871,
+      "paired_delta_f1": -0.15408873423227487,
+      "paired_delta_f1_ci95": [
+        -0.25512905796344254,
+        -0.05348871106446867
+      ],
+      "passes_internal_metric_screen": false,
+      "artifacts": "data/gpu-runs/dinov3l-aug-head-2026-10-04"
+    },
+    "aug_head_ln": {
+      "scope": "head_ln",
+      "augmentation": {
+        "rotation_deg": 8.0,
+        "translate_frac": 0.05,
+        "scale_jitter": 0.05,
+        "contrast": 0.2,
+        "brightness": 0.1,
+        "noise": 0.02
+      },
+      "config": {
+        "last_blocks": 1,
+        "batch_size": 8,
+        "epochs": 40,
+        "patience": 8,
+        "head_lr": 0.001,
+        "encoder_lr": 1e-05,
+        "seed": 17
+      },
+      "elapsed_minutes": 13.2,
+      "peak_vram_gib": 6.41,
+      "best_epoch_per_fold": [
+        1,
+        30,
+        8,
+        1,
+        1
+      ],
+      "epochs_run_per_fold": [
+        9,
+        38,
+        16,
+        9,
+        9
+      ],
+      "overall_f1": 0.4489795918367347,
+      "tn_fp_fn_tp": [
+        59,
+        117,
+        18,
+        55
+      ],
+      "roc_auc": 0.5217154420921544,
+      "criterion_macro_f1": 0.2311578947368421,
+      "paired_delta_f1": -0.14312567132116,
+      "paired_delta_f1_ci95": [
+        -0.2438883284334011,
+        -0.044909068372041644
+      ],
+      "passes_internal_metric_screen": false,
+      "artifacts": "data/gpu-runs/dinov3l-aug-head_ln-2026-10-04"
+    },
+    "aug_head_ln_blocks": {
+      "scope": "head_ln_blocks",
+      "augmentation": {
+        "rotation_deg": 8.0,
+        "translate_frac": 0.05,
+        "scale_jitter": 0.05,
+        "contrast": 0.2,
+        "brightness": 0.1,
+        "noise": 0.02
+      },
+      "config": {
+        "last_blocks": 1,
+        "batch_size": 8,
+        "epochs": 40,
+        "patience": 8,
+        "head_lr": 0.001,
+        "encoder_lr": 1e-05,
+        "seed": 17
+      },
+      "elapsed_minutes": 7.2,
+      "peak_vram_gib": 1.92,
+      "best_epoch_per_fold": [
+        1,
+        30,
+        8,
+        1,
+        1
+      ],
+      "epochs_run_per_fold": [
+        9,
+        38,
+        16,
+        9,
+        9
+      ],
+      "overall_f1": 0.43478260869565216,
+      "tn_fp_fn_tp": [
+        105,
+        71,
+        33,
+        40
+      ],
+      "roc_auc": 0.6250778331257784,
+      "criterion_macro_f1": 0.2481328903654485,
+      "paired_delta_f1": -0.15732265446224253,
+      "paired_delta_f1_ci95": [
+        -0.26442000897532547,
+        -0.0478543275418275
+      ],
+      "passes_internal_metric_screen": false,
+      "artifacts": "data/gpu-runs/dinov3l-aug-head_ln_blocks-2026-10-04"
+    }
+  },
+  "encoder_fusion_screen": {
+    "artifacts": "data/gpu-runs/fusion-v1-2026-10-04",
+    "embedding_dimensions": {
+      "resnet18": 1792,
+      "dinov3-l": 2048,
+      "medsiglip": 2304,
+      "fused": 6144
+    },
+    "protocol_note": "Same outer folds, inner split and decision layer as nested_criterion_upgrade.py. PCA whiten fitted inside each training split only.",
+    "variants": {
+      "geometry_rf": {
+        "overall_f1": 0.5753424657534246,
+        "paired_delta_f1": -0.016762797404470064,
+        "paired_delta_f1_ci95": [
+          -0.1045162372228881,
+          0.06911822872343264
+        ],
+        "criterion_macro_f1": 0.5110865398791095,
+        "passes_internal_metric_screen": false
+      },
+      "geometry_lr": {
+        "overall_f1": 0.4819277108433735,
+        "paired_delta_f1": -0.1101775523145212,
+        "paired_delta_f1_ci95": [
+          -0.18579003984168654,
+          -0.03397998138479665
+        ],
+        "criterion_macro_f1": 0.4427276930189551,
+        "passes_internal_metric_screen": false
+      },
+      "resnet18_lr_001": {
+        "overall_f1": 0.5054945054945055,
+        "paired_delta_f1": -0.08661075766338922,
+        "paired_delta_f1_ci95": [
+          -0.16762243854682832,
+          -0.008820717424456503
+        ],
+        "criterion_macro_f1": 0.3819381598793363,
+        "passes_internal_metric_screen": false
+      },
+      "dinov3l_lr_001": {
+        "overall_f1": 0.4946236559139785,
+        "paired_delta_f1": -0.09748160724391619,
+        "paired_delta_f1_ci95": [
+          -0.18465047462665843,
+          -0.013599042772250738
+        ],
+        "criterion_macro_f1": 0.40531957599626767,
+        "passes_internal_metric_screen": false
+      },
+      "medsiglip_lr_001": {
+        "overall_f1": 0.5212121212121212,
+        "paired_delta_f1": -0.07089314194577345,
+        "paired_delta_f1_ci95": [
+          -0.15286897358172116,
+          0.007630771323306673
+        ],
+        "criterion_macro_f1": 0.3767397329302091,
+        "passes_internal_metric_screen": false
+      },
+      "fused_pca32_lr": {
+        "overall_f1": 0.5185185185185185,
+        "paired_delta_f1": -0.0735867446393762,
+        "paired_delta_f1_ci95": [
+          -0.1609204250617939,
+          0.010639499003230543
+        ],
+        "criterion_macro_f1": 0.3730880230880231,
+        "passes_internal_metric_screen": false
+      },
+      "fused_pca64_lr": {
+        "overall_f1": 0.467005076142132,
+        "paired_delta_f1": -0.1251001870157627,
+        "paired_delta_f1_ci95": [
+          -0.21574887226038802,
+          -0.04316290144624176
+        ],
+        "criterion_macro_f1": 0.29679774148013716,
+        "passes_internal_metric_screen": false
+      },
+      "geom_fused_pca32_lr": {
+        "overall_f1": 0.4946236559139785,
+        "paired_delta_f1": -0.09748160724391619,
+        "paired_delta_f1_ci95": [
+          -0.18788922328729094,
+          -0.009274536549510031
+        ],
+        "criterion_macro_f1": 0.3606015037593985,
+        "passes_internal_metric_screen": false
+      },
+      "fused_pca32_lda": {
+        "overall_f1": 0.5125628140703518,
+        "paired_delta_f1": -0.07954244908754293,
+        "paired_delta_f1_ci95": [
+          -0.16487800000995648,
+          0.001485584298282931
+        ],
+        "criterion_macro_f1": 0.3656161616161616,
+        "passes_internal_metric_screen": false
+      },
+      "fused_pca32_svc": {
+        "overall_f1": 0.46218487394957986,
+        "paired_delta_f1": -0.12992038920831483,
+        "paired_delta_f1_ci95": [
+          -0.22168337806043667,
+          -0.0386745429539783
+        ],
+        "criterion_macro_f1": 0.2528332234369615,
+        "passes_internal_metric_screen": false
+      },
+      "adaptive": {
+        "overall_f1": 0.5314685314685315,
+        "paired_delta_f1": -0.06063673168936323,
+        "paired_delta_f1_ci95": [
+          -0.14674767185125223,
+          0.014722007223942178
+        ],
+        "criterion_macro_f1": 0.4881080349285859,
+        "passes_internal_metric_screen": false
+      }
+    },
+    "conclusion": "Every fusion variant is worse than geometry_rf. Concatenating 6144 embedding dimensions onto ~200 training rows does not pay off even with fold-internal whitened PCA."
+  },
+  "calibrated_stacking": {
+    "artifacts": "data/gpu-runs/stacking-v1-2026-10-04",
+    "rationale": "All learned variants lost through the same mechanism: false positives exploded (baseline 34, learned 71-117). This run keeps both score sets out-of-fold and instead selects the blend weight and a specificity-floored threshold on training studies only.",
+    "variants": {
+      "candidate_only": {
+        "overall_f1": 0.6027397260273972,
+        "tn_fp_fn_tp": [
+          147,
+          29,
+          29,
+          44
+        ],
+        "paired_delta_f1": 0.010634462869502537,
+        "paired_delta_f1_ci95": [
+          -0.07752258089993315,
+          0.09755337636314777
+        ],
+        "roc_auc": 0.799579701120797,
+        "criterion_macro_f1": 0.4477871148459383,
+        "passes_internal_metric_screen": false
+      },
+      "baseline_only": {
+        "overall_f1": 0.5777777777777777,
+        "tn_fp_fn_tp": [
+          153,
+          23,
+          34,
+          39
+        ],
+        "paired_delta_f1": -0.014327485380116967,
+        "paired_delta_f1_ci95": [
+          -0.09202319078947366,
+          0.059598518510224324
+        ],
+        "roc_auc": 0.7414383561643836,
+        "criterion_macro_f1": 0.4871428571428571,
+        "passes_internal_metric_screen": false
+      },
+      "spec1": {
+        "overall_f1": 0.5671641791044776,
+        "tn_fp_fn_tp": [
+          153,
+          23,
+          35,
+          38
+        ],
+        "paired_delta_f1": -0.024941084053417106,
+        "paired_delta_f1_ci95": [
+          -0.10883280366122221,
+          0.05097668966718015
+        ],
+        "roc_auc": 0.7937422166874222,
+        "criterion_macro_f1": 0.48158730158730156,
+        "passes_internal_metric_screen": false
+      },
+      "spec0.98": {
+        "overall_f1": 0.5735294117647058,
+        "tn_fp_fn_tp": [
+          152,
+          24,
+          34,
+          39
+        ],
+        "paired_delta_f1": -0.018575851393188847,
+        "paired_delta_f1_ci95": [
+          -0.09898962585970457,
+          0.0560412917464023
+        ],
+        "roc_auc": 0.7936643835616439,
+        "criterion_macro_f1": 0.4849849849849849,
+        "passes_internal_metric_screen": false
+      },
+      "spec0.95": {
+        "overall_f1": 0.5673758865248227,
+        "tn_fp_fn_tp": [
+          148,
+          28,
+          33,
+          40
+        ],
+        "paired_delta_f1": -0.024729376633071953,
+        "paired_delta_f1_ci95": [
+          -0.10446530859799945,
+          0.050317156106558326
+        ],
+        "roc_auc": 0.7980230386052304,
+        "criterion_macro_f1": 0.4829647829647829,
+        "passes_internal_metric_screen": false
+      }
+    },
+    "conclusion": "Re-thresholding did not beat using the frozen DINOv3-L adaptive OOF directly (0.6027 vs 0.6111). The specificity floors all reduced recall without removing enough false positives."
+  },
+  "metric_ceiling_analysis": {
+    "best_achieved": {
+      "run": "dinov3_l frozen, adaptive variant",
+      "overall_f1": 0.6111111111111112,
+      "paired_delta_f1": 0.018975465601459084,
+      "paired_delta_f1_ci95": [
+        -0.0595,
+        0.095
+      ],
+      "roc_auc": 0.7996,
+      "tn_fp_fn_tp": [
+        149,
+        27,
+        29,
+        44
+      ],
+      "passes_internal_metric_screen": false
+    },
+    "attempts_total": 10,
+    "attempts_beating_baseline": 1,
+    "why_the_cohort_is_the_binding_constraint": [
+      "249 labelled images, 100 studies, 73 positives spread over 5 criteria; the rarest criterion has 6 positives and another 7.",
+      "Each outer fold trains on about 63 studies, each inner split validates on about 18.",
+      "The paired bootstrap CI on delta F1 is roughly +/-0.08, so the +0.019 achieved by DINOv3-L is not distinguishable from zero.",
+      "9 of 10 spine_axis positives are unreachable by construction, capping overall F1 regardless of encoder."
+    ],
+    "what_would_actually_move_the_number": [
+      "Independent expert angles or masks for misaligned spine scans - directly unblocks spine_axis.",
+      "A labelled DXA positioning-defect corpus. None is public; see external_dataset_survey.",
+      "Multi-seed and repeated-CV evaluation so that 0.02-level differences become measurable."
+    ],
+    "honest_statement": "Further gains on this cohort would come from selecting against the evaluation folds, which inflates the number without producing a better model. That was not done."
+  },
+  "external_dataset_survey": {
+    "question": "Is more labelled DXA quality data obtainable?",
+    "answer": "No public DXA image dataset with machine-readable quality or positioning labels was found. The organiser cohort is close to unique for this task.",
+    "verified_ungated_sources": [
+      {
+        "name": "LUMOS",
+        "url": "https://zenodo.org/records/18173664",
+        "doi": "10.5281/zenodo.18173664",
+        "modality": "lumbar radiograph AP+lateral DICOM",
+        "patients": 803,
+        "images": 1620,
+        "annotations": "DXA-measured L1-L4 BMD/T-score/Z-score per patient in lumos_clinical_data.xlsx",
+        "access": "open, direct zenodo.org/api/records/18173664/files/<name>/content, no login",
+        "license": "CC BY-NC 4.0, non-commercial only",
+        "xray_size_gb": 11.85,
+        "caveat": "Upstream inclusion required radiological quality >= 8 and no motion artifact, so it is a clean set: it teaches anatomy, not positioning defects."
+      },
+      {
+        "name": "AutoQC",
+        "url": "https://gitlab.developers.cam.ac.uk/maths/cia/covid-19-projects/autoqc",
+        "modality": "chest radiographs",
+        "access": "public GitLab, MIT, no login",
+        "value": "Documented QC pipeline: rotation/orientation correction, projection classification, and a deep-learning cardiac-device detector - the nearest published analogue to hip_metal_implant. Code only, weights worth testing as a transfer candidate."
+      },
+      {
+        "name": "CTSpine1K",
+        "url": "https://huggingface.co/datasets/alexanderdann/CTSpine1K",
+        "modality": "CT NIfTI",
+        "volumes": 1005,
+        "labelled_vertebrae": 11100,
+        "access": "ungated on HuggingFace",
+        "license": "CC BY-NC-SA",
+        "value": "Annotates vertebrae partially visible at the scan top/bottom, which is exactly the spine_coverage / Th12 distinction.",
+        "caveat": "CT to DXA projection domain gap is large."
+      }
+    ],
+    "gated_but_relevant": [
+      {
+        "name": "SOF (Study of Osteoporotic Fractures)",
+        "url": "https://sofonline.ucsf.edu/",
+        "scale": "10,366 subjects, serial DXA over 16 years",
+        "value": "Coordinating centre reviewed a random subset AND all flagged scans - the closest thing to real DXA quality labels.",
+        "access": "account plus Data Use Agreement"
+      },
+      {
+        "name": "Kuopio OSTPRE lumbar DXA",
+        "citation": "Information Fusion 2021, S2352187221003259",
+        "scale": "2,949 train + 574 external test",
+        "labels": "scoliosis and structural abnormalities causing unreliable BMD",
+        "value": "The closest published task to spine_axis, already labelled, on 3,500 real DXA images.",
+        "access": "no public download located; worth emailing the authors"
+      },
+      {
+        "name": "UK Biobank field 20158",
+        "scale": "~100k whole-body DXA",
+        "access": "application plus RAP"
+      },
+      {
+        "name": "MrOS",
+        "scale": "~5,994 men >= 65",
+        "access": "Data Use Agreement"
+      }
+    ],
+    "label_source_not_image_source": {
+      "name": "NHANES DXX/DXXSPN ROI invalidity codes",
+      "urls": [
+        "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/DXX_I.htm",
+        "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DXXSPN_J.htm"
+      ],
+      "mapping": {
+        "1 removable or non-removable objects": [
+          "spine_artifact",
+          "hip_metal_implant"
+        ],
+        "4 arm/leg overlap": [
+          "spine_artifact"
+        ],
+        "5 body parts out of scan region": [
+          "spine_coverage",
+          "hip_roi_coverage"
+        ],
+        "6 positioning problem": [
+          "spine_axis",
+          "hip_position_rotation"
+        ]
+      },
+      "access": "freely downloadable, no login",
+      "caveat": "NHANES publishes numbers, not pixels. No raw DXA images exist publicly. Usable to align the annotation guide and to fix base rates, not as training data."
+    },
+    "recommended": "Email the Kuopio OSTPRE authors for the 3,500 labelled lumbar DXA images, and apply for SOF. Those two are the only routes to genuinely more labelled defects."
+  },
+  "best_candidate": {
+    "name": "frozen google DINOv3 ViT-L/16 (lvd1689m), adaptive nested criterion selection",
+    "weights": "PIA-SPACE-LAB/dinov3-vitl-pretrain-lvd1689m, verified 366/366 tensors bitwise against timm/vit_large_patch16_dinov3.lvd1689m",
+    "artifacts": "data/gpu-runs/dinov3l-frozen-2026-10-04",
+    "overall_f1": 0.6111111111111112,
+    "roc_auc": 0.7996,
+    "paired_delta_f1": 0.018975465601459084,
+    "status": "NOT promoted. Fails the internal screen; the paired CI includes zero.",
+    "if_it_were_usable": "It is the only encoder whose paired delta is positive, so it is the natural candidate for the next round once more labelled data exists."
+  },
+  "new_code": {
+    "competition/experiments/encoder_fusion_screen.py": {
+      "sha256": "4e35b8c9ae7da958f3fcf2904d6465c507389dcfbde48811b90e10b67928ccd3",
+      "purpose": "Multi-encoder concatenation with fold-internal whitened PCA, under the unchanged nested protocol."
+    },
+    "competition/experiments/calibrated_stacking.py": {
+      "sha256": "d6b96276c1e7018fc5bad041c5dbc0f6eb2f5b696644f66342c68400216b7a22",
+      "purpose": "Out-of-fold blending of baseline and candidate scores with training-fold-only weight and specificity-floored thresholds."
+    },
+    "competition/gpu_research/finetune_aug.py": {
+      "sha256": "0c6461b586eabbde79295c098298eea435cbc6da625e2a3e311bb07f10bc5020",
+      "purpose": "Augmented trainer with head / head+LayerNorm / head+LayerNorm+block scopes and a cosine schedule."
+    }
+  },
+  "new_code_sha256": {
+    "competition/experiments/encoder_fusion_screen.py": "4e35b8c9ae7da958f3fcf2904d6465c507389dcfbde48811b90e10b67928ccd3",
+    "competition/experiments/calibrated_stacking.py": "d6b96276c1e7018fc5bad041c5dbc0f6eb2f5b696644f66342c68400216b7a22",
+    "competition/gpu_research/finetune_aug.py": "0c6461b586eabbde79295c098298eea435cbc6da625e2a3e311bb07f10bc5020",
+    "competition/experiments/patch_local_features.py": "d800eb4e632cf407bc0c3d893b3b5a2cc622fdcca788220854ae9b4905551f45",
+    "competition/experiments/iqa_features.py": "9181a0d1d05ddade0b7042be82898cee16a69196c9442531feb7472f088ee675",
+    "competition/experiments/multilayer_features.py": "9a0c6067af8cf84f5e261dd1968700e35db254562cdb63a32dd7d66297f956d8",
+    "competition/experiments/rank_ensemble_screen.py": "88d250ca60c7a09050de6a48d38871838eaabb7ba87e7d6603bb850a03532837",
+    "competition/experiments/synthetic_tilt.py": "992a0c1b95b703b198ae3433171d1456aa1513f8a339baf60f7db98da42bddcf",
+    "competition/dxaqc/decision.py": "7826db379484d0ccba49f40db1dafb96867bc0b57322b79fd984fd6ad7dc1c50",
+    "competition/experiments/label_visibility.py": "80f36ed6bdeb714fa5fea129d32a42c7d806919e3ef89fbb3045c1323ba64d46",
+    "competition/experiments/prepare_lumos.py": "554988faf97e100ab413e37da67dfaf41bb4d4585cdb84897a0173aae1549832",
+    "competition/experiments/lumos_bone_pretrain.py": "eeddf6d4fdd822d1328fd7042a03749a9164329659d87cb1b6414ae8ab677271",
+    "competition/experiments/lumos_ssl_pretrain.py": "f3ddb661dae87af09e1989e473c766de1083e83b7c4d7606c653238fc2799407",
+    "competition/experiments/clinical_thresholds.py": "8d5f4e84d10f3acd4dc07b69add64df329a279cfbb32006b1f62da2275a0194d"
+  },
+  "regression_tests": "PYTHONPATH=competition .venv-gpu/bin/python -m pytest -q competition/tests/test_gpu_research.py -> 17 passed. decision.py default path verified byte-identical to the previous implementation across 42 angle/score/threshold combinations. competition/tests/ as a whole does not collect in the GPU venv because fastapi and pydantic are backend dependencies; that is pre-existing and unrelated.",
+  "second_sweep_2026_10_04": {
+    "motivation": "Internet survey for additional encoders and frozen feature families, then empirical test of each under the unchanged nested protocol.",
+    "research_findings_actioned": [
+      {
+        "finding": "arXiv 2606.11606 reports CLS/global-pooled embeddings sit at chance for small localised perturbations (AUC 0.500-0.524) while patch-local pooling on the same forward pass reaches AUC ~1.0.",
+        "action": "Implemented competition/experiments/patch_local_features.py: multi-scale grid means at 1x1/2x2/4x4/8x8, local-deviation mean+max maps, top-16 patch deviations, plus the pooled vector as a control.",
+        "result": "NOT CONFIRMED on this task. patchlocal_lr_001 overall F1 0.4878 vs geometry_rf 0.5753.",
+        "interpretation": "The paper studies synthetic perturbation detection, not natural defect classification. The transfer does not hold here."
+      },
+      {
+        "finding": "RAD-DINO (microsoft/rad-dino) is DINOv2 continually pretrained on 838k chest radiographs image-only; ungated, MIT, 86M, 518px. Paper ablation suggests input resolution dominates for subtle findings.",
+        "action": "Downloaded, verified model.safetensors digest dbfb9f54... matches the RAD-DINO checkpoint already pinned in docs/competition/dxa_spine_vit_raddino_cv_2026_09_28.json. Extracted at 518 and also ran a DINOv3-L resolution ablation at 512/768/1024.",
+        "result": "rad-dino_lr_001 F1 0.4969. Resolution ablation: 512 -> 0.4946, 768 -> 0.4569, 1024 -> 0.4667. Higher resolution HURT.",
+        "interpretation": "Neither the radiograph-pretrained encoder nor extra resolution helped; the DXA images are already near the useful scale."
+      },
+      {
+        "finding": "pyiqa ships 100+ frozen no-reference IQA metrics with public weights; none trained on radiographs and none able to measure positioning.",
+        "action": "Implemented competition/experiments/iqa_features.py; computed brisque, niqe, piqe, musiq, maniqa, topiq_nr, clipiqa on all 249 frames with no labels and no fitting.",
+        "result": "iqa_lr_001 F1 0.4490, criterion macro F1 0.2333 - the worst of every family tried.",
+        "interpretation": "As predicted: these read noise/contrast/sharpness and are blind to rotation, laterality and coverage, which is 4 of the 6 criteria. They also cannot help the false-positive problem because they add no positional information."
+      },
+      {
+        "finding": "Anomaly detection on a memory bank built from the 176 clean scans (PatchCore) has no capacity to overfit 73 positives.",
+        "action": "NOT RUN. deferred: 176 normals is thin for a memory bank, and the fused-feature screen already showed that adding non-positional feature families lowers F1.",
+        "note": "Remains the most defensible untried direction."
+      },
+      {
+        "finding": "Ordinal/regression targets instead of binary flags (ESCEO states the lesser trochanter should be barely visible at 15-20 degrees internal rotation).",
+        "action": "NOT RUN. Requires reliable continuous angle estimates, which the spine_axis diagnostic showed we do not have.",
+        "note": "Blocked behind the same measurement defect."
+      }
+    ],
+    "additional_encoders_tested": {
+      "rad-dino": {
+        "repo": "microsoft/rad-dino",
+        "gated": false,
+        "license": "MIT",
+        "kind": "dinov2",
+        "patch_size": 14,
+        "size": 518,
+        "dimension": 1536,
+        "weights_verified_against": "docs/competition/dxa_spine_vit_raddino_cv_2026_09_28.json",
+        "overall_f1": 0.4969,
+        "paired_delta_f1": -0.0952
+      },
+      "dinov2-xray": {
+        "repo": "StanfordAIMI/dinov2-base-xray-224",
+        "gated": false,
+        "license": "Apache-2.0",
+        "kind": "dinov2",
+        "patch_size": 14,
+        "size": 224,
+        "dimension": 1536,
+        "provenance": "undocumented community mirror; no independent redistribution to cross-check",
+        "overall_f1": 0.4972,
+        "paired_delta_f1": -0.0949
+      }
+    },
+    "resolution_ablation": {
+      "model": "dinov3_l",
+      "512": 0.4946,
+      "768": 0.4569,
+      "1024": 0.4667,
+      "best": 512,
+      "note": "Non-monotonic; the 512 run remains the reference."
+    },
+    "best_fusion_run": {
+      "artifacts": "data/gpu-runs/fusion-final-2026-10-04",
+      "families": [
+        "resnet18",
+        "pyiqa x7",
+        "dinov3-l @512",
+        "@768",
+        "@1024",
+        "rad-dino"
+      ],
+      "fused_dimension": 9479,
+      "best_variant": "geometry_rf",
+      "best_fusion_variant": "geom_fused_pca32_lr 0.5193",
+      "best_overall_in_run": "geometry_rf 0.5753"
+    },
+    "conclusion": "No additional encoder or frozen feature family beat the shipped geometry features, and none beat the best candidate found earlier (frozen DINOv3-L, nested adaptive, F1 0.6111). Adding the IQA block, two radiograph-pretrained encoders and two extra resolutions to the fusion made it worse, not better. The bottleneck is the labelled cohort size and the spine_axis measurement defect, not the encoder."
+  },
+  "bug_fixes_from_second_sweep": [
+    {
+      "file": "competition/gpu_research/run.py",
+      "defect": "Patch size was hard-coded as 14 for siglip and 16 otherwise, so DINOv2 checkpoints (patch 14) were rejected: RAD-DINO at 518 failed with 'Input size must be 32..2048 and divisible by patch size 16'.",
+      "fix": "Read patch_size from the checkpoint config via common.declared_patch_size, falling back to the family default and tolerating a missing config."
+    },
+    {
+      "file": "competition/gpu_research/finetune.py",
+      "defect": "Same hard-coded patch size.",
+      "fix": "Same helper."
+    },
+    {
+      "file": "competition/gpu_research/common.py",
+      "defect": "image_input only disabled do_center_crop for dinov3_vit, so DINOv2-family processors could centre-crop the DXA frame.",
+      "fix": "Always pass do_resize=False and do_center_crop=False so the complete frame survives for every family. No behavioural change for siglip or dinov3."
+    },
+    {
+      "file": "competition/experiments/iqa_features.py",
+      "defect": "Full-reference metrics such as topiq_fr abort only after all 249 images are processed.",
+      "fix": "Reject *_fr metrics up front and report them as skipped."
+    }
+  ],
+  "catalog_integrity": {
+    "policy": "models.json entries added 2026-10-04 carry weights_files_sha256; every listed file must be verified against the local copy before use.",
+    "verified": {
+      "rad-dino": "3/3 files match",
+      "dinov2-xray": "1/1 matches (trust rests on the repository alone)",
+      "medsiglip": "1/1 matches; aggregate 7e419784... also matches docs/competition/gpu_preparation_2026_10_03.json",
+      "dinov3-l": "1/1 matches the cross-verified mirror"
+    },
+    "rejected_mirrors": {
+      "rA9del/dinov3b16": "wrong FFN, mismatched timm, deleted"
+    },
+    "note": "The docs quote an aggregate digest for MedSigLIP while the catalog now pins per-file digests; both are recorded so the discrepancy is auditable."
+  },
+  "third_sweep_2026_10_04": {
+    "headline": {
+      "metric": "overall quality F1, internal study-held-out OOF, 249 images",
+      "baseline": 0.5921,
+      "best_candidate": 0.64,
+      "paired_delta_f1": 0.0479,
+      "paired_delta_f1_ci95": [
+        -0.0185,
+        0.121
+      ],
+      "tn_fp_fn_tp": {
+        "baseline": [
+          142,
+          34,
+          28,
+          45
+        ],
+        "candidate": [
+          147,
+          29,
+          25,
+          48
+        ]
+      },
+      "sensitivity": [
+        0.6164,
+        0.6575
+      ],
+      "specificity": [
+        0.8068,
+        0.8352
+      ],
+      "false_safe_rate_among_auto_normal": [
+        0.1647,
+        0.1453
+      ],
+      "passes_internal_metric_screen": false,
+      "failure_reasons": 17,
+      "promoted": 0
+    },
+    "what_drove_the_gain": [
+      "Rank-averaged ensembling instead of a single fitted head. Within-fold rank transforms remove the probability-scale mismatch between heads, and the average is far less sensitive to any one argmax-F1 threshold.",
+      "Fixing the false-positive explosion, which was the mechanism behind every earlier failure: false positives fell 34 -> 29 while false negatives fell 28 -> 25, so recall and precision improved together for the first time.",
+      "Multi-layer and multi-scale frozen features. Concatenating DINOv3-L hidden states 8/16/20/24 and averaging scales 448/512/640 gave 8192 dims instead of the 2048 the single final block produced. Fusion of that with multi-layer RAD-DINO lifted the earlier single-layer 5-encoder fusion from 0.5843 to 0.6400.",
+      "Keeping geometry in the ensemble. The embedding-only rank average scores 0.5269; geometry-only scores 0.5029; together they score 0.6400. The blocks are complementary, neither is sufficient."
+    ],
+    "honest_regressions_in_the_winner": {
+      "roc_auc": "0.7903 -> 0.7517. Ranking quality fell even as thresholded F1 rose; the gain comes from a better operating point, not a better ordering.",
+      "average_precision": "lower. brier_score higher. criterion macro F1 0.4818 -> 0.4178.",
+      "hip_roi_coverage": "F1 0.4286 -> 0.1667 (7 positives). spine_artifact 0.7568 -> 0.7059.",
+      "reading": "The rank average helps the two criteria with enough positives to estimate a stable threshold and hurts the two rarest ones, where any deviation from the baseline threshold costs more than it gains."
+    }
+  },
+  "spine_axis_is_not_a_visible_rotation": {
+    "question": "Is spine_axis recoverable by better measurement?",
+    "method": "competition/experiments/synthetic_tilt.py trains a small residual CNN from scratch to regress signed spine tilt on synthetic rotations of the 249 real frames. Targets are exact by construction, so the estimator cannot inherit the hand-crafted geometry estimator shrinkage. 15,495 synthetic training samples, 60 epochs, held-out frames at rotation angles never seen in training.",
+    "synthetic_performance": {
+      "held_out_mae_deg": 3.08,
+      "train_samples": 15495,
+      "epochs": 60
+    },
+    "application_to_the_249_real_frames": {
+      "roc_auc_on_real_spine_axis_labels": 0.4933,
+      "aligned_median_predicted_tilt_deg": 0.198,
+      "misaligned_median_predicted_tilt_deg": 0.137,
+      "positives_over_5deg": 0,
+      "negatives_over_5deg": 0,
+      "max_predicted_tilt_any_frame_deg": 0.855,
+      "interpretation": "The 10 images labelled spine_axis=1 are, by an exactly-supervised independent measurement, LESS tilted than the 89 labelled aligned. No frame in the cohort shows a visible tilt above the official 5 degree limit. The label therefore does not denote a rigid rotation of the spine in the image plane."
+    },
+    "conclusion": "spine_axis is not a measurement defect and cannot be fixed by any encoder, segmentation model or regressor. It is either an expert judgement, a console-side quantity, or a different geometric definition. This closes the largest single line of attack on the project and should stop further effort being spent on it.",
+    "decision_layer_experiment": {
+      "change": "competition/dxaqc/decision.py gained an optional axis_rule argument. Default \"official\" keeps the measured >5 deg rule and is byte-identical to the previous behaviour, verified on 42 cases. \"model\" resolves spine_axis from the validated criterion threshold instead.",
+      "result": {
+        "both_rank_avg_official": {
+          "f1": 0.64,
+          "tn_fp_fn_tp": [
+            147,
+            29,
+            25,
+            48
+          ]
+        },
+        "both_rank_avg_axis_model": {
+          "f1": 0.5057,
+          "tn_fp_fn_tp": [
+            51,
+            125,
+            6,
+            67
+          ]
+        }
+      },
+      "verdict": "Hypothesis refuted. Removing the unreachable rule raises sensitivity 0.66 -> 0.92 but collapses specificity 0.84 -> 0.29, because the classifier flags spine_axis on 80 of 89 negatives. Net F1 falls 0.134. The 5 degree rule, even though it catches only 4 of 10 positives, is what prevents the catastrophe, and the project invariant that verify_metric_candidate enforces is correct.",
+      "note": "verify_metric_candidate.read_oof rejected the variant outright with \"Axis type violates the measured >5 degree rule\". That refusal is the governance layer working as designed and was not bypassed to obtain a screen verdict; the effect was measured with evaluate() only and recorded in data/gpu-runs/rankens-axis-2026-10-04/axis_rule_impact.json."
+    }
+  },
+  "methods_tried_and_rejected_this_sweep": [
+    {
+      "name": "Rank-averaged ensemble of RF + ExtraTrees + HistGradientBoosting + LR + SVC-RBF + LDA on the geometry block alone",
+      "result": "geom_rank_avg F1 0.5029, paired delta -0.0892. Gradient boosting alone 0.4974. Both worse than the plain geometry random forest at 0.5753."
+    },
+    {
+      "name": "Embedding-only rank average",
+      "result": "F1 0.5269, paired delta -0.0652."
+    },
+    {
+      "name": "Resolving spine_axis without the 5 degree rule",
+      "result": "F1 0.5057. Refuted; see spine_axis_is_not_a_visible_rotation."
+    },
+    {
+      "name": "Synthetic-rotation tilt regressor as a feature source",
+      "result": "AUC 0.493 on the real labels; carries no usable signal."
+    }
+  ],
+  "label_visibility_2026_10_04": {
+    "purpose": "Before spending more effort, test whether each remaining defect label is measurable in the pixels at all, using oracle measurements that fit nothing: per-side margins in millimetres, bone occupancy of the outer band, saturation and top-hat response, black-hat response, and texture energy.",
+    "verdict": {
+      "hip_roi_coverage": {
+        "n": 150,
+        "positives": 7,
+        "best_measurement": "height_mm",
+        "auc": 0.939,
+        "visible": true
+      },
+      "spine_coverage": {
+        "n": 99,
+        "positives": 6,
+        "best_measurement": "right_mm",
+        "auc": 0.841,
+        "visible": true
+      },
+      "spine_artifact": {
+        "n": 99,
+        "positives": 17,
+        "best_measurement": "texture_energy",
+        "auc": 0.667,
+        "visible": false
+      },
+      "hip_position_rotation": {
+        "n": 150,
+        "positives": 36,
+        "best_measurement": "blackhat_strong_fraction",
+        "auc": 0.61,
+        "visible": false
+      },
+      "spine_axis": {
+        "n": 99,
+        "positives": 10,
+        "auc": 0.493,
+        "visible": false,
+        "note": "Measured independently by the synthetic-rotation regressor."
+      }
+    },
+    "interpretation": "The two rarest criteria are the two most measurable ones, yet they score F1 0.17-0.46. That is the opposite of the usual failure: the signal exists and cannot be cashed in, because a 6- or 7-positive criterion inside a ~200-row training fold leaves an ~18-study inner validation split. Two of the four criteria, including the largest one (hip_position_rotation, 36 positives), are not separated by any simple oracle statistic at all."
+  },
+  "methods_tried_and_rejected_2026_10_04": [
+    {
+      "name": "Rank-quantile operating point",
+      "rationale": "A probability cut is a high-variance parameter on a 6- or 7-positive criterion. Estimate the flagged rate on a coarse grid instead.",
+      "result": {
+        "both_rank_avg_q": 0.4779,
+        "geom_rank_avg_q": 0.5147,
+        "emb_rank_avg_q": 0.5116,
+        "best_probability_threshold_for_comparison": 0.64
+      },
+      "verdict": "Refuted. The probability cut found by argmax-F1 on the training fold beats a rate estimated on a grid."
+    },
+    {
+      "name": "AND-gate between the rank ensemble and the best oracle measurement",
+      "rationale": "Two partly independent signals in series is the standard variance reduction when one threshold cannot be placed. The gate feature is chosen per criterion by inner-OOF AUC and kept only if inner F1 improves.",
+      "result": {
+        "inner_oof_improvements": "hip_roi_coverage 0.667 -> 0.769, spine_coverage 0.600 -> 0.750, spine_axis 0.176 -> 0.400; gate fired on 13 of 25 criterion-folds",
+        "outer_test": {
+          "overall_f1": 0.4738,
+          "tn_fp_fn_tp": [
+            64,
+            112,
+            10,
+            63
+          ]
+        }
+      },
+      "verdict": "Refuted, and the most instructive failure of the sweep. The gate genuinely improved the inner metric and then evaporated out-of-fold, because both the feature choice and the threshold were fitted on the same 18-study split. That is inner-OOF selection overfitting measured directly, and it is the clearest evidence that the binding constraint is the size of the inner validation split rather than the choice of model or threshold."
+    }
+  ],
+  "final_state_2026_10_04": {
+    "headline": "No modelling change tried in this project produces a reproducible improvement on the organiser cohort. Across four seeds the best candidate scores 0.5896 mean F1 against a 0.5921 baseline, paired delta -0.0025 with sd 0.0426, above baseline in 2 of 4 seeds.",
+    "best_single_run_for_the_record": {
+      "seed": 17,
+      "f1": 0.64,
+      "paired_delta_f1": 0.0479,
+      "ci95": [
+        -0.0185,
+        0.121
+      ],
+      "tn_fp_fn_tp": [
+        147,
+        29,
+        25,
+        48
+      ],
+      "warning": "single seed; not reproducible across seeds; must not be reported as a gain"
+    },
+    "baseline": {
+      "f1": 0.5921,
+      "tn_fp_fn_tp": [
+        142,
+        34,
+        28,
+        45
+      ],
+      "roc_auc": 0.7903,
+      "criterion_macro_f1": 0.4818
+    },
+    "experiments_run": 26,
+    "mechanisms_that_fixed_a_real_defect_but_did_not_reproduce": [
+      {
+        "mechanism": "rank-averaged ensembling",
+        "real_effect": "false positives 34 -> 29 and false negatives 28 -> 25 simultaneously; the first mechanism in the project to raise recall and precision together",
+        "why_it_did_not_reproduce": "the rank average reduces score-scale instability but not the variance of a threshold estimated on ~18 studies"
+      },
+      {
+        "mechanism": "multi-layer multi-scale frozen features",
+        "real_effect": "8192 dims from DINOv3-L layers 8/16/20/24 at scales 448/512/640 instead of 2048 from the final block",
+        "why_it_did_not_reproduce": "extra dimensions do not add supervision; n_train is ~200 rows per fold"
+      }
+    ],
+    "measured_and_refuted": [
+      "patch-local pooling (arXiv 2606.11606 hypothesis)",
+      "RAD-DINO encoder",
+      "StanfordAIMI X-ray DINOv2",
+      "pyiqa frozen IQA metrics, 7 of them",
+      "input resolution 768 and 1024",
+      "multi-encoder PCA fusion, 5 and 6 encoders",
+      "tail-2 fine-tuning of MedSigLIP and DINOv3-L",
+      "augmented fine-tuning in three scopes",
+      "calibrated stacking with specificity floors",
+      "removing the official 5 degree spine_axis rule",
+      "unfitted ISCD clinical-margin thresholds",
+      "rank-quantile operating points",
+      "AND-gating with the best oracle measurement",
+      "conservative per-criterion switching with a margin",
+      "LUMOS density-regression pretraining",
+      "LUMOS masked-reconstruction pretraining",
+      "synthetic-rotation tilt regressor as a feature source",
+      "per-criterion oracle visibility measurements as features"
+    ],
+    "established_findings_that_do_not_depend_on_a_seed": [
+      {
+        "finding": "spine_axis is not a visible rotation",
+        "evidence": "An exactly-supervised regressor trained on synthetic rotations of all 249 frames (15,495 samples, held-out MAE 3.08 deg) scores ROC AUC 0.493 on the real spine_axis labels, predicts the 10 labelled positives to have LESS tilt than the 89 aligned frames, and puts 0 of 10 above the official 5 degree limit. Max predicted tilt anywhere is 0.855 deg.",
+        "caveat": "This regressor is trained to recover an applied frame rotation, so it may key on frame-cue rotation rather than spinal anatomy. The weaker claim that survives that caveat: the labelled positives do not show a large in-plane tilt under any measure, and the hand-crafted geometry estimator still separates them better (AUC 0.834) than the synthetic one."
+      },
+      {
+        "finding": "spine_artifact and hip_position_rotation are not separated by any simple oracle statistic",
+        "evidence": "Best of 15 margin, occupancy, saturation, top-hat, black-hat and texture measurements: AUC 0.667 and 0.610."
+      },
+      {
+        "finding": "the two rarest criteria are the most measurable and the least scoreable",
+        "evidence": "hip_roi_coverage AUC 0.939 and spine_coverage AUC 0.841, yet F1 0.43 and 0.50, because the threshold cannot be placed inside an ~18-study inner split."
+      },
+      {
+        "finding": "inner-OOF comparison misranks candidates",
+        "evidence": "The candidate wins the outer evaluation 0.6400 to 0.5921 while losing the head-to-head inner-OOF comparison on 23 of 25 criterion-folds, by the same procedure on the same data."
+      },
+      {
+        "finding": "the cohort is defect-enriched by one to two orders of magnitude versus clinical practice",
+        "evidence": "NHANES 2017-2018 per-vertebra codes: objects 1.04%, insufficient scan area 0.07%, movement 0.09%. Organiser cohort: spine_artifact 17.2%, spine_coverage 6.1%, hip_position_rotation 24.0%. Overall positive rate 29.3%."
+      }
+    ],
+    "conclusion": "The honest result is a negative one. 26 experiments, two mechanisms that fixed a real defect in the false-positive behaviour, and no reproducible metric gain. Every avenue available without new labels has been exhausted and measured: encoders, resolution, pooling strategy, IQA priors, fine-tuning recipes, synthetic supervision, an external 12 GB corpus, decision-layer variants and operating-point schemes. The project should not promote anything from this work, and the correct next action is acquiring labelled positioning defects, not more modelling on 249 images.",
+    "single_remaining_unblocked_avenue": {
+      "source": "Kaggle tommyngx/chinese-osteoporosis-dxa",
+      "size_gb": 30.6,
+      "licence": "CC BY 4.0 (commercial-friendly)",
+      "contents": "20741 files: 5209 hip, 4632 AP lumbar, 4325 lateral lumbar DXA, plus a T-score table",
+      "access": "no login wall, but needs ~/.kaggle/kaggle.json which is absent on this machine",
+      "why_it_is_the_right_target": "It is the only ungated source of real DXA pixels at scale. It carries no positioning labels, so it cannot by itself teach defect detection, but it would supply the anatomical diversity and the scale at which the rare criteria could stop being estimated from seven positives."
+    }
+  },
+  "lumos_acquisition_and_transfer_2026_10_04": {
+    "purpose": "The only large ungated corpus with real bone measurements, downloaded to give the encoder side a genuine training source instead of 249 images.",
+    "source": {
+      "name": "LUMOS",
+      "record": "https://zenodo.org/records/18173664",
+      "doi": "10.5281/zenodo.18173664",
+      "licence": "CC BY-NC 4.0, non-commercial only",
+      "access": "open, direct API URLs, no login",
+      "downloaded_gb": 12,
+      "archives": 8
+    },
+    "prepared": {
+      "images": 1614,
+      "patients": 800,
+      "modality": "lumbar radiograph AP and lateral, 256px uint8",
+      "labels_available": "DXA-measured L1-L4 BMD (mean 0.952, sd 0.208), T-score (mean -1.309, sd 1.777), age, BMI",
+      "quality_labels": "NONE. LUMOS contains no positioning or quality annotation of any kind.",
+      "domain_gap": "radiography, not DXA"
+    },
+    "pretext_task_1_density_regression": {
+      "task": "regress DXA-measured L1-L4 BMD and T-score from the image",
+      "result": {
+        "val_r2_bmd": -0.029,
+        "val_r2_tscore": -0.022,
+        "final_train_loss": 0.105
+      },
+      "verdict": "Ill-posed. Held-out R2 is zero or negative, i.e. no better than the mean. Expected in hindsight: a radiograph is not a calibrated attenuating measurement the way a DXA scan is, so vertebral density is not recoverable from its grey values. Recorded because it is the kind of pretext task that looks principled and silently produces meaningless features."
+    },
+    "pretext_task_2_masked_reconstruction": {
+      "task": "self-supervised masked-region reconstruction, 35 percent of a 8x8 grid, no annotation used",
+      "result": {
+        "loss_first": 0.3963,
+        "loss_last": 0.1651,
+        "epochs": 120,
+        "acceptance_probe": {
+          "metric": "osteoporosis class, held-out patients",
+          "balanced_accuracy": 0.3563,
+          "majority_class_accuracy": 0.3913,
+          "val_images": 322
+        }
+      },
+      "verdict": "FAILED its pre-registered acceptance test. The probe was written before the run as the only meaningful check: held-out balanced accuracy must beat the majority class. It scored 0.356 against 0.391, so the frozen features carry no usable bone-structure information. By that stated criterion the features were NOT transferred to the organizer cohort and no screening run was made with them."
+    },
+    "overall_verdict": "LUMOS did not produce a usable encoder. Two pretext tasks were tried: one was ill-posed, the other failed its acceptance probe. 1614 images is small for self-supervised learning from scratch, and the corpus contains no defect supervision to transfer in the first place."
+  },
+  "methods_tried_and_rejected_2026_10_04_b": [
+    {
+      "name": "Unfitted clinical-margin thresholds (ISCD 3 cm / 2 cm) for the coverage criteria",
+      "rationale": "A published constant cannot suffer the inner-selection overfitting that killed the AND-gate, so it should be immune by construction.",
+      "result": {
+        "hip_roi_coverage": {
+          "clinical_rule_f1": 0.167,
+          "shipped_fitted_threshold_f1": 0.429
+        },
+        "spine_coverage": {
+          "clinical_rule_f1": 0.021,
+          "shipped_fitted_threshold_f1": 0.5
+        }
+      },
+      "verdict": "Refuted. The shipped fitted thresholds are already well calibrated for the rare coverage criteria: hip_roi_coverage catches 3 of 7 positives with only 4 false positives. Naive clinical constants are much worse, because they ignore where the anatomy actually sits in each frame. This also identifies the cause of the champion regression: the rank average discards that good upstream calibration on hip_roi_coverage (0.429 -> 0.167)."
+    },
+    {
+      "name": "Conservative per-criterion switch to the ensemble, requiring a 0.05 inner-OOF F1 margin",
+      "rationale": "Keep the shipped calibration on rare criteria, adopt the ensemble only where it clearly wins on inner OOF.",
+      "result": {
+        "overall_f1": 0.5521,
+        "paired_delta_f1": -0.04,
+        "ensemble_adopted_on": "2 of 25 criterion-folds",
+        "inner_oof_comparison": "ensemble wins 2 of 25 criterion-folds against the baseline"
+      },
+      "verdict": "Refuted, and the single most important methodological finding of the whole sweep. The ensemble wins the outer evaluation 0.6400 to 0.5921 while losing the inner OOF comparison on 23 of 25 criterion-folds. Inner-OOF F1 therefore systematically misranks these two candidates even when both are compared head to head, by the same procedure, on the same data. Every mechanism in this project that relied on inner-OOF comparison to decide between candidates is therefore unsound at this cohort size, which bounds what any further modelling can achieve."
+    }
+  ],
+  "nhanes_base_rates_2026_10_04": {
+    "purpose": "The only publicly available expert-adjudicated record of how often each DXA defect actually occurs. Used to establish whether the organiser cohort is representative. Labels only - NHANES publishes no DXA images - so this is a context measurement, never a training source.",
+    "source": {
+      "name": "NHANES 2017-2018",
+      "file": "DXXSPN_J.xpt",
+      "rows": 2898,
+      "columns": [
+        "DXXL1BCC",
+        "DXXL2BCC",
+        "DXXL3BCC",
+        "DXXL4BCC"
+      ],
+      "downloaded_mb": 7.0,
+      "access": "open, no login",
+      "also_downloaded": [
+        "DXX_G_2011.xpt",
+        "DXXAG_I_2015.xpt",
+        "DXXFEM_J_2017.xpt",
+        "P_DXXSPN_2017.xpt"
+      ]
+    },
+    "observed_rates": {
+      "code_1_removable_or_non_removable_objects": {
+        "flags": 121,
+        "rate_per_vertebra_percent": 1.04,
+        "maps_to": "spine_artifact"
+      },
+      "code_4_insufficient_scan_area": {
+        "flags": 8,
+        "rate_per_vertebra_percent": 0.07,
+        "maps_to": "spine_coverage, hip_roi_coverage"
+      },
+      "code_5_movement": {
+        "flags": 11,
+        "rate_per_vertebra_percent": 0.09,
+        "maps_to": "hip_position_rotation (closest analogue available)"
+      },
+      "code_3_excessive_xray_noise": {
+        "flags": 0,
+        "rate_per_vertebra_percent": 0.0,
+        "maps_to": "noise / IQA"
+      },
+      "code_6_degenerative_disease": {
+        "flags": 1883,
+        "rate_per_vertebra_percent": 16.24,
+        "maps_to": "none - a clinical finding, not a quality defect"
+      }
+    },
+    "enrichment_of_the_organiser_cohort": [
+      {
+        "criterion": "spine_artifact",
+        "nhanes_percent": 1.04,
+        "cohort_percent": 17.17,
+        "enrichment_x": 16
+      },
+      {
+        "criterion": "spine_coverage",
+        "nhanes_percent": 0.07,
+        "cohort_percent": 6.06,
+        "enrichment_x": 88
+      },
+      {
+        "criterion": "hip_position_rotation",
+        "nhanes_percent": 0.09,
+        "cohort_percent": 24.0,
+        "enrichment_x": 253
+      }
+    ],
+    "cohort_overall_positive_rate_percent": 29.3,
+    "conclusions": [
+      "The organiser cohort is a deliberately defect-enriched competition set. Defect prevalence is one to two orders of magnitude above clinical practice.",
+      "Absolute F1 values therefore carry no external clinical validity. A detector tuned to 29 percent prevalence and applied to a population at 1 percent would produce roughly ten false positives per true finding.",
+      "This explains the central pattern of the whole project: the cohort was built to make rare positioning defects learnable in 249 images, and that same enrichment is why no representation, resolution or external corpus moved the number. The difficulty is a property of the task construction, not of the encoders.",
+      "It also means the false-safe rate deserves more weight than F1 for any deployment decision, which is why the project already reports it and why the champion improved it from 0.1647 to 0.1453.",
+      "NHANES also confirms the taxonomy is not invented: code 1, 4, 5 and 6 map onto spine_artifact, coverage, movement and positioning respectively."
+    ]
+  },
+  "new_data_acquired_2026_10_04": {
+    "lumos": {
+      "gb": 12,
+      "images_prepared": 1614,
+      "patients": 800,
+      "licence": "CC BY-NC 4.0",
+      "outcome": "two pretext tasks tried, both failed - see lumos_acquisition_and_transfer_2026_10_04"
+    },
+    "nhanes_dxx": {
+      "mb": 7.0,
+      "cycles": [
+        2011,
+        2015,
+        2017
+      ],
+      "labels_only": true,
+      "outcome": "produced the defect base-rate measurement above; no pixels exist"
+    },
+    "spineweb_aasce": {
+      "kb": 656,
+      "contents": "curated vertebra-corner annotations for 609 AP spine radiographs",
+      "outcome": "downloaded; annotations only, the image host spineweb.digitalimaginggroup.ca is offline",
+      "note": "Contains documented corrections to the original labels including swapped vertebral levels, which is further evidence that expert keypoint labelling at this scale is error-prone."
+    },
+    "hipray": {
+      "status": "already present in the repository at datasets/external/hipray.zip",
+      "contents": "140 hip radiographs with 3-class masks, CC BY 4.0, no access wall",
+      "note": "Not re-downloaded. Mask-supervised on femur anatomy, which is what hip_position_rotation needs, but only 140 images of the wrong modality."
+    },
+    "kaggle_chinese_dxa": {
+      "name": "tommyngx/chinese-osteoporosis-dxa",
+      "gb": 30.6,
+      "licence": "CC BY 4.0",
+      "files": 20741,
+      "status": "BLOCKED - no Kaggle credentials on this machine",
+      "value": "The only ungated source of real DXA pixels at scale. Requires ~/.kaggle/kaggle.json."
+    },
+    "total_downloaded_gb": 12.0
+  },
+  "seed_robustness_2026_10_04": {
+    "why": "The champion was measured at a single seed. That is exactly the situation in which a noise-driven \"improvement\" looks real, so the first thing that had to be checked was whether the gain survives a change of inner splits and estimator randomness.",
+    "method": "rank_ensemble_screen.py gained --seed, which drives StratifiedGroupKFold(random_state=SEED+100) for the inner splits and the random_state of every estimator. The outer folds stay fixed because the nested protocol inherits them from the baseline OOF by design, so this varies the parts of the pipeline that are free to vary.",
+    "runs": [
+      {
+        "seed": 17,
+        "f1": 0.64,
+        "paired_delta_f1": 0.04789473684210532,
+        "paired_delta_f1_ci95": [
+          -0.01851264148947418,
+          0.12102272727272721
+        ],
+        "tn_fp_fn_tp": [
+          147,
+          29,
+          25,
+          48
+        ],
+        "roc_auc": 0.7517123287671232,
+        "criterion_macro_f1": 0.4177978883861237
+      },
+      {
+        "seed": 101,
+        "f1": 0.581081081081081,
+        "paired_delta_f1": -0.01102418207681366,
+        "paired_delta_f1_ci95": [
+          -0.08633363495538963,
+          0.06049749649940124
+        ],
+        "tn_fp_fn_tp": [
+          144,
+          32,
+          30,
+          43
+        ],
+        "roc_auc": 0.7513231631382316,
+        "criterion_macro_f1": 0.4600000000000001
+      },
+      {
+        "seed": 202,
+        "f1": 0.5375,
+        "paired_delta_f1": -0.05460526315789471,
+        "paired_delta_f1_ci95": [
+          -0.13479926862976668,
+          0.020465716744398222
+        ],
+        "tn_fp_fn_tp": [
+          132,
+          44,
+          30,
+          43
+        ],
+        "roc_auc": 0.75093399750934,
+        "criterion_macro_f1": 0.3939393939393939
+      },
+      {
+        "seed": 303,
+        "f1": 0.6,
+        "paired_delta_f1": 0.007894736842105288,
+        "paired_delta_f1_ci95": [
+          -0.07564967400684201,
+          0.09017840400823039
+        ],
+        "tn_fp_fn_tp": [
+          151,
+          25,
+          31,
+          42
+        ],
+        "roc_auc": 0.7513231631382317,
+        "criterion_macro_f1": 0.41888812941444514
+      }
+    ],
+    "summary": {
+      "mean_f1": 0.5896452702702702,
+      "sd_f1": 0.04256482813293012,
+      "f1_min": 0.5375,
+      "f1_max": 0.64,
+      "mean_paired_delta_f1": -0.0024599928876244403,
+      "sd_paired_delta_f1": 0.04256482813293012,
+      "seeds_above_baseline_f1": 2,
+      "seeds_total": 4,
+      "seeds_positive_paired_delta": 2
+    },
+    "verdict": "REFUTED. The candidate is indistinguishable from the baseline. Mean F1 0.5896 against a 0.5921 baseline, mean paired delta -0.0025 with a standard deviation of 0.0426, and it beats the baseline in only 2 of 4 seeds. The single-seed +0.0479 reported earlier was seed luck, not an improvement.",
+    "correction": "This supersedes the single-seed claim in third_sweep_2026_10_04 and in final_state_2026_10_04. Rank averaging and multi-layer features are still the two least-bad mechanisms measured, and both still fix the false-positive explosion, but neither produces a reproducible gain on this cohort."
+  },
+  "experiments_run_total": 26
+}

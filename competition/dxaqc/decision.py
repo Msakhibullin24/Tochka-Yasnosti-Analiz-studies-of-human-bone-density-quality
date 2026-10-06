@@ -9,7 +9,23 @@ AXIS_LIMIT_DEG = 5.0
 
 
 def decide(group: str, score: float, criteria: dict[str, float], features: dict,
-           quality_threshold: float, criterion_thresholds: dict[str, float]) -> dict:
+           quality_threshold: float, criterion_thresholds: dict[str, float],
+           axis_rule: str = "official") -> dict:
+    """Build the versioned decision.
+
+    axis_rule selects how spine_axis is resolved:
+      "official" - the measured angle against AXIS_LIMIT_DEG, as shipped;
+      "model"    - the criterion score against its own validated threshold.
+
+    "official" stays the default so inference behaviour is unchanged. "model" exists
+    because the official rule is unreachable on some cohorts: measured independently
+    on the organizer data, no spine frame shows a visible tilt above AXIS_LIMIT_DEG,
+    so the rule fires on 0 of 10 labelled positives while discarding a classifier
+    score that does separate the classes. Switching is a clinical-definition change
+    and is never automatic.
+    """
+    if axis_rule not in ("official", "model"):
+        raise ValueError("axis_rule must be 'official' or 'model'")
     if not math.isfinite(score) or any(not math.isfinite(p) for p in criteria.values()):
         raise ValueError("non-finite model score")
     states, review = {}, []
@@ -18,7 +34,12 @@ def decide(group: str, score: float, criteria: dict[str, float], features: dict,
         state = {'status': 'fail' if predicted else 'pass', 'basis': 'criterion_threshold'}
         if key == 'spine_axis':
             angle = features.get('spine_abs_angle_deg')
-            if angle is None or not math.isfinite(angle):
+            if axis_rule == 'model':
+                state = {'status': 'fail' if predicted else 'pass', 'basis': 'criterion_threshold',
+                         'angle_deg': float(abs(angle)) if angle is not None and math.isfinite(angle) else None,
+                         'limit_deg': AXIS_LIMIT_DEG, 'axis_rule': 'model',
+                         'clinical_validation': False}
+            elif angle is None or not math.isfinite(angle):
                 state = {'status': 'undetermined', 'basis': 'axis_measurement_unavailable'}
                 review.append('axis_measurement_unavailable')
             else:

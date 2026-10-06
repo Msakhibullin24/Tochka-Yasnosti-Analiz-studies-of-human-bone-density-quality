@@ -1,16 +1,88 @@
 {
   "schema_version": 1,
   "models": {
-    "medsiglip": {"repo": "google/medsiglip-448", "kind": "siglip", "size": 448, "stage": 1, "role": "medical image QC; full-resolution control"},
-    "dinov3-b": {"repo": "facebook/dinov3-vitb16-pretrain-lvd1689m", "kind": "dinov3_vit", "size": 512, "stage": 1, "role": "global and patch features; anatomy candidate"},
-    "dinov3-l": {"repo": "facebook/dinov3-vitl16-pretrain-lvd1689m", "kind": "dinov3_vit", "size": 512, "stage": 2, "role": "controlled encoder scaling after B"},
-    "dinov3-h": {"repo": "facebook/dinov3-vith16plus-pretrain-lvd1689m", "kind": "dinov3_vit", "size": 512, "stage": 3, "role": "larger teacher if B/L improves"},
-    "dinov3-7b": {"repo": "facebook/dinov3-vit7b16-pretrain-lvd1689m", "kind": "dinov3_vit", "size": 512, "stage": 4, "role": "optional frozen teacher; benchmark VRAM before full extraction"}
+    "medsiglip": {
+      "repo": "google/medsiglip-448",
+      "kind": "siglip",
+      "size": 448,
+      "stage": 1,
+      "role": "medical image QC; full-resolution control",
+      "weights_files_sha256": {
+        "model.safetensors": "3e1722b8100cca8b87cfe16e42140737aa6d312854e9e6bc24dff6db70e21d72"
+      },
+      "verification": "official google/medsiglip-448 at revision 9cea28a1a1195f665105faa6e8544c112fd960a4; file digest above, and the aggregate weights_sha256 7e419784fa0b044131402606b5445f5ba2a68cd1e33efba3207e8663cd64b375 matches docs/competition/gpu_preparation_2026_10_03.json (that document quotes the aggregate, not the file digest)"
+    },
+    "dinov3-b": {
+      "repo": "facebook/dinov3-vitb16-pretrain-lvd1689m",
+      "kind": "dinov3_vit",
+      "size": 512,
+      "stage": 1,
+      "role": "global and patch features; anatomy candidate"
+    },
+    "dinov3-l": {
+      "repo": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+      "kind": "dinov3_vit",
+      "size": 512,
+      "stage": 2,
+      "role": "controlled encoder scaling after B",
+      "weights_provenance": "untrusted mirror accepted after 366/366 bitwise agreement with timm/vit_large_patch16_dinov3.lvd1689m; see docs/competition/foundation_encoders_2026_10_04.json",
+      "weights_files_sha256": {
+        "model.safetensors": "dcb2e45127cccbf1601e5f42fef165eea275c8e5213197e8dcf3f48822718179"
+      },
+      "verification": "unofficial mirror PIA-SPACE-LAB/dinov3-vitl-pretrain-lvd1689m accepted after 366/366 tensors matched timm/vit_large_patch16_dinov3.lvd1689m bitwise; official Meta digest unreachable while gated"
+    },
+    "dinov3-h": {
+      "repo": "facebook/dinov3-vith16plus-pretrain-lvd1689m",
+      "kind": "dinov3_vit",
+      "size": 512,
+      "stage": 3,
+      "role": "larger teacher if B/L improves"
+    },
+    "dinov3-7b": {
+      "repo": "facebook/dinov3-vit7b16-pretrain-lvd1689m",
+      "kind": "dinov3_vit",
+      "size": 512,
+      "stage": 4,
+      "role": "optional frozen teacher; benchmark VRAM before full extraction"
+    },
+    "rad-dino": {
+      "repo": "microsoft/rad-dino",
+      "kind": "dinov2",
+      "size": 518,
+      "stage": 1,
+      "role": "DINOv2 continually pretrained on 838k chest radiographs, image-only MIM; ungated MIT",
+      "weights_files_sha256": {
+        "model.safetensors": "dbfb9f54459c38773505de64a6ab7807bdcb392610fe1e697166342e43fb91ae",
+        "backbone_compatible.safetensors": "1eac0464b2a00d368aa3eea1dc029964b10320fbabc59a8a4e768c43a23d26f4",
+        "dino_head.safetensors": "5b3599663464ed1054f7777f547db02f518581acc5becdd3eddffc8c507f3778"
+      },
+      "verification": "model.safetensors matches the RAD-DINO checkpoint pinned in docs/competition/dxa_spine_vit_raddino_cv_2026_09_28.json"
+    },
+    "dinov2-xray": {
+      "repo": "StanfordAIMI/dinov2-base-xray-224",
+      "kind": "dinov2",
+      "size": 224,
+      "stage": 1,
+      "role": "DINOv2 continually pretrained on X-rays; ungated Apache-2.0",
+      "weights_files_sha256": {
+        "model.safetensors": "fd1751d6bb8c1128fdc8820ada1847394532c8ff8af7a2a79f497f8f7f260ab6"
+      },
+      "verification": "ungated public mirror; no independent redistribution available to cross-check, so trust rests on the repository only"
+    }
   },
   "auxiliary": {
-    "sam3": {"repo": "facebook/sam3", "role": "expert-corrected mask proposals; separate upstream environment"},
-    "medsam": {"url": "https://github.com/bowang-lab/MedSAM", "role": "local expert annotation with boxes; separate upstream environment"},
-    "nnunet": {"url": "https://github.com/MIC-DKFZ/nnUNet", "role": "2D supervised anatomy baseline after independent dense labels"}
+    "sam3": {
+      "repo": "facebook/sam3",
+      "role": "expert-corrected mask proposals; separate upstream environment"
+    },
+    "medsam": {
+      "url": "https://github.com/bowang-lab/MedSAM",
+      "role": "local expert annotation with boxes; separate upstream environment"
+    },
+    "nnunet": {
+      "url": "https://github.com/MIC-DKFZ/nnUNet",
+      "role": "2D supervised anatomy baseline after independent dense labels"
+    }
   },
-  "policy": "Research only. No automatic release promotion. Download one chosen model at a time; terms and account access apply."
+  "policy": "Research only. No automatic release promotion. Download one chosen model at a time; terms and account access apply. Every entry added on 2026-10-04 carries weights_files_sha256; verify each listed file against the local copy before use."
 }

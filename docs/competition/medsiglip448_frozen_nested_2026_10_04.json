@@ -1,0 +1,538 @@
+{
+  "scope": "Research-only frozen MedSigLIP-448 encoder on the organizer DXA cohort; nested criterion selection, internal study-held-out OOF",
+  "question": "Do frozen google/medsiglip-448 image embeddings beat the shipped ResNet18 embedding inside the existing nested criterion protocol?",
+  "date": "2026-10-04",
+  "protocol": "Research-only nested selection of DXA criterion classifiers.\n\nOuter identities and routing are frozen to the baseline OOF. Models, scalers,\nimputers and thresholds are fitted without the held-out studies. The measured\naxis constraint is retained. This is not evaluation of a new clinical release.\n",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4070",
+    "capability": [
+      8,
+      9
+    ],
+    "free_vram_bytes": 11759976448,
+    "total_vram_bytes": 12470845440,
+    "torch": "2.7.1+cu128",
+    "cuda_runtime": "12.8",
+    "bf16_supported": true,
+    "optimizer_smoke_passed": true,
+    "packages": {
+      "torchvision": "0.22.1+cu128",
+      "transformers": "5.17.0",
+      "numpy": "1.24.3",
+      "scikit-learn": "1.6.1"
+    },
+    "clinical_validation": false
+  },
+  "environment": {
+    "torchvision": "0.22.1+cu128",
+    "transformers": "5.17.0",
+    "numpy": "1.24.3",
+    "scikit-learn": "1.6.1"
+  },
+  "encoder": {
+    "catalog_key": "medsiglip",
+    "repo": "google/medsiglip-448",
+    "revision": "9cea28a1a1195f665105faa6e8544c112fd960a4",
+    "weights_sha256": "7e419784fa0b044131402606b5445f5ba2a68cd1e33efba3207e8663cd64b375",
+    "config_sha256": "a79c4b99ca743df7cdaf2e563ca0955ba63ec5390f591002c84b76865026b263",
+    "processor_sha256": "32adf33cc0bb18943c735d834c3892fc139a8fa969f4b6d1fc190200bf2392a3",
+    "precision": "bf16",
+    "input_size": 448,
+    "pooling": "global-mean",
+    "preprocessing": "pixel-aspect full-frame letterbox, bone-bright, left hip mirrored using known label",
+    "encoder_finetuned": false,
+    "features_shape": [
+      249,
+      2304
+    ],
+    "features_sha256": "06dce474ebd28cacf2bfd0d6a78f4f293b4064ea29e406dc0c807b05a2c64d51",
+    "extraction_seconds": 7.137565512000037,
+    "peak_vram_bytes": 909087744,
+    "matches_documented_checkpoint": true
+  },
+  "dataset": {
+    "archive": "datasets/organizer/НД_для_обучения.zip",
+    "dicom_files": 499,
+    "studies": 100,
+    "labelled_images": 249,
+    "extracted_to": "data/gpu-input/Исследования",
+    "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+    "source_fingerprint": "1cede858f61a3d86e507572749eda53f06639e4606daf51fcd6119215abb9df5"
+  },
+  "run_artifacts": "data/gpu-runs/medsiglip-frozen-2026-10-04",
+  "variants": {
+    "baseline_ensemble": {
+      "resnet18_reference": {
+        "overall_f1": 0.5774647887323944,
+        "criterion_macro_f1": 0.48831209479096804,
+        "paired_delta_f1": -0.014640474425500316,
+        "passes_internal_metric_screen": false
+      },
+      "medsiglip448": {
+        "overall_f1": 0.4968152866242038,
+        "tn_fp_fn_tp": [
+          131,
+          45,
+          34,
+          39
+        ],
+        "sensitivity": 0.5342465753424658,
+        "specificity": 0.7443181818181818,
+        "precision": 0.4642857142857143,
+        "criterion_macro_f1": 0.41112887112887114,
+        "paired_delta_f1": -0.09528997653369087,
+        "paired_delta_f1_ci95": [
+          -0.17596447077302574,
+          -0.02123762913712855
+        ],
+        "passes_internal_metric_screen": false,
+        "failure_reasons": [
+          "overall_f1_not_higher",
+          "sensitivity_lower",
+          "specificity_lower",
+          "additional_false_safe",
+          "spine_f1_lower",
+          "spine_sensitivity_lower",
+          "hip_left_f1_lower",
+          "hip_left_sensitivity_lower",
+          "hip_left_specificity_lower",
+          "hip_right_f1_lower",
+          "hip_right_sensitivity_lower",
+          "hip_right_specificity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "precision_lower",
+          "balanced_accuracy_lower",
+          "brier_score_higher",
+          "criterion_macro_f1_lower",
+          "spine_artifact_f1_lower",
+          "spine_artifact_sensitivity_lower",
+          "hip_position_rotation_f1_lower",
+          "hip_position_rotation_sensitivity_lower",
+          "hip_position_rotation_specificity_lower",
+          "hip_roi_coverage_f1_lower",
+          "hip_roi_coverage_sensitivity_lower",
+          "hip_roi_coverage_specificity_lower"
+        ]
+      },
+      "overall_f1_delta": -0.08064950210819055
+    },
+    "geometry_rf": {
+      "resnet18_reference": {
+        "overall_f1": 0.5753424657534246,
+        "criterion_macro_f1": 0.5110865398791095,
+        "paired_delta_f1": -0.016762797404470064,
+        "passes_internal_metric_screen": false
+      },
+      "medsiglip448": {
+        "overall_f1": 0.5753424657534246,
+        "tn_fp_fn_tp": [
+          145,
+          31,
+          31,
+          42
+        ],
+        "sensitivity": 0.5753424657534246,
+        "specificity": 0.8238636363636364,
+        "precision": 0.5753424657534246,
+        "criterion_macro_f1": 0.5110865398791095,
+        "paired_delta_f1": -0.016762797404470064,
+        "paired_delta_f1_ci95": [
+          -0.1045162372228881,
+          0.06911822872343264
+        ],
+        "passes_internal_metric_screen": false,
+        "failure_reasons": [
+          "overall_f1_not_higher",
+          "sensitivity_lower",
+          "additional_false_safe",
+          "spine_sensitivity_lower",
+          "hip_left_f1_lower",
+          "hip_left_sensitivity_lower",
+          "hip_left_roc_auc_lower",
+          "hip_left_average_precision_lower",
+          "hip_right_f1_lower",
+          "hip_right_sensitivity_lower",
+          "hip_right_specificity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "average_precision_lower",
+          "balanced_accuracy_lower",
+          "spine_artifact_sensitivity_lower",
+          "hip_position_rotation_f1_lower",
+          "hip_position_rotation_sensitivity_lower",
+          "hip_roi_coverage_specificity_lower"
+        ]
+      },
+      "overall_f1_delta": 0.0
+    },
+    "geometry_lr": {
+      "resnet18_reference": {
+        "overall_f1": 0.4819277108433735,
+        "criterion_macro_f1": 0.4427276930189551,
+        "paired_delta_f1": -0.1101775523145212,
+        "passes_internal_metric_screen": false
+      },
+      "medsiglip448": {
+        "overall_f1": 0.4819277108433735,
+        "tn_fp_fn_tp": [
+          123,
+          53,
+          33,
+          40
+        ],
+        "sensitivity": 0.547945205479452,
+        "specificity": 0.6988636363636364,
+        "precision": 0.43010752688172044,
+        "criterion_macro_f1": 0.4427276930189551,
+        "paired_delta_f1": -0.1101775523145212,
+        "paired_delta_f1_ci95": [
+          -0.18579003984168654,
+          -0.03397998138479665
+        ],
+        "passes_internal_metric_screen": false,
+        "failure_reasons": [
+          "overall_f1_not_higher",
+          "sensitivity_lower",
+          "specificity_lower",
+          "additional_false_safe",
+          "spine_f1_lower",
+          "spine_sensitivity_lower",
+          "hip_left_f1_lower",
+          "hip_left_specificity_lower",
+          "hip_left_roc_auc_lower",
+          "hip_left_average_precision_lower",
+          "hip_right_f1_lower",
+          "hip_right_specificity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "roc_auc_lower",
+          "average_precision_lower",
+          "precision_lower",
+          "balanced_accuracy_lower",
+          "brier_score_higher",
+          "criterion_macro_f1_lower",
+          "spine_coverage_f1_lower",
+          "spine_coverage_sensitivity_lower",
+          "spine_artifact_f1_lower",
+          "spine_artifact_sensitivity_lower",
+          "spine_artifact_specificity_lower",
+          "hip_position_rotation_f1_lower",
+          "hip_position_rotation_specificity_lower"
+        ]
+      },
+      "overall_f1_delta": 0.0
+    },
+    "embedding_lr_001": {
+      "resnet18_reference": {
+        "overall_f1": 0.5054945054945055,
+        "criterion_macro_f1": 0.3819381598793363,
+        "paired_delta_f1": -0.08661075766338922,
+        "passes_internal_metric_screen": false
+      },
+      "medsiglip448": {
+        "overall_f1": 0.5212121212121212,
+        "tn_fp_fn_tp": [
+          127,
+          49,
+          30,
+          43
+        ],
+        "sensitivity": 0.589041095890411,
+        "specificity": 0.7215909090909091,
+        "precision": 0.4673913043478261,
+        "criterion_macro_f1": 0.3767397329302091,
+        "paired_delta_f1": -0.07089314194577345,
+        "paired_delta_f1_ci95": [
+          -0.15286897358172116,
+          0.007630771323306673
+        ],
+        "passes_internal_metric_screen": false,
+        "failure_reasons": [
+          "overall_f1_not_higher",
+          "sensitivity_lower",
+          "specificity_lower",
+          "additional_false_safe",
+          "spine_f1_lower",
+          "spine_specificity_lower",
+          "spine_roc_auc_lower",
+          "spine_average_precision_lower",
+          "hip_left_f1_lower",
+          "hip_left_specificity_lower",
+          "hip_left_roc_auc_lower",
+          "hip_right_f1_lower",
+          "hip_right_sensitivity_lower",
+          "hip_right_specificity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "roc_auc_lower",
+          "average_precision_lower",
+          "precision_lower",
+          "balanced_accuracy_lower",
+          "brier_score_higher",
+          "criterion_macro_f1_lower",
+          "spine_artifact_f1_lower",
+          "spine_artifact_sensitivity_lower",
+          "spine_artifact_specificity_lower",
+          "hip_position_rotation_f1_lower",
+          "hip_position_rotation_sensitivity_lower",
+          "hip_position_rotation_specificity_lower",
+          "hip_roi_coverage_f1_lower",
+          "hip_roi_coverage_sensitivity_lower",
+          "hip_roi_coverage_specificity_lower"
+        ]
+      },
+      "overall_f1_delta": 0.015717615717615763
+    },
+    "embedding_lr_01": {
+      "resnet18_reference": {
+        "overall_f1": 0.5168539325842697,
+        "criterion_macro_f1": 0.36597626752966556,
+        "paired_delta_f1": -0.07525133057362499,
+        "passes_internal_metric_screen": false
+      },
+      "medsiglip448": {
+        "overall_f1": 0.49696969696969695,
+        "tn_fp_fn_tp": [
+          125,
+          51,
+          32,
+          41
+        ],
+        "sensitivity": 0.5616438356164384,
+        "specificity": 0.7102272727272727,
+        "precision": 0.44565217391304346,
+        "criterion_macro_f1": 0.34787114845938377,
+        "paired_delta_f1": -0.09513556618819774,
+        "paired_delta_f1_ci95": [
+          -0.18290511912331203,
+          -0.013849481311371505
+        ],
+        "passes_internal_metric_screen": false,
+        "failure_reasons": [
+          "overall_f1_not_higher",
+          "sensitivity_lower",
+          "specificity_lower",
+          "additional_false_safe",
+          "spine_f1_lower",
+          "spine_sensitivity_lower",
+          "spine_specificity_lower",
+          "spine_roc_auc_lower",
+          "spine_average_precision_lower",
+          "hip_left_f1_lower",
+          "hip_left_specificity_lower",
+          "hip_left_roc_auc_lower",
+          "hip_right_f1_lower",
+          "hip_right_sensitivity_lower",
+          "hip_right_specificity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "roc_auc_lower",
+          "average_precision_lower",
+          "precision_lower",
+          "balanced_accuracy_lower",
+          "brier_score_higher",
+          "criterion_macro_f1_lower",
+          "spine_coverage_f1_lower",
+          "spine_coverage_specificity_lower",
+          "spine_artifact_f1_lower",
+          "spine_artifact_sensitivity_lower",
+          "spine_artifact_specificity_lower",
+          "hip_position_rotation_f1_lower",
+          "hip_position_rotation_sensitivity_lower",
+          "hip_position_rotation_specificity_lower",
+          "hip_roi_coverage_f1_lower",
+          "hip_roi_coverage_sensitivity_lower",
+          "hip_roi_coverage_specificity_lower"
+        ]
+      },
+      "overall_f1_delta": -0.019884235614572754
+    },
+    "combined_lr_001": {
+      "resnet18_reference": {
+        "overall_f1": 0.5,
+        "criterion_macro_f1": 0.4016302016302017,
+        "paired_delta_f1": -0.09210526315789469,
+        "passes_internal_metric_screen": false
+      },
+      "medsiglip448": {
+        "overall_f1": 0.5641025641025641,
+        "tn_fp_fn_tp": [
+          137,
+          39,
+          29,
+          44
+        ],
+        "sensitivity": 0.6027397260273972,
+        "specificity": 0.7784090909090909,
+        "precision": 0.5301204819277109,
+        "criterion_macro_f1": 0.3982222222222222,
+        "paired_delta_f1": -0.028002699055330593,
+        "paired_delta_f1_ci95": [
+          -0.10427898387276933,
+          0.048197091792921525
+        ],
+        "passes_internal_metric_screen": false,
+        "failure_reasons": [
+          "overall_f1_not_higher",
+          "sensitivity_lower",
+          "specificity_lower",
+          "additional_false_safe",
+          "spine_f1_lower",
+          "spine_specificity_lower",
+          "spine_roc_auc_lower",
+          "spine_average_precision_lower",
+          "hip_left_roc_auc_lower",
+          "hip_right_f1_lower",
+          "hip_right_sensitivity_lower",
+          "hip_right_specificity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "roc_auc_lower",
+          "average_precision_lower",
+          "precision_lower",
+          "balanced_accuracy_lower",
+          "brier_score_higher",
+          "criterion_macro_f1_lower",
+          "spine_artifact_f1_lower",
+          "spine_artifact_sensitivity_lower",
+          "spine_artifact_specificity_lower",
+          "hip_position_rotation_f1_lower",
+          "hip_position_rotation_sensitivity_lower",
+          "hip_roi_coverage_f1_lower",
+          "hip_roi_coverage_sensitivity_lower",
+          "hip_roi_coverage_specificity_lower"
+        ]
+      },
+      "overall_f1_delta": 0.0641025641025641
+    },
+    "adaptive": {
+      "resnet18_reference": {
+        "overall_f1": 0.5797101449275363,
+        "criterion_macro_f1": 0.5066032558990304,
+        "paired_delta_f1": -0.012395118230358437,
+        "passes_internal_metric_screen": false
+      },
+      "medsiglip448": {
+        "overall_f1": 0.5714285714285714,
+        "tn_fp_fn_tp": [
+          144,
+          32,
+          31,
+          42
+        ],
+        "sensitivity": 0.5753424657534246,
+        "specificity": 0.8181818181818182,
+        "precision": 0.5675675675675675,
+        "criterion_macro_f1": 0.5018935574229693,
+        "paired_delta_f1": -0.020676691729323293,
+        "paired_delta_f1_ci95": [
+          -0.1066811214081715,
+          0.06070387614505255
+        ],
+        "passes_internal_metric_screen": false,
+        "failure_reasons": [
+          "overall_f1_not_higher",
+          "sensitivity_lower",
+          "additional_false_safe",
+          "spine_sensitivity_lower",
+          "hip_right_f1_lower",
+          "hip_right_sensitivity_lower",
+          "hip_right_specificity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "roc_auc_lower",
+          "average_precision_lower",
+          "precision_lower",
+          "balanced_accuracy_lower",
+          "brier_score_higher",
+          "spine_artifact_sensitivity_lower",
+          "hip_position_rotation_f1_lower",
+          "hip_position_rotation_sensitivity_lower",
+          "hip_roi_coverage_specificity_lower"
+        ]
+      },
+      "overall_f1_delta": -0.008281573498964856
+    }
+  },
+  "criterion_detail": {
+    "spine_coverage": {
+      "baseline": 0.5,
+      "adaptive_medsiglip": 0.5714285714285714
+    },
+    "spine_axis": {
+      "baseline": 0.16666666666666666,
+      "adaptive_medsiglip": 0.16666666666666666
+    },
+    "spine_artifact": {
+      "baseline": 0.7567567567567568,
+      "adaptive_medsiglip": 0.7647058823529411
+    },
+    "hip_position_rotation": {
+      "baseline": 0.5569620253164557,
+      "adaptive_medsiglip": 0.5066666666666667
+    },
+    "hip_roi_coverage": {
+      "baseline": 0.42857142857142855,
+      "adaptive_medsiglip": 0.5
+    }
+  },
+  "region_detail": {
+    "spine": {
+      "baseline": 0.59375,
+      "adaptive_medsiglip": 0.6101694915254238
+    },
+    "hip_left": {
+      "baseline": 0.5106382978723404,
+      "adaptive_medsiglip": 0.5333333333333333
+    },
+    "hip_right": {
+      "baseline": 0.6829268292682927,
+      "adaptive_medsiglip": 0.5581395348837209
+    }
+  },
+  "screen_verdict": {
+    "passes": false,
+    "promoted_candidates": 0,
+    "conclusion": "Frozen MedSigLIP-448 does not beat the shipped ResNet18 embedding on any metric screen; no candidate promoted."
+  },
+  "comparison_artifacts": {
+    "reference_run": "docs/competition/metric_upgrade_2026_10_03.json",
+    "earlier_medsiglip_probe": "docs/competition/medsiglip_int8_224_hip_probe_2026_10_03.json"
+  },
+  "code_sha256": {
+    "evaluation_code": "64e85320cbaf66ba5e379866dc55c415be128dab4f4565974df543c88c249876",
+    "run_py": "5a9fafd16f909b51f9708727f7913350b9ac07a7dad011e9b7c11aa06bd348b7",
+    "common_py": "b61e389d9d2ad5d78a1b02826a73b577dc722ddde763487061521c71ca3bce02",
+    "suite_py": "71f2d35037b6be8f91a8b8c640995873bec97e27bab7750540692e55a7ef1558"
+  },
+  "reproducibility": {
+    "research_tests": "PYTHONPATH=competition .venv-gpu/bin/python -m pytest -q competition/tests/test_gpu_research.py -> 17 passed",
+    "rerun": ".venv-gpu/bin/python competition/gpu_research/suite.py --stage frozen --models medsiglip --dataset \"data/gpu-input/Исследования\" --precision bf16 --output <new-dir>"
+  },
+  "dinov3_status": {
+    "repo": "facebook/dinov3-vitb16-pretrain-lvd1689m",
+    "state": "requested; awaiting manual review by the repository authors",
+    "observed": "HTTP 403 GatedRepo, x-error-message: awaiting a review from the repo authors",
+    "note": "Not downloaded; no DINOv3 metrics in this report."
+  },
+  "clinical_validation": false,
+  "model_affects_decision": false,
+  "limitations": [
+    "Previously inspected internal studies; patient independence unverified.",
+    "Baseline routing and runtime axes reused; not raw-input end-to-end CV.",
+    "No independent expert anatomical landmarks or masks.",
+    "Noisy-OR ranking score is not a calibrated clinical probability.",
+    "Multiple exploratory comparisons; no automatic release promotion.",
+    "Single encoder; no encoder-scaling comparison because DINOv3 access is pending.",
+    "Frozen embeddings only; no partial fine-tuning was run.",
+    "Baseline reference run used the shipped ResNet18 embedding, not an independently re-extracted one."
+  ]
+}

@@ -10,8 +10,8 @@ import sys
 import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from gpu_research.common import (CATALOG, HERE, checkpoint_identity, digest, dump, fingerprint,
-                                 image_input, load_encoder, representations)
+from gpu_research.common import (CATALOG, HERE, checkpoint_identity, declared_patch_size, digest, dump,
+                                 fingerprint, image_input, load_encoder, representations)
 
 
 def doctor(output):
@@ -76,7 +76,7 @@ def extract(args):
     from source_integrity import inspect_sources
     entry = CATALOG[args.model]
     size = args.size or entry['size']
-    patch = 14 if entry['kind'] == 'siglip' else 16
+    patch = declared_patch_size(args.model_dir, entry['kind'])
     if not 32 <= size <= 2048 or size % patch:
         raise ValueError(f'Input size must be 32..2048 and divisible by patch size {patch}')
     if args.output.exists():
