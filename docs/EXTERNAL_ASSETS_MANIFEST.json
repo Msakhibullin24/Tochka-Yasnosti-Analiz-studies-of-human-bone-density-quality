@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-04",
+  "purpose": "Provenance and licence status for every external asset fetched into this working tree during the encoder sweep. The assets themselves live under data/ and data/gpu-models/, which are git-ignored, so without this file the repository does not record what was downloaded or under what terms.",
+  "warning": "Several assets below are NON-COMMERCIAL. Nothing derived from them may ship in a commercial product. Every 'licence_verified' value of false means the terms were not confirmed from the publisher and must be checked before any use.",
+  "external_datasets": [
+    {
+      "name": "LUMOS",
+      "location": "data/external/lumos",
+      "record": "https://zenodo.org/records/18173664",
+      "doi": "10.5281/zenodo.18173664",
+      "licence": "CC BY-NC 4.0",
+      "commercial_use": "PROHIBITED without prior written permission from the host ethics committee",
+      "licence_verified": true,
+      "size_gb": 12.0,
+      "contents": "8 DICOM archives, 4838 lumbar radiographs, 803 patients; clinical table with DXA-measured L1-L4 BMD, BMC, T-score and Z-score per patient",
+      "prepared": "data/external/lumos-prep, 1614 images at 256px uint8, one view per patient-region",
+      "used_for": "two pretext tasks, both measured and rejected; see docs/competition/foundation_encoders_2026_10_04.json",
+      "outcome": "Density regression val R2 -0.029; masked reconstruction probe balanced accuracy 0.356 against a 0.391 majority baseline, failing its pre-registered acceptance test. No feature from it was transferred.",
+      "residual_obligation": "None. No weights, features or derived artefacts from LUMOS were kept."
+    },
+    {
+      "name": "NHANES 2011/2015/2017 DXA",
+      "location": "data/external/nhanes",
+      "origin": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/",
+      "licence": "US federal government work, public domain",
+      "commercial_use": "permitted",
+      "licence_verified": true,
+      "size_mb": 7.0,
+      "contents": "DXX_G_2011, DXXAG_I_2015, DXXFEM_J_2017, DXXSPN_J_2017, P_DXXSPN_2017",
+      "used_for": "defect base-rate measurement only",
+      "outcome": "Produced the prevalence comparison: objects 1.04%, insufficient scan area 0.07%, movement 0.09% per vertebra, against 17.2/6.1/24.0 percent in this cohort.",
+      "note": "NHANES publishes no DXA images, so this can never be a training-pixel source."
+    },
+    {
+      "name": "SpineWeb / AASCE curated annotations",
+      "location": "data/external/spineweb",
+      "record": "https://zenodo.org/records/4413665",
+      "licence": "not stated on the record",
+      "commercial_use": "UNKNOWN",
+      "licence_verified": false,
+      "size_kb": 656,
+      "contents": "corrected vertebra-corner annotations for 609 AP spine radiographs plus the per-case correction table",
+      "used_for": "not used",
+      "note": "Annotations only. The original image host spineweb.digitalimaginggroup.ca is offline. The correction table documents swapped vertebral levels and flipped corners in the original labels, which is itself evidence that expert keypoint labelling at this scale is error-prone."
+    },
+    {
+      "name": "HipRay",
+      "location": "datasets/external/hipray.zip",
+      "record": "https://data.mendeley.com/datasets/zm6bxzhmfz/1",
+      "licence": "CC BY 4.0",
+      "commercial_use": "permitted",
+      "licence_verified": true,
+      "contents": "140 lower-limb and hip radiographs with 3-class segmentation masks, NIfTI",
+      "used_for": "not used",
+      "note": "Already committed to the repository before this sweep. Plain radiography, not DXA, and only 140 images."
+    },
+    {
+      "name": "Ramathibodi osteoporosis set",
+      "location": "datasets/external/ramathibodi/osteoporosis.zip",
+      "licence": "Creative Commons Attribution",
+      "commercial_use": "permitted with attribution",
+      "licence_verified": true,
+      "size_mb": 65.6,
+      "used_for": "not used in this sweep",
+      "note": "Already committed to the repository."
+    }
+  ],
+  "model_weights": [
+    {
+      "name": "google/medsiglip-448",
+      "location": "data/gpu-models/medsiglip",
+      "size_gb": 3.3,
+      "licence": "HLS terms (Health AI Developer Foundation); the model card reports 'other'",
+      "commercial_use": "RESTRICTED - check the HLS terms before any use",
+      "licence_verified": false,
+      "gated": "auto",
+      "file_digest": "model.safetensors 3e1722b8100cca8b87cfe16e42140737aa6d312854e9e6bc24dff6db70e21d72",
+      "digest_cross_check": "the aggregate weights digest 7e419784fa0b044131402606b5445f5ba2a68cd1e33efba3207e8663cd64b375 matches docs/competition/gpu_preparation_2026_10_03.json",
+      "used_for": "frozen feature extraction",
+      "outcome": "0.5714 overall F1, worse than the geometry baseline"
+    },
+    {
+      "name": "DINOv3 ViT-L/16 lvd1689m via the PIA-SPACE-LAB mirror",
+      "upstream": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+      "location": "data/gpu-models/dinov3-l",
+      "size_gb": 1.2,
+      "licence": "DINOv3 licence; the upstream repository is gated manual so the licence text could NOT be read from the publisher",
+      "commercial_use": "UNKNOWN - treat as restricted until the DINOv3 licence is read directly",
+      "licence_verified": false,
+      "gated": "upstream gated manual; access request was REJECTED by the repository authors on 2026-10-04",
+      "file_digest": "model.safetensors dcb2e45127cccbf1601e5f42fef165eea275c8e5213197e8dcf3f48822718179",
+      "provenance": "Unofficial ungated mirror. Accepted only after 366 of 366 tensors matched timm/vit_large_patch16_dinov3.lvd1689m bitwise, including cls_token, register_tokens, patch embeddings, all 24 blocks of attention, layer scales, norms and MLP.",
+      "rejected_alternative": "rA9del/dinov3b16 matched no checked tensor and had a wrong feed-forward shape (SwiGLU hidden 2048 instead of MLP 3072). Deleted without use.",
+      "used_for": "frozen multi-layer multi-scale features",
+      "outcome": "best single frozen encoder at 0.6111 F1 on one seed, 0.5896 mean over four"
+    },
+    {
+      "name": "microsoft/rad-dino",
+      "location": "data/gpu-models/rad-dino",
+      "size_gb": 0.75,
+      "licence": "MIT per the model card text; the repository API reports no licence tag",
+      "commercial_use": "permitted if MIT as stated",
+      "licence_verified": false,
+      "gated": false,
+      "file_digest": "model.safetensors dbfb9f54459c38773505de64a6ab7807bdcb392610fe1e697166342e43fb91ae",
+      "digest_cross_check": "matches the RAD-DINO checkpoint already pinned in docs/competition/dxa_spine_vit_raddino_cv_2026_09_28.json",
+      "used_for": "frozen multi-layer features",
+      "outcome": "0.4969 overall F1, worse than the geometry baseline"
+    },
+    {
+      "name": "StanfordAIMI/dinov2-base-xray-224",
+      "location": "data/gpu-models/dinov2-xray",
+      "size_gb": 0.33,
+      "licence": "Apache-2.0",
+      "commercial_use": "permitted",
+      "licence_verified": true,
+      "gated": false,
+      "file_digest": "model.safetensors fd1751d6bb8c1128fdc8820ada1847394532c8ff8af7a2a79f497f8f7f260ab6",
+      "provenance": "Undocumented community mirror with no second redistribution available to cross-check, so trust rests on the repository alone.",
+      "used_for": "frozen features",
+      "outcome": "0.4972 overall F1, worse than the geometry baseline"
+    },
+    {
+      "name": "chaofengc/IQA-PyTorch-Weights",
+      "location": "downloaded on demand by pyiqa into the user cache",
+      "licence": "CC BY-NC-SA 4.0",
+      "commercial_use": "PROHIBITED for commercial use",
+      "licence_verified": true,
+      "used_for": "seven frozen no-reference IQA scores: brisque, niqe, piqe, musiq, maniqa, topiq_nr, clipiqa",
+      "outcome": "0.4490 overall F1, the worst of every family tried. These read noise, contrast and sharpness and are blind to rotation, laterality and coverage, which is four of the six criteria."
+    }
+  ],
+  "not_downloaded": [
+    {
+      "source": "Kaggle tommyngx/chinese-osteoporosis-dxa",
+      "size_gb": 30.6,
+      "licence": "CC BY 4.0",
+      "commercial_use": "permitted",
+      "blocked_by": "no ~/.kaggle/kaggle.json on this machine",
+      "why_it_matters": "The only ungated source of real DXA pixels at scale: 5209 hip, 4632 AP lumbar, 4325 lateral lumbar. Carries no positioning labels, so it cannot teach defect detection, but it is the only route to scale for the rare criteria."
+    },
+    {
+      "source": "UK Biobank field 20158",
+      "blocked_by": "application, fee and months of latency",
+      "why_it_matters": "enCORE ROI overlays are burned into the pixels, giving coverage supervision free on tens of thousands of DXA scans."
+    },
+    {
+      "source": "ALSPAC / Kuopio OSTPRE lumbar DXA",
+      "blocked_by": "Data Use Agreement",
+      "why_it_matters": "12,040 DXA scans with scoliosis angle in degrees, i.e. the closest published analogue to spine_axis."
+    }
+  ],
+  "credentials": {
+    "note": "A HuggingFace token was used to fetch gated weights. It was written to ~/.cache/huggingface/token with mode 600 and is not present anywhere in this repository. It was exposed in chat history on 2026-10-04 and should be rotated."
+  },
+  "compliance_summary": {
+    "blocking_for_commercial_release": [
+      "LUMOS is CC BY-NC 4.0. Nothing derived from it may ship commercially. No artefact was kept, so the obligation is currently discharged, but the dataset must not be reintroduced into a commercial build.",
+      "MedSigLIP-448 carries HLS terms that restrict use and were not verified here.",
+      "The DINOv3 licence could not be read because the upstream repository is gated; treat the mirrored weights as restricted.",
+      "pyiqa weights are CC BY-NC-SA 4.0. The computed IQA scores are in data/ only and were not retained."
+    ],
+    "permitted": [
+      "NHANES derived statistics (US government work).",
+      "RAD-DINO if its MIT claim holds.",
+      "StanfordAIMI dinov2-base-xray-224 under Apache-2.0.",
+      "HipRay under CC BY 4.0.",
+      "Ramathibodi under CC Attribution."
+    ]
+  }
+}
