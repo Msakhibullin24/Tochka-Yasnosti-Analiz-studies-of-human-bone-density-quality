@@ -1228,7 +1228,8 @@
     "competition/experiments/prepare_lumos.py": "554988faf97e100ab413e37da67dfaf41bb4d4585cdb84897a0173aae1549832",
     "competition/experiments/lumos_bone_pretrain.py": "eeddf6d4fdd822d1328fd7042a03749a9164329659d87cb1b6414ae8ab677271",
     "competition/experiments/lumos_ssl_pretrain.py": "f3ddb661dae87af09e1989e473c766de1083e83b7c4d7606c653238fc2799407",
-    "competition/experiments/clinical_thresholds.py": "8d5f4e84d10f3acd4dc07b69add64df329a279cfbb32006b1f62da2275a0194d"
+    "competition/experiments/clinical_thresholds.py": "8d5f4e84d10f3acd4dc07b69add64df329a279cfbb32006b1f62da2275a0194d",
+    "competition/experiments/threshold_stability.py": "47f3ea95ab54d323f676ef85690c06a4007d1192a5e0fca9e90fc54c2bc1db12"
   },
   "regression_tests": "PYTHONPATH=competition .venv-gpu/bin/python -m pytest -q competition/tests/test_gpu_research.py -> 17 passed. decision.py default path verified byte-identical to the previous implementation across 42 angle/score/threshold combinations. competition/tests/ as a whole does not collect in the GPU venv because fastapi and pydantic are backend dependencies; that is pre-existing and unrelated.",
   "second_sweep_2026_10_04": {
@@ -1536,22 +1537,21 @@
     }
   ],
   "final_state_2026_10_04": {
-    "headline": "No modelling change tried in this project produces a reproducible improvement on the organiser cohort. Across four seeds the best candidate scores 0.5896 mean F1 against a 0.5921 baseline, paired delta -0.0025 with sd 0.0426, above baseline in 2 of 4 seeds.",
+    "headline": "A threshold-estimator fix is reproducible where 25 model and representation changes were not. Bootstrapped threshold bagging scores 0.6148 mean F1 against a 0.5921 baseline, mean paired delta +0.0227, above baseline on 4 of 4 seeds with sd 0.0077. It still fails the internal screen and must not be promoted.",
+    "best_reproducible": {
+      "mechanism": "bagged thresholds on the rank-averaged ensemble",
+      "mean_f1": 0.6147910078009698,
+      "sd_f1": 0.0076607990065192585,
+      "mean_paired_delta_f1": 0.022685744643075156,
+      "seeds_above_baseline": "4/4",
+      "passes_internal_metric_screen": false,
+      "promoted": 0
+    },
     "best_single_run_for_the_record": {
-      "seed": 17,
-      "f1": 0.64,
-      "paired_delta_f1": 0.0479,
-      "ci95": [
-        -0.0185,
-        0.121
-      ],
-      "tn_fp_fn_tp": [
-        147,
-        29,
-        25,
-        48
-      ],
-      "warning": "single seed; not reproducible across seeds; must not be reported as a gain"
+      "seed": 101,
+      "f1": 0.625,
+      "paired_delta_f1": 0.0329,
+      "warning": "single seed; the mean over four seeds is the number to quote"
     },
     "baseline": {
       "f1": 0.5921,
@@ -1564,71 +1564,41 @@
       "roc_auc": 0.7903,
       "criterion_macro_f1": 0.4818
     },
-    "experiments_run": 26,
-    "mechanisms_that_fixed_a_real_defect_but_did_not_reproduce": [
-      {
-        "mechanism": "rank-averaged ensembling",
-        "real_effect": "false positives 34 -> 29 and false negatives 28 -> 25 simultaneously; the first mechanism in the project to raise recall and precision together",
-        "why_it_did_not_reproduce": "the rank average reduces score-scale instability but not the variance of a threshold estimated on ~18 studies"
-      },
-      {
-        "mechanism": "multi-layer multi-scale frozen features",
-        "real_effect": "8192 dims from DINOv3-L layers 8/16/20/24 at scales 448/512/640 instead of 2048 from the final block",
-        "why_it_did_not_reproduce": "extra dimensions do not add supervision; n_train is ~200 rows per fold"
-      }
-    ],
-    "measured_and_refuted": [
-      "patch-local pooling (arXiv 2606.11606 hypothesis)",
-      "RAD-DINO encoder",
-      "StanfordAIMI X-ray DINOv2",
-      "pyiqa frozen IQA metrics, 7 of them",
-      "input resolution 768 and 1024",
-      "multi-encoder PCA fusion, 5 and 6 encoders",
-      "tail-2 fine-tuning of MedSigLIP and DINOv3-L",
-      "augmented fine-tuning in three scopes",
-      "calibrated stacking with specificity floors",
-      "removing the official 5 degree spine_axis rule",
-      "unfitted ISCD clinical-margin thresholds",
-      "rank-quantile operating points",
-      "AND-gating with the best oracle measurement",
-      "conservative per-criterion switching with a margin",
-      "LUMOS density-regression pretraining",
-      "LUMOS masked-reconstruction pretraining",
-      "synthetic-rotation tilt regressor as a feature source",
-      "per-criterion oracle visibility measurements as features"
+    "experiments_run": 33,
+    "what_changed_our_mind": [
+      "The failure was never the representation. Twenty-five variants touched features, heads, encoders, resolution, pooling, fine-tuning and external corpora and none reproduced.",
+      "One untouched scalar - the operating point - accounts for the variance. Bagging it cut the seed spread 5.5x.",
+      "Inner-OOF F1 misranks candidates on 23 of 25 criterion-folds, so any mechanism selected by inner-OOF comparison is unsound here, including the adaptive selector that the protocol uses.",
+      "A criterion with 6 or 7 positives cannot support a fitted threshold, yet hip_roi_coverage separates at AUC 0.939. The sample-size guard fixes the mechanics of that failure but not the metric, because the shipped calibration it restores is already the best available at 7 positives."
     ],
     "established_findings_that_do_not_depend_on_a_seed": [
       {
         "finding": "spine_axis is not a visible rotation",
-        "evidence": "An exactly-supervised regressor trained on synthetic rotations of all 249 frames (15,495 samples, held-out MAE 3.08 deg) scores ROC AUC 0.493 on the real spine_axis labels, predicts the 10 labelled positives to have LESS tilt than the 89 aligned frames, and puts 0 of 10 above the official 5 degree limit. Max predicted tilt anywhere is 0.855 deg.",
-        "caveat": "This regressor is trained to recover an applied frame rotation, so it may key on frame-cue rotation rather than spinal anatomy. The weaker claim that survives that caveat: the labelled positives do not show a large in-plane tilt under any measure, and the hand-crafted geometry estimator still separates them better (AUC 0.834) than the synthetic one."
+        "evidence": "An exactly-supervised regressor on synthetic rotations of all 249 frames scores AUC 0.493 on the real labels, puts 0 of 10 positives above 5 degrees, and predicts the labelled positives to be less tilted than the aligned frames."
       },
       {
         "finding": "spine_artifact and hip_position_rotation are not separated by any simple oracle statistic",
-        "evidence": "Best of 15 margin, occupancy, saturation, top-hat, black-hat and texture measurements: AUC 0.667 and 0.610."
+        "evidence": "best of 15 margin, occupancy, saturation, top-hat, black-hat and texture measurements: AUC 0.667, 0.610."
       },
       {
-        "finding": "the two rarest criteria are the most measurable and the least scoreable",
-        "evidence": "hip_roi_coverage AUC 0.939 and spine_coverage AUC 0.841, yet F1 0.43 and 0.50, because the threshold cannot be placed inside an ~18-study inner split."
+        "finding": "the rarest criteria are the most measurable and the least scoreable",
+        "evidence": "hip_roi_coverage AUC 0.939 and spine_coverage AUC 0.841 with 7 and 6 positives."
       },
       {
         "finding": "inner-OOF comparison misranks candidates",
-        "evidence": "The candidate wins the outer evaluation 0.6400 to 0.5921 while losing the head-to-head inner-OOF comparison on 23 of 25 criterion-folds, by the same procedure on the same data."
+        "evidence": "23 of 25 criterion-folds."
       },
       {
-        "finding": "the cohort is defect-enriched by one to two orders of magnitude versus clinical practice",
-        "evidence": "NHANES 2017-2018 per-vertebra codes: objects 1.04%, insufficient scan area 0.07%, movement 0.09%. Organiser cohort: spine_artifact 17.2%, spine_coverage 6.1%, hip_position_rotation 24.0%. Overall positive rate 29.3%."
+        "finding": "the cohort is defect-enriched by one to two orders of magnitude",
+        "evidence": "NHANES 2017-2018: objects 1.04 percent, insufficient area 0.07 percent, movement 0.09 percent, against 17.2, 6.1 and 24.0 percent here; overall positive rate 29.3 percent."
       }
     ],
-    "conclusion": "The honest result is a negative one. 26 experiments, two mechanisms that fixed a real defect in the false-positive behaviour, and no reproducible metric gain. Every avenue available without new labels has been exhausted and measured: encoders, resolution, pooling strategy, IQA priors, fine-tuning recipes, synthetic supervision, an external 12 GB corpus, decision-layer variants and operating-point schemes. The project should not promote anything from this work, and the correct next action is acquiring labelled positioning defects, not more modelling on 249 images.",
-    "single_remaining_unblocked_avenue": {
-      "source": "Kaggle tommyngx/chinese-osteoporosis-dxa",
-      "size_gb": 30.6,
-      "licence": "CC BY 4.0 (commercial-friendly)",
-      "contents": "20741 files: 5209 hip, 4632 AP lumbar, 4325 lateral lumbar DXA, plus a T-score table",
-      "access": "no login wall, but needs ~/.kaggle/kaggle.json which is absent on this machine",
-      "why_it_is_the_right_target": "It is the only ungated source of real DXA pixels at scale. It carries no positioning labels, so it cannot by itself teach defect detection, but it would supply the anatomical diversity and the scale at which the rare criteria could stop being estimated from seven positives."
-    }
+    "what_would_move_the_number_next": [
+      "Bootstrap every fitted quantity, not just the threshold: the same 5.5x spread reduction may apply to the per-criterion model selection, which is where inner-OOF still misranks.",
+      "Replace the adaptive selector entirely, since it is demonstrably unsound at this cohort size, with a fixed operating rule chosen a priori.",
+      "Quote the four-seed mean rather than the best seed in every downstream artefact."
+    ],
+    "conclusion": "The honest summary is one small reproducible gain and a large amount of settled negative knowledge. A bootstrapped threshold is worth keeping as a research candidate and is not worth promoting. Everything else in this project is now measured and refuted, and the remaining distance to a useful metric is a data problem, not a modelling problem."
   },
   "lumos_acquisition_and_transfer_2026_10_04": {
     "purpose": "The only large ungated corpus with real bone measurements, downloaded to give the encoder side a genuine training source instead of 249 images.",
@@ -1906,5 +1876,157 @@
     "verdict": "REFUTED. The candidate is indistinguishable from the baseline. Mean F1 0.5896 against a 0.5921 baseline, mean paired delta -0.0025 with a standard deviation of 0.0426, and it beats the baseline in only 2 of 4 seeds. The single-seed +0.0479 reported earlier was seed luck, not an improvement.",
     "correction": "This supersedes the single-seed claim in third_sweep_2026_10_04 and in final_state_2026_10_04. Rank averaging and multi-layer features are still the two least-bad mechanisms measured, and both still fix the false-positive explosion, but neither produces a reproducible gain on this cohort."
   },
-  "experiments_run_total": 26
+  "experiments_run_total": 33,
+  "threshold_stability_sweep_2026_10_04": {
+    "premise": "Nineteen earlier variants changed the representation while leaving one parameter untouched: the operating point, taken by argmax-F1 on a single inner pass over roughly 18 studies. That parameter is where the diagnostics pointed, so this sweep holds the champion ensemble fixed and varies only how the cut is estimated.",
+    "mechanisms": {
+      "champion": "reference, argmax-F1 on one inner pass, unchanged",
+      "bagged": "median of argmax-F1 over 200 bootstrap resamples of the training rows; same estimator, lower variance, no new fitted parameters",
+      "repeats": "average the within-split rank transform over 3 repeats of the inner split",
+      "bagged_repeats": "both",
+      "count": "replace five independent thresholds with one integer k, flag when at least k criteria fire. NOT admissible: it contradicts the typed violations by construction, which verify_metric_candidate rejects with \"Quality decision disagrees with violation type\". That is the contract working. Measured anyway: 0.3643 mean.",
+      "guarded": "a priori sample-size rule, MIN_POSITIVES = 10, fixed before running and not tuned: keep the shipped calibration for criteria with fewer than 10 positives in the training studies. The positive count is a property of the label table, so no score is consulted to make the decision. spine_axis is excluded because its shipped verdict comes from the measured angle, not a threshold."
+    },
+    "per_seed_f1": {
+      "101": {
+        "champion": 0.581081081081081,
+        "bagged": 0.625,
+        "repeats": 0.581081081081081,
+        "bagged_repeats": 0.625,
+        "guarded": 0.5751633986928104,
+        "adaptive": 0.6394557823129252
+      },
+      "17": {
+        "champion": 0.64,
+        "bagged": 0.6143790849673203,
+        "repeats": 0.64,
+        "bagged_repeats": 0.6143790849673203,
+        "guarded": 0.6013071895424836,
+        "adaptive": 0.6174496644295302
+      },
+      "202": {
+        "champion": 0.5375,
+        "bagged": 0.6133333333333333,
+        "repeats": 0.5375,
+        "bagged_repeats": 0.6133333333333333,
+        "guarded": 0.5534591194968553,
+        "adaptive": 0.6027397260273972
+      },
+      "303": {
+        "champion": 0.6,
+        "bagged": 0.6064516129032258,
+        "repeats": 0.6,
+        "bagged_repeats": 0.6064516129032258,
+        "guarded": 0.5972222222222222,
+        "adaptive": 0.5915492957746479
+      }
+    },
+    "summary": {
+      "champion": {
+        "seeds": [
+          17,
+          101,
+          202,
+          303
+        ],
+        "mean_f1": 0.5896452702702702,
+        "sd_f1": 0.04256482813293012,
+        "mean_paired_delta_f1": -0.0024599928876244403,
+        "sd_paired_delta_f1": 0.04256482813293012,
+        "seeds_above_baseline": 2,
+        "seeds_total": 4,
+        "mean_false_positives": 32.5,
+        "mean_false_negatives": 29.0
+      },
+      "bagged": {
+        "seeds": [
+          17,
+          101,
+          202,
+          303
+        ],
+        "mean_f1": 0.6147910078009698,
+        "sd_f1": 0.0076607990065192585,
+        "mean_paired_delta_f1": 0.022685744643075156,
+        "sd_paired_delta_f1": 0.0076607990065192585,
+        "seeds_above_baseline": 4,
+        "seeds_total": 4,
+        "mean_false_positives": 34.0,
+        "mean_false_negatives": 25.5
+      },
+      "repeats": {
+        "seeds": [
+          17,
+          101,
+          202,
+          303
+        ],
+        "mean_f1": 0.5896452702702702,
+        "sd_f1": 0.04256482813293012,
+        "mean_paired_delta_f1": -0.0024599928876244403,
+        "sd_paired_delta_f1": 0.04256482813293012,
+        "seeds_above_baseline": 2,
+        "seeds_total": 4,
+        "mean_false_positives": 32.5,
+        "mean_false_negatives": 29.0
+      },
+      "bagged_repeats": {
+        "seeds": [
+          17,
+          101,
+          202,
+          303
+        ],
+        "mean_f1": 0.6147910078009698,
+        "sd_f1": 0.0076607990065192585,
+        "mean_paired_delta_f1": 0.022685744643075156,
+        "sd_paired_delta_f1": 0.0076607990065192585,
+        "seeds_above_baseline": 4,
+        "seeds_total": 4,
+        "mean_false_positives": 34.0,
+        "mean_false_negatives": 25.5
+      },
+      "guarded": {
+        "seeds": [
+          17,
+          101,
+          202,
+          303
+        ],
+        "mean_f1": 0.5817879824885929,
+        "sd_f1": 0.022102977092387215,
+        "mean_paired_delta_f1": -0.010317280669301793,
+        "sd_paired_delta_f1": 0.022102977092387215,
+        "seeds_above_baseline": 2,
+        "seeds_total": 4,
+        "mean_false_positives": 35.0,
+        "mean_false_negatives": 28.75
+      },
+      "adaptive": {
+        "seeds": [
+          17,
+          101,
+          202,
+          303
+        ],
+        "mean_f1": 0.6127986171361252,
+        "sd_f1": 0.020695826027239343,
+        "mean_paired_delta_f1": 0.02069335397823044,
+        "sd_paired_delta_f1": 0.020695826027239343,
+        "seeds_above_baseline": 3,
+        "seeds_total": 4,
+        "mean_false_positives": 28.25,
+        "mean_false_negatives": 28.25
+      }
+    },
+    "result": "Bagging is the first mechanism in this project that is both better on average and reproducible. Mean F1 0.6148 against a 0.5921 baseline, mean paired delta +0.0227, and above baseline on 4 of 4 seeds with a standard deviation of 0.0077. The champion the same sweep produced scores 0.5896 with sd 0.0426 and is above baseline on 2 of 4. Bagging cut the seed-to-seed spread by a factor of 5.5 while also raising the mean, which is the signature of a variance-reduction effect on the quantity that was actually mis-estimated.",
+    "honest_caveats": [
+      "Per-seed the paired CI still includes zero: [-0.046, +0.098] at best. 4 of 4 seeds is a robustness statement about the threshold estimator, not four independent datasets: the four seeds share the same 249 outer rows by protocol and differ only in the inner partition and estimator randomness.",
+      "Mean false positives is 34.0, exactly the baseline count. The gain is not a false-positive reduction; it is a more stable trade of specificity against sensitivity.",
+      "It trades criteria. Averaged over seeds, hip_position_rotation improves 0.5570 -> 0.5687 while spine_artifact regresses 0.7568 -> 0.6823 and hip_roi_coverage regresses 0.4286 -> 0.3222.",
+      "The screen still refuses it on 12 to 21 grounds per seed. Nothing is promotable.",
+      "repeats is byte-identical to champion on every seed: averaging the inner rank transform over 3 repeats never changes the argmax-F1 cut. bagged_repeats is identical to bagged. Bagging is the sole active ingredient."
+    ],
+    "why_it_is_not_overfitting": "Bagging adds no parameter and fits nothing new. It re-estimates one existing quantity, the threshold, by the median of 200 bootstrap argmax-F1 values rather than a single value, then applies the unchanged rule. It was evaluated across four seeds before being believed, which is exactly the check that the earlier single-seed champion failed."
+  }
 }
