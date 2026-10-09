@@ -1229,7 +1229,8 @@
     "competition/experiments/lumos_bone_pretrain.py": "eeddf6d4fdd822d1328fd7042a03749a9164329659d87cb1b6414ae8ab677271",
     "competition/experiments/lumos_ssl_pretrain.py": "f3ddb661dae87af09e1989e473c766de1083e83b7c4d7606c653238fc2799407",
     "competition/experiments/clinical_thresholds.py": "8d5f4e84d10f3acd4dc07b69add64df329a279cfbb32006b1f62da2275a0194d",
-    "competition/experiments/threshold_stability.py": "081e5b712aa9a9273503e238b4da4fa5d00a25a65fe7b6f9d25b7ec7b8ece992"
+    "competition/experiments/threshold_stability.py": "081e5b712aa9a9273503e238b4da4fa5d00a25a65fe7b6f9d25b7ec7b8ece992",
+    "competition/experiments/seed_council.py": "167755fdbd32ba582a6523435d3a11eca8a2c7b7cc729367d13cab64f4b9f1f2"
   },
   "regression_tests": "PYTHONPATH=competition .venv-gpu/bin/python -m pytest -q competition/tests/test_gpu_research.py -> 17 passed. decision.py default path verified byte-identical to the previous implementation across 42 angle/score/threshold combinations. competition/tests/ as a whole does not collect in the GPU venv because fastapi and pydantic are backend dependencies; that is pre-existing and unrelated.",
   "second_sweep_2026_10_04": {
@@ -1901,7 +1902,7 @@
     "verdict": "REFUTED. The candidate is indistinguishable from the baseline. Mean F1 0.5896 against a 0.5921 baseline, mean paired delta -0.0025 with a standard deviation of 0.0426, and it beats the baseline in only 2 of 4 seeds. The single-seed +0.0479 reported earlier was seed luck, not an improvement.",
     "correction": "This supersedes the single-seed claim in third_sweep_2026_10_04 and in final_state_2026_10_04. Rank averaging and multi-layer features are still the two least-bad mechanisms measured, and both still fix the false-positive explosion, but neither produces a reproducible gain on this cohort."
   },
-  "experiments_run_total": 35,
+  "experiments_run_total": 37,
   "threshold_stability_sweep_2026_10_04": {
     "premise": "Nineteen earlier variants changed the representation while leaving one parameter untouched: the operating point, taken by argmax-F1 on a single inner pass over roughly 18 studies. That parameter is where the diagnostics pointed, so this sweep holds the champion ensemble fixed and varies only how the cut is estimated.",
     "mechanisms": {
@@ -2117,5 +2118,93 @@
     },
     "verdict": "Refuted, and the contrast with the threshold result is the useful part. Bagging the threshold works because the threshold estimates a well-defined quantity - the cut that maximises F1 for a given score set - and the bootstrap average of 200 estimates of it is a better estimate of the same thing. Bagging the selection does not work because there is no correct answer to select for: inner F1 on 18 studies is noise, and averaging noise does not remove it. The estimators that look best on a single inner pass are the unstable ones, so the vote sometimes lands on champion or repeats and those flips are expensive.",
     "transferable_principle": "Bag variance reduction out of a fitted quantity. Do not bag a choice made by an unreliable criterion. At this cohort size, fix the operating rule a priori rather than selecting it."
+  },
+  "seed_council_2026_10_04": {
+    "idea": "Apply the one template that worked one level up. The four seed runs are four independent draws of the inner partition and of every estimator random_state, and each already carries honest out-of-fold criterion scores for the same 249 rows. Averaging them is plain score-level ensembling of independently fitted models and costs nothing: every score is already computed.",
+    "honesty": [
+      "Every constituent score is out-of-fold for the row it is read on.",
+      "The operating point is chosen on the training studies of each outer fold only.",
+      "The decision layer, routing and measured spine axis are the shipped ones.",
+      "All four members share the same 249 outer rows by protocol, so this reduces estimator variance; it does not add independent data."
+    ],
+    "unbagged_council": {
+      "f1": 0.5815602836879432,
+      "member_mean_f1": 0.6147910078009698,
+      "verdict": "Below its own members. Averaging four rank vectors compresses the score distribution toward the middle, so a single argmax-F1 cut lands in a different place than on any member."
+    },
+    "bagged_council": {
+      "f1": 0.6165413533834586,
+      "paired_delta_f1": 0.024436090225563922,
+      "paired_delta_f1_ci95": [
+        -0.0488506241772957,
+        0.10345956535453979
+      ],
+      "tn_fp_fn_tp": [
+        157,
+        19,
+        32,
+        41
+      ],
+      "sensitivity": 0.5616438356164384,
+      "specificity": 0.8920454545454546,
+      "false_safe_rate_among_auto_normal": 0.1693121693121693,
+      "member_mean_f1": 0.6147910078009698,
+      "member_sd_f1": 0.0076607990065192585,
+      "council_minus_member_mean": 0.001750345582488766,
+      "n_failure_reasons": 20,
+      "passes_internal_metric_screen": false
+    },
+    "result": "The bagged council scores 0.6165 against a member mean of 0.6148 and a member spread of 0.6065 to 0.6250. The gain over the member mean is small, 0.0018, and the paired CI still includes zero. The valuable property is different: the council is a single deterministic number with no seed to choose, because all four seeds are averaged inside it. That removes the exact failure mode that produced this project's one wrong claim.",
+    "operating_point_shift_not_a_safety_gain": {
+      "warning": "The false-positive count falls from 34 to 19, a 44 percent reduction, which reads like a safety improvement and is not one.",
+      "detail": "A false positive here is a good scan wrongly flagged for rescan. The clinically consequential error is the opposite one: a defective scan wrongly cleared. That is false_safe_rate_among_auto_normal, and it does not improve - 0.1647 becomes 0.1693. False negatives rise from 28 to 32 and sensitivity falls from 0.6164 to 0.5616.",
+      "conclusion": "The council trades missed defects for avoided rescans. Whether that is an improvement depends entirely on the operating cost of a rescan versus the cost of a wrong BMD report, which is a clinical decision and not a modelling one. It is recorded as an operating point, not as a gain."
+    },
+    "per_criterion": {
+      "spine_coverage": {
+        "baseline_f1": 0.5,
+        "council_f1": 0.46153846153846156,
+        "positives": 6
+      },
+      "spine_axis": {
+        "baseline_f1": 0.16666666666666666,
+        "council_f1": 0.16666666666666666,
+        "positives": 10
+      },
+      "spine_artifact": {
+        "baseline_f1": 0.7567567567567568,
+        "council_f1": 0.6875,
+        "positives": 17
+      },
+      "hip_position_rotation": {
+        "baseline_f1": 0.5569620253164557,
+        "council_f1": 0.5797101449275363,
+        "positives": 36
+      },
+      "hip_roi_coverage": {
+        "baseline_f1": 0.42857142857142855,
+        "council_f1": 0.14285714285714285,
+        "positives": 7
+      }
+    }
+  },
+  "external_corpus_downloads_2026_10_04": {
+    "nih_chest_xray14": {
+      "repo": "alkzar90/NIH-Chest-X-ray-dataset",
+      "gated": false,
+      "licence": "reported as unknown on the dataset card; treat as unverified",
+      "requested": "5 of 12 image archives, about 47k of 112k chest radiographs",
+      "purpose": "LUMOS failed its self-supervised acceptance probe at 1614 images. This is 30x that scale and is native grayscale radiography, so it is the one remaining test of whether a radiograph-pretrained encoder is worth building at all.",
+      "acceptance_test": "A linear probe on frozen features must beat the majority class on a held-out patient split, exactly as the LUMOS probe was required to. If it does not, the features will not be transferred."
+    },
+    "lumos": {
+      "state": "already downloaded, 12 GB, both pretext tasks measured and rejected"
+    },
+    "nhanes_dxx": {
+      "state": "already downloaded, used for the defect base-rate measurement"
+    },
+    "kaggle_chinese_dxa": {
+      "state": "still blocked on ~/.kaggle/kaggle.json"
+    }
   }
 }
