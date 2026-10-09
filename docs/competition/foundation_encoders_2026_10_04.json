@@ -1229,7 +1229,7 @@
     "competition/experiments/lumos_bone_pretrain.py": "eeddf6d4fdd822d1328fd7042a03749a9164329659d87cb1b6414ae8ab677271",
     "competition/experiments/lumos_ssl_pretrain.py": "f3ddb661dae87af09e1989e473c766de1083e83b7c4d7606c653238fc2799407",
     "competition/experiments/clinical_thresholds.py": "8d5f4e84d10f3acd4dc07b69add64df329a279cfbb32006b1f62da2275a0194d",
-    "competition/experiments/threshold_stability.py": "47f3ea95ab54d323f676ef85690c06a4007d1192a5e0fca9e90fc54c2bc1db12"
+    "competition/experiments/threshold_stability.py": "081e5b712aa9a9273503e238b4da4fa5d00a25a65fe7b6f9d25b7ec7b8ece992"
   },
   "regression_tests": "PYTHONPATH=competition .venv-gpu/bin/python -m pytest -q competition/tests/test_gpu_research.py -> 17 passed. decision.py default path verified byte-identical to the previous implementation across 42 angle/score/threshold combinations. competition/tests/ as a whole does not collect in the GPU venv because fastapi and pydantic are backend dependencies; that is pre-existing and unrelated.",
   "second_sweep_2026_10_04": {
@@ -1537,21 +1537,18 @@
     }
   ],
   "final_state_2026_10_04": {
-    "headline": "A threshold-estimator fix is reproducible where 25 model and representation changes were not. Bootstrapped threshold bagging scores 0.6148 mean F1 against a 0.5921 baseline, mean paired delta +0.0227, above baseline on 4 of 4 seeds with sd 0.0077. It still fails the internal screen and must not be promoted.",
+    "headline": "A bootstrapped threshold estimator is the only reproducible gain found: 0.6148 mean F1 over four seeds against a 0.5921 baseline, mean paired delta +0.0227, above baseline on 4 of 4 seeds with sd 0.0077. Twenty-five representation changes produced nothing reproducible. It still fails the internal screen and must not be promoted.",
     "best_reproducible": {
-      "mechanism": "bagged thresholds on the rank-averaged ensemble",
-      "mean_f1": 0.6147910078009698,
-      "sd_f1": 0.0076607990065192585,
-      "mean_paired_delta_f1": 0.022685744643075156,
+      "mechanism": "median argmax-F1 over bootstrap resamples, applied to the rank-averaged ensemble",
+      "mean_f1": 0.6148,
+      "sd_f1": 0.0077,
+      "mean_paired_delta_f1": 0.0227,
       "seeds_above_baseline": "4/4",
+      "bags_sensitivity": "converged by 200 bags",
+      "mean_false_positives": 34.0,
+      "baseline_false_positives": 34,
       "passes_internal_metric_screen": false,
       "promoted": 0
-    },
-    "best_single_run_for_the_record": {
-      "seed": 101,
-      "f1": 0.625,
-      "paired_delta_f1": 0.0329,
-      "warning": "single seed; the mean over four seeds is the number to quote"
     },
     "baseline": {
       "f1": 0.5921,
@@ -1560,21 +1557,32 @@
         34,
         28,
         45
-      ],
-      "roc_auc": 0.7903,
-      "criterion_macro_f1": 0.4818
+      ]
     },
-    "experiments_run": 33,
-    "what_changed_our_mind": [
-      "The failure was never the representation. Twenty-five variants touched features, heads, encoders, resolution, pooling, fine-tuning and external corpora and none reproduced.",
-      "One untouched scalar - the operating point - accounts for the variance. Bagging it cut the seed spread 5.5x.",
-      "Inner-OOF F1 misranks candidates on 23 of 25 criterion-folds, so any mechanism selected by inner-OOF comparison is unsound here, including the adaptive selector that the protocol uses.",
-      "A criterion with 6 or 7 positives cannot support a fitted threshold, yet hip_roi_coverage separates at AUC 0.939. The sample-size guard fixes the mechanics of that failure but not the metric, because the shipped calibration it restores is already the best available at 7 positives."
+    "experiments_run": 35,
+    "criterion_tradeoff": {
+      "improved": {
+        "hip_position_rotation": "0.5570 -> 0.5687"
+      },
+      "regressed": {
+        "spine_artifact": "0.7568 -> 0.6823",
+        "hip_roi_coverage": "0.4286 -> 0.3222"
+      },
+      "unchanged": {
+        "spine_axis": "0.1667, structurally capped",
+        "spine_coverage": "0.5000 -> 0.4716"
+      }
+    },
+    "transferable_principles_established_here": [
+      "Quote the multi-seed mean, never the best seed. A single-seed +0.0479 in this project was seed luck; the same candidate averaged 0.5896 over four seeds and sat below baseline.",
+      "Bag variance reduction out of a fitted quantity, never out of a choice made by an unreliable criterion.",
+      "When a criterion has too few positives to support a fitted threshold, say so rather than fitting one. The a-priori sample-size guard fixed the mechanics - hip_roi_coverage 0.1667 -> 0.4286, spine_coverage 0.4615 -> 0.5333 - and still did not improve the metric, because the shipped calibration it restored was already the best available at seven positives.",
+      "The typed-violation contract is load-bearing. Two rules were rejected by the governance layer rather than worked around: a spine_axis violation without a measured angle above the limit, and a quality decision that contradicts the typed violations."
     ],
     "established_findings_that_do_not_depend_on_a_seed": [
       {
         "finding": "spine_axis is not a visible rotation",
-        "evidence": "An exactly-supervised regressor on synthetic rotations of all 249 frames scores AUC 0.493 on the real labels, puts 0 of 10 positives above 5 degrees, and predicts the labelled positives to be less tilted than the aligned frames."
+        "evidence": "An exactly-supervised regressor on synthetic rotations of all 249 frames scores AUC 0.493 on the real labels and finds 0 of 10 positives above the official 5 degree limit."
       },
       {
         "finding": "spine_artifact and hip_position_rotation are not separated by any simple oracle statistic",
@@ -1582,23 +1590,40 @@
       },
       {
         "finding": "the rarest criteria are the most measurable and the least scoreable",
-        "evidence": "hip_roi_coverage AUC 0.939 and spine_coverage AUC 0.841 with 7 and 6 positives."
+        "evidence": "hip_roi_coverage AUC 0.939, spine_coverage AUC 0.841, with 7 and 6 positives."
       },
       {
         "finding": "inner-OOF comparison misranks candidates",
         "evidence": "23 of 25 criterion-folds."
       },
       {
-        "finding": "the cohort is defect-enriched by one to two orders of magnitude",
-        "evidence": "NHANES 2017-2018: objects 1.04 percent, insufficient area 0.07 percent, movement 0.09 percent, against 17.2, 6.1 and 24.0 percent here; overall positive rate 29.3 percent."
+        "finding": "the cohort is defect-enriched by one to two orders of magnitude versus clinical practice",
+        "evidence": "NHANES 2017-2018 per-vertebra codes: objects 1.04 percent, insufficient area 0.07 percent, movement 0.09 percent, against 17.2, 6.1 and 24.0 percent here; overall positive rate 29.3 percent."
       }
     ],
-    "what_would_move_the_number_next": [
-      "Bootstrap every fitted quantity, not just the threshold: the same 5.5x spread reduction may apply to the per-criterion model selection, which is where inner-OOF still misranks.",
-      "Replace the adaptive selector entirely, since it is demonstrably unsound at this cohort size, with a fixed operating rule chosen a priori.",
-      "Quote the four-seed mean rather than the best seed in every downstream artefact."
+    "remaining_ideas_ranked_by_expected_value": [
+      {
+        "idea": "Bag the per-criterion head weighting as well as the threshold.",
+        "why": "The threshold was the only fitted quantity on the champion path that varied. Bagging the weights of the five head families is the natural next target and costs nothing extra in data.",
+        "caveat": "The rank average currently weights all five equally with no fitting, so there may be nothing to bag."
+      },
+      {
+        "idea": "Retire the adaptive selector and hard-code the bagged operating rule.",
+        "why": "It is demonstrably unsound here: it misranks on 23 of 25 criterion-folds and scores worse than a fixed rule (0.6128 sd 0.0207 against 0.6148 sd 0.0077).",
+        "caveat": "It is part of the nested protocol, so removing it is a protocol change, not a model change."
+      },
+      {
+        "idea": "Report every candidate as a four-seed mean with its spread, in every artefact.",
+        "why": "The single largest source of a wrong claim in this project was quoting one seed.",
+        "caveat": "Cheap, and purely presentational."
+      },
+      {
+        "idea": "Acquire labelled positioning defects.",
+        "why": "It is the only thing that addresses spine_axis, spine_artifact and hip_position_rotation, which together hold 63 of the 73 positives and are the reason no representation helps.",
+        "caveat": "Kaggle chinese-osteoporosis-dxa is ungated and has pixels but no positioning labels; the Kuopio OSTPRE cohort has the right labels but sits behind a DUA."
+      }
     ],
-    "conclusion": "The honest summary is one small reproducible gain and a large amount of settled negative knowledge. A bootstrapped threshold is worth keeping as a research candidate and is not worth promoting. Everything else in this project is now measured and refuted, and the remaining distance to a useful metric is a data problem, not a modelling problem."
+    "conclusion": "The measurable distance between this project and a useful result is a data problem. 35 experiments have settled what the encoder, the resolution, the pooling strategy, the fine-tuning recipe, the external corpus and the decision layer cannot do. One change to the threshold estimator produced a small, stable, honest gain, and it is the template for anything further: reduce the variance of a fitted quantity rather than add capacity."
   },
   "lumos_acquisition_and_transfer_2026_10_04": {
     "purpose": "The only large ungated corpus with real bone measurements, downloaded to give the encoder side a genuine training source instead of 249 images.",
@@ -1876,7 +1901,7 @@
     "verdict": "REFUTED. The candidate is indistinguishable from the baseline. Mean F1 0.5896 against a 0.5921 baseline, mean paired delta -0.0025 with a standard deviation of 0.0426, and it beats the baseline in only 2 of 4 seeds. The single-seed +0.0479 reported earlier was seed luck, not an improvement.",
     "correction": "This supersedes the single-seed claim in third_sweep_2026_10_04 and in final_state_2026_10_04. Rank averaging and multi-layer features are still the two least-bad mechanisms measured, and both still fix the false-positive explosion, but neither produces a reproducible gain on this cohort."
   },
-  "experiments_run_total": 33,
+  "experiments_run_total": 35,
   "threshold_stability_sweep_2026_10_04": {
     "premise": "Nineteen earlier variants changed the representation while leaving one parameter untouched: the operating point, taken by argmax-F1 on a single inner pass over roughly 18 studies. That parameter is where the diagnostics pointed, so this sweep holds the champion ensemble fixed and varies only how the cut is estimated.",
     "mechanisms": {
@@ -2028,5 +2053,69 @@
       "repeats is byte-identical to champion on every seed: averaging the inner rank transform over 3 repeats never changes the argmax-F1 cut. bagged_repeats is identical to bagged. Bagging is the sole active ingredient."
     ],
     "why_it_is_not_overfitting": "Bagging adds no parameter and fits nothing new. It re-estimates one existing quantity, the threshold, by the median of 200 bootstrap argmax-F1 values rather than a single value, then applies the unchanged rule. It was evaluated across four seeds before being believed, which is exactly the check that the earlier single-seed champion failed."
+  },
+  "bags_sensitivity_2026_10_04": {
+    "question": "Is the bagged threshold result an artefact of the bag count?",
+    "sensitivity": {
+      "200": {
+        "seeds": [
+          17,
+          101,
+          202,
+          303
+        ],
+        "mean_f1": 0.6147910078009698,
+        "sd_f1": 0.0076607990065192585,
+        "mean_paired_delta_f1": 0.022685744643075156,
+        "seeds_above_baseline": 4,
+        "seeds_total": 4
+      },
+      "100": {
+        "seeds": [
+          17,
+          101,
+          202,
+          303
+        ],
+        "mean_f1": 0.6153447087902332,
+        "sd_f1": 0.014493346441328893,
+        "mean_paired_delta_f1": 0.023239445632338457,
+        "seeds_above_baseline": 4,
+        "seeds_total": 4
+      },
+      "500": {
+        "seeds": [
+          17
+        ],
+        "mean_f1": 0.6143790849673203,
+        "sd_f1": null,
+        "mean_paired_delta_f1": 0.02227382180942561,
+        "seeds_above_baseline": 1,
+        "seeds_total": 1
+      }
+    },
+    "verdict": "No. The mean is flat at about 0.615 from 100 to 200 bags and the seed spread keeps shrinking, 0.0145 then 0.0077. At 500 bags the seed-17 result is byte-identical to 200 bags, so the estimator has converged. Bags=200 is a defensible default and the conclusion does not depend on the exact value.",
+    "bags_1000_note": "Dropped: cost scales linearly in bags while the estimator has already converged by 200."
+  },
+  "bagging_the_selection_refuted": {
+    "hypothesis": "If bootstrapping the threshold estimator worked, bootstrapping the *choice* of estimator should also work, since inner-OOF F1 misranks candidates on 23 of 25 criterion-folds.",
+    "implementation_note": "The four threshold estimators share identical out-of-fold test scores - the heads are fitted once on the full training portion - so this variant selects an estimator, not a score, and acts only through the cut. This was initially misread as a score-level selection and the code now states the scope explicitly.",
+    "result": {
+      "overall_f1": 0.46153846153846156,
+      "compared_with_bagged": 0.6143790849673203,
+      "decisions": 25,
+      "modal_vote_agrees_with_single_pass": 20,
+      "modal_winner_distribution": {
+        "bagged": 14,
+        "repeats": 11
+      },
+      "single_pass_winner_distribution": {
+        "repeats": 15,
+        "bagged": 9,
+        "champion": 1
+      }
+    },
+    "verdict": "Refuted, and the contrast with the threshold result is the useful part. Bagging the threshold works because the threshold estimates a well-defined quantity - the cut that maximises F1 for a given score set - and the bootstrap average of 200 estimates of it is a better estimate of the same thing. Bagging the selection does not work because there is no correct answer to select for: inner F1 on 18 studies is noise, and averaging noise does not remove it. The estimators that look best on a single inner pass are the unstable ones, so the vote sometimes lands on champion or repeats and those flips are expensive.",
+    "transferable_principle": "Bag variance reduction out of a fitted quantity. Do not bag a choice made by an unreliable criterion. At this cohort size, fix the operating rule a priori rather than selecting it."
   }
 }

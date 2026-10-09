@@ -68,8 +68,10 @@ MEMBERS = ('rf', 'gb', 'lr', 'svc', 'lda')
 # construction, so verify_metric_candidate rejects it with "Quality decision disagrees
 # with violation type". That is the contract working, not a bug, so the count rule is
 # reported as an unadmissible operating point rather than as a candidate.
-SCREENED = ('champion', 'bagged', 'repeats', 'bagged_repeats', 'guarded', 'adaptive')
-ALL_VARIANTS = ('champion', 'bagged', 'repeats', 'bagged_repeats', 'count', 'guarded', 'adaptive')
+SCREENED = ('champion', 'bagged', 'repeats', 'bagged_repeats', 'guarded',
+            'bagged_select', 'adaptive')
+ALL_VARIANTS = ('champion', 'bagged', 'repeats', 'bagged_repeats', 'count', 'guarded',
+                'bagged_select', 'adaptive')
 VARIANTS = ALL_VARIANTS
 # Sample-size guard, fixed a priori and not tuned on this cohort.
 #
@@ -181,6 +183,42 @@ def guarded_verdict(decision, per_criterion, position):
     return guarded
 
 
+def bagged_select(truth, scores_by_variant, thresholds, bags, seed):
+    """Choose the *threshold estimator* by modal vote over bootstrap resamples.
+
+    Scope note, because it was initially misread: the four variants share identical
+    out-of-fold test scores. The heads are fitted once on the full training portion, so
+    only the threshold estimator differs between champion, repeats, bagged and
+    bagged_repeats. This function therefore selects an estimator, not a score, and its
+    effect is entirely through the threshold.
+
+    Motivation was to bag the *selection* the way the threshold is bagged. It does not
+    work: the vote lands on a different estimator than the single pass on 5 of 25
+    criterion-folds, and those flips are expensive, because the estimators that look best
+    on one inner pass (champion, repeats) are the unstable ones. Choosing the estimator
+    a priori beats choosing it from data at this cohort size.
+    """
+    names = list(scores_by_variant)
+    rng = np.random.default_rng(seed)
+    n = len(truth)
+    votes = {name: 0 for name in names}
+    for _ in range(bags):
+        pick = rng.integers(0, n, n)
+        if len(np.unique(truth[pick])) < 2:
+            continue
+        scored = []
+        for name in names:
+            predicted = (scores_by_variant[name][pick] >= thresholds[name]).astype(int)
+            scored.append((binary_metrics(truth[pick], predicted)['f1'], name))
+        scored.sort(key=lambda item: (-item[0], item[1]))
+        votes[scored[0][1]] += 1
+    if not any(votes.values()):
+        return names[0], votes
+    best = max(votes.values())
+    winners = [name for name, count in votes.items() if count == best]
+    return min(winners), votes
+
+
 def run(args):
     seed = int(args.seed)
     if args.output.exists():
@@ -290,6 +328,15 @@ def run(args):
                 inner_single_geom = combine(single_geom, single_emb_r)
                 thresholds['champion'] = plain_threshold(truth, inner_single_geom[known], floors)
 
+                modal, votes = bagged_select(
+                    truth, {k: scores[k][0] for k in ('champion', 'bagged', 'repeats', 'bagged_repeats')},
+                    {k: thresholds[k] for k in ('champion', 'bagged', 'repeats', 'bagged_repeats')},
+                    args.bags, seed)
+                thresholds['bagged_select'] = thresholds.get(modal, thresholds['bagged'])
+                audit_log.append({'fold': int(fold), 'group': group, 'criterion': criterion,
+                                  'selection': 'bagged_threshold_estimator', 'modal_winner': modal,
+                                  'votes': votes,
+                                  'single_pass_winner': None})
                 ranked = []
                 for name in ('champion', 'bagged', 'repeats', 'bagged_repeats'):
                     inner_scores = scores[name][0]
@@ -300,6 +347,12 @@ def run(args):
                 ranked.sort(key=lambda item: item[0], reverse=True)
                 chosen, chosen_threshold = ranked[0][1], ranked[0][2]
                 thresholds['adaptive'] = chosen_threshold
+                for entry in audit_log:
+                    if entry.get('selection') == 'bagged_threshold_estimator' and entry.get('single_pass_winner') is None \
+                            and entry.get('fold') == int(fold) and entry.get('criterion') == criterion:
+                        entry['single_pass_winner'] = chosen
+                # The emitted scores for bagged_select come from the variant it voted for.
+                selected_scores = scores[modal][1] if modal in scores else scores['bagged'][1]
 
                 positives_in_training = int(target[selected][known].sum())
                 # The shipped per-criterion verdict on these rows, so the guarded variant
@@ -355,6 +408,8 @@ def run(args):
                 for name in ('champion', 'bagged', 'repeats', 'bagged_repeats'):
                     accumulated[name][criterion] = state['test_scores']
                 accumulated['adaptive'][criterion] = state['test_scores']
+                # Test scores are shared by all estimators, so the vote only moves the cut.
+                accumulated['bagged_select'][criterion] = selected_scores
                 # Keep every criterion present in criterion_states so decide() sees the
                 # full group; the guard only changes the resulting verdict, not the record.
                 accumulated['guarded'][criterion] = state['test_scores']
