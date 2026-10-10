@@ -1239,7 +1239,8 @@
     "competition/experiments/compare_corpora.py": "c94135abf871444fc593f3c2b245234576295812b9d7a615d601c2b5da3fbc0a",
     "competition/experiments/chinese_dxa_features.py": "266d0b9795b5bc785ca1cba1c8ec8392138d8dbc2b61988991fe6d2b01d87778",
     "competition/experiments/chinese_dxa_probe.py": "2dbdd4aff030e810c5c6d32b7e65203d8f0796971d24fe4266b2dd5be38d85f2",
-    "competition/experiments/study_sibling_aggregation.py": "e5277db715aec97df47628f5506f509d04ff2f95a279985932e95f647792f3e4"
+    "competition/experiments/study_sibling_aggregation.py": "e5277db715aec97df47628f5506f509d04ff2f95a279985932e95f647792f3e4",
+    "competition/experiments/head_tuning.py": "544cbbd07753ded24bf256bb9b30b030cbbb5a26109d82334a93037a7a48c082"
   },
   "regression_tests": "PYTHONPATH=competition .venv-gpu/bin/python -m pytest -q competition/tests/test_gpu_research.py -> 17 passed. decision.py default path verified byte-identical to the previous implementation across 42 angle/score/threshold combinations. competition/tests/ as a whole does not collect in the GPU venv because fastapi and pydantic are backend dependencies; that is pre-existing and unrelated.",
   "second_sweep_2026_10_04": {
@@ -1911,7 +1912,7 @@
     "verdict": "REFUTED. The candidate is indistinguishable from the baseline. Mean F1 0.5896 against a 0.5921 baseline, mean paired delta -0.0025 with a standard deviation of 0.0426, and it beats the baseline in only 2 of 4 seeds. The single-seed +0.0479 reported earlier was seed luck, not an improvement.",
     "correction": "This supersedes the single-seed claim in third_sweep_2026_10_04 and in final_state_2026_10_04. Rank averaging and multi-layer features are still the two least-bad mechanisms measured, and both still fix the false-positive explosion, but neither produces a reproducible gain on this cohort."
   },
-  "experiments_run_total": 44,
+  "experiments_run_total": 45,
   "threshold_stability_sweep_2026_10_04": {
     "premise": "Nineteen earlier variants changed the representation while leaving one parameter untouched: the operating point, taken by argmax-F1 on a single inner pass over roughly 18 studies. That parameter is where the diagnostics pointed, so this sweep holds the champion ensemble fixed and varies only how the cut is estimated.",
     "mechanisms": {
@@ -2453,6 +2454,63 @@
       "verdict": "REFUTED at the pre-registered weight. Equal averaging costs -0.0219 F1, 0.6165 to 0.5946. The best point of the sweep is weight 0.25 at 0.6174, a gain of 0.0009 against a seed spread of 0.0077, and it is the maximum of a five-point sweep, so it is selection bias rather than an effect. Not adopted.",
       "why_the_correlation_did_not_help": "The sibling correlation is a nuisance factor, not shared defect signal. Restricting to studies where both hips are labelled normal the correlation is 0.550 and 0.703, and for hip_roi_coverage the both-normal figure of 0.703 equals the overall 0.700, so essentially all of that correlation comes from pairs with no defect at all. It reflects one device, one session and one acquisition preset. Meanwhile the cases that carry the signal are exactly the discordant ones: where the two labels disagree, which is 15.3 percent of studies for hip_position_rotation and 6.9 percent for hip_roi_coverage, the mean absolute score gap is 0.226 and 0.297 against 0.118 and 0.033 for agreeing pairs. Averaging pulls a true positive toward its negative sibling and destroys the distinction that matters.",
       "consequence": "A shared session effect is not a shared measurement of the same quantity, so this is another case where a real and statistically strong correlation carries no exploitable signal. Two independent lines, the label crosstab and the score correlation, agree on that."
+    },
+    "E21_head_hyperparameter_tuning": {
+      "hypothesis": "Every head has run on fixed hyperparameters since the first screen, and the pilot says that is not flat: mean inner OOF AUC for the logistic head moves 0.901 to 0.921 across the C grid on spine_coverage and 0.850 down to 0.718 on spine_artifact. Selecting regularisation inside the training studies by AUC should help.",
+      "design": "Three grid points per head, the middle one being the shipped value. Selection by mean inner out-of-fold AUC on training studies only, under an inner GroupKFold on study, never by inner F1 because this project has measured that inner F1 misranks candidates on 23 of 25 criterion-folds. The criterion score is the shipped mean rank over the geometry heads and the DINOv3-L embedding head. Two arms through identical code: --fixed and tuned.",
+      "results_under_identical_code": {
+        "fixed_arm": {
+          "seed_f1": [
+            0.5059,
+            0.515,
+            0.4937,
+            0.5
+          ],
+          "mean": 0.5036,
+          "sd": 0.0091
+        },
+        "tuned_arm": {
+          "seed_f1": [
+            0.478,
+            0.4756,
+            0.479,
+            0.4645
+          ],
+          "mean": 0.4743,
+          "sd": 0.0067
+        },
+        "delta": -0.0293
+      },
+      "verdict": "REFUTED. Tuning costs 0.0293 F1 under identical code, 0.5036 to 0.4743, roughly three times the seed spread of either arm. The shipped fixed values are better than anything the search finds.",
+      "why_the_search_fails": "The tuner changes the default value in 52 to 84 percent of its decisions, and does so at the same rate in every seed, 0.720 to 0.740, and in every fold, 0.692 to 0.783. It is not converging on anything. The chosen values are near-uniform over the three grid points: gradient boosting 48/28/24, random forest 47/27/26, SVC 49/26/25, LDA 48/28/24. The one head that looks consistent inverts completely between criteria: the embedding head picks C=5.0 in 100 percent of spine_artifact decisions and in 0 percent of spine_axis decisions. That is criterion-specific noise being fitted, not a transferable regularity.",
+      "limitation_stated": "This reimplementation does not reproduce the published member mean of 0.6148 because the shipped pipeline averages over three inner repeats and this one uses a single inner split. So the comparison against 0.6165 is not interpretable and is not made. The tuned-versus-fixed difference stands, because both arms run through this same code and differ only in whether the search happens.",
+      "bugs_found_and_fixed_while_running_this": [
+        "The first version fed geometry features only, omitting the frozen encoder bundle, and scored 0.45 against a member baseline of 0.61. It was measuring a crippled feature set, not tuning. The bundle argument is now mandatory rather than optional.",
+        "Ranks were taken over all 249 rows instead of the anatomy-matched ones. NaN rows from the other region sorted to the top, real scores compressed to the bottom, thresholds collapsed and all 249 rows were flagged. This presented as a catastrophic F1 of 0.37 and was really arithmetic.",
+        "The head average used axis=0, which averages over images and returns one value per head, a 6-element vector, instead of axis=1 which averages over heads and keeps one value per row. The shipped pipeline writes it as .mean(1)."
+      ],
+      "consequence": "Regularisation is already at a defensible operating point and the inner-CV signal is too weak at this sample size to improve on it. Together with E14, E18, E19 and E20 this is the fifth independent line saying the constraint is annotation, not estimation."
+    }
+  },
+  "governance_defects_2026_10_10": {
+    "stale_workflow_profile_pin": {
+      "status": "OPEN, awaiting a release decision",
+      "detected_by": "competition/tests/test_tz_completion.py::test_shipped_workflow_profile_matches_current_inference_code",
+      "symptom": "ValueError: Inference code differs from pinned workflow",
+      "cause": "Commit df11e61 on 2026-10-06 added an opt-in axis_rule to dxaqc/decision.py and stated in its own message that the default path is unchanged, but did not refresh the workflow profile pin. The guard has been failing since, on code that predates this session. Confirmed not caused by the present work: the working tree file is byte-identical to HEAD.",
+      "pinned_sha256": "c6dc65d5eaf1a75262fcc12c2137c5e39ae247a1166db7789db48556fc920974",
+      "current_sha256": "7826db379484d0ccba49f40db1dafb96867bc0b57322b79fd984fd6ad7dc1c50",
+      "mismatched_files": [
+        "dxaqc/decision.py"
+      ],
+      "checked_files": 37,
+      "equivalence_verified": "The old and new decide() were compared over 2,880 combinations of anatomy, measured angle, criterion score, per-criterion score placement and quality threshold. Zero divergences on the default path, so the commit's claim holds. The option is not a no-op: with angle 7 degrees and spine_axis score 0.3 against threshold 0.5, the official rule reports spine_axis fail and the model rule reports pass.",
+      "options": {
+        "repin_in_place": "Update the one digest in workflow_1_11_6/profile.json. Keeps the version and the hardcoded test path working. Downside: rewrites the certification of an already-issued delivery.",
+        "new_profile": "Run pack_workflow.py to emit workflow_1_11_7 with profile id tz-delivery-1.11.7, which records its predecessor in source_profile_sha256 and leaves 1.11.6 intact. Downside: the failing test hardcodes models/workflow_1_11_6/profile.json, so it must also be repointed.",
+        "leave_red": "Leave the guard failing as a visible reminder."
+      },
+      "not_done_reason": "Both fixes rewrite a shipped governance artifact or its test, which is a release decision rather than a metric change, so it is left for an explicit choice rather than made silently."
     }
   }
 }
