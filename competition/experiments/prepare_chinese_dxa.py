@@ -40,17 +40,43 @@ from gpu_research.common import dump  # noqa: E402
 
 QA_REGIONS = {'Hip', 'LumbarP', 'LumbarL'}
 # Filenames look like 20240507Kaishanr_Abulimiti1_AnkleL_Ankle.png: date+pinyin, repeat, site+side.
-NAME_RE = re.compile(r'^(?P<date>\d{8})(?P<who>[^_]+)_(?P<repeat>.+?)_(?P<site>[A-Za-z]+)(?P<side>[LRD0-9]*)_(?P<region>[A-Za-z0-9]+)\.png$')
+# Two shapes occur, so field splitting is positional rather than by a fixed pattern:
+#   20220401huzhenxuan_AnkleL_Ankle.png          date+who, site+side, region
+#   20240507Kaishanr_Abulimiti1_AnkleL_Ankle.png date+who, repeat, site+side, region
+SITE_RE = re.compile(r'^(?P<site>[A-Za-z]+?)(?P<side>[LRD]\d*)$')
 
 
-def parse_name(stem: str) -> dict:
-    m = NAME_RE.match(stem)
-    if not m:
-        return {'parsed': False, 'patient': None, 'repeat': None, 'site': None, 'side': None}
-    d = m.groupdict()
-    return {'parsed': True, 'patient': f"{d['date']}{d['who']}", 'scan_date': d['date'],
-            'repeat': d['repeat'], 'site': d['site'], 'side': d['side']}
+def parse_name(stem: str, folder: str | None = None) -> dict:
+    """Positional, tolerant parse.
 
+    Three shapes occur in this corpus and a fixed pattern only catches one of them:
+      20220401huzhenxuan_AnkleL_Ankle            date+who, site+side, region
+      20240507Kaishanr_Abulimiti1_AnkleL_Ankle   date+who, repeat, site+side, region
+      20240507Kaishanr_Abulimiti1_Ankle          date+who, repeat, region          (no site token)
+      20240529ZhouWenyong__2__Ankle               date+who, '', 2, '', region       (empty fields)
+    So the site token is located by scanning backwards for something that ends in a side
+    letter, rather than by assuming a fixed arity.
+
+    The patient key is the date plus the first token only. Pinyin names can themselves contain
+    underscores, so a fuller key risks splitting one person across folds, which leaks.
+    Truncating can only merge two keys into one group, which costs a little power and cannot
+    leak, so the conservative direction is taken deliberately.
+    """
+    parts = stem.split('_')
+    if len(parts) < 2 or not re.match(r'^\d{8}', parts[0]):
+        return {'parsed': False, 'patient': None, 'scan_date': None, 'repeat': None,
+                'site': None, 'side': None}
+    region = parts[-1]
+    site = side = None
+    site_at = None
+    for i in range(len(parts) - 2, 0, -1):
+        m = SITE_RE.match(parts[i])
+        if m and m.group('side'):
+            site, side, site_at = m.group('site'), m.group('side'), i
+            break
+    repeat = '_'.join(parts[1:site_at]) if site_at else ('_'.join(parts[1:-1]) or None)
+    return {'parsed': True, 'patient': parts[0], 'scan_date': parts[0][:8], 'repeat': repeat,
+            'site': site or folder, 'side': side, 'filename_region': region}
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -79,25 +105,27 @@ def main():
     rows = []
     for p in images:
         top = p.relative_to(args.extract_to).parts[0]
-        meta = parse_name(p.stem)
+        meta = parse_name(p.stem, folder=top)
         rows.append({'path': str(p.relative_to(args.extract_to)), 'folder': top,
                      'size_bytes': p.stat().st_size, **meta,
+                     'region_matches_folder': (meta['filename_region'] == top),
                      'in_qa_scope': top in QA_REGIONS})
     inv = pd.DataFrame(rows)
     inv.to_csv(args.output / 'inventory.csv', index=False)
 
     parsed = inv[inv.parsed]
-    per_patient = parsed.groupby('patient').size()
+    per_patient = parsed.groupby('patient').size() if len(parsed) else pd.Series(dtype=int)
     summary = {
         'images_total': int(len(inv)),
         'images_parsed': int(len(parsed)),
         'images_unparsed': int(len(inv) - len(parsed)),
         'folders': {k: int(v) for k, v in inv.folder.value_counts().items()},
-        'patients_total': int(parsed.patient.nunique()),
+        'patients_total': int(parsed.patient.nunique()) if len(parsed) else 0,
         'images_in_qa_scope': int(inv.in_qa_scope.sum()),
         'patients_in_qa_scope': int(parsed[parsed.in_qa_scope].patient.nunique()),
-        'images_per_patient': {'min': int(per_patient.min()), 'median': float(per_patient.median()),
-                               'max': int(per_patient.max())},
+        'images_per_patient': ({'min': int(per_patient.min()), 'median': float(per_patient.median()),
+                                'max': int(per_patient.max())} if len(per_patient) else None),
+        'unparsed_examples': inv[~inv.parsed].path.head(10).tolist(),
         'qa_scope_breakdown': {k: int(v) for k, v in
                               inv[inv.in_qa_scope].folder.value_counts().items()},
         'modality_limits': ('PNG rasters carry no DICOM header, so there is no pixel spacing. '

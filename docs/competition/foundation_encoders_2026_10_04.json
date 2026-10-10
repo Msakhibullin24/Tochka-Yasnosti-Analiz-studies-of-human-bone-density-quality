@@ -1234,7 +1234,11 @@
     "competition/experiments/calibration_and_errors.py": "f32cb1176a7c512a81a3cbe0e920fb9b86fbb4f01f9955f550a3a88f95c2f2a1",
     "competition/experiments/synthetic_artifact.py": "2acffe394d32f3f870bdaef5bec1f6c811d205ee90639d16c6e38b9dc06113a9",
     "competition/experiments/build_axis_annotation_queue.py": "81688c14525d698f1be0617f312501e8e1c2bff1e431abc3fa0387ae1cd08100",
-    "competition/experiments/error_metadata_audit.py": "b72a86eaff482ec84809f5dc74b1d14f95164f9566ad11cdfaf511659877f72c"
+    "competition/experiments/error_metadata_audit.py": "b72a86eaff482ec84809f5dc74b1d14f95164f9566ad11cdfaf511659877f72c",
+    "competition/experiments/prepare_chinese_dxa.py": "be66af1956ad60d1563b4cc4683e7c138cb9137219cea6e71a07c03556ffc3bc",
+    "competition/experiments/compare_corpora.py": "c94135abf871444fc593f3c2b245234576295812b9d7a615d601c2b5da3fbc0a",
+    "competition/experiments/chinese_dxa_features.py": "266d0b9795b5bc785ca1cba1c8ec8392138d8dbc2b61988991fe6d2b01d87778",
+    "competition/experiments/chinese_dxa_probe.py": "2dbdd4aff030e810c5c6d32b7e65203d8f0796971d24fe4266b2dd5be38d85f2"
   },
   "regression_tests": "PYTHONPATH=competition .venv-gpu/bin/python -m pytest -q competition/tests/test_gpu_research.py -> 17 passed. decision.py default path verified byte-identical to the previous implementation across 42 angle/score/threshold combinations. competition/tests/ as a whole does not collect in the GPU venv because fastapi and pydantic are backend dependencies; that is pre-existing and unrelated.",
   "second_sweep_2026_10_04": {
@@ -1906,7 +1910,7 @@
     "verdict": "REFUTED. The candidate is indistinguishable from the baseline. Mean F1 0.5896 against a 0.5921 baseline, mean paired delta -0.0025 with a standard deviation of 0.0426, and it beats the baseline in only 2 of 4 seeds. The single-seed +0.0479 reported earlier was seed luck, not an improvement.",
     "correction": "This supersedes the single-seed claim in third_sweep_2026_10_04 and in final_state_2026_10_04. Rank averaging and multi-layer features are still the two least-bad mechanisms measured, and both still fix the false-positive explosion, but neither produces a reproducible gain on this cohort."
   },
-  "experiments_run_total": 42,
+  "experiments_run_total": 43,
   "threshold_stability_sweep_2026_10_04": {
     "premise": "Nineteen earlier variants changed the representation while leaving one parameter untouched: the operating point, taken by argmax-F1 on a single inner pass over roughly 18 studies. That parameter is where the diagnostics pointed, so this sweep holds the champion ensemble fixed and varies only how the cut is estimated.",
     "mechanisms": {
@@ -2381,6 +2385,53 @@
       },
       "verdict": "REFUTED. Acquisition metadata carries no exploitable signal in this cohort and cannot be added as a feature. The residual errors also show no concentration: no categorical field reaches significance, the integer fields overlap, and the study concentration is what 21 events scattered over 100 studies of two to three rows produce by accident. There is no device, site, projection or exposure confound to model.",
       "consequence": "This closes the last cheap hypothesis for the residual error set. Together with E17 and E14, the 39 rows every member gets wrong are best explained as label ambiguity and genuine visual ambiguity. That is not a modelling gap that more encoders, more seeds or more synthetic data will close, which is the same conclusion the spine_axis annotation queue reaches from the other direction."
+    },
+    "E19_chinese_dxa_corpus": {
+      "source": "Kaggle tommyngx/chinese-osteoporosis-dxa, 30.65 GB, licence CC BY 4.0, updated 2026-04-14",
+      "acquisition": {
+        "compressed_bytes": 23494445731,
+        "entries": 20741,
+        "archive_integrity": "testzip returned None, no damaged records",
+        "images": 20740,
+        "patients": 2289,
+        "images_in_qa_scope": 14166,
+        "patients_in_qa_scope": 1893,
+        "scope_breakdown": {
+          "Hip": 5209,
+          "LumbarP": 4632,
+          "LumbarL": 4325
+        }
+      },
+      "what_it_is": "A diagnostic osteoporosis collection: AP and lateral lumbar spine and hip views from an unrelated institution.",
+      "overlap_check": {
+        "competition_hashes": 249,
+        "corpus_hashes_checked": 2997,
+        "shared_hashes": 0,
+        "collisions": [],
+        "note": "Exact pixel-identity only. Near-duplicates are not detected here and would need perceptual hashing, but two institutions should not produce them."
+      },
+      "measured_differences": {
+        "pure_black_pixel_fraction": {
+          "competition": 0.4701,
+          "corpus": 0.0017
+        },
+        "mean_intensity": {
+          "competition": 45.85,
+          "corpus": 143.34
+        },
+        "aspect_ratio_median": {
+          "competition": 0.9733333333333334,
+          "corpus": 1.8759921388940162
+        },
+        "width_px": {
+          "competition": "fixed 280 or 300",
+          "corpus": "variable 457 to 1718"
+        },
+        "colour": "all corpus files are RGB containers but measured saturation is 0, so content is greyscale; the colour objection does not hold"
+      },
+      "correction_made": "An earlier thumbnail montage resized every image to a square, which squashed the tall lateral frames into a thin dark line and made LumbarL look empty. A quantitative check contradicted that at 0.09 percent near-black frames, and re-rendering with the aspect preserved showed genuine lateral DXA. The first reading was a visualisation artefact and is withdrawn. The corpus images are real and are not empty.",
+      "verdict": "NOT USABLE FOR METRIC WORK, and the blocker is labels rather than image quality. Three separate findings: there are no QC annotations anywhere in the corpus; the clinical workbook has no patient key at all, only a Serial Number row index, so its 2186 rows cannot be joined to the 2289 patients in the filenames and inventing a correspondence would be fabrication; and there is consequently no legitimate way to measure whether pretraining on this corpus helps, because the only measurement available is the held-out competition folds and tuning on those is forbidden. The framing also differs materially, grey background against black, full frame against tight crop, and the hip subset carries burned-in device text.",
+      "consequence": "This closes the last external-data avenue identified in the plan. The binding constraint on this project is annotation and an honest validation signal, not the supply of images. That matches every other negative result in the plan: E14 showed manufactured labels do not transfer, and E18 showed metadata carries no signal."
     }
   }
 }

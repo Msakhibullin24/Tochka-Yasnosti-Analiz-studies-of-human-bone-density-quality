@@ -168,5 +168,31 @@
       "HipRay under CC BY 4.0.",
       "Ramathibodi under CC Attribution."
     ]
+  },
+  "kaggle_chinese_dxa_corpus": {
+    "name": "Kaggle Chinese osteoporosis DXA corpus",
+    "source": "https://www.kaggle.com/datasets/tommyngx/chinese-osteoporosis-dxa",
+    "licence": "CC BY 4.0 (verified via Kaggle API licenseName: 'Attribution 4.0 International (CC BY 4.0)')",
+    "commercial_use_allowed": true,
+    "attribution_required": true,
+    "acquired": "2026-10-10",
+    "compressed_bytes": 23494445731,
+    "images": 20740,
+    "patients": 2289,
+    "images_in_qc_scope": {
+      "Hip": 5209,
+      "LumbarP": 4632,
+      "LumbarL": 4325
+    },
+    "has_qc_labels": false,
+    "clinical_join_key": false,
+    "verdict": "Acquired, integrity-checked, and found unusable for metric work.",
+    "why": "No positioning annotations. The clinical workbook (2186 rows) keys on Serial Number only, which is a row index, not a patient identifier, so it cannot be joined to the 2289 patients in the filenames. With no join there is no honest way to measure whether the corpus helps, since the only available measurement is the held-out competition folds. Framing also differs: 47 percent pure black pixels in the competition frames against 0.17 percent here, mean intensity 46 against 143, and the hip subset carries burned-in device text.",
+    "verified_clean": {
+      "pixel_hash_overlap_with_competition_frames": 0,
+      "hashes_compared": 2997,
+      "archive_damaged_records": 0
+    },
+    "used_in_reported_results": false
   }
 }
