@@ -1233,7 +1233,8 @@
     "competition/experiments/seed_council.py": "167755fdbd32ba582a6523435d3a11eca8a2c7b7cc729367d13cab64f4b9f1f2",
     "competition/experiments/calibration_and_errors.py": "f32cb1176a7c512a81a3cbe0e920fb9b86fbb4f01f9955f550a3a88f95c2f2a1",
     "competition/experiments/synthetic_artifact.py": "2acffe394d32f3f870bdaef5bec1f6c811d205ee90639d16c6e38b9dc06113a9",
-    "competition/experiments/build_axis_annotation_queue.py": "81688c14525d698f1be0617f312501e8e1c2bff1e431abc3fa0387ae1cd08100"
+    "competition/experiments/build_axis_annotation_queue.py": "81688c14525d698f1be0617f312501e8e1c2bff1e431abc3fa0387ae1cd08100",
+    "competition/experiments/error_metadata_audit.py": "b72a86eaff482ec84809f5dc74b1d14f95164f9566ad11cdfaf511659877f72c"
   },
   "regression_tests": "PYTHONPATH=competition .venv-gpu/bin/python -m pytest -q competition/tests/test_gpu_research.py -> 17 passed. decision.py default path verified byte-identical to the previous implementation across 42 angle/score/threshold combinations. competition/tests/ as a whole does not collect in the GPU venv because fastapi and pydantic are backend dependencies; that is pre-existing and unrelated.",
   "second_sweep_2026_10_04": {
@@ -1905,7 +1906,7 @@
     "verdict": "REFUTED. The candidate is indistinguishable from the baseline. Mean F1 0.5896 against a 0.5921 baseline, mean paired delta -0.0025 with a standard deviation of 0.0426, and it beats the baseline in only 2 of 4 seeds. The single-seed +0.0479 reported earlier was seed luck, not an improvement.",
     "correction": "This supersedes the single-seed claim in third_sweep_2026_10_04 and in final_state_2026_10_04. Rank averaging and multi-layer features are still the two least-bad mechanisms measured, and both still fix the false-positive explosion, but neither produces a reproducible gain on this cohort."
   },
-  "experiments_run_total": 41,
+  "experiments_run_total": 42,
   "threshold_stability_sweep_2026_10_04": {
     "premise": "Nineteen earlier variants changed the representation while leaving one parameter untouched: the operating point, taken by argmax-F1 on a single inner pass over roughly 18 studies. That parameter is where the diagnostics pointed, so this sweep holds the champion ensemble fixed and varies only how the cut is estimated.",
     "mechanisms": {
@@ -2350,6 +2351,36 @@
         "E17_stacking": "the arbitration half was executed; regularised stacking against a plain mean was not, because E17 showed the members agree on about two thirds of their errors so there is little diversity to arbitrate",
         "E19_distillation": "distilling the current best encoder would compress a model that has not beaten the baseline"
       }
+    },
+    "E18_error_metadata_audit": {
+      "hypothesis": "The 21 common false negatives and 18 common false positives that all four members get wrong are caused by information missing from the pixels rather than by a weak encoder. If they concentrate in a projection, a side, a scanner, an exposure setting or a study, metadata can be carried into the model and the ceiling is a missing input.",
+      "design": "Twenty-four DICOM fields read for all 249 rows, then every categorical field cross-tabulated against the three groups with a two-sided Fisher exact test, plus medians and ranges for the numeric fields. No fitting of any kind, so no test-fold selection.",
+      "result": {
+        "fields_completely_constant": 22,
+        "constant_examples": [
+          "Manufacturer=GE Healthcare in all 249",
+          "ManufacturerModelName=Lunar Prodigy Advance in all 249",
+          "PixelSpacing, ConvolutionKernel, PhotometricInterpretation, BitsStored, StudyDate constant",
+          "PatientPosition, ViewPosition, Laterality, BodyPartExamined absent from every row",
+          "KVP, ExposureTime, XRayTubeCurrent present in fewer than half the rows"
+        ],
+        "fields_with_variation": [
+          "Columns",
+          "Rows",
+          "SeriesNumber",
+          "StudyInstanceUID",
+          "group",
+          "index",
+          "region",
+          "study_key"
+        ],
+        "min_fisher_p_any_field": 0.139,
+        "largest_share_of_all_FN_in_one_study": 0.09523809523809523,
+        "chance_reference_one_study": 0.012048192771084338,
+        "rows_and_columns_overlap": true
+      },
+      "verdict": "REFUTED. Acquisition metadata carries no exploitable signal in this cohort and cannot be added as a feature. The residual errors also show no concentration: no categorical field reaches significance, the integer fields overlap, and the study concentration is what 21 events scattered over 100 studies of two to three rows produce by accident. There is no device, site, projection or exposure confound to model.",
+      "consequence": "This closes the last cheap hypothesis for the residual error set. Together with E17 and E14, the 39 rows every member gets wrong are best explained as label ambiguity and genuine visual ambiguity. That is not a modelling gap that more encoders, more seeds or more synthetic data will close, which is the same conclusion the spine_axis annotation queue reaches from the other direction."
     }
   }
 }
