@@ -1238,7 +1238,8 @@
     "competition/experiments/prepare_chinese_dxa.py": "be66af1956ad60d1563b4cc4683e7c138cb9137219cea6e71a07c03556ffc3bc",
     "competition/experiments/compare_corpora.py": "c94135abf871444fc593f3c2b245234576295812b9d7a615d601c2b5da3fbc0a",
     "competition/experiments/chinese_dxa_features.py": "266d0b9795b5bc785ca1cba1c8ec8392138d8dbc2b61988991fe6d2b01d87778",
-    "competition/experiments/chinese_dxa_probe.py": "2dbdd4aff030e810c5c6d32b7e65203d8f0796971d24fe4266b2dd5be38d85f2"
+    "competition/experiments/chinese_dxa_probe.py": "2dbdd4aff030e810c5c6d32b7e65203d8f0796971d24fe4266b2dd5be38d85f2",
+    "competition/experiments/study_sibling_aggregation.py": "e5277db715aec97df47628f5506f509d04ff2f95a279985932e95f647792f3e4"
   },
   "regression_tests": "PYTHONPATH=competition .venv-gpu/bin/python -m pytest -q competition/tests/test_gpu_research.py -> 17 passed. decision.py default path verified byte-identical to the previous implementation across 42 angle/score/threshold combinations. competition/tests/ as a whole does not collect in the GPU venv because fastapi and pydantic are backend dependencies; that is pre-existing and unrelated.",
   "second_sweep_2026_10_04": {
@@ -1910,7 +1911,7 @@
     "verdict": "REFUTED. The candidate is indistinguishable from the baseline. Mean F1 0.5896 against a 0.5921 baseline, mean paired delta -0.0025 with a standard deviation of 0.0426, and it beats the baseline in only 2 of 4 seeds. The single-seed +0.0479 reported earlier was seed luck, not an improvement.",
     "correction": "This supersedes the single-seed claim in third_sweep_2026_10_04 and in final_state_2026_10_04. Rank averaging and multi-layer features are still the two least-bad mechanisms measured, and both still fix the false-positive explosion, but neither produces a reproducible gain on this cohort."
   },
-  "experiments_run_total": 43,
+  "experiments_run_total": 44,
   "threshold_stability_sweep_2026_10_04": {
     "premise": "Nineteen earlier variants changed the representation while leaving one parameter untouched: the operating point, taken by argmax-F1 on a single inner pass over roughly 18 studies. That parameter is where the diagnostics pointed, so this sweep holds the champion ensemble fixed and varies only how the cut is estimated.",
     "mechanisms": {
@@ -2432,6 +2433,26 @@
       "correction_made": "An earlier thumbnail montage resized every image to a square, which squashed the tall lateral frames into a thin dark line and made LumbarL look empty. A quantitative check contradicted that at 0.09 percent near-black frames, and re-rendering with the aspect preserved showed genuine lateral DXA. The first reading was a visualisation artefact and is withdrawn. The corpus images are real and are not empty.",
       "verdict": "NOT USABLE FOR METRIC WORK, and the blocker is labels rather than image quality. Three separate findings: there are no QC annotations anywhere in the corpus; the clinical workbook has no patient key at all, only a Serial Number row index, so its 2186 rows cannot be joined to the 2289 patients in the filenames and inventing a correspondence would be fabrication; and there is consequently no legitimate way to measure whether pretraining on this corpus helps, because the only measurement available is the held-out competition folds and tuning on those is forbidden. The framing also differs materially, grey background against black, full frame against tight crop, and the hip subset carries burned-in device text.",
       "consequence": "This closes the last external-data avenue identified in the plan. The binding constraint on this project is annotation and an honest validation signal, not the supply of images. That matches every other negative result in the plan: E14 showed manufactured labels do not transfer, and E18 showed metadata carries no signal."
+    },
+    "E20_study_sibling_aggregation": {
+      "hypothesis": "The 249 labelled rows are only 100 studies and 72 carry a spine, a left hip and a right hip frame from one session, so the two hips are not independent observations. Left and right hip scores inside a study correlate at rho 0.62 and 0.70, both p below 1e-4, against a permuted control of -0.14 and 0.06. Averaging them should raise the signal-to-noise ratio of the ranking.",
+      "why_only_the_hips": "The spine correlates with neither hip, every rho below 0.15 with a control that looks identical, so cross-region aggregation has no signal to exploit and was not attempted.",
+      "design": "Blend weight fixed at 0.5 in advance as the minimum-variance combination of two equally reliable measurements, so nothing is tuned and there is no weight to overfit. The split is by study and is verified at run time; a held-out frame borrows its held-out sibling score and never sees a label. The decision layer, routing and measured spine axis are the shipped ones. The weight-zero arm must reproduce the published council F1 and the script aborts if it does not.",
+      "reproduction_check": {
+        "council_published_f1": 0.6165413533834586,
+        "weight_zero_arm_f1": 0.6165413533834586,
+        "identical": true
+      },
+      "sweep_as_diagnostic_only": {
+        "sibling_w0.00": 0.6165,
+        "sibling_w0.25": 0.6174,
+        "sibling_w0.50": 0.5946,
+        "sibling_w0.75": 0.604,
+        "sibling_w1.00": 0.6093
+      },
+      "verdict": "REFUTED at the pre-registered weight. Equal averaging costs -0.0219 F1, 0.6165 to 0.5946. The best point of the sweep is weight 0.25 at 0.6174, a gain of 0.0009 against a seed spread of 0.0077, and it is the maximum of a five-point sweep, so it is selection bias rather than an effect. Not adopted.",
+      "why_the_correlation_did_not_help": "The sibling correlation is a nuisance factor, not shared defect signal. Restricting to studies where both hips are labelled normal the correlation is 0.550 and 0.703, and for hip_roi_coverage the both-normal figure of 0.703 equals the overall 0.700, so essentially all of that correlation comes from pairs with no defect at all. It reflects one device, one session and one acquisition preset. Meanwhile the cases that carry the signal are exactly the discordant ones: where the two labels disagree, which is 15.3 percent of studies for hip_position_rotation and 6.9 percent for hip_roi_coverage, the mean absolute score gap is 0.226 and 0.297 against 0.118 and 0.033 for agreeing pairs. Averaging pulls a true positive toward its negative sibling and destroys the distinction that matters.",
+      "consequence": "A shared session effect is not a shared measurement of the same quantity, so this is another case where a real and statistically strong correlation carries no exploitable signal. Two independent lines, the label crosstab and the score correlation, agree on that."
     }
   }
 }
