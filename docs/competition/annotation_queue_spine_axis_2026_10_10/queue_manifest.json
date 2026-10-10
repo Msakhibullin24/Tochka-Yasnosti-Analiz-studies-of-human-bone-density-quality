@@ -1,0 +1,16 @@
+{
+  "protocol": "P0: build the expert annotation queue for the spine_axis definition.\n\nThe closure plan makes this the first blocking item, and it is the one thing in the\nwhole programme that no amount of modelling can substitute for. spine_axis carries 10\npositives and an F1 of 0.167; the measured angle separates the classes at AUC 0.834,\nbut the official 5 degree rule fires on 1 of 10. An independently trained regressor on\nsynthetic rotations found 0 of 10 above 5 degrees and predicted the labelled positives\nto be *less* tilted than the aligned frames. So either the measurement is biased toward\nzero or the label does not denote an in-plane rotation, and only a specialist can say\nwhich.\n\nThis produces the queue, not the answers. The plan is explicit that the absence of\nexpert replies must never be treated as a label source, so every expert field is empty\nand the package carries no ground truth. It contains:\n\n  * all 10 labelled spine_axis positives;\n  * every row where the measurer and the classifier disagree, which is where a\n    definition error would show up;\n  * a seeded sample of aligned negatives to anchor the scale.\n\nMeasured angle, the classifier score and the official threshold are attached read-only so\nthe specialist can see what the pipeline currently believes, but the verdict fields are\nfree text and numeric and start empty.\n",
+  "rows_total": 71,
+  "rows_labelled_positive": 10,
+  "rows_measurer_classifier_disagree": 21,
+  "rows_sampled_negatives": 40,
+  "rows_aligned_negative_anchor_pool": 68,
+  "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+  "baseline_sha256": "dd51dce9cdbce4b9cdf6e3a0cde9db7c78e04c874dda72047c9f918b8ec7741d",
+  "classifier_oof_sha256": "8d082efcbfeabb9696d778a29f3016e5ef7e670eec2029e56c49bb01c594c118",
+  "source_fingerprint": "1cede858f61a3d86e507572749eda53f06639e4606daf51fcd6119215abb9df5",
+  "contains_ground_truth": false,
+  "warning": "The package deliberately contains no expert answers. Missing replies are unknown, never negative labels. Until a specialist fills it, this project has no verified reference for the spine_axis definition, and R04 stays open.",
+  "clinical_validation": false,
+  "model_affects_decision": false
+}

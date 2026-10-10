@@ -1,0 +1,17 @@
+{
+  "criteria_version": "v1-unverified",
+  "axis_limit_deg": 5.0,
+  "instructions_ru": [
+    "Это очередь разметки, а не набор ответов. Все поля expert_* пусты.",
+    "Задача: определить, означает ли метка spine_axis наклон позвоночника в плоскости кадра, либо смещение, сколиоз или иной дефект укладки.",
+    "Заполнить expert_axis_is_measurable_here: можно ли вообще измерить ось в этом кадре.",
+    "Заполнить expert_landmarks_usable: пригодны ли верхний и нижний ориентир для оценки оси.",
+    "Заполнить expert_angle_deg: численный угол в градусах, измеренный в физической сетке с раздельным масштабом X и Y.",
+    "Заполнить expert_defect_present и expert_defect_kind: наклон, смещение, сколиоз, другое.",
+    "Заполнить expert_label_agrees_with_original и expert_change_reason при расхождении.",
+    "Не заполнять expert_* по умолчанию. Отсутствие ответа означает unknown, а не отрицательную метку."
+  ],
+  "original_labels_untouched": true,
+  "queue_file": "spine_axis_annotation_queue.csv",
+  "rows_jsonl": "annotation_queue.jsonl"
+}

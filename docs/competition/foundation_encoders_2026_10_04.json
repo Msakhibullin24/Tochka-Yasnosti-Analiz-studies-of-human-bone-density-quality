@@ -1231,7 +1231,9 @@
     "competition/experiments/clinical_thresholds.py": "8d5f4e84d10f3acd4dc07b69add64df329a279cfbb32006b1f62da2275a0194d",
     "competition/experiments/threshold_stability.py": "081e5b712aa9a9273503e238b4da4fa5d00a25a65fe7b6f9d25b7ec7b8ece992",
     "competition/experiments/seed_council.py": "167755fdbd32ba582a6523435d3a11eca8a2c7b7cc729367d13cab64f4b9f1f2",
-    "competition/experiments/calibration_and_errors.py": "f32cb1176a7c512a81a3cbe0e920fb9b86fbb4f01f9955f550a3a88f95c2f2a1"
+    "competition/experiments/calibration_and_errors.py": "f32cb1176a7c512a81a3cbe0e920fb9b86fbb4f01f9955f550a3a88f95c2f2a1",
+    "competition/experiments/synthetic_artifact.py": "2acffe394d32f3f870bdaef5bec1f6c811d205ee90639d16c6e38b9dc06113a9",
+    "competition/experiments/build_axis_annotation_queue.py": "81688c14525d698f1be0617f312501e8e1c2bff1e431abc3fa0387ae1cd08100"
   },
   "regression_tests": "PYTHONPATH=competition .venv-gpu/bin/python -m pytest -q competition/tests/test_gpu_research.py -> 17 passed. decision.py default path verified byte-identical to the previous implementation across 42 angle/score/threshold combinations. competition/tests/ as a whole does not collect in the GPU venv because fastapi and pydantic are backend dependencies; that is pre-existing and unrelated.",
   "second_sweep_2026_10_04": {
@@ -1903,7 +1905,7 @@
     "verdict": "REFUTED. The candidate is indistinguishable from the baseline. Mean F1 0.5896 against a 0.5921 baseline, mean paired delta -0.0025 with a standard deviation of 0.0426, and it beats the baseline in only 2 of 4 seeds. The single-seed +0.0479 reported earlier was seed luck, not an improvement.",
     "correction": "This supersedes the single-seed claim in third_sweep_2026_10_04 and in final_state_2026_10_04. Rank averaging and multi-layer features are still the two least-bad mechanisms measured, and both still fix the false-positive explosion, but neither produces a reproducible gain on this cohort."
   },
-  "experiments_run_total": 39,
+  "experiments_run_total": 41,
   "threshold_stability_sweep_2026_10_04": {
     "premise": "Nineteen earlier variants changed the representation while leaving one parameter untouched: the operating point, taken by argmax-F1 on a single inner pass over roughly 18 studies. That parameter is where the diagnostics pointed, so this sweep holds the champion ensemble fixed and varies only how the cut is estimated.",
     "mechanisms": {
@@ -2268,6 +2270,86 @@
       "false_negatives_in_every_member": 21,
       "baseline_false_positives": 34,
       "interpretation": "39 of 249 rows are wrong in all four members and 21 rows are missed by all four. That is the hard floor for any amount of seed averaging, and it explains why the council beats its member mean by only 0.0018: averaging cannot recover a case every member misses. Those rows need new information, not more averaging."
+    },
+    "E14_synthetic_artifacts": {
+      "hypothesis": "Generate labelled artifact supervision and close the one criterion where every learned candidate loses to the baseline, spine_artifact at 0.7568 down to 0.6823.",
+      "design": "Five thousand nine hundred seventy-six synthetic frames from the 249 real ones. Four generators with known labels: metal with radial streaks and bloom, dark occlusion, thin bright vendor ROI line, and unaltered. The ROI line is a deliberate hard negative and is labelled not-a-defect. Split is by parent frame so no child crosses a fold boundary. A small CNN was trained from scratch.",
+      "synthetic_performance": {
+        "val_auc": 0.9860538442881398,
+        "val_ap": 0.9888781261353041,
+        "synthetic_images": 5976,
+        "synthetic_defect_rate": 0.5097054839134216
+      },
+      "transfer_to_real_labels": {
+        "spine_rows": 99,
+        "positives": 17,
+        "auc_on_real_spine_artifact": 0.3744619799139168,
+        "passes_acceptance": false
+      },
+      "verdict": "REFUTED by its own pre-registered acceptance gate of AUC above 0.70. The detector learned the synthetic task almost perfectly, val AUC 0.986, and transferred at AUC 0.374, which is below chance. Generated metal artefacts simply do not resemble real DXA foreign objects. The feature was NOT used in any screen.",
+      "consequence": "Manufactured defect labels do not work for this task. This matches the plan's own warning that synthetic geometry does not substitute for real positives, and it closes the most attractive remaining route to free training data."
+    },
+    "P0_axis_annotation_queue": {
+      "why": "The closure plan makes spine_axis definition the first blocking item and it is the one thing modelling cannot substitute for.",
+      "built": {
+        "path": "data/annotation-queue/spine-axis-2026-10-04/",
+        "files": [
+          "spine_axis_annotation_queue.csv",
+          "annotation_queue.jsonl",
+          "README.json",
+          "queue_manifest.json"
+        ],
+        "rows_total": 71,
+        "rows_labelled_positive": 10,
+        "rows_measurer_classifier_disagree": 21,
+        "rows_sampled_negatives": 40,
+        "contains_ground_truth": false,
+        "expert_fields_all_empty": true,
+        "measured_angle_range_among_the_10_positives_deg": "1.38 to 5.34, i.e. only one exceeds the official 5 degree limit"
+      },
+      "fields_for_the_specialist": [
+        "expert_axis_is_measurable_here",
+        "expert_landmarks_usable",
+        "expert_segment_used",
+        "expert_angle_deg",
+        "expert_defect_kind",
+        "expert_label_agrees_with_original",
+        "expert_change_reason",
+        "expert_notes"
+      ],
+      "rules_honoured": [
+        "The original labels are not modified.",
+        "The package contains no answers, so the absence of a reply can never be read as a label.",
+        "Measured angle, classifier score and the official limit are attached read-only so the specialist sees what the pipeline believes.",
+        "The classifier comparison uses its own recorded threshold, not 0.5: the scores are within-split ranks, and using 0.5 invented 44 false disagreements out of 99 spine rows."
+      ]
+    },
+    "matrix_status": {
+      "note": "What was executable without expert replies, new credentials or a different cohort.",
+      "done": {
+        "E04": "closed negative, no dynamic range to recover",
+        "E14": "executed and refuted, synthetic artefacts do not transfer",
+        "E16": "executed, positive: Brier 0.4480 to 0.1569, two screen failures resolved",
+        "E17": "executed, diagnostic: 39 of 249 rows are wrong in all four members",
+        "P0_axis_queue": "built and committed as a manifest and a queue, with no answers",
+        "inventory": "weights verified against per-file pins, models catalogue extended, assets manifest written"
+      },
+      "blocked_on_external": {
+        "R03_R04_R06_R07_R08_R09_need_expert": "anatomy landmarks, visibility heads and rotation subtypes all require confirmed expert contours that do not exist in this repository",
+        "R10_original_ROI": "the organiser ROI overlays are not present in the release",
+        "R16_independent_test": "needs new patients with confirmed patient-level identity, which the anonymised export does not carry",
+        "P1_chinese_dxa": "needs ~/.kaggle/kaggle.json",
+        "E13_E20": "need the above corpora",
+        "E15_pseudolabels": "the plan allows a teacher to propose and an expert to check; the checking half is unavailable, and the plan forbids using pseudolabels as a gold test"
+      },
+      "not_attempted_and_why": {
+        "E01": "requires re-annotation by an independent reader",
+        "E02": "the projection router needs projection labels the cohort does not carry",
+        "E03_E05_E06_E07_E08_E09": "anatomy heads, which need the expert contours above",
+        "E11": "class-imbalance losses were already refuted as a family by the fine-tuning sweep; a single focal or ASL configuration on 249 images would be another search on the same data",
+        "E17_stacking": "the arbitration half was executed; regularised stacking against a plain mean was not, because E17 showed the members agree on about two thirds of their errors so there is little diversity to arbitrate",
+        "E19_distillation": "distilling the current best encoder would compress a model that has not beaten the baseline"
+      }
     }
   }
 }
