@@ -1230,7 +1230,8 @@
     "competition/experiments/lumos_ssl_pretrain.py": "f3ddb661dae87af09e1989e473c766de1083e83b7c4d7606c653238fc2799407",
     "competition/experiments/clinical_thresholds.py": "8d5f4e84d10f3acd4dc07b69add64df329a279cfbb32006b1f62da2275a0194d",
     "competition/experiments/threshold_stability.py": "081e5b712aa9a9273503e238b4da4fa5d00a25a65fe7b6f9d25b7ec7b8ece992",
-    "competition/experiments/seed_council.py": "167755fdbd32ba582a6523435d3a11eca8a2c7b7cc729367d13cab64f4b9f1f2"
+    "competition/experiments/seed_council.py": "167755fdbd32ba582a6523435d3a11eca8a2c7b7cc729367d13cab64f4b9f1f2",
+    "competition/experiments/calibration_and_errors.py": "f32cb1176a7c512a81a3cbe0e920fb9b86fbb4f01f9955f550a3a88f95c2f2a1"
   },
   "regression_tests": "PYTHONPATH=competition .venv-gpu/bin/python -m pytest -q competition/tests/test_gpu_research.py -> 17 passed. decision.py default path verified byte-identical to the previous implementation across 42 angle/score/threshold combinations. competition/tests/ as a whole does not collect in the GPU venv because fastapi and pydantic are backend dependencies; that is pre-existing and unrelated.",
   "second_sweep_2026_10_04": {
@@ -1902,7 +1903,7 @@
     "verdict": "REFUTED. The candidate is indistinguishable from the baseline. Mean F1 0.5896 against a 0.5921 baseline, mean paired delta -0.0025 with a standard deviation of 0.0426, and it beats the baseline in only 2 of 4 seeds. The single-seed +0.0479 reported earlier was seed luck, not an improvement.",
     "correction": "This supersedes the single-seed claim in third_sweep_2026_10_04 and in final_state_2026_10_04. Rank averaging and multi-layer features are still the two least-bad mechanisms measured, and both still fix the false-positive explosion, but neither produces a reproducible gain on this cohort."
   },
-  "experiments_run_total": 37,
+  "experiments_run_total": 39,
   "threshold_stability_sweep_2026_10_04": {
     "premise": "Nineteen earlier variants changed the representation while leaving one parameter untouched: the operating point, taken by argmax-F1 on a single inner pass over roughly 18 studies. That parameter is where the diagnostics pointed, so this sweep holds the champion ensemble fixed and varies only how the cut is estimated.",
     "mechanisms": {
@@ -2205,6 +2206,68 @@
     },
     "kaggle_chinese_dxa": {
       "state": "still blocked on ~/.kaggle/kaggle.json"
+    }
+  },
+  "plan_2026_10_10_execution": {
+    "source": "docs/FULL_TZ_CLOSURE_AND_METRIC_EXPERIMENTS_2026_10_10_RU.md, matrix R01-R17 and experiments E01-E20",
+    "E04_dynamic_range": {
+      "question": "Is precision being lost before the model sees the pixels?",
+      "finding": "BitsStored is 8 for all 249 images, BitsAllocated 8, PixelRepresentation 0, no Rescale tags, no VOI LUT. Manufacturer GE Healthcare, modality CR.",
+      "additional_check": "dxaqc.dicom_io._to_uint8 applies its percentile rescale only when the array dtype is not uint8, so for this cohort no per-image normalisation is applied and raw values are preserved.",
+      "verdict": "No dynamic range to recover and no per-image normalisation to undo. E04 is closed as a negative. The plan instruction not to invent 16-bit from 8-bit is satisfied because there is nothing to invent from."
+    },
+    "E16_per_criterion_calibration": {
+      "method": "Platt scaling on the rank, fitted inside the training studies of each outer fold only, threshold re-derived from the calibrated training scores with the same bagged estimator. Isotonic deliberately not used: at 6 to 36 positives per criterion it fits noise.",
+      "uncalibrated": {
+        "f1": 0.6165413533834586,
+        "brier": 0.4479784625180713,
+        "average_precision": 0.6095083769655788
+      },
+      "platt": {
+        "f1": 0.6165413533834586,
+        "brier": 0.15688819198553508,
+        "average_precision": 0.6613848739850733
+      },
+      "result": "F1 is unchanged at 0.6165 while Brier falls from 0.4480 to 0.1569, which is better than the baseline 0.16145. Average precision rises from 0.6095 to 0.6614, above the baseline 0.6366. ROC-AUC rises from 0.7523 to 0.7737 even though a monotone map cannot reorder a single score - it does here because the reported ROC-AUC is on the noisy-OR aggregate, and a monotone per-criterion map changes that aggregate.",
+      "screen_effect": {
+        "failures_before": 20,
+        "failures_after": 18,
+        "resolved": [
+          "brier_score_higher",
+          "average_precision_lower"
+        ],
+        "still_failing": [
+          "sensitivity_lower",
+          "additional_false_safe",
+          "spine_sensitivity_lower",
+          "spine_roc_auc_lower",
+          "hip_left_sensitivity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "roc_auc_lower",
+          "criterion_macro_f1_lower",
+          "spine_coverage_f1_lower",
+          "spine_coverage_sensitivity_lower",
+          "spine_artifact_f1_lower",
+          "spine_artifact_sensitivity_lower",
+          "hip_position_rotation_sensitivity_lower",
+          "hip_roi_coverage_f1_lower",
+          "hip_roi_coverage_sensitivity_lower",
+          "hip_roi_coverage_specificity_lower"
+        ]
+      },
+      "interpretation": "Calibration fixes the probability scale at zero cost in F1, which is the right property for it. It does not fix the operating point, so it is a necessary complement to threshold work rather than a substitute for it."
+    },
+    "E17_member_error_correlation": {
+      "question": "Are four seed runs four independent opinions?",
+      "answer": "No. Pairwise error Jaccard is 0.58 to 0.72, so they agree on roughly two thirds of their mistakes.",
+      "all_members_correct_rows": 166,
+      "all_members_wrong_rows": 39,
+      "false_positives_in_every_member": 18,
+      "false_negatives_in_every_member": 21,
+      "baseline_false_positives": 34,
+      "interpretation": "39 of 249 rows are wrong in all four members and 21 rows are missed by all four. That is the hard floor for any amount of seed averaging, and it explains why the council beats its member mean by only 0.0018: averaging cannot recover a case every member misses. Those rows need new information, not more averaging."
     }
   }
 }
