@@ -1,5 +1,10 @@
 """E16 per-criterion calibration and E17 member error correlation.
 
+AUDIT 2026-10-15: calibration on global OOF scores is exploratory only.
+The models producing training-row OOF scores can have seen the current outer
+test studies. Excluding their rows during calibration does not remove this
+indirect leakage. Use strict_nested_calibration.py for a nested refit instead.
+
 E16. The best candidates fail the screen partly on Brier score and average precision, not
 only on F1. The council scores are within-split ranks, so they are monotone by
 construction and carry no probability meaning; a monotone recalibration cannot change
@@ -304,6 +309,9 @@ def main():
 
     (args.output / 'evaluation.json').write_text(json.dumps(
         {'protocol': __doc__, 'E16_calibration': e16, 'E17_member_errors': e17,
+         'evaluation_validity': 'exploratory_global_oof_meta_fit',
+         'outer_test_independence_proven': False,
+         'indirect_leakage_risk': 'Training-row score generators may have learned from current outer-test labels.',
          'variants': reports, 'members': names, 'bags': args.bags, 'seed': args.seed,
          'labels_sha256': sha256(args.labels), 'baseline_sha256': sha256(args.baseline),
          'code_sha256': sha256(Path(__file__)),

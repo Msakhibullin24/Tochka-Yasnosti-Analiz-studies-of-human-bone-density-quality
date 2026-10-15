@@ -19,6 +19,9 @@ from the member quality. Because all four members share the same 249 outer rows 
 protocol, this reduces estimator variance rather than adding independent data, and the
 seed spread reported alongside says by how much.
 """
+# AUDIT 2026-10-15: rethresholding global OOF scores does not establish outer
+# independence: training-row scores may come from models fitted on outer-test
+# labels. Results are exploratory; use strict_nested_calibration.py to refit.
 from __future__ import annotations
 
 import argparse
@@ -208,6 +211,9 @@ def main():
     member_values = [v for k, v in f1.items() if k != 'council']
     (args.output / 'evaluation.json').write_text(json.dumps(
         {'protocol': __doc__, 'variants': reports, 'members': sorted(members),
+         'evaluation_validity': 'exploratory_global_oof_meta_fit',
+         'outer_test_independence_proven': False,
+         'indirect_leakage_risk': 'Training-row score generators may have learned from current outer-test labels.',
          'member_mean_f1': float(np.mean(member_values)) if member_values else None,
          'member_sd_f1': float(np.std(member_values, ddof=1)) if len(member_values) > 1 else None,
          'council_minus_member_mean': (f1['council'] - float(np.mean(member_values))) if member_values else None,

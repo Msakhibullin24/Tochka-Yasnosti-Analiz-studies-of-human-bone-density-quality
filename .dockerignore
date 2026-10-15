@@ -4,6 +4,7 @@ node_modules
 dist
 data
 backend/.venv
+**/.venv*
 backend/models
 backend/exports
 **/__pycache__

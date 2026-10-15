@@ -43,7 +43,7 @@ from threadpoolctl import threadpool_limits
 
 HERE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(HERE))
-from dxaqc.decision import decide  # noqa: E402
+from experiments.research_decision import decide  # noqa: E402
 from dxaqc.model import CRITERIA, _matrix, best_f1_threshold, group_of, official_violation_type  # noqa: E402
 from evaluate_organizer_dataset import binary_metrics, evaluate, sha256  # noqa: E402
 from source_integrity import inspect_sources  # noqa: E402

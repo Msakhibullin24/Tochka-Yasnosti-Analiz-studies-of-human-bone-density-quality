@@ -108,7 +108,7 @@ def make_head(name, seed):
 
 def probability(model, values):
     if isinstance(model, DummyClassifier):
-        return np.zeros(len(values))
+        return np.full(len(values), float(1 in model.classes_))
     if 1 not in model.classes_:
         return np.zeros(len(values))
     return model.predict_proba(values)[:, list(model.classes_).index(1)]
@@ -120,7 +120,7 @@ def fit_predict(name, values, target, train, test, seed):
     if len(np.unique(y)) < 2:
         dummy = DummyClassifier(strategy='constant', constant=int(y[0]))
         dummy.fit(np.zeros((len(known), 1)), y)
-        return np.zeros(len(known)), np.zeros(len(test)), dummy
+        return probability(dummy, values[known]), probability(dummy, values[test]), dummy
     model = make_head(name, seed)
     model.fit(values[known], y)
     return probability(model, values[known]), probability(model, values[test]), model

@@ -103,3 +103,9 @@ metrics-upgrade:
 screen-candidate:
 	@test -n "$(CANDIDATE)" -a -n "$(OUTPUT)" || (echo "CANDIDATE=OOF.csv OUTPUT=new_report.json are required" >&2; exit 2)
 	PYTHONPATH=competition:competition/experiments competition/.venv/bin/python competition/experiments/verify_metric_candidate.py --baseline "$(METRIC_BASELINE)" --candidate "$(CANDIDATE)" --output "$(OUTPUT)"
+
+.PHONY: strict-calibration
+RESEARCH_PYTHON ?= .venv-gpu/bin/python
+strict-calibration:
+	@test -n "$(INPUT)" -a -n "$(OUTPUT)" || (echo "INPUT=organizer_DICOM_root OUTPUT=new_experiment_directory are required" >&2; exit 2)
+	"$(RESEARCH_PYTHON)" competition/experiments/strict_nested_calibration.py --dataset "$(INPUT)" --baseline "$(METRIC_BASELINE)" --output "$(OUTPUT)" $(if $(EMBEDDINGS),--embeddings "$(EMBEDDINGS)",)

@@ -1,5 +1,9 @@
 """Calibrated stacking of a frozen-encoder candidate onto the baseline OOF.
 
+AUDIT 2026-10-15: this global-OOF rethresholding is exploratory only, not a
+strictly nested evaluation. Training-row score generators may have used the
+current outer-test labels. Use strict_nested_calibration.py for nested refits.
+
 Every attempt to *learn* the criterion scores on 249 images lost to the baseline,
 always through the same mechanism: the false-positive count exploded (baseline 34,
 learned variants 71-117). The representation was never the bottleneck; the
@@ -170,6 +174,9 @@ def run(args):
         print(f'{name:24} {reports[name]["metrics"]["overall_quality"]["f1"]:.4f}', flush=True)
     (args.output / 'evaluation.json').write_text(json.dumps(
         {'protocol': __doc__, 'variants': reports, 'selection_audit': audit,
+         'evaluation_validity': 'exploratory_global_oof_meta_fit',
+         'outer_test_independence_proven': False,
+         'indirect_leakage_risk': 'Training-row score generators may have learned from current outer-test labels.',
          'spec_floors': args.spec_floors, 'weights': WEIGHTS,
          'baseline_sha256': sha256(args.baseline), 'candidate_sha256': sha256(args.candidate),
          'labels_sha256': sha256(args.labels), 'code_sha256': sha256(Path(__file__)),
