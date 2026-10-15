@@ -24,6 +24,7 @@ from PIL import Image
 HERE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(HERE))
 from gpu_research.common import CATALOG, digest, dump, image_input, load_encoder, representations  # noqa: E402
+from experiments.prepare_chinese_dxa import person_group
 
 Image.MAX_IMAGE_PIXELS = None
 
@@ -57,7 +58,8 @@ def main():
     inv = inv[inv.parsed & inv.folder.isin(args.folders)].copy()
     # One patient's AP and lateral views must not be split across folds later, and a patient with
     # many repeat scans would otherwise dominate. Cap per patient per folder.
-    inv = inv.sort_values('path').groupby(['patient', 'folder'], as_index=False).head(args.per_patient)
+    inv['person_group'] = inv.patient.map(person_group)
+    inv = inv.sort_values('path').groupby(['person_group', 'folder'], as_index=False).head(args.per_patient)
     inv = inv.sort_values(['folder', 'patient', 'path']).reset_index(drop=True)
     if args.max_images:
         inv = inv.iloc[:args.max_images].reset_index(drop=True)

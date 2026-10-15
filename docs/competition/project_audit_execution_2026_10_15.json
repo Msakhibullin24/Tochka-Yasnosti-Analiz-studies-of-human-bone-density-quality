@@ -2,12 +2,14 @@
   "schema_version": 1,
   "date": "2026-10-15",
   "timezone": "Europe/Moscow",
-  "git_head": "de02e0b5d497cbddb3c376b0bc001b15e8e6ae79",
+  "git_head": "9caf846311c7dd21d765a655e15ccc2d9eb038cb",
   "working_tree_has_changes": true,
   "clinical_validation": false,
   "requirements_complete": false,
   "promoted_models": 0,
-  "primary_task_documents_present": false,
+  "primary_task_documents_present": true,
+  "primary_task_documents_present_at_initial_audit": false,
+  "primary_source_recheck_report": "docs/competition/task_source_recheck_2026_10_15.json",
   "hardware": {
     "gpu": "NVIDIA GeForce RTX 4070",
     "capability": [
@@ -131,7 +133,7 @@
     "competition/experiments/prepare_lumos.py": "554988faf97e100ab413e37da67dfaf41bb4d4585cdb84897a0173aae1549832",
     "competition/experiments/lumos_bone_pretrain.py": "eeddf6d4fdd822d1328fd7042a03749a9164329659d87cb1b6414ae8ab677271",
     "competition/experiments/lumos_ssl_pretrain.py": "f3ddb661dae87af09e1989e473c766de1083e83b7c4d7606c653238fc2799407",
-    "competition/experiments/threshold_stability.py": "d1795d0e20f211b031195c3f54da25a8d423e0b5f35070bb6a4706c3029a773f",
+    "competition/experiments/threshold_stability.py": "abc80324de7710f8862777e8c27e94aec12e0d1d482b105c121767cf0d3709b1",
     "competition/experiments/seed_council.py": "528b5b9c02d526f15e137b44c643b7277efe19086e981a13efcfc6c4360e5e0c",
     "competition/experiments/calibration_and_errors.py": "b6eb008c5ebe938911201413ee05d7c5d13eb9855feeb60ea7d129765def4fbe",
     "competition/experiments/synthetic_artifact.py": "2acffe394d32f3f870bdaef5bec1f6c811d205ee90639d16c6e38b9dc06113a9",
@@ -156,6 +158,7 @@
     "competition/train.py": "7118b38b3691f67fbb54daa8545e7d7ff14a391615afa1d2cfcc073a24906a79",
     "competition/source_integrity.py": "85c2591efdccb7f8606eca45dd2916d746c81e3b89da5dbc9fc63ed9168d502f",
     "competition/tests/test_strict_nested_calibration.py": "d9379eb8df48db40015a6f2fba7340246a2ab0b1d7c9ef74e2905bbdbc149f67",
+    "competition/tests/test_training_reference_ranks.py": "f696a19ca35a950bfbffebbd800fbe984ce301e8c11ab10eba3dec2d1d11b98b",
     "eslint.config.js": "c5c94985f79597841357adbd20ff36ca9b917c3acd1b273774731c833ae95f25",
     ".dockerignore": "e1d186f46bf450b2170181e8ef716f7f57d308e2ac3103af8d2046c0efb32588",
     "Makefile": "621d9101d82c3d2c4dbea0e2e1ccc4da7978bdc8dd3b411c10a5c0bcbd5ee011"
@@ -9785,7 +9788,6 @@
   "remaining_dependencies": [
     "Complete anatomy and axis algorithms using existing/public data",
     "Assess generated anatomical ROI; handle missing source ROI explicitly",
-    "Locate primary task documents to reread originals",
     "Clean offline container acceptance and target-environment timing"
   ],
   "limitations": [
@@ -9795,5 +9797,6 @@
     "Reproduced rank ensembles depend on test-batch composition; not per-image release models.",
     "The internal metric screen alone cannot certify training provenance.",
     "No external diagnosis, patient-level independence or full task completion established."
-  ]
+  ],
+  "subsequent_three_iteration_report": "docs/competition/three_iterations_2026_10_15.json"
 }

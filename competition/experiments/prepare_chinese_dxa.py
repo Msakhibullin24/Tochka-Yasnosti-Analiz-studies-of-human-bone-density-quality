@@ -12,9 +12,9 @@ self-supervised stage is missing.
 
 Three constraints are enforced here rather than assumed:
 
-  * Patient identity is parsed from the filename so that splits can be grouped by patient. The
-    competition evaluation is by study, and letting a patient's AP and lateral views straddle a
-    fold would leak. The prefix is a date plus a pinyin name, the remainder is a repeat counter.
+  * Conservative filename groups are parsed across dates and case differences.
+    These are not verified patient identities. The date+pinyin prefix is kept
+    separately as a legacy acquisition key for workbook joins.
   * These are PNG rasters with no DICOM header, so there is no pixel spacing and nothing in this
     corpus can be measured in millimetres. Every criterion that is defined in millimetres stays
     unavailable. Only pixel-space criteria are reachable.
@@ -46,6 +46,14 @@ QA_REGIONS = {'Hip', 'LumbarP', 'LumbarL'}
 SITE_RE = re.compile(r'^(?P<site>[A-Za-z]+?)(?P<side>[LRD]\d*)$')
 
 
+def person_group(study_key: str) -> str:
+    """Conservative filename group across dates; not a verified patient identity."""
+    value = str(study_key)
+    if not re.match(r'^\d{8}.+', value):
+        raise ValueError('Expected date followed by a nonempty name token')
+    return value[8:].casefold().strip()
+
+
 def parse_name(stem: str, folder: str | None = None) -> dict:
     """Positional, tolerant parse.
 
@@ -57,15 +65,15 @@ def parse_name(stem: str, folder: str | None = None) -> dict:
     So the site token is located by scanning backwards for something that ends in a side
     letter, rather than by assuming a fixed arity.
 
-    The patient key is the date plus the first token only. Pinyin names can themselves contain
-    underscores, so a fuller key risks splitting one person across folds, which leaks.
-    Truncating can only merge two keys into one group, which costs a little power and cannot
-    leak, so the conservative direction is taken deliberately.
+    The legacy patient key is a date plus the first token. It identifies an
+    acquisition, not a verified person. Use person_group for split grouping so
+    repeated dates and capitalization do not separate the same name token.
     """
     parts = stem.split('_')
-    if len(parts) < 2 or not re.match(r'^\d{8}', parts[0]):
-        return {'parsed': False, 'patient': None, 'scan_date': None, 'repeat': None,
-                'site': None, 'side': None}
+    if len(parts) < 2 or not re.match(r'^\d{8}.+', parts[0]):
+        return {'parsed': False, 'patient': None, 'person_group': None,
+                'scan_date': None, 'repeat': None, 'site': None, 'side': None,
+                'filename_region': None}
     region = parts[-1]
     site = side = None
     site_at = None
@@ -75,7 +83,8 @@ def parse_name(stem: str, folder: str | None = None) -> dict:
             site, side, site_at = m.group('site'), m.group('side'), i
             break
     repeat = '_'.join(parts[1:site_at]) if site_at else ('_'.join(parts[1:-1]) or None)
-    return {'parsed': True, 'patient': parts[0], 'scan_date': parts[0][:8], 'repeat': repeat,
+    return {'parsed': True, 'patient': parts[0], 'person_group': person_group(parts[0]),
+            'scan_date': parts[0][:8], 'repeat': repeat,
             'site': site or folder, 'side': side, 'filename_region': region}
 
 def main():
@@ -121,6 +130,9 @@ def main():
         'images_unparsed': int(len(inv) - len(parsed)),
         'folders': {k: int(v) for k, v in inv.folder.value_counts().items()},
         'patients_total': int(parsed.patient.nunique()) if len(parsed) else 0,
+        'legacy_patient_counts_are_acquisition_keys': True,
+        'person_identity_verified': False,
+        'conservative_filename_groups': int(parsed.person_group.nunique()),
         'images_in_qa_scope': int(inv.in_qa_scope.sum()),
         'patients_in_qa_scope': int(parsed[parsed.in_qa_scope].patient.nunique()),
         'images_per_patient': ({'min': int(per_patient.min()), 'median': float(per_patient.median()),

@@ -131,6 +131,23 @@ def ranks(values):
     return rankdata(values) / max(len(values), 1)
 
 
+def reference_ranks(values, reference):
+    """Midranks against fixed training OOF scores, independent of test batches.
+
+    At reference observations this reproduces rankdata(reference)/n, including
+    ties. New observations use their insertion rank, clipped to [0, 1]. These
+    are ranking scores, not calibrated probabilities.
+    """
+    values, reference = np.asarray(values, float), np.asarray(reference, float)
+    if (values.ndim != 1 or reference.ndim != 1 or not len(reference)
+            or not np.isfinite(values).all() or not np.isfinite(reference).all()):
+        raise ValueError('Finite score vectors and a nonempty training reference required')
+    ordered = np.sort(reference)
+    left = np.searchsorted(ordered, values, side='left')
+    right = np.searchsorted(ordered, values, side='right')
+    return np.clip((left + right + 1) / (2 * len(reference)), 0., 1.)
+
+
 def plain_threshold(truth, scores, floors):
     best, chosen = -1.0, float(np.nextafter(1., np.inf))
     for floor in floors:
@@ -238,9 +255,11 @@ def run(args):
         ensure_ascii=False).encode()).hexdigest()
     features, resnet18, _ = build_table(args.dataset, labels, HERE / '.cache', source_fp)
     from gpu_research.common import load_feature_bundle
-    bundles = {}
+    bundles, bundle_metadata = {}, {}
     for name, path in args.bundle.items():
-        bundles[name] = load_feature_bundle(path, labels, source_fp, sha256(args.labels))[0]
+        bundles[name], metadata = load_feature_bundle(path, labels, source_fp, sha256(args.labels))
+        bundle_metadata[name] = {'path': str(path), 'features_sha256': metadata['features_sha256'],
+                                 'dimensions': int(bundles[name].shape[1])}
         print(f'{name}: {bundles[name].shape}', flush=True)
 
     for row in baseline.itertuples():
@@ -251,6 +270,9 @@ def run(args):
     groups = labels.study_key.astype(str).to_numpy()
     anatomy = np.array([group_of(r) for r in labels.region])
     args.output.mkdir(parents=True)
+    (args.output / 'config.json').write_text(json.dumps(
+        {k: ({n: str(p) for n, p in v.items()} if k == 'bundle' else
+             str(v) if isinstance(v, Path) else v) for k, v in vars(args).items()}, indent=2) + '\n')
     candidates = {name: baseline.copy() for name in VARIANTS}
     audit_log = []
     floors = [None, args.spec_floor]
@@ -275,6 +297,8 @@ def run(args):
 
                 # R repeats of the inner split; each contributes rank-transformed scores.
                 geom_repeats, emb_repeats = [], []
+                geom_references = {m: [] for m in MEMBERS}
+                emb_references = {n: [] for n in bundles}
                 for repeat in range(args.inner_repeats):
                     collected = {m: np.full(len(selected), np.nan) for m in MEMBERS}
                     collected_emb = {n: np.full(len(selected), np.nan) for n in bundles}
@@ -289,13 +313,24 @@ def run(args):
                                                                 selected[iva], seed)[1]
                     geom_repeats.append(np.column_stack([ranks(collected[m]) for m in MEMBERS]).mean(1))
                     emb_repeats.append({n: ranks(collected_emb[n]) for n in bundles})
+                    for m in MEMBERS:
+                        geom_references[m].append(collected[m])
+                    for n in bundles:
+                        emb_references[n].append(collected_emb[n])
                 geom_repeat_mean = np.mean(geom_repeats, axis=0)
                 emb_repeat_mean = {n: np.mean([r[n] for r in emb_repeats], axis=0) for n in bundles}
 
                 heads = {m: fit_predict(m, geometry, target, selected, tests, seed)[1] for m in MEMBERS}
                 emb_test = {n: fit_predict('lr', bundles[n], target, selected, tests, seed)[1] for n in bundles}
-                geom_test = np.column_stack([ranks(heads[m]) for m in MEMBERS]).mean(1)
-                emb_test_r = {n: ranks(emb_test[n]) for n in bundles}
+                if getattr(args, 'rank_reference', 'test-batch') == 'training-oof':
+                    geom_test = np.column_stack([
+                        reference_ranks(heads[m], np.concatenate(geom_references[m]))
+                        for m in MEMBERS]).mean(1)
+                    emb_test_r = {n: reference_ranks(emb_test[n], np.concatenate(emb_references[n]))
+                                  for n in bundles}
+                else:
+                    geom_test = np.column_stack([ranks(heads[m]) for m in MEMBERS]).mean(1)
+                    emb_test_r = {n: ranks(emb_test[n]) for n in bundles}
 
                 def combine(geom, embs):
                     return np.column_stack([geom] + list(embs.values())).mean(1)
@@ -458,6 +493,8 @@ def run(args):
 
     reports = {}
     for name, table in candidates.items():
+        if name not in getattr(args, 'report_variants', ALL_VARIANTS):
+            continue
         path = args.output / f'{name}_oof.csv'
         table.to_csv(path, index=False)
         entry = {'metrics': evaluate(args.labels, path, repeats=2000)}
@@ -472,6 +509,9 @@ def run(args):
         {'protocol': __doc__, 'variants': reports, 'selection_audit': audit_log,
          'members': list(MEMBERS), 'bags': args.bags, 'inner_repeats': args.inner_repeats,
          'seed': args.seed, 'spec_floor': args.spec_floor,
+         'rank_reference': getattr(args, 'rank_reference', 'test-batch'),
+         'uses_test_batch_rank_transform': getattr(args, 'rank_reference', 'test-batch') == 'test-batch',
+         'feature_bundles': bundle_metadata,
          'labels_sha256': sha256(args.labels), 'baseline_sha256': sha256(args.baseline),
          'code_sha256': sha256(Path(__file__)),
          'clinical_validation': False, 'model_affects_decision': False,
@@ -493,6 +533,10 @@ if __name__ == '__main__':
     parser.add_argument('--bags', type=int, default=200)
     parser.add_argument('--inner-repeats', type=int, default=3)
     parser.add_argument('--seed', type=int, default=17)
+    parser.add_argument('--rank-reference', choices=('test-batch', 'training-oof'), default='test-batch',
+                        help='Historical test-batch ranks or a fixed training-only OOF reference')
+    parser.add_argument('--report-variants', nargs='+', choices=ALL_VARIANTS, default=list(ALL_VARIANTS),
+                        help='Variants to emit and evaluate; no outer-label-based automatic selection')
     args = parser.parse_args()
     parsed = {}
     for item in args.bundle:

@@ -4,18 +4,18 @@
 выдаёт CSV/XLSX, визуальные серии и DICOM SR. Основной React-интерфейс находится в `../src/CompetitionWorkspace.tsx`.
 CLI, API и валидация используют общий модуль итогового решения `dxaqc/decision.py`.
 План завершения проекта: [этапы, метрики и условия сдачи](../docs/DXA_QC_END_TO_END_PLAN_2026_09_24_RU.md).
-Актуальная сверка с ТЗ и разъяснениями: [статус требований на 25.09.2026](../docs/SOURCE_MATERIALS_CONSISTENCY_AUDIT_2026_09_25_RU.md).
+Актуальная сверка с оригинальным ТЗ и V2: [повторное чтение от 15.10.2026](../docs/TASK_SOURCE_RECHECK_2026_10_15_RU.md).
 Текущий разбор точности и приоритеты доработки: [метрики и ошибки на 25.09.2026](../docs/DXA_QC_ACCURACY_NEXT_STEPS_2026_09_25_RU.md).
 Метрики основного QC: [`../docs/DXA_QC_PROGRESS_2026_09_24_RU.md`](../docs/DXA_QC_PROGRESS_2026_09_24_RU.md).
 Независимые модели версии 1.9.3: [`docs/INDEPENDENT_MODELS.md`](docs/INDEPENDENT_MODELS.md).
-Текущая рабочая сборка **1.11.5**, решение **v5**: бинарный сигнал больше не превращается
+Текущая рабочая сборка **1.11.6**, решение **v5**: бинарный сигнал больше не превращается
 в класс 0 из-за отсутствия типа. Актуальные числа и ограничения —
 [метрики рабочей сборки](../docs/PROJECT_METRICS_2026_09_29_RU.md).
 [Описание исследования и динамики](../docs/AUTOMATIC_STUDY_DESCRIPTION_RU.md) собирается
 из результатов модели и сохранённой экспертной версии; сравнение двух DICOM
 требует подтверждения пациента и дат по документам.
-[Паспорт 1.11.0](../docs/CURRENT_RELEASE.json) и
-[доработки по ТЗ](../docs/TZ_ALIGNMENT_2026_09_26_RU.md) сохранены как история.
+[Паспорт текущего выпуска](../docs/CURRENT_RELEASE.json);
+[доработки по ТЗ от 26 сентября](../docs/TZ_ALIGNMENT_2026_09_26_RU.md) сохранены как история.
 Исторические отчёты 1.9.x остаются архивом экспериментов.
 Внешние AP DXA данные, benchmark масок и приоритет функций: [`../docs/EXTERNAL_DXA_DATASETS_AND_FEATURES_2026_09_24_RU.md`](../docs/EXTERNAL_DXA_DATASETS_AND_FEATURES_2026_09_24_RU.md).
 
@@ -23,7 +23,7 @@ CLI, API и валидация используют общий модуль ит
 
 Из любой рабочей папки: `./run.sh build`, `./run.sh serve 8090` (если текущая папка — `competition`).
 Скрипт сам выбирает корень репозитория как build context. Прямой аналог из корня:
-`docker build -f competition/Dockerfile -t osseo-dxaqc:1.11.5 .`.
+`docker build -f competition/Dockerfile -t osseo-dxaqc:1.11.6 .`.
 Офлайн-инференс: `./run.sh batch /absolute/input /absolute/output`.
 
 Требования: Docker; для сборки — сеть, для работы — нет. CPU-инференс, GPU не требуется.
@@ -52,7 +52,7 @@ CLI по умолчанию пишет в `results.csv/xlsx` восемь пол
 `submission_validation.json` — строгую проверку V2. В API `results.csv/xlsx` остаются расширенными.
 Положительная строка без типа не проходит строгую проверку. В решении v5 бинарный сигнал сохраняется как `quality_class=1`, даже если тип не установлен. Выдумывать официальный тип или превращать этот сигнал в норму нельзя; незавершённая типизация явно отклоняется строгим валидатором. Наличие файла для сдачи само по себе не означает его готовность.
 
-Рабочая сборка 1.11.5 включает профиль `tz-delivery-1.11.5` и вторичный обученный пересмотр
+Рабочая сборка 1.11.6 включает профиль `tz-delivery-1.11.6` и вторичный обученный пересмотр
 таких ответов. Он может определить тип или отменить тревогу; эффект на чувствительность
 и F1 описан в основном README. Проекция позвоночника проверяется перед QC.
 При низкой уверенности в стороне бедра проверка допускается только если
@@ -71,7 +71,7 @@ CLI: `--acceptance report` проверяет только выполнение 
 использует `submission`. Самостоятельный запуск Python с поставляемым профилем:
 
 ```sh
-DXAQC_WORKFLOW_PROFILE="$PWD/competition/models/workflow_1_11_5/profile.json" \
+DXAQC_WORKFLOW_PROFILE="$PWD/competition/models/workflow_1_11_6/profile.json" \
 PYTHONPATH=competition competition/.venv/bin/python -m dxaqc.cli \
   --input /absolute/input.zip --output /absolute/new-output --acceptance complete
 ```

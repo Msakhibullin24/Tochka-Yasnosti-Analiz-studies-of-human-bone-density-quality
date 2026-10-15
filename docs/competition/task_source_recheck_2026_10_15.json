@@ -1,0 +1,1124 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "source_documents": [
+    {
+      "path": "Вся информация по задаче МинЗдрав РФ/4. ДепЗдрав.pdf",
+      "bytes": 2410750,
+      "sha256": "12d7415f5f0eb1d26f3a9d1afa5a441c2a3d2722eea65c902c52e7519523f800"
+    },
+    {
+      "path": "Вся информация по задаче МинЗдрав РФ/Методические_рекомендации_по_проведению_двухэнергетической_рентгеновской_а_9GGgT4T.pdf",
+      "bytes": 11464656,
+      "sha256": "cb6131792b99f352698b8e51d9b1756d1999e2c0964b470517efb37a04fa3be3"
+    },
+    {
+      "path": "Вся информация по задаче МинЗдрав РФ/Разъяснения по вопросам ЛЦТ_V2.docx",
+      "bytes": 15450,
+      "sha256": "3e3e642bd77ad716890abd93ae3151c6fafe9daccedfbcf182603c953d9a2cc5"
+    }
+  ],
+  "read_scope": {
+    "task_pdf": "complete, 12 physical PDF pages / 11 numbered pages",
+    "clarifications_docx": "complete, four question-answer pairs",
+    "methodology_pdf": "sections 2.6 and 2.7 and appendix D; relevant figures inspected"
+  },
+  "archives": [
+    {
+      "name": "НД_для_обучения.zip",
+      "sha256": "3a9bbb24721235f0b669c97c6d1940ee586966bc850efef54dca49582dbe3c7b",
+      "identical_to_previous_archive": true,
+      "dicom_files": 499
+    },
+    {
+      "name": "Для теста.zip",
+      "sha256": "2d8d0cafc5f568417d549f3c7f0ac46e04c5e75cd62f174d8be1241f46cd2f37",
+      "identical_to_previous_archive": true,
+      "dicom_files": 3
+    }
+  ],
+  "working_constraints": {
+    "new_expert_annotations_available": false,
+    "new_cohort_available": false,
+    "require_new_annotations_or_cohort_for_competition_delivery": false
+  },
+  "requirements": {
+    "input_without_markup": "task section 2.4",
+    "closed_test_not_provided_to_team": "task section 6",
+    "final_experts_and_metrics_by_organizer": "task section 7.2",
+    "priority_metrics": [
+      "F1",
+      "ROC-AUC"
+    ],
+    "priority_metrics_source": "task section 8.4",
+    "official_numeric_metric_threshold": null,
+    "final_hardware": "two H200 141 GB in separate VMs, each 44 CPU / 256 GB RAM / 141 GB VRAM",
+    "pixel_mm_y": 1.05,
+    "pixel_mm_x": 0.6,
+    "laterality_in_official_region": false,
+    "optional_features": [
+      "visual series",
+      "DICOM SR",
+      "automatic markup correction with confirmation",
+      "web interface"
+    ]
+  },
+  "roi_contract_ambiguity": "Section 2.2 requires markup assessment while section 2.4 provides unmarked DICOM; no external ROI container is defined. Own anatomical ROI and any provided source ROI must be distinguished.",
+  "training_reference_experiment": {
+    "status": "complete",
+    "output": "data/gpu-runs/task-source-2026-10-15/training-reference-v2",
+    "rank_reference": "training-oof",
+    "variants": [
+      "champion",
+      "bagged"
+    ],
+    "seed": 17,
+    "inner_repeats": 3,
+    "bags": 200,
+    "automatic_promotion": false,
+    "initial_attempt": {
+      "output": "data/gpu-runs/task-source-2026-10-15/training-reference",
+      "status": "failed_before_oof_export",
+      "reason": "Report subset was incorrectly applied to internal variants; fixed to filter only exported reports."
+    },
+    "code_sha256": "abc80324de7710f8862777e8c27e94aec12e0d1d482b105c121767cf0d3709b1",
+    "evaluation_sha256": "bff57db9f3267592a0494afa969d49374c4c6607268edfa210af4c86511e9b9d",
+    "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+    "baseline_sha256": "dd51dce9cdbce4b9cdf6e3a0cde9db7c78e04c874dda72047c9f918b8ec7741d",
+    "feature_bundles": {
+      "mld3l": {
+        "path": "data/gpu-runs/ml-d3l-2026-10-04/features.npy",
+        "features_sha256": "4a802f2ccc06a96ca3e46dbc2dbb5a86e81c81bcba20ff627f82e63908ea6e36",
+        "dimensions": 8192
+      },
+      "mlraddino": {
+        "path": "data/gpu-runs/ml-raddino-2026-10-04/features.npy",
+        "features_sha256": "effd3de90311e39d1d95406945b8dfe553fef348d6b87c5d30fbef63afa70334",
+        "dimensions": 4608
+      }
+    },
+    "uses_test_batch_rank_transform": false,
+    "results": {
+      "champion": {
+        "overall_quality": {
+          "n": 249,
+          "positives": 73,
+          "negatives": 176,
+          "tn_fp_fn_tp": [
+            151,
+            25,
+            31,
+            42
+          ],
+          "accuracy": 0.7751004016064257,
+          "precision": 0.6268656716417911,
+          "sensitivity": 0.5753424657534246,
+          "specificity": 0.8579545454545454,
+          "f1": 0.6,
+          "balanced_accuracy": 0.7166485056039851,
+          "roc_auc": 0.7755292652552926,
+          "average_precision": 0.6224846585229108,
+          "ci95_study_bootstrap": {
+            "f1": {
+              "low": 0.5035946068320168,
+              "high": 0.6849410863109492,
+              "defined_resamples": 2000
+            },
+            "sensitivity": {
+              "low": 0.47297297297297297,
+              "high": 0.6849768938768771,
+              "defined_resamples": 2000
+            },
+            "specificity": {
+              "low": 0.8,
+              "high": 0.9114017125837676,
+              "defined_resamples": 2000
+            },
+            "roc_auc": {
+              "low": 0.7043858574973878,
+              "high": 0.841087171357407,
+              "defined_resamples": 2000
+            },
+            "average_precision": {
+              "low": 0.4984736189373775,
+              "high": 0.7410775287905396,
+              "defined_resamples": 2000
+            }
+          }
+        },
+        "by_region": {
+          "spine": {
+            "n": 99,
+            "positives": 32,
+            "negatives": 67,
+            "tn_fp_fn_tp": [
+              59,
+              8,
+              16,
+              16
+            ],
+            "accuracy": 0.7575757575757576,
+            "precision": 0.6666666666666666,
+            "sensitivity": 0.5,
+            "specificity": 0.8805970149253731,
+            "f1": 0.5714285714285714,
+            "balanced_accuracy": 0.6902985074626866,
+            "roc_auc": 0.7467350746268656,
+            "average_precision": 0.5961489410238031,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.4,
+                "high": 0.7164319909884539,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.3333333333333333,
+                "high": 0.6666666666666666,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.7945104754230459,
+                "high": 0.9545454545454546,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.6414218435432845,
+                "high": 0.852952233524989,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.44107167666453545,
+                "high": 0.7903991690118839,
+                "defined_resamples": 2000
+              }
+            }
+          },
+          "hip_left": {
+            "n": 78,
+            "positives": 22,
+            "negatives": 56,
+            "tn_fp_fn_tp": [
+              49,
+              7,
+              11,
+              11
+            ],
+            "accuracy": 0.7692307692307693,
+            "precision": 0.6111111111111112,
+            "sensitivity": 0.5,
+            "specificity": 0.875,
+            "f1": 0.55,
+            "balanced_accuracy": 0.6875,
+            "roc_auc": 0.797077922077922,
+            "average_precision": 0.6141075190244322,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.3448275862068966,
+                "high": 0.7097132616487454,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.2857142857142857,
+                "high": 0.7037037037037037,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.7825889328063241,
+                "high": 0.95,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.6904525497177862,
+                "high": 0.8850321087216249,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.4193736412537151,
+                "high": 0.7837636525839474,
+                "defined_resamples": 2000
+              }
+            }
+          },
+          "hip_right": {
+            "n": 72,
+            "positives": 19,
+            "negatives": 53,
+            "tn_fp_fn_tp": [
+              43,
+              10,
+              4,
+              15
+            ],
+            "accuracy": 0.8055555555555556,
+            "precision": 0.6,
+            "sensitivity": 0.7894736842105263,
+            "specificity": 0.8113207547169812,
+            "f1": 0.6818181818181818,
+            "balanced_accuracy": 0.8003972194637538,
+            "roc_auc": 0.8262164846077458,
+            "average_precision": 0.7288380652740513,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.5128205128205128,
+                "high": 0.8205128205128205,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.5882352941176471,
+                "high": 0.9545454545454546,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.7017105263157895,
+                "high": 0.9107142857142857,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.6912239641657335,
+                "high": 0.9514522166891448,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.5371957618274582,
+                "high": 0.9074774839300773,
+                "defined_resamples": 2000
+              }
+            }
+          },
+          "hip": {
+            "n": 150,
+            "positives": 41,
+            "negatives": 109,
+            "tn_fp_fn_tp": [
+              92,
+              17,
+              15,
+              26
+            ],
+            "accuracy": 0.7866666666666666,
+            "precision": 0.6046511627906976,
+            "sensitivity": 0.6341463414634146,
+            "specificity": 0.8440366972477065,
+            "f1": 0.6190476190476191,
+            "balanced_accuracy": 0.7390915193555605,
+            "roc_auc": 0.8028641754307452,
+            "average_precision": 0.6597338030960506,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.4749305555555555,
+                "high": 0.7326897689768976,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.46873337765957446,
+                "high": 0.7857142857142857,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.7603966346153845,
+                "high": 0.9181864564007421,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.7024895175461489,
+                "high": 0.882110666847384,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.47094906557083877,
+                "high": 0.8093282143769345,
+                "defined_resamples": 2000
+              }
+            }
+          }
+        },
+        "by_criterion": {
+          "spine_coverage": {
+            "n": 99,
+            "positives": 6,
+            "negatives": 93,
+            "tn_fp_fn_tp": [
+              89,
+              4,
+              3,
+              3
+            ],
+            "accuracy": 0.9292929292929293,
+            "precision": 0.42857142857142855,
+            "sensitivity": 0.5,
+            "specificity": 0.956989247311828,
+            "f1": 0.46153846153846156,
+            "balanced_accuracy": 0.728494623655914,
+            "roc_auc": 0.8584229390681004,
+            "average_precision": 0.661405935613682,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.0,
+                "high": 0.7830434782608672,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.0,
+                "high": 1.0,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.9120879120879121,
+                "high": 0.9895833333333334,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.5999450549450549,
+                "high": 1.0,
+                "defined_resamples": 1999
+              },
+              "average_precision": {
+                "low": 0.22580952380952385,
+                "high": 1.0,
+                "defined_resamples": 1999
+              }
+            },
+            "official_type": "Некорректная укладка"
+          },
+          "spine_axis": {
+            "n": 99,
+            "positives": 10,
+            "negatives": 89,
+            "tn_fp_fn_tp": [
+              88,
+              1,
+              9,
+              1
+            ],
+            "accuracy": 0.898989898989899,
+            "precision": 0.5,
+            "sensitivity": 0.1,
+            "specificity": 0.9887640449438202,
+            "f1": 0.16666666666666666,
+            "balanced_accuracy": 0.5443820224719101,
+            "roc_auc": 0.6415730337078651,
+            "average_precision": 0.17524980442945987,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.0,
+                "high": 0.46153846153846156,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.0,
+                "high": 0.3333333333333333,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.9651162790697675,
+                "high": 1.0,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.45738663723916534,
+                "high": 0.8043556178899797,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.0778752969823128,
+                "high": 0.4078318375493963,
+                "defined_resamples": 2000
+              }
+            },
+            "official_type": "Не выравнена ось позвоночника"
+          },
+          "spine_artifact": {
+            "n": 99,
+            "positives": 17,
+            "negatives": 82,
+            "tn_fp_fn_tp": [
+              78,
+              4,
+              6,
+              11
+            ],
+            "accuracy": 0.898989898989899,
+            "precision": 0.7333333333333333,
+            "sensitivity": 0.6470588235294118,
+            "specificity": 0.9512195121951219,
+            "f1": 0.6875,
+            "balanced_accuracy": 0.7991391678622668,
+            "roc_auc": 0.8873744619799139,
+            "average_precision": 0.6789621210160722,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.47058823529411764,
+                "high": 0.8512158054711237,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.4166666666666667,
+                "high": 0.8666666666666667,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.8999683544303798,
+                "high": 0.9883754343758353,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.779905905752754,
+                "high": 0.9736905277597285,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.46658809289560893,
+                "high": 0.9133112596947962,
+                "defined_resamples": 2000
+              }
+            },
+            "official_type": "Присутствуют посторонние предметы"
+          },
+          "hip_position_rotation": {
+            "n": 150,
+            "positives": 36,
+            "negatives": 114,
+            "tn_fp_fn_tp": [
+              94,
+              20,
+              14,
+              22
+            ],
+            "accuracy": 0.7733333333333333,
+            "precision": 0.5238095238095238,
+            "sensitivity": 0.6111111111111112,
+            "specificity": 0.8245614035087719,
+            "f1": 0.5641025641025641,
+            "balanced_accuracy": 0.7178362573099415,
+            "roc_auc": 0.8333333333333334,
+            "average_precision": 0.639870196360387,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.4,
+                "high": 0.6987951807228916,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.43333333333333335,
+                "high": 0.78125,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.7339431044687778,
+                "high": 0.9017857142857143,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.7424252107066777,
+                "high": 0.9081859470316918,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.4570994007743306,
+                "high": 0.8194225154600088,
+                "defined_resamples": 2000
+              }
+            },
+            "official_type": "Некорректная укладка"
+          },
+          "hip_roi_coverage": {
+            "n": 150,
+            "positives": 7,
+            "negatives": 143,
+            "tn_fp_fn_tp": [
+              140,
+              3,
+              6,
+              1
+            ],
+            "accuracy": 0.94,
+            "precision": 0.25,
+            "sensitivity": 0.14285714285714285,
+            "specificity": 0.9790209790209791,
+            "f1": 0.18181818181818182,
+            "balanced_accuracy": 0.560939060939061,
+            "roc_auc": 0.8791208791208791,
+            "average_precision": 0.5683347023019734,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.0,
+                "high": 0.5263157894736842,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.0,
+                "high": 0.5,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.9444347319347319,
+                "high": 1.0,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.6707677358477104,
+                "high": 0.9955555555555556,
+                "defined_resamples": 1996
+              },
+              "average_precision": {
+                "low": 0.09431089743589743,
+                "high": 0.9237643442745939,
+                "defined_resamples": 1996
+              }
+            },
+            "official_type": "Некорректная область интереса"
+          }
+        },
+        "criterion_macro_f1": 0.41232517482517483,
+        "passes_internal_metric_screen": false,
+        "failure_reasons": [
+          "sensitivity_lower",
+          "additional_false_safe",
+          "spine_f1_lower",
+          "spine_sensitivity_lower",
+          "spine_roc_auc_lower",
+          "hip_left_sensitivity_lower",
+          "hip_right_f1_lower",
+          "hip_right_specificity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "roc_auc_lower",
+          "average_precision_lower",
+          "brier_score_higher",
+          "criterion_macro_f1_lower",
+          "spine_coverage_f1_lower",
+          "spine_coverage_sensitivity_lower",
+          "spine_artifact_f1_lower",
+          "spine_artifact_sensitivity_lower",
+          "hip_roi_coverage_f1_lower",
+          "hip_roi_coverage_sensitivity_lower"
+        ],
+        "paired_delta_f1": 0.007894736842105288,
+        "paired_delta_f1_ci95": [
+          -0.053385688091102106,
+          0.07205778727989155
+        ]
+      },
+      "bagged": {
+        "overall_quality": {
+          "n": 249,
+          "positives": 73,
+          "negatives": 176,
+          "tn_fp_fn_tp": [
+            149,
+            27,
+            30,
+            43
+          ],
+          "accuracy": 0.7710843373493976,
+          "precision": 0.6142857142857143,
+          "sensitivity": 0.589041095890411,
+          "specificity": 0.8465909090909091,
+          "f1": 0.6013986013986014,
+          "balanced_accuracy": 0.71781600249066,
+          "roc_auc": 0.7755292652552926,
+          "average_precision": 0.6224846585229108,
+          "ci95_study_bootstrap": {
+            "f1": {
+              "low": 0.503931175269758,
+              "high": 0.6887645581182917,
+              "defined_resamples": 2000
+            },
+            "sensitivity": {
+              "low": 0.48483664772727275,
+              "high": 0.6976983115641923,
+              "defined_resamples": 2000
+            },
+            "specificity": {
+              "low": 0.7900407095085781,
+              "high": 0.8994413407821229,
+              "defined_resamples": 2000
+            },
+            "roc_auc": {
+              "low": 0.7043858574973878,
+              "high": 0.841087171357407,
+              "defined_resamples": 2000
+            },
+            "average_precision": {
+              "low": 0.4984736189373775,
+              "high": 0.7410775287905396,
+              "defined_resamples": 2000
+            }
+          }
+        },
+        "by_region": {
+          "spine": {
+            "n": 99,
+            "positives": 32,
+            "negatives": 67,
+            "tn_fp_fn_tp": [
+              58,
+              9,
+              16,
+              16
+            ],
+            "accuracy": 0.7474747474747475,
+            "precision": 0.64,
+            "sensitivity": 0.5,
+            "specificity": 0.8656716417910447,
+            "f1": 0.5614035087719298,
+            "balanced_accuracy": 0.6828358208955223,
+            "roc_auc": 0.7467350746268656,
+            "average_precision": 0.5961489410238031,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.39021002710027103,
+                "high": 0.7059276018099545,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.3225518433179723,
+                "high": 0.6764943074003794,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.7794117647058824,
+                "high": 0.9420289855072463,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.6414218435432845,
+                "high": 0.852952233524989,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.44107167666453545,
+                "high": 0.7903991690118839,
+                "defined_resamples": 2000
+              }
+            }
+          },
+          "hip_left": {
+            "n": 78,
+            "positives": 22,
+            "negatives": 56,
+            "tn_fp_fn_tp": [
+              48,
+              8,
+              9,
+              13
+            ],
+            "accuracy": 0.782051282051282,
+            "precision": 0.6190476190476191,
+            "sensitivity": 0.5909090909090909,
+            "specificity": 0.8571428571428571,
+            "f1": 0.6046511627906976,
+            "balanced_accuracy": 0.724025974025974,
+            "roc_auc": 0.797077922077922,
+            "average_precision": 0.6141075190244322,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.4,
+                "high": 0.76,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.3809113300492611,
+                "high": 0.8,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.7592592592592593,
+                "high": 0.9412047511312216,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.6904525497177862,
+                "high": 0.8850321087216249,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.4193736412537151,
+                "high": 0.7837636525839474,
+                "defined_resamples": 2000
+              }
+            }
+          },
+          "hip_right": {
+            "n": 72,
+            "positives": 19,
+            "negatives": 53,
+            "tn_fp_fn_tp": [
+              43,
+              10,
+              5,
+              14
+            ],
+            "accuracy": 0.7916666666666666,
+            "precision": 0.5833333333333334,
+            "sensitivity": 0.7368421052631579,
+            "specificity": 0.8113207547169812,
+            "f1": 0.6511627906976745,
+            "balanced_accuracy": 0.7740814299900696,
+            "roc_auc": 0.8262164846077458,
+            "average_precision": 0.7288380652740513,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.47058823529411764,
+                "high": 0.7916863207547168,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.5238095238095238,
+                "high": 0.9333333333333333,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.6964091614906832,
+                "high": 0.9107142857142857,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.6912239641657335,
+                "high": 0.9514522166891448,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.5371957618274582,
+                "high": 0.9074774839300773,
+                "defined_resamples": 2000
+              }
+            }
+          },
+          "hip": {
+            "n": 150,
+            "positives": 41,
+            "negatives": 109,
+            "tn_fp_fn_tp": [
+              91,
+              18,
+              14,
+              27
+            ],
+            "accuracy": 0.7866666666666666,
+            "precision": 0.6,
+            "sensitivity": 0.6585365853658537,
+            "specificity": 0.8348623853211009,
+            "f1": 0.627906976744186,
+            "balanced_accuracy": 0.7466994853434773,
+            "roc_auc": 0.8028641754307452,
+            "average_precision": 0.6597338030960506,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.47058823529411764,
+                "high": 0.7422680412371134,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.48644553644553645,
+                "high": 0.8085106382978723,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.7520833333333333,
+                "high": 0.9082777314428689,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.7024895175461489,
+                "high": 0.882110666847384,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.47094906557083877,
+                "high": 0.8093282143769345,
+                "defined_resamples": 2000
+              }
+            }
+          }
+        },
+        "by_criterion": {
+          "spine_coverage": {
+            "n": 99,
+            "positives": 6,
+            "negatives": 93,
+            "tn_fp_fn_tp": [
+              87,
+              6,
+              3,
+              3
+            ],
+            "accuracy": 0.9090909090909091,
+            "precision": 0.3333333333333333,
+            "sensitivity": 0.5,
+            "specificity": 0.9354838709677419,
+            "f1": 0.4,
+            "balanced_accuracy": 0.717741935483871,
+            "roc_auc": 0.8584229390681004,
+            "average_precision": 0.661405935613682,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.0,
+                "high": 0.6666666666666666,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.0,
+                "high": 1.0,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.8804347826086957,
+                "high": 0.9787234042553191,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.5999450549450549,
+                "high": 1.0,
+                "defined_resamples": 1999
+              },
+              "average_precision": {
+                "low": 0.22580952380952385,
+                "high": 1.0,
+                "defined_resamples": 1999
+              }
+            },
+            "official_type": "Некорректная укладка"
+          },
+          "spine_axis": {
+            "n": 99,
+            "positives": 10,
+            "negatives": 89,
+            "tn_fp_fn_tp": [
+              88,
+              1,
+              9,
+              1
+            ],
+            "accuracy": 0.898989898989899,
+            "precision": 0.5,
+            "sensitivity": 0.1,
+            "specificity": 0.9887640449438202,
+            "f1": 0.16666666666666666,
+            "balanced_accuracy": 0.5443820224719101,
+            "roc_auc": 0.6415730337078651,
+            "average_precision": 0.17524980442945987,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.0,
+                "high": 0.46153846153846156,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.0,
+                "high": 0.3333333333333333,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.9651162790697675,
+                "high": 1.0,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.45738663723916534,
+                "high": 0.8043556178899797,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.0778752969823128,
+                "high": 0.4078318375493963,
+                "defined_resamples": 2000
+              }
+            },
+            "official_type": "Не выравнена ось позвоночника"
+          },
+          "spine_artifact": {
+            "n": 99,
+            "positives": 17,
+            "negatives": 82,
+            "tn_fp_fn_tp": [
+              77,
+              5,
+              6,
+              11
+            ],
+            "accuracy": 0.8888888888888888,
+            "precision": 0.6875,
+            "sensitivity": 0.6470588235294118,
+            "specificity": 0.9390243902439024,
+            "f1": 0.6666666666666666,
+            "balanced_accuracy": 0.793041606886657,
+            "roc_auc": 0.8873744619799139,
+            "average_precision": 0.6789621210160722,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.45161290322580644,
+                "high": 0.8334302325581391,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.4166666666666667,
+                "high": 0.8666666666666667,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.8823529411764706,
+                "high": 0.9878048780487805,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.779905905752754,
+                "high": 0.9736905277597285,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.46658809289560893,
+                "high": 0.9133112596947962,
+                "defined_resamples": 2000
+              }
+            },
+            "official_type": "Присутствуют посторонние предметы"
+          },
+          "hip_position_rotation": {
+            "n": 150,
+            "positives": 36,
+            "negatives": 114,
+            "tn_fp_fn_tp": [
+              93,
+              21,
+              13,
+              23
+            ],
+            "accuracy": 0.7733333333333333,
+            "precision": 0.5227272727272727,
+            "sensitivity": 0.6388888888888888,
+            "specificity": 0.8157894736842105,
+            "f1": 0.575,
+            "balanced_accuracy": 0.7273391812865497,
+            "roc_auc": 0.8333333333333334,
+            "average_precision": 0.639870196360387,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.3939393939393939,
+                "high": 0.7047619047619048,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.4399375,
+                "high": 0.8085359675785205,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.7280701754385965,
+                "high": 0.8952380952380953,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.7424252107066777,
+                "high": 0.9081859470316918,
+                "defined_resamples": 2000
+              },
+              "average_precision": {
+                "low": 0.4570994007743306,
+                "high": 0.8194225154600088,
+                "defined_resamples": 2000
+              }
+            },
+            "official_type": "Некорректная укладка"
+          },
+          "hip_roi_coverage": {
+            "n": 150,
+            "positives": 7,
+            "negatives": 143,
+            "tn_fp_fn_tp": [
+              140,
+              3,
+              5,
+              2
+            ],
+            "accuracy": 0.9466666666666667,
+            "precision": 0.4,
+            "sensitivity": 0.2857142857142857,
+            "specificity": 0.9790209790209791,
+            "f1": 0.3333333333333333,
+            "balanced_accuracy": 0.6323676323676324,
+            "roc_auc": 0.8791208791208791,
+            "average_precision": 0.5683347023019734,
+            "ci95_study_bootstrap": {
+              "f1": {
+                "low": 0.0,
+                "high": 0.7272727272727273,
+                "defined_resamples": 2000
+              },
+              "sensitivity": {
+                "low": 0.0,
+                "high": 0.75,
+                "defined_resamples": 2000
+              },
+              "specificity": {
+                "low": 0.9444347319347319,
+                "high": 1.0,
+                "defined_resamples": 2000
+              },
+              "roc_auc": {
+                "low": 0.6707677358477104,
+                "high": 0.9955555555555556,
+                "defined_resamples": 1996
+              },
+              "average_precision": {
+                "low": 0.09431089743589743,
+                "high": 0.9237643442745939,
+                "defined_resamples": 1996
+              }
+            },
+            "official_type": "Некорректная область интереса"
+          }
+        },
+        "criterion_macro_f1": 0.42833333333333334,
+        "passes_internal_metric_screen": false,
+        "failure_reasons": [
+          "sensitivity_lower",
+          "additional_false_safe",
+          "spine_f1_lower",
+          "spine_sensitivity_lower",
+          "spine_roc_auc_lower",
+          "hip_right_f1_lower",
+          "hip_right_specificity_lower",
+          "hip_right_roc_auc_lower",
+          "hip_right_average_precision_lower",
+          "paired_f1_ci_includes_nonimprovement",
+          "roc_auc_lower",
+          "average_precision_lower",
+          "brier_score_higher",
+          "criterion_macro_f1_lower",
+          "spine_coverage_f1_lower",
+          "spine_coverage_sensitivity_lower",
+          "spine_artifact_f1_lower",
+          "spine_artifact_sensitivity_lower",
+          "hip_roi_coverage_f1_lower",
+          "hip_roi_coverage_sensitivity_lower"
+        ],
+        "paired_delta_f1": 0.009293338240706661,
+        "paired_delta_f1_ci95": [
+          -0.060424361026613554,
+          0.07859088969085513
+        ]
+      }
+    },
+    "limitations": [
+      "Internal previously inspected cohort; not an independent clinical test.",
+      "Baseline routing and measured axes reused; conditional QC.",
+      "Training-reference ranks are not calibrated probabilities.",
+      "Both candidates have more false negatives and lower AUC than the frozen baseline."
+    ]
+  },
+  "clinical_validation": false,
+  "validation": {
+    "competition_tests": {
+      "passed": 422,
+      "skipped": 5,
+      "failed": 0
+    },
+    "targeted_rank_and_nested_regressions": {
+      "passed": 12,
+      "failed": 0
+    },
+    "original_model_profile_unchanged": true
+  }
+}
