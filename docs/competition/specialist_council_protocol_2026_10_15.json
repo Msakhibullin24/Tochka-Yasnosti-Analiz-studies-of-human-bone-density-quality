@@ -1,0 +1,19 @@
+{
+  "registered_at_utc": "2026-10-15 12:23:23 UTC",
+  "primary_procedure": "selected_by_inner-bags100",
+  "other_policy_and_bagging_results": "exploratory diagnostics, not independently selected best models",
+  "primary_selection_inside_each_outer_training_group": "highest middle-OOF F1, then AUC, then fixed policy order",
+  "physical_axis_threshold_degrees": 5,
+  "expert_sources": 8,
+  "outer_study_folds": 5,
+  "middle_study_folds": 4,
+  "sub_study_folds": 3,
+  "source_code_sha256": "aa27764433b65b67aecdbea99908d439b20305aa3d9938fecf3f0090883b84b1",
+  "registration_scope": "Before any specialist outer performance tables were generated; experiment had already completed two outer group-folds. Previously inspected cohort; this is not prospective independent validation.",
+  "incumbent_reference": "data/gpu-runs/anatomy-upgrade-2026-10-15/quality-gated-own-roi/candidate_oof.csv",
+  "incumbent_f1": 0.6190476190476191,
+  "incumbent_roc_auc": 0.8118773349937735,
+  "legacy_control_scope": "Legacy expert weights under new nested operating-point procedure; exact incumbent is reference CSV.",
+  "clinical_validation": false,
+  "global_metric_maximum_established": false
+}
