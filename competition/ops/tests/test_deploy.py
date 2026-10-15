@@ -69,9 +69,10 @@ def test_success_pins_content_id_and_keeps_previous_for_rollback(monkeypatch, tm
     assert containers['service']['Image'] == 'old-id'
 
 
-def test_foreign_container_is_never_changed(monkeypatch,tmp_path):
+@pytest.mark.parametrize('labels', [None, {}, {ops.LABEL: 'someone-else'}])
+def test_foreign_container_is_never_changed(monkeypatch,tmp_path,labels):
     args,state,owner,events,containers = harness(monkeypatch,tmp_path)
-    containers['service']['Config']['Labels'][ops.LABEL] = 'someone-else'
+    containers['service']['Config']['Labels'] = labels
     with pytest.raises(RuntimeError,match='not owned'):
         ops.deploy(args,state,owner)
     assert events == []

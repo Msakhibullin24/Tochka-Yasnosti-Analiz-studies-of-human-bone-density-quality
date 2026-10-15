@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "source_commit": "a42fc21ea4e6e96390f201bc906d46e9111fb0f6",
+  "version": "1.12.0 operations upgrade, QC weights unchanged",
+  "clinical_validation": false,
+  "model_accuracy_remeasured": false,
+  "global_maximum_established": false,
+  "full_tz_acceptance_established": false,
+  "current_endpoint": "http://127.0.0.1:8093",
+  "current_container": "dxaqc-gpu-managed",
+  "cpu_image_id": "sha256:b158cde4f20fd423fcde773e5fb44fd4be845710f867aa151969e650dbe96a54",
+  "gpu_image_id": "sha256:9160b786ec91dc8f0fac4f7099795d9a97773232a42ff4f194f92bf5600ed6fa",
+  "gpu_deployment": {
+    "run_id": "20261015T160652-64397ad8",
+    "image_id": "sha256:9160b786ec91dc8f0fac4f7099795d9a97773232a42ff4f194f92bf5600ed6fa",
+    "image_requested": "dxaqc:anatomy-ops-1.12.0-20261015",
+    "mode": "gpu",
+    "profile": "research-live-anatomy-qc-20261015",
+    "port": 8093,
+    "name": "dxaqc-gpu-managed",
+    "owner": "fb1a5a823219b6058d4d56aea54d453674d4e9bcbab9240f43c31ab067f54fa9",
+    "previous_container": "dxaqc-gpu-managed-previous-20261015t160652-64397ad8",
+    "status": "ready",
+    "previous_release": {
+      "image_id": "sha256:683f3c002772a476c63925e7263a8c770755eb0ef8d7ffb440cd18898e1c17fd",
+      "image_requested": "dxaqc:anatomy-ops-1.12.0-20261015",
+      "mode": "gpu",
+      "profile": "research-live-anatomy-qc-20261015",
+      "port": 8093
+    },
+    "model_approval": {
+      "approved": true,
+      "verified_files": 31,
+      "verified_runtime_modules": 26,
+      "assets_manifest_sha256": "6765ad0f4f6f44966d768241f3439a18eab5b98a0a993e7b6713985912854ea4",
+      "metric_scope": "Repeatedly inspected conditional-routing 249-image / 100-study OOF; not independent patient validation or full-fit accuracy",
+      "clinical_validation": false
+    },
+    "canary": {
+      "ready": true,
+      "version": "1.12.0",
+      "profile": "research-live-anatomy-qc-20261015",
+      "files": 1,
+      "success": 1,
+      "failure": 0,
+      "ui_assets": 2,
+      "exports_verified": [
+        "submission.csv",
+        "submission.xlsx",
+        "results_extended.csv",
+        "timing.json",
+        "additional_series.zip"
+      ],
+      "source_zip_identical": true,
+      "within_180_seconds": true,
+      "export_sha256": {
+        "submission.csv": "d85e19330b5394f5efac3ff2005618ede074ba6406bd5a21e25020d7e6e4b4b4",
+        "submission.xlsx": "d44f76588038d1c064a1902b9b680f0d1f433dc1b9c85d2578fe5319c5ffe54d",
+        "results_extended.csv": "5c2a562811beca29e7d78c3f9e59f9a0271d835ee33273a127f77248c9a085aa",
+        "timing.json": "7c41287621ccc0ec2cfa97269b1b2a48961b4c13aa2a76514c3a4c942447068b",
+        "additional_series.zip": "97413ed39b71614b695abf1ea15c39a1ee3a69f6d8e8dda1cdb45ec220512cb7"
+      },
+      "scope": "Engineering HTTP/ZIP/export check; not accuracy or full TZ acceptance"
+    },
+    "post_deploy": {
+      "ready": true,
+      "version": "1.12.0",
+      "profile": "research-live-anatomy-qc-20261015",
+      "files": 1,
+      "success": 1,
+      "failure": 0,
+      "ui_assets": 2,
+      "exports_verified": [
+        "submission.csv",
+        "submission.xlsx",
+        "results_extended.csv",
+        "timing.json",
+        "additional_series.zip"
+      ],
+      "source_zip_identical": true,
+      "within_180_seconds": true,
+      "export_sha256": {
+        "submission.csv": "1cc9d8c19803168bdbdf6e18af5712781d2773b921e7a060e2ee041f3861b1dd",
+        "submission.xlsx": "fb19f8d7cf10c4b484e8ff86554922bde5fc7de8722313198b0be77146881707",
+        "results_extended.csv": "d73d087034f7f582ab8c505af9e0071abe1c1a319018772720b80062046a9e4f",
+        "timing.json": "677435bdefe5bc7254961542d52ce1d36975a2bb69b5b4ffeb95e6ddf2f9208f",
+        "additional_series.zip": "97413ed39b71614b695abf1ea15c39a1ee3a69f6d8e8dda1cdb45ec220512cb7"
+      },
+      "scope": "Engineering HTTP/ZIP/export check; not accuracy or full TZ acceptance"
+    }
+  },
+  "archived_gpu_image_compatibility": {
+    "run_id": "20261015T160256-89b6478a",
+    "image_id": "sha256:ddaa41aaa32e7aa23dba5bf9bccc823b0c8740d6c98ca13fc98dcd36e768095d",
+    "image_requested": "dxaqc:anatomy-fullfit-1.12.0-20261015",
+    "mode": "gpu",
+    "profile": "research-live-anatomy-qc-20261015",
+    "port": 8096,
+    "name": "dxaqc-archive-compat",
+    "owner": "e0eeaa49f8a4261589b7d1d0e47a9d5ccc3d9d625c55b3873c9e42e8c95ee545",
+    "previous_container": null,
+    "status": "ready",
+    "model_approval": {
+      "approved": true,
+      "verified_files": 31,
+      "verified_runtime_modules": 26,
+      "assets_manifest_sha256": "6765ad0f4f6f44966d768241f3439a18eab5b98a0a993e7b6713985912854ea4",
+      "metric_scope": "Repeatedly inspected conditional-routing 249-image / 100-study OOF; not independent patient validation or full-fit accuracy",
+      "clinical_validation": false
+    },
+    "canary": {
+      "ready": true,
+      "version": "1.12.0",
+      "profile": "research-live-anatomy-qc-20261015",
+      "files": 1,
+      "success": 1,
+      "failure": 0,
+      "ui_assets": 2,
+      "exports_verified": [
+        "submission.csv",
+        "submission.xlsx",
+        "results_extended.csv",
+        "timing.json",
+        "additional_series.zip"
+      ],
+      "source_zip_identical": true,
+      "within_180_seconds": true,
+      "export_sha256": {
+        "submission.csv": "2f690ac9bb49b9b23087a39fd65e8a445260b5c563c4d1eb03c988c514a90511",
+        "submission.xlsx": "f95d6d8bdb4940fda73c819e52715a947f40b9750682bec22fd702afa0c893be",
+        "results_extended.csv": "4e6beb55182890af28624d3ea16b379b9e712e9929e555cbf0a2b8cb75859609",
+        "timing.json": "bd3bfdaece61826a85c46cb23a5f263b840d058142ddc54e2f9d5b7cef3e88ba",
+        "additional_series.zip": "84fa46f591f045ba06bb080cb3b5ab0643ecb6a2ed347c6bc77a536ac8b807d3"
+      },
+      "scope": "Engineering HTTP/ZIP/export check; not accuracy or full TZ acceptance"
+    },
+    "post_deploy": {
+      "ready": true,
+      "version": "1.12.0",
+      "profile": "research-live-anatomy-qc-20261015",
+      "files": 1,
+      "success": 1,
+      "failure": 0,
+      "ui_assets": 2,
+      "exports_verified": [
+        "submission.csv",
+        "submission.xlsx",
+        "results_extended.csv",
+        "timing.json",
+        "additional_series.zip"
+      ],
+      "source_zip_identical": true,
+      "within_180_seconds": true,
+      "export_sha256": {
+        "submission.csv": "094d014ed9ff03e0a8ee04ae1173eaed8ae2b9af71e59f8fac5f83cb1571eac1",
+        "submission.xlsx": "7c9625b68b81607ea930b0e80a657658387fd023df6adc35bd5cad04f5c84309",
+        "results_extended.csv": "c19c073f904900b242f1a9401f0092089dc00a1e1b5eaa53ed80ffdd98da9fe6",
+        "timing.json": "67a975c2072b3cf05b740fb545c668c27cd8bea12710b2d6a2668c0e5c055b61",
+        "additional_series.zip": "84fa46f591f045ba06bb080cb3b5ab0643ecb6a2ed347c6bc77a536ac8b807d3"
+      },
+      "scope": "Engineering HTTP/ZIP/export check; not accuracy or full TZ acceptance"
+    }
+  },
+  "post_update_failure_injection": {
+    "run_id": "20261015T155029-e975d77b",
+    "image_id": "sha256:719543e21aa783d25e8d0c467812dc618959339df69a83d804be149ad1bb6d5d",
+    "image_requested": "dxaqc:failure-injection-20261015",
+    "mode": "cpu",
+    "profile": "tz-delivery-1.12.0",
+    "port": 8095,
+    "name": "dxaqc-ci-deploy",
+    "owner": "ad19b7711cdc5ac20f4f9aef96236b988c7457147a30884f06a285f857b8ef0b",
+    "previous_container": "dxaqc-ci-deploy-previous-20261015t155029-e975d77b",
+    "status": "post_deploy_failed",
+    "previous_release": {
+      "image_id": "sha256:d0834eabee4a58019316b9ea8b25ecc39da10a6f2814635b03db9f13fdf20cff",
+      "image_requested": "dxaqc:delivery-ci-20261015",
+      "mode": "cpu",
+      "profile": "tz-delivery-1.12.0",
+      "port": 8095
+    },
+    "canary": {
+      "ready": true,
+      "version": "1.12.0",
+      "profile": "tz-delivery-1.12.0",
+      "files": 1,
+      "success": 1,
+      "failure": 0,
+      "ui_assets": 2,
+      "exports_verified": [
+        "submission.csv",
+        "submission.xlsx",
+        "results_extended.csv",
+        "timing.json",
+        "additional_series.zip"
+      ],
+      "source_zip_identical": true,
+      "within_180_seconds": true,
+      "export_sha256": {
+        "submission.csv": "0c5904fcbb468e2e34ab3f0c77615ef9de3ba4b2782ba71a6d07d188886a607f",
+        "submission.xlsx": "d09f63ae4950676b5c1a701f9b601afcc3b2c3c015ed446802fc01e0182a122e",
+        "results_extended.csv": "e85340f7b07d57c6e46cbf4c983b4c3dcabbb812f3320003b16cf6315423437a",
+        "timing.json": "2a2747ba2ae716f3158cca4b42f0c3c46305e4b6b7cef5fb95180942e478d3e8",
+        "additional_series.zip": "24d1c8899cb7addfc4d35cf4817d01fa1763957850864ee15157a46446a356ee"
+      },
+      "scope": "Engineering HTTP/ZIP/export check; not accuracy or full TZ acceptance"
+    },
+    "error": "Service not ready within 60s: <urlopen error [Errno 111] Connection refused>",
+    "rollback_ready": true
+  },
+  "manual_rollback": {
+    "run_id": "20261015T154948-19336809",
+    "image_id": "sha256:cf65354b9aeca9a5f48c7664b86a57a8d59219536c2b73307e7c9a608893437f",
+    "image_requested": "osseo-dxaqc:1.12.0",
+    "mode": "cpu",
+    "profile": "tz-delivery-1.12.0",
+    "port": 8095,
+    "name": "dxaqc-ci-deploy",
+    "owner": "ad19b7711cdc5ac20f4f9aef96236b988c7457147a30884f06a285f857b8ef0b",
+    "previous_container": "dxaqc-ci-deploy-retired-0a6aaa0f",
+    "status": "rolled_back_ready",
+    "previous_release": {
+      "image_id": "sha256:d0834eabee4a58019316b9ea8b25ecc39da10a6f2814635b03db9f13fdf20cff",
+      "image_requested": "dxaqc:delivery-ci-20261015",
+      "mode": "cpu",
+      "profile": "tz-delivery-1.12.0",
+      "port": 8095
+    },
+    "canary": {
+      "ready": true,
+      "version": "1.12.0",
+      "profile": "tz-delivery-1.12.0",
+      "files": 1,
+      "success": 1,
+      "failure": 0,
+      "ui_assets": 2,
+      "exports_verified": [
+        "submission.csv",
+        "submission.xlsx",
+        "results_extended.csv",
+        "timing.json",
+        "additional_series.zip"
+      ],
+      "source_zip_identical": true,
+      "within_180_seconds": true,
+      "export_sha256": {
+        "submission.csv": "c932a0ee4bcb0d5ba99e982b75fa262242f3c124a424460f440210d36258a695",
+        "submission.xlsx": "ff5d136c53354ee3da88ab684fc54785b02b9562274ba7287badf259e52e6a61",
+        "results_extended.csv": "fad28068e68987cbf94897827f8ed565e36574a97ba986dc5aa83556acf2693b",
+        "timing.json": "e629251932caba383aee0a37e7eaa1807e85a0f7c7078fda56adc699cb54eabc",
+        "additional_series.zip": "069d3ac87f5292a204323c982bc7648e942f3b41e6bbb4d78fe70f1333c310ee"
+      },
+      "scope": "Engineering HTTP/ZIP/export check; not accuracy or full TZ acceptance"
+    },
+    "post_deploy": {
+      "ready": true,
+      "version": "1.12.0",
+      "profile": "tz-delivery-1.12.0",
+      "files": 1,
+      "success": 1,
+      "failure": 0,
+      "ui_assets": 2,
+      "exports_verified": [
+        "submission.csv",
+        "submission.xlsx",
+        "results_extended.csv",
+        "timing.json",
+        "additional_series.zip"
+      ],
+      "source_zip_identical": true,
+      "within_180_seconds": true,
+      "export_sha256": {
+        "submission.csv": "55d43667717b61c33d4b645555033fea55dc171c847281075a39ec13eec9e6b5",
+        "submission.xlsx": "22dc7081186989ec0b592f094ec1549c73795263852bed1a141fa8bbf2b4f550",
+        "results_extended.csv": "b47819cf22ae7525085166ad4a2685476f97e3261c3f29ec42a0742c7e4e5744",
+        "timing.json": "2a6b5b08b778637332c971cc7c79d360b575e1797c32bf3956d5abe59e767d56",
+        "additional_series.zip": "069d3ac87f5292a204323c982bc7648e942f3b41e6bbb4d78fe70f1333c310ee"
+      },
+      "scope": "Engineering HTTP/ZIP/export check; not accuracy or full TZ acceptance"
+    }
+  },
+  "automatic_application_restart": {
+    "image_id": "sha256:683f3c002772a476c63925e7263a8c770755eb0ef8d7ffb440cd18898e1c17fd",
+    "restart_count_before": 0,
+    "restart_count_after": 1,
+    "application_exit_induced_inside_container": true,
+    "docker_restart_policy": "unless-stopped",
+    "ready_after_restart": true,
+    "prior_job_history_preserved": true,
+    "host_reboot_tested": false
+  },
+  "real_debug_dicom_zip_http": {
+    "ready": true,
+    "version": "1.12.0",
+    "profile": "research-live-anatomy-qc-20261015",
+    "files": 3,
+    "success": 3,
+    "failure": 0,
+    "ui_assets": 2,
+    "exports_verified": [
+      "submission.csv",
+      "submission.xlsx",
+      "results_extended.csv",
+      "timing.json",
+      "additional_series.zip"
+    ],
+    "source_zip_identical": true,
+    "within_180_seconds": true,
+    "export_sha256": {
+      "submission.csv": "924ac4b9d174588c768bb136f8d8a6836df6b233177c8983050bd88513888248",
+      "submission.xlsx": "4ee43a820ea57521f578f255d036ef721c3d150857ee3223feb0533f7792431e",
+      "results_extended.csv": "fe1b8e40f87459b19abefd41d80f469752338c1cbf381523058099d0be67d83e",
+      "timing.json": "bb2cd5e50bc98f0282010b56bb0b63d210687e2bb9110a7ba0c4f90bf913c568",
+      "additional_series.zip": "047c260e07fcbb8e77f4060898f28955b679ec694b068603bc9b46dda911cb48"
+    },
+    "scope": "Engineering HTTP/ZIP/export check; not accuracy or full TZ acceptance"
+  },
+  "watchdog_healthy_check": {
+    "ready": true,
+    "image_id": "sha256:9160b786ec91dc8f0fac4f7099795d9a97773232a42ff4f194f92bf5600ed6fa",
+    "restarted_unhealthy": false,
+    "checked_at": 1792069741.691091
+  },
+  "runtime": {
+    "read_only_root": true,
+    "restart_policy": "unless-stopped",
+    "docker_health": "healthy",
+    "published_on_loopback_only": true,
+    "canary_network_mode": "none",
+    "api_network_mode": "regular bridge; no claim of network-none API"
+  },
+  "tests": {
+    "frontend": {
+      "passed": 74,
+      "files": 19,
+      "node": "22.23.2",
+      "log": "data/logs/delivery-frontend-node22-tests-2026-10-15.log"
+    },
+    "backend": {
+      "passed": 53,
+      "skipped": 2,
+      "log": "data/logs/delivery-backend-tests-2026-10-15.log"
+    },
+    "full_cpu_image_regression": {
+      "passed": 469,
+      "skipped": 8,
+      "image_id": "sha256:d0834eabee4a58019316b9ea8b25ecc39da10a6f2814635b03db9f13fdf20cff",
+      "log": "data/logs/delivery-image-tests-2026-10-15.log"
+    },
+    "final_cpu_image_ops": {
+      "passed": 14,
+      "log": "data/logs/deployment-ops-image-tests-final-2026-10-15.log"
+    },
+    "frontend_lint": "passed",
+    "production_build": "passed",
+    "actionlint": "1.7.12, all three workflows passed; official binary archive checksum verified",
+    "final_host_ops": {
+      "passed": 16,
+      "log": "data/logs/deployment-ops-host-tests-final-2026-10-15.log"
+    }
+  },
+  "discovered_and_fixed_rehearsal_failures": [
+    "Internal Docker bridge prevented rootless port publication; regular API bridge now used while canary remains network-none.",
+    "GPU runtime profile differs from CPU; mode-specific expected profile now selected and a ready wrong profile fails immediately.",
+    "Vitest scanned source copies in local Docker data; collection now limited to src.",
+    "Persistent self-hosted model/state paths are guarded before checkout cleanup."
+  ],
+  "limitations": [
+    "Synthetic HTTP cases test execution, not quality accuracy.",
+    "Three debug DICOM have no accuracy ground truth.",
+    "Automatic restart tested by terminating application inside container, not host reboot.",
+    "Updates have a maintenance window; uploads must be paused.",
+    "Container rollback preserves the working folder; incompatible database migrations require separate data recovery.",
+    "Watchdog logic tested, but systemd timer and external alerts are not installed on this machine.",
+    "Private GPU/deploy runners and remote registry publication are not configured or exercised in this session."
+  ],
+  "github_ci": {
+    "code_commit_run_id": 38740332003,
+    "url": "https://github.com/Msakhibullin24/Tochka-Yasnosti-Analiz-studies-of-human-bone-density-quality/actions/runs/38740332003",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "files_sha256": {
+    "competition/ops/deploy.py": "106afdadfc569ff81e78f40014b80933553aef60a2bbdc364a5eeb2e83fe56e8",
+    "competition/ops/http_smoke.py": "1af6341e11425a20e66f327c8ebc44723f76571b312502147210dad49d4d9c07",
+    "competition/ops/verify_assets.py": "eca25985e8b925646e60fa75cf8db18ffcec179a5b86a0bd2393c5b41cc78c9f",
+    "competition/ops/approved_gpu_assets.json": "ea55448b4c724082053f6c8b3d360d01cfe404aa59d9846497f3fccc01ec3036",
+    ".github/workflows/ci.yml": "83c74b9320bea814b69decbe5aea9b216a7a499da4bd6eb781bfec4f2b35f692",
+    ".github/workflows/release.yml": "8a56cc5b25e0a3434a74833554d741de868e42d0102be1b4e130f376ecaae89e",
+    ".github/workflows/gpu-release.yml": "84ddf678b5cd2342dd17cb721b77871164e5a6c658df7230b01277a35bc710a0"
+  },
+  "source_commit_scope": "Runtime image build and first successful cloud CI. Host deployment helper additionally handles Docker Labels=null, tested below; runtime model code and weights are unchanged."
+}

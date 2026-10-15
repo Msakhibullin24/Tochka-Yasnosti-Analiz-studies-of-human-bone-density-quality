@@ -82,7 +82,7 @@ def save(path, data):
 
 
 def ensure_owned(info, owner):
-    if info and info['Config'].get('Labels', {}).get(LABEL) != owner:
+    if info and (info['Config'].get('Labels') or {}).get(LABEL) != owner:
         raise RuntimeError('Container is not owned by this deployment; choose another --name/--state')
 
 
