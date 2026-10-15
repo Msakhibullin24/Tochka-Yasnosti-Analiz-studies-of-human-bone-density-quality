@@ -1,0 +1,58 @@
+{
+  "ready": true,
+  "version": "1.12.0",
+  "compiled_ui_served": true,
+  "entrypoint": "competition/local_run.sh serve 8092",
+  "delivery_manifest_sha256": "ae3ead30d2c60861ab6c08267c833dd9efdbe1f3dc9b26984b747638a1673ad2",
+  "source_git_commit": "8e241b2bd851c3eb16ca3f132275ff4473dec026",
+  "scope": "Actual startup from copied portable scripts using the existing private project Docker engine and host NVIDIA devices; not a fresh computer or new accuracy evaluation.",
+  "delivery_directory": "data/build-artifacts/2026-10-15/delivery-1.12.0",
+  "delivery_manifest": {
+    "version": "1.12.0",
+    "source_git_commit": "8e241b2bd851c3eb16ca3f132275ff4473dec026",
+    "images": [
+      "sha256:cf65354b9aeca9a5f48c7664b86a57a8d59219536c2b73307e7c9a608893437f",
+      "sha256:ddaa41aaa32e7aa23dba5bf9bccc823b0c8740d6c98ca13fc98dcd36e768095d"
+    ],
+    "files_sha256": {
+      "source-8e241b2bd851.tar.gz": "6acd515b036e00c55619f3693e86035a95ca1bf981af9c989a8a74695dca7f1c",
+      "archive-verification.json": "8bb61526422cfcb412eb7c0387d2e75213bfe14a4e18df24f712b000f66b97ff",
+      "README_RU.md": "4680ceffdc02e6d151394afe7920b10c820792b3dae548a451bb09d2a680a677",
+      "competition/run.sh": "cb8e68ad536a8530c60a9eb51c88e1751ddcf658e39a8e58c8c5a4d809a60378",
+      "competition/run_anatomy.sh": "d7682fa8fb317a697ffabc3d754e02b42df85d4832866b4ca193580655c51347",
+      "competition/local_run.sh": "d7c0be805631595bd10e1335a740d1fca9193a27f1ac51de6909162ff54ed18b",
+      "docs/CURRENT_RELEASE.json": "76002c67a8f22c692c651fbabcaf59eaf50d6c4c0a376f5601f07f3f77c7989d",
+      "docs/FINAL_DEMO_RU.md": "90e75b14f1d8fb552a29ed7ec78519c34941b0ec98697ba97928cb3c9e4d8c68",
+      "docs/FINAL_PRESENTATION_RU.html": "8bd27678c97ee5637d29ba4b022e341b24be59dacba95e1f56b17941540f7ae3",
+      "docs/FINAL_PRESENTATION_RU.pdf": "f85eed57b05529b5a50115e839a7b7a74f1866f492ddae7eabbacd5d2db685c6",
+      "docs/AUTOMATIC_ANATOMY_1_12_0_RU.md": "04191ad87de7bd74e81b89223973330e9d37727b40ece9ebc260d671b0d1ae5d",
+      "docs/competition/anatomy_upgrade_2026_10_15.json": "23e05c1d51c82cbe7239d74a7ea51195cc31fbce6751a9c07c06606db416c77c",
+      "docs/competition/anatomy_upgrade_pareto_2026_10_15.svg": "744502e1d3dcd45286c9cf73228a261919779d55bfcb5435175aaed26eb2555d",
+      "dxaqc-1.12.0-cpu-and-anatomy-fullfit-images.tar.gz": "dabd83c1c2d89fb6aaf803d4e52d6f783a4487d858c9315edaa5646089652e43"
+    },
+    "medical_datasets_copied": false,
+    "source_excluded_prefixes": [
+      "datasets/",
+      "data/"
+    ],
+    "source_excluded_suffixes": [
+      ".dcm",
+      ".dicom",
+      ".nrrd",
+      ".nii",
+      ".nii.gz"
+    ],
+    "source_excluded_paths": [
+      "competition/reports/label_review_sheet.png"
+    ],
+    "source_files": 942,
+    "packager_code_sha256": "e865e38eb56481868ca5f14d9d0bbc4d3ca2afe66abf594d285c88c3bf82afc4"
+  },
+  "source_archive_exclusions_verified": true,
+  "small_file_checksums_and_executable_scripts_verified": true,
+  "image_archive_checksum_reverified_by_packager": true,
+  "main_local_application_ready": true,
+  "clinical_validation": false,
+  "requirements_complete": false,
+  "global_metric_maximum_established": false
+}
