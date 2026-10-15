@@ -1,7 +1,7 @@
 """Explicit research-candidate API/CLI entrypoint using an inference-only export.
 
-Configuration identifies all model artifacts locally; default new-study mode is
-an unvalidated five-fold ensemble. The released 1.11.6 entrypoint is unchanged.
+Configuration identifies all model artifacts locally. Deployment banks declare
+a full-data fit or fold ensemble; neither is scored on its training images.
 """
 from __future__ import annotations
 

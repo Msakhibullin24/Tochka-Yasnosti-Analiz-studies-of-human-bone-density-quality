@@ -1,19 +1,15 @@
 # Research GPU candidate. Build competition/Dockerfile as BASE_IMAGE first.
 # anatomy_assets is a model-only named context prepared by the export CLI.
-ARG BASE_IMAGE=dxaqc:1.11.6-audit-20261015
+ARG BASE_IMAGE=dxaqc:1.11.7-audit-20261015
+ARG ANATOMY_ENV_IMAGE=dxaqc-anatomy-env:20261015
 FROM ${BASE_IMAGE} AS release
-FROM release AS research_environment
-USER root
-COPY competition/requirements-anatomy-lock.txt /app/requirements-anatomy-lock.txt
-RUN python -m venv /opt/anatomy \
-    && uv pip install --python /opt/anatomy/bin/python --no-cache --no-deps \
-       --index-strategy unsafe-best-match --extra-index-url https://download.pytorch.org/whl/cu128 \
-       -r /app/requirements-anatomy-lock.txt \
-    && uv pip check --python /opt/anatomy/bin/python
+FROM ${ANATOMY_ENV_IMAGE} AS research_environment
 
 # A fresh final stage excludes training labels from release build layers.
 FROM python:3.11.9-slim-bookworm@sha256:8fb099199b9f2d70342674bd9dbccd3ed03a258f26bbd1d556822c6dfc60c317
 COPY --from=research_environment /opt/anatomy /opt/anatomy
+# Keep the large, immutable model layer before frequently edited application code.
+COPY --from=anatomy_assets / /opt/anatomy-assets/
 COPY --from=release /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 /usr/lib/x86_64-linux-gnu/libgomp.so.1
 COPY --from=release /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30 /usr/lib/x86_64-linux-gnu/libstdc++.so.6
 COPY --from=release /lib/x86_64-linux-gnu/libgcc_s.so.1 /lib/x86_64-linux-gnu/libgcc_s.so.1
@@ -25,7 +21,7 @@ ENV PATH=/opt/anatomy/bin:$PATH \
     TRANSFORMERS_OFFLINE=1 \
     DXAQC_DATA_DIR=/work \
     DXAQC_INPUT_ROOT=/data \
-    DXAQC_WORKFLOW_PROFILE=/app/models/workflow_1_11_6/profile.json \
+    DXAQC_WORKFLOW_PROFILE=/app/models/workflow_1_11_7/profile.json \
     DXAQC_ANATOMY_CONFIG=/opt/anatomy-assets/candidate/runtime.json \
     HOME=/tmp MPLCONFIGDIR=/tmp JOBLIB_TEMP_FOLDER=/tmp
 WORKDIR /app
@@ -40,8 +36,8 @@ COPY competition/experiments /app/experiments
 COPY competition/gpu_research /app/gpu_research
 # Research helpers import shared metric/source modules; no labels or image data.
 COPY competition/*.py /app/
-COPY --from=anatomy_assets / /opt/anatomy-assets/
-RUN python -c "from experiments.live_anatomy_candidate import LiveAnatomyCandidate; from nnunetv2.inference.predict_from_raw_data import nnUNetPredictor; import transformers" \
+RUN python experiments/verify_environment_lock.py --lock /app/requirements-anatomy-lock.txt \
+    && python -c "from experiments.live_anatomy_candidate import LiveAnatomyCandidate; from nnunetv2.inference.predict_from_raw_data import nnUNetPredictor; import transformers" \
     && mkdir -p /work /data/in /data/out && chown -R 10001:10001 /work /data
 USER 10001:10001
 EXPOSE 8000

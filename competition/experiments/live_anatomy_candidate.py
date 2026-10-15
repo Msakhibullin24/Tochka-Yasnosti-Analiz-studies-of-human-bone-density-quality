@@ -248,9 +248,12 @@ class LiveAnatomyCandidate:
                     item['name'] = name
                     regions.append(item)
             spinal_roi = propose_spine_rois(masks, image.pixels, image.pixel_mm_x, image.pixel_mm)
+            from experiments.anatomy_display_selection import complete_spine_roi_proposals
+            contour_proposals = roi_proposals(regions)
             result['learned_anatomy'] = {'status': 'evaluated', 'method': 'pretrained_tsxr_named_masks',
-                'regions': regions, 'roi_proposals': spinal_roi['proposals'], 'model_sha256': self.anatomy_sha256,
-                'density_based_roi': spinal_roi, 'contour_roi_proposals': roi_proposals(regions),
+                'regions': regions, 'roi_proposals': complete_spine_roi_proposals(spinal_roi['proposals'], contour_proposals),
+                'model_sha256': self.anatomy_sha256,
+                'density_based_roi': spinal_roi, 'contour_roi_proposals': contour_proposals,
                 'coordinate_units': 'original_image_pixels', 'clinical_validation': False, 'affects_decision': True,
                 'target_semantics': 'projected anatomical bone contours; no confirmed disc boundaries'}
         elif self.hip_landmarks is not None:
@@ -320,7 +323,15 @@ class LiveAnatomyCandidate:
             self.hip_anatomy(image, region, {}, refined, landmark_model=self.hip_display_model,
                 template_override=self.hip_display_template, masks_override=hip_masks, affects_decision=False,
                 landmark_sha256=self.hip_model_hashes['display_landmarks'])
-            result.update(refined)
+            from experiments.anatomy_display_selection import prefer_refinement
+            use_refinement = prefer_refinement(qc_anatomy, refined['learned_anatomy'])
+            if use_refinement:
+                result.update(refined)
+            result['joint_evidence']['display_refinement'] = {
+                'used': use_refinement, 'selection_basis': 'geometry_availability_only; no QC labels or target ROI',
+                'refined_roi_status': refined['learned_anatomy']['neck_roi_assessment']['status'],
+                'refined_roi_reason': refined['learned_anatomy']['neck_roi_assessment'].get('reason'),
+                'retained_primary_reason': None if use_refinement else 'refinement_failed_but_primary_geometry_available'}
             result['joint_evidence']['qc_input_anatomy'] = {'landmark_model_sha256': self.hip_model_hashes['landmarks'],
                 'physical_measurements': qc_anatomy['physical_measurements'], 'neck_roi': qc_anatomy['neck_roi_assessment'],
                 'role': 'fixed QC inputs; display refinement is not fed back into fitted heads'}

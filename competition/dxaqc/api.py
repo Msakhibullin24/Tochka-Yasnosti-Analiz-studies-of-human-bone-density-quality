@@ -12,12 +12,14 @@ GET  /health
 from __future__ import annotations
 
 import json
+import logging
 import math
 import os
 import asyncio
 from contextlib import asynccontextmanager
 import fcntl
 import shutil
+import sqlite3
 import tempfile
 import threading
 import uuid
@@ -40,18 +42,23 @@ MAX_UPLOAD_BYTES = int(os.environ.get("DXAQC_MAX_UPLOAD_MB", "8192")) * 1024 * 1
 
 _analyzer: Analyzer | None = None
 _lock = threading.Lock()
+LOGGER = logging.getLogger(__name__)
 
 
 def store() -> Store:
+    repository = getattr(app.state, 'repository', None)
+    if repository is not None and repository.path == DATA_DIR / 'jobs.sqlite3':
+        return repository
     return Store(DATA_DIR)
 
 
 @asynccontextmanager
 async def lifespan(app):
-    repository = store()
     # One worker process owns this local data directory, including crash recovery.
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
     with open(DATA_DIR / "worker.lock", "a") as lease:
         fcntl.flock(lease, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        repository = Store(DATA_DIR)
         for job in repository.interrupted():
             exc = RuntimeError("processing interrupted by service restart; submit input again")
             write_failure_report(Path(job["input"]), Path(job["out"]), exc)
@@ -59,12 +66,14 @@ async def lifespan(app):
         stop = threading.Event()
         worker = threading.Thread(target=_worker, args=(repository, stop), daemon=True, name="dxaqc-worker")
         app.state.worker = worker
+        app.state.repository = repository
         worker.start()
         try:
             yield
         finally:
             stop.set()
             await asyncio.to_thread(worker.join)
+            app.state.repository = None
             fcntl.flock(lease, fcntl.LOCK_UN)
 
 
@@ -80,7 +89,17 @@ def analyzer() -> Analyzer:
 
 def _worker(repository: Store, stop: threading.Event) -> None:
     while not stop.is_set():
-        job = repository.claim()
+        try:
+            job = repository.claim()
+        except sqlite3.OperationalError as exc:
+            # An idle queue still takes a write lock to claim atomically.
+            # Temporary contention must not permanently kill the only worker.
+            code = getattr(exc, 'sqlite_errorcode', None)
+            if code is None or code & 255 not in (sqlite3.SQLITE_BUSY, sqlite3.SQLITE_LOCKED):
+                raise
+            LOGGER.warning('Queue database is temporarily locked; retrying claim: %s', exc)
+            stop.wait(.2)
+            continue
         if job is None:
             stop.wait(0.2)
             continue

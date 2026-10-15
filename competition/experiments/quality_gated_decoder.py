@@ -45,14 +45,17 @@ def gated_decisions(scores, cuts, codes, angles, quality, quality_cut, preserve_
     return selected, conditional
 
 
-def fit_quality_cut(state, spec, quality, preserve_independent=False):
+def fit_quality_cut(state, spec, quality, preserve_independent=False, type_weight=.1):
     codes = state['codes']
     scores = np.column_stack([state['inner'][c] for c in codes])
     cuts = np.array([spec['thresholds'][c] for c in codes])
     best, chosen = None, None
     for cut in np.r_[np.unique(quality), np.nextafter(1., np.inf)]:
         predicted, _ = gated_decisions(scores, cuts, codes, state['angles'], quality, cut, preserve_independent)
-        rank = (*utility(state['quality_truth'], state['criterion_truth'], predicted),
+        objective, overall = utility(state['quality_truth'], state['criterion_truth'], predicted)
+        if type_weight != .1:
+            objective = overall + type_weight * (objective - overall) / .1
+        rank = (objective, overall,
                 -int(np.sum((state['quality_truth'] == 1) & ~predicted.any(axis=1))), float(cut))
         if best is None or rank > best:
             best, chosen = rank, float(cut)
@@ -66,6 +69,9 @@ def main():
     parser.add_argument('--labels', type=Path, default=ROOT / 'labels/image_labels.csv')
     parser.add_argument('--baseline', type=Path, default=ROOT / 'reports/quality_review_axis_guard_posthoc_2026_09_29.csv')
     parser.add_argument('--preserve-independent', action='store_true')
+    parser.add_argument('--type-weight', type=float, choices=(0., .1, .25, .5), default=.1,
+                        help='Fixed inner-fold type-F1 regularizer; not an organiser scoring formula')
+    parser.add_argument('--joint-groups', action='store_true', help='Optimize overall inner F1 across both anatomical groups')
     args = parser.parse_args()
     if args.output.exists():
         raise ValueError('Choose a new output directory')
@@ -83,6 +89,19 @@ def main():
     table = bank['baseline'].copy()
     specifications, audit = [], []
     with threadpool_limits(limits=4):
+        joint_cuts = {}
+        if args.joint_groups:
+            from experiments.joint_quality_cuts import fit_joint_quality_cuts
+            for fold in sorted({s['fold'] for s in bank['folds']}):
+                groups = {}
+                for state in [s for s in bank['folds'] if s['fold'] == fold]:
+                    old = reference[fold, state['group']]
+                    for key in ('train', 'test', 'quality_truth', 'criterion_truth'):
+                        np.testing.assert_array_equal(state[key], old[key])
+                    spec, qspec = fit_decoder(state, 1), fit_decoder(old, 1)
+                    _, quality = decode_scores(qspec, old['codes'], np.column_stack([old['inner'][c] for c in old['codes']]), old['inner']['quality'])
+                    groups[state['group']] = (state, spec, quality)
+                joint_cuts[fold] = fit_joint_quality_cuts(groups, args.type_weight, args.preserve_independent)
         for state in bank['folds']:
             old = reference[state['fold'], state['group']]
             for key in ('train', 'test', 'quality_truth', 'criterion_truth'):
@@ -90,7 +109,8 @@ def main():
             spec, qspec = fit_decoder(state, 1), fit_decoder(old, 1)
             _, inner_quality = decode_scores(qspec, old['codes'], np.column_stack([old['inner'][c] for c in old['codes']]), old['inner']['quality'])
             _, quality = decode_scores(qspec, old['codes'], np.column_stack([old['outer'][c] for c in old['codes']]), old['outer']['quality'])
-            cut = fit_quality_cut(state, spec, inner_quality, args.preserve_independent)
+            cut = joint_cuts[state['fold']][state['group']] if args.joint_groups else fit_quality_cut(
+                state, spec, inner_quality, args.preserve_independent, args.type_weight)
             scores = np.column_stack([state['outer'][c] for c in state['codes']])
             cuts = np.array([spec['thresholds'][c] for c in state['codes']])
             angles = np.array([bank['features'][i].get('spine_abs_angle_deg')
@@ -127,7 +147,9 @@ def main():
     screen = compare(args.baseline, path, args.labels)
     dump(args.output / 'evaluation.json', {'protocol': __doc__, 'metrics': metrics, 'screen': screen,
          'selection_audit': audit, 'bank_sha256': manifests[0]['bank_sha256'], 'ranking_bank_sha256': manifests[1]['bank_sha256'],
-         'code_sha256': EXECUTION_CODE_SHA256, 'clinical_validation': False, 'automatic_promotions': 0})
+         'code_sha256': EXECUTION_CODE_SHA256, 'inner_type_weight': args.type_weight,
+         'cutoff_groups_coupled': args.joint_groups,
+         'clinical_validation': False, 'automatic_promotions': 0})
     print(json.dumps({'metrics': metrics['overall_quality'], 'criterion_macro_f1': metrics['criterion_macro_f1'],
                       'conditional_argmax_predictions': sum(a['conditional_argmax_predictions'] for a in audit)}), flush=True)
 

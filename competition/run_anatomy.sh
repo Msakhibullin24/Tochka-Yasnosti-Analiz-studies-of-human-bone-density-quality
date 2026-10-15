@@ -2,7 +2,7 @@
 # Explicit research GPU image; the released CPU entrypoint is competition/run.sh.
 set -euo pipefail
 
-task_image=${DXAQC_ANATOMY_IMAGE:-dxaqc:anatomy-research-20261015}
+task_image=${DXAQC_ANATOMY_IMAGE:-dxaqc:anatomy-fullfit-1.11.7-20261015}
 task_gpu_mode=${DXAQC_GPU_MODE:-toolkit}
 task_gpu_args=()
 case "$task_gpu_mode" in
@@ -51,7 +51,10 @@ case "${1:-}" in
     task_data=${DXAQC_DATA:-"$PWD/competition/out-anatomy"}
     mkdir -p "$task_data"
     task_data=$(realpath "$task_data")
-    docker run --rm --user "$task_user" "${task_gpu_args[@]}" -p "127.0.0.1:$task_port:8000" \
+    task_server_args=()
+    if [[ -n ${DXAQC_CONTAINER_NAME:-} ]]; then task_server_args+=(--name "$DXAQC_CONTAINER_NAME"); fi
+    if [[ -n ${DXAQC_DOCKER_NETWORK:-} ]]; then task_server_args+=(--network "$DXAQC_DOCKER_NETWORK"); fi
+    docker run --rm --user "$task_user" "${task_gpu_args[@]}" "${task_server_args[@]}" -p "127.0.0.1:$task_port:8000" \
       -v "$task_data:/work" "$task_image"
     ;;
   *) echo 'Usage: run_anatomy.sh batch INPUT OUTPUT | serve [PORT]' >&2; exit 2 ;;

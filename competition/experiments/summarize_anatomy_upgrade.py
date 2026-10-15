@@ -47,6 +47,8 @@ def main():
                        'selection_audit': source.get('selection_audit'),
                        'evaluation_sha256': digest(path), 'oof_sha256': digest(path.parent / 'candidate_oof.csv'),
                        'code_sha256_reported': source['code_sha256'],
+                       'dependency_code_sha256': source.get('dependency_code_sha256'),
+                       'dependency_identity_recorded_after_execution': source.get('dependency_identity_recorded_after_execution', False),
                        'execution_source_archived_and_hash_verified': any(digest(script) == source['code_sha256'] for script in scripts),
                        'bank_sha256': source.get('bank_sha256'), 'ranking_bank_sha256': source.get('ranking_bank_sha256'),
                        'input_candidate_sha256': source.get('input_candidate_sha256')})
@@ -60,7 +62,7 @@ def main():
         landmarks[name] = result
     report = {'date': '2026-10-15', 'schema_version': 1,
               'requirements_complete': False, 'clinical_validation': False, 'model_promotions': 0,
-              'release': '1.11.6', 'qc_trials_completed': len(trials), 'baseline': baseline, 'trials': trials,
+              'release': '1.11.7', 'qc_trials_completed': len(trials), 'baseline': baseline, 'trials': trials,
               'protocol': {'labelled_images': 249, 'study_groups': 100, 'patient_disjoint_established': False,
                            'outer_study_folds': 5, 'inner_study_folds': 4,
                            'conditional_on_historical_routing': True,
@@ -83,7 +85,7 @@ def main():
                                'container_tests': test_summary(Path('data/logs/rootless-container-tests-fixed-2026-10-15.log'))},
               'limitations': ['Source anatomy and QC targets differ; candidate detection counts are not anatomical accuracy.',
                               'Some early research runs reported source-file digests at completion; immutable execution-source archives are explicitly audited per run.',
-                              'Final container validation uses frozen workflow 1.11.6, not the experimental anatomical QC heads.',
+                              'Historical CPU, research ensemble and full-data-fit GPU container snapshots are separate; runtime tests do not establish prediction accuracy.',
                               'Chinese PNG corpus modality is unverified; visually examined samples resemble ordinary radiographs. It was not used for this QC training.',
                               'Clinical and organizer closed-test performance not established.']}
     inspect_path = Path('data/rootless-audit-2026-10-15/image-inspect.json')
@@ -111,7 +113,8 @@ def main():
         report['verification']['raw_dicom_protocol'] = read(args.runs / 'raw-live-replay-v2/candidate_protocol.json')
     for name in ('camera-projection', 'camera-transfer', 'public-spine-density', 'native-neck-adaptation',
                  'app-heatmaps-1', 'app-heatmaps-2', 'app-heatmaps-noise', 'public-context-hip',
-                 'native-context-neck-adaptation', 'final-gated-decoder'):
+                 'native-context-neck-adaptation', 'final-gated-decoder', 'public-noise-hip',
+                 'native-noise-neck-adaptation', 'zero-shot-projection'):
         path = args.runs / name / 'evaluation.json'
         if path.exists():
             value = read(path)
@@ -119,6 +122,21 @@ def main():
             value.pop('results', None)
             value.pop('cases', None)
             report[name.replace('-', '_')] = value
+    current = Path('data/gpu-final-1-11-7-audit-2026-10-15')
+    if (current / 'image-inspect.json').exists():
+        verification = {'image_id': read(current / 'image-inspect.json')[0]['Id'],
+            'cpu_image_id': read(current / 'cpu-image-inspect.json')[0]['Id'],
+            'cpu_tests': test_summary(Path('data/logs/cpu-release-script-test-1-11-7-2026-10-15.log')),
+            'accuracy_evaluation': False, 'classification_heads_full_data_fit': True,
+            'source_manifest_sha256': digest(current / 'inference-source-sha256.json')}
+        for label, filename in (('cli', 'cli/summary.json'), ('deployment_protocol', 'cli/deployment_protocol.json'),
+                                ('http', 'http-acceptance.json'), ('debug_http', 'debug-http-acceptance.json'),
+                                ('display_isolation', 'api-work/display-isolation.json'),
+                                ('ready_after_two_jobs', 'ready-after-two-jobs.json'),
+                                ('regression_against_prior_fullfit', 'regression-and-roi-coverage.json')):
+            if (current / filename).exists():
+                verification[label] = read(current / filename)
+        report['verification']['gpu_fullfit_1_11_7'] = verification
     numbered = args.runs / 'raw-numbered-evaluation/evaluation.json'
     if numbered.exists():
         report['verification']['raw_numbered_visibility_replay'] = read(numbered)
@@ -146,6 +164,9 @@ def main():
     archive_audit = Path('data/build-artifacts/2026-10-15/archive-verification.json')
     if archive_audit.exists():
         report['verification']['portable_images_archive_verification'] = read(archive_audit)
+    archive_current = Path('data/build-artifacts/2026-10-15/archive-verification-1.11.7.json')
+    if archive_current.exists():
+        report['verification']['portable_archive_1_11_7'] = read(archive_current)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + '\n')
     print(json.dumps({'qc_trials_completed': len(trials), 'output': str(args.output)}))

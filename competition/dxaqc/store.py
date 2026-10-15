@@ -17,6 +17,8 @@ class Store:
         root.mkdir(parents=True, exist_ok=True)
         self.path = root / "jobs.sqlite3"
         with self.connect() as db:
+            # Readers polling job status must not contend with progress writes.
+            db.execute("PRAGMA journal_mode=WAL")
             version = db.execute("PRAGMA user_version").fetchone()[0]
             if version not in (0, 1):
                 raise RuntimeError(f"unsupported database schema {version}")
@@ -87,6 +89,10 @@ class Store:
 
     def claim(self):
         with self.connect() as db:
+            # Keep idle polling read-only. Recheck after acquiring the write
+            # lock because another claimant may consume the pending row.
+            if db.execute("SELECT 1 FROM jobs WHERE status='queued' LIMIT 1").fetchone() is None:
+                return None
             db.execute("BEGIN IMMEDIATE")
             row = db.execute("SELECT * FROM jobs WHERE status='queued' ORDER BY created_at,id LIMIT 1").fetchone()
             if row is None:

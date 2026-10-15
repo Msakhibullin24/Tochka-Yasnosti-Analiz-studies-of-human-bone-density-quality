@@ -1,15 +1,15 @@
 {
-  "version": "1.11.6",
+  "version": "1.11.7",
   "decision_version": "5+review-1",
-  "image_id": "sha256:f052f998769029a0946cd9ed43afde99a1ea584c59dcadddfa4c4f7836bcaa2b",
+  "image_id": "sha256:e133469b1e90c2d67a6886c162827da4b280b4d46bfc627e0635f7346acdca48",
   "workflow_profile": {
     "schema_version": 1,
-    "profile_id": "tz-delivery-1.11.6",
+    "profile_id": "tz-delivery-1.11.7",
     "baseline_bundle_sha256": "7f78fdcdb9c4116277f5cc9858ae6297c48e0d4fda9f87ed1f5dd01724fdd993",
     "clinical_validation": false,
     "status": "engineering_delivery",
-    "source_profile_sha256": "0cbe3d9fac7bc6d1c90a46d99baecf0048ea7b98eea8e96c868a8bab0f2f6acb",
-    "source_profile_id": "tz-delivery-1.11.5",
+    "source_profile_sha256": "ae8ae12391333131bbfe99fc72fafec0112815c326ac0d320a984b8d1ba6ff68",
+    "source_profile_id": "tz-delivery-1.11.6",
     "artifacts": {
       "DXAQC_ANATOMY_MODEL": {
         "path": "anatomy.json",
@@ -25,10 +25,10 @@
       }
     },
     "code_sha256": {
-      "dxaqc/__init__.py": "290499a8100ff8fcdddba9875e036b2220c15c94580c68945eb34e1b321b171b",
+      "dxaqc/__init__.py": "050bcc807e92612910a8de77734de2adc1b7d5827f7a5592728e395db851644e",
       "dxaqc/anatomical_roi.py": "c7c98e9b61562bb43c44c5787a18e62269215387fd510c09a5b4167c131ede59",
       "dxaqc/anatomy.py": "6c007d4fab01053dcfe059c1d14a08134fdd520e17046dd449502bd074b6e58a",
-      "dxaqc/api.py": "c700beff796bd505a3a57b263d0dca7bd4f01dc7899eb76b06a6c0645da9001e",
+      "dxaqc/api.py": "7993b1e51f99fb434e48e35024e743ea4dbb57ef63b397c495aaaf070c67ff20",
       "dxaqc/cli.py": "90305402a9378970b6f28ae763df980b8c58f9db19336dc51bc3c89f899ae6d2",
       "dxaqc/decision.py": "c6dc65d5eaf1a75262fcc12c2137c5e39ae247a1166db7789db48556fc920974",
       "dxaqc/dicom_io.py": "ceab601d328f6542701b708cfbf8635fe188b667e1028140a6ff2399b2a38746",
@@ -54,7 +54,7 @@
       "dxaqc/source_roi.py": "34950ccf9a6d263930c72bd5233a33279deca313dd7ecc26fbcf1a556058f039",
       "dxaqc/specialist_catalog.py": "ba66b10fb9e76c43a83b2032ee0c17af5dd5c92429e45e199830bf52ca905a41",
       "dxaqc/specialist_qc.py": "d2435f47a2741fc7ff172a78c41db152a7d5715fa1a30e6e1ac74be702c49eae",
-      "dxaqc/store.py": "be975c7dd7b60be0e411088ac2090c3d1904c9c38425d48aeedc3d93eb56b106",
+      "dxaqc/store.py": "54b1a5dd4599d50a12c888b8789261132e23cf5beb6c1b617fa1a6e79ccc985a",
       "dxaqc/synthetic_defects.py": "02c0e805ebcbe74bbd10af42733377885d94720fd2cfea77e36f7a9eb5b4d7b2",
       "dxaqc/validate_anatomy.py": "215d46938562c72a293870d7277ca5abbb401341442d7f3060d1bc020ff47a8a",
       "dxaqc/validate_results.py": "f687031a77fb6720bac4e94c46cbb8dd2f41ba0aff03b5b79c240ec51517e886",
@@ -72,10 +72,10 @@
   "metrics_scope": "Historical internal OOF of quality/type models; not an independent test of projection, ROI rules or this delivery",
   "weights_sha256": "7f78fdcdb9c4116277f5cc9858ae6297c48e0d4fda9f87ed1f5dd01724fdd993",
   "code_sha256": {
-    "competition/dxaqc/__init__.py": "290499a8100ff8fcdddba9875e036b2220c15c94580c68945eb34e1b321b171b",
+    "competition/dxaqc/__init__.py": "050bcc807e92612910a8de77734de2adc1b7d5827f7a5592728e395db851644e",
     "competition/dxaqc/anatomical_roi.py": "c7c98e9b61562bb43c44c5787a18e62269215387fd510c09a5b4167c131ede59",
     "competition/dxaqc/anatomy.py": "6c007d4fab01053dcfe059c1d14a08134fdd520e17046dd449502bd074b6e58a",
-    "competition/dxaqc/api.py": "c700beff796bd505a3a57b263d0dca7bd4f01dc7899eb76b06a6c0645da9001e",
+    "competition/dxaqc/api.py": "7993b1e51f99fb434e48e35024e743ea4dbb57ef63b397c495aaaf070c67ff20",
     "competition/dxaqc/cli.py": "90305402a9378970b6f28ae763df980b8c58f9db19336dc51bc3c89f899ae6d2",
     "competition/dxaqc/decision.py": "c6dc65d5eaf1a75262fcc12c2137c5e39ae247a1166db7789db48556fc920974",
     "competition/dxaqc/dicom_io.py": "ceab601d328f6542701b708cfbf8635fe188b667e1028140a6ff2399b2a38746",
@@ -101,7 +101,7 @@
     "competition/dxaqc/source_roi.py": "34950ccf9a6d263930c72bd5233a33279deca313dd7ecc26fbcf1a556058f039",
     "competition/dxaqc/specialist_catalog.py": "ba66b10fb9e76c43a83b2032ee0c17af5dd5c92429e45e199830bf52ca905a41",
     "competition/dxaqc/specialist_qc.py": "d2435f47a2741fc7ff172a78c41db152a7d5715fa1a30e6e1ac74be702c49eae",
-    "competition/dxaqc/store.py": "be975c7dd7b60be0e411088ac2090c3d1904c9c38425d48aeedc3d93eb56b106",
+    "competition/dxaqc/store.py": "54b1a5dd4599d50a12c888b8789261132e23cf5beb6c1b617fa1a6e79ccc985a",
     "competition/dxaqc/synthetic_defects.py": "02c0e805ebcbe74bbd10af42733377885d94720fd2cfea77e36f7a9eb5b4d7b2",
     "competition/dxaqc/validate_anatomy.py": "215d46938562c72a293870d7277ca5abbb401341442d7f3060d1bc020ff47a8a",
     "competition/dxaqc/validate_results.py": "f687031a77fb6720bac4e94c46cbb8dd2f41ba0aff03b5b79c240ec51517e886",
@@ -894,14 +894,13 @@
     "data/audit-20261003/release-repeat/full_validation.json": "a4a5c46d4d8fe861721683fd5f532563cfd15f3d8c88c34aae329f7b0b193a92"
   },
   "scope": "local offline engineering evidence and internal OOF; not clinical acceptance",
-  "as_of": "2026-10-03",
-  "workflow_profile_sha256": "ae8ae12391333131bbfe99fc72fafec0112815c326ac0d320a984b8d1ba6ff68",
+  "as_of": "2026-10-15",
+  "workflow_profile_sha256": "e136c71e96958c2c9890ff861c6d13fd7ff1db02bfe69bddf3f04b23b5697e25",
   "batch_image_id": "sha256:f052f998769029a0946cd9ed43afde99a1ea584c59dcadddfa4c4f7836bcaa2b",
   "repeat_image_id": "sha256:c7dd30090ecfaf9838cbd82f8b39314af56d8d3c71c60dd2edd8bbbb83416648",
   "repeat_scope": "Different engineering image builds with the same checksum-pinned inference code, baseline weights and workflow artifacts; the later build adds direct-root support in the research review helper.",
   "same_image_repeat_measured": false,
   "clinical_validation": false,
-  "git_head_at_capture": "dca6e2556b805de91123ae427de2c07110c5d5dc",
   "verification": {
     "frontend": {
       "lint": true,
@@ -947,5 +946,215 @@
     "docker_memory_limit": "4g",
     "network": "none",
     "scope": "Two separate observed runs of the same pinned inference workflow; not the final helper packaging image."
+  },
+  "release_changes": [
+    "Reuse the lifespan job repository instead of recreating the schema on HTTP polling.",
+    "Keep idle queue polling read-only and use SQLite WAL for concurrent reads.",
+    "Retry temporary SQLITE_BUSY/SQLITE_LOCKED in queue claims without hiding unrelated database failures."
+  ],
+  "verification_2026_10_15": {
+    "local_tests": {
+      "passed": 471,
+      "skipped": 5
+    },
+    "cpu_image_tests": {
+      "passed": 454,
+      "skipped": 8,
+      "scope": "Current source tests inside final CPU image, followed by run.sh test actual synthetic DICOM/ZIP CLI smoke"
+    },
+    "prediction_models_unchanged_from_1_11_6": true,
+    "anatomical_gpu_candidate_separate_from_cpu_release": true
+  },
+  "image_tag": "osseo-dxaqc:1.11.7",
+  "historical_evidence_as_of": "2026-10-03",
+  "historical_fields": [
+    "batch",
+    "repeat",
+    "requirements",
+    "timing",
+    "validation",
+    "series_repeat_exact_match",
+    "batch_image_id",
+    "repeat_image_id",
+    "repeat_scope",
+    "same_image_repeat_measured",
+    "verification",
+    "resource_limit_repeats"
+  ],
+  "historical_git_head_at_capture": "dca6e2556b805de91123ae427de2c07110c5d5dc",
+  "research_gpu_candidate": {
+    "image_tag": "dxaqc:anatomy-fullfit-1.11.7-20261015",
+    "image_id": "sha256:14f131bb47b77f16400d1fcc8aab73786650730ebc603f17016ccece47fa44ee",
+    "profile_id": "research-live-anatomy-qc-20261015",
+    "clinical_validation": false,
+    "final_qc_weights_fit_on_all_training_images": 249,
+    "independent_accuracy_of_final_weights_established": false,
+    "nested_validation_reference": "quality-gated-own-roi",
+    "nested_f1": 0.6190476190476191,
+    "nested_roc_auc": 0.8118773349937735,
+    "nested_type_macro_f1": 0.5363401815575728,
+    "metrics_scope": "Repeatedly inspected 249-image/100-study cohort; not patient-disjoint or closed-test performance",
+    "offline_cli": {
+      "version": "1.11.7",
+      "submission_available": true,
+      "submission_valid": true,
+      "files": 499,
+      "success": 499,
+      "failure": 0,
+      "success_rate": 1.0,
+      "violations": 190,
+      "cancelled": false,
+      "studies": 100,
+      "max_seconds_per_study": 2.484,
+      "mean_seconds_per_image": 0.2212,
+      "total_seconds": 134.308,
+      "workflow_profile_id": "research-live-anatomy-qc-20261015",
+      "process_peak_rss_bytes": 3879297024,
+      "cpu_count_visible": 12,
+      "typification_complete": true,
+      "anatomical_checks_complete": false,
+      "untyped_violations": 0,
+      "requirements_complete": false,
+      "max_seconds_per_study_upper_bound": 26.406705227998366
+    },
+    "offline_http": {
+      "ready_response": {
+        "ready": true,
+        "version": "1.11.7",
+        "model": {
+          "model_type": "anatomical_qc_gated",
+          "training_scope": "full_data_fit",
+          "clinical_validation": false,
+          "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+          "qc_bank_sha256": "16e317228acb1a7fb8207db1e66675e7253355faa2b13583216b4915853a0a25",
+          "reference_bank_sha256": "98a6e6d567679894117c24a5c15a0b7c20a96f3bbab8eef4eb9e29df69266a38",
+          "decoder_sha256": "b318aaf179c04adb64595a699a0856ecade23b1a49c5c3e54f6941251682fdd7",
+          "calibration_version": "lct-v2-xy-1",
+          "source_baseline_model": {
+            "trained_at_unix": 1789922126,
+            "calibration_version": "lct-v2-xy-1",
+            "sklearn": "1.6.1",
+            "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+            "seed": 17,
+            "code_sha256": "340a4dcda4fad1fc64932387205956431a83acb78bf3ab0edc7897e4785d4620",
+            "decision_version": "3",
+            "configuration": {
+              "repeats": 1,
+              "synthetic": "rotate",
+              "extra": []
+            }
+          }
+        },
+        "workflow_profile_id": "research-live-anatomy-qc-20261015",
+        "specialist_qc": null,
+        "specialist_outputs": null,
+        "disk_free_bytes": 447785861120,
+        "jobs_in_recent_history": 0
+      },
+      "files": 499,
+      "success": 499,
+      "failure": 0,
+      "submission_valid": true,
+      "requirements_complete": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "network_mode": "none",
+      "transport": "real_loopback_HTTP_multipart_ZIP",
+      "compiled_ui_assets_served": 2,
+      "cli_answers_identical": true,
+      "original_zip_retained_identically": true,
+      "export_sha256": {
+        "submission.csv": "84be52b90b5444614328666187e0d30d1978256ab50647dc4fbf583f1685fa5c",
+        "submission.xlsx": "7c869ff775a4c40d6b16e6b574790505b7a4fa6e7a69f7759988b2990dd4ff31",
+        "results_extended.csv": "dd3b135f5db56432840d23a0deed89ceb764b93c7d736165ed20342066322893",
+        "additional_series.zip": "4c20156014af6990ed64bd58f07fb01437a1033891e403c1345fc2043ffee77e",
+        "submission_validation.json": "c5e177df39136e588abab42776b6dda809c7e920502b2d290193b08a6f395dbe",
+        "requirements.json": "446e86ccc7f2c84a0367b0aa27525bec0a1f49d3a2e26f50caa192fdd79e315c",
+        "timing.json": "b073b3516c36d8918718e701c177638f3ae85ac2120f650dc4551a08574d621f"
+      },
+      "png_explanations": 499,
+      "dicom_sop_class_counts": {
+        "1.2.840.10008.5.1.4.1.1.7": 499,
+        "1.2.840.10008.5.1.4.1.1.88.11": 499
+      },
+      "batch_seconds": 183.44430688799912,
+      "max_study_upper_bound_seconds": 71.07130688799914,
+      "within_180_seconds": true,
+      "wall_seconds_including_upload_exports": 188.65643715399347,
+      "clinical_validation": false,
+      "scope": "1.11.7 full-data-fit QC with display-only noise-trained landmarks and contour fallback; end-to-end offline equivalence, not predictive accuracy or H200 timing"
+    },
+    "second_http_job": {
+      "ready_response": {
+        "ready": true,
+        "version": "1.11.7",
+        "model": {
+          "model_type": "anatomical_qc_gated",
+          "training_scope": "full_data_fit",
+          "clinical_validation": false,
+          "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+          "qc_bank_sha256": "16e317228acb1a7fb8207db1e66675e7253355faa2b13583216b4915853a0a25",
+          "reference_bank_sha256": "98a6e6d567679894117c24a5c15a0b7c20a96f3bbab8eef4eb9e29df69266a38",
+          "decoder_sha256": "b318aaf179c04adb64595a699a0856ecade23b1a49c5c3e54f6941251682fdd7",
+          "calibration_version": "lct-v2-xy-1",
+          "source_baseline_model": {
+            "trained_at_unix": 1789922126,
+            "calibration_version": "lct-v2-xy-1",
+            "sklearn": "1.6.1",
+            "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+            "seed": 17,
+            "code_sha256": "340a4dcda4fad1fc64932387205956431a83acb78bf3ab0edc7897e4785d4620",
+            "decision_version": "3",
+            "configuration": {
+              "repeats": 1,
+              "synthetic": "rotate",
+              "extra": []
+            }
+          }
+        },
+        "workflow_profile_id": "research-live-anatomy-qc-20261015",
+        "specialist_qc": null,
+        "specialist_outputs": null,
+        "disk_free_bytes": 446609100800,
+        "jobs_in_recent_history": 1
+      },
+      "files": 3,
+      "success": 3,
+      "failure": 0,
+      "submission_valid": true,
+      "requirements_complete": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "network_mode": "none",
+      "transport": "real_loopback_HTTP_multipart_ZIP",
+      "compiled_ui_assets_served": 2,
+      "cli_answers_identical": true,
+      "original_zip_retained_identically": true,
+      "export_sha256": {
+        "submission.csv": "464165bcf75352db244f095f4360bf700258e6c5ce44666108d15c15548db530",
+        "submission.xlsx": "ed268ae4c5c4822a43625b3f5c2923f8315debfe228517c142a1cfc3f0529ed7",
+        "results_extended.csv": "e1a6353bf2b09fdcc1761cf3e1cbac6187adb64114b8506afb2ddbed866a7162",
+        "additional_series.zip": "7aceabde35a37dcd7f7a817c4ce8b00c21f51c9533d0a741e454777bf12c2e47",
+        "submission_validation.json": "9f09b40323541efeb048b58e191f1c8e17d046929c70ce5876e758303021e13b",
+        "requirements.json": "8c2013132a3617af53ee985d9dcc479728e33feb25245b9d49eef688f2af51f5",
+        "timing.json": "e7adb6a2a2d686e5d4ffebcb73ad13226276fb7b5fe07b1312e2a9b34fd960c2"
+      },
+      "png_explanations": 3,
+      "dicom_sop_class_counts": {
+        "1.2.840.10008.5.1.4.1.1.7": 3,
+        "1.2.840.10008.5.1.4.1.1.88.11": 3
+      },
+      "batch_seconds": 1.5646319720035535,
+      "max_study_upper_bound_seconds": 0.9778319720035535,
+      "within_180_seconds": true,
+      "wall_seconds_including_upload_exports": 1.7422107120000874,
+      "clinical_validation": false,
+      "scope": "Second queued request after 499-file job: unlabelled organiser debug DICOMs, offline IO/export/regression only"
+    },
+    "ready_after_two_jobs": true,
+    "requirements_complete": false,
+    "report": "docs/competition/anatomy_upgrade_2026_10_15.json"
   }
 }

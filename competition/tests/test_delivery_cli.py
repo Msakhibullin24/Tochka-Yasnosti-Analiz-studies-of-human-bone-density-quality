@@ -27,7 +27,7 @@ def test_batch_shell_forwards_acceptance_and_keeps_offline_execution(tmp_path, m
     commands = [json.loads(line) for line in capture.read_text().splitlines()]
     assert commands[-1][-2:] == ['--acceptance', mode]
     assert commands[-1][commands[-1].index('--network') + 1] == 'none'
-    assert 'osseo-dxaqc:1.11.6' in commands[-1]
+    assert 'osseo-dxaqc:1.11.7' in commands[-1]
 
 
 def test_invalid_acceptance_is_rejected_before_creating_output(tmp_path):

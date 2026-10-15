@@ -13,9 +13,9 @@ DXAQC_DATA=/absolute/osseo-data ./competition/run.sh serve 8090
 Сборка использует Node-stage и Python-stage. Для работы GPU и интернет не нужны.
 `./competition/run.sh batch /input.zip /output` принудительно использует `--network none`.
 
-Текущая рабочая сборка 1.11.6 включает профиль `tz-delivery-1.11.6` и весь комплект весов.
+Текущая рабочая сборка 1.11.7 включает профиль `tz-delivery-1.11.7` и весь комплект весов.
 Каталоги исследовательских экспериментов из `data/` переносить для обычного
-запуска не нужно. Для офлайн-переноса достаточно `docker save osseo-dxaqc:1.11.6`
+запуска не нужно. Для офлайн-переноса достаточно `docker save osseo-dxaqc:1.11.7`
 и `docker load` на целевой машине. При сборке проверяется загрузка профиля
 пользователем 10001 без привилегий root. CLI/API используют один профиль.
 `run.sh batch` возвращает 3 при невалидной таблице или Failure; полный контроль
@@ -74,11 +74,11 @@ SQL хранит историю заданий и неизменяемые эк�
 mkdir -p /absolute/backups /absolute/restored
 docker run --rm --network none --user "$(id -u):$(id -g)" \
   -v /absolute/osseo-data:/work -v /absolute/backups:/backup \
-  osseo-dxaqc:1.11.6 python -m dxaqc.maintenance backup \
+  osseo-dxaqc:1.11.7 python -m dxaqc.maintenance backup \
   --root /work/dxaqc-jobs --archive /backup/osseo.zip
 docker run --rm --network none --user "$(id -u):$(id -g)" \
   -v /absolute/restored:/work -v /absolute/backups:/backup:ro \
-  osseo-dxaqc:1.11.6 python -m dxaqc.maintenance restore \
+  osseo-dxaqc:1.11.7 python -m dxaqc.maintenance restore \
   --root /work/dxaqc-jobs --archive /backup/osseo.zip
 ```
 
@@ -148,7 +148,7 @@ image ID, а не только изменяемый тег.
 задания, и lineage.json с идентификатором родителя. Старые задания не мигрируют
 несуществующие исходные DICOM из PNG.
 
-## Приёмка и актуальные доказательства 1.11.6
+## Приёмка и актуальные доказательства 1.11.7
 
 Полная сверка требований: [аудит 03.10.2026](../../docs/TZ_AUDIT_AND_METRIC_UPGRADE_2026_10_03_RU.md).
 Технический паспорт: [CURRENT_RELEASE.json](../../docs/CURRENT_RELEASE.json).

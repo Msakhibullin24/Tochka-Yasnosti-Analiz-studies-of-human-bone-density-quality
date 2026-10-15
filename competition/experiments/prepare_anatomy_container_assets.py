@@ -69,7 +69,7 @@ def main():
     for name in ('export', 'vertebrae', 'pelvis', 'landmarks', 'projection', 'output'):
         parser.add_argument('--' + name, type=Path, required=True)
     parser.add_argument('--encoders', type=Path, nargs=2, required=True)
-    parser.add_argument('--baseline-profile', default='/app/models/workflow_1_11_6/profile.json')
+    parser.add_argument('--baseline-profile', default='/app/models/workflow_1_11_7/profile.json')
     parser.add_argument('--neck-template', type=Path)
     parser.add_argument('--disable-spine-visibility', action='store_true')
     parser.add_argument('--hip-display-landmarks', type=Path)
