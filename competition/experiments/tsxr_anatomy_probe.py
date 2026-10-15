@@ -33,6 +33,7 @@ def main():
     parser.add_argument('--limit', type=int, default=12)
     parser.add_argument('--region', choices=('spine', 'hip', 'all'), default='spine')
     parser.add_argument('--horizontal-flip', action='store_true')
+    parser.add_argument('--rotate-180', action='store_true')
     args = parser.parse_args()
     if args.output.exists():
         raise ValueError('Choose a new output directory')
@@ -54,6 +55,8 @@ def main():
         sx, sy = image.pixel_mm_x, image.pixel_mm
         for polarity in ('bone-bright', 'inverted'):
             pixels = image.pixels if polarity == 'bone-bright' else 255 - image.pixels
+            if args.rotate_180:
+                pixels = np.ascontiguousarray(pixels[::-1, ::-1])
             if args.horizontal_flip:
                 pixels = np.ascontiguousarray(pixels[:, ::-1])
             started = perf_counter()
@@ -67,6 +70,8 @@ def main():
                 raise ValueError(f'Unexpected output shape {segmentation.shape}')
             if args.horizontal_flip:
                 segmentation = np.ascontiguousarray(segmentation[..., ::-1])
+            if args.rotate_180:
+                segmentation = np.ascontiguousarray(segmentation[..., ::-1, ::-1])
             centers, counts = {}, {}
             for value, name in names.items():
                 if value == 0:
@@ -122,6 +127,7 @@ def main():
               'checkpoint_sha256': hashlib.file_digest(checkpoint.open('rb'), 'sha256').hexdigest(),
               'images': len(selected), 'results': results, 'clinical_validation': False,
               'input_horizontally_flipped': bool(args.horizontal_flip),
+              'input_rotated_180': bool(args.rotate_180),
               'input_has_qc_label_column': 'quality_class' in labels,
               'segmentation_accuracy_measured': False, 'automatic_promotions': 0,
               'limitation': 'No anatomical ground truth; counts/order do not prove correct numbering.'}

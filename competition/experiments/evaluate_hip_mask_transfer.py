@@ -37,7 +37,7 @@ def main():
     bundle = torch.load(args.landmarks, map_location='cpu', weights_only=True)
     if bundle['normalization'] != 'physical_proximal_mask150mm_10mm_pad':
         raise ValueError('Unexpected model normalization')
-    model = Heatmaps().cuda().eval()
+    model = Heatmaps(bundle.get('input_channels', 1)).cuda().eval()
     model.load_state_dict(bundle['state_dict'], strict=True)
     metadata = [json.loads((p / 'probe.json').read_text()) for p in (args.probe, args.mirror_probe)]
     if any(p['labels_sha256'] != sha256(args.manifest) for p in metadata) or metadata[0]['checkpoint_sha256'] != metadata[1]['checkpoint_sha256']:

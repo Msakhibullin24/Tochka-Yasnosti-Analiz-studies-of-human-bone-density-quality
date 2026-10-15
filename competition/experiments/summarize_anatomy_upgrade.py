@@ -35,11 +35,11 @@ def main():
         source = read(path)
         if 'metrics' not in source or 'screen' not in source:
             continue
-        if path.parent.name.startswith('raw-live'):
+        if path.parent.name.startswith('raw-'):
             continue
         screen = source['screen']
         baseline = baseline or screen['overall_score_metrics']['baseline']
-        script = path.parent / ('executed_quality_gated_decoder.py' if path.parent.name.startswith('quality-') else 'executed_three_iteration_upgrade.py')
+        scripts = list(path.parent.glob('executed_*.py')) + list(path.parent.parent.glob('executed_*.py'))
         trials.append({'name': str(path.parent.relative_to(args.runs)), 'metrics': source['metrics'],
                        'paired_delta_f1_ci95': screen['paired_delta_f1_ci95'],
                        'internal_screen_passed': screen['passes_internal_metric_screen'],
@@ -47,7 +47,7 @@ def main():
                        'selection_audit': source.get('selection_audit'),
                        'evaluation_sha256': digest(path), 'oof_sha256': digest(path.parent / 'candidate_oof.csv'),
                        'code_sha256_reported': source['code_sha256'],
-                       'execution_source_archived_and_hash_verified': script.exists() and digest(script) == source['code_sha256'],
+                       'execution_source_archived_and_hash_verified': any(digest(script) == source['code_sha256'] for script in scripts),
                        'bank_sha256': source.get('bank_sha256'), 'ranking_bank_sha256': source.get('ranking_bank_sha256'),
                        'input_candidate_sha256': source.get('input_candidate_sha256')})
     anatomy = read(args.runs / 'combined-anatomy-v4/features.json')
@@ -109,6 +109,43 @@ def main():
         report['verification']['raw_dicom_held_out_replay'] = read(raw)
         report['verification']['raw_dicom_held_out_replay_sha256'] = digest(raw)
         report['verification']['raw_dicom_protocol'] = read(args.runs / 'raw-live-replay-v2/candidate_protocol.json')
+    for name in ('camera-projection', 'camera-transfer', 'public-spine-density', 'native-neck-adaptation',
+                 'app-heatmaps-1', 'app-heatmaps-2', 'app-heatmaps-noise', 'public-context-hip',
+                 'native-context-neck-adaptation', 'final-gated-decoder'):
+        path = args.runs / name / 'evaluation.json'
+        if path.exists():
+            value = read(path)
+            value.pop('held_predictions', None)
+            value.pop('results', None)
+            value.pop('cases', None)
+            report[name.replace('-', '_')] = value
+    numbered = args.runs / 'raw-numbered-evaluation/evaluation.json'
+    if numbered.exists():
+        report['verification']['raw_numbered_visibility_replay'] = read(numbered)
+        report['verification']['raw_numbered_visibility_summary'] = read(args.runs / 'raw-numbered-visibility/summary.json')
+    gated = args.runs / 'raw-own-roi-evaluation/evaluation.json'
+    if gated.exists():
+        report['verification']['raw_own_roi_gated_replay'] = read(gated)
+        report['verification']['raw_own_roi_gated_summary'] = read(args.runs / 'raw-own-roi-gated/summary.json')
+    gpu = Path('data/gpu-container-audit-2026-10-15')
+    if (gpu / 'image-inspect.json').exists():
+        inspected = read(gpu / 'image-inspect.json')[0]
+        gpu_timing = read(gpu / 'cli/timing.json')
+        gpu_timing = {key: value for key, value in gpu_timing.items() if not isinstance(value, dict)}
+        report['verification']['research_gpu_container'] = {
+            'id': inspected['Id'], 'bytes': inspected['Size'], 'scope': 'five-fold deployment ensemble; no held-out accuracy claim',
+            'inference_source_sha256': read(gpu / 'inference-source-sha256.json'),
+            'cli_summary': read(gpu / 'cli/summary.json'), 'cli_timing': gpu_timing,
+            'cli_timing_sha256': digest(gpu / 'cli/timing.json'),
+            'deployment_protocol': read(gpu / 'cli/deployment_protocol.json')}
+        if (gpu / 'http-acceptance.json').exists():
+            report['verification']['research_gpu_container']['http'] = read(gpu / 'http-acceptance.json')
+    artifact = Path('data/build-artifacts/2026-10-15/SHA256SUMS')
+    if artifact.exists():
+        report['verification']['portable_images_archive'] = artifact.read_text().strip()
+    archive_audit = Path('data/build-artifacts/2026-10-15/archive-verification.json')
+    if archive_audit.exists():
+        report['verification']['portable_images_archive_verification'] = read(archive_audit)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + '\n')
     print(json.dumps({'qc_trials_completed': len(trials), 'output': str(args.output)}))

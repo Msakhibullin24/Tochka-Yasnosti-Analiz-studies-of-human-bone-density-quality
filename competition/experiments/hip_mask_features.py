@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from dxaqc.dicom_io import read_dxa
 from experiments.mask_anatomy_features import largest_component, mask_statistics
-from experiments.train_silhouette_heatmaps import Heatmaps, normalize_proximal_mask, predict, ORDER
+from experiments.train_silhouette_heatmaps import Heatmaps, normalize_proximal_mask, predict, coordinates, ORDER
 from source_integrity import inspect_sources
 from gpu_research.common import fingerprint
 
@@ -46,7 +46,15 @@ def hip_measurements(masks, pixels, sx, sy, model, device='cuda'):
         features['anat_landmark_input_valid'] = 0.
         return features, None
     features['anat_landmark_input_valid'] = 1.
-    points = predict(model, normalized[None], device)[0]
+    if getattr(model, 'input_channels', 1) == 1:
+        points = predict(model, normalized[None], device)[0]
+    else:
+        context = cv2.warpAffine(pelvis.astype(np.uint8), affine, (320, 320), flags=cv2.INTER_NEAREST)
+        channels = np.stack([cv2.resize(m.astype(np.float32), (128, 128), interpolation=cv2.INTER_NEAREST)
+                             for m in (normalized, context)])
+        with torch.inference_mode():
+            points, _ = coordinates(model(torch.tensor(channels[None], dtype=torch.float32, device=device)))
+        points = (points[0].cpu().numpy() + 1) * 160 - .5
     inverse = cv2.invertAffineTransform(affine)
     points = points @ inverse[:, :2].T + inverse[:, 2]
     height, width = pixels.shape
@@ -113,7 +121,7 @@ def main():
     bundle = torch.load(args.landmarks, weights_only=True, map_location='cpu')
     if bundle.get('normalization') != 'physical_proximal_mask150mm_10mm_pad' or bundle['landmark_order'] != list(ORDER):
         raise ValueError('Unexpected landmark representation')
-    model = Heatmaps().cuda().eval()
+    model = Heatmaps(bundle.get('input_channels', 1)).cuda().eval()
     model.load_state_dict(bundle['state_dict'], strict=True)
     rows = pd.read_csv(args.labels)
     rows = rows[rows.quality_class.notna()].copy()

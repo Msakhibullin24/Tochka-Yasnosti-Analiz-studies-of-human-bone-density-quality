@@ -23,7 +23,7 @@ from dxaqc.decision import decide
 from dxaqc.model import official_violation_type
 from evaluate_organizer_dataset import evaluate, sha256
 from experiments.verify_metric_candidate import compare
-from experiments.three_iteration_upgrade import fit_decoder, decode_scores, utility, dump
+from experiments.three_iteration_upgrade import fit_decoder, decode_scores, utility, dump, require_validation_bank
 
 EXECUTION_SOURCE = Path(__file__).read_text()
 EXECUTION_CODE_SHA256 = sha256(Path(__file__))
@@ -71,6 +71,7 @@ def main():
         raise ValueError('Choose a new output directory')
     manifests = [json.loads((p / 'manifest.json').read_text()) for p in (args.bank, args.ranking_bank)]
     for directory, manifest in zip((args.bank, args.ranking_bank), manifests):
+        require_validation_bank(manifest)
         if (manifest['bank_sha256'] != sha256(directory / 'bank.joblib') or
                 manifest['labels_sha256'] != sha256(args.labels) or manifest['baseline_sha256'] != sha256(args.baseline)):
             raise ValueError('Bank or label identity differs')

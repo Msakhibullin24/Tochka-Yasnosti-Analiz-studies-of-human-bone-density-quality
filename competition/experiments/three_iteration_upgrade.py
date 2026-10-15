@@ -53,6 +53,11 @@ def f1(y, predicted):
     return float(2 * tp / max(1, int(np.sum(y == 1) + np.sum(predicted))))
 
 
+def require_validation_bank(manifest):
+    if manifest.get('full_data_fit'):
+        raise ValueError('A full-data fit cannot be scored as held-out validation')
+
+
 def fit_family(geometry, embeddings, target, train):
     """No target outside train is read, including for one-class fallbacks."""
     known = train[np.isfinite(target[train])]
@@ -98,7 +103,7 @@ def semantic_anatomy_columns(code, names):
         return [n for n in names if any(f'_L{i}_' in n for i in range(1, 5)) and
                 n.endswith(('intensity_mean', 'intensity_std', 'area_fraction', 'width_mm'))]
     if code == 'hip_position_rotation':
-        return [n for n in names if any(key in n for key in ('neck_', 'shaft_', 'lesser_', 'landmark_input_valid')) or
+        return [n for n in names if any(key in n for key in ('neck_', 'shaft_', 'lesser_', 'landmark_input_valid', 'projection_')) or
                 n in ('anat_femur_width_mm', 'anat_femur_height_mm', 'anat_femur_area_fraction', 'anat_femur_present')]
     if code == 'hip_roi_coverage':
         return [n for n in names if any(key in n for key in ('margin_mm', 'in_bounds', 'landmark_input_valid')) or
@@ -153,12 +158,13 @@ def build_bank(args):
     studies = labels.study_key.astype(str).to_numpy()
     anatomy = labels.region.map(group_of).to_numpy()
     folds, audit = [], []
-    for fold in sorted(baseline.fold.unique()):
-        held = set(baseline.loc[baseline.fold == fold, 'study'].astype(str))
+    full_fit = bool(getattr(args, 'full_data_fit', False))
+    for fold in ([-1] if full_fit else sorted(baseline.fold.unique())):
+        held = set() if full_fit else set(baseline.loc[baseline.fold == fold, 'study'].astype(str))
         for group, criteria in CRITERIA.items():
             train = np.flatnonzero(~np.isin(studies, list(held)) & (anatomy == group))
             test = np.flatnonzero((baseline.fold.to_numpy() == fold) & baseline.predicted_region.map(group_of).eq(group).to_numpy())
-            if not len(test):
+            if not len(test) and not full_fit:
                 continue
             codes = list(criteria)
             columns = {c: criteria[c] for c in codes}
@@ -166,7 +172,9 @@ def build_bank(args):
             if extra is not None:
                 added = extra['columns_by_group'].get(group, [])
                 columns = {c: list(names) + (semantic_anatomy_columns(c, added)
-                           if args.anatomy_columns == 'semantic' else added) for c, names in columns.items()}
+                           if args.anatomy_columns == 'semantic' else []
+                           if args.anatomy_columns == 'roi_only' and c == 'hip_position_rotation'
+                           else added) for c, names in columns.items()}
             targets = {c: pd.to_numeric(labels[c], errors='coerce').to_numpy(float) for c in codes}
             targets['quality'] = labels.quality_class.to_numpy(float)
             matrices = {c: _matrix(features, names) for c, names in columns.items()}
@@ -186,7 +194,7 @@ def build_bank(args):
                 if not np.isfinite(inner[code]).all():
                     raise ValueError('Incomplete inner OOF')
                 heads[code] = fit_family(matrices[code], embeddings, target, train)
-                outer[code] = predict_family(heads[code], matrices[code], embeddings, test)
+                outer[code] = predict_family(heads[code], matrices[code], embeddings, test) if len(test) else np.empty(0)
             folds.append({'fold': int(fold), 'group': group, 'train': train, 'test': test,
                           'codes': codes, 'columns': columns, 'heads': heads,
                           'inner': inner, 'outer': outer,
@@ -208,6 +216,7 @@ def build_bank(args):
          'extra_features_sha256': sha256(args.extra_features) if extra is not None else None,
          'numbered_anatomy_axis_used': bool(getattr(args, 'anatomy_axis', False)),
          'anatomy_column_selection': getattr(args, 'anatomy_columns', 'all'),
+         'full_data_fit': full_fit, 'training_images_available': len(labels),
          'clinical_validation': False, 'automatic_promotions': 0})
 
 
@@ -345,6 +354,7 @@ def run_iteration(args):
     if args.output.exists():
         raise ValueError('Choose a new iteration directory')
     manifest = json.loads((args.bank / 'manifest.json').read_text())
+    require_validation_bank(manifest)
     if (manifest['bank_sha256'] != sha256(args.bank / 'bank.joblib') or
             manifest['labels_sha256'] != sha256(args.labels) or manifest['baseline_sha256'] != sha256(args.baseline)):
         raise ValueError('Bank, labels or baseline checksum differs')
@@ -352,6 +362,7 @@ def run_iteration(args):
     reference = None
     if getattr(args, 'ranking_bank', None) is not None:
         previous_manifest = json.loads((args.ranking_bank / 'manifest.json').read_text())
+        require_validation_bank(previous_manifest)
         for key in ('labels_sha256', 'baseline_sha256', 'source_fingerprint'):
             if manifest[key] != previous_manifest[key]:
                 raise ValueError('Ranking reference identities differ')
@@ -437,7 +448,8 @@ if __name__ == '__main__':
     parser.add_argument('--embeddings', type=Path, nargs='+', default=[])
     parser.add_argument('--extra-features', type=Path)
     parser.add_argument('--anatomy-axis', action='store_true')
-    parser.add_argument('--anatomy-columns', choices=('all', 'semantic'), default='all')
+    parser.add_argument('--full-data-fit', action='store_true')
+    parser.add_argument('--anatomy-columns', choices=('all', 'semantic', 'roi_only'), default='all')
     parser.add_argument('--ranking-bank', type=Path)
     parser.add_argument('--ranking-weight', type=float)
     parser.add_argument('--blend-criteria', action='store_true')

@@ -27,6 +27,7 @@ def main():
     parser.add_argument('--comparison-csv', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--expected-images', type=int, default=499)
+    parser.add_argument('--scope', default='Frozen workflow 1.11.6; not experimental anatomical QC heads or H200 timing')
     args = parser.parse_args()
     if args.output.exists():
         raise ValueError('Choose a new output directory')
@@ -111,7 +112,7 @@ def main():
               'png_explanations': png, 'dicom_sop_class_counts': dict(classes),
               'batch_seconds': timing['batch_seconds'], 'max_study_upper_bound_seconds': timing['max_study_upper_bound_seconds'],
               'within_180_seconds': timing['within_180_seconds'], 'wall_seconds_including_upload_exports': monotonic() - started,
-              'clinical_validation': False, 'scope': 'Frozen workflow 1.11.6; not experimental anatomical QC heads or H200 timing'}
+              'clinical_validation': False, 'scope': args.scope}
     (args.output / 'http-acceptance.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result), flush=True)
 

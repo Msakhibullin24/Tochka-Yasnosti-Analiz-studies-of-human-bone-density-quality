@@ -34,6 +34,8 @@ def main():
     if args.output.exists():
         raise ValueError('Choose a new replay manifest')
     manifest = json.loads((args.bank / 'manifest.json').read_text())
+    if manifest.get('full_data_fit'):
+        raise ValueError('A full-data model has no held-out replay identities')
     if digest(args.bank / 'bank.joblib') != manifest['bank_sha256']:
         raise ValueError('Head bank checksum differs')
     value = joblib.load(args.bank / 'bank.joblib')

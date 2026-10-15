@@ -28,9 +28,10 @@ def block(inputs, outputs):
 
 
 class Heatmaps(nn.Module):
-    def __init__(self):
+    def __init__(self, input_channels=1):
         super().__init__()
-        self.a, self.b, self.c = block(1, 16), block(16, 32), block(32, 64)
+        self.input_channels = input_channels
+        self.a, self.b, self.c = block(input_channels, 16), block(16, 32), block(32, 64)
         self.up = block(96, 32)
         self.out = nn.Conv2d(32, 4, 1)
 

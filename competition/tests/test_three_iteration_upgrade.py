@@ -1,8 +1,17 @@
 import numpy as np
+import pytest
 
 from experiments.three_iteration_upgrade import (decisions, decode_scores, fit_decoder,
                                                 fit_family, predict_family, joint_thresholds, utility,
                                                 blend_criterion_reference, semantic_anatomy_columns)
+from experiments.three_iteration_upgrade import require_validation_bank
+
+
+def test_full_data_models_are_rejected_from_held_out_evaluation():
+    require_validation_bank({})
+    require_validation_bank({'full_data_fit': False})
+    with pytest.raises(ValueError, match='full-data'):
+        require_validation_bank({'full_data_fit': True})
 
 
 def sample_state():
