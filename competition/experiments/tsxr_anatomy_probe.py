@@ -31,6 +31,8 @@ def main():
     parser.add_argument('--labels', type=Path, default=ROOT / 'labels/image_labels.csv')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--limit', type=int, default=12)
+    parser.add_argument('--region', choices=('spine', 'hip', 'all'), default='spine')
+    parser.add_argument('--horizontal-flip', action='store_true')
     args = parser.parse_args()
     if args.output.exists():
         raise ValueError('Choose a new output directory')
@@ -41,7 +43,10 @@ def main():
                                                    checkpoint_name='checkpoint_best.pth')
     args.output.mkdir(parents=True)
     labels = pd.read_csv(args.labels)
-    selected = labels.loc[labels.region.eq('spine') & labels.quality_class.notna()].head(args.limit)
+    region_filter = (labels.region.eq('spine') if args.region == 'spine' else
+                     labels.region.str.startswith('hip') if args.region == 'hip' else labels.region.notna())
+    labelled_filter = labels.quality_class.notna() if 'quality_class' in labels else np.ones(len(labels), dtype=bool)
+    selected = labels.loc[region_filter & labelled_filter].head(args.limit)
     names = {int(value): name for name, value in predictor.dataset_json['labels'].items()}
     results, tiles = [], []
     for row in selected.itertuples():
@@ -49,6 +54,8 @@ def main():
         sx, sy = image.pixel_mm_x, image.pixel_mm
         for polarity in ('bone-bright', 'inverted'):
             pixels = image.pixels if polarity == 'bone-bright' else 255 - image.pixels
+            if args.horizontal_flip:
+                pixels = np.ascontiguousarray(pixels[:, ::-1])
             started = perf_counter()
             segmentation = predictor.predict_single_npy_array(
                 pixels[None, None].astype(np.float32), {'spacing': (999 * max(sx, sy), sy, sx)})
@@ -58,6 +65,8 @@ def main():
             expected = (len(names) - 1, *pixels.shape) if multilabel else pixels.shape
             if segmentation.shape != expected:
                 raise ValueError(f'Unexpected output shape {segmentation.shape}')
+            if args.horizontal_flip:
+                segmentation = np.ascontiguousarray(segmentation[..., ::-1])
             centers, counts = {}, {}
             for value, name in names.items():
                 if value == 0:
@@ -92,6 +101,9 @@ def main():
             if len(tiles) < 24:
                 tiles.append(cv2.resize(canvas, (300, 300)))
             result = {'pixel_sha256': row.pixel_sha256, 'polarity': polarity,
+                      'decoded_pixel_sha256': image.pixel_sha256,
+                      'source_file_sha256': hashlib.file_digest((args.dataset / row.first_source_path).open('rb'), 'sha256').hexdigest(),
+                      'mask_sha256': hashlib.file_digest((args.output / f'{stem}.npy').open('rb'), 'sha256').hexdigest(),
                       'seconds': elapsed, 'centers': centers, 'pixel_counts': counts,
                       'complete_l1_l4': complete, 'ordered_l1_l4': ordered,
                       'candidate_axis_degrees': angle, 'clinical_validation': False}
@@ -105,8 +117,12 @@ def main():
                     np.vstack([np.hstack(tiles[i:i+4]) for i in range(0, len(tiles), 4)]))
     checkpoint = args.model / 'fold_0/checkpoint_best.pth'
     report = {'source': 'https://zenodo.org/records/17052912', 'weight_license': 'CC-BY-NC-4.0',
+              'labels_sha256': hashlib.file_digest(args.labels.open('rb'), 'sha256').hexdigest(),
+              'code_sha256': hashlib.file_digest(Path(__file__).open('rb'), 'sha256').hexdigest(),
               'checkpoint_sha256': hashlib.file_digest(checkpoint.open('rb'), 'sha256').hexdigest(),
               'images': len(selected), 'results': results, 'clinical_validation': False,
+              'input_horizontally_flipped': bool(args.horizontal_flip),
+              'input_has_qc_label_column': 'quality_class' in labels,
               'segmentation_accuracy_measured': False, 'automatic_promotions': 0,
               'limitation': 'No anatomical ground truth; counts/order do not prove correct numbering.'}
     (args.output / 'probe.json').write_text(json.dumps(report, indent=2) + '\n')

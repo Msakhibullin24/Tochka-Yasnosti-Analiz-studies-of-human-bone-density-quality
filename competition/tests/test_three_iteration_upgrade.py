@@ -1,7 +1,8 @@
 import numpy as np
 
 from experiments.three_iteration_upgrade import (decisions, decode_scores, fit_decoder,
-                                                fit_family, predict_family, joint_thresholds, utility)
+                                                fit_family, predict_family, joint_thresholds, utility,
+                                                blend_criterion_reference, semantic_anatomy_columns)
 
 
 def sample_state():
@@ -67,3 +68,27 @@ def test_constant_training_class_is_preserved():
         target = np.r_[np.full(8, label), np.full(4, np.nan)]
         models = fit_family(x, [x], target, np.arange(8))
         np.testing.assert_array_equal(predict_family(models, x, [x], np.arange(8, 12)), np.full(4, label))
+
+
+def test_reference_weights_do_not_use_external_scores_or_change_state_in_place():
+    import copy
+    state = sample_state()
+    state['train'], state['test'] = np.arange(40), np.arange(40, 45)
+    state['outer'] = {c: np.linspace(.2, .8, 5) for c in state['inner']}
+    reference = copy.deepcopy(state)
+    before = copy.deepcopy(state)
+    _, weights = blend_criterion_reference(state, reference)
+    for c in state['outer']:
+        state['outer'][c] = np.linspace(.9, .1, 5)
+    _, other_weights = blend_criterion_reference(state, reference)
+    assert weights == other_weights
+    for c in state['inner']:
+        np.testing.assert_array_equal(state['inner'][c], before['inner'][c])
+
+
+def test_semantic_feature_selection_does_not_mix_position_and_artifact_targets():
+    names = ['anat_L1_intensity_mean', 'anat_Th12_top_mm', 'anat_lumbar_angle_abs_deg',
+             'anat_lesser_protrusion_mm', 'anat_ischium_bottom_margin_mm']
+    assert semantic_anatomy_columns('spine_artifact', names) == ['anat_L1_intensity_mean']
+    assert semantic_anatomy_columns('spine_coverage', names) == ['anat_Th12_top_mm']
+    assert semantic_anatomy_columns('spine_axis', names) == ['anat_lumbar_angle_abs_deg']

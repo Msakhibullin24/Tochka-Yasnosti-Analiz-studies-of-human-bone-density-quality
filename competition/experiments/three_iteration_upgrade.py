@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score, average_precision_score
 from sklearn.model_selection import GroupKFold
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
@@ -31,10 +31,13 @@ from dxaqc.decision import decide
 from dxaqc.model import CRITERIA, _matrix, _rf, _lr, group_of, official_violation_type
 from evaluate_organizer_dataset import evaluate, sha256
 from experiments.nested_criterion_upgrade import validate_outer, positive_probability
-from experiments.strict_nested_calibration import threshold
+from experiments.strict_nested_calibration import threshold, grouped_threshold
 from experiments.verify_metric_candidate import compare
 from source_integrity import inspect_sources
 from train import build_table
+
+EXECUTION_SOURCE = Path(__file__).read_text()
+EXECUTION_CODE_SHA256 = sha256(Path(__file__))
 
 
 def dump(path, value):
@@ -79,6 +82,30 @@ def predict_family(models, geometry, embeddings, selected):
     return .5 * np.mean(probabilities[:2], axis=0) + .5 * np.mean(probabilities[2:], axis=0)
 
 
+def semantic_anatomy_columns(code, names):
+    """Fixed anatomical relevance filters; no target-dependent feature search."""
+    if code == 'quality':
+        return sorted({n for c in ('spine_coverage', 'spine_axis', 'spine_artifact',
+                                   'hip_position_rotation', 'hip_roi_coverage')
+                       for n in semantic_anatomy_columns(c, names)})
+    if code == 'spine_coverage':
+        return [n for n in names if any(f'_{x}_' in n for x in ('Th12', 'L1', 'L4', 'iliac_left', 'iliac_right')) and
+                any(n.endswith('_' + v) for v in ('present', 'top_mm', 'bottom_mm', 'height_mm', 'touch_top', 'touch_bottom', 'area_fraction'))]
+    if code == 'spine_axis':
+        return [n for n in names if n.startswith('anat_lumbar_') or
+                (any(f'_L{i}_' in n for i in range(1, 5)) and n.endswith(('center_x', 'center_y', 'present')))]
+    if code == 'spine_artifact':
+        return [n for n in names if any(f'_L{i}_' in n for i in range(1, 5)) and
+                n.endswith(('intensity_mean', 'intensity_std', 'area_fraction', 'width_mm'))]
+    if code == 'hip_position_rotation':
+        return [n for n in names if any(key in n for key in ('neck_', 'shaft_', 'lesser_', 'landmark_input_valid')) or
+                n in ('anat_femur_width_mm', 'anat_femur_height_mm', 'anat_femur_area_fraction', 'anat_femur_present')]
+    if code == 'hip_roi_coverage':
+        return [n for n in names if any(key in n for key in ('margin_mm', 'in_bounds', 'landmark_input_valid')) or
+                (n.startswith(('anat_femur_', 'anat_pelvis_')) and n.endswith(('present', 'touch_top', 'touch_bottom', 'height_mm', 'width_mm')))]
+    raise ValueError('Unknown criterion')
+
+
 def build_bank(args):
     from gpu_research.common import fingerprint, load_feature_bundle
     if args.output.exists():
@@ -94,6 +121,25 @@ def build_bank(args):
     for row in baseline.itertuples():
         if row.predicted_region == 'spine':
             features[row.index]['spine_abs_angle_deg'] = json.loads(row.criterion_states).get('spine_axis', {}).get('angle_deg')
+    extra = None
+    if getattr(args, 'extra_features', None) is not None:
+        extra = json.loads(args.extra_features.read_text())
+        if (extra.get('schema_version') != 1 or extra.get('labels_sha256') != sha256(args.labels) or
+                extra.get('source_fingerprint') != source_id):
+            raise ValueError('Extra anatomy features are not bound to current labels')
+        for index, row in enumerate(labels.itertuples()):
+            entry = extra['entries'].get(row.pixel_sha256)
+            if entry is None:
+                if extra['columns_by_group'].get(group_of(row.region)):
+                    raise ValueError('Missing anatomical feature identity')
+                continue
+            for name, value in entry['features'].items():
+                if not name.startswith('anat_') or not isinstance(value, (int, float)) or not np.isfinite(value):
+                    raise ValueError('Invalid extra anatomy feature')
+                features[index][name] = value
+            if args.anatomy_axis and row.region == 'spine':
+                angle = entry.get('numbered_axis_degrees')
+                features[index]['spine_abs_angle_deg'] = abs(angle) if angle is not None else None
     embeddings, embedding_audit = [], []
     for path in args.embeddings:
         values, metadata = load_feature_bundle(path, labels, source_id, sha256(args.labels))
@@ -103,6 +149,7 @@ def build_bank(args):
     if not embeddings:
         raise ValueError('At least one audited external frozen encoder required')
     args.output.mkdir(parents=True)
+    (args.output / 'executed_three_iteration_upgrade.py').write_text(EXECUTION_SOURCE)
     studies = labels.study_key.astype(str).to_numpy()
     anatomy = labels.region.map(group_of).to_numpy()
     folds, audit = [], []
@@ -116,6 +163,10 @@ def build_bank(args):
             codes = list(criteria)
             columns = {c: criteria[c] for c in codes}
             columns['quality'] = sorted(set(sum(list(criteria.values()), [])))
+            if extra is not None:
+                added = extra['columns_by_group'].get(group, [])
+                columns = {c: list(names) + (semantic_anatomy_columns(c, added)
+                           if args.anatomy_columns == 'semantic' else added) for c, names in columns.items()}
             targets = {c: pd.to_numeric(labels[c], errors='coerce').to_numpy(float) for c in codes}
             targets['quality'] = labels.quality_class.to_numpy(float)
             matrices = {c: _matrix(features, names) for c, names in columns.items()}
@@ -153,7 +204,10 @@ def build_bank(args):
                 args.output / 'bank.joblib', compress=3)
     dump(args.output / 'manifest.json', {'schema_version': 1, 'bank_sha256': sha256(args.output / 'bank.joblib'),
          'labels_sha256': sha256(args.labels), 'baseline_sha256': sha256(args.baseline),
-         'source_fingerprint': source_id, 'embeddings': embedding_audit, 'code_sha256': sha256(Path(__file__)),
+         'source_fingerprint': source_id, 'embeddings': embedding_audit, 'code_sha256': EXECUTION_CODE_SHA256,
+         'extra_features_sha256': sha256(args.extra_features) if extra is not None else None,
+         'numbered_anatomy_axis_used': bool(getattr(args, 'anatomy_axis', False)),
+         'anatomy_column_selection': getattr(args, 'anatomy_columns', 'all'),
          'clinical_validation': False, 'automatic_promotions': 0})
 
 
@@ -219,8 +273,16 @@ def fit_decoder(state, iteration):
     best, result = None, None
     for power in ((0., .5, 1.) if iteration == 3 else (0.,)):
         scores = raw * q[:, None] ** power
-        initial = np.array([threshold(truth[np.isfinite(truth[:, j]), j].astype(int),
-                                      scores[np.isfinite(truth[:, j]), j]) for j in range(len(codes))])
+        initial = []
+        for j in range(len(codes)):
+            known = np.isfinite(truth[:, j])
+            if state.get('threshold_bags', 0):
+                cut = grouped_threshold(truth[known, j].astype(int), scores[known, j],
+                                        state['training_groups'][known], state['threshold_bags'], 17)
+            else:
+                cut = threshold(truth[known, j].astype(int), scores[known, j])
+            initial.append(cut)
+        initial = np.array(initial)
         cuts = joint_thresholds(target, truth, scores, codes, state['angles'], initial) if iteration >= 2 else initial
         rank = (*utility(target, truth, decisions(scores, cuts, codes, state['angles'])), -power)
         if best is None or rank > best:
@@ -236,6 +298,49 @@ def decode_scores(spec, codes, raw, direct):
     return raw * q[:, None] ** spec['exponent'], q
 
 
+def fit_ranking_blend(state, spec, reference, fixed_weight=None):
+    """Combine quality ranking heads while retaining the typed decoder.
+
+    Only inner OOF quality targets are used. The reference bank must have the
+    identical outer and inner study partitions (checked by its caller).
+    """
+    for key in ('train', 'test'):
+        np.testing.assert_array_equal(state[key], reference[key])
+    np.testing.assert_array_equal(state['quality_truth'], reference['quality_truth'])
+    prior = fit_decoder(reference, 1)
+    raw = np.column_stack([state['inner'][c] for c in state['codes']])
+    old_raw = np.column_stack([reference['inner'][c] for c in reference['codes']])
+    _, current = decode_scores(spec, state['codes'], raw, state['inner']['quality'])
+    _, old = decode_scores(prior, reference['codes'], old_raw, reference['inner']['quality'])
+    options = (fixed_weight,) if fixed_weight is not None else (0., .25, .5, .75, 1.)
+    weight = max(options, key=lambda a: (
+        roc_auc_score(state['quality_truth'], a * current + (1 - a) * old), -abs(a - .5)))
+    return float(weight), prior
+
+
+def blend_criterion_reference(state, reference):
+    """Select anatomical/reference heads per criterion using inner AP only."""
+    for key in ('train', 'test', 'quality_truth', 'criterion_truth'):
+        np.testing.assert_array_equal(state[key], reference[key])
+    if state['codes'] != reference['codes']:
+        raise ValueError('Reference criterion order differs')
+    result = {**state, 'inner': dict(state['inner']), 'outer': dict(state['outer'])}
+    weights = {}
+    for code in [*state['codes'], 'quality']:
+        truth = state['quality_truth'] if code == 'quality' else state['criterion_truth'][:, state['codes'].index(code)]
+        known = np.isfinite(truth)
+        metric = roc_auc_score if code == 'quality' else average_precision_score
+        if len(np.unique(truth[known])) == 1:
+            weight = .5
+        else:
+            weight = max((0., .25, .5, .75, 1.), key=lambda a: (
+                metric(truth[known], a * state['inner'][code][known] + (1 - a) * reference['inner'][code][known]), -abs(a - .5)))
+        weights[code] = weight
+        for kind in ('inner', 'outer'):
+            result[kind][code] = weight * state[kind][code] + (1 - weight) * reference[kind][code]
+    return result, weights
+
+
 def run_iteration(args):
     if args.output.exists():
         raise ValueError('Choose a new iteration directory')
@@ -244,9 +349,28 @@ def run_iteration(args):
             manifest['labels_sha256'] != sha256(args.labels) or manifest['baseline_sha256'] != sha256(args.baseline)):
         raise ValueError('Bank, labels or baseline checksum differs')
     bank = joblib.load(args.bank / 'bank.joblib')
+    reference = None
+    if getattr(args, 'ranking_bank', None) is not None:
+        previous_manifest = json.loads((args.ranking_bank / 'manifest.json').read_text())
+        for key in ('labels_sha256', 'baseline_sha256', 'source_fingerprint'):
+            if manifest[key] != previous_manifest[key]:
+                raise ValueError('Ranking reference identities differ')
+        if previous_manifest['bank_sha256'] != sha256(args.ranking_bank / 'bank.joblib'):
+            raise ValueError('Ranking reference checksum differs')
+        if json.loads((args.bank / 'split_audit.json').read_text()) != json.loads((args.ranking_bank / 'split_audit.json').read_text()):
+            raise ValueError('Ranking reference study partitions differ')
+        previous = joblib.load(args.ranking_bank / 'bank.joblib')
+        reference = {(s['fold'], s['group']): s for s in previous['folds']}
     args.output.mkdir(parents=True)
+    (args.output / 'executed_three_iteration_upgrade.py').write_text(EXECUTION_SOURCE)
     table, audit, specs = bank['baseline'].copy(), [], []
     for state in bank['folds']:
+        if getattr(args, 'threshold_bags', 0):
+            state = {**state, 'threshold_bags': args.threshold_bags,
+                     'training_groups': bank['baseline'].study.astype(str).to_numpy()[state['train']]}
+        criterion_weights = None
+        if getattr(args, 'blend_criteria', False):
+            state, criterion_weights = blend_criterion_reference(state, reference[state['fold'], state['group']])
         spec = fit_decoder(state, args.iteration)
         codes, test = state['codes'], state['test']
         raw = np.column_stack([state['outer'][c] for c in codes])
@@ -256,6 +380,14 @@ def run_iteration(args):
             one_scores, one_quality = decode_scores(spec, codes, raw[i:i+1], state['outer']['quality'][i:i+1])
             np.testing.assert_allclose(one_scores[0], scores[i], rtol=0, atol=1e-12)
             np.testing.assert_allclose(one_quality[0], quality[i], rtol=0, atol=1e-12)
+        ranking = None
+        if reference is not None:
+            old = reference[state['fold'], state['group']]
+            weight, prior_spec = fit_ranking_blend(state, spec, old, getattr(args, 'ranking_weight', None))
+            old_raw = np.column_stack([old['outer'][c] for c in old['codes']])
+            _, prior_quality = decode_scores(prior_spec, old['codes'], old_raw, old['outer']['quality'])
+            quality = weight * quality + (1 - weight) * prior_quality
+            ranking = {'current_weight': weight, 'prior_decoder': prior_spec}
         for pos, row_index in enumerate(test):
             criterion_scores = dict(zip(codes, map(float, scores[pos])))
             decision = decide(state['group'], float(quality[pos]), criterion_scores, bank['features'][row_index],
@@ -271,8 +403,11 @@ def run_iteration(args):
                 table.at[row_index, key] = value
         audit.append({'fold': state['fold'], 'group': state['group'], 'alpha': spec['alpha'],
                       'quality_conditioning_exponent': spec['exponent'], 'thresholds': spec['thresholds'],
-                      'inner_utility': spec['inner_utility'], 'inner_quality_f1': spec['inner_quality_f1']})
-        specs.append({'fold': state['fold'], 'group': state['group'], 'decoder': spec})
+                      'inner_utility': spec['inner_utility'], 'inner_quality_f1': spec['inner_quality_f1'],
+                      'ranking_current_weight': ranking['current_weight'] if ranking else None})
+        audit[-1]['criterion_reference_weights'] = criterion_weights
+        specs.append({'fold': state['fold'], 'group': state['group'], 'decoder': spec,
+                      'ranking_blend': ranking, 'criterion_reference_weights': criterion_weights})
     joblib.dump(specs, args.output / 'decoders.joblib')
     path = args.output / 'candidate_oof.csv'
     table.to_csv(path, index=False)
@@ -280,10 +415,12 @@ def run_iteration(args):
     screen = compare(args.baseline, path, args.labels)
     dump(args.output / 'evaluation.json', {'iteration': args.iteration, 'metrics': metrics, 'screen': screen,
          'selection_audit': audit, 'bank_sha256': manifest['bank_sha256'],
-         'code_sha256': sha256(Path(__file__)), 'clinical_validation': False, 'automatic_promotions': 0,
+         'ranking_bank_sha256': previous_manifest['bank_sha256'] if reference is not None else None,
+         'threshold_bootstrap_studies': getattr(args, 'threshold_bags', 0),
+         'code_sha256': EXECUTION_CODE_SHA256, 'clinical_validation': False, 'automatic_promotions': 0,
          'singleton_batch_score_check_passed': True, 'limitations': [
              'Previously inspected study groups, not independent patients or clinical validation.',
-             'Frozen historical routing and measured angles; not full raw-input end-to-end CV.',
+             'Frozen historical routing; angle source recorded in bank manifest; not full raw-input end-to-end CV.',
              'Joint threshold objective includes a fixed 0.1 criterion-F1 regularizer, not organizer weights.',
              'Noisy-OR and quality-conditioned criterion scores are research combinations.',
              'No anatomical completeness established by binary QC metrics.']})
@@ -298,12 +435,27 @@ if __name__ == '__main__':
     parser.add_argument('--labels', type=Path, default=ROOT / 'labels/image_labels.csv')
     parser.add_argument('--baseline', type=Path, default=ROOT / 'reports/quality_review_axis_guard_posthoc_2026_09_29.csv')
     parser.add_argument('--embeddings', type=Path, nargs='+', default=[])
+    parser.add_argument('--extra-features', type=Path)
+    parser.add_argument('--anatomy-axis', action='store_true')
+    parser.add_argument('--anatomy-columns', choices=('all', 'semantic'), default='all')
+    parser.add_argument('--ranking-bank', type=Path)
+    parser.add_argument('--ranking-weight', type=float)
+    parser.add_argument('--blend-criteria', action='store_true')
+    parser.add_argument('--threshold-bags', type=int, default=0)
     parser.add_argument('--bank', type=Path)
     parser.add_argument('--iteration', type=int, choices=(1, 2, 3))
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     if args.command == 'bank' and (args.dataset is None or not args.embeddings):
         parser.error('Bank requires --dataset and --embeddings')
+    if args.anatomy_axis and args.extra_features is None:
+        parser.error('--anatomy-axis requires --extra-features')
+    if args.ranking_weight is not None and (args.ranking_bank is None or not 0 <= args.ranking_weight <= 1):
+        parser.error('--ranking-weight needs --ranking-bank and a weight in [0,1]')
+    if args.blend_criteria and args.ranking_bank is None:
+        parser.error('--blend-criteria requires --ranking-bank')
+    if args.threshold_bags < 0:
+        parser.error('--threshold-bags must be nonnegative')
     if args.command == 'iteration' and (args.bank is None or args.iteration is None):
         parser.error('Iteration requires --bank and --iteration')
     with threadpool_limits(limits=4):

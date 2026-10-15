@@ -12,6 +12,18 @@ IMAGE="${DXAQC_IMAGE:-osseo-dxaqc:1.11.6}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 cmd="${1:-help}"
 
+container_user() {
+  if [ -n "${DXAQC_CONTAINER_USER:-}" ]; then
+    printf '%s\n' "$DXAQC_CONTAINER_USER"
+    return
+  fi
+  security="$(docker info --format '{{json .SecurityOptions}}' 2>/dev/null || true)"
+  case "$security" in
+    *name=rootless*) printf '0:0\n' ;; # namespace root maps to the invoking host user
+    *) printf '%s:%s\n' "$(id -u)" "$(id -g)" ;;
+  esac
+}
+
 case "$cmd" in
   build)
     docker build -f "$HERE/Dockerfile" -t "$IMAGE" "$HERE/.."
@@ -26,7 +38,7 @@ case "$cmd" in
     in="$(cd "$(dirname "$2")" && pwd)/$(basename "$2")"
     mkdir -p "$3"; out="$(cd "$3" && pwd)"
     docker image inspect "$IMAGE" >/dev/null 2>&1 || docker build -f "$HERE/Dockerfile" -t "$IMAGE" "$HERE/.."
-    docker run --rm --network none --user "$(id -u):$(id -g)" \
+    docker run --rm --network none --user "$(container_user)" \
       -v "$in":/data/input:ro -v "$out":/data/out \
       "$IMAGE" python -m dxaqc.cli --input /data/input --output /data/out --acceptance "$acceptance"
     ;;
@@ -36,7 +48,7 @@ case "$cmd" in
     work="${DXAQC_DATA:-$HERE/out}"
     mkdir -p "$work"
     work="$(cd "$work" && pwd)"
-    docker run --rm --user "$(id -u):$(id -g)" -p "127.0.0.1:${port}:8000" \
+    docker run --rm --user "$(container_user)" -p "127.0.0.1:${port}:8000" \
       -v "$work":/work -v "$work":/data "$IMAGE"
     ;;
   test)
@@ -45,10 +57,10 @@ case "$cmd" in
       python -m pytest -q -p no:cacheprovider tests
     fixture_dir="$(mktemp -d)"
     trap 'rm -rf "$fixture_dir"' EXIT HUP INT TERM
-    docker run --rm --network none --user "$(id -u):$(id -g)" \
+    docker run --rm --network none --user "$(container_user)" \
       -v "$HERE/tests":/app/tests:ro -v "$fixture_dir":/fixtures -e PYTHONPATH=/app/tests \
       "$IMAGE" python -c 'from pathlib import Path; import zipfile; from conftest import synthetic_spine, write_dicom; p=write_dicom(Path("/fixtures/a.dcm"), synthetic_spine()); z=zipfile.ZipFile("/fixtures/input.zip", "w"); z.write(p,"a.dcm"); z.close()'
-    docker run --rm --network none --user "$(id -u):$(id -g)" -e DXAQC_WORKFLOW_PROFILE= \
+    docker run --rm --network none --user "$(container_user)" -e DXAQC_WORKFLOW_PROFILE= \
       -v "$fixture_dir/input.zip":/data/input:ro -v "$fixture_dir":/fixtures "$IMAGE" \
       python -m dxaqc.cli --input /data/input --output /fixtures/out
     docker run --rm --network none -v "$fixture_dir/out":/results:ro "$IMAGE" \

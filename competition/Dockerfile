@@ -51,6 +51,7 @@ COPY competition/models ./models
 COPY competition/*.py ./
 COPY competition/run.sh ./run.sh
 COPY competition/experiments ./experiments
+COPY competition/gpu_research ./gpu_research
 COPY competition/anatomy_review ./anatomy_review
 COPY competition/labels ./labels
 # Dataset audit/download CLIs resolve their shared stdlib helper and catalogs
