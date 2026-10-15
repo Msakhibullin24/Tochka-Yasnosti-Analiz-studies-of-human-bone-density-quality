@@ -62,7 +62,9 @@ def main():
         landmarks[name] = result
     report = {'date': '2026-10-15', 'schema_version': 1,
               'requirements_complete': False, 'clinical_validation': False, 'model_promotions': 0,
-              'release': '1.11.7', 'qc_trials_completed': len(trials), 'baseline': baseline, 'trials': trials,
+              'release': '1.12.0', 'qc_trials_completed': len(trials), 'baseline': baseline, 'trials': trials,
+              'distinct_oof_file_hashes': len({t['oof_sha256'] for t in trials}),
+              'trial_count_scope': 'Completed configurations, including controls and duplicate predictions; not independent validation cohorts.',
               'protocol': {'labelled_images': 249, 'study_groups': 100, 'patient_disjoint_established': False,
                            'outer_study_folds': 5, 'inner_study_folds': 4,
                            'conditional_on_historical_routing': True,
@@ -167,6 +169,29 @@ def main():
     archive_current = Path('data/build-artifacts/2026-10-15/archive-verification-1.11.7.json')
     if archive_current.exists():
         report['verification']['portable_archive_1_11_7'] = read(archive_current)
+    current = Path('data/gpu-final-1-12-0-audit-2026-10-15')
+    if (current / 'image-inspect.json').exists():
+        verification = {'image_id': read(current / 'image-inspect.json')[0]['Id'],
+            'cpu_image_id': read(current / 'cpu-image-inspect.json')[0]['Id'],
+            'accuracy_evaluation': False, 'classification_heads_full_data_fit': True,
+            'local_tests': test_summary(Path('data/logs/competition-tests-1-12-0-2026-10-15.log')),
+            'cpu_tests': test_summary(Path('data/logs/cpu-release-script-test-1-12-0-2026-10-15.log'))}
+        for label, filename in (('cli', 'cli/summary.json'), ('deployment_protocol', 'cli/deployment_protocol.json'),
+                                ('requirements', 'cli/requirements.json'), ('http', 'http-acceptance.json'),
+                                ('debug_http', 'debug-http-acceptance.json'),
+                                ('ready_after_two_jobs', 'ready-after-two-jobs.json'),
+                                ('regression_against_prior_fullfit', 'regression-and-roi-coverage.json'),
+                                ('source_manifest', 'inference-source-sha256.json')):
+            if (current / filename).exists(): verification[label] = read(current / filename)
+        report['verification']['gpu_fullfit_1_12_0'] = verification
+    geometry = args.runs / 'automatic-geometry-audit/evaluation.json'
+    if geometry.exists():
+        value = read(geometry)
+        value.pop('results', None)
+        report['automatic_geometry'] = value
+    archive_current = Path('data/build-artifacts/2026-10-15/archive-verification-1.12.0.json')
+    if archive_current.exists():
+        report['verification']['portable_archive_1_12_0'] = read(archive_current)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + '\n')
     print(json.dumps({'qc_trials_completed': len(trials), 'output': str(args.output)}))

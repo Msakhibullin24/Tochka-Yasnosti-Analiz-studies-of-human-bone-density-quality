@@ -38,7 +38,7 @@ RUN uv pip check --system
 # Fail the build if repository resolution changes the reviewed system runtime.
 RUN python -c "import subprocess; names=['gcc-12-base','libgcc-s1','libstdc++6','libgomp1']; versions=[subprocess.check_output(['dpkg-query','-W','-f=\${Version}',n],text=True) for n in names]; assert versions == ['12.2.0-14+deb12u1'] * 4, versions"
 
-ENV DXAQC_WORKFLOW_PROFILE=/app/models/workflow_1_11_7/profile.json
+ENV DXAQC_WORKFLOW_PROFILE=/app/models/workflow_1_12_0/profile.json
 
 COPY competition/dxaqc ./dxaqc
 COPY docs/competition/specialist_sources.json ./specialist_sources.json

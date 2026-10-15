@@ -99,9 +99,21 @@ def evaluate_requirements(rows, timing=None):
     successful = [r for r in rows if r.get('processing_status') == 'Success']
     untyped = sum(str(r.get('quality_class')) == '1' and not r.get('violation_type') for r in successful)
     coverage = defaultdict(Counter)
+    automatic_coverage = defaultdict(Counter)
+    automatic_complete = bool(successful)
+    automatic_resolved = bool(successful)
     for row in successful:
         for check in _parsed(row, 'requirement_checks', []):
             coverage[check['id']][check['status']] += 1
+        automatic = _parsed(row, 'automatic_requirement_checks', [])
+        automatic_complete &= bool(automatic) and all(
+            c.get('execution_status') == 'completed' for c in automatic)
+        automatic_resolved &= bool(automatic) and all(
+            c.get('finding_resolved') is True for c in automatic)
+        for check in automatic:
+            automatic_coverage[check['id']]['execution_' + check.get('execution_status', 'unavailable')] += 1
+            automatic_coverage[check['id']]['outcome_' + check.get('outcome', 'unknown')] += 1
+            automatic_coverage[check['id']]['review_required'] += bool(check.get('review_required'))
     anatomy_complete = bool(successful) and all(
         str(r.get('anatomical_checks_complete')).lower() == 'true' for r in successful)
     failures = len(rows) - len(successful)
@@ -118,9 +130,18 @@ def evaluate_requirements(rows, timing=None):
         blockers.append('end_to_end_timing_unavailable')
     elif not timing['within_180_seconds']:
         blockers.append('study_time_upper_bound_exceeded')
-    return {'version': 1, 'complete': not blockers, 'images': len(rows),
+    automatic_blockers = [b for b in blockers if b != 'anatomical_checks_incomplete']
+    if not automatic_complete:
+        automatic_blockers.append('automatic_functions_unavailable')
+    return {'version': 2, 'complete': not blockers, 'images': len(rows),
             'success': len(successful), 'failure': failures, 'untyped_violations': untyped,
             'typification_complete': bool(successful) and not untyped,
             'anatomical_checks_complete': anatomy_complete,
+            'automatic_check_execution_complete': automatic_complete and not failures,
+            'automatic_findings_resolved': automatic_resolved and not failures,
+            'automatic_workflow_complete': not automatic_blockers,
+            'automatic_workflow_blockers': automatic_blockers,
+            'automatic_checks': {key: dict(value) for key, value in automatic_coverage.items()},
+            'automatic_scope': 'Execution coverage only; uncertain findings remain unresolved and this does not establish anatomical accuracy or full TZ acceptance.',
             'checks': {key: dict(value) for key, value in coverage.items()}, 'blockers': blockers,
             'scope': 'coverage of required evidence, not external clinical certification or organiser approval'}

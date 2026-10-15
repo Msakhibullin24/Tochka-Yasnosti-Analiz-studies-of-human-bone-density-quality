@@ -30,7 +30,11 @@ def load_candidate(config_path, *, held_out_replay=False, replay_manifest=None):
             raise ValueError('Hip checkpoint identity differs from deployment configuration')
     os.environ['DXAQC_WORKFLOW_PROFILE'] = str(path('baseline_profile'))
     from experiments.live_anatomy_candidate import LiveAnatomyCandidate
-    return LiveAnatomyCandidate(path('bank'), path('ranking_bank'), path('decoders'), path('feature_spec'),
+    candidate_type = LiveAnatomyCandidate
+    if config.get('automatic_geometry', False):
+        from experiments.automatic_anatomy_candidate import AutomaticAnatomyCandidate
+        candidate_type = AutomaticAnatomyCandidate
+    return candidate_type(path('bank'), path('ranking_bank'), path('decoders'), path('feature_spec'),
         path('anatomy_model'), [(config_path.parent / p).resolve() for p in config['encoders']],
         pelvis_model=path('pelvis_model'), pelvis_checkpoint_sha256=config['pelvis_checkpoint_sha256'],
         hip_landmarks=path('hip_landmarks') if config.get('hip_landmarks') else None,
@@ -69,6 +73,11 @@ def main():
     summary = run_batch(args.input, args.output, Options(keep_explanation_dir=True), candidate)
     if args.held_out_replay:
         (args.output / 'raw_candidate_predictions.json').write_text(json.dumps(candidate.records, indent=2) + '\n')
+    if hasattr(candidate, 'geometry_records'):
+        (args.output / 'automatic_geometry_report.json').write_text(json.dumps({
+            'records': candidate.geometry_records, 'provider_code_sha256': candidate.geometry_code_sha256,
+            'clinical_validation': False, 'qc_targets_used': False,
+            'scope': 'model-derived measurements; not verified anatomical truth'}, indent=2) + '\n')
     (args.output / 'deployment_protocol.json').write_text(json.dumps({'profile': candidate.workflow_profile,
         'network_interfaces': [name for _, name in socket.if_nameindex()], 'clinical_validation': False,
         'initialization_seconds': initialization_seconds,

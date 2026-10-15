@@ -304,6 +304,10 @@ def image_assessment(img, result):
         assessment['specialist_outputs'] = result['specialist_outputs']
     if 'learned_anatomy' in result:
         assessment['learned_anatomy'] = result['learned_anatomy']
+    from .functional_checks import model_function_checks
+    automatic = model_function_checks(img, result, projection, source_roi)
+    if automatic is not None:
+        assessment['automatic_functions'] = automatic
     return assessment
 
 

@@ -2,7 +2,7 @@
 # Explicit research GPU image; the released CPU entrypoint is competition/run.sh.
 set -euo pipefail
 
-task_image=${DXAQC_ANATOMY_IMAGE:-dxaqc:anatomy-fullfit-1.11.7-20261015}
+task_image=${DXAQC_ANATOMY_IMAGE:-dxaqc:anatomy-fullfit-1.12.0-20261015}
 task_gpu_mode=${DXAQC_GPU_MODE:-toolkit}
 task_gpu_args=()
 case "$task_gpu_mode" in

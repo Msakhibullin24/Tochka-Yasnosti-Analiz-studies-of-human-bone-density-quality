@@ -342,6 +342,11 @@ def process_files(files: list[Path], root: Path, out_dir: Path, analyzer: Analyz
                 "anatomy_assessment": json.dumps(res['anatomy_candidates'], ensure_ascii=False),
                 "source_roi_assessment": json.dumps(source_roi, ensure_ascii=False),
                 "anatomical_checks_complete": str(assessment['complete']).lower(),
+                "automatic_check_execution_complete": str(assessment['automatic_functions']['execution_complete']).lower()
+                    if 'automatic_functions' in assessment else '',
+                "automatic_findings_resolved": str(assessment['automatic_functions']['findings_resolved']).lower()
+                    if 'automatic_functions' in assessment else '',
+                "automatic_requirement_checks": json.dumps(assessment.get('automatic_functions', {}).get('checks', []), ensure_ascii=False),
                 "requirement_checks": json.dumps(assessment['checks'], ensure_ascii=False),
                 "criterion_states": json.dumps(res["criterion_states"], ensure_ascii=False),
                 "violation_type_status": res["violation_type_status"],
@@ -524,6 +529,8 @@ def run_batch(input_path: Path, out_dir: Path, opts: Options | None = None, anal
     (out_dir / 'requirements.json').write_text(json.dumps(requirements, ensure_ascii=False, indent=2), encoding='utf-8')
     summary['typification_complete'] = requirements['typification_complete']
     summary['anatomical_checks_complete'] = requirements['anatomical_checks_complete']
+    for key in ('automatic_check_execution_complete', 'automatic_findings_resolved', 'automatic_workflow_complete'):
+        summary[key] = requirements[key]
     summary['untyped_violations'] = requirements['untyped_violations']
     summary['requirements_complete'] = requirements['complete']
     summary['max_seconds_per_study_upper_bound'] = timing['max_study_upper_bound_seconds']

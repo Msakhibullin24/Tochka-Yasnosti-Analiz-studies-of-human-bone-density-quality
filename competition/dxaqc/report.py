@@ -22,6 +22,8 @@ EXTRA_COLUMNS.append('specialist_outputs')
 EXTRA_COLUMNS.append('requirement_checks')
 EXTRA_COLUMNS.append('learned_anatomy')
 EXTRA_COLUMNS.append('joint_evidence')
+EXTRA_COLUMNS.extend(('automatic_check_execution_complete', 'automatic_findings_resolved',
+                      'automatic_requirement_checks'))
 
 
 def columns(strict: bool) -> list[str]:

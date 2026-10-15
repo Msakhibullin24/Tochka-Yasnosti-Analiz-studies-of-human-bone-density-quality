@@ -1,15 +1,15 @@
 {
-  "version": "1.11.7",
+  "version": "1.12.0",
   "decision_version": "5+review-1",
-  "image_id": "sha256:e133469b1e90c2d67a6886c162827da4b280b4d46bfc627e0635f7346acdca48",
+  "image_id": "sha256:cf65354b9aeca9a5f48c7664b86a57a8d59219536c2b73307e7c9a608893437f",
   "workflow_profile": {
     "schema_version": 1,
-    "profile_id": "tz-delivery-1.11.7",
+    "profile_id": "tz-delivery-1.12.0",
     "baseline_bundle_sha256": "7f78fdcdb9c4116277f5cc9858ae6297c48e0d4fda9f87ed1f5dd01724fdd993",
     "clinical_validation": false,
     "status": "engineering_delivery",
-    "source_profile_sha256": "ae8ae12391333131bbfe99fc72fafec0112815c326ac0d320a984b8d1ba6ff68",
-    "source_profile_id": "tz-delivery-1.11.6",
+    "source_profile_sha256": "e136c71e96958c2c9890ff861c6d13fd7ff1db02bfe69bddf3f04b23b5697e25",
+    "source_profile_id": "tz-delivery-1.11.7",
     "artifacts": {
       "DXAQC_ANATOMY_MODEL": {
         "path": "anatomy.json",
@@ -25,9 +25,9 @@
       }
     },
     "code_sha256": {
-      "dxaqc/__init__.py": "050bcc807e92612910a8de77734de2adc1b7d5827f7a5592728e395db851644e",
+      "dxaqc/__init__.py": "a2351ccd934e9a09200185d174327f6e8f2075f9933d4e734d86cd3183163cb8",
       "dxaqc/anatomical_roi.py": "c7c98e9b61562bb43c44c5787a18e62269215387fd510c09a5b4167c131ede59",
-      "dxaqc/anatomy.py": "6c007d4fab01053dcfe059c1d14a08134fdd520e17046dd449502bd074b6e58a",
+      "dxaqc/anatomy.py": "cc6ec585e7a355e4cf02ca39da733065b64ee68e92ea7b3c469c0a1f562510da",
       "dxaqc/api.py": "7993b1e51f99fb434e48e35024e743ea4dbb57ef63b397c495aaaf070c67ff20",
       "dxaqc/cli.py": "90305402a9378970b6f28ae763df980b8c58f9db19336dc51bc3c89f899ae6d2",
       "dxaqc/decision.py": "c6dc65d5eaf1a75262fcc12c2137c5e39ae247a1166db7789db48556fc920974",
@@ -35,6 +35,7 @@
       "dxaqc/dynamics.py": "f443f82da49a874dc0288668c74211c2b0b9b9f13b0848f21c5e9f264f519634",
       "dxaqc/embedding.py": "3ddcf6d564b67114b5c35a23d359bc2afe1215fd5681e82279fa95f8abcde139",
       "dxaqc/explain.py": "38a1247d6ec541fbdbfba68d6bb3ca7856818129e0f1e37a85393c17e543e195",
+      "dxaqc/functional_checks.py": "13d5210439b0d552582c16edc1cbe48775aeb19342e71a73339dfddc28fcccf5",
       "dxaqc/geometry.py": "3c8916962b28f68f83a9739915ebe5286e7aecf3a12a88098ae356b8dc8f28ff",
       "dxaqc/joint_quality.py": "673e4cdc1fb3561d89a9a96976d9f302b1a829051d4860ec793d3b1ccde0ce21",
       "dxaqc/learned_anatomy.py": "584010851449a0e4b99c16fbfaf2ab3c1f3a478ee276d3c0cc779c0825a02352",
@@ -42,10 +43,10 @@
       "dxaqc/mask_raster.py": "5eb470dca85eff85a7000cb7195db4c646d5b9095eba24ac208c90024060058d",
       "dxaqc/model.py": "f8cd52f48f2e60d7a1979f79db20c8a2deb50f709a67fe8133483d623aba0958",
       "dxaqc/neck_roi_geometry.py": "09f7c12bfd739af3a21f0bb7ceba1c5222a9e58561359fde69a569124e39dc38",
-      "dxaqc/pipeline.py": "62bd62f8ba5c7f3d846c71e65ef24dd78dd20e72f8a6ecff27d97fb32c98a0f2",
+      "dxaqc/pipeline.py": "022c7ee176b104ef4e5b1456bd29014bbae005b5d6f8659159f0aa0bda293e23",
       "dxaqc/projection_model.py": "bbfec3f43f8cc7f54266783cbea69e8f1e3e2e0a910bcfb0e79bf00a3ebbba36",
-      "dxaqc/report.py": "961f284023ac063cccf42e9bbdb0a81355ad8bf957b032e1f926c3eaec3c353e",
-      "dxaqc/requirements.py": "63cbb8977966899e35a1796e32325a84200142472a521f62abe067558864ff31",
+      "dxaqc/report.py": "f91b4712d9302ad413f58a42816fd2ef2ed611a0de52187917ab4ab55e52a719",
+      "dxaqc/requirements.py": "ddf0dbb8070f27f99ca4e735e52b515d2b1f8a61c4bb25852ab9a6c675df6816",
       "dxaqc/result_context.py": "2b8b44444072fcc8889b6fd8321332d49f703383570f66e07ee9685530f67f47",
       "dxaqc/review.py": "b03de5b1ac84f7aee278d2a115de1f2af548d35ea24c4d8738a00943dd5f8479",
       "dxaqc/review_report.py": "f61ee3c8f999e300e5e9853c7b3f2b29da0d90c20f00b1a64c97ad3f41b92152",
@@ -72,9 +73,9 @@
   "metrics_scope": "Historical internal OOF of quality/type models; not an independent test of projection, ROI rules or this delivery",
   "weights_sha256": "7f78fdcdb9c4116277f5cc9858ae6297c48e0d4fda9f87ed1f5dd01724fdd993",
   "code_sha256": {
-    "competition/dxaqc/__init__.py": "050bcc807e92612910a8de77734de2adc1b7d5827f7a5592728e395db851644e",
+    "competition/dxaqc/__init__.py": "a2351ccd934e9a09200185d174327f6e8f2075f9933d4e734d86cd3183163cb8",
     "competition/dxaqc/anatomical_roi.py": "c7c98e9b61562bb43c44c5787a18e62269215387fd510c09a5b4167c131ede59",
-    "competition/dxaqc/anatomy.py": "6c007d4fab01053dcfe059c1d14a08134fdd520e17046dd449502bd074b6e58a",
+    "competition/dxaqc/anatomy.py": "cc6ec585e7a355e4cf02ca39da733065b64ee68e92ea7b3c469c0a1f562510da",
     "competition/dxaqc/api.py": "7993b1e51f99fb434e48e35024e743ea4dbb57ef63b397c495aaaf070c67ff20",
     "competition/dxaqc/cli.py": "90305402a9378970b6f28ae763df980b8c58f9db19336dc51bc3c89f899ae6d2",
     "competition/dxaqc/decision.py": "c6dc65d5eaf1a75262fcc12c2137c5e39ae247a1166db7789db48556fc920974",
@@ -82,6 +83,7 @@
     "competition/dxaqc/dynamics.py": "f443f82da49a874dc0288668c74211c2b0b9b9f13b0848f21c5e9f264f519634",
     "competition/dxaqc/embedding.py": "3ddcf6d564b67114b5c35a23d359bc2afe1215fd5681e82279fa95f8abcde139",
     "competition/dxaqc/explain.py": "38a1247d6ec541fbdbfba68d6bb3ca7856818129e0f1e37a85393c17e543e195",
+    "competition/dxaqc/functional_checks.py": "13d5210439b0d552582c16edc1cbe48775aeb19342e71a73339dfddc28fcccf5",
     "competition/dxaqc/geometry.py": "3c8916962b28f68f83a9739915ebe5286e7aecf3a12a88098ae356b8dc8f28ff",
     "competition/dxaqc/joint_quality.py": "673e4cdc1fb3561d89a9a96976d9f302b1a829051d4860ec793d3b1ccde0ce21",
     "competition/dxaqc/learned_anatomy.py": "584010851449a0e4b99c16fbfaf2ab3c1f3a478ee276d3c0cc779c0825a02352",
@@ -89,10 +91,10 @@
     "competition/dxaqc/mask_raster.py": "5eb470dca85eff85a7000cb7195db4c646d5b9095eba24ac208c90024060058d",
     "competition/dxaqc/model.py": "f8cd52f48f2e60d7a1979f79db20c8a2deb50f709a67fe8133483d623aba0958",
     "competition/dxaqc/neck_roi_geometry.py": "09f7c12bfd739af3a21f0bb7ceba1c5222a9e58561359fde69a569124e39dc38",
-    "competition/dxaqc/pipeline.py": "62bd62f8ba5c7f3d846c71e65ef24dd78dd20e72f8a6ecff27d97fb32c98a0f2",
+    "competition/dxaqc/pipeline.py": "022c7ee176b104ef4e5b1456bd29014bbae005b5d6f8659159f0aa0bda293e23",
     "competition/dxaqc/projection_model.py": "bbfec3f43f8cc7f54266783cbea69e8f1e3e2e0a910bcfb0e79bf00a3ebbba36",
-    "competition/dxaqc/report.py": "961f284023ac063cccf42e9bbdb0a81355ad8bf957b032e1f926c3eaec3c353e",
-    "competition/dxaqc/requirements.py": "63cbb8977966899e35a1796e32325a84200142472a521f62abe067558864ff31",
+    "competition/dxaqc/report.py": "f91b4712d9302ad413f58a42816fd2ef2ed611a0de52187917ab4ab55e52a719",
+    "competition/dxaqc/requirements.py": "ddf0dbb8070f27f99ca4e735e52b515d2b1f8a61c4bb25852ab9a6c675df6816",
     "competition/dxaqc/result_context.py": "2b8b44444072fcc8889b6fd8321332d49f703383570f66e07ee9685530f67f47",
     "competition/dxaqc/review.py": "b03de5b1ac84f7aee278d2a115de1f2af548d35ea24c4d8738a00943dd5f8479",
     "competition/dxaqc/review_report.py": "f61ee3c8f999e300e5e9853c7b3f2b29da0d90c20f00b1a64c97ad3f41b92152",
@@ -106,7 +108,9 @@
     "competition/dxaqc/validate_anatomy.py": "215d46938562c72a293870d7277ca5abbb401341442d7f3060d1bc020ff47a8a",
     "competition/dxaqc/validate_results.py": "f687031a77fb6720bac4e94c46cbb8dd2f41ba0aff03b5b79c240ec51517e886",
     "competition/dxaqc/workflow_profile.py": "0ebe88d0128b7dd1ad4123de8a688cce7b196e64a3e6d01578a78282635b1746",
-    "competition/dxaqc/xlsx_read.py": "18e1759760e679756e19e5183ba4c8ff8cd1952bc69cedfbd9639fd5a2caf17e"
+    "competition/dxaqc/xlsx_read.py": "18e1759760e679756e19e5183ba4c8ff8cd1952bc69cedfbd9639fd5a2caf17e",
+    "competition/run_no_new_labels.py": "ea96a82166eeae72831c20ba19676fe267dc91f535e38e6455283dd3e960006f",
+    "competition/pack_workflow.py": "cf1cce492d7728ad2e1426e558275365905bf07e940a0f80b3ed9b79b3f953c4"
   },
   "metrics": {
     "protocol": "Post-hoc strict-axis reconstruction of previously inspected internal OOF; no new independent test",
@@ -895,7 +899,7 @@
   },
   "scope": "local offline engineering evidence and internal OOF; not clinical acceptance",
   "as_of": "2026-10-15",
-  "workflow_profile_sha256": "e136c71e96958c2c9890ff861c6d13fd7ff1db02bfe69bddf3f04b23b5697e25",
+  "workflow_profile_sha256": "dc7659caa76c96beb0e8816eada1a871b452050fc61bb2c3442ad6d67df7d09f",
   "batch_image_id": "sha256:f052f998769029a0946cd9ed43afde99a1ea584c59dcadddfa4c4f7836bcaa2b",
   "repeat_image_id": "sha256:c7dd30090ecfaf9838cbd82f8b39314af56d8d3c71c60dd2edd8bbbb83416648",
   "repeat_scope": "Different engineering image builds with the same checksum-pinned inference code, baseline weights and workflow artifacts; the later build adds direct-root support in the research review helper.",
@@ -965,7 +969,7 @@
     "prediction_models_unchanged_from_1_11_6": true,
     "anatomical_gpu_candidate_separate_from_cpu_release": true
   },
-  "image_tag": "osseo-dxaqc:1.11.7",
+  "image_tag": "osseo-dxaqc:1.12.0",
   "historical_evidence_as_of": "2026-10-03",
   "historical_fields": [
     "batch",
@@ -983,6 +987,414 @@
   ],
   "historical_git_head_at_capture": "dca6e2556b805de91123ae427de2c07110c5d5dc",
   "research_gpu_candidate": {
+    "image_tag": "dxaqc:anatomy-fullfit-1.12.0-20261015",
+    "image_id": "sha256:ddaa41aaa32e7aa23dba5bf9bccc823b0c8740d6c98ca13fc98dcd36e768095d",
+    "profile_id": "research-live-anatomy-qc-20261015",
+    "clinical_validation": false,
+    "final_qc_weights_fit_on_all_training_images": 249,
+    "independent_accuracy_of_final_weights_established": false,
+    "nested_validation_reference": "quality-gated-own-roi",
+    "nested_f1": 0.6190476190476191,
+    "nested_roc_auc": 0.8118773349937735,
+    "nested_type_macro_f1": 0.5363401815575728,
+    "metrics_scope": "Repeatedly inspected 249-image/100-study cohort; not patient-disjoint or closed-test performance",
+    "offline_cli": {
+      "version": "1.12.0",
+      "submission_available": true,
+      "submission_valid": true,
+      "files": 499,
+      "success": 499,
+      "failure": 0,
+      "success_rate": 1.0,
+      "violations": 190,
+      "cancelled": false,
+      "studies": 100,
+      "max_seconds_per_study": 3.224,
+      "mean_seconds_per_image": 0.2352,
+      "total_seconds": 146.016,
+      "workflow_profile_id": "research-live-anatomy-qc-20261015",
+      "process_peak_rss_bytes": 4108832768,
+      "cpu_count_visible": 12,
+      "typification_complete": true,
+      "anatomical_checks_complete": false,
+      "automatic_check_execution_complete": true,
+      "automatic_findings_resolved": false,
+      "automatic_workflow_complete": true,
+      "untyped_violations": 0,
+      "requirements_complete": false,
+      "max_seconds_per_study_upper_bound": 31.861061351998366
+    },
+    "offline_http": {
+      "ready_response": {
+        "ready": true,
+        "version": "1.12.0",
+        "model": {
+          "model_type": "anatomical_qc_gated",
+          "training_scope": "full_data_fit",
+          "clinical_validation": false,
+          "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+          "qc_bank_sha256": "16e317228acb1a7fb8207db1e66675e7253355faa2b13583216b4915853a0a25",
+          "reference_bank_sha256": "98a6e6d567679894117c24a5c15a0b7c20a96f3bbab8eef4eb9e29df69266a38",
+          "decoder_sha256": "b318aaf179c04adb64595a699a0856ecade23b1a49c5c3e54f6941251682fdd7",
+          "calibration_version": "lct-v2-xy-1",
+          "source_baseline_model": {
+            "trained_at_unix": 1789922126,
+            "calibration_version": "lct-v2-xy-1",
+            "sklearn": "1.6.1",
+            "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+            "seed": 17,
+            "code_sha256": "340a4dcda4fad1fc64932387205956431a83acb78bf3ab0edc7897e4785d4620",
+            "decision_version": "3",
+            "configuration": {
+              "repeats": 1,
+              "synthetic": "rotate",
+              "extra": []
+            }
+          }
+        },
+        "workflow_profile_id": "research-live-anatomy-qc-20261015",
+        "specialist_qc": null,
+        "specialist_outputs": null,
+        "disk_free_bytes": 432433885184,
+        "jobs_in_recent_history": 0
+      },
+      "files": 499,
+      "success": 499,
+      "failure": 0,
+      "submission_valid": true,
+      "requirements_complete": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "network_mode": "none",
+      "transport": "real_loopback_HTTP_multipart_ZIP",
+      "compiled_ui_assets_served": 2,
+      "cli_answers_identical": true,
+      "original_zip_retained_identically": true,
+      "export_sha256": {
+        "submission.csv": "48c30217c9f1a343644cd8286420d2ed79b1b0b58517fd571aebc172ca2566bc",
+        "submission.xlsx": "67e80aaa279a6ee8185a193f8ff19b8c8a703d7ed813e59de92f64a6682a9b01",
+        "results_extended.csv": "4efd88ca6156087e6257174d69e9fa12659b248f727a48f228102c64064c81d8",
+        "additional_series.zip": "a86eec0c577a2dff39a8407ff7b5a84d807c7b922bf017b64a43e96dc18e4a27",
+        "submission_validation.json": "7b4ec5d461b906919d009fde163dd4657574f67e83020164407ccc8c3e09e562",
+        "requirements.json": "6b9a7a0f9d45c7b87c96c97cee5ab256938965657a350b60353063444ff3a1fa",
+        "timing.json": "75d89c2ea97380bc43d7b92c0419eac08d6978966c6fa6a01a82833bc2cc1d4b"
+      },
+      "png_explanations": 499,
+      "dicom_sop_class_counts": {
+        "1.2.840.10008.5.1.4.1.1.7": 499,
+        "1.2.840.10008.5.1.4.1.1.88.11": 499
+      },
+      "batch_seconds": 147.56785612800013,
+      "max_study_upper_bound_seconds": 31.44305612800017,
+      "within_180_seconds": true,
+      "wall_seconds_including_upload_exports": 152.848391927997,
+      "clinical_validation": false,
+      "scope": "Full-data-fit GPU 1.12.0 with explicit automatic geometry; runtime verification, not held-out QC accuracy or H200 measurement"
+    },
+    "second_http_job": {
+      "ready_response": {
+        "ready": true,
+        "version": "1.12.0",
+        "model": {
+          "model_type": "anatomical_qc_gated",
+          "training_scope": "full_data_fit",
+          "clinical_validation": false,
+          "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+          "qc_bank_sha256": "16e317228acb1a7fb8207db1e66675e7253355faa2b13583216b4915853a0a25",
+          "reference_bank_sha256": "98a6e6d567679894117c24a5c15a0b7c20a96f3bbab8eef4eb9e29df69266a38",
+          "decoder_sha256": "b318aaf179c04adb64595a699a0856ecade23b1a49c5c3e54f6941251682fdd7",
+          "calibration_version": "lct-v2-xy-1",
+          "source_baseline_model": {
+            "trained_at_unix": 1789922126,
+            "calibration_version": "lct-v2-xy-1",
+            "sklearn": "1.6.1",
+            "labels_sha256": "dae4bf141748870262dc3906c1f76c6c30728a1cb0ff9213cfd8933fb449ecb8",
+            "seed": 17,
+            "code_sha256": "340a4dcda4fad1fc64932387205956431a83acb78bf3ab0edc7897e4785d4620",
+            "decision_version": "3",
+            "configuration": {
+              "repeats": 1,
+              "synthetic": "rotate",
+              "extra": []
+            }
+          }
+        },
+        "workflow_profile_id": "research-live-anatomy-qc-20261015",
+        "specialist_qc": null,
+        "specialist_outputs": null,
+        "disk_free_bytes": 431309082624,
+        "jobs_in_recent_history": 1
+      },
+      "files": 3,
+      "success": 3,
+      "failure": 0,
+      "submission_valid": true,
+      "requirements_complete": false,
+      "network_interfaces": [
+        "lo"
+      ],
+      "network_mode": "none",
+      "transport": "real_loopback_HTTP_multipart_ZIP",
+      "compiled_ui_assets_served": 2,
+      "cli_answers_identical": true,
+      "original_zip_retained_identically": true,
+      "export_sha256": {
+        "submission.csv": "8f3a39165d445e5efc55f0a8fcaf65ea7398b5db294ce9244b8b85cc977affd4",
+        "submission.xlsx": "a4d2cf24c7a8c903bbdb9d85d40f103871935e350a9bbc05929fe53875aa72ea",
+        "results_extended.csv": "81d14efd31ef4e40dcaf762af9ec49eb645f8f0f05d3e59ed3353d6dc470c930",
+        "additional_series.zip": "92d09ad2018c9485f08b25b3fffd83a26a12b64b54f68766e8e9b345243a4c0b",
+        "submission_validation.json": "e9f004ced04c9cf84b1c36c1d149f48c49bea4209185906d4073293788c39c12",
+        "requirements.json": "13e9056cb706d155404d5212ef73cd9a130746003f4ddbf92665763532880985",
+        "timing.json": "ef7597b66144960c345b92f65595e5e9bf840cf7a873bcc8ac64bd727816e082"
+      },
+      "png_explanations": 3,
+      "dicom_sop_class_counts": {
+        "1.2.840.10008.5.1.4.1.1.7": 3,
+        "1.2.840.10008.5.1.4.1.1.88.11": 3
+      },
+      "batch_seconds": 1.4785029709964874,
+      "max_study_upper_bound_seconds": 0.9345029709964874,
+      "within_180_seconds": true,
+      "wall_seconds_including_upload_exports": 1.7863163689980865,
+      "clinical_validation": false,
+      "scope": "Second queued request after 499 files; answers compared with prior 1.11.7 CLI on the same three unlabelled debug DICOMs, not accuracy measurement"
+    },
+    "ready_after_two_jobs": true,
+    "requirements_complete": false,
+    "report": "docs/competition/anatomy_upgrade_2026_10_15.json",
+    "cold_deployment_protocol": {
+      "profile": {
+        "profile_id": "research-live-anatomy-qc-20261015",
+        "clinical_validation": false,
+        "status": "research_only",
+        "source_profile_id": "tz-delivery-1.12.0",
+        "evaluation_mode": "full_data_fit",
+        "gated_decoder": true,
+        "spine_visibility_cue": false,
+        "inference_code_sha256": "a3529a6f90a879264192a80381135adb62d7eaa6e219e4707e69727f10cb09ee",
+        "bank_sha256": "16e317228acb1a7fb8207db1e66675e7253355faa2b13583216b4915853a0a25",
+        "reference_bank_sha256": "98a6e6d567679894117c24a5c15a0b7c20a96f3bbab8eef4eb9e29df69266a38",
+        "decoder_sha256": "b318aaf179c04adb64595a699a0856ecade23b1a49c5c3e54f6941251682fdd7",
+        "hip_models": {
+          "landmarks": "587c43c21cb7ae9a36ab960348ba6d67756a38365ebd525e6049fd3ea273ca84",
+          "projection": "fda5e43a03480ce1150dd3268f17222f4a0e2af4c0bd049c380af50b4fedc976",
+          "neck_template": "b33593c0fd2b21670657afcfb0f233b30c7d81b5d1541c58e500ff9125cafaa2",
+          "display_landmarks": "f21b584dfd5c77c0cc8d567e24819900ad574975ec0f9b5dadc9eca273cb41c3",
+          "display_template": "e7e6db119475e40caf7e87581753e5d8ba02b77db0bd2f3c68e280022768e5d4"
+        },
+        "automatic_geometry": true,
+        "geometry_code_sha256": "bb17eb7cb13af0c1eea3d9390f6202d0aa83dc21cf90ebc09a967bc6954015c8",
+        "anatomical_evidence_scope": "model-derived measurements and explicit uncertainty, not clinical validation"
+      },
+      "network_interfaces": [
+        "lo"
+      ],
+      "clinical_validation": false,
+      "initialization_seconds": 10.8018977630054,
+      "wall_seconds_including_initialization": 156.9026627380008,
+      "cold_study_upper_bound_seconds": 42.662959115003765,
+      "cold_within_180_seconds": true,
+      "cached_image_features_used": false,
+      "target_labels_used_by_inference": false
+    },
+    "automatic_execution_scope": "Function execution coverage, not correctness or full TZ acceptance; unresolved findings remain explicit.",
+    "automatic_requirements": {
+      "version": 2,
+      "complete": false,
+      "images": 499,
+      "success": 499,
+      "failure": 0,
+      "untyped_violations": 0,
+      "typification_complete": true,
+      "anatomical_checks_complete": false,
+      "automatic_check_execution_complete": true,
+      "automatic_findings_resolved": false,
+      "automatic_workflow_complete": true,
+      "automatic_workflow_blockers": [],
+      "automatic_checks": {
+        "projection": {
+          "execution_completed": 499,
+          "outcome_frontal": 490,
+          "review_required": 9,
+          "outcome_lateral": 9
+        },
+        "classifier_spine_coverage": {
+          "execution_completed": 166,
+          "outcome_pass": 149,
+          "review_required": 17,
+          "outcome_fail": 17
+        },
+        "classifier_spine_axis": {
+          "execution_completed": 166,
+          "outcome_pass": 160,
+          "review_required": 6,
+          "outcome_fail": 6
+        },
+        "classifier_spine_artifact": {
+          "execution_completed": 166,
+          "outcome_pass": 122,
+          "review_required": 44,
+          "outcome_fail": 44
+        },
+        "Th12_visible_half": {
+          "execution_completed": 166,
+          "outcome_estimated_pass": 150,
+          "review_required": 16,
+          "outcome_uncertain": 9,
+          "outcome_estimated_fail": 3,
+          "outcome_not_detected": 1,
+          "outcome_body_not_resolved": 3
+        },
+        "iliac_crest_left": {
+          "execution_completed": 166,
+          "outcome_localized": 159,
+          "review_required": 7,
+          "outcome_not_detected": 5,
+          "outcome_boundary_ambiguous": 2
+        },
+        "iliac_crest_right": {
+          "execution_completed": 166,
+          "outcome_localized": 158,
+          "review_required": 8,
+          "outcome_not_detected": 5,
+          "outcome_boundary_ambiguous": 3
+        },
+        "vertebral_numbering_and_roi": {
+          "execution_completed": 166,
+          "outcome_proposed": 166,
+          "review_required": 0
+        },
+        "source_roi": {
+          "execution_completed": 499,
+          "outcome_not_applicable": 499,
+          "review_required": 0
+        },
+        "classifier_hip_position_rotation": {
+          "execution_completed": 333,
+          "outcome_pass": 229,
+          "review_required": 104,
+          "outcome_fail": 104
+        },
+        "classifier_hip_roi_coverage": {
+          "execution_completed": 333,
+          "outcome_pass": 310,
+          "review_required": 23,
+          "outcome_fail": 23
+        },
+        "greater_trochanter": {
+          "execution_completed": 333,
+          "outcome_localized": 333,
+          "review_required": 0
+        },
+        "femoral_neck": {
+          "execution_completed": 333,
+          "outcome_localized": 333,
+          "review_required": 0
+        },
+        "ischium": {
+          "execution_completed": 333,
+          "outcome_localized": 331,
+          "review_required": 2,
+          "outcome_not_detected": 2
+        },
+        "lesser_trochanter": {
+          "execution_completed": 333,
+          "outcome_localized": 333,
+          "review_required": 0
+        },
+        "scan_coverage_mm": {
+          "execution_completed": 333,
+          "outcome_estimated_pass": 317,
+          "review_required": 16,
+          "outcome_unavailable": 3,
+          "outcome_estimated_fail": 13
+        },
+        "rotation_lesser_trochanter": {
+          "execution_completed": 333,
+          "outcome_pass": 229,
+          "review_required": 104,
+          "outcome_fail": 104
+        },
+        "neck_roi_orientation": {
+          "execution_completed": 333,
+          "outcome_measured": 332,
+          "review_required": 1,
+          "outcome_deferred": 1
+        },
+        "own_neck_roi_relationships": {
+          "execution_completed": 333,
+          "outcome_evaluated": 332,
+          "review_required": 1,
+          "outcome_deferred": 1
+        },
+        "estimated_GT_compartment_exclusion": {
+          "execution_completed": 333,
+          "outcome_estimated_fail": 252,
+          "review_required": 253,
+          "outcome_estimated_pass": 80,
+          "outcome_deferred": 1
+        },
+        "soft_tissue_both_sides": {
+          "execution_completed": 333,
+          "outcome_model_supported": 74,
+          "review_required": 259,
+          "outcome_not_detected_at_both_ends": 258,
+          "outcome_deferred": 1
+        },
+        "pelvic_intersection": {
+          "execution_completed": 333,
+          "outcome_measured_without_invented_failure_tolerance": 332,
+          "review_required": 333,
+          "outcome_deferred": 1
+        }
+      },
+      "automatic_scope": "Execution coverage only; uncertain findings remain unresolved and this does not establish anatomical accuracy or full TZ acceptance.",
+      "checks": {
+        "Th12": {
+          "undetermined": 166
+        },
+        "iliac_crest_left": {
+          "undetermined": 166
+        },
+        "iliac_crest_right": {
+          "undetermined": 166
+        },
+        "projection": {
+          "undetermined": 499
+        },
+        "vertebral_numbering_and_roi": {
+          "undetermined": 166
+        },
+        "source_roi": {
+          "not_applicable": 499
+        },
+        "greater_trochanter": {
+          "undetermined": 333
+        },
+        "femoral_neck": {
+          "undetermined": 333
+        },
+        "ischium": {
+          "undetermined": 333
+        },
+        "lesser_trochanter": {
+          "undetermined": 333
+        },
+        "scan_coverage": {
+          "undetermined": 333
+        },
+        "rotation": {
+          "undetermined": 333
+        }
+      },
+      "blockers": [
+        "anatomical_checks_incomplete"
+      ],
+      "scope": "coverage of required evidence, not external clinical certification or organiser approval"
+    }
+  },
+  "research_gpu_candidate_1_11_7_historical": {
     "image_tag": "dxaqc:anatomy-fullfit-1.11.7-20261015",
     "image_id": "sha256:14f131bb47b77f16400d1fcc8aab73786650730ebc603f17016ccece47fa44ee",
     "profile_id": "research-live-anatomy-qc-20261015",
@@ -1156,5 +1568,64 @@
     "ready_after_two_jobs": true,
     "requirements_complete": false,
     "report": "docs/competition/anatomy_upgrade_2026_10_15.json"
+  },
+  "release_changes_1_12_0": [
+    "Add model-derived Th12 visibility, iliac crest and own neck ROI relationships with explicit uncertainty.",
+    "Separate automatic function execution from resolved anatomical findings; preserve strict incomplete-evidence flags.",
+    "61 extra QC configurations after initial three; no unmeasured model promotion."
+  ],
+  "verification_1_12_0": {
+    "local_tests": {
+      "passed": 486,
+      "skipped": 5
+    },
+    "cpu_container_tests": {
+      "passed": 469,
+      "skipped": 8
+    },
+    "cpu_delivery_script_synthetic_zip_smoke": true,
+    "inference_source_sha256": {
+      "/app/dxaqc/__init__.py": "a2351ccd934e9a09200185d174327f6e8f2075f9933d4e734d86cd3183163cb8",
+      "/app/dxaqc/anatomical_roi.py": "c7c98e9b61562bb43c44c5787a18e62269215387fd510c09a5b4167c131ede59",
+      "/app/dxaqc/anatomy.py": "cc6ec585e7a355e4cf02ca39da733065b64ee68e92ea7b3c469c0a1f562510da",
+      "/app/dxaqc/api.py": "7993b1e51f99fb434e48e35024e743ea4dbb57ef63b397c495aaaf070c67ff20",
+      "/app/dxaqc/cli.py": "90305402a9378970b6f28ae763df980b8c58f9db19336dc51bc3c89f899ae6d2",
+      "/app/dxaqc/decision.py": "c6dc65d5eaf1a75262fcc12c2137c5e39ae247a1166db7789db48556fc920974",
+      "/app/dxaqc/dicom_io.py": "ceab601d328f6542701b708cfbf8635fe188b667e1028140a6ff2399b2a38746",
+      "/app/dxaqc/dynamics.py": "f443f82da49a874dc0288668c74211c2b0b9b9f13b0848f21c5e9f264f519634",
+      "/app/dxaqc/embedding.py": "3ddcf6d564b67114b5c35a23d359bc2afe1215fd5681e82279fa95f8abcde139",
+      "/app/dxaqc/explain.py": "38a1247d6ec541fbdbfba68d6bb3ca7856818129e0f1e37a85393c17e543e195",
+      "/app/dxaqc/functional_checks.py": "13d5210439b0d552582c16edc1cbe48775aeb19342e71a73339dfddc28fcccf5",
+      "/app/dxaqc/geometry.py": "3c8916962b28f68f83a9739915ebe5286e7aecf3a12a88098ae356b8dc8f28ff",
+      "/app/dxaqc/joint_quality.py": "673e4cdc1fb3561d89a9a96976d9f302b1a829051d4860ec793d3b1ccde0ce21",
+      "/app/dxaqc/learned_anatomy.py": "584010851449a0e4b99c16fbfaf2ab3c1f3a478ee276d3c0cc779c0825a02352",
+      "/app/dxaqc/maintenance.py": "d3b10ad01c08de238c1cf7cfa28fd427e72da497069ed333a90cee39ab04cf05",
+      "/app/dxaqc/mask_raster.py": "5eb470dca85eff85a7000cb7195db4c646d5b9095eba24ac208c90024060058d",
+      "/app/dxaqc/model.py": "f8cd52f48f2e60d7a1979f79db20c8a2deb50f709a67fe8133483d623aba0958",
+      "/app/dxaqc/neck_roi_geometry.py": "09f7c12bfd739af3a21f0bb7ceba1c5222a9e58561359fde69a569124e39dc38",
+      "/app/dxaqc/pipeline.py": "022c7ee176b104ef4e5b1456bd29014bbae005b5d6f8659159f0aa0bda293e23",
+      "/app/dxaqc/projection_model.py": "bbfec3f43f8cc7f54266783cbea69e8f1e3e2e0a910bcfb0e79bf00a3ebbba36",
+      "/app/dxaqc/report.py": "f91b4712d9302ad413f58a42816fd2ef2ed611a0de52187917ab4ab55e52a719",
+      "/app/dxaqc/requirements.py": "ddf0dbb8070f27f99ca4e735e52b515d2b1f8a61c4bb25852ab9a6c675df6816",
+      "/app/dxaqc/result_context.py": "2b8b44444072fcc8889b6fd8321332d49f703383570f66e07ee9685530f67f47",
+      "/app/dxaqc/review.py": "b03de5b1ac84f7aee278d2a115de1f2af548d35ea24c4d8738a00943dd5f8479",
+      "/app/dxaqc/review_report.py": "f61ee3c8f999e300e5e9853c7b3f2b29da0d90c20f00b1a64c97ad3f41b92152",
+      "/app/dxaqc/roi.py": "1281e2509b71805913eba23d892161d165d2913e297e75ee9f7ce357b650cf6a",
+      "/app/dxaqc/source_archive.py": "0a5a6055717b9e1896f2e502b9571bedbc5d90c4bf8f1b24e6aa8e2b321f7a79",
+      "/app/dxaqc/source_roi.py": "34950ccf9a6d263930c72bd5233a33279deca313dd7ecc26fbcf1a556058f039",
+      "/app/dxaqc/specialist_catalog.py": "ba66b10fb9e76c43a83b2032ee0c17af5dd5c92429e45e199830bf52ca905a41",
+      "/app/dxaqc/specialist_qc.py": "d2435f47a2741fc7ff172a78c41db152a7d5715fa1a30e6e1ac74be702c49eae",
+      "/app/dxaqc/store.py": "54b1a5dd4599d50a12c888b8789261132e23cf5beb6c1b617fa1a6e79ccc985a",
+      "/app/dxaqc/synthetic_defects.py": "02c0e805ebcbe74bbd10af42733377885d94720fd2cfea77e36f7a9eb5b4d7b2",
+      "/app/dxaqc/validate_anatomy.py": "215d46938562c72a293870d7277ca5abbb401341442d7f3060d1bc020ff47a8a",
+      "/app/dxaqc/validate_results.py": "f687031a77fb6720bac4e94c46cbb8dd2f41ba0aff03b5b79c240ec51517e886",
+      "/app/dxaqc/workflow_profile.py": "0ebe88d0128b7dd1ad4123de8a688cce7b196e64a3e6d01578a78282635b1746",
+      "/app/dxaqc/xlsx_read.py": "18e1759760e679756e19e5183ba4c8ff8cd1952bc69cedfbd9639fd5a2caf17e",
+      "/app/experiments/automatic_anatomy_candidate.py": "706ba6c3e98d469c3e248df2ae2d8428f5969e2261c670c3f675ac483375bc1d",
+      "/app/experiments/automatic_anatomy_geometry.py": "bb17eb7cb13af0c1eea3d9390f6202d0aa83dc21cf90ebc09a967bc6954015c8",
+      "/app/experiments/live_anatomy_candidate.py": "a3529a6f90a879264192a80381135adb62d7eaa6e219e4707e69727f10cb09ee",
+      "/app/experiments/live_anatomy_deployment.py": "a8eb36956e55c178e1c8871094f741e2a08c6b67f66bba847674055b4e9fcbbe",
+      "/app/experiments/anatomy_display_selection.py": "4bb29d993be72d254580304d570a4eaab35c68d3fd4d763d5cb84de427e928dd"
+    }
   }
 }

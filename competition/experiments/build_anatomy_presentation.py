@@ -18,7 +18,8 @@ def main():
     args = parser.parse_args()
     r = json.loads(args.report.read_text())
     candidate = next(t for t in r['trials'] if t['name'] == 'quality-gated-own-roi')['metrics']
-    v = r['verification']['gpu_fullfit_1_11_7']
+    version = r['release']
+    v = r['verification']['gpu_fullfit_' + version.replace('.', '_')]
     cli, http, cold = v['cli'], v['http'], v['deployment_protocol']
     if not http['cli_answers_identical'] or cli['success'] != 499 or http['success'] != 499:
         raise ValueError('Full offline CLI and HTTP acceptance is required before generating current slides')
@@ -38,7 +39,7 @@ def main():
     criterion = [(labels[name], n(m['f1']), f"{m['tn_fp_fn_tp'][3]} / {m['tn_fp_fn_tp'][2]} / {m['tn_fp_fn_tp'][1]}")
                  for name, m in candidate['by_criterion'].items()]
     sections = [
-        ('Osseo AI — контроль качества DXA', '<p>Техническая сборка 1.11.7 · отдельный GPU-кандидат</p>' + items([
+        ('Osseo AI — контроль качества DXA', f'<p>Техническая сборка {escape(version)} · отдельный GPU-кандидат</p>' + items([
             'Две анатомические области, пять типов нарушений, CSV/XLSX, визуальная серия и DICOM SR.',
             'Исследовательские модели обучены и проверены офлайн. Полное выполнение ТЗ пока не заявляется.'])),
         ('Работающий маршрут', items([
@@ -74,9 +75,9 @@ def main():
             'Затем успешно обработан второй HTTP-пакет из трёх DICOM; очередь остаётся работоспособной. Сеть — только lo, runtime-загрузок весов нет.',
             'Локальная RTX 4070; H200 не измерялась. Загрузка Python и запуск Docker отдельно не входят в таймер инициализации CLI.'])),
         ('Что остаётся по ТЗ', items([
-            'Наличие маски Th12 не измеряет видимую половину его тела. Точка большого вертела не доказывает исключение всей структуры из ROI.',
-            'Область вне кости не является подтверждённой мягкой тканью. Разные виды ROI и охват сканирования требуют разных проверок.',
-            'Прежний отчёт полноты смешивает вычисление проверки с клиническими флагами. Его нельзя исправить простым переключением флагов.',
+            'Добавлены оценки видимой доли Th12 и отношений ROI к области большого вертела, мышцам и тазовой кости. Границы тела и вертела приближённые.',
+            'Геометрия ROI доступна для 152/153 уникальных снимков бедра; мышцы с обеих сторон предсказаны на 29. Остальные случаи не объявляются отсутствием мягкой ткани.',
+            'Выполнение автоматических функций и разрешение находок теперь разделены. Неопределённость остаётся явной; отдельные виды ротации требуют доработки.',
             'Закрытый тест и экспертная приёмка остаются у организатора. Собственная клиническая сертификация не является условием данного ТЗ.',
             'requirements_complete остаётся false. Глобальный максимум метрик и качество закрытого теста не установлены.'])),
         ('Демонстрация и воспроизведение', items([
@@ -90,7 +91,7 @@ def main():
     match = re.search(r'<style>(.*?)</style>', old, re.S)
     css = match.group(1) if match else 'body{font:20px/1.5 system-ui}main{max-width:1100px;margin:auto}.slide{padding:40px;break-after:page}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px}'
     body = ''.join(f'<section class="slide" aria-labelledby="s{i}"><p class="num">{i} / {len(sections)}</p><h1 id="s{i}">{escape(title)}</h1>{content}</section>' for i, (title, content) in enumerate(sections, 1))
-    args.output.write_text(f'<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Osseo AI — результаты и ограничения 1.11.7</title><style>{css}</style></head><body><main>{body}</main></body></html>\n')
+    args.output.write_text(f'<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Osseo AI — результаты и ограничения {escape(version)}</title><style>{css}</style></head><body><main>{body}</main></body></html>\n')
     print(str(args.output))
 
 

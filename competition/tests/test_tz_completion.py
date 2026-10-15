@@ -50,12 +50,12 @@ def test_shipped_workflow_profile_matches_current_inference_code(monkeypatch):
     from pathlib import Path
     from dxaqc.pipeline import MODEL_PATH
     from dxaqc.workflow_profile import configure_profile
-    profile = Path(__file__).resolve().parents[1] / 'models/workflow_1_11_7/profile.json'
+    profile = Path(__file__).resolve().parents[1] / 'models/workflow_1_12_0/profile.json'
     for name in ('DXAQC_WORKFLOW_PROFILE', 'DXAQC_ANATOMY_MODEL',
                  'DXAQC_QUALITY_REVIEW_MODEL', 'DXAQC_PROJECTION_MODEL'):
         monkeypatch.delenv(name, raising=False)
     configured = configure_profile(profile, MODEL_PATH)
-    assert configured['profile_id'] == 'tz-delivery-1.11.7'
+    assert configured['profile_id'] == 'tz-delivery-1.12.0'
 
 
 @pytest.mark.parametrize('view,code', [('lateral', 'UNSUPPORTED_PROJECTION'),

@@ -1,6 +1,6 @@
 # Research GPU candidate. Build competition/Dockerfile as BASE_IMAGE first.
 # anatomy_assets is a model-only named context prepared by the export CLI.
-ARG BASE_IMAGE=dxaqc:1.11.7-audit-20261015
+ARG BASE_IMAGE=dxaqc:1.12.0-audit-20261015
 ARG ANATOMY_ENV_IMAGE=dxaqc-anatomy-env:20261015
 FROM ${BASE_IMAGE} AS release
 FROM ${ANATOMY_ENV_IMAGE} AS research_environment
@@ -9,7 +9,12 @@ FROM ${ANATOMY_ENV_IMAGE} AS research_environment
 FROM python:3.11.9-slim-bookworm@sha256:8fb099199b9f2d70342674bd9dbccd3ed03a258f26bbd1d556822c6dfc60c317
 COPY --from=research_environment /opt/anatomy /opt/anatomy
 # Keep the large, immutable model layer before frequently edited application code.
-COPY --from=anatomy_assets / /opt/anatomy-assets/
+COPY --from=anatomy_assets /dinov3-l /opt/anatomy-assets/dinov3-l/
+COPY --from=anatomy_assets /rad-dino /opt/anatomy-assets/rad-dino/
+COPY --from=anatomy_assets /vertebrae /opt/anatomy-assets/vertebrae/
+COPY --from=anatomy_assets /pelvis /opt/anatomy-assets/pelvis/
+COPY --from=anatomy_assets /candidate /opt/anatomy-assets/candidate/
+COPY --from=anatomy_assets /assets_manifest.json /opt/anatomy-assets/assets_manifest.json
 COPY --from=release /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0 /usr/lib/x86_64-linux-gnu/libgomp.so.1
 COPY --from=release /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30 /usr/lib/x86_64-linux-gnu/libstdc++.so.6
 COPY --from=release /lib/x86_64-linux-gnu/libgcc_s.so.1 /lib/x86_64-linux-gnu/libgcc_s.so.1
@@ -21,7 +26,7 @@ ENV PATH=/opt/anatomy/bin:$PATH \
     TRANSFORMERS_OFFLINE=1 \
     DXAQC_DATA_DIR=/work \
     DXAQC_INPUT_ROOT=/data \
-    DXAQC_WORKFLOW_PROFILE=/app/models/workflow_1_11_7/profile.json \
+    DXAQC_WORKFLOW_PROFILE=/app/models/workflow_1_12_0/profile.json \
     DXAQC_ANATOMY_CONFIG=/opt/anatomy-assets/candidate/runtime.json \
     HOME=/tmp MPLCONFIGDIR=/tmp JOBLIB_TEMP_FOLDER=/tmp
 WORKDIR /app
