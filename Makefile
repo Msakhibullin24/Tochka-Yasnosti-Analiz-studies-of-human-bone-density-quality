@@ -109,3 +109,22 @@ RESEARCH_PYTHON ?= .venv-gpu/bin/python
 strict-calibration:
 	@test -n "$(INPUT)" -a -n "$(OUTPUT)" || (echo "INPUT=organizer_DICOM_root OUTPUT=new_experiment_directory are required" >&2; exit 2)
 	"$(RESEARCH_PYTHON)" competition/experiments/strict_nested_calibration.py --dataset "$(INPUT)" --baseline "$(METRIC_BASELINE)" --output "$(OUTPUT)" $(if $(EMBEDDINGS),--embeddings "$(EMBEDDINGS)",)
+
+.PHONY: deploy deploy-status deploy-rollback deploy-watch
+DEPLOY_IMAGE ?= dxaqc:anatomy-fullfit-1.12.0-20261015
+DEPLOY_MODE ?= gpu
+DEPLOY_STATE ?= data/deployment-$(DEPLOY_MODE)
+DEPLOY_NAME ?= dxaqc-managed-$(DEPLOY_MODE)
+DEPLOY_PORT ?= 8093
+
+deploy:
+	python3 competition/ops/deploy.py deploy --image "$(DEPLOY_IMAGE)" --mode "$(DEPLOY_MODE)" --state "$(DEPLOY_STATE)" --name "$(DEPLOY_NAME)" --port "$(DEPLOY_PORT)"
+
+deploy-status:
+	python3 competition/ops/deploy.py status --state "$(DEPLOY_STATE)" --name "$(DEPLOY_NAME)"
+
+deploy-rollback:
+	python3 competition/ops/deploy.py rollback --state "$(DEPLOY_STATE)" --name "$(DEPLOY_NAME)"
+
+deploy-watch:
+	python3 competition/ops/deploy.py watch --state "$(DEPLOY_STATE)" --name "$(DEPLOY_NAME)"

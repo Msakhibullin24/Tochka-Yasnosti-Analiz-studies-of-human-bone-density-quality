@@ -1,0 +1,91 @@
+name: Reviewed GPU container release
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Deploy to this configured GPU runner after acceptance
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reviewed-gpu-release
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    if: github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/ci.yml
+
+  gpu:
+    needs: checks
+    runs-on: [self-hosted, linux, x64, dxaqc-gpu]
+    environment: gpu-release
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      packages: write
+    env:
+      ANATOMY_ASSETS: ${{ vars.DXAQC_ANATOMY_ASSETS }}
+      ANATOMY_ENV_IMAGE: ${{ vars.DXAQC_ANATOMY_ENV_IMAGE }}
+      RELEASE_STATE: ${{ vars.DXAQC_GPU_RELEASE_STATE }}
+    steps:
+      - name: Protect model assets and state from checkout cleanup
+        env:
+          DEPLOY_STATE: ${{ vars.DXAQC_GPU_DEPLOY_STATE }}
+          DEPLOY_REQUESTED: ${{ inputs.deploy }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          root = Path(os.environ['GITHUB_WORKSPACE']).resolve()
+          names = ['ANATOMY_ASSETS', 'RELEASE_STATE']
+          if os.environ['DEPLOY_REQUESTED'] == 'true': names.append('DEPLOY_STATE')
+          for name in names:
+              value = os.environ[name]
+              path = Path(value).resolve()
+              if not value or not Path(value).is_absolute() or path == root or root in path.parents:
+                  raise SystemExit(name + ' must be absolute and outside GITHUB_WORKSPACE')
+          PY
+      - uses: actions/checkout@v4
+      - name: Check prepared model-only inputs
+        run: |
+          test -f "$ANATOMY_ASSETS/assets_manifest.json"
+          test -n "$ANATOMY_ENV_IMAGE"
+          test -n "$RELEASE_STATE"
+          docker image inspect "$ANATOMY_ENV_IMAGE" > /dev/null
+          python3 competition/ops/verify_assets.py --root "$ANATOMY_ASSETS" --code-root competition
+      - run: ./competition/run.sh build
+      - name: Build GPU delivery without training-data downloads
+        run: |
+          docker build -f competition/Dockerfile.anatomy --build-arg BASE_IMAGE=osseo-dxaqc:1.12.0 --build-arg "ANATOMY_ENV_IMAGE=$ANATOMY_ENV_IMAGE" --build-context "anatomy_assets=$ANATOMY_ASSETS" -t dxaqc:gpu-release .
+      - name: Accept GPU image through isolated and published HTTP
+        run: python3 competition/ops/deploy.py deploy --mode gpu --image dxaqc:gpu-release --state "$RELEASE_STATE/check-$GITHUB_SHA" --name dxaqc-gpu-release-check --port 18093
+      - name: Publish tested GPU content digest
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          registry="ghcr.io/${GITHUB_REPOSITORY,,}/gpu"
+          printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          docker tag dxaqc:gpu-release "$registry:sha-$GITHUB_SHA"
+          docker push "$registry:sha-$GITHUB_SHA"
+          docker image inspect "$registry:sha-$GITHUB_SHA" --format '{{index .RepoDigests 0}}' > gpu-release-image.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gpu-release-image-${{ github.sha }}
+          path: gpu-release-image.txt
+      - name: Deploy reviewed digest
+        if: inputs.deploy
+        env:
+          DEPLOY_STATE: ${{ vars.DXAQC_GPU_DEPLOY_STATE }}
+          DEPLOY_PORT: ${{ vars.DXAQC_GPU_DEPLOY_PORT }}
+        run: |
+          test -n "$DEPLOY_STATE"
+          image=$(cat gpu-release-image.txt)
+          python3 competition/ops/deploy.py deploy --mode gpu --image "$image" --name dxaqc-gpu-production --state "$DEPLOY_STATE" --port "${DEPLOY_PORT:-8093}"
+      - name: Cleanup acceptance service
+        if: always()
+        run: docker rm -f dxaqc-gpu-release-check || true

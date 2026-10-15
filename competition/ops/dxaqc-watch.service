@@ -1,0 +1,10 @@
+[Unit]
+Description=Check DXA-QC readiness and recover confirmed unhealthy service
+After=docker.service
+
+[Service]
+Type=oneshot
+User=dxaqc
+EnvironmentFile=/etc/dxaqc/deployment.env
+ExecStart=/usr/bin/python3 ${DXAQC_CHECKOUT}/competition/ops/deploy.py watch --state ${DXAQC_DEPLOY_STATE} --name ${DXAQC_DEPLOY_NAME}
+TimeoutStartSec=360

@@ -1,0 +1,92 @@
+name: Reviewed container release
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Deploy tested CPU image to the configured private runner
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reviewed-release
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    if: github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/ci.yml
+
+  publish:
+    needs: checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image: ${{ steps.publish.outputs.image }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build CPU delivery from this exact commit
+        run: ./competition/run.sh build
+      - name: Verify exact image before publication
+        run: python3 competition/ops/deploy.py deploy --image osseo-dxaqc:1.12.0 --state "$RUNNER_TEMP/release-test" --name dxaqc-release-test --port 8093
+      - name: Publish commit tag and return content digest
+        id: publish
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          registry="ghcr.io/${GITHUB_REPOSITORY,,}/cpu"
+          printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          docker tag osseo-dxaqc:1.12.0 "$registry:sha-$GITHUB_SHA"
+          docker push "$registry:sha-$GITHUB_SHA"
+          image=$(docker image inspect "$registry:sha-$GITHUB_SHA" --format '{{index .RepoDigests 0}}')
+          echo "image=$image" >> "$GITHUB_OUTPUT"
+          printf '%s\n' "$image" > release-image.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-image-${{ github.sha }}
+          path: release-image.txt
+      - name: Cleanup own container
+        if: always()
+        run: docker rm -f dxaqc-release-test || true
+
+  deploy:
+    needs: publish
+    if: inputs.deploy && vars.DXAQC_DEPLOY_ENABLED == 'true'
+    runs-on: [self-hosted, linux, x64, dxaqc-deploy]
+    environment: production
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - name: Protect persistent state from checkout cleanup
+        env:
+          DEPLOY_STATE: ${{ vars.DXAQC_DEPLOY_STATE }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          value = os.environ['DEPLOY_STATE']
+          root = Path(os.environ['GITHUB_WORKSPACE']).resolve()
+          state = Path(value).resolve()
+          if not value or not Path(value).is_absolute() or state == root or root in state.parents:
+              raise SystemExit('DXAQC_DEPLOY_STATE must be absolute and outside GITHUB_WORKSPACE')
+          PY
+      - uses: actions/checkout@v4
+      - name: Pull exact reviewed digest and deploy with rollback
+        env:
+          DEPLOY_IMAGE: ${{ needs.publish.outputs.image }}
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEPLOY_STATE: ${{ vars.DXAQC_DEPLOY_STATE }}
+          DEPLOY_PORT: ${{ vars.DXAQC_DEPLOY_PORT }}
+        run: |
+          test -n "$DEPLOY_STATE"
+          printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          docker pull "$DEPLOY_IMAGE"
+          python3 competition/ops/deploy.py deploy --image "$DEPLOY_IMAGE" --mode cpu --name dxaqc-production --state "$DEPLOY_STATE" --port "${DEPLOY_PORT:-8093}"

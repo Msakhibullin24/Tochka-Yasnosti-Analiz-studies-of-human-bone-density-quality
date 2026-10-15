@@ -34,6 +34,7 @@ COPY --from=release /app/dxaqc /app/dxaqc
 COPY --from=release /app/weights /app/weights
 COPY --from=release /app/models /app/models
 COPY --from=release /app/specialist_sources.json /app/specialist_sources.json
+COPY --from=release /app/ops /app/ops
 # These two scripts are bound by the frozen source profile's integrity manifest.
 COPY --from=release /app/run_no_new_labels.py /app/pack_workflow.py /app/
 COPY competition/requirements-anatomy-lock.txt /app/requirements-anatomy-lock.txt
@@ -46,4 +47,6 @@ RUN python experiments/verify_environment_lock.py --lock /app/requirements-anato
     && mkdir -p /work /data/in /data/out && chown -R 10001:10001 /work /data
 USER 10001:10001
 EXPOSE 8000
+HEALTHCHECK --interval=30s --timeout=10s --start-period=180s --retries=3 \
+    CMD python -c "import urllib.request as u; u.urlopen('http://127.0.0.1:8000/api/v1/ready', timeout=5)"
 CMD ["uvicorn", "experiments.live_anatomy_deployment:create_app", "--factory", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]

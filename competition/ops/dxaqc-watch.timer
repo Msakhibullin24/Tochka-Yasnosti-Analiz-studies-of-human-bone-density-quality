@@ -1,0 +1,10 @@
+[Unit]
+Description=Periodic DXA-QC readiness check
+
+[Timer]
+OnBootSec=3min
+OnUnitInactiveSec=30s
+Unit=dxaqc-watch.service
+
+[Install]
+WantedBy=timers.target
