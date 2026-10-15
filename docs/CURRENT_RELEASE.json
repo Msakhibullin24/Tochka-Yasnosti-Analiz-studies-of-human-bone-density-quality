@@ -1627,5 +1627,34 @@
       "/app/experiments/live_anatomy_deployment.py": "a8eb36956e55c178e1c8871094f741e2a08c6b67f66bba847674055b4e9fcbbe",
       "/app/experiments/anatomy_display_selection.py": "4bb29d993be72d254580304d570a4eaab35c68d3fd4d763d5cb84de427e928dd"
     }
+  },
+  "portable_images_archive": {
+    "archive": "data/build-artifacts/2026-10-15/dxaqc-1.12.0-cpu-and-anatomy-fullfit-images.tar.gz",
+    "bytes": 7278757318,
+    "sha256": "dabd83c1c2d89fb6aaf803d4e52d6f783a4487d858c9315edaa5646089652e43",
+    "gzip_crc_valid": true,
+    "tar_members": 108,
+    "verified_sha256_blobs": 102,
+    "images": 2,
+    "tags": [
+      "dxaqc:anatomy-fullfit-1.12.0-20261015",
+      "osseo-dxaqc:1.12.0"
+    ],
+    "docker_load_performed": true,
+    "verification": "complete compressed checksum, gzip CRC and content-addressed blobs",
+    "docker_load_scope": "Same private project engine; restored tags and exact image IDs rechecked, not a fresh host",
+    "loaded_image_ids": [
+      "sha256:cf65354b9aeca9a5f48c7664b86a57a8d59219536c2b73307e7c9a608893437f",
+      "sha256:ddaa41aaa32e7aa23dba5bf9bccc823b0c8740d6c98ca13fc98dcd36e768095d"
+    ],
+    "docker_load_log_sha256": "30835d5e3afadcadea52f7160daa5f854bb3a6673e764d6122c3be040084ab3b"
+  },
+  "additional_qc_configurations_completed": 67,
+  "post_release_research_tests": {
+    "spine_body_axis": {
+      "passed": 3,
+      "skipped": 0,
+      "scope": "Additional research geometry tests; separate from the built CPU image suite"
+    }
   }
 }

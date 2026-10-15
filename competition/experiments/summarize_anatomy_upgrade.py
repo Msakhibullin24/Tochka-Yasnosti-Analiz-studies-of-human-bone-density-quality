@@ -19,8 +19,8 @@ def digest(path):
 def test_summary(path):
     if not path.exists():
         return None
-    matches = re.findall(r'(\d+) passed, (\d+) skipped', path.read_text())
-    return {'passed': int(matches[-1][0]), 'skipped': int(matches[-1][1]),
+    matches = re.findall(r'(\d+) passed(?:, (\d+) skipped)?', path.read_text())
+    return {'passed': int(matches[-1][0]), 'skipped': int(matches[-1][1] or 0),
             'log': str(path), 'log_sha256': digest(path)} if matches else {'finished_successfully': False, 'log': str(path)}
 
 
@@ -189,6 +189,16 @@ def main():
         value = read(geometry)
         value.pop('results', None)
         report['automatic_geometry'] = value
+    axis = args.runs / 'spine-body-axes-v2/fixed-angle-comparison.json'
+    if axis.exists():
+        report['spine_body_axis_hypotheses'] = read(axis)
+        report['spine_body_axis_hypotheses']['tests'] = test_summary(Path('data/logs/spine-body-axis-tests-2026-10-15.log'))
+        report['release_candidate_selection'] = {
+            'deployed': 'quality-gated-own-roi', 'automatic_promotion': False,
+            'new_primary_metric_gain': False,
+            'body_axis_alternative': 'body-axis-global-gated',
+            'body_axis_tradeoff': 'Same overall F1/AUC; type macro-F1 increases to 0.540969 but spine-artifact F1 decreases from 0.619048 to 0.590909. Not an across-criterion improvement.',
+            'global_metric_maximum_established': False}
     archive_current = Path('data/build-artifacts/2026-10-15/archive-verification-1.12.0.json')
     if archive_current.exists():
         report['verification']['portable_archive_1_12_0'] = read(archive_current)
